@@ -164,7 +164,7 @@ const nav = `    <header class="nav">
         <a href="/styles/">스타일</a>
         <a href="/articles/">기사</a>
         <a href="/radar/">소셜 소식</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
       </nav>
     </header>`;
 
@@ -235,7 +235,7 @@ const renderIndex = (data) => {
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Program Library</span>
+          <span class="eyebrow">영상 루틴</span>
           <h1>영상으로 시작하는 바차타 학습 경로</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
@@ -243,7 +243,7 @@ const renderIndex = (data) => {
           </div>
         </div>
         <aside class="method-card">
-          <span class="tag">Method</span>
+          <span class="tag">보는 순서</span>
           <ul>${data.method.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
         </aside>
       </div>
@@ -252,22 +252,22 @@ const renderIndex = (data) => {
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Learning Paths</span>
+            <span class="eyebrow">학습 경로</span>
             <h2>VOD처럼 고른 뒤, 웹진처럼 깊게 읽습니다</h2>
           </div>
-          <p>구독형 강의 플랫폼은 아니지만 첫 화면은 영상 중심으로, 다음 단계는 기사·허브·프로필·소식로 이어지게 구성했습니다.</p>
+          <p>구독형 강의 플랫폼은 아니지만 첫 화면은 영상 중심으로, 다음 단계는 기사·가이드·프로필·소식으로 이어지게 구성했습니다.</p>
         </div>
         <div class="program-grid">
           ${data.programs.map(renderProgramCard).join("\n")}
         </div>
       </section>
       <section class="section paper-cta">
-        <span class="tag">Editorial Loop</span>
-        <h2>코어 콘텐츠와 매일 갱신되는 소식을 분리합니다</h2>
-        <p>센슈얼 16 펀더멘털, 도미니칸 리듬, Bachazouk 안전 기준은 오래 가는 프로그램으로 두고, 내한·소셜·상품·팀 소식은 소식과 브리프에서 매일 갱신합니다.</p>
+        <span class="tag">연결해서 보기</span>
+        <h2>기본 가이드와 새 소식을 분리합니다</h2>
+        <p>센슈얼 16가지 기본기, 도미니칸 리듬, Bachazouk 안전 기준은 오래 보는 프로그램으로 두고, 내한·소셜·상품·팀 소식은 별도 소식 페이지에서 갱신합니다.</p>
         <div class="link-row">
           <a href="/radar/">소셜 소식</a>
-          <a href="/briefs/">오늘 브리프</a>
+          <a href="/briefs/">오늘 브리핑</a>
           <a href="/events/">행사 일정</a>
         </div>
       </section>
@@ -330,7 +330,7 @@ const renderProgram = (program, data) => {
           </article>`).join("\n");
 
   const watchlist = program.watchlist?.length ? `<section class="side-card">
-            <span class="tag">Watchlist</span>
+            <span class="tag">추천 영상</span>
             <h2>함께 볼 영상</h2>
             <p>대표 영상은 바로 보이고, 보조 영상은 썸네일을 누를 때만 불러와 페이지를 가볍게 유지합니다.</p>
             <div class="watch-grid">
@@ -346,7 +346,7 @@ const renderProgram = (program, data) => {
           </section>` : "";
 
   const sources = program.sourceLinks?.length ? `<section class="side-card">
-            <span class="tag">Sources</span>
+            <span class="tag">참고 링크</span>
             <h2>출처</h2>
             <div class="link-row">${renderLinks(program.sourceLinks)}</div>
           </section>` : "";
@@ -379,16 +379,16 @@ const renderProgram = (program, data) => {
               <span>${escapeHtml(program.level)}</span>
               <span>${escapeHtml(program.duration)}</span>
             </div>
-            <p>이 프로그램은 영상, 기사, 스타일 허브, 소식을 한 경로로 묶은 학습 루틴입니다.</p>
+            <p>이 프로그램은 영상, 기사, 스타일 가이드, 소식을 한 경로로 묶은 학습 루틴입니다.</p>
           </section>
           <section class="side-card">
             <span class="tag">Keywords</span>
-            <h2>검색 키워드</h2>
+            <h2>관련 검색어</h2>
             <div class="tag-row">${program.keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div>
           </section>
           <section class="side-card">
-            <span class="tag">Related</span>
-            <h2>이어 보기</h2>
+            <span class="tag">관련 글</span>
+            <h2>같이 보기</h2>
             <div class="link-row">${renderLinks(program.related)}</div>
           </section>
           ${sources}

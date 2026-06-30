@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T21:45:14.776Z",
+  "generatedAt": "2026-06-30T22:52:27.711Z",
   "updatedAt": "2026-07-01",
   "latestBrief": {
     "url": "/briefs/2026-07-01.html",
@@ -8,83 +8,83 @@
   },
   "sourceHealth": {
     "total": 170,
-    "ok": 148,
-    "watch": 22,
+    "ok": 149,
+    "watch": 21,
     "warn": 0,
     "broken": 0
   },
   "heroVideo": {
     "title": "바차타소셜 | 그레이 & 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24",
-    "topic": "Korea Scene",
+    "topic": "국내 소식",
     "sourceUrl": "https://www.youtube.com/watch?v=nrJM-arshvE",
     "videoId": "nrJM-arshvE",
     "score": 98
   },
   "channels": [
     {
-      "label": "Styles",
+      "label": "스타일",
       "title": "스타일별로 보기",
       "url": "/styles/",
-      "metric": "5 guides"
+      "metric": "가이드 5개"
     },
     {
-      "label": "Programs",
+      "label": "영상 루틴",
       "title": "영상 루틴",
       "url": "/programs/",
-      "metric": "6 paths"
+      "metric": "루트 6개"
     },
     {
-      "label": "Artists",
+      "label": "댄서·팀",
       "title": "댄서와 팀",
       "url": "/profiles/",
-      "metric": "16 profiles"
+      "metric": "프로필 16개"
     },
     {
-      "label": "Korea",
-      "title": "한국 바차타씬",
+      "label": "국내 소식",
+      "title": "한국 바차타 소식",
       "url": "/korea-scene/",
-      "metric": "scene map"
+      "metric": "국내 지도"
     },
     {
-      "label": "Gear",
+      "label": "댄스화",
       "title": "댄스화와 장비",
       "url": "/gear/",
-      "metric": "4 brands"
+      "metric": "브랜드 4개"
     },
     {
-      "label": "Submit",
+      "label": "제보",
       "title": "소식 보내기",
       "url": "/submit/",
-      "metric": "open"
+      "metric": "상시 접수"
     }
   ],
   "editorialDeck": {
-    "title": "영상에서 시작해 스타일, 사람, 한국씬으로 이어지는 홈",
+    "title": "영상에서 시작해 스타일, 사람, 국내 소식으로 이어지는 홈",
     "itemCount": 4,
     "items": [
       {
-        "label": "Watch",
+        "label": "영상",
         "title": "오늘 볼 영상",
         "url": "/briefs/",
-        "meta": "daily brief"
+        "meta": "오늘 브리핑"
       },
       {
-        "label": "Learn",
+        "label": "배우기",
         "title": "스타일별 코어 콘텐츠",
         "url": "/styles/",
-        "meta": "5 style hubs"
+        "meta": "스타일 5개"
       },
       {
-        "label": "Follow",
+        "label": "사람",
         "title": "댄서와 팀",
         "url": "/profiles/",
-        "meta": "16 profiles"
+        "meta": "프로필 16개"
       },
       {
-        "label": "Scene",
+        "label": "국내 소식",
         "title": "한국 바차타 소식",
         "url": "/korea-scene/",
-        "meta": "Korea map"
+        "meta": "국내 지도"
       }
     ]
   },

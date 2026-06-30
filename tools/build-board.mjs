@@ -19,7 +19,7 @@ const slugPath = (categoryId) => categoryId === "index" ? "/community/" : `/comm
 const absoluteUrl = (path) => `https://bachata.co.kr${path}`;
 
 const statusLabels = {
-  "editorial-series": "편집 시리즈",
+  "editorial-series": "연재",
   "collecting": "정보 확인 중",
   "submission-ready": "제보 접수",
   "research-queue": "취재 대기"
@@ -27,19 +27,19 @@ const statusLabels = {
 
 const categoryIntro = {
   events: {
-    eyebrow: "Scene Calendar",
+    eyebrow: "행사 일정",
     note: "정기 소셜, 워크숍, 내한, 페스티벌을 한 번에 찾을 수 있도록 일정형 콘텐츠로 확장합니다."
   },
   market: {
-    eyebrow: "Safe Transfer",
+    eyebrow: "양도·중고",
     note: "티켓 양도와 댄스화 중고는 가격·상태·주최측 양도 가능 여부를 같이 보존하는 방식으로 운영합니다."
   },
   jobs: {
-    eyebrow: "Dance Jobs",
+    eyebrow: "구인·협업",
     note: "강사, DJ, 운영 스태프, 촬영자, 공간 제휴처럼 한국 라틴댄스 씬에 필요한 실무 연결을 모읍니다."
   },
   venues: {
-    eyebrow: "Korea Directory",
+    eyebrow: "국내 장소·팀",
     note: "초보자가 실제로 갈 수 있는 장소와 팀을 영상, 주소, 분위기, 음악 비율 중심으로 정리합니다."
   }
 };
@@ -188,7 +188,7 @@ const nav = `    <header class="nav">
       <nav class="nav-links" aria-label="커뮤니티 이동">
         <a href="/">홈</a>
         <a href="/articles/">기사</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
         <a href="/community/">커뮤니티</a>
         <a href="/submit/">제보</a>
         <a href="http://test.bachata.co.kr/">테스트</a>
@@ -224,7 +224,7 @@ const renderCategoryCard = (category, entries) => {
           </div>
           <div>
             <span class="count">${categoryEntries.length}개 항목</span>
-            <div class="entry-links"><a href="${slugPath(category.id)}">보드 보기</a></div>
+            <div class="entry-links"><a href="${slugPath(category.id)}">자세히 보기</a></div>
           </div>
         </article>`;
 };
@@ -234,7 +234,7 @@ const renderEntry = (entry) => {
   const links = renderLinks(entry.sourceLinks);
   const video = renderVideoFromLinks(entry);
   const requirements = entry.requirements?.length
-    ? `<article><span class="tag">Posting Check</span>${renderMiniList(entry.requirements)}</article>`
+    ? `<article><span class="tag">등록 전 확인할 것</span>${renderMiniList(entry.requirements)}</article>`
     : "";
   const status = statusLabels[entry.status] || entry.status;
   const sideBlocks = [video, requirements].filter(Boolean).join("\n              ");
@@ -252,7 +252,7 @@ const renderEntry = (entry) => {
               <div class="entry-links">${links}</div>
             </div>
             <div class="entry-side">
-              ${sideBlocks || `<div class="side-note"><article><span class="tag">Editorial Check</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>`}
+              ${sideBlocks || `<div class="side-note"><article><span class="tag">등록 전 확인</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>`}
             </div>
           </article>`;
 };
@@ -279,8 +279,8 @@ const renderIndexPage = (data) => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://bachata.co.kr/community/",
-    "name": "바차타 코리아 커뮤니티 보드",
-    "description": "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 확인해 정리하는 커뮤니티 보드.",
+    "name": "바차타 코리아 커뮤니티",
+    "description": "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 제보와 공식 링크 기준으로 정리합니다.",
     "inLanguage": "ko-KR",
     "isPartOf": { "@id": "https://bachata.co.kr/#website" },
     "hasPart": data.categories.map((category) => ({
@@ -293,8 +293,8 @@ const renderIndexPage = (data) => {
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Community Desk</span>
-          <h1>한국 바차타씬의 소식과 연결을 모으는 보드</h1>
+          <span class="eyebrow">커뮤니티 제보</span>
+          <h1>한국 바차타 소식과 제보</h1>
           <p>소셜·워크숍·내한, 티켓 양도, 댄스화 중고, 강사·DJ 구인, 장소·팀 디렉터리를 제보와 공개 링크를 바탕으로 정리합니다. 확인된 항목은 기사와 캘린더로 이어집니다.</p>
           <div class="quick-nav">
             ${data.categories.map((category) => `<a href="${slugPath(category.id)}">${escapeHtml(category.label)}</a>`).join("")}
@@ -302,7 +302,7 @@ const renderIndexPage = (data) => {
         </div>
         <aside class="hero-note">
           <strong>제보 우선 공개</strong>
-          <p>운영자가 원본 링크, 날짜, 장소, 가격, 영상 유효성을 확인한 뒤 게재합니다. 홍보성 문구를 그대로 복제하지 않고 검색 가능한 요약으로 편집합니다.</p>
+          <p>원본 링크, 날짜, 장소, 가격, 영상을 확인한 뒤 게재합니다. 홍보 문구를 그대로 옮기지 않고 필요한 정보만 읽기 쉽게 요약합니다.</p>
         </aside>
       </div>
     </section>
@@ -310,17 +310,17 @@ const renderIndexPage = (data) => {
       <section>
         <div class="section-head">
           <div>
-            <span class="eyebrow">Board Channels</span>
+            <span class="eyebrow">카테고리</span>
             <h2>운영 카테고리</h2>
           </div>
-          <p>바차타 입문자가 실제로 움직일 수 있는 정보와 씬 운영자가 필요한 연결을 같은 구조에 담습니다.</p>
+          <p>바차타 입문자가 실제로 움직일 수 있는 정보와 팀·행사 운영자가 필요한 연결을 같은 구조에 담습니다.</p>
         </div>
         <div class="category-grid">
           ${data.categories.map((category) => renderCategoryCard(category, data.entries)).join("\n")}
         </div>
       </section>
       <section class="submission">
-        <span class="tag">Submit</span>
+        <span class="tag">제보하기</span>
         <h2>홍보·구인·양도·팀 소개를 보내주세요</h2>
         <p>제목, 날짜, 장소, 가격, 원본 링크, 이미지/영상 링크, 연락처를 보내면 확인 후 카테고리에 맞춰 정리합니다.</p>
         <div class="entry-links">
@@ -332,8 +332,8 @@ const renderIndexPage = (data) => {
     </main>`;
 
   return layout({
-    title: "바차타 커뮤니티 보드 | Bachata Korea",
-    description: "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 확인해 정리하는 bachata.co.kr 커뮤니티 보드.",
+    title: "바차타 커뮤니티 | 소셜·워크숍·양도·구인 제보",
+    description: "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 제보와 공식 링크 기준으로 정리합니다.",
     canonical: "https://bachata.co.kr/community/",
     jsonLd,
     body
@@ -342,7 +342,7 @@ const renderIndexPage = (data) => {
 
 const renderCategoryPage = (data, category) => {
   const entries = data.entries.filter((entry) => entry.category === category.id);
-  const intro = categoryIntro[category.id] || { eyebrow: "Community Board", note: category.description };
+  const intro = categoryIntro[category.id] || { eyebrow: "커뮤니티 게시판", note: category.description };
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
@@ -369,13 +369,13 @@ const renderCategoryPage = (data, category) => {
           <h1>${escapeHtml(category.title)}</h1>
           <p>${escapeHtml(category.description)} ${escapeHtml(intro.note)}</p>
           <div class="quick-nav">
-            <a href="/community/">전체 보드</a>
+            <a href="/community/">전체 커뮤니티</a>
             ${data.categories.filter((item) => item.id !== category.id).map((item) => `<a href="${slugPath(item.id)}">${escapeHtml(item.label)}</a>`).join("")}
           </div>
         </div>
         <aside class="hero-note">
           <strong>${entries.length}개 항목</strong>
-          <p>${escapeHtml(data.updatedAt)} 기준으로 먼저 정리한 목록입니다. 실제 운영 중에는 최신 제보와 확인된 공개 링크가 이 페이지에 누적됩니다.</p>
+          <p>${escapeHtml(data.updatedAt)} 기준으로 정리한 목록입니다. 확인된 제보와 공개 링크를 계속 반영합니다.</p>
         </aside>
       </div>
     </section>
@@ -384,13 +384,13 @@ const renderCategoryPage = (data, category) => {
         <section class="entry-list">
           ${entries.map(renderEntry).join("\n")}
         </section>
-        <aside class="side-note" aria-label="보드 운영 기준">
+        <aside class="side-note" aria-label="커뮤니티 운영 기준">
           <article>
-            <span class="tag">Policy</span>
+            <span class="tag">운영 기준</span>
             <p>개인 정보, 무단 이미지, 출처 없는 홍보문은 싣지 않습니다. 일정·가격·장소·연락 방식이 확인된 항목부터 공개합니다.</p>
           </article>
           <article>
-            <span class="tag">Submit</span>
+            <span class="tag">제보하기</span>
             <p>업데이트가 필요하면 원본 링크와 수정 내용을 함께 보내주세요.</p>
             <div class="entry-links">
               <a href="mailto:${escapeHtml(data.contact.email)}?subject=%5Bbachata.co.kr%5D%20${encodeURIComponent(category.label)}%20%EC%A0%9C%EB%B3%B4">제보</a>
@@ -403,7 +403,7 @@ const renderCategoryPage = (data, category) => {
     </main>`;
 
   return layout({
-    title: `${category.title} | 바차타 커뮤니티 보드`,
+    title: `${category.title} | 바차타 커뮤니티`,
     description: category.description,
     canonical: absoluteUrl(slugPath(category.id)),
     jsonLd,

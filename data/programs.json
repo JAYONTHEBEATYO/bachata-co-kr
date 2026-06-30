@@ -4,7 +4,7 @@
   "dek": "입문자와 소셜댄서를 위해 영상, 기사, 스타일 가이드, 행사 소식을 20분 단위 학습 경로로 정리한 바차타 프로그램 라이브러리입니다.",
   "method": [
     "첫 영상으로 움직임의 질감을 먼저 보고, 바로 아래 모듈에서 읽을거리와 체크 포인트를 따라갑니다.",
-    "각 프로그램은 오래 볼 수 있는 코어 콘텐츠와 매일 갱신되는 소식을 함께 연결해 기본 지식과 최신 소식을 분리합니다.",
+    "각 프로그램은 오래 볼 수 있는 기본 가이드와 새 소식을 함께 연결해 기본 지식과 최신 소식을 분리합니다.",
     "영상은 YouTube 임베드 가능한 공개 링크만 사용하고, 인스타그램은 원문 링크와 핸들만 연결합니다."
   ],
   "programs": [
@@ -28,7 +28,7 @@
           "url": "https://www.youtube.com/watch?v=OcGcZ0IY6s0"
         },
         {
-          "title": "모던 바차타 구조 읽기",
+          "title": "모던 바차타 구조 보기",
           "type": "Style",
           "description": "입문 클래스에서 가장 자주 만나는 모던 바차타의 기본 파트너워크를 정리합니다.",
           "url": "/styles/modern.html"
@@ -48,7 +48,7 @@
       ],
       "related": [
         {
-          "label": "오늘 브리프",
+          "label": "오늘 브리핑",
           "url": "/briefs/"
         },
         {
@@ -88,13 +88,13 @@
           "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU"
         },
         {
-          "title": "한국어 심화 해설 읽기",
+          "title": "한국어 심화 해설 보기",
           "type": "Article",
           "description": "Onda, Caida, Cabeza, Impulso를 기술 사전이 아니라 안전 기준으로 다시 읽습니다.",
           "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html"
         },
         {
-          "title": "센슈얼 허브에서 카드 복습",
+          "title": "센슈얼 가이드에서 카드 복습",
           "type": "Style",
           "description": "16개 펀더멘털 카드를 보며 Wave, Axis, Hip, Accent 계열을 나눠 봅니다.",
           "url": "/styles/sensual.html"
@@ -106,7 +106,7 @@
           "url": "/profiles/korke-judith.html"
         },
         {
-          "title": "공식·커뮤니티·영상 교차검증 노트",
+          "title": "공식 자료·커뮤니티·영상 비교 노트",
           "type": "Source",
           "description": "Bachata Sensual 공식 설명, Reddit 16 fundamentals 타임스탬프, Korke & Judith 공개 영상의 역할을 분리해 읽습니다.",
           "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html"
@@ -152,7 +152,7 @@
       ],
       "related": [
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         },
         {
@@ -160,7 +160,7 @@
           "url": "/radar/"
         },
         {
-          "label": "오늘 브리프",
+          "label": "오늘 브리핑",
           "url": "/briefs/"
         }
       ],
@@ -191,13 +191,13 @@
           "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0"
         },
         {
-          "title": "음악성과 역사 맥락 읽기",
+          "title": "음악성과 역사 맥락 보기",
           "type": "Article",
           "description": "UNESCO와 도미니카 문화 자료를 바탕으로 도미니칸 바차타를 음악 중심으로 정리합니다.",
           "url": "/articles/dominican-bachata-rhythm-footwork-guide.html"
         },
         {
-          "title": "도미니칸 허브에서 리듬 단서 복습",
+          "title": "도미니칸 가이드에서 리듬 단서 복습",
           "type": "Style",
           "description": "Derecho, Mambo, Majao, Tap, Syncopation, Call and response를 체크합니다.",
           "url": "/styles/dominican.html"
@@ -209,9 +209,9 @@
           "url": "/events/"
         },
         {
-          "title": "도미니칸 허브에서 관련 콘텐츠 이어 보기",
+          "title": "도미니칸 관련 글 이어 보기",
           "type": "Style",
-          "description": "리듬 기사, 풋워크 영상, 역사 출처, 한국 행사 소식가 한 페이지에서 이어지도록 허브를 확인합니다.",
+          "description": "리듬 기사, 풋워크 영상, 역사 출처, 한국 행사 소식이 한 페이지에서 이어지도록 확인합니다.",
           "url": "/styles/dominican.html"
         }
       ],
@@ -255,7 +255,7 @@
       ],
       "related": [
         {
-          "label": "도미니칸 허브",
+          "label": "도미니칸 가이드",
           "url": "/styles/dominican.html"
         },
         {
@@ -263,7 +263,7 @@
           "url": "/events/"
         },
         {
-          "label": "오늘 브리프",
+          "label": "오늘 브리핑",
           "url": "/briefs/"
         }
       ],
@@ -278,7 +278,7 @@
       "id": "influence-method",
       "eyebrow": "Influence Method",
       "title": "Bachata Influence 읽는 법",
-      "dek": "Melvin & Gatica, Emilien & Tehina, Influence Team 흐름을 동작보다 음악성·멈춤·프레임으로 읽는 프로그램입니다.",
+      "dek": "Melvin & Gatica, Emilien & Tehina, Influence Team 영상을 동작보다 음악성·멈춤·프레임 기준으로 보는 프로그램입니다.",
       "level": "Intermediate",
       "duration": "20분 x 5",
       "style": "Bachata Influence",
@@ -294,7 +294,7 @@
           "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE"
         },
         {
-          "title": "Bachata Influence 기사 읽기",
+          "title": "Bachata Influence 기사 보기",
           "type": "Article",
           "description": "기술 이름이 아니라 음악 문장과 교육 시스템으로 보는 관점을 잡습니다.",
           "url": "/articles/bachata-influence-melvin-gatica.html"
@@ -314,7 +314,7 @@
       ],
       "related": [
         {
-          "label": "Influence 허브",
+          "label": "Influence 가이드",
           "url": "/styles/influence.html"
         },
         {
@@ -353,13 +353,13 @@
           "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE"
         },
         {
-          "title": "Bachazouk 기사 읽기",
+          "title": "Bachazouk 기사 보기",
           "type": "Article",
           "description": "센슈얼 변형으로만 보면 놓치는 문화적 존중과 안전 기준을 정리합니다.",
           "url": "/articles/bachazouk-guide.html"
         },
         {
-          "title": "Bachazouk 허브 복습",
+          "title": "Bachazouk 가이드 복습",
           "type": "Style",
           "description": "Bachata와 Brazilian Zouk를 각각 존중하는 연결 기준을 확인합니다.",
           "url": "/styles/bachazouk.html"
@@ -373,11 +373,11 @@
       ],
       "related": [
         {
-          "label": "Bachazouk 허브",
+          "label": "Bachazouk 가이드",
           "url": "/styles/bachazouk.html"
         },
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         },
         {
@@ -394,12 +394,12 @@
     },
     {
       "id": "korea-social-intelligence",
-      "eyebrow": "Korea Scene",
-      "title": "한국 바차타 소셜 읽기",
+      "eyebrow": "국내 소식",
+      "title": "한국 바차타 소셜 보기",
       "dek": "클루니·져니, 그레이·로렌, 에버라틴, 라틴씨엘로, 보니따 같은 국내 팀과 장소를 영상과 공개 계정으로 따라가는 프로그램입니다.",
       "level": "All Levels",
       "duration": "20분 x 5",
-      "style": "Korea Scene",
+      "style": "국내 소식",
       "heroVideo": {
         "id": "jpCY0QqZqWE",
         "title": "Seoul Bachata Festival social archive"
@@ -412,19 +412,19 @@
           "url": "https://www.youtube.com/watch?v=jpCY0QqZqWE"
         },
         {
-          "title": "소셜 소식로 오늘의 원문 확인",
+          "title": "소셜 소식에서 오늘의 원문 확인",
           "type": "소식",
           "description": "인스타그램 계정과 해시태그를 따라가며 공식 공지와 팀 소식을 봅니다.",
           "url": "/radar/"
         },
         {
-          "title": "한국 팀·장소 프로필 읽기",
+          "title": "한국 팀·장소 프로필 보기",
           "type": "Profile",
           "description": "그레이·로렌, 클루니·져니, 라틴씨엘로, 에버라틴, 보니따를 프로필 단위로 봅니다.",
           "url": "/profiles/"
         },
         {
-          "title": "행사 일정와 커뮤니티 보드 연결",
+          "title": "행사 일정과 커뮤니티 연결",
           "type": "Community",
           "description": "월별 내한·행사와 커뮤니티 제보를 함께 보며 다음에 다룰 소식을 정합니다.",
           "url": "/events/"

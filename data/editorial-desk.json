@@ -6,13 +6,13 @@
     {
       "label": "Daily scan",
       "cadence": "매일 오전",
-      "output": "일간 브리프 준비",
+      "output": "일간 브리핑 준비",
       "why": "행사, 워크숍, 내한 공지는 인스타와 영상 업로드에서 먼저 움직이므로 하루 단위로 확인할 소식을 모읍니다."
     },
     {
       "label": "Weekly edit",
       "cadence": "주 2회",
-      "output": "기사, 스타일 허브, 프로그램, 행사 일정으로 정리",
+      "output": "기사, 스타일 가이드, 프로그램, 행사 일정으로 정리",
       "why": "자동 요약만으로 공개하지 않고 출처, 영상, 한국 독자가 찾는 맥락을 확인합니다."
     },
     {
@@ -34,7 +34,7 @@
       "id": "sensual-core",
       "label": "Sensual Core",
       "title": "센슈얼 바차타 16 펀더멘털",
-      "status": "core evergreen",
+      "status": "기본 가이드",
       "priority": "A",
       "linkedUrl": "/programs/sensual-fundamentals.html",
       "brief": "코르케·주디스 계열의 16개 펀더멘털을 초보자 관점에서 다시 배열하고, 웨이브·프레임·헤드무브를 안전 기준으로 묶는 시리즈.",
@@ -54,7 +54,7 @@
       "id": "dominican-rhythm",
       "label": "Rhythm Lab",
       "title": "도미니칸 리듬과 풋워크",
-      "status": "core evergreen",
+      "status": "기본 가이드",
       "priority": "A",
       "linkedUrl": "/programs/dominican-rhythm.html",
       "brief": "카운트, 싱코페이션, 악기 듣기, 풋워크 패턴을 영상 중심으로 풀어 한국 수강생이 리듬을 먼저 잡게 만드는 시리즈.",
@@ -92,7 +92,7 @@
     },
     {
       "id": "korea-scene",
-      "label": "Korea Scene",
+      "label": "국내 소식",
       "title": "한국 팀·동호회·장소 지도",
       "status": "community series",
       "priority": "A",
@@ -173,7 +173,7 @@
           "url": "/programs/sensual-fundamentals.html"
         },
         {
-          "label": "센슈얼 스타일 허브",
+          "label": "센슈얼 스타일 가이드",
           "url": "/styles/sensual.html"
         },
         {
@@ -206,7 +206,7 @@
           "url": "/programs/dominican-rhythm.html"
         },
         {
-          "label": "도미니칸 스타일 허브",
+          "label": "도미니칸 스타일 가이드",
           "url": "/styles/dominican.html"
         },
         {
@@ -268,7 +268,7 @@
       },
       "internalLinks": [
         {
-          "label": "프로필 허브",
+          "label": "프로필",
           "url": "/profiles/"
         },
         {
@@ -334,7 +334,7 @@
       },
       "internalLinks": [
         {
-          "label": "기어 허브",
+          "label": "기어 가이드",
           "url": "/gear/"
         },
         {
@@ -363,7 +363,7 @@
     {
       "label": "Social radar",
       "file": "data/social-radar.json",
-      "role": "한국팀, 행사, 브랜드, 해시태그를 확인하고 일간 브리프에 연결합니다."
+      "role": "한국팀, 행사, 브랜드, 해시태그를 확인하고 일간 브리핑에 연결합니다."
     },
     {
       "label": "Scene news",

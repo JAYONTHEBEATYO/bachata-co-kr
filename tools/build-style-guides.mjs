@@ -332,12 +332,12 @@ const styles = `    <style>
 
 const nav = `    <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="스타일 허브 이동">
+      <nav class="nav-links" aria-label="스타일 가이드 이동">
         <a href="/">홈</a>
         <a href="/styles/">스타일</a>
         <a href="/articles/">기사</a>
         <a href="/community/">커뮤니티</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
       </nav>
     </header>`;
 
@@ -381,8 +381,8 @@ const renderIndex = (data) => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://bachata.co.kr/styles/",
-    "name": "바차타 스타일 허브",
-    "description": "센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk를 영상과 학습 순서로 정리한 바차타 스타일 허브.",
+    "name": "바차타 스타일 가이드",
+    "description": "센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk의 차이를 영상과 학습 순서로 정리한 바차타 스타일 가이드.",
     "inLanguage": "ko-KR",
     "isPartOf": { "@id": "https://bachata.co.kr/#website" },
     "hasPart": data.guides.map((guide) => ({ "@id": pageUrl(guide), "name": guide.title }))
@@ -396,16 +396,16 @@ const renderIndex = (data) => {
           </div>
           <div>
             <div class="tag-row">${guide.keywords.slice(0, 3).map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div>
-            <div class="link-row" style="margin-top:14px"><a href="${pagePath(guide)}">허브 보기</a></div>
+            <div class="link-row" style="margin-top:14px"><a href="${pagePath(guide)}">가이드 보기</a></div>
           </div>
         </article>`).join("\n");
 
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Style Library</span>
-          <h1>바차타 스타일을 영상으로 먼저 읽는 허브</h1>
-          <p>센슈얼 16 펀더멘탈, 도미니칸 리듬, 모던 입문, Bachata Influence, Bachazouk를 각각 별도 URL로 정리했습니다. 홈의 긴 매거진을 검색·공유 가능한 학습 페이지로 나눈 구조입니다.</p>
+          <span class="eyebrow">스타일 가이드</span>
+          <h1>바차타 스타일을 영상으로 먼저 보는 가이드</h1>
+          <p>센슈얼 16 펀더멘탈, 도미니칸 리듬, 모던 입문, Bachata Influence, Bachazouk를 따로 살펴볼 수 있게 정리했습니다. 처음 보는 사람도 차이를 비교하고, 필요한 영상과 글로 바로 이동할 수 있습니다.</p>
           <div class="quick-nav">
             ${data.guides.map((guide) => `<a href="${pagePath(guide)}">${escapeHtml(guide.eyebrow)}</a>`).join("")}
           </div>
@@ -417,21 +417,21 @@ const renderIndex = (data) => {
       <section>
         <div class="section-head">
           <div>
-            <span class="eyebrow">Guides</span>
-            <h2>클릭하면 바로 들어가는 스타일 지도</h2>
+            <span class="eyebrow">가이드</span>
+            <h2>클릭하면 바로 읽는 스타일별 가이드</h2>
           </div>
-          <p>각 허브는 관련 영상, 핵심 개념, 안전 기준, 관련 기사와 커뮤니티 보드로 이어집니다.</p>
+          <p>각 가이드는 관련 영상, 핵심 개념, 안전 기준, 관련 기사와 커뮤니티 안내로 이어집니다.</p>
         </div>
         <div class="guide-grid">
           ${cards}
         </div>
       </section>
       <section class="index-cta">
-        <span class="tag">Editorial Loop</span>
-        <h2>브리프에서 발견한 영상은 허브로 누적합니다</h2>
-        <p>매일 생성되는 브리프에서 영상과 출처가 확인되면 관련 스타일 허브, 개별 기사, 커뮤니티 보드로 이동합니다.</p>
+        <span class="tag">연결해서 보기</span>
+        <h2>새 영상은 관련 가이드와 기사로 연결합니다</h2>
+        <p>브리핑에서 영상과 출처가 확인되면 관련 스타일 가이드, 개별 기사, 커뮤니티 안내로 이동합니다.</p>
         <div class="link-row">
-          <a href="/briefs/">오늘 브리프</a>
+          <a href="/briefs/">오늘 브리핑</a>
           <a href="/articles/">기사 라이브러리</a>
           <a href="/community/">커뮤니티 보드</a>
         </div>
@@ -439,8 +439,8 @@ const renderIndex = (data) => {
     </main>`;
 
   return layout({
-    title: "바차타 스타일 허브 | Bachata Korea",
-    description: "센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk를 영상과 학습 순서로 정리한 바차타 스타일 허브.",
+    title: "바차타 스타일 가이드 | 센슈얼·도미니칸·모던 차이",
+    description: "센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk의 차이를 영상과 학습 순서로 정리합니다.",
     canonical: "https://bachata.co.kr/styles/",
     jsonLd,
     body
@@ -485,7 +485,7 @@ const renderGuide = (guide, allGuides) => {
                 <span class="eyebrow">Published</span>
                 <h2>이 스타일로 읽을 콘텐츠</h2>
               </div>
-              <p>허브에서 바로 읽을 수 있는 심화 기사와 커뮤니티/행사 페이지입니다. 새 영상이 검증되면 이 블록에 계속 붙습니다.</p>
+              <p>함께 읽으면 좋은 심화 기사와 커뮤니티/행사 페이지입니다. 새 영상이 확인되면 관련 글로 연결합니다.</p>
             </div>
             <div class="content-grid">
               ${guide.contentDrops.map((item) => renderContentCard(item)).join("\n              ")}
@@ -497,7 +497,7 @@ const renderGuide = (guide, allGuides) => {
                 <span class="eyebrow">Content Graph</span>
                 <h2>이 스타일로 이어지는 글과 가이드</h2>
               </div>
-              <p>기사, 프로그램, 프로필, 행사, 장비, 한국 바차타씬 콘텐츠를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
+              <p>기사, 프로그램, 프로필, 행사, 장비, 한국 바차타 현장 콘텐츠를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
             </div>
             <div class="content-grid">
               ${guide.relatedContent.map((item) => renderContentCard(item, { cta: "콘텐츠 보기" })).join("\n              ")}
@@ -545,10 +545,10 @@ const renderGuide = (guide, allGuides) => {
           <section>
             <div class="section-head">
               <div>
-                <span class="eyebrow">Watchlist</span>
+                <span class="eyebrow">추천 영상</span>
                 <h2>먼저 볼 영상</h2>
               </div>
-              <p>죽은 링크를 피하려고 재생 가능한 공개 YouTube 영상만 허브에 넣습니다.</p>
+              <p>깨진 링크를 피하려고 재생 가능한 공개 YouTube 영상만 연결합니다.</p>
             </div>
             <div class="watch-grid">${watchlist}</div>
           </section>
@@ -560,16 +560,16 @@ ${fundamentals}
         <aside class="side-stack" aria-label="관련 링크와 출처">
           <section class="side-box">
             <span class="tag">Keywords</span>
-            <h2>검색 키워드</h2>
+            <h2>관련 검색어</h2>
             <div class="tag-row">${guide.keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div>
           </section>
           <section class="side-box">
-            <span class="tag">Related</span>
+            <span class="tag">관련 글</span>
             <h2>이어 보기</h2>
             <div class="link-row">${renderLinks(guide.related)}</div>
           </section>
           <section class="side-box">
-            <span class="tag">Sources</span>
+            <span class="tag">참고 링크</span>
             <h2>출처</h2>
             <div class="link-row">${renderLinks(guide.sourceLinks)}</div>
           </section>
@@ -578,7 +578,7 @@ ${fundamentals}
     </main>`;
 
   return layout({
-    title: `${guide.title} | 바차타 스타일 허브`,
+    title: `${guide.title} | 바차타 스타일 가이드`,
     description: guide.dek,
     canonical: pageUrl(guide),
     jsonLd,

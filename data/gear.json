@@ -1,7 +1,7 @@
 {
   "updatedAt": "2026-06-30",
   "title": "바차타 댄스화와 라틴댄스 스니커 비교",
-  "dek": "Fuego, Pana Mio, On1, Pulse 같은 댄스 스니커를 브랜드 인기순이 아니라 회전감, 접지, 쿠션, 바닥 적응, 사이즈 리스크, 한국 구매 난이도로 비교하는 바차타 코리아 기어 허브입니다.",
+  "dek": "Fuego, Pana Mio, On1, Pulse 같은 댄스 스니커를 브랜드 인기순이 아니라 회전감, 접지, 쿠션, 바닥 적응, 사이즈 리스크, 한국 구매 난이도로 비교합니다.",
   "heroVideo": {
     "id": "FtcPRwVIdNk",
     "title": "Fuego Dance Shoes Review | Are They Worth It?"
@@ -110,7 +110,7 @@
       "koreanName": "온원 댄스슈즈",
       "eyebrow": "Social Signal",
       "positioning": "인스타와 페스티벌 노출이 많은 댄스화 브랜드",
-      "summary": "On1 Dance Shoes는 현재 공개 검색에서 공식 웹사이트보다 인스타그램과 행사 스폰서 노출이 더 강하게 잡힙니다. 그래서 바차타 코리아에서는 ‘검증 완료 추천’이 아니라 ‘커뮤니티 후기 수집 대상’으로 분류합니다.",
+      "summary": "On1 Dance Shoes는 현재 공개 검색에서 공식 웹사이트보다 인스타그램과 행사 스폰서 노출이 더 강하게 잡힙니다. 그래서 구매 전 실제 착용 후기, 배송, 사이즈 정보를 더 확인하는 편이 좋습니다.",
       "video": {
         "id": "NA3lEgTB6hw",
         "title": "ON1 dance shoes spin demo"
@@ -185,6 +185,6 @@
   "related": [
     { "label": "댄스화 기사", "url": "/articles/bachata-dance-shoes-korea.html" },
     { "label": "중고·양도 보드", "url": "/community/market.html" },
-    { "label": "일간 브리프", "url": "/briefs/" }
+    { "label": "일간 브리핑", "url": "/briefs/" }
   ]
 }

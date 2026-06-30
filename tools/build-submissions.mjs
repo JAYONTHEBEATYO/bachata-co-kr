@@ -108,8 +108,7 @@ const nav = `    <header class="nav">
         <a href="/">홈</a>
         <a href="/submit/">제보</a>
         <a href="/community/">커뮤니티</a>
-        <a href="/briefs/">브리프</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
       </nav>
     </header>`;
 
@@ -142,7 +141,7 @@ const renderPage = (data) => {
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Submit Desk</span>
+          <span class="eyebrow">제보 센터</span>
           <h1>바차타 소식, 양도, 구인, 팀 소개를 한 번에 보냅니다</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
@@ -230,8 +229,8 @@ const renderPage = (data) => {
             <p>행사와 양도는 커뮤니티 보드에, 확인된 팀·장소·댄서 정보는 프로필과 기사로, 반복되는 주제는 편집 데스크의 준비 중인 글로 이어집니다.</p>
             <div class="link-row">
               <a href="/community/">커뮤니티 보드</a>
-              <a href="/briefs/">일간 브리프</a>
-              <a href="/briefs/">일간 브리프</a>
+              <a href="/briefs/">일간 브리핑</a>
+              <a href="/briefs/">일간 브리핑</a>
             </div>
           </article>
         </div>

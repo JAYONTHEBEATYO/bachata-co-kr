@@ -125,13 +125,13 @@ const styles = `    <style>
 
 const nav = `    <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="기어 허브 이동">
+      <nav class="nav-links" aria-label="댄스화 비교 페이지 이동">
         <a href="/">홈</a>
         <a href="/styles/">스타일</a>
         <a href="/profiles/">인물·팀</a>
         <a href="/articles/">기사</a>
         <a href="/community/">커뮤니티</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
       </nav>
     </header>`;
 
@@ -195,7 +195,7 @@ const renderIndex = (data) => {
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Gear Guide</span>
+          <span class="eyebrow">댄스화 가이드</span>
           <h1>바차타 댄스화, 브랜드보다 플로어 감각</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
@@ -248,9 +248,9 @@ const renderIndex = (data) => {
       </section>
 
       <section class="section paper-cta">
-        <span class="tag">Market Desk</span>
+        <span class="tag">구매·양도 안내</span>
         <h2>중고·양도 보드와 연결되는 구매 체크리스트</h2>
-        <p>기어 허브는 구매 추천 페이지가 아니라 바차타 커뮤니티의 거래 안전장치입니다. 새 제품, 중고, 양도, 협찬 영상까지 같은 기준으로 읽을 수 있게 만듭니다.</p>
+        <p>이 페이지는 구매 추천만 하는 곳이 아니라 바차타 커뮤니티에서 신발을 고를 때 확인할 기준을 모아둔 곳입니다. 새 제품, 중고, 양도, 협찬 영상까지 같은 기준으로 비교합니다.</p>
         <ul class="checklist">
           ${data.buyerChecklist.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
         </ul>
@@ -306,7 +306,7 @@ const renderProduct = (product, data) => {
           <h1>${escapeHtml(product.brand)} 바차타 댄스화 비교</h1>
           <p>${escapeHtml(product.summary)}</p>
           <div class="quick-nav">
-            <a href="/gear/">기어 허브</a>
+            <a href="/gear/">댄스화 비교</a>
             ${otherProducts.map((item) => `<a href="${pagePath(item)}">${escapeHtml(item.brand)}</a>`).join("")}
           </div>
         </div>
@@ -327,7 +327,7 @@ const renderProduct = (product, data) => {
                 <span class="eyebrow">Field View</span>
                 <h2>핵심 비교 기준</h2>
               </div>
-              <p>공식 기능 설명, 영상 자료, 구매 리스크를 한 화면에서 읽을 수 있게 정리했습니다.</p>
+              <p>공식 기능 설명, 영상 자료, 구매 리스크를 한 화면에서 확인할 수 있게 정리했습니다.</p>
             </div>
             <div class="score-grid">
               ${scoreCards}
@@ -349,17 +349,17 @@ const renderProduct = (product, data) => {
 
         <aside class="side-stack">
           <section class="side-box">
-            <span class="tag">Sources</span>
+            <span class="tag">참고 링크</span>
             <h2>원본 링크</h2>
             <div class="link-row">${renderLinks(product.links)}</div>
           </section>
           <section class="side-box">
             <span class="tag">Keywords</span>
-            <h2>검색 키워드</h2>
+            <h2>관련 검색어</h2>
             <div class="tag-row">${product.keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("")}</div>
           </section>
           <section class="side-box">
-            <span class="tag">Related</span>
+            <span class="tag">관련 글</span>
             <h2>같이 볼 페이지</h2>
             <div class="link-row">${renderLinks(data.related)}</div>
           </section>

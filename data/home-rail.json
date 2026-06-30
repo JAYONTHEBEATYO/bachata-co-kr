@@ -2,84 +2,84 @@
   "updatedAt": "2026-07-01",
   "eyebrow": "Watch Next",
   "title": "다음으로 볼 콘텐츠",
-  "intro": "영상 하나를 고르면 바로 읽을거리와 한국씬 맥락으로 이어집니다.",
+  "intro": "영상 하나를 고르면 바로 읽을거리와 국내 소식으로 이어집니다.",
   "editorialDeck": {
-    "eyebrow": "Editorial Deck",
-    "title": "영상에서 시작해 스타일, 사람, 한국씬으로 이어지는 홈",
-    "intro": "바차타 코리아의 첫 화면은 긴 설명보다 바로 볼 수 있는 영상과 읽을 경로를 먼저 보여줍니다. 오늘의 브리프, 센슈얼·도미니칸 코어 가이드, 글로벌 댄서, 한국 소셜 소식을 한 화면에서 고를 수 있게 정리합니다.",
+    "eyebrow": "추천 콘텐츠",
+    "title": "영상에서 시작해 스타일, 사람, 국내 소식으로 이어지는 홈",
+    "intro": "첫 화면에서는 바로 볼 수 있는 영상과 다음에 읽을 경로를 먼저 보여줍니다. 센슈얼·도미니칸 가이드, 글로벌 댄서, 한국 소셜 소식을 한 화면에서 고를 수 있게 정리합니다.",
     "items": [
       {
-        "label": "Watch",
+        "label": "영상",
         "title": "오늘 볼 영상",
-        "description": "검증된 YouTube 임베드와 최신 브리프를 먼저 보고, 관련 기사와 프로필로 이어갑니다.",
+        "description": "재생 가능한 YouTube 영상과 최신 소식을 먼저 보고, 관련 기사와 프로필로 이어갑니다.",
         "href": "/briefs/",
-        "meta": "daily brief"
+        "meta": "오늘 브리핑"
       },
       {
-        "label": "Learn",
+        "label": "배우기",
         "title": "스타일별 코어 콘텐츠",
         "description": "센슈얼 16 펀더멘털, 도미니칸 리듬, Bachata Influence, Bachazouk를 한 번에 탐색합니다.",
         "href": "/styles/",
-        "meta": "5 style hubs"
+        "meta": "스타일 5개"
       },
       {
-        "label": "Follow",
+        "label": "사람",
         "title": "댄서와 팀",
         "description": "Melvin & Gatica, Korke & Judith, Emilien & Tehina, Gray & Loren의 대표 영상과 국내 연결 맥락을 함께 봅니다.",
         "href": "/profiles/",
-        "meta": "16 profiles"
+        "meta": "프로필 16개"
       },
       {
-        "label": "Scene",
+        "label": "국내 소식",
         "title": "한국 바차타 소식",
         "description": "행사, 내한, 동호회, 장소, 양도·구인 제보까지 한국 독자가 바로 쓸 수 있는 소식으로 정리합니다.",
         "href": "/korea-scene/",
-        "meta": "Korea map"
+        "meta": "국내 지도"
       }
     ]
   },
   "channels": [
     {
-      "label": "Styles",
+      "label": "스타일",
       "title": "스타일별로 보기",
       "description": "센슈얼, 도미니칸, 모던, Bachazouk, Influence를 한 번에 이동합니다.",
       "href": "/styles/",
-      "metric": "5 guides"
+      "metric": "가이드 5개"
     },
     {
-      "label": "Programs",
+      "label": "영상 루틴",
       "title": "영상 루틴",
       "description": "영상 하나를 보고 바로 읽을 수 있는 입문·리듬·안전 루트입니다.",
       "href": "/programs/",
-      "metric": "6 paths"
+      "metric": "루트 6개"
     },
     {
-      "label": "Artists",
+      "label": "댄서·팀",
       "title": "댄서와 팀",
       "description": "Melvin & Gatica, Korke & Judith부터 국내 팀까지 대표 영상과 읽을거리를 함께 묶었습니다.",
       "href": "/profiles/",
-      "metric": "16 profiles"
+      "metric": "프로필 16개"
     },
     {
-      "label": "Korea",
-      "title": "한국 바차타씬",
-      "description": "서울, 홍대, 강남, 동호회, 내한 소식을 지도처럼 봅니다.",
+      "label": "국내 소식",
+      "title": "한국 바차타 소식",
+      "description": "서울, 홍대, 강남, 동호회, 내한 소식을 바로 확인합니다.",
       "href": "/korea-scene/",
-      "metric": "scene map"
+      "metric": "국내 지도"
     },
     {
-      "label": "Gear",
+      "label": "댄스화",
       "title": "댄스화와 장비",
       "description": "Fuego, Pana Mio, On1, Pulse를 한국 구매자 기준으로 비교합니다.",
       "href": "/gear/",
-      "metric": "4 brands"
+      "metric": "브랜드 4개"
     },
     {
-      "label": "Submit",
+      "label": "제보",
       "title": "소식 보내기",
       "description": "행사, 양도, 구인, 대관, 팀 소개를 바로 보낼 수 있습니다.",
       "href": "/submit/",
-      "metric": "open"
+      "metric": "상시 접수"
     }
   ],
   "cards": [
@@ -106,7 +106,7 @@
       "label": "Trend",
       "title": "Bachata Influence",
       "videoId": "sUy5L7x5pyE",
-      "description": "Melvin Gatica 계열이 왜 지금 한국 바차타씬에서도 자주 언급되는지 읽습니다.",
+      "description": "Melvin Gatica 계열이 왜 지금 한국 바차타 현장에서도 자주 언급되는지 읽습니다.",
       "meta": "트렌드 기사"
     },
     {

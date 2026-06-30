@@ -143,7 +143,7 @@ const nav = `    <header class="nav">
       <nav class="nav-links" aria-label="기사 이동">
         <a href="/">홈</a>
         <a href="/articles/">기사</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
         <a href="/#publishing-os">운영 방식</a>
       </nav>
     </header>`;
@@ -264,12 +264,12 @@ ${sections}
         </article>
         <aside class="side" aria-label="기사 출처와 관련 기사">
           <div class="side-card">
-            <span class="tag">Sources</span>
-            <p>공식/공개 출처를 바탕으로 한국어 독자에게 맞게 재편집했습니다.</p>
+            <span class="tag">참고 링크</span>
+            <p>공식 자료와 공개 링크를 확인해 한국 독자에게 필요한 맥락을 정리했습니다.</p>
             <div class="source-links">${renderSourceLinks(article.sourceLinks)}</div>
           </div>
           <div class="side-card">
-            <span class="tag">Related</span>
+            <span class="tag">관련 글</span>
             <div class="source-links">${related}</div>
           </div>
         </aside>
@@ -296,7 +296,7 @@ const renderIndexPage = (articles) => {
     "@type": "CollectionPage",
     "@id": "https://bachata.co.kr/articles/",
     "name": "바차타 코리아 기사 라이브러리",
-    "description": "Bachata Influence, Bachazouk, 글로벌 댄서, 한국 바차타 씬, 댄스화 콘텐츠를 모은 기사 라이브러리.",
+    "description": "Bachata Influence, Bachazouk, 글로벌 댄서, 한국 바차타 현장, 댄스화 콘텐츠를 모은 기사 라이브러리.",
     "inLanguage": "ko-KR",
     "isPartOf": { "@id": "https://bachata.co.kr/#website" },
     "hasPart": articles.map((article) => ({ "@id": articleUrl(article), "name": article.title }))
@@ -307,7 +307,7 @@ const renderIndexPage = (articles) => {
   <head>
 ${baseHead({
   title: "바차타 코리아 기사 라이브러리 | Bachata Korea",
-  description: "Bachata Influence, Bachazouk, 글로벌 댄서, 한국 바차타 씬, 댄스화 콘텐츠를 모은 기사 라이브러리.",
+  description: "Bachata Influence, Bachazouk, 글로벌 댄서, 한국 바차타 현장, 댄스화 콘텐츠를 모은 기사 라이브러리.",
   canonical: "https://bachata.co.kr/articles/"
 })}
 ${styles}
@@ -320,7 +320,7 @@ ${nav}
     <section class="hero">
       <span class="eyebrow">Article Library</span>
       <h1>바차타 코리아 기사 라이브러리</h1>
-      <p>오늘의 브리프에서 다룬 주제를 더 자세한 기사로 정리합니다. Influence, Bachazouk, 글로벌 페어, 한국 바차타 현장, 댄스화와 마켓 이야기를 이곳에 모읍니다.</p>
+      <p>오늘 브리핑에서 다룬 주제를 더 자세한 기사로 정리합니다. Influence, Bachazouk, 글로벌 페어, 한국 바차타 현장, 댄스화와 마켓 이야기를 이곳에 모읍니다.</p>
     </section>
     <main>
       <div class="article-list">

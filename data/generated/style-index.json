@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-30T21:45:14.656Z",
+  "generatedAt": "2026-06-30T22:52:27.572Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
       "id": "sensual",
-      "title": "센슈얼 바차타 허브",
+      "title": "센슈얼 바차타 가이드",
       "url": "/styles/sensual.html",
       "keywords": [
         "센슈얼 바차타",
@@ -44,7 +44,7 @@
           "videoId": "CZEB8wdVXOc"
         },
         {
-          "label": "일간 브리프",
+          "label": "일간 브리핑",
           "title": "#bachatasensual - 센슈얼 바차타 흐름",
           "url": "/briefs/",
           "score": 32,
@@ -75,7 +75,7 @@
     },
     {
       "id": "dominican",
-      "title": "도미니칸 바차타 허브",
+      "title": "도미니칸 바차타 가이드",
       "url": "/styles/dominican.html",
       "keywords": [
         "도미니칸 바차타",
@@ -146,7 +146,7 @@
     },
     {
       "id": "modern",
-      "title": "모던 바차타 허브",
+      "title": "모던 바차타 가이드",
       "url": "/styles/modern.html",
       "keywords": [
         "모던 바차타",
@@ -195,13 +195,6 @@
         },
         {
           "label": "Article",
-          "title": "한국 바차타 입문자가 먼저 봐야 할 글로벌 댄서 지도",
-          "url": "/articles/global-bachata-dancers-watchlist-korea.html",
-          "score": 24,
-          "videoId": "j4CmXKDCMzI"
-        },
-        {
-          "label": "Article",
           "title": "한국 바차타 Influence 계열은 어디서 볼 수 있을까",
           "url": "/articles/korea-bachata-influence-scene-map.html",
           "score": 24,
@@ -213,12 +206,19 @@
           "url": "/programs/",
           "score": 16,
           "videoId": "gDtOwUqeWKw"
+        },
+        {
+          "label": "Article",
+          "title": "Bachata Influence는 무엇이 다른가",
+          "url": "/articles/bachata-influence-melvin-gatica.html",
+          "score": 16,
+          "videoId": "sUy5L7x5pyE"
         }
       ]
     },
     {
       "id": "influence",
-      "title": "Bachata Influence 허브",
+      "title": "Bachata Influence 가이드",
       "url": "/styles/influence.html",
       "keywords": [
         "Bachata Influence",
@@ -232,7 +232,7 @@
       "relatedContent": [
         {
           "label": "Article",
-          "title": "Bachata Influence 팀 지도: Melvin & Gatica 이후 누구를 봐야 하나",
+          "title": "Bachata Influence 댄서·팀 정리: Melvin & Gatica 이후",
           "url": "/articles/bachata-influence-team-map-2026.html",
           "score": 168,
           "videoId": "sUy5L7x5pyE"
@@ -273,24 +273,24 @@
           "videoId": "sUy5L7x5pyE"
         },
         {
+          "label": "Event",
+          "title": "Emilien & Tehina 한국 워크숍·데모 기록",
+          "url": "/events/emilian-tehina-korea-archive-2026.html",
+          "score": 84,
+          "videoId": "zQjucjzuW3I"
+        },
+        {
           "label": "Profile",
           "title": "Emilien & Tehina",
           "url": "/profiles/emilien-tehina.html",
           "score": 76,
           "videoId": "FNv7eOMg-_k"
-        },
-        {
-          "label": "Event",
-          "title": "Gangnam Latin Festival 2026 - Bachata Influence",
-          "url": "/events/gangnam-latin-festival-2026.html",
-          "score": 72,
-          "videoId": "sUy5L7x5pyE"
         }
       ]
     },
     {
       "id": "bachazouk",
-      "title": "Bachazouk 허브",
+      "title": "Bachazouk 가이드",
       "url": "/styles/bachazouk.html",
       "keywords": [
         "Bachazouk",

@@ -90,7 +90,7 @@ const classifyStage = (item) => {
   if (item.healthStatus === "broken") {
     return {
       id: "blocked",
-      label: "보류",
+      label: "제외",
       nextStep: "링크나 영상이 복구되기 전까지 공개하지 않습니다."
     };
   }
@@ -99,7 +99,7 @@ const classifyStage = (item) => {
     return {
       id: "ready",
       label: "오늘 소개",
-      nextStep: "영상과 내부 연결이 있으므로 브리프나 관련 허브에 바로 올릴 수 있습니다."
+      nextStep: "영상과 관련 페이지가 확인되어 오늘 소개할 수 있습니다."
     };
   }
 
@@ -121,8 +121,8 @@ const classifyStage = (item) => {
 
   return {
     id: "watch",
-    label: "지켜볼 소식",
-    nextStep: "반복해서 확인되는 소식은 브리프에 올리고, 단발성 소식은 확인 목록에 남깁니다."
+    label: "추가 확인",
+    nextStep: "반복해서 확인되는 소식은 짧게 소개하고, 단발성 소식은 확인 목록에 남깁니다."
   };
 };
 
@@ -303,7 +303,7 @@ const renderQueueItem = (item, formats) => {
               ${metaBadges}
             </div>
             <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.beat || item.searchIntent || item.healthNote || "편집자가 원본과 관련 페이지를 확인해 어떤 형식으로 소개할지 정합니다.")}</p>
+            <p>${escapeHtml(item.beat || item.searchIntent || item.healthNote || "원본 링크와 관련 페이지를 확인해 어떤 형식으로 소개할지 정합니다.")}</p>
             <p class="next-step">${escapeHtml(item.nextStep)}</p>
             <div class="link-row">${links}</div>
           </div>
@@ -320,7 +320,7 @@ const publicNoveltyLabel = (novelty = "", seenCount = 0) => {
 const publicEvidenceLabel = (level = "") => {
   if (level === "strong") return "근거 충분";
   if (level === "medium") return "근거 보통";
-  if (level === "watch") return "지켜볼 소식";
+  if (level === "watch") return "추가 확인";
   return level;
 };
 
@@ -490,7 +490,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
         <article class="summary-card"><span class="tag">전체</span><strong>${escapeHtml(summary.totalQueue)}</strong></article>
         <article class="summary-card"><span class="tag">오늘 소개</span><strong>${escapeHtml(summary.readyNow)}</strong></article>
         <article class="summary-card"><span class="tag">원문 확인</span><strong>${escapeHtml(summary.needsReview)}</strong></article>
-        <article class="summary-card"><span class="tag">지켜볼 소식</span><strong>${escapeHtml(summary.watchOnly)}</strong></article>
+        <article class="summary-card"><span class="tag">추가 확인</span><strong>${escapeHtml(summary.watchOnly)}</strong></article>
         <article class="summary-card"><span class="tag">영상</span><strong>${escapeHtml(summary.videos)}</strong></article>
         <article class="summary-card"><span class="tag">제외</span><strong>${escapeHtml(summary.brokenLinks)}</strong></article>
       </section>
@@ -512,16 +512,16 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
         <div class="section-head">
           <div>
             <span class="eyebrow">Publishing Stages</span>
-            <h2>소식을 쌓아두지 않고 확인 단계로 나눕니다</h2>
+            <h2>소식은 바로 올리지 않고 확인 단계로 나눕니다</h2>
           </div>
-          <p>유튜브가 살아 있고 관련 페이지가 있는 소식은 바로 브리프에 올립니다. 인스타그램 기반 소식은 계정, 일정, 장소, 공지 원문을 확인한 뒤 기사나 프로필로 넘깁니다.</p>
+          <p>유튜브가 재생되고 관련 페이지가 있는 소식은 오늘 소개합니다. 인스타그램 기반 소식은 계정, 일정, 장소, 공지 원문을 확인한 뒤 기사나 프로필로 연결합니다.</p>
         </div>
         <div class="stage-grid">
           ${[
-            { label: "오늘 소개", count: summary.readyNow, body: "영상과 내부 연결이 있어 바로 브리프나 허브에 넣을 수 있는 소식입니다." },
-            { label: "원문 확인", count: summary.needsReview, body: "인스타 공지, 계정명, 일정, 장소를 편집자가 확인해야 하는 소식입니다." },
-            { label: "지켜볼 소식", count: summary.watchOnly, body: "반복해서 확인되는지 더 본 뒤 주간 브리프로 넘길 소식입니다." },
-            { label: "보류", count: summary.blocked, body: "링크 상태가 깨졌거나 공개할 근거가 부족해 제외한 소식입니다." }
+            { label: "오늘 소개", count: summary.readyNow, body: "영상과 관련 페이지가 확인되어 오늘 소개할 수 있는 소식입니다." },
+            { label: "원문 확인", count: summary.needsReview, body: "인스타 공지, 계정명, 일정, 장소를 더 확인해야 하는 소식입니다." },
+            { label: "추가 확인", count: summary.watchOnly, body: "반복해서 확인되는지 더 본 뒤 소개할 소식입니다." },
+            { label: "제외", count: summary.blocked, body: "링크 상태가 깨졌거나 공개할 근거가 부족해 제외한 소식입니다." }
           ].map(renderStageCard).join("\n          ")}
         </div>
       </section>
@@ -530,7 +530,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
         <div class="section-head">
           <div>
             <span class="eyebrow">Format Matrix</span>
-            <h2>클릭 이후 보일 콘텐츠 구조</h2>
+            <h2>소식이 연결되는 페이지</h2>
           </div>
           <p>센슈얼은 16개 펀더멘탈과 영상 기반 학습 프로그램으로, 도미니칸은 리듬·풋워크·음악성으로, 행사와 팀 소식은 이벤트와 프로필로 이어지게 설계했습니다.</p>
         </div>
@@ -558,7 +558,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
             <span class="eyebrow">Policy</span>
             <h2>확인과 공개의 선</h2>
           </div>
-          <p>자동 확인은 공개 링크를 정리하는 데까지만 씁니다. 실제 글은 출처를 확인하고 한국 바차타 독자가 읽기 좋은 맥락으로 다시 작성합니다.</p>
+          <p>도구는 공개 링크를 정리하는 데까지만 씁니다. 실제 글은 출처를 확인하고 한국 바차타 독자가 읽기 좋은 맥락으로 다시 작성합니다.</p>
         </div>
         <div class="policy-grid">
           ${(config.sourcePolicy || []).map(renderPolicy).join("\n          ")}

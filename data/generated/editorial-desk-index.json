@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T21:44:41.146Z",
+  "generatedAt": "2026-06-30T22:51:37.756Z",
   "updatedAt": "2026-06-30",
   "title": "바차타 코리아 다음 이야기",
   "url": "/desk/",
@@ -64,14 +64,14 @@
       "id": "sensual-core",
       "title": "센슈얼 바차타 16 펀더멘털",
       "priority": "A",
-      "status": "core evergreen",
+      "status": "기본 가이드",
       "linkedUrl": "/programs/sensual-fundamentals.html"
     },
     {
       "id": "dominican-rhythm",
       "title": "도미니칸 리듬과 풋워크",
       "priority": "A",
-      "status": "core evergreen",
+      "status": "기본 가이드",
       "linkedUrl": "/programs/dominican-rhythm.html"
     },
     {

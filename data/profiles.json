@@ -42,7 +42,7 @@
       },
       "summary": [
         "Melvin & Gatica는 Bachata Influence를 단순한 패턴 모음이 아니라 음악성, 프레임, 감정선, 교육 메소드까지 포함한 언어로 보게 만드는 기준점입니다.",
-        "이 페이지는 공식/공개 링크와 튜토리얼 영상을 중심으로 한국 독자가 어떤 지점을 보면 좋은지 정리합니다."
+        "이 페이지는 공식 링크와 튜토리얼 영상을 중심으로 한국 독자가 먼저 보면 좋은 지점을 정리합니다."
       ],
       "angles": [
         "멈춤과 재개의 타이밍",
@@ -51,7 +51,7 @@
       ],
       "related": [
         {
-          "label": "Influence 허브",
+          "label": "Influence 가이드",
           "url": "/styles/influence.html"
         },
         {
@@ -83,7 +83,7 @@
       "category": "influence",
       "status": "source-verified",
       "title": "Emilien & Tehina",
-      "subtitle": "Influence 계열을 소셜과 무대 사이에서 읽기 좋은 페어",
+      "subtitle": "Influence 계열을 소셜과 무대 양쪽에서 참고하기 좋은 페어",
       "location": "International",
       "tags": [
         "Bachata Influence",
@@ -97,7 +97,7 @@
       },
       "summary": [
         "Emilien & Tehina 영상은 정지와 진행의 대비, 팔로워 라인, 리더의 길 열기가 비교적 선명해서 Influence 계열을 분석하기 좋은 자료입니다.",
-        "한국 콘텐츠에서는 동작 복제보다 어느 타이밍에 상대의 축을 기다리는지, 어떤 표현은 소셜에서 줄여야 하는지를 중심으로 다룹니다."
+        "한국어 글에서는 동작을 그대로 따라 하기보다 어느 타이밍에 상대의 축을 기다리는지, 어떤 표현은 소셜에서 줄여야 하는지를 중심으로 봅니다."
       ],
       "angles": [
         "멈춤 이후 다시 진행하는 길",
@@ -106,11 +106,11 @@
       ],
       "related": [
         {
-          "label": "Influence 허브",
+          "label": "Influence 가이드",
           "url": "/styles/influence.html"
         },
         {
-          "label": "오늘 브리프",
+          "label": "오늘 브리핑",
           "url": "/briefs/"
         }
       ],
@@ -140,7 +140,7 @@
       },
       "summary": [
         "Emilio & Serap은 Bachata Influence가 창시자 영상에서만 머무르지 않고 국제 강사·이벤트 네트워크로 확장되는 지점을 보여주는 페어입니다.",
-        "한국 독자에게는 화려한 데모를 그대로 복제하기보다, 인증 강사가 멈춤·호흡·파트너 연결을 어떻게 수업 언어로 번역하는지 살펴보기 좋은 사례입니다."
+        "한국 독자에게는 화려한 데모를 그대로 따라 하기보다, 인증 강사가 멈춤·호흡·파트너 연결을 수업에서 어떻게 설명하는지 보기 좋은 사례입니다."
       ],
       "angles": [
         "Influence Academy 이후 Certified Teacher 네트워크가 지역 이벤트로 번역되는 방식",
@@ -149,7 +149,7 @@
       ],
       "related": [
         {
-          "label": "Influence 허브",
+          "label": "Influence 가이드",
           "url": "/styles/influence.html"
         },
         {
@@ -203,17 +203,17 @@
         "title": "16 Bachata Sensual Fundamental Techniques"
       },
       "summary": [
-        "Korke & Judith는 센슈얼 바차타를 설명할 때 빠질 수 없는 이름입니다. 16 펀더멘탈은 이름을 외우기보다 안전한 축과 프레임을 이해하는 지도처럼 보는 편이 좋습니다.",
-        "이 프로필은 센슈얼 허브와 연결해 기초 용어, 안전 기준, 영상 학습 순서를 함께 제공합니다."
+        "Korke & Judith는 센슈얼 바차타를 설명할 때 빠질 수 없는 이름입니다. 16가지 기본기는 이름을 외우기보다 안전한 축과 프레임을 이해하는 길잡이로 보는 편이 좋습니다.",
+        "이 프로필은 센슈얼 가이드와 연결해 기초 용어, 안전 기준, 영상 학습 순서를 함께 제공합니다."
       ],
       "angles": [
         "16개 명칭을 기술표가 아니라 언어로 보기",
         "웨이브·딥·헤드롤의 안전 기준",
-        "공식 설명과 커뮤니티 정리를 교차해 읽기"
+        "공식 설명과 커뮤니티 정리를 함께 보기"
       ],
       "related": [
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         }
       ],
@@ -260,7 +260,7 @@
       ],
       "related": [
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         }
       ],
@@ -293,7 +293,7 @@
         "title": "Luis & Andrea Bachata Reference"
       },
       "summary": [
-        "Luis & Andrea는 고난도 쇼케이스만 소비하기보다 타이밍, 방향 전환, 표현의 절제와 과잉을 구분해 읽기 좋은 페어입니다.",
+        "Luis & Andrea는 고난도 쇼케이스만 보기보다 타이밍, 방향 전환, 표현의 절제와 과잉을 구분해 참고하기 좋은 페어입니다.",
         "한국 독자에게는 페스티벌 영상과 워크숍 프로필을 함께 연결해 학습 방향을 제시합니다."
       ],
       "angles": [
@@ -303,7 +303,7 @@
       ],
       "related": [
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         }
       ],
@@ -340,8 +340,8 @@
         "title": "Andi & Silvia Bachata Reference"
       },
       "summary": [
-        "Andi & Silvia는 최신 공연형 센슈얼 흐름을 살펴보기 좋은 페어입니다.",
-        "콘텐츠에서는 동작의 화려함보다 음악 문장, 선의 정리, 촬영 영상에서 보이는 무대성과 소셜성의 차이를 나눠 봅니다."
+        "Andi & Silvia는 최신 공연형 센슈얼을 참고하기 좋은 페어입니다.",
+        "동작의 화려함보다 음악의 흐름, 선의 정리, 촬영 영상에서 보이는 무대성과 소셜성의 차이를 나눠 봅니다."
       ],
       "angles": [
         "무대성과 소셜성의 경계",
@@ -350,7 +350,7 @@
       ],
       "related": [
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         }
       ],
@@ -388,7 +388,7 @@
       },
       "summary": [
         "Cristian & Gabriella는 큰 무대용 표현보다 부드러운 연결, 자연스러운 라인, 음악에 맞춘 속도 조절을 같이 보기 좋은 페어입니다.",
-        "한국 콘텐츠에서는 이들의 영상을 패턴 목록으로 소비하기보다, 팔로워가 자기 축을 잃지 않는 시간과 리더가 길을 여는 방식을 분리해 읽는 편이 좋습니다."
+        "한국어 글에서는 이들의 영상을 패턴 목록으로만 보기보다, 팔로워가 자기 축을 잃지 않는 시간과 리더가 길을 여는 방식을 나눠 보는 편이 좋습니다."
       ],
       "angles": [
         "느린 곡에서 가까운 연결을 과하게 만들지 않는 법",
@@ -397,7 +397,7 @@
       ],
       "related": [
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         },
         {
@@ -452,11 +452,11 @@
       ],
       "related": [
         {
-          "label": "모던 허브",
+          "label": "모던 가이드",
           "url": "/styles/modern.html"
         },
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         }
       ],
@@ -507,7 +507,7 @@
       ],
       "related": [
         {
-          "label": "센슈얼 허브",
+          "label": "센슈얼 가이드",
           "url": "/styles/sensual.html"
         },
         {
@@ -535,7 +535,7 @@
       "category": "korea-scene",
       "status": "source-verified",
       "title": "Gray & Loren",
-      "subtitle": "한국 바차타에서 Influence 계열 감각을 살펴볼 만한 팀",
+      "subtitle": "한국 바차타에서 Influence 계열 감각을 참고하기 좋은 팀",
       "location": "Korea",
       "tags": [
         "한국 바차타",
@@ -548,8 +548,8 @@
         "title": "Gray & Loren Bachata Social in Korea"
       },
       "summary": [
-        "Gray & Loren은 한국에서 Bachata Influence 계열 흐름을 살펴볼 때 함께 보면 좋은 팀입니다.",
-        "공개 소셜 영상을 중심으로 프레임, 음악성, 한국 소셜 플로어에서 자연스럽게 보이는 표현을 정리합니다."
+        "Gray & Loren은 한국에서 Bachata Influence 계열을 볼 때 함께 참고하기 좋은 팀입니다.",
+        "공개 소셜 영상을 중심으로 프레임, 음악성, 한국 소셜 플로어에서 자연스럽게 보이는 표현을 살펴봅니다."
       ],
       "angles": [
         "국내 소셜에서 보이는 Influence 질감",
@@ -558,7 +558,7 @@
       ],
       "related": [
         {
-          "label": "Influence 허브",
+          "label": "Influence 가이드",
           "url": "/styles/influence.html"
         },
         {
@@ -582,7 +582,7 @@
       "category": "korea-scene",
       "status": "source-verified",
       "title": "Cluny & Journey",
-      "subtitle": "한국 소셜·공연 영상으로 살펴볼 국내 페어",
+      "subtitle": "한국 소셜·공연 영상으로 참고할 수 있는 국내 페어",
       "location": "Korea",
       "tags": [
         "클루니",
@@ -595,8 +595,8 @@
         "title": "Cluny & Journey Bachata Reference"
       },
       "summary": [
-        "Cluny & Journey는 한국 바차타 영상 기록에서 따로 살펴볼 만한 페어입니다.",
-        "공개 영상 기반으로 소셜성과 공연성, 국내 라틴댄스 영상 기록의 맥락을 함께 정리합니다."
+        "Cluny & Journey는 한국 바차타 영상 기록에서 따로 참고할 만한 페어입니다.",
+        "공개 영상을 바탕으로 소셜성과 공연성, 국내 라틴댄스 영상 기록의 맥락을 함께 살펴봅니다."
       ],
       "angles": [
         "국내 영상에서 반복적으로 보이는 페어",
@@ -621,7 +621,7 @@
       "category": "venues",
       "status": "source-verified",
       "title": "홍대 보니따",
-      "subtitle": "처음 가기 전에 소셜 분위기를 미리 살펴볼 수 있는 홍대 장소",
+      "subtitle": "처음 가기 전에 소셜 분위기를 확인할 수 있는 홍대 장소",
       "location": "홍대",
       "tags": [
         "홍대 보니따",
@@ -634,7 +634,7 @@
         "title": "Bachata Social Dance at Bonita in Seoul"
       },
       "summary": [
-        "홍대 보니따는 공개 소셜 영상과 인스타그램 계정으로 분위기를 미리 살펴볼 수 있는 장소입니다.",
+        "홍대 보니따는 공개 소셜 영상과 인스타그램 계정으로 분위기를 미리 확인할 수 있는 장소입니다.",
         "음악 비율, 요일별 분위기, 촬영 문화, 초보자 동선을 공개 자료와 제보로 보강합니다."
       ],
       "angles": [
@@ -678,7 +678,7 @@
       },
       "summary": [
         "에버라틴은 서울에서 살사와 바차타를 시작하려는 2030 입문자가 자주 찾는 동호회·강습입니다.",
-        "공식 사이트, 인스타그램, 공개 영상 자료를 기준으로 강습 구조와 초보자 동선을 정리합니다."
+        "공식 사이트, 인스타그램, 공개 영상 자료를 기준으로 강습 구조와 초보자 동선을 살펴봅니다."
       ],
       "angles": [
         "입문 강습에서 소셜로 이어지는 방식",
@@ -711,7 +711,7 @@
       "category": "korea-scene",
       "status": "source-verified",
       "title": "라틴씨엘로",
-      "subtitle": "수업과 공연, 팀 활동을 함께 살펴볼 수 있는 국내 바차타 팀",
+      "subtitle": "수업과 공연, 팀 활동을 함께 확인할 수 있는 국내 바차타 팀",
       "location": "Korea",
       "tags": [
         "라틴씨엘로",
@@ -724,8 +724,8 @@
         "title": "Latin Cielo Bachata Performance Reference"
       },
       "summary": [
-        "라틴씨엘로는 수업, 공연, 팀 활동을 함께 살펴볼 수 있는 국내 바차타 팀입니다.",
-        "공개 인스타그램과 YouTube 영상을 기준으로 강습 분위기, 공연 레퍼런스, 팀 소개를 이어 정리합니다."
+        "라틴씨엘로는 수업, 공연, 팀 활동을 함께 확인할 수 있는 국내 바차타 팀입니다.",
+        "공개 인스타그램과 YouTube 영상을 기준으로 강습 분위기, 공연 레퍼런스, 팀 소개를 안내합니다."
       ],
       "angles": [
         "수업과 공연이 연결되는 방식",
@@ -759,7 +759,7 @@
       "status": "source-verified",
       "title": "라스트댄스",
       "subtitle": "2030 살사·바차타 동호회와 레벨업 파티를 함께 볼 수 있는 커뮤니티",
-      "location": "Korea / Hongdae signal",
+      "location": "Korea / Hongdae",
       "tags": [
         "라스트댄스",
         "Last Dance",
@@ -773,7 +773,7 @@
       },
       "summary": [
         "라스트댄스는 공개 인스타그램·Threads 계정과 YouTube 영상으로 활동을 확인할 수 있는 한국 살사·바차타 커뮤니티입니다.",
-        "행사 공지, 소셜 영상, 장소 정보가 연결되므로 처음 참여하려는 사람에게 필요한 동선을 중심으로 정리합니다."
+        "행사 공지, 소셜 영상, 장소 정보가 연결되므로 처음 참여하려는 사람에게 필요한 동선을 중심으로 안내합니다."
       ],
       "angles": [
         "2030 동호회와 레벨업 파티의 연결",
@@ -782,7 +782,7 @@
       ],
       "related": [
         {
-          "label": "한국씬 맵",
+          "label": "국내 소식",
           "url": "/korea-scene/"
         },
         {
@@ -794,7 +794,7 @@
           "url": "/profiles/bonita-seoul.html"
         },
         {
-          "label": "Bachata Influence 허브",
+          "label": "Bachata Influence 가이드",
           "url": "/styles/influence.html"
         }
       ],

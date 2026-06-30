@@ -203,7 +203,7 @@ const renderShelf = (config, cards, latestBrief) => {
             <p class="eyebrow">${escapeHtml(config.eyebrow)}</p>
             <h2 id="watch-next-title">${escapeHtml(config.title)}</h2>
           </div>
-          <p>${escapeHtml(config.intro)} <a href="${escapeHtml(briefUrl)}">오늘의 브리프</a> · <a href="/radar/">소셜 소식</a></p>
+          <p>${escapeHtml(config.intro)} <a href="${escapeHtml(briefUrl)}">오늘 브리핑</a> · <a href="/radar/">소셜 소식</a></p>
         </div>
         <div class="content-rail">
           ${cards.map(renderCard).join("\n          ")}

@@ -44,7 +44,7 @@ const renderAccount = (account) => `<article class="account-card">
 const socialAutomation = (data, sceneSignals = {}) => {
   const mode = sceneSignals.mode || {};
   const graphNote = mode.instagramHashtagSearch
-    ? "인스타그램 공식 권한이 연결되어 해시태그와 공개 계정 소식을 매일 확인합니다."
+    ? "인스타그램 공식 권한으로 해시태그와 공개 계정 소식을 확인합니다."
     : mode.instagramGraph
       ? "인스타그램 연결 토큰은 있지만 비즈니스 계정 연결이 남아 있어 공개 계정과 원본 링크를 우선 확인합니다."
       : "현재는 공식 인스타그램 권한이 없어 공개 계정, 해시태그, 공식 링크를 편집자가 직접 확인합니다.";
@@ -74,7 +74,7 @@ const socialAutomation = (data, sceneSignals = {}) => {
       label: "네이버 검색 확인",
       status: mode.naverApi ? "search-ready" : "credential-needed",
       note: mode.naverApi
-        ? "네이버 검색에서 반복적으로 보이는 소식을 최신 브리프에 더합니다."
+        ? "네이버 검색에서 반복적으로 보이는 소식을 최신 브리핑에 더합니다."
         : "네이버 API 자격 증명이 없을 때는 공식 링크와 편집자가 확인한 목록 중심으로 공개합니다."
     }
   };
@@ -169,7 +169,7 @@ const nav = `    <header class="nav">
         <a href="/radar/">소셜 소식</a>
         <a href="/events/">행사</a>
         <a href="/profiles/">인물·팀</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
       </nav>
     </header>`;
 
@@ -216,17 +216,17 @@ ${nav}
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Social News</span>
-          <h1>인스타에서 먼저 뜨는 바차타 소식을 한곳에</h1>
+          <span class="eyebrow">소셜 소식</span>
+          <h1>공식 링크로 확인한 한국 바차타 행사·소셜 소식</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
             ${data.watchlists.map((watchlist) => `<a href="#${escapeHtml(watchlist.id)}">${escapeHtml(watchlist.label)}</a>`).join("")}
           </div>
         </div>
         <aside class="ops-card">
-          <span class="tag">확인 방식</span>
+          <span class="tag">확인 기준</span>
           <dl>
-            ${Object.values(automation).map((item) => `<div><dt>${escapeHtml(item.label)} · ${escapeHtml(item.status)}</dt><dd>${escapeHtml(item.note)}</dd></div>`).join("")}
+            ${Object.values(automation).map((item) => `<div><dt>${escapeHtml(item.label)}</dt><dd>${escapeHtml(item.note)}</dd></div>`).join("")}
           </dl>
         </aside>
       </div>
@@ -235,10 +235,10 @@ ${nav}
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Sources</span>
-            <h2>매일 확인할 인스타그램 계정과 공식 출처</h2>
+            <span class="eyebrow">참고 링크</span>
+            <h2>정기적으로 확인하는 인스타그램 계정과 공식 출처</h2>
           </div>
-          <p>계정 자체를 기사로 복제하지 않고 어떤 소식을 확인할지, 사이트의 어느 글과 연결할지 안내합니다. 확인된 소식은 일간 브리프와 관련 페이지로 이어집니다.</p>
+          <p>계정 자체를 기사로 복제하지 않고 어떤 소식을 확인할지, 사이트의 어느 글과 연결할지 안내합니다. 확인된 소식은 일간 브리핑과 관련 페이지로 이어집니다.</p>
         </div>
         <div class="watchlist-stack">
           ${data.watchlists.map((watchlist) => `<section class="watchlist-card" id="${escapeHtml(watchlist.id)}">
@@ -260,9 +260,9 @@ ${nav}
         <div class="section-head">
           <div>
             <span class="eyebrow">Hashtags</span>
-            <h2>매일 확인하는 태그</h2>
+            <h2>정기적으로 확인하는 태그</h2>
           </div>
-          <p>Meta 공식 제한을 고려해 30개 이하로 작게 유지합니다. 핵심 태그는 매일, 보조 태그는 주간으로 확인하도록 설계했습니다.</p>
+          <p>Meta 공식 제한을 고려해 30개 이하로 작게 유지합니다. 핵심 태그와 보조 태그를 나눠 과하게 긁어오지 않고 필요한 범위만 확인합니다.</p>
         </div>
         <div class="hashtag-grid">
           ${data.hashtags.map((item) => `<article class="hashtag-card">
@@ -278,12 +278,12 @@ ${nav}
             <span class="eyebrow">Policy</span>
             <h2>복제하지 않는 운영 원칙</h2>
           </div>
-          <p>자동화는 공개 링크를 정리하는 데까지만 씁니다. 본문은 출처를 확인한 뒤 한국 독자에게 맞는 문장으로 다시 씁니다.</p>
+          <p>도구는 공개 링크를 정리하는 데까지만 씁니다. 본문은 출처를 확인한 뒤 한국 독자에게 맞는 문장으로 다시 씁니다.</p>
         </div>
         <div class="policy-grid">
           ${data.principles.map((item, index) => `<article class="policy-card">
             <span class="tag">Rule ${index + 1}</span>
-            <h3>${index === 0 ? "복제 금지" : index === 1 ? "API 분리" : index === 2 ? "교차 확인" : "확인 후 공개"}</h3>
+            <h3>${index === 0 ? "복제 금지" : index === 1 ? "공식 경로 우선" : index === 2 ? "여러 출처 확인" : "확인 후 공개"}</h3>
             <p>${escapeHtml(item)}</p>
           </article>`).join("\n")}
         </div>
@@ -291,11 +291,11 @@ ${nav}
       <section class="section paper-cta">
         <span class="tag">Source Index</span>
         <h2>${accounts.length}개 계정과 ${data.hashtags.length}개 태그를 확인합니다</h2>
-        <p>이 페이지의 소스는 <a href="/data/social-radar.json">data/social-radar.json</a>입니다. 매일 브리프를 만들 때 이 목록을 참고합니다.</p>
+        <p>공식 링크, 공개 영상, 계정명을 기준으로 소식을 확인합니다. 제보가 들어오면 날짜, 장소, 가격, 신청 링크를 함께 확인한 뒤 반영합니다.</p>
         <div class="link-row">
-          <a href="/briefs/">오늘 브리프</a>
+          <a href="/briefs/">오늘 브리핑</a>
           <a href="/events/">행사 일정</a>
-          <a href="/profiles/">인물·팀 허브</a>
+          <a href="/profiles/">인물·팀 프로필</a>
         </div>
       </section>
     </main>

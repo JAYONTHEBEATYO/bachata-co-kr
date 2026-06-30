@@ -38,7 +38,7 @@ const renderVideo = (video, title = "Korea bachata scene video") => {
           </div>`;
 };
 
-const renderHeroPoster = (video = {}) => `<a class="hero-poster" href="${escapeHtml(videoWatchUrl(video))}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(video.title || "한국 바차타씬 영상 보기")}">
+const renderHeroPoster = (video = {}) => `<a class="hero-poster" href="${escapeHtml(videoWatchUrl(video))}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(video.title || "한국 바차타 현장 영상 보기")}">
           <span>Watch Scene Video</span>
           <strong>${escapeHtml(video.title || "Korea Bachata Scene")}</strong>
         </a>`;
@@ -70,6 +70,14 @@ const statusFor = (item, health) => {
   if (item.videoId && health.has(`youtube:${item.videoId}`)) return health.get(`youtube:${item.videoId}`);
   return item.sourceUrl?.includes("instagram.com") ? "watch" : "ok";
 };
+
+const statusLabel = (status = "") => ({
+  ok: "확인됨",
+  watch: "확인 중",
+  untracked: "확인 중",
+  warn: "재확인 필요",
+  broken: "링크 점검 중"
+}[status] || status);
 
 const profileToCard = (profile, health) => ({
   id: profile.id,
@@ -118,14 +126,14 @@ const eventToCard = (event, health) => ({
 
 const intakeToCard = (item, health) => ({
   id: item.id,
-  label: item.publishFormat || "Signal",
+  label: item.publishFormat || "소식",
   title: item.title,
   description: item.beat || item.searchIntent || item.healthNote || "소셜 소식에서 들어온 확인 대상입니다.",
   url: item.relatedUrl || item.target || "/community/",
   sourceUrl: item.sourceUrl || "",
   videoId: item.videoId || "",
   tags: [item.type, item.role, item.watchlist].filter(Boolean),
-  location: "Social watch",
+  location: "한국 바차타 소식",
   health: item.healthStatus || statusFor(item, health)
 });
 
@@ -190,7 +198,7 @@ const renderCard = (card) => {
           ` : ""}<div class="scene-card-body">
             <div class="meta-row">
               <span>${escapeHtml(card.label)}</span>
-              <span class="health-${escapeHtml(card.health)}">${escapeHtml(card.health)}</span>
+              <span class="health-${escapeHtml(card.health)}">${escapeHtml(statusLabel(card.health))}</span>
             </div>
             <h3>${escapeHtml(card.title)}</h3>
             <p>${escapeHtml(card.description)}</p>
@@ -322,17 +330,17 @@ const renderPage = ({ config, lenses, summary, sourceHealth }) => {
   <body>
     <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="한국 씬 허브 이동">
-        <a href="/profiles/">Profiles</a>
-        <a href="/events/">Events</a>
-        <a href="/community/">Community</a>
-        <a href="/briefs/">Report</a>
+      <nav class="nav-links" aria-label="한국 바차타 페이지 이동">
+        <a href="/profiles/">프로필</a>
+        <a href="/events/">행사</a>
+        <a href="/community/">커뮤니티</a>
+        <a href="/briefs/">브리핑</a>
       </nav>
     </header>
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Korea Scene</span>
+          <span class="eyebrow">국내 소식</span>
           <h1>${escapeHtml(config.title)}</h1>
           <p>${escapeHtml(config.dek)} 흩어진 팀·장소·동호회·페스티벌 정보를 한 화면에 모아 한국 바차타 입문자가 바로 길을 찾게 합니다.</p>
           <div class="quick-nav">
@@ -344,19 +352,19 @@ const renderPage = ({ config, lenses, summary, sourceHealth }) => {
       </div>
     </section>
     <main>
-      <section class="summary-grid" aria-label="한국 씬 요약">
-        <article class="summary-card"><span class="tag">Profiles</span><strong>${escapeHtml(summary.profiles)}</strong></article>
-        <article class="summary-card"><span class="tag">Events</span><strong>${escapeHtml(summary.events)}</strong></article>
-        <article class="summary-card"><span class="tag">Board</span><strong>${escapeHtml(summary.board)}</strong></article>
+      <section class="summary-grid" aria-label="한국 바차타 요약">
+        <article class="summary-card"><span class="tag">프로필</span><strong>${escapeHtml(summary.profiles)}</strong></article>
+        <article class="summary-card"><span class="tag">행사</span><strong>${escapeHtml(summary.events)}</strong></article>
+        <article class="summary-card"><span class="tag">게시판</span><strong>${escapeHtml(summary.board)}</strong></article>
         <article class="summary-card"><span class="tag">소식</span><strong>${escapeHtml(summary.signals)}</strong></article>
-        <article class="summary-card"><span class="tag">Broken</span><strong>${escapeHtml(summary.brokenLinks)}</strong></article>
+        <article class="summary-card"><span class="tag">링크 점검</span><strong>${escapeHtml(summary.brokenLinks)}</strong></article>
       </section>
       ${lenses.map(renderLens).join("\n      ")}
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Editorial Rules</span>
-            <h2>한국 씬을 다룰 때 지키는 기준</h2>
+            <span class="eyebrow">확인 기준</span>
+            <h2>국내 바차타 소식을 다룰 때 지키는 기준</h2>
           </div>
           <p>홍보문을 그대로 붙이지 않고 영상, 공식 링크, 인스타그램 계정, 제보 내용을 나눠 확인합니다. 출처가 불확실한 정보는 확인될 때까지 공개하지 않습니다.</p>
         </div>

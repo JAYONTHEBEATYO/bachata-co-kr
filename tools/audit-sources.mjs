@@ -313,7 +313,7 @@ ${styles}
         <a href="/">홈</a>
         <a href="/health/">소스 헬스</a>
         <a href="/desk/">편집실</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
         <a href="/submit/">제보</a>
       </nav>
     </header>
@@ -322,7 +322,7 @@ ${styles}
         <div>
           <span class="eyebrow">Source Health</span>
           <h1>링크와 영상이 살아있는지 매일 확인합니다</h1>
-          <p>내부 페이지, YouTube 임베드, 외부 출처를 점검해 자동 발행 큐의 품질을 관리합니다. Instagram처럼 접근 정책이 흔들리는 출처는 broken으로 단정하지 않고 watch 상태로 분리합니다.</p>
+          <p>내부 페이지, YouTube 영상, 외부 출처를 점검해 공개 페이지의 링크 품질을 관리합니다. Instagram처럼 접근 정책이 흔들리는 출처는 깨진 링크로 단정하지 않고 추가 확인 대상으로 분리합니다.</p>
         </div>
         <aside class="policy-card">
           <span class="tag">Generated</span>

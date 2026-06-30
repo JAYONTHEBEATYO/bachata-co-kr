@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T21:44:41.100Z",
+  "generatedAt": "2026-06-30T22:51:37.704Z",
   "updatedAt": "2026-06-30",
   "title": "바차타 코리아 프로그램",
   "url": "/programs/",
@@ -81,11 +81,11 @@
     },
     {
       "id": "korea-social-intelligence",
-      "title": "한국 바차타 소셜 읽기",
+      "title": "한국 바차타 소셜 보기",
       "url": "/programs/korea-social-intelligence.html",
       "level": "All Levels",
       "duration": "20분 x 5",
-      "style": "Korea Scene",
+      "style": "국내 소식",
       "videoId": "jpCY0QqZqWE",
       "keywords": [
         "한국 바차타",

@@ -150,7 +150,7 @@ const nav = `    <header class="nav">
         <a href="/styles/">스타일</a>
         <a href="/profiles/">인물·팀</a>
         <a href="/community/">커뮤니티</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
       </nav>
     </header>`;
 
@@ -187,7 +187,7 @@ const renderEventCard = (event) => {
             <div class="tag-row">${event.tags.slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
             <div class="link-row" style="margin-top:14px">
               <a href="${pagePath(event)}">일정 상세</a>
-              ${event.sourceLinks[0] ? `<a href="${escapeHtml(event.sourceLinks[0].url)}" target="_blank" rel="noreferrer">원본 확인</a>` : ""}
+              ${event.sourceLinks[0] ? `<a href="${escapeHtml(event.sourceLinks[0].url)}" target="_blank" rel="noreferrer">공식 링크</a>` : ""}
             </div>
           </div>
         </article>`;
@@ -210,7 +210,7 @@ const renderIndex = (data) => {
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Event Calendar</span>
+          <span class="eyebrow">행사 일정</span>
           <h1>월별 내한·페스티벌 일정</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
@@ -218,7 +218,7 @@ const renderIndex = (data) => {
           </div>
         </div>
         <aside class="method-card">
-          <span class="tag">Editorial Method</span>
+          <span class="tag">확인 방식</span>
           <ul>${data.method.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
         </aside>
       </div>
@@ -227,7 +227,7 @@ const renderIndex = (data) => {
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Korea Bachata Calendar</span>
+            <span class="eyebrow">한국 바차타 일정</span>
             <h2>확인된 일정과 최근 영상</h2>
           </div>
           <p>행사 페이지, 인스타 공지, 유튜브 기록을 한 화면에서 보고 개별 일정 상세로 들어갑니다. 날짜가 다른 소스는 그대로 표시하고 재확인 포인트를 남깁니다.</p>
@@ -240,8 +240,8 @@ const renderIndex = (data) => {
         </div>
       </section>
       <section class="section paper-cta">
-        <span class="tag">Watch Sources</span>
-        <h2>매일 브리프와 연결되는 행사 소스</h2>
+        <span class="tag">참고 링크</span>
+        <h2>매일 브리핑과 연결되는 행사 소스</h2>
         <p>이 페이지는 고정 캘린더가 아니라 계속 업데이트되는 일정표입니다. 새 행사 소식은 공식 링크와 영상 근거를 확인한 뒤 공개합니다.</p>
         <div class="link-row">${renderLinks(data.watchSources)}</div>
       </section>
@@ -303,23 +303,23 @@ const renderEvent = (event, data) => {
       <div class="event-layout">
         <div class="main-stack">
           <section class="summary">
-            <span class="tag">Why It Matters</span>
+            <span class="tag">왜 볼 만한가</span>
             <p>${escapeHtml(event.whyItMatters)}</p>
           </section>
           <section class="note">
-            <span class="tag">Booking Check</span>
+            <span class="tag">예매 전 확인</span>
             <h2>예매 전 확인할 점</h2>
             <p>${escapeHtml(event.checkBeforeBooking)}</p>
           </section>
           <section class="note">
-            <span class="tag">Editorial Status</span>
+            <span class="tag">확인 상태</span>
             <h2>${escapeHtml(statusLabels[event.status] || event.status)}</h2>
             <p>${escapeHtml(statusDescriptions[event.status] || "")}</p>
           </section>
         </div>
         <aside class="side-stack">
           <section class="side-box">
-            <span class="tag">Event Info</span>
+            <span class="tag">행사 정보</span>
             <h2>일정 요약</h2>
             <ul>
               <li>${escapeHtml(event.dateLabel)}</li>
@@ -328,12 +328,12 @@ const renderEvent = (event, data) => {
             </ul>
           </section>
           <section class="side-box">
-            <span class="tag">Sources</span>
+            <span class="tag">참고 링크</span>
             <h2>원본 링크</h2>
             <div class="link-row">${renderLinks(event.sourceLinks)}</div>
           </section>
           <section class="side-box">
-            <span class="tag">Tags</span>
+            <span class="tag">검색어</span>
             <h2>검색 키워드</h2>
             <div class="tag-row">${event.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
           </section>

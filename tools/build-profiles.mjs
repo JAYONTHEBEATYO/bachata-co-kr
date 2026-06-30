@@ -17,6 +17,11 @@ const escapeHtml = (value = "") => String(value)
 
 const profilePath = (profile) => `/profiles/${profile.id}.html`;
 const profileUrl = (profile) => `https://bachata.co.kr${profilePath(profile)}`;
+const statusLabel = (status = "") => ({
+  "source-verified": "공개 링크 확인",
+  "watch": "추가 확인 중",
+  "draft": "준비 중"
+}[status] || status);
 
 const videoEmbedUrl = (video = {}) => {
   const start = video.start ? `?start=${encodeURIComponent(video.start)}` : "";
@@ -29,7 +34,7 @@ const videoWatchUrl = (video = {}) => {
 };
 
 const renderVideo = (video) => {
-  if (!video?.id) return `<div class="no-video"><span class="tag">Video Needed</span><p>검증 가능한 공개 영상 링크를 확인하면 이 자리에 임베드합니다.</p></div>`;
+  if (!video?.id) return `<div class="no-video"><span class="tag">영상 준비 중</span><p>재생 가능한 공개 영상이 확인되면 이 자리에 연결합니다.</p></div>`;
   return `<div class="video-frame">
             <iframe loading="lazy" src="${videoEmbedUrl(video)}" title="${escapeHtml(video.title || "Bachata profile video")}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>`;
@@ -119,13 +124,13 @@ const styles = `    <style>
 
 const nav = `    <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="프로필 허브 이동">
+      <nav class="nav-links" aria-label="프로필 페이지 이동">
         <a href="/">홈</a>
         <a href="/profiles/">인물·팀</a>
         <a href="/styles/">스타일</a>
         <a href="/articles/">기사</a>
         <a href="/community/">커뮤니티</a>
-        <a href="/briefs/">브리프</a>
+        <a href="/briefs/">브리핑</a>
       </nav>
     </header>`;
 
@@ -150,8 +155,8 @@ const renderIndex = (data) => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://bachata.co.kr/profiles/",
-    "name": "바차타 인물·팀·장소 프로필 허브",
-    "description": "글로벌 바차타 댄서, Bachata Influence 계열, 한국 바차타 팀과 장소를 영상과 출처 중심으로 정리하는 프로필 허브.",
+    "name": "바차타 댄서·팀·장소 프로필",
+    "description": "글로벌 바차타 댄서, Bachata Influence 계열, 한국 바차타 팀과 장소를 영상과 공식 링크 중심으로 정리한 프로필.",
     "inLanguage": "ko-KR",
     "isPartOf": { "@id": "https://bachata.co.kr/#website" },
     "hasPart": data.profiles.map((profile) => ({ "@id": profileUrl(profile), "name": profile.title }))
@@ -166,7 +171,7 @@ const renderIndex = (data) => {
             <p>${escapeHtml(profile.subtitle)}</p>
           </div>
           <div>
-            <span class="status">${escapeHtml(profile.status)}</span>
+            <span class="status">${escapeHtml(statusLabel(profile.status))}</span>
             <div class="tag-row" style="margin-top:12px">${profile.tags.slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
             <div class="link-row" style="margin-top:14px"><a href="${profilePath(profile)}">프로필 보기</a></div>
           </div>
@@ -177,8 +182,8 @@ const renderIndex = (data) => {
       <div class="hero-grid">
         <div>
           <span class="eyebrow">People & Scene Profiles</span>
-          <h1>바차타 인물·팀·장소를 영상으로 쌓는 허브</h1>
-          <p>Melvin & Gatica, Emilien & Tehina, Gero & Migle, Luis & Andrea, Andi & Silvia부터 Gray & Loren, Cluny & Journey, 보니따, 에버라틴, 라틴씨엘로까지. 공개 영상과 출처 링크를 기준으로 프로필을 누적합니다.</p>
+          <h1>바차타 댄서·팀·장소 프로필</h1>
+          <p>Melvin & Gatica, Emilien & Tehina, Gero & Migle, Luis & Andrea, Andi & Silvia부터 Gray & Loren, Cluny & Journey, 보니따, 에버라틴, 라틴씨엘로까지. 공개 영상과 공식 링크를 기준으로 소개합니다.</p>
           <div class="quick-nav">
             ${data.categories.map((category) => `<a href="#${escapeHtml(category.id)}">${escapeHtml(category.title)}</a>`).join("")}
           </div>
@@ -205,8 +210,8 @@ const renderIndex = (data) => {
     </main>`;
 
   return layout({
-    title: "바차타 인물·팀·장소 프로필 허브 | Bachata Korea",
-    description: "글로벌 바차타 댄서, Bachata Influence 계열, 한국 바차타 팀과 장소를 영상과 출처 중심으로 정리하는 프로필 허브.",
+    title: "바차타 댄서·팀·장소 프로필 | 영상·공식 링크 정리",
+    description: "글로벌 바차타 댄서, Bachata Influence 계열, 한국 바차타 팀과 장소를 공개 영상과 공식 링크 중심으로 정리합니다.",
     canonical: "https://bachata.co.kr/profiles/",
     jsonLd,
     body
@@ -262,30 +267,30 @@ const renderProfile = (data, profile) => {
             ${profile.summary.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ")}
           </section>
           <section class="note-card">
-            <span class="tag">Editorial Angles</span>
-            <h2>이 프로필에서 볼 포인트</h2>
+            <span class="tag">볼 포인트</span>
+            <h2>먼저 확인할 정보</h2>
             <ul>${profile.angles.map((angle) => `<li>${escapeHtml(angle)}</li>`).join("")}</ul>
           </section>
           <section class="note-card">
-            <span class="tag">Video Note</span>
-            <h2>영상 임베드 기준</h2>
-            <p>재생 가능한 공개 YouTube 영상만 임베드합니다. 인스타그램 사진과 캡션은 무단 복제하지 않고 원본 링크만 보존합니다.</p>
+            <span class="tag">영상 안내</span>
+            <h2>연결한 영상 기준</h2>
+            <p>재생 가능한 공개 YouTube 영상만 연결합니다. 인스타그램 사진과 캡션은 옮겨 적지 않고 원본 링크만 남깁니다.</p>
           </section>
         </article>
         <aside class="side-stack" aria-label="프로필 출처와 관련 링크">
           <section class="side-box">
             <span class="tag">Profile</span>
             <h2>${escapeHtml(profile.location)}</h2>
-            <span class="status">${escapeHtml(profile.status)}</span>
+            <span class="status">${escapeHtml(statusLabel(profile.status))}</span>
             <div class="tag-row" style="margin-top:14px">${profile.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
           </section>
           <section class="side-box">
-            <span class="tag">Sources</span>
+            <span class="tag">참고 링크</span>
             <h2>출처</h2>
             <div class="link-row">${renderLinks(profile.sourceLinks)}</div>
           </section>
           <section class="side-box">
-            <span class="tag">Related</span>
+            <span class="tag">관련 글</span>
             <h2>이어 보기</h2>
             <div class="link-row">${renderLinks(profile.related)}${siblings}</div>
           </section>
@@ -294,7 +299,7 @@ const renderProfile = (data, profile) => {
     </main>`;
 
   return layout({
-    title: `${profile.title} | 바차타 프로필 허브`,
+    title: `${profile.title} | 바차타 프로필`,
     description: `${profile.title}: ${profile.subtitle}`,
     canonical: profileUrl(profile),
     jsonLd,

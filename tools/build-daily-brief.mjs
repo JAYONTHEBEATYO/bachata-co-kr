@@ -77,7 +77,7 @@ const topicNotes = {
     ]
   },
   "editorial-desk": {
-    dek: "기획 노트는 센슈얼, 도미니칸, 한국씬, 행사, 상품처럼 더 깊게 읽을 만한 주제를 골라 확장합니다.",
+    dek: "기획 노트는 센슈얼, 도미니칸, 국내 소식, 행사, 상품처럼 더 깊게 읽을 만한 주제를 골라 확장합니다.",
     questions: [
       "오늘은 센슈얼·도미니칸 같은 코어 콘텐츠를 보강할 차례인가, 한국 바차타 현장·행사·상품 같은 시의성 있는 글을 공개할 차례인가?",
       "함께 볼 영상, 내부 링크, 원문 출처가 모두 충분한 주제는 무엇인가?"
@@ -140,7 +140,7 @@ const publicTopicLabel = (label = "", id = "") => {
   const normalized = `${id} ${label}`.toLowerCase();
   if (normalized.includes("editorial")) return "기획 노트";
   if (normalized.includes("social")) return "소셜 소식";
-  if (normalized.includes("korea")) return "한국 바차타씬";
+  if (normalized.includes("korea")) return "한국 바차타 현장";
   if (normalized.includes("gear")) return "댄스화와 용품";
   if (normalized.includes("global")) return "글로벌 댄서";
   return label;
@@ -261,17 +261,17 @@ const renderBriefHtml = (signals) => {
   <body>
     <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="브리프 이동">
+      <nav class="nav-links" aria-label="브리핑 이동">
         <a href="/">홈</a>
         <a href="/articles/">기사</a>
         <a href="/styles/">스타일</a>
-        <a href="/korea-scene/">한국씬</a>
+        <a href="/korea-scene/">국내 소식</a>
         <a href="/community/">커뮤니티</a>
         <a href="/briefs/">리포트</a>
       </nav>
     </header>
     <section class="hero">
-      <span class="eyebrow">Daily Bachata Report</span>
+      <span class="eyebrow">오늘의 바차타 브리핑</span>
       <h1>${escapeHtml(title)}</h1>
       <p>오늘 확인한 바차타 영상, 행사, 소셜 포스트, 커뮤니티 흐름을 한국 독자가 읽기 좋은 맥락으로 묶었습니다. 원문을 복제하지 않고 링크와 해석 중심으로 소개합니다.</p>
       <div class="meta">
@@ -285,7 +285,7 @@ const renderBriefHtml = (signals) => {
       ${topics}
     </main>
     <footer class="footer">
-      <p><a href="/articles/">바차타 기사</a> · <a href="/styles/">스타일 허브</a> · <a href="/korea-scene/">한국 바차타씬</a> · <a href="/community/">커뮤니티</a></p>
+      <p><a href="/articles/">바차타 기사</a> · <a href="/styles/">스타일 가이드</a> · <a href="/korea-scene/">국내 소식</a> · <a href="/community/">커뮤니티</a></p>
     </footer>
   </body>
 </html>
@@ -334,7 +334,7 @@ const renderBriefIndex = async (signals) => {
     <main>
       <a class="back" href="/">← 바차타 코리아 홈</a>
       <h1>바차타 리포트</h1>
-      <p>매일 새로 확인한 영상과 공개 링크를 짧게 묶은 리포트입니다. 깊게 읽을 주제는 기사와 스타일 허브로 이어집니다.</p>
+      <p>새로 확인한 영상과 공개 링크를 짧게 묶은 리포트입니다. 자세히 볼 주제는 기사와 스타일 가이드로 이어집니다.</p>
       <p><a class="back" href="/articles/">영구 기사 라이브러리 보기</a></p>
       <ul>${items}</ul>
     </main>
