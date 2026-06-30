@@ -69,7 +69,7 @@ const inferFormatId = (item, config) => {
   if (relatedUrl.startsWith("/gear/")) return "gear";
   if (relatedUrl.startsWith("/community/") || relatedUrl.startsWith("/submit/")) return "community";
 
-  if (item.type === "instagram-hashtag") return "brief";
+  if (item.type === "instagram-hashtag" || item.type === "instagram-hashtag-media") return "brief";
   if (item.type === "youtube") return "learning";
   return "brief";
 };
@@ -199,7 +199,7 @@ const collectSignalItems = (signals, config, healthIndex) => {
   const items = [];
   for (const topic of signals.topics || []) {
     for (const candidate of topic.candidates || []) {
-      if (!["editorial-queue", "youtube", "naver"].includes(candidate.type)) continue;
+      if (!["editorial-queue", "youtube", "youtube-search", "naver", "naver-blog", "instagram-hashtag-media"].includes(candidate.type)) continue;
       items.push(normalizeItem({
         ...candidate,
         id: candidate.id || `${topic.id}-${candidate.type}-${candidate.videoId || candidate.id || slug(candidate.title)}`,

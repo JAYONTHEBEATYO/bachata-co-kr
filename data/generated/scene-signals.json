@@ -1,11 +1,14 @@
 {
-  "generatedAt": "2026-06-30T13:31:08.360Z",
+  "generatedAt": "2026-06-30T14:01:23.460Z",
   "generationDate": "2026-06-30",
   "mode": {
     "youtubeApi": false,
     "naverApi": false,
-    "instagramGraph": false
+    "instagramGraph": false,
+    "instagramHashtagSearch": false,
+    "instagramApiVersion": "v21.0"
   },
+  "diagnostics": [],
   "editorialPrinciples": [
     "Use official APIs or public feeds where possible.",
     "Keep source URLs with every candidate.",

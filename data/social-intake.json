@@ -193,6 +193,7 @@
   "channelWeights": {
     "instagram-watch": 18,
     "instagram-hashtag": 10,
+    "instagram-hashtag-media": 22,
     "editorial-queue": 24,
     "youtube": 16,
     "naver": 14,

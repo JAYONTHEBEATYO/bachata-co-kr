@@ -57,3 +57,16 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `desk/`: generated editorial queue and publishing desk pages
 - `gear/`: generated dance shoes and gear comparison pages
 - `health/`: generated public source health dashboard
+
+## Daily Automation Settings
+
+The scheduled workflow runs every day at `05:10` Korea time. It works without secrets by using editor-managed seeds, YouTube oEmbed validation, and the internal watchlist. Add the following repository settings when official APIs are ready:
+
+- `YOUTUBE_API_KEY`: enables fresh YouTube search candidates for each topic.
+- `NAVER_CLIENT_ID` and `NAVER_CLIENT_SECRET`: enables fresh Naver blog/news search candidates.
+- `INSTAGRAM_GRAPH_TOKEN`: enables the sanctioned Instagram Graph API path.
+- `INSTAGRAM_BUSINESS_ACCOUNT_ID`: required with `INSTAGRAM_GRAPH_TOKEN` for hashtag recent media collection.
+- `INSTAGRAM_GRAPH_API_VERSION`: optional repository variable, defaults to `v21.0`.
+- `INSTAGRAM_HASHTAG_LIMIT`: optional repository variable, defaults to `8` and is capped at `30` to respect Instagram hashtag search limits.
+
+Instagram collection is intentionally not a public scraper. When Graph credentials are missing, the site still publishes a daily brief from official links, YouTube, Naver, and the editor watchlist. When Graph credentials are present, recent hashtag media is added to `data/generated/scene-signals.json` as `instagram-hashtag-media` and routed into `/intake/` for editorial review.

@@ -12,8 +12,12 @@ const now = new Date();
 const today = now.toISOString().slice(0, 10);
 const youtubeKey = process.env.YOUTUBE_API_KEY || "";
 const instagramToken = process.env.INSTAGRAM_GRAPH_TOKEN || "";
+const instagramBusinessAccountId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || process.env.INSTAGRAM_IG_USER_ID || "";
+const instagramApiVersion = process.env.INSTAGRAM_GRAPH_API_VERSION || "v21.0";
+const instagramHashtagLimit = Number.parseInt(process.env.INSTAGRAM_HASHTAG_LIMIT || "8", 10);
 const naverClientId = process.env.NAVER_CLIENT_ID || "";
 const naverClientSecret = process.env.NAVER_CLIENT_SECRET || "";
+const diagnostics = [];
 
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
 
@@ -113,7 +117,76 @@ const checkInstagramReady = () => {
   }];
 };
 
-const buildSocialRadarTopic = (socialRadar) => {
+const trimText = (value = "", max = 140) => {
+  const text = String(value).replace(/\s+/g, " ").trim();
+  return text.length > max ? `${text.slice(0, max - 1)}…` : text;
+};
+
+const fetchInstagramGraph = async (path, params = {}) => {
+  const url = new URL(`https://graph.facebook.com/${instagramApiVersion}/${path.replace(/^\/+/, "")}`);
+  for (const [key, value] of Object.entries(params)) {
+    if (value !== undefined && value !== null && value !== "") url.searchParams.set(key, value);
+  }
+  url.searchParams.set("access_token", instagramToken);
+  return fetchJson(url);
+};
+
+const searchInstagramHashtag = async (hashtag) => {
+  if (!instagramToken || !instagramBusinessAccountId) return [];
+
+  try {
+    const search = await fetchInstagramGraph("ig_hashtag_search", {
+      user_id: instagramBusinessAccountId,
+      q: hashtag.tag
+    });
+    const hashtagId = search.data?.[0]?.id;
+    if (!hashtagId) return [];
+
+    const media = await fetchInstagramGraph(`${hashtagId}/recent_media`, {
+      user_id: instagramBusinessAccountId,
+      fields: "id,caption,media_type,media_url,permalink,timestamp,username",
+      limit: hashtag.cadence === "daily" ? 5 : 3
+    });
+
+    return (media.data || []).map((item) => ({
+      type: "instagram-hashtag-media",
+      id: item.id,
+      title: `#${hashtag.tag} · ${item.username || "Instagram"} · ${trimText(item.caption || hashtag.intent, 72)}`,
+      sourceUrl: item.permalink,
+      publishedAt: item.timestamp,
+      username: item.username,
+      mediaType: item.media_type,
+      tag: hashtag.tag,
+      role: "hashtag",
+      cadence: hashtag.cadence,
+      evidence: [hashtag.intent, trimText(item.caption || "", 160)].filter(Boolean),
+      scoreBoost: hashtag.cadence === "daily" ? 74 : 60
+    }));
+  } catch (error) {
+    diagnostics.push({
+      type: "instagram-hashtag-error",
+      tag: hashtag.tag,
+      message: error.message
+    });
+    return [];
+  }
+};
+
+const collectInstagramHashtagSignals = async (socialRadar) => {
+  if (!socialRadar?.hashtags?.length || !instagramToken || !instagramBusinessAccountId) return [];
+
+  const limit = Number.isFinite(instagramHashtagLimit) && instagramHashtagLimit > 0
+    ? Math.min(instagramHashtagLimit, 30)
+    : 8;
+  const hashtags = [...socialRadar.hashtags]
+    .sort((a, b) => (a.cadence === "daily" ? -1 : 1) - (b.cadence === "daily" ? -1 : 1))
+    .slice(0, limit);
+
+  const settled = await Promise.all(hashtags.map(searchInstagramHashtag));
+  return settled.flat();
+};
+
+const buildSocialRadarTopic = (socialRadar, instagramMedia = []) => {
   if (!socialRadar?.watchlists?.length) return null;
 
   const accountCandidates = socialRadar.watchlists.flatMap((watchlist) => (
@@ -143,10 +216,10 @@ const buildSocialRadarTopic = (socialRadar) => {
     scoreBoost: 82
   }] : [];
 
-  const candidates = [...graphSignal, ...accountCandidates, ...hashtagCandidates]
+  const candidates = [...instagramMedia, ...graphSignal, ...accountCandidates, ...hashtagCandidates]
     .map((candidate) => ({
       ...candidate,
-      score: candidate.scoreBoost + (candidate.type === "instagram-watch" ? 18 : 10)
+      score: candidate.scoreBoost + (candidate.type === "instagram-watch" ? 18 : candidate.type === "instagram-hashtag-media" ? 24 : 10)
     }))
     .sort((a, b) => b.score - a.score);
 
@@ -208,6 +281,7 @@ const main = async () => {
   const sourceMap = await readJson(sourcesPath);
   const socialRadar = await readOptionalJson(socialRadarPath);
   const editorialDesk = await readOptionalJson(editorialDeskPath);
+  const instagramMedia = await collectInstagramHashtagSignals(socialRadar);
   const topics = [];
 
   for (const topic of sourceMap.topics) {
@@ -241,7 +315,7 @@ const main = async () => {
     });
   }
 
-  const socialRadarTopic = buildSocialRadarTopic(socialRadar);
+  const socialRadarTopic = buildSocialRadarTopic(socialRadar, instagramMedia);
   if (socialRadarTopic) {
     topics.push(socialRadarTopic);
   }
@@ -257,8 +331,11 @@ const main = async () => {
     mode: {
       youtubeApi: Boolean(youtubeKey),
       naverApi: Boolean(naverClientId && naverClientSecret),
-      instagramGraph: Boolean(instagramToken)
+      instagramGraph: Boolean(instagramToken),
+      instagramHashtagSearch: Boolean(instagramToken && instagramBusinessAccountId),
+      instagramApiVersion
     },
+    diagnostics,
     editorialPrinciples: sourceMap.editorialPrinciples,
     topics
   };
