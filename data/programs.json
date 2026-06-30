@@ -47,11 +47,25 @@
         }
       ],
       "related": [
-        { "label": "오늘 브리프", "url": "/briefs/" },
-        { "label": "커뮤니티 보드", "url": "/community/" },
-        { "label": "소셜 레이더", "url": "/radar/" }
+        {
+          "label": "오늘 브리프",
+          "url": "/briefs/"
+        },
+        {
+          "label": "커뮤니티 보드",
+          "url": "/community/"
+        },
+        {
+          "label": "소셜 레이더",
+          "url": "/radar/"
+        }
       ],
-      "keywords": ["바차타 입문", "바차타 기본스텝", "바차타 소셜", "bachata beginner"]
+      "keywords": [
+        "바차타 입문",
+        "바차타 기본스텝",
+        "바차타 소셜",
+        "bachata beginner"
+      ]
     },
     {
       "id": "sensual-fundamentals",
@@ -90,14 +104,34 @@
           "type": "Profile",
           "description": "공식 설명과 커뮤니티 정리를 분리해서 출처 기반으로 확인합니다.",
           "url": "/profiles/korke-judith.html"
+        },
+        {
+          "title": "공식·커뮤니티·영상 교차검증 노트",
+          "type": "Source",
+          "description": "Bachata Sensual 공식 설명, Reddit 16 fundamentals 타임스탬프, Korke & Judith 공개 영상의 역할을 분리해 읽습니다.",
+          "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html"
         }
       ],
       "related": [
-        { "label": "센슈얼 허브", "url": "/styles/sensual.html" },
-        { "label": "소셜 레이더", "url": "/radar/" },
-        { "label": "오늘 브리프", "url": "/briefs/" }
+        {
+          "label": "센슈얼 허브",
+          "url": "/styles/sensual.html"
+        },
+        {
+          "label": "소셜 레이더",
+          "url": "/radar/"
+        },
+        {
+          "label": "오늘 브리프",
+          "url": "/briefs/"
+        }
       ],
-      "keywords": ["센슈얼 바차타", "코르케 주디스", "Korke Judith", "Bachata Sensual 16 fundamentals"]
+      "keywords": [
+        "센슈얼 바차타",
+        "코르케 주디스",
+        "Korke Judith",
+        "Bachata Sensual 16 fundamentals"
+      ]
     },
     {
       "id": "dominican-rhythm",
@@ -135,14 +169,34 @@
           "type": "Radar",
           "description": "페스티벌과 워크숍 공지를 보며 도미니칸/전통 바차타 수업 신호를 찾습니다.",
           "url": "/events/"
+        },
+        {
+          "title": "도미니칸 허브에서 관련 콘텐츠 이어 보기",
+          "type": "Style",
+          "description": "리듬 기사, 풋워크 영상, 역사 출처, 한국 행사 신호가 한 페이지에서 이어지도록 허브를 확인합니다.",
+          "url": "/styles/dominican.html"
         }
       ],
       "related": [
-        { "label": "도미니칸 허브", "url": "/styles/dominican.html" },
-        { "label": "행사 레이더", "url": "/events/" },
-        { "label": "오늘 브리프", "url": "/briefs/" }
+        {
+          "label": "도미니칸 허브",
+          "url": "/styles/dominican.html"
+        },
+        {
+          "label": "행사 레이더",
+          "url": "/events/"
+        },
+        {
+          "label": "오늘 브리프",
+          "url": "/briefs/"
+        }
       ],
-      "keywords": ["도미니칸 바차타", "바차타 풋워크", "bachata footwork", "bachata syncopation"]
+      "keywords": [
+        "도미니칸 바차타",
+        "바차타 풋워크",
+        "bachata footwork",
+        "bachata syncopation"
+      ]
     },
     {
       "id": "influence-method",
@@ -183,11 +237,25 @@
         }
       ],
       "related": [
-        { "label": "Influence 허브", "url": "/styles/influence.html" },
-        { "label": "Gangnam Latin Festival", "url": "/events/gangnam-latin-festival-2026.html" },
-        { "label": "소셜 레이더", "url": "/radar/" }
+        {
+          "label": "Influence 허브",
+          "url": "/styles/influence.html"
+        },
+        {
+          "label": "Gangnam Latin Festival",
+          "url": "/events/gangnam-latin-festival-2026.html"
+        },
+        {
+          "label": "소셜 레이더",
+          "url": "/radar/"
+        }
       ],
-      "keywords": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "바차타 인플루언스"]
+      "keywords": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Emilien Tehina",
+        "바차타 인플루언스"
+      ]
     },
     {
       "id": "bachazouk-safety",
@@ -228,11 +296,25 @@
         }
       ],
       "related": [
-        { "label": "Bachazouk 허브", "url": "/styles/bachazouk.html" },
-        { "label": "센슈얼 허브", "url": "/styles/sensual.html" },
-        { "label": "기사 라이브러리", "url": "/articles/" }
+        {
+          "label": "Bachazouk 허브",
+          "url": "/styles/bachazouk.html"
+        },
+        {
+          "label": "센슈얼 허브",
+          "url": "/styles/sensual.html"
+        },
+        {
+          "label": "기사 라이브러리",
+          "url": "/articles/"
+        }
       ],
-      "keywords": ["Bachazouk", "BachaZouk", "Brazilian Zouk", "바차주크"]
+      "keywords": [
+        "Bachazouk",
+        "BachaZouk",
+        "Brazilian Zouk",
+        "바차주크"
+      ]
     },
     {
       "id": "korea-social-intelligence",
@@ -273,11 +355,27 @@
         }
       ],
       "related": [
-        { "label": "소셜 레이더", "url": "/radar/" },
-        { "label": "행사 레이더", "url": "/events/" },
-        { "label": "커뮤니티 보드", "url": "/community/" }
+        {
+          "label": "소셜 레이더",
+          "url": "/radar/"
+        },
+        {
+          "label": "행사 레이더",
+          "url": "/events/"
+        },
+        {
+          "label": "커뮤니티 보드",
+          "url": "/community/"
+        }
       ],
-      "keywords": ["한국 바차타", "서울 바차타", "바차타 소셜", "라틴씨엘로", "에버라틴", "보니따"]
+      "keywords": [
+        "한국 바차타",
+        "서울 바차타",
+        "바차타 소셜",
+        "라틴씨엘로",
+        "에버라틴",
+        "보니따"
+      ]
     }
   ]
 }

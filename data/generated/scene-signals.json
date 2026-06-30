@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T13:00:08.782Z",
+  "generatedAt": "2026-06-30T13:31:08.360Z",
   "generationDate": "2026-06-30",
   "mode": {
     "youtubeApi": false,
@@ -183,9 +183,13 @@
         "그레이 로렌 바차타",
         "클루니 바차타",
         "홍대 보니따 바차타",
-        "에버라틴 바차타"
+        "에버라틴 바차타",
+        "Last Dance bachata Korea",
+        "lastdance_people",
+        "라스트댄스 바차타",
+        "라스트댄스 보니따"
       ],
-      "candidateCount": 3,
+      "candidateCount": 7,
       "candidates": [
         {
           "type": "youtube",
@@ -213,6 +217,42 @@
           "embedUrl": "https://www.youtube-nocookie.com/embed/gDtOwUqeWKw",
           "scoreBoost": 25,
           "score": 70
+        },
+        {
+          "type": "youtube",
+          "id": "0Yytf9NKtfQ",
+          "title": "Dani & Ember  BACHATA Social INFLUENCE 데니 &  엠버(라스트댄스) 바차타  - 보니따 2026.04.08",
+          "sourceUrl": "https://www.youtube.com/watch?v=0Yytf9NKtfQ",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/0Yytf9NKtfQ",
+          "scoreBoost": 25,
+          "score": 70
+        },
+        {
+          "type": "youtube",
+          "id": "Yi0I7pHbi08",
+          "title": "바차타 소셜패턴2  A팀    솔 꽃님 밀라  레벨업 파티 라스트댄스 Last Dance - 보니따 2026.04.26",
+          "sourceUrl": "https://www.youtube.com/watch?v=Yi0I7pHbi08",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/Yi0I7pHbi08",
+          "scoreBoost": 25,
+          "score": 70
+        },
+        {
+          "type": "youtube",
+          "id": "XdbUdskS-Ds",
+          "title": "바차타 기초 심화    와플,밀라 : 지크,소피 레벨업 파티 라스트댄스 Last Dance - 보니따 2026.04.26",
+          "sourceUrl": "https://www.youtube.com/watch?v=XdbUdskS-Ds",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/XdbUdskS-Ds",
+          "scoreBoost": 25,
+          "score": 60
+        },
+        {
+          "type": "youtube",
+          "id": "4BwmF3jNiLE",
+          "title": "바차타 소셜패턴2 B팀    솔 꽃님 밀라 레벨업 파티 라스트댄스 Last Dance - 보니따 2026.04.26",
+          "sourceUrl": "https://www.youtube.com/watch?v=4BwmF3jNiLE",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/4BwmF3jNiLE",
+          "scoreBoost": 25,
+          "score": 60
         }
       ]
     },
@@ -249,7 +289,7 @@
         "bachata Korea",
         "bachata event"
       ],
-      "candidateCount": 23,
+      "candidateCount": 24,
       "candidates": [
         {
           "type": "instagram-watch",
@@ -323,6 +363,16 @@
         },
         {
           "type": "instagram-watch",
+          "title": "Last Dance @lastdance_people",
+          "sourceUrl": "https://www.instagram.com/lastdance_people/",
+          "relatedUrl": "/profiles/lastdance-people.html",
+          "role": "club",
+          "watchlist": "한국 팀·동호회·장소",
+          "scoreBoost": 92,
+          "score": 110
+        },
+        {
+          "type": "instagram-watch",
           "title": "Melvin & Gatica @melvin_gatica_bachata",
           "sourceUrl": "https://www.instagram.com/melvin_gatica_bachata/",
           "relatedUrl": "/profiles/melvin-gatica.html",
@@ -356,16 +406,6 @@
           "title": "Andi & Silvia @andiysilviabs",
           "sourceUrl": "https://www.instagram.com/andiysilviabs/",
           "relatedUrl": "/profiles/andi-silvia.html",
-          "role": "artist",
-          "watchlist": "글로벌 메소드·댄서",
-          "scoreBoost": 88,
-          "score": 106
-        },
-        {
-          "type": "instagram-watch",
-          "title": "Cristian & Gabriella @cristianygabriella",
-          "sourceUrl": "https://www.instagram.com/cristianygabriella/",
-          "relatedUrl": "/profiles/cristian-gabriella.html",
           "role": "artist",
           "watchlist": "글로벌 메소드·댄서",
           "scoreBoost": 88,

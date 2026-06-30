@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-30T13:00:38.412Z",
+  "generatedAt": "2026-06-30T13:32:01.647Z",
   "generationDate": "2026-06-30",
   "summary": {
-    "total": 141,
-    "ok": 121,
-    "watch": 20,
+    "total": 159,
+    "ok": 138,
+    "watch": 21,
     "warn": 0,
     "broken": 0
   },
@@ -231,6 +231,28 @@
     },
     {
       "type": "external",
+      "url": "https://www.instagram.com/lastdance_people/",
+      "label": "https://www.instagram.com/lastdance_people/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.6"
+        },
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.1.accounts.4.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.sourceLinks.0.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
       "url": "https://www.instagram.com/latin_cielo/",
       "label": "https://www.instagram.com/latin_cielo/",
       "sources": [
@@ -349,6 +371,24 @@
     },
     {
       "type": "external",
+      "url": "https://www.instagram.com/reel/DZQl2JvT1y2/",
+      "label": "https://www.instagram.com/reel/DZQl2JvT1y2/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.12"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.sourceLinks.4.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
       "url": "https://www.instagram.com/sarapanero/",
       "label": "https://www.instagram.com/sarapanero/",
       "sources": [
@@ -429,29 +469,21 @@
     },
     {
       "type": "external",
-      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "url": "https://academy.bachatasensual.com/",
+      "label": "https://academy.bachatasensual.com/",
       "sources": [
         {
-          "file": "data/social-intake.json",
-          "path": "sourcePolicy.4.sourceUrl"
-        },
-        {
           "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.1.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.3.sourceLinks.1.url"
+          "path": "guides.0.sourceLinks.7.url"
         },
         {
           "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.1.url"
+          "path": "articles.1.sourceLinks.7.url"
         }
       ],
-      "status": "watch",
-      "httpStatus": 403,
-      "note": "external URL needs manual review"
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
     },
     {
       "type": "external",
@@ -729,6 +761,24 @@
     },
     {
       "type": "external",
+      "url": "https://gooutdancing.com/pro/korke-judith/",
+      "label": "https://gooutdancing.com/pro/korke-judith/",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.6.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.6.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
       "url": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514",
       "label": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514",
       "sources": [
@@ -821,6 +871,24 @@
         {
           "file": "data/events.json",
           "path": "radar.2.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://vdanceclub.com/instructors/judith-cordero/",
+      "label": "https://vdanceclub.com/instructors/judith-cordero/",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.5.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.5.url"
         }
       ],
       "status": "ok",
@@ -981,6 +1049,10 @@
       "label": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
       "sources": [
         {
+          "file": "data/style-guides.json",
+          "path": "guides.1.sourceLinks.6.url"
+        },
+        {
           "file": "data/articles.json",
           "path": "articles.2.sourceLinks.2.url"
         }
@@ -1037,6 +1109,54 @@
         {
           "file": "data/gear.json",
           "path": "products.3.links.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.4.sourceUrl"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.3.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://www.threads.com/%40lastdance_people?hl=ko",
+      "label": "https://www.threads.com/%40lastdance_people?hl=ko",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.7"
+        },
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.1.sourceLinks.2.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -1263,6 +1383,10 @@
         {
           "file": "data/programs.json",
           "path": "programs.1.modules.1.url"
+        },
+        {
+          "file": "data/programs.json",
+          "path": "programs.1.modules.4.url"
         },
         {
           "file": "data/style-guides.json",
@@ -1649,6 +1773,38 @@
     },
     {
       "type": "internal",
+      "url": "/intake/",
+      "label": "/intake/",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.related.6.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.contentDrops.4.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/korea-scene/",
+      "label": "/korea-scene/",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.related.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
       "url": "/profiles/",
       "label": "/profiles/",
       "sources": [
@@ -1707,6 +1863,10 @@
         {
           "file": "data/social-radar.json",
           "path": "watchlists.1.accounts.2.relatedUrl"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.related.2.url"
         }
       ],
       "status": "ok",
@@ -1833,6 +1993,20 @@
         {
           "file": "data/style-guides.json",
           "path": "guides.0.contentDrops.3.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/profiles/lastdance-people.html",
+      "label": "/profiles/lastdance-people.html",
+      "sources": [
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.1.accounts.4.relatedUrl"
         }
       ],
       "status": "ok",
@@ -2031,6 +2205,24 @@
         {
           "file": "data/programs.json",
           "path": "programs.5.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.related.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/styles/",
+      "label": "/styles/",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.5.sourceUrl"
         }
       ],
       "status": "ok",
@@ -2071,6 +2263,10 @@
         {
           "file": "data/programs.json",
           "path": "programs.2.modules.2.url"
+        },
+        {
+          "file": "data/programs.json",
+          "path": "programs.2.modules.4.url"
         },
         {
           "file": "data/programs.json",
@@ -2117,6 +2313,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.10.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.related.3.url"
         }
       ],
       "status": "ok",
@@ -2217,6 +2417,34 @@
     },
     {
       "type": "youtube",
+      "videoId": "0Yytf9NKtfQ",
+      "url": "https://www.youtube.com/watch?v=0Yytf9NKtfQ",
+      "label": "https://www.youtube.com/watch?v=0Yytf9NKtfQ",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.8"
+        },
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.1.sourceLinks.3.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Dani & Ember  BACHATA Social INFLUENCE 데니 &  엠버(라스트댄스) 바차타  - 보니따 2026.04.08",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
       "videoId": "2lygAoTSk1Y",
       "url": "https://www.youtube.com/watch?v=2lygAoTSk1Y",
       "label": "https://www.youtube.com/watch?v=2lygAoTSk1Y",
@@ -2233,6 +2461,22 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Emilio & Serap Bachata Couple give us their take about all their dance floor secrets - Episode 2",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "4BwmF3jNiLE",
+      "url": "https://www.youtube.com/watch?v=4BwmF3jNiLE",
+      "label": "https://www.youtube.com/watch?v=4BwmF3jNiLE",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.10"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 소셜패턴2 B팀    솔 꽃님 밀라 레벨업 파티 라스트댄스 Last Dance - 보니따 2026.04.26",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -2517,6 +2761,22 @@
     },
     {
       "type": "youtube",
+      "videoId": "FSP1AXI_gxQ",
+      "url": "https://www.youtube.com/watch?v=FSP1AXI_gxQ",
+      "label": "Korke & Judith fundamentals archive",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.watchlist.4.videoId"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "KISF 2016 Korky & Judith - Bachata Sensual fundamentals",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
       "videoId": "FtcPRwVIdNk",
       "url": "https://www.youtube.com/watch?v=FtcPRwVIdNk",
       "label": "https://www.youtube.com/watch?v=FtcPRwVIdNk",
@@ -2673,6 +2933,34 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "바차타공연 | 라틴 씨엘로 by 소라 & 달콩 Bachata Latin Cielo - 강남클럽 라틴",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "HL1qRQav8OE",
+      "url": "https://www.youtube.com/watch?v=HL1qRQav8OE",
+      "label": "Bachata Sensual Top 6 Mistakes",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.watchlist.3.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.8.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.watchlist.2.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.8.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "🔥 Bachata Sensual : Top 6 Mistakes and How to Fix Them 💃🕺🏻",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -3033,6 +3321,30 @@
     },
     {
       "type": "youtube",
+      "videoId": "vaiSaxgn-cU",
+      "url": "https://www.youtube.com/watch?v=vaiSaxgn-cU",
+      "label": "Dominican Footwork & Partnerwork",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.1.watchlist.4.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.1.sourceLinks.8.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.2.sourceLinks.6.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Dominican Bachata Footwork & Partnerwork - Demetrio & Nicole - Bachata Dance Academy",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
       "videoId": "vs3YqyTyOIo",
       "url": "https://www.youtube.com/watch?v=vs3YqyTyOIo",
       "label": "Korke y Judith Bachata Sensual Course Preview",
@@ -3065,6 +3377,26 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "XdbUdskS-Ds",
+      "url": "https://www.youtube.com/watch?v=XdbUdskS-Ds",
+      "label": "https://www.youtube.com/watch?v=XdbUdskS-Ds",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.9"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.15.sourceLinks.3.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 기초 심화    와플,밀라 : 지크,소피 레벨업 파티 라스트댄스 Last Dance - 보니따 2026.04.26",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -3133,6 +3465,50 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Dominican Bachata Footwork - Beginner Basics - No Partner Needed - Bachata Dance Academy",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "xQ1XLqo_Aqc",
+      "url": "https://www.youtube.com/watch?v=xQ1XLqo_Aqc",
+      "label": "Dominican Bachata Basic Steps Footwork",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.1.watchlist.3.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.1.sourceLinks.7.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.2.watchlist.2.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.2.sourceLinks.5.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Dominican Bachata Basic Steps Footwork | How to Dance Bachata | Bachata Dominicana Tutorial",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "Yi0I7pHbi08",
+      "url": "https://www.youtube.com/watch?v=Yi0I7pHbi08",
+      "label": "https://www.youtube.com/watch?v=Yi0I7pHbi08",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.11"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 소셜패턴2  A팀    솔 꽃님 밀라  레벨업 파티 라스트댄스 Last Dance - 보니따 2026.04.26",
       "note": "YouTube oEmbed ok"
     },
     {

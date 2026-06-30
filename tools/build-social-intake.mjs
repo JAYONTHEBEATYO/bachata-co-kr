@@ -279,14 +279,13 @@ const renderQueueItem = (item, formats) => {
   ].filter(Boolean).join("");
 
   return `<article class="queue-card">
-          ${embed}
-          <div class="queue-body">
+          ${embed ? `${embed}
+          ` : ""}<div class="queue-body">
             <div class="meta-row">
               <span>${escapeHtml(item.type)}</span>
               <span>${escapeHtml(format?.label || item.formatId)}</span>
               <span>${escapeHtml(item.stageLabel)}</span>
               <span class="health-${escapeHtml(item.healthStatus)}">${escapeHtml(item.healthStatus)}</span>
-              <span>score ${escapeHtml(item.score)}</span>
             </div>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.beat || item.searchIntent || item.healthNote || "편집자가 원본과 관련 페이지를 확인해 발행 포맷을 결정합니다.")}</p>

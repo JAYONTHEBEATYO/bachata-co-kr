@@ -11,7 +11,14 @@
     {
       "id": "bachata-influence",
       "label": "Bachata Influence",
-      "keywords": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "Emilio Serap", "Serap Kocaboy", "Influence Academy"],
+      "keywords": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Emilien Tehina",
+        "Emilio Serap",
+        "Serap Kocaboy",
+        "Influence Academy"
+      ],
       "sources": [
         "https://bachatainfluenceacademy.com/",
         "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1",
@@ -30,7 +37,12 @@
     {
       "id": "bachazouk",
       "label": "Bachazouk",
-      "keywords": ["Bachazouk", "BachaZouk", "bachata zouk", "Brazilian Zouk bachata"],
+      "keywords": [
+        "Bachazouk",
+        "BachaZouk",
+        "bachata zouk",
+        "Brazilian Zouk bachata"
+      ],
       "sources": [
         "https://www.bachazouk.com/",
         "https://www.bachazouk.com/posts/what-is-bachazouk",
@@ -41,7 +53,15 @@
     {
       "id": "global-dancers",
       "label": "Global Dancers",
-      "keywords": ["Gero Migle", "Luis Andrea bachata", "Andi Silvia bachata", "Korke Judith bachata", "Cristian Gabriella bachata", "Klau Ros bachata", "Sara Panero bachata"],
+      "keywords": [
+        "Gero Migle",
+        "Luis Andrea bachata",
+        "Andi Silvia bachata",
+        "Korke Judith bachata",
+        "Cristian Gabriella bachata",
+        "Klau Ros bachata",
+        "Sara Panero bachata"
+      ],
       "sources": [
         "https://www.geroymigle.com/",
         "https://www.youtube.com/watch?v=j4CmXKDCMzI",
@@ -64,20 +84,43 @@
     {
       "id": "korea-scene",
       "label": "Korea Scene",
-      "keywords": ["바차타", "그레이 로렌 바차타", "클루니 바차타", "홍대 보니따 바차타", "에버라틴 바차타"],
+      "keywords": [
+        "바차타",
+        "그레이 로렌 바차타",
+        "클루니 바차타",
+        "홍대 보니따 바차타",
+        "에버라틴 바차타",
+        "Last Dance bachata Korea",
+        "lastdance_people",
+        "라스트댄스 바차타",
+        "라스트댄스 보니따"
+      ],
       "sources": [
         "https://www.youtube.com/watch?v=nrJM-arshvE",
         "https://www.youtube.com/watch?v=w_uCz9JkRfE",
         "https://www.youtube.com/watch?v=gDtOwUqeWKw",
         "https://everlatin.com/",
         "https://www.instagram.com/jessica_latinclub_bonita/",
-        "https://www.instagram.com/clublatin_everlatin/"
+        "https://www.instagram.com/clublatin_everlatin/",
+        "https://www.instagram.com/lastdance_people/",
+        "https://www.threads.com/%40lastdance_people?hl=ko",
+        "https://www.youtube.com/watch?v=0Yytf9NKtfQ",
+        "https://www.youtube.com/watch?v=XdbUdskS-Ds",
+        "https://www.youtube.com/watch?v=4BwmF3jNiLE",
+        "https://www.youtube.com/watch?v=Yi0I7pHbi08",
+        "https://www.instagram.com/reel/DZQl2JvT1y2/"
       ]
     },
     {
       "id": "gear-market",
       "label": "Gear & Market",
-      "keywords": ["bachata dance shoes", "Fuego dance shoes", "Pana Mio dance shoes", "On1 dance shoes", "Pulse dance shoes"],
+      "keywords": [
+        "bachata dance shoes",
+        "Fuego dance shoes",
+        "Pana Mio dance shoes",
+        "On1 dance shoes",
+        "Pulse dance shoes"
+      ],
       "sources": [
         "https://fuegodance.com/collections/bachata",
         "https://fuegodance.com/pages/technology",

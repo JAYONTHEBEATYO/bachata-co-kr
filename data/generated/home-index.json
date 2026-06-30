@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-30T13:09:32.995Z",
+  "generatedAt": "2026-06-30T13:36:46.139Z",
   "updatedAt": "2026-06-30",
   "latestBrief": {
     "url": "/briefs/2026-06-30.html",
-    "candidateCount": 46,
+    "candidateCount": 51,
     "generationDate": "2026-06-30"
   },
   "sourceHealth": {
-    "total": 141,
-    "ok": 121,
-    "watch": 20,
+    "total": 159,
+    "ok": 138,
+    "watch": 21,
     "warn": 0,
     "broken": 0
   },

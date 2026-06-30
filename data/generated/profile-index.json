@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T13:00:10.237Z",
+  "generatedAt": "2026-06-30T13:31:18.476Z",
   "updatedAt": "2026-06-30",
   "categories": [
     {
@@ -232,6 +232,21 @@
         "Latin Cielo",
         "한국 바차타",
         "Performance"
+      ]
+    },
+    {
+      "id": "lastdance-people",
+      "category": "korea-scene",
+      "title": "라스트댄스",
+      "url": "/profiles/lastdance-people.html",
+      "status": "source-verified",
+      "heroVideo": "0Yytf9NKtfQ",
+      "tags": [
+        "라스트댄스",
+        "Last Dance",
+        "한국 바차타",
+        "2030 동호회",
+        "홍대 보니따"
       ]
     }
   ]

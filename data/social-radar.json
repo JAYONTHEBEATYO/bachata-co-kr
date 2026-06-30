@@ -27,13 +27,41 @@
     }
   },
   "hashtags": [
-    { "tag": "바차타", "intent": "한국어 핵심 키워드", "cadence": "daily" },
-    { "tag": "bachata", "intent": "글로벌 바차타 기본 태그", "cadence": "daily" },
-    { "tag": "bachatasensual", "intent": "센슈얼 바차타 흐름", "cadence": "daily" },
-    { "tag": "bachatainfluence", "intent": "Bachata Influence 계열", "cadence": "daily" },
-    { "tag": "koreabachata", "intent": "한국 바차타 영어 신호", "cadence": "weekly" },
-    { "tag": "seoulbachata", "intent": "서울 소셜·행사 신호", "cadence": "weekly" },
-    { "tag": "ksensual", "intent": "K-Sensual 행사·워크숍", "cadence": "weekly" }
+    {
+      "tag": "바차타",
+      "intent": "한국어 핵심 키워드",
+      "cadence": "daily"
+    },
+    {
+      "tag": "bachata",
+      "intent": "글로벌 바차타 기본 태그",
+      "cadence": "daily"
+    },
+    {
+      "tag": "bachatasensual",
+      "intent": "센슈얼 바차타 흐름",
+      "cadence": "daily"
+    },
+    {
+      "tag": "bachatainfluence",
+      "intent": "Bachata Influence 계열",
+      "cadence": "daily"
+    },
+    {
+      "tag": "koreabachata",
+      "intent": "한국 바차타 영어 신호",
+      "cadence": "weekly"
+    },
+    {
+      "tag": "seoulbachata",
+      "intent": "서울 소셜·행사 신호",
+      "cadence": "weekly"
+    },
+    {
+      "tag": "ksensual",
+      "intent": "K-Sensual 행사·워크숍",
+      "cadence": "weekly"
+    }
   ],
   "watchlists": [
     {
@@ -68,9 +96,18 @@
         }
       ],
       "sourceLinks": [
-        { "label": "BachaMap South Korea", "url": "https://bachamap.com/festivals/south-korea" },
-        { "label": "Latin Dance Calendar", "url": "https://latindancecalendar.com/festivals/location/south-korea/style/bachata/" },
-        { "label": "M Latin Hub", "url": "https://mlatinhub.com/" }
+        {
+          "label": "BachaMap South Korea",
+          "url": "https://bachamap.com/festivals/south-korea"
+        },
+        {
+          "label": "Latin Dance Calendar",
+          "url": "https://latindancecalendar.com/festivals/location/south-korea/style/bachata/"
+        },
+        {
+          "label": "M Latin Hub",
+          "url": "https://mlatinhub.com/"
+        }
       ]
     },
     {
@@ -110,11 +147,33 @@
           "role": "artist",
           "beat": "한국 Bachata Influence 계열 수업·소셜 신호",
           "relatedUrl": "/profiles/gray-loren.html"
+        },
+        {
+          "name": "Last Dance",
+          "handle": "lastdance_people",
+          "url": "https://www.instagram.com/lastdance_people/",
+          "role": "club",
+          "beat": "2030 살사·바차타 동호회, 레벨업 파티, 보니따 발표·소셜 영상 신호",
+          "relatedUrl": "/profiles/lastdance-people.html"
         }
       ],
       "sourceLinks": [
-        { "label": "Community board", "url": "/community/" },
-        { "label": "Korea profiles", "url": "/profiles/" }
+        {
+          "label": "Community board",
+          "url": "/community/"
+        },
+        {
+          "label": "Korea profiles",
+          "url": "/profiles/"
+        },
+        {
+          "label": "Last Dance Threads",
+          "url": "https://www.threads.com/%40lastdance_people?hl=ko"
+        },
+        {
+          "label": "Last Dance Bachata Video",
+          "url": "https://www.youtube.com/watch?v=0Yytf9NKtfQ"
+        }
       ]
     },
     {
@@ -181,9 +240,18 @@
         }
       ],
       "sourceLinks": [
-        { "label": "Influence hub", "url": "/styles/influence.html" },
-        { "label": "Sensual hub", "url": "/styles/sensual.html" },
-        { "label": "Bachazouk hub", "url": "/styles/bachazouk.html" }
+        {
+          "label": "Influence hub",
+          "url": "/styles/influence.html"
+        },
+        {
+          "label": "Sensual hub",
+          "url": "/styles/sensual.html"
+        },
+        {
+          "label": "Bachazouk hub",
+          "url": "/styles/bachazouk.html"
+        }
       ]
     },
     {
@@ -210,9 +278,18 @@
         }
       ],
       "sourceLinks": [
-        { "label": "Gear hub", "url": "/gear/" },
-        { "label": "Fuego Bachata", "url": "https://fuegodance.com/collections/bachata" },
-        { "label": "Pulse Dance Shoes", "url": "https://www.pulsedanceshoes.com/" }
+        {
+          "label": "Gear hub",
+          "url": "/gear/"
+        },
+        {
+          "label": "Fuego Bachata",
+          "url": "https://fuegodance.com/collections/bachata"
+        },
+        {
+          "label": "Pulse Dance Shoes",
+          "url": "https://www.pulsedanceshoes.com/"
+        }
       ]
     }
   ]

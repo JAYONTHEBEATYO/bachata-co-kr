@@ -432,7 +432,7 @@ const renderGuide = (guide, allGuides) => {
             <div class="content-grid">
               ${guide.relatedContent.map((item) => `<article class="content-card">
                 <div>
-                  <span class="tag">${escapeHtml(item.label)} · score ${escapeHtml(item.score)}</span>
+                  <span class="tag">${escapeHtml(item.label)}</span>
                   <h3>${escapeHtml(item.title)}</h3>
                   <p>${escapeHtml(item.description || "관련 출처와 영상 신호를 묶은 다음 발행 후보입니다.")}</p>
                 </div>

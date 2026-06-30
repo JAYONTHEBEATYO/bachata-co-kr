@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T13:00:38.585Z",
+  "generatedAt": "2026-06-30T13:31:18.365Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -179,6 +179,13 @@
           "videoId": "9YqwDG2_MqI"
         },
         {
+          "label": "Profile",
+          "title": "라스트댄스",
+          "url": "/profiles/lastdance-people.html",
+          "score": 32,
+          "videoId": "0Yytf9NKtfQ"
+        },
+        {
           "label": "Article",
           "title": "코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것",
           "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html",
@@ -205,13 +212,6 @@
           "url": "/articles/bachata-influence-melvin-gatica.html",
           "score": 16,
           "videoId": "sUy5L7x5pyE"
-        },
-        {
-          "label": "Event",
-          "title": "Seoul Bachata Festival Vol.4",
-          "url": "/events/seoul-bachata-festival-vol4-2026.html",
-          "score": 16,
-          "videoId": "jpCY0QqZqWE"
         }
       ]
     },

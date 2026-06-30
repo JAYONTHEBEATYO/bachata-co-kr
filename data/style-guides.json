@@ -5,8 +5,14 @@
       "id": "sensual",
       "eyebrow": "Sensual Bachata",
       "title": "센슈얼 바차타 허브",
-      "dek": "Korke y Judith 계열에서 자주 언급되는 16 펀더멘탈, 안전 기준, 웨이브·프레임·축을 영상과 함께 정리한 한국어 학습 허브.",
-      "keywords": ["센슈얼 바차타", "센슈얼 바차타 16 펀더멘탈", "Korke Judith", "Bachata Sensual", "바차타 웨이브"],
+      "dek": "Korke y Judith 계열에서 자주 언급되는 16 펀더멘탈을 공식 설명, Reddit 타임스탬프, 유효한 YouTube 영상, 안전 기준으로 교차 확인한 한국어 센슈얼 바차타 허브.",
+      "keywords": [
+        "센슈얼 바차타",
+        "센슈얼 바차타 16 펀더멘탈",
+        "Korke Judith",
+        "Bachata Sensual",
+        "바차타 웨이브"
+      ],
       "heroVideo": {
         "id": "B7Wv3cqHrSU",
         "start": 99,
@@ -35,6 +41,18 @@
           "title": "Korke y Judith Bachata Sensual Course Preview",
           "videoId": "vs3YqyTyOIo",
           "note": "16 펀더멘털을 하나의 수업 언어로 어떻게 확장하는지 감을 잡기 좋은 공식 프리뷰."
+        },
+        {
+          "label": "Safety Check",
+          "title": "Bachata Sensual Top 6 Mistakes",
+          "videoId": "HL1qRQav8OE",
+          "note": "공식·교육 계열에서 반복해서 말하는 과한 리드, 프레임 손실, 몸을 억지로 밀어 넣는 문제를 점검하기 좋은 영상."
+        },
+        {
+          "label": "Archive",
+          "title": "Korke & Judith fundamentals archive",
+          "videoId": "FSP1AXI_gxQ",
+          "note": "오래된 페스티벌 기록 영상이라 최신 커리큘럼의 정답으로 쓰기보다는, 스타일이 어떤 무대 언어로 보였는지 참고하는 아카이브."
         }
       ],
       "sections": [
@@ -44,30 +62,106 @@
             "센슈얼 바차타의 펀더멘탈은 대부분 파동, 축, 골반, 방향 전환, 머리의 흐름을 설명합니다. 하지만 이름을 아는 것과 안전하게 추는 것은 다릅니다.",
             "리더는 상대의 몸을 움직이는 사람이 아니라 가능한 길을 제안하는 사람에 가깝고, 팔로워는 자신의 축과 목·허리의 한계를 스스로 지킬 수 있어야 합니다."
           ],
-          "bullets": ["동의 없이 딥과 헤드롤을 만들지 않기", "손보다 등과 중심으로 프레임 만들기", "큰 동작일수록 축과 호흡을 먼저 확인하기", "음악의 문장 안에서만 장식하기"]
+          "bullets": [
+            "동의 없이 딥과 헤드롤을 만들지 않기",
+            "손보다 등과 중심으로 프레임 만들기",
+            "큰 동작일수록 축과 호흡을 먼저 확인하기",
+            "음악의 문장 안에서만 장식하기"
+          ]
         },
         {
           "heading": "16 펀더멘탈 빠른 지도",
           "paragraphs": [
             "Onda, Onda Lateral, Caida, Bolero, Completo, Paseala, Rompo Delante, Pinza, Culito, Contra Cadera, Lanzamiento, Lateral, Cabeza, Golpes, Media, Impulso를 하나의 정답표로 고정하지 않고 수업을 이해하기 위한 언어로 봅니다."
           ],
-          "bullets": ["Wave 계열: Onda, Onda Lateral, Lateral", "Axis 계열: Completo, Media, Cabeza", "Hip 계열: Culito, Contra Cadera, Lanzamiento", "Accent 계열: Golpes, Pinza, Rompo Delante"]
+          "bullets": [
+            "Wave 계열: Onda, Onda Lateral, Lateral",
+            "Axis 계열: Completo, Media, Cabeza",
+            "Hip 계열: Culito, Contra Cadera, Lanzamiento",
+            "Accent 계열: Golpes, Pinza, Rompo Delante"
+          ]
+        },
+        {
+          "heading": "공식 출처와 커뮤니티 정보를 분리해서 읽기",
+          "paragraphs": [
+            "Bachata Sensual 공식 페이지는 이 스타일을 “몸을 이해하고 음악과 연결되는” 방식으로 설명합니다. 그래서 이 허브에서는 화려한 모양보다 몸을 억지로 밀지 않는 리드, 팔로워의 축 보존, 음악 문장 안에서 움직임을 선택하는 기준을 먼저 둡니다.",
+            "Reddit의 16 fundamentals 타임스탬프는 이름과 순서를 빠르게 확인하기 좋지만, 커뮤니티 글 하나만으로 사실을 확정하지 않습니다. 공식 페이지, Judith Cordero의 교육 배경, Korke & Judith 프로필, 공개 유튜브 영상이 같은 방향으로 말하는 부분만 한국어 학습 노트로 남깁니다."
+          ],
+          "bullets": [
+            "공식 출처는 원리와 방법론의 기준으로 사용합니다.",
+            "Reddit·커뮤니티 글은 사람들이 실제로 헷갈리는 질문을 찾는 용도로 사용합니다.",
+            "YouTube는 임베드 가능 여부를 확인한 뒤, 움직임을 직접 보는 자료로만 붙입니다.",
+            "Quora처럼 출처가 약하거나 반복 확인이 어려운 정보는 본문 근거로 쓰지 않습니다."
+          ]
         }
       ],
       "related": [
-        { "label": "16 펀더멘탈 심화 기사", "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html" },
-        { "label": "센슈얼 16 펀더멘털 프로그램", "url": "/programs/sensual-fundamentals.html" },
-        { "label": "Korke & Judith 프로필", "url": "/profiles/korke-judith.html" },
-        { "label": "Bachata Influence 기사", "url": "/articles/bachata-influence-melvin-gatica.html" },
-        { "label": "Bachazouk 기사", "url": "/articles/bachazouk-guide.html" },
-        { "label": "홈 센슈얼 섹션", "url": "/#dossier-sensual" }
+        {
+          "label": "16 펀더멘탈 심화 기사",
+          "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html"
+        },
+        {
+          "label": "센슈얼 16 펀더멘털 프로그램",
+          "url": "/programs/sensual-fundamentals.html"
+        },
+        {
+          "label": "Korke & Judith 프로필",
+          "url": "/profiles/korke-judith.html"
+        },
+        {
+          "label": "Bachata Influence 기사",
+          "url": "/articles/bachata-influence-melvin-gatica.html"
+        },
+        {
+          "label": "Bachazouk 기사",
+          "url": "/articles/bachazouk-guide.html"
+        },
+        {
+          "label": "홈 센슈얼 섹션",
+          "url": "/#dossier-sensual"
+        },
+        {
+          "label": "발행 인테이크",
+          "url": "/intake/"
+        }
       ],
       "sourceLinks": [
-        { "label": "Bachata Sensual Official", "url": "https://bachatasensual.com/" },
-        { "label": "Reddit 16 Fundamentals", "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/" },
-        { "label": "YouTube 16 Fundamentals", "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU" },
-        { "label": "YouTube Onda Tutorial", "url": "https://www.youtube.com/watch?v=mLIT9UaZ_4w" },
-        { "label": "Course Preview", "url": "https://www.youtube.com/watch?v=vs3YqyTyOIo" }
+        {
+          "label": "Bachata Sensual Official",
+          "url": "https://bachatasensual.com/"
+        },
+        {
+          "label": "Reddit 16 Fundamentals",
+          "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/"
+        },
+        {
+          "label": "YouTube 16 Fundamentals",
+          "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU"
+        },
+        {
+          "label": "YouTube Onda Tutorial",
+          "url": "https://www.youtube.com/watch?v=mLIT9UaZ_4w"
+        },
+        {
+          "label": "Course Preview",
+          "url": "https://www.youtube.com/watch?v=vs3YqyTyOIo"
+        },
+        {
+          "label": "VDanceClub Judith Cordero",
+          "url": "https://vdanceclub.com/instructors/judith-cordero/"
+        },
+        {
+          "label": "Go Out Dancing Korke & Judith",
+          "url": "https://gooutdancing.com/pro/korke-judith/"
+        },
+        {
+          "label": "Bachata Sensual Academy",
+          "url": "https://academy.bachatasensual.com/"
+        },
+        {
+          "label": "Top 6 Mistakes Video",
+          "url": "https://www.youtube.com/watch?v=HL1qRQav8OE"
+        }
       ],
       "contentDrops": [
         {
@@ -97,36 +191,113 @@
           "description": "센슈얼 바차타를 만든 팀의 공개 영상과 공식 출처를 따라가며 스타일의 출발점을 확인합니다.",
           "url": "/profiles/korke-judith.html",
           "cta": "프로필 보기"
+        },
+        {
+          "label": "Desk",
+          "title": "센슈얼 영상과 커뮤니티 질문이 기사로 바뀌는 흐름",
+          "description": "Reddit, YouTube, 공식 페이지, 한국 검색 의도를 편집 큐로 모아 허브·기사·프로그램으로 보내는 발행 구조.",
+          "url": "/intake/",
+          "cta": "인테이크 보기"
         }
       ],
       "fundamentalsLabel": "16 Fundamentals",
       "fundamentalsTitle": "코르케·주디스 계열 16 펀더멘탈",
       "fundamentalsIntro": "아래 명칭은 공개 영상과 커뮤니티 타임스탬프를 기준으로 한국어 학습자가 수업에서 단어를 놓치지 않도록 재정리한 것입니다. 강사·스쿨마다 범주와 실행 방식은 달라질 수 있습니다.",
       "fundamentals": [
-        { "name": "Onda", "translation": "Wave / Body roll", "description": "상체와 골반이 순서대로 지나가는 파동. 허리를 꺾는 동작이 아니라 호흡과 체중 이동으로 만드는 흐름입니다." },
-        { "name": "Onda Lateral", "translation": "Side wave", "description": "앞뒤가 아니라 좌우로 보내는 파동. 갈비뼈와 골반을 분리하되 팔로워의 축을 흔들지 않는 것이 핵심입니다." },
-        { "name": "Caida", "translation": "Dip", "description": "떨어지는 모양처럼 보이지만 실제로는 지지와 동의가 먼저인 하강 표현입니다." },
-        { "name": "Bolero", "translation": "Bolero texture", "description": "닫힌 연결에서 음악의 감정선을 살리는 질감. 큰 장식보다 거리와 프레임의 섬세함을 봅니다." },
-        { "name": "Completo", "translation": "360 turn", "description": "프레임을 유지한 채 완성되는 회전. 팔로워를 돌리는 힘보다 축을 안내하는 길이 중요합니다." },
-        { "name": "Paséala", "translation": "Make her walk", "description": "팔로워가 자신의 걸음으로 지나가도록 길을 여는 리드. 걷는 품질이 패턴보다 먼저입니다." },
-        { "name": "Rompo Delante", "translation": "Break forward", "description": "앞 방향 에너지를 끊고 전환하는 테크닉. 몸통과 골반 타이밍이 흐트러지기 쉬운 구간입니다." },
-        { "name": "Pinza", "translation": "Block and roll", "description": "에너지를 잠깐 잡아 회전이나 롤로 바꾸는 연결. 막는 힘이 아니라 방향 전환의 신호에 가깝습니다." },
-        { "name": "Culito", "translation": "Small hip roll", "description": "작은 골반 원. 접촉이 있더라도 압박이 아니라 타이밍과 방향의 합의가 중요합니다." },
-        { "name": "Contra Cadera", "translation": "Hip reversal", "description": "골반 흐름을 반대로 보내는 감각. 허리를 꺾지 않고 중심을 바꾸는 연습이 필요합니다." },
-        { "name": "Lanzamiento de la Cadera", "translation": "Big hip roll", "description": "큰 골반 롤. 접촉 없이도 가능하며 긴 음악 문장에 맞을 때 가장 자연스럽습니다." },
-        { "name": "Lateral", "translation": "Figure 8", "description": "무한대처럼 보이는 좌우 흐름. 발보다 몸통의 방향 전환과 축 회복을 먼저 봅니다." },
-        { "name": "Cabeza", "translation": "Head roll", "description": "목을 꺾는 기술이 아니라 등과 흉추의 흐름 끝에 머리가 따라오는 표현입니다." },
-        { "name": "Golpes", "translation": "Staccato", "description": "부드러운 파동 사이에 들어가는 짧은 악센트. 멈춤이 정확해야 음악성이 살아납니다." },
-        { "name": "Media", "translation": "Half turn", "description": "절반 회전 안에서 축과 시야를 정리하는 기초. 빠른 패턴보다 마무리 품질이 중요합니다." },
-        { "name": "Impulso", "translation": "Sideway push", "description": "옆 방향 에너지를 보내는 리드. 밀어내는 힘이 아니라 시작 신호로 읽어야 안전합니다." }
+        {
+          "name": "Onda",
+          "translation": "Wave / Body roll",
+          "description": "상체와 골반이 순서대로 지나가는 파동. 허리를 꺾는 동작이 아니라 호흡과 체중 이동으로 만드는 흐름입니다."
+        },
+        {
+          "name": "Onda Lateral",
+          "translation": "Side wave",
+          "description": "앞뒤가 아니라 좌우로 보내는 파동. 갈비뼈와 골반을 분리하되 팔로워의 축을 흔들지 않는 것이 핵심입니다."
+        },
+        {
+          "name": "Caida",
+          "translation": "Dip",
+          "description": "떨어지는 모양처럼 보이지만 실제로는 지지와 동의가 먼저인 하강 표현입니다."
+        },
+        {
+          "name": "Bolero",
+          "translation": "Bolero texture",
+          "description": "닫힌 연결에서 음악의 감정선을 살리는 질감. 큰 장식보다 거리와 프레임의 섬세함을 봅니다."
+        },
+        {
+          "name": "Completo",
+          "translation": "360 turn",
+          "description": "프레임을 유지한 채 완성되는 회전. 팔로워를 돌리는 힘보다 축을 안내하는 길이 중요합니다."
+        },
+        {
+          "name": "Paséala",
+          "translation": "Make her walk",
+          "description": "팔로워가 자신의 걸음으로 지나가도록 길을 여는 리드. 걷는 품질이 패턴보다 먼저입니다."
+        },
+        {
+          "name": "Rompo Delante",
+          "translation": "Break forward",
+          "description": "앞 방향 에너지를 끊고 전환하는 테크닉. 몸통과 골반 타이밍이 흐트러지기 쉬운 구간입니다."
+        },
+        {
+          "name": "Pinza",
+          "translation": "Block and roll",
+          "description": "에너지를 잠깐 잡아 회전이나 롤로 바꾸는 연결. 막는 힘이 아니라 방향 전환의 신호에 가깝습니다."
+        },
+        {
+          "name": "Culito",
+          "translation": "Small hip roll",
+          "description": "작은 골반 원. 접촉이 있더라도 압박이 아니라 타이밍과 방향의 합의가 중요합니다."
+        },
+        {
+          "name": "Contra Cadera",
+          "translation": "Hip reversal",
+          "description": "골반 흐름을 반대로 보내는 감각. 허리를 꺾지 않고 중심을 바꾸는 연습이 필요합니다."
+        },
+        {
+          "name": "Lanzamiento de la Cadera",
+          "translation": "Big hip roll",
+          "description": "큰 골반 롤. 접촉 없이도 가능하며 긴 음악 문장에 맞을 때 가장 자연스럽습니다."
+        },
+        {
+          "name": "Lateral",
+          "translation": "Figure 8",
+          "description": "무한대처럼 보이는 좌우 흐름. 발보다 몸통의 방향 전환과 축 회복을 먼저 봅니다."
+        },
+        {
+          "name": "Cabeza",
+          "translation": "Head roll",
+          "description": "목을 꺾는 기술이 아니라 등과 흉추의 흐름 끝에 머리가 따라오는 표현입니다."
+        },
+        {
+          "name": "Golpes",
+          "translation": "Staccato",
+          "description": "부드러운 파동 사이에 들어가는 짧은 악센트. 멈춤이 정확해야 음악성이 살아납니다."
+        },
+        {
+          "name": "Media",
+          "translation": "Half turn",
+          "description": "절반 회전 안에서 축과 시야를 정리하는 기초. 빠른 패턴보다 마무리 품질이 중요합니다."
+        },
+        {
+          "name": "Impulso",
+          "translation": "Sideway push",
+          "description": "옆 방향 에너지를 보내는 리드. 밀어내는 힘이 아니라 시작 신호로 읽어야 안전합니다."
+        }
       ]
     },
     {
       "id": "dominican",
       "eyebrow": "Dominican Bachata",
       "title": "도미니칸 바차타 허브",
-      "dek": "기타, 봉고, 귀라, 보컬 문장을 발로 듣는 도미니칸 바차타의 기본 리듬과 풋워크를 영상 중심으로 정리합니다.",
-      "keywords": ["도미니칸 바차타", "Dominican Bachata", "바차타 풋워크", "바차타 리듬", "바차타 음악"],
+      "dek": "기타, 봉고, 귀라, 보컬 문장을 발로 듣는 도미니칸 바차타를 UNESCO·iASO·공개 풋워크 영상 기준으로 정리한 한국어 리듬 허브.",
+      "keywords": [
+        "도미니칸 바차타",
+        "Dominican Bachata",
+        "바차타 풋워크",
+        "바차타 리듬",
+        "바차타 음악"
+      ],
       "heroVideo": {
         "id": "xmvDKN5cwT0",
         "title": "Dominican Bachata Footwork Beginner Basics"
@@ -153,6 +324,18 @@
           "title": "Tap, Tap, Triple Step",
           "videoId": "8SGd3za49B8",
           "note": "탭과 작은 싱코페이션을 분리해서 보기 좋은 풋워크 드릴."
+        },
+        {
+          "label": "Basic Step",
+          "title": "Dominican Bachata Basic Steps Footwork",
+          "videoId": "xQ1XLqo_Aqc",
+          "note": "기본 스텝과 발의 질감을 단순한 반복으로 확인하기 좋은 공개 튜토리얼."
+        },
+        {
+          "label": "Partnerwork",
+          "title": "Dominican Footwork & Partnerwork",
+          "videoId": "vaiSaxgn-cU",
+          "note": "솔로 풋워크가 파트너워크로 넘어갈 때 거리, 체중, 리듬을 어떻게 줄여야 하는지 확인하는 영상."
         }
       ],
       "sections": [
@@ -162,30 +345,98 @@
             "초보자는 샤인을 먼저 늘리기보다 기타 리프가 촘촘해지는 순간, 보컬이 길게 빠지는 순간, 탭이 리듬을 접는 순간을 구분하는 편이 좋습니다.",
             "파트너와 가까운 거리에서 추더라도 무릎과 발목의 탄성이 살아야 하고, 발 장식은 상대의 축을 흔들지 않는 범위에 있어야 합니다."
           ],
-          "bullets": ["Tap은 쉬는 박자가 아니라 리듬을 접는 순간", "Syncopation은 빠른 발보다 정확한 귀에서 시작", "Partnerwork 안에서도 무릎과 발목의 탄성 유지", "음악을 모르면 풋워크는 장식으로만 보임"]
+          "bullets": [
+            "Tap은 쉬는 박자가 아니라 리듬을 접는 순간",
+            "Syncopation은 빠른 발보다 정확한 귀에서 시작",
+            "Partnerwork 안에서도 무릎과 발목의 탄성 유지",
+            "음악을 모르면 풋워크는 장식으로만 보임"
+          ]
         },
         {
           "heading": "한국 입문자가 바로 쓰기 좋은 연습 순서",
           "paragraphs": [
             "기본 박자 위에서 탭을 작게 만들고, 같은 박자에 방향만 바꿔 보고, 마지막으로 기타 리프에 맞춰 작은 싱코페이션을 넣습니다. 이 순서가 안정되면 소셜에서 과하지 않은 도미니칸 질감이 나옵니다."
           ],
-          "bullets": ["기본 박자 3분 반복", "탭에서 체중 싣지 않기", "방향 전환 후 파트너와 거리 회복", "음악이 비는 곳에서는 장식 줄이기"]
+          "bullets": [
+            "기본 박자 3분 반복",
+            "탭에서 체중 싣지 않기",
+            "방향 전환 후 파트너와 거리 회복",
+            "음악이 비는 곳에서는 장식 줄이기"
+          ]
+        },
+        {
+          "heading": "도미니칸을 클릭했을 때 보여야 하는 콘텐츠 묶음",
+          "paragraphs": [
+            "도미니칸 허브는 단일 튜토리얼 페이지가 아니라 리듬 기사, 풋워크 프로그램, 역사 출처, 소셜·행사 레이더를 묶는 입구로 설계합니다. 사용자가 “도미니칸”을 누르면 발동작 영상만 보는 것이 아니라 음악사, 탭의 쓰임, 한국에서 배울 수 있는 신호까지 이어져야 합니다.",
+            "UNESCO와 iASO 같은 문화·음악 출처는 바차타의 뿌리를 설명하는 기준으로 두고, YouTube 영상은 실제 발의 작동을 확인하는 자료로 둡니다. 이 둘을 분리해야 콘텐츠가 과한 튜토리얼 모음처럼 보이지 않습니다."
+          ],
+          "bullets": [
+            "리듬 기사: 역사와 악기 문맥을 먼저 읽습니다.",
+            "프로그램: 20분 루틴으로 기본 스텝, 탭, 싱코페이션을 반복합니다.",
+            "레이더: 국내 행사와 소셜에서 도미니칸 신호가 보이는 영상을 계속 붙입니다.",
+            "출처: 문화 설명과 유튜브 튜토리얼을 한 카드 안에서 섞지 않고 역할을 분리합니다."
+          ]
         }
       ],
       "related": [
-        { "label": "도미니칸 리듬 심화 기사", "url": "/articles/dominican-bachata-rhythm-footwork-guide.html" },
-        { "label": "도미니칸 리듬 프로그램", "url": "/programs/dominican-rhythm.html" },
-        { "label": "홈 도미니칸 섹션", "url": "/#dossier-dominican" },
-        { "label": "소셜·행사 보드", "url": "/community/events.html" },
-        { "label": "오늘 브리프", "url": "/briefs/" }
+        {
+          "label": "도미니칸 리듬 심화 기사",
+          "url": "/articles/dominican-bachata-rhythm-footwork-guide.html"
+        },
+        {
+          "label": "도미니칸 리듬 프로그램",
+          "url": "/programs/dominican-rhythm.html"
+        },
+        {
+          "label": "홈 도미니칸 섹션",
+          "url": "/#dossier-dominican"
+        },
+        {
+          "label": "소셜·행사 보드",
+          "url": "/community/events.html"
+        },
+        {
+          "label": "오늘 브리프",
+          "url": "/briefs/"
+        }
       ],
       "sourceLinks": [
-        { "label": "UNESCO Bachata", "url": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514" },
-        { "label": "Dominican Embassy Intro", "url": "https://www.dominicanembassy.in/blogcult2021/bachata" },
-        { "label": "Bachata Dance Reference", "url": "https://en.wikipedia.org/wiki/Bachata_(dance)" },
-        { "label": "YouTube Beginner Tutorial", "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0" },
-        { "label": "YouTube Follow Along", "url": "https://www.youtube.com/watch?v=csvyhfrLv74" },
-        { "label": "YouTube Tap Drill", "url": "https://www.youtube.com/watch?v=8SGd3za49B8" }
+        {
+          "label": "UNESCO Bachata",
+          "url": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514"
+        },
+        {
+          "label": "Dominican Embassy Intro",
+          "url": "https://www.dominicanembassy.in/blogcult2021/bachata"
+        },
+        {
+          "label": "Bachata Dance Reference",
+          "url": "https://en.wikipedia.org/wiki/Bachata_(dance)"
+        },
+        {
+          "label": "YouTube Beginner Tutorial",
+          "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0"
+        },
+        {
+          "label": "YouTube Follow Along",
+          "url": "https://www.youtube.com/watch?v=csvyhfrLv74"
+        },
+        {
+          "label": "YouTube Tap Drill",
+          "url": "https://www.youtube.com/watch?v=8SGd3za49B8"
+        },
+        {
+          "label": "iASO Records Bachata History",
+          "url": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic"
+        },
+        {
+          "label": "Dominican Basic Steps Video",
+          "url": "https://www.youtube.com/watch?v=xQ1XLqo_Aqc"
+        },
+        {
+          "label": "Dominican Partnerwork Video",
+          "url": "https://www.youtube.com/watch?v=vaiSaxgn-cU"
+        }
       ],
       "contentDrops": [
         {
@@ -214,12 +465,36 @@
       "fundamentalsTitle": "도미니칸을 읽는 6개 리듬 단서",
       "fundamentalsIntro": "도미니칸은 발을 빠르게 움직이는 기술이 아니라 음악의 악센트와 문장을 발이 대답하는 방식입니다. 아래 카드는 입문자가 영상과 소셜에서 먼저 체크할 기준입니다.",
       "fundamentals": [
-        { "name": "Derecho", "translation": "Straight pulse", "description": "기본 박자의 안정감. 발이 많아지기 전에 체중 이동과 탭의 질감을 일정하게 만듭니다." },
-        { "name": "Mambo", "translation": "Dense guitar phrase", "description": "기타와 귀라가 촘촘해지는 구간. 작은 싱코페이션이 자연스럽게 들어갈 수 있습니다." },
-        { "name": "Majao", "translation": "Grounded groove", "description": "더 눌러 듣는 구간. 발목과 무릎의 탄성이 살아야 파트너와 가까운 거리에서도 편합니다." },
-        { "name": "Tap", "translation": "Folded beat", "description": "쉬는 박자가 아니라 리듬을 접는 순간. 체중을 싣지 않고 다음 문장으로 넘어갑니다." },
-        { "name": "Syncopation", "translation": "Between beats", "description": "박자 사이에 들어가는 발. 빠른 발보다 정확한 귀와 작은 움직임이 먼저입니다." },
-        { "name": "Call and response", "translation": "Music conversation", "description": "보컬, 기타, 봉고가 주고받는 문장에 발이 대답합니다. 샤인은 음악과 대화할 때만 빛납니다." }
+        {
+          "name": "Derecho",
+          "translation": "Straight pulse",
+          "description": "기본 박자의 안정감. 발이 많아지기 전에 체중 이동과 탭의 질감을 일정하게 만듭니다."
+        },
+        {
+          "name": "Mambo",
+          "translation": "Dense guitar phrase",
+          "description": "기타와 귀라가 촘촘해지는 구간. 작은 싱코페이션이 자연스럽게 들어갈 수 있습니다."
+        },
+        {
+          "name": "Majao",
+          "translation": "Grounded groove",
+          "description": "더 눌러 듣는 구간. 발목과 무릎의 탄성이 살아야 파트너와 가까운 거리에서도 편합니다."
+        },
+        {
+          "name": "Tap",
+          "translation": "Folded beat",
+          "description": "쉬는 박자가 아니라 리듬을 접는 순간. 체중을 싣지 않고 다음 문장으로 넘어갑니다."
+        },
+        {
+          "name": "Syncopation",
+          "translation": "Between beats",
+          "description": "박자 사이에 들어가는 발. 빠른 발보다 정확한 귀와 작은 움직임이 먼저입니다."
+        },
+        {
+          "name": "Call and response",
+          "translation": "Music conversation",
+          "description": "보컬, 기타, 봉고가 주고받는 문장에 발이 대답합니다. 샤인은 음악과 대화할 때만 빛납니다."
+        }
       ]
     },
     {
@@ -227,7 +502,13 @@
       "eyebrow": "Modern Bachata",
       "title": "모던 바차타 허브",
       "dek": "입문 클래스에서 가장 많이 만나는 모던 바차타의 기본 스텝, 파트너워크, 퓨전 감각을 실전 소셜 관점으로 정리합니다.",
-      "keywords": ["모던 바차타", "Bachata Fusion", "바차타 입문", "바차타 기본스텝", "바차타 파트너워크"],
+      "keywords": [
+        "모던 바차타",
+        "Bachata Fusion",
+        "바차타 입문",
+        "바차타 기본스텝",
+        "바차타 파트너워크"
+      ],
       "heroVideo": {
         "id": "xhrdh-uFkog",
         "title": "Bachata Beginner Basic Steps Tutorial"
@@ -257,17 +538,37 @@
             "모던 바차타는 패턴을 배우기 쉽고 소셜에서 바로 쓰기 좋아 보입니다. 하지만 프레임, 손의 압력, 걷는 품질, 턴 이후 거리 회복이 약하면 초보자에게 가장 불편한 스타일이 되기도 합니다.",
             "그래서 모던 허브는 화려한 콤비네이션보다 기본 연결, 방향 전환, 팔 사용의 절제, 음악 문장에 맞는 패턴 선택을 먼저 다룹니다."
           ],
-          "bullets": ["기본 스텝이 안정된 뒤 턴 추가", "손보다 몸의 방향으로 리드", "패턴 끝마다 파트너와 거리 회복", "소셜에서는 무대용 장식을 줄이기"]
+          "bullets": [
+            "기본 스텝이 안정된 뒤 턴 추가",
+            "손보다 몸의 방향으로 리드",
+            "패턴 끝마다 파트너와 거리 회복",
+            "소셜에서는 무대용 장식을 줄이기"
+          ]
         }
       ],
       "related": [
-        { "label": "센슈얼 허브", "url": "/styles/sensual.html" },
-        { "label": "도미니칸 허브", "url": "/styles/dominican.html" },
-        { "label": "구인구직 보드", "url": "/community/jobs.html" }
+        {
+          "label": "센슈얼 허브",
+          "url": "/styles/sensual.html"
+        },
+        {
+          "label": "도미니칸 허브",
+          "url": "/styles/dominican.html"
+        },
+        {
+          "label": "구인구직 보드",
+          "url": "/community/jobs.html"
+        }
       ],
       "sourceLinks": [
-        { "label": "Beginner Video", "url": "https://www.youtube.com/watch?v=xhrdh-uFkog" },
-        { "label": "Fusion Video", "url": "https://www.youtube.com/watch?v=dfsSL8QRjrM" }
+        {
+          "label": "Beginner Video",
+          "url": "https://www.youtube.com/watch?v=xhrdh-uFkog"
+        },
+        {
+          "label": "Fusion Video",
+          "url": "https://www.youtube.com/watch?v=dfsSL8QRjrM"
+        }
       ]
     },
     {
@@ -275,7 +576,14 @@
       "eyebrow": "Bachata Influence",
       "title": "Bachata Influence 허브",
       "dek": "Melvin & Gatica, Emilien & Tehina, Emilio & Serap, Influence Academy 계열을 기술 이름보다 음악성·멈춤·프레임·교육 시스템으로 읽는 트렌드 허브.",
-      "keywords": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "Emilio Serap", "Influence Academy", "바차타 인플루언스"],
+      "keywords": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Emilien Tehina",
+        "Emilio Serap",
+        "Influence Academy",
+        "바차타 인플루언스"
+      ],
       "heroVideo": {
         "id": "sUy5L7x5pyE",
         "title": "Bachata Influence Tutorial | Melvin & Gatica"
@@ -317,7 +625,12 @@
             "Influence 영상을 볼 때 큰 바디무브나 감정 표현이 먼저 들어오지만, 콘텐츠로 남길 때는 시작, 정지, 재개, 악센트의 위치를 읽어야 합니다.",
             "한국에서는 그레이·로렌 같은 인플루언스 계열 수업/소셜 영상, 클루니와 솔미 같은 국내 소셜 영상, 워크숍 공지를 하나의 시리즈로 묶어 추적할 가치가 있습니다."
           ],
-          "bullets": ["멈춤 이후 다시 들어가는 타이밍", "팔로워가 자기 축으로 서 있는 시간", "무대 표현과 소셜 적용의 경계", "한국 수업에서의 번역 방식"]
+          "bullets": [
+            "멈춤 이후 다시 들어가는 타이밍",
+            "팔로워가 자기 축으로 서 있는 시간",
+            "무대 표현과 소셜 적용의 경계",
+            "한국 수업에서의 번역 방식"
+          ]
         },
         {
           "heading": "공식 아카데미가 말하는 여섯 축",
@@ -325,7 +638,12 @@
             "공식 Influence Academy는 Bachata Influence를 연결, 호흡, 음악성, 파워, 의도, 에너지의 조합으로 설명합니다. 이 여섯 단어를 그대로 슬로건으로 소비하기보다, 영상에서 어디에 드러나는지 표시해 두면 콘텐츠의 해상도가 올라갑니다.",
             "예를 들어 호흡은 느린 구간에서 멈춰 보이는 정지 시간이 아니라 다음 움직임을 준비하는 시간이고, 파워는 큰 동작이 아니라 악센트를 어디까지 쓰고 어디서 거두는지의 문제입니다."
           ],
-          "bullets": ["Connection: 손의 압이 아니라 파트너와 음악을 동시에 듣는 상태", "Breathing: 멈춤과 재개의 시간을 만드는 장치", "Musicality: 리믹스의 드롭보다 문장 구조를 읽는 능력", "Intention: 감정 연기가 아니라 방향과 목적이 있는 움직임"]
+          "bullets": [
+            "Connection: 손의 압이 아니라 파트너와 음악을 동시에 듣는 상태",
+            "Breathing: 멈춤과 재개의 시간을 만드는 장치",
+            "Musicality: 리믹스의 드롭보다 문장 구조를 읽는 능력",
+            "Intention: 감정 연기가 아니라 방향과 목적이 있는 움직임"
+          ]
         },
         {
           "heading": "한국 콘텐츠로 번역할 때의 기준",
@@ -333,23 +651,61 @@
             "Influence 계열은 릴스에서 강하게 보이기 때문에 과장된 감정선만 따라 하기 쉽습니다. 한국어 콘텐츠에서는 먼저 안전하게 줄일 수 있는 요소와 무대용으로 남겨야 하는 요소를 분리해야 합니다.",
             "Emilio & Serap, Emilien & Tehina 같은 페어를 함께 보면 창시자 스타일이 다른 강사에게 넘어갈 때 무엇이 유지되고 무엇이 지역 이벤트 문법으로 바뀌는지 비교할 수 있습니다."
           ],
-          "bullets": ["소셜 플로어에서는 멈춤 시간을 짧게 줄이기", "팔로워가 예측할 수 없는 드롭은 수업·연습 맥락에서만 다루기", "감정 표현보다 프레임 회복 타이밍을 먼저 설명하기", "국내 팀·동호회 영상과 해외 레퍼런스를 같은 기사 안에서 교차검증하기"]
+          "bullets": [
+            "소셜 플로어에서는 멈춤 시간을 짧게 줄이기",
+            "팔로워가 예측할 수 없는 드롭은 수업·연습 맥락에서만 다루기",
+            "감정 표현보다 프레임 회복 타이밍을 먼저 설명하기",
+            "국내 팀·동호회 영상과 해외 레퍼런스를 같은 기사 안에서 교차검증하기"
+          ]
         }
       ],
       "related": [
-        { "label": "Influence 기사", "url": "/articles/bachata-influence-melvin-gatica.html" },
-        { "label": "Emilio & Serap 프로필", "url": "/profiles/emilio-serap.html" },
-        { "label": "Bachazouk 기사", "url": "/articles/bachazouk-guide.html" },
-        { "label": "오늘 브리프", "url": "/briefs/" }
+        {
+          "label": "Influence 기사",
+          "url": "/articles/bachata-influence-melvin-gatica.html"
+        },
+        {
+          "label": "Emilio & Serap 프로필",
+          "url": "/profiles/emilio-serap.html"
+        },
+        {
+          "label": "Bachazouk 기사",
+          "url": "/articles/bachazouk-guide.html"
+        },
+        {
+          "label": "오늘 브리프",
+          "url": "/briefs/"
+        }
       ],
       "sourceLinks": [
-        { "label": "Influence Academy Official", "url": "https://bachatainfluenceacademy.com/" },
-        { "label": "Influence Academy 2026", "url": "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" },
-        { "label": "byGatica", "url": "https://bygatica.com/" },
-        { "label": "Melvin & Gatica Instagram", "url": "https://www.instagram.com/melvin_gatica_bachata/" },
-        { "label": "Emilio & Serap Instagram", "url": "https://www.instagram.com/emilio_serap_bachata/" },
-        { "label": "YouTube Reference", "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE" },
-        { "label": "YouTube Interview", "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8" }
+        {
+          "label": "Influence Academy Official",
+          "url": "https://bachatainfluenceacademy.com/"
+        },
+        {
+          "label": "Influence Academy 2026",
+          "url": "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1"
+        },
+        {
+          "label": "byGatica",
+          "url": "https://bygatica.com/"
+        },
+        {
+          "label": "Melvin & Gatica Instagram",
+          "url": "https://www.instagram.com/melvin_gatica_bachata/"
+        },
+        {
+          "label": "Emilio & Serap Instagram",
+          "url": "https://www.instagram.com/emilio_serap_bachata/"
+        },
+        {
+          "label": "YouTube Reference",
+          "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE"
+        },
+        {
+          "label": "YouTube Interview",
+          "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8"
+        }
       ],
       "contentDrops": [
         {
@@ -378,12 +734,36 @@
       "fundamentalsTitle": "Bachata Influence를 읽는 6개 축",
       "fundamentalsIntro": "공식 아카데미와 공개 영상에서 반복적으로 확인되는 키워드를 한국어 콘텐츠 발행 기준으로 다시 정리했습니다. 이 축은 기술 이름을 외우는 목록이 아니라 영상과 수업을 평가하는 체크리스트입니다.",
       "fundamentals": [
-        { "name": "Connection", "translation": "연결", "description": "손의 힘이 아니라 파트너의 축, 호흡, 음악 문장을 같이 듣는 상태입니다. 리더가 길을 열고 팔로워가 자기 축을 잃지 않는지 먼저 봅니다." },
-        { "name": "Breathing", "translation": "호흡", "description": "멈춤이 죽은 시간이 아니라 다음 문장을 준비하는 시간인지 확인합니다. 호흡이 없으면 Influence는 과장된 포즈처럼 보입니다." },
-        { "name": "Musicality", "translation": "음악성", "description": "드롭과 가사에만 반응하는 것이 아니라 벌스, 프리코러스, 악센트의 흐름을 읽는 능력입니다." },
-        { "name": "Power", "translation": "파워", "description": "큰 힘을 쓰는 것이 아니라 악센트가 필요한 순간에만 에너지를 모았다가 바로 회수하는 기술입니다." },
-        { "name": "Intention", "translation": "의도", "description": "감정 연기나 표정이 아니라 움직임이 어디로 가고 왜 멈추는지 명확한 상태입니다." },
-        { "name": "Energy", "translation": "에너지", "description": "파트너와 음악 사이에서 긴장이 끊기지 않는 밀도입니다. 소셜에서는 이 밀도를 작은 범위로 줄이는 능력이 중요합니다." }
+        {
+          "name": "Connection",
+          "translation": "연결",
+          "description": "손의 힘이 아니라 파트너의 축, 호흡, 음악 문장을 같이 듣는 상태입니다. 리더가 길을 열고 팔로워가 자기 축을 잃지 않는지 먼저 봅니다."
+        },
+        {
+          "name": "Breathing",
+          "translation": "호흡",
+          "description": "멈춤이 죽은 시간이 아니라 다음 문장을 준비하는 시간인지 확인합니다. 호흡이 없으면 Influence는 과장된 포즈처럼 보입니다."
+        },
+        {
+          "name": "Musicality",
+          "translation": "음악성",
+          "description": "드롭과 가사에만 반응하는 것이 아니라 벌스, 프리코러스, 악센트의 흐름을 읽는 능력입니다."
+        },
+        {
+          "name": "Power",
+          "translation": "파워",
+          "description": "큰 힘을 쓰는 것이 아니라 악센트가 필요한 순간에만 에너지를 모았다가 바로 회수하는 기술입니다."
+        },
+        {
+          "name": "Intention",
+          "translation": "의도",
+          "description": "감정 연기나 표정이 아니라 움직임이 어디로 가고 왜 멈추는지 명확한 상태입니다."
+        },
+        {
+          "name": "Energy",
+          "translation": "에너지",
+          "description": "파트너와 음악 사이에서 긴장이 끊기지 않는 밀도입니다. 소셜에서는 이 밀도를 작은 범위로 줄이는 능력이 중요합니다."
+        }
       ]
     },
     {
@@ -391,7 +771,13 @@
       "eyebrow": "Bachazouk",
       "title": "Bachazouk 허브",
       "dek": "Bachata와 Brazilian Zouk가 만나는 지점을 유행어가 아니라 안전, 축, 음악 선택, 문화적 존중의 관점으로 정리합니다.",
-      "keywords": ["Bachazouk", "BachaZouk", "바차주크", "Brazilian Zouk", "bachata zouk"],
+      "keywords": [
+        "Bachazouk",
+        "BachaZouk",
+        "바차주크",
+        "Brazilian Zouk",
+        "bachata zouk"
+      ],
       "heroVideo": {
         "id": "Qng3Wdmt3WE",
         "title": "BachaZouk Tutorial | Azael & Marta"
@@ -421,18 +807,41 @@
             "Bachazouk 영상은 멋져 보이지만 목과 허리의 방향 전환이 들어가는 순간 난도가 급격히 올라갑니다. 리더가 목을 밀거나 당기는 순간 위험해지고, 팔로워가 축을 잃으면 동작은 즉시 작아져야 합니다.",
             "좋은 콘텐츠는 ‘멋진 동작’보다 언제 하지 말아야 하는지, 어떤 음악과 속도에서 가능한지, 어느 지점에서 Brazilian Zouk의 훈련이 필요한지를 먼저 설명해야 합니다."
           ],
-          "bullets": ["목을 직접 리드하지 않기", "팔로워가 자기 축을 잃으면 축소", "느린 음악에서 작은 범위로 시작", "Bachata와 Zouk를 각각 존중하기"]
+          "bullets": [
+            "목을 직접 리드하지 않기",
+            "팔로워가 자기 축을 잃으면 축소",
+            "느린 음악에서 작은 범위로 시작",
+            "Bachata와 Zouk를 각각 존중하기"
+          ]
         }
       ],
       "related": [
-        { "label": "Bachazouk 기사", "url": "/articles/bachazouk-guide.html" },
-        { "label": "센슈얼 허브", "url": "/styles/sensual.html" },
-        { "label": "오늘 브리프", "url": "/briefs/" }
+        {
+          "label": "Bachazouk 기사",
+          "url": "/articles/bachazouk-guide.html"
+        },
+        {
+          "label": "센슈얼 허브",
+          "url": "/styles/sensual.html"
+        },
+        {
+          "label": "오늘 브리프",
+          "url": "/briefs/"
+        }
       ],
       "sourceLinks": [
-        { "label": "BachaZouk Official", "url": "https://www.bachazouk.com/" },
-        { "label": "What is BachaZouk", "url": "https://www.bachazouk.com/posts/what-is-bachazouk" },
-        { "label": "Tutorial Reference", "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE" }
+        {
+          "label": "BachaZouk Official",
+          "url": "https://www.bachazouk.com/"
+        },
+        {
+          "label": "What is BachaZouk",
+          "url": "https://www.bachazouk.com/posts/what-is-bachazouk"
+        },
+        {
+          "label": "Tutorial Reference",
+          "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE"
+        }
       ]
     }
   ]

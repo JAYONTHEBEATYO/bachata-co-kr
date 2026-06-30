@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-30T13:00:10.416Z",
+  "generatedAt": "2026-06-30T13:31:18.526Z",
   "updatedAt": "2026-06-30",
   "title": "바차타 소셜 레이더",
   "url": "/radar/",
-  "accountCount": 16,
+  "accountCount": 17,
   "hashtagCount": 7,
   "watchlists": [
     {
@@ -66,6 +66,13 @@
           "url": "https://www.instagram.com/lauren_bachatista/reels/",
           "role": "artist",
           "relatedUrl": "/profiles/gray-loren.html"
+        },
+        {
+          "name": "Last Dance",
+          "handle": "lastdance_people",
+          "url": "https://www.instagram.com/lastdance_people/",
+          "role": "club",
+          "relatedUrl": "/profiles/lastdance-people.html"
         }
       ]
     },

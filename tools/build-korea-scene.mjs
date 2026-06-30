@@ -184,9 +184,10 @@ const renderCard = (card) => {
     ? `<a href="${escapeHtml(card.sourceUrl)}"${isExternal(card.sourceUrl) ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>출처</a>`
     : "";
   const tags = card.tags.slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+  const video = card.videoId ? renderVideo({ id: card.videoId, title: card.title }) : "";
   return `<article class="scene-card">
-          ${card.videoId ? renderVideo({ id: card.videoId, title: card.title }) : ""}
-          <div class="scene-card-body">
+          ${video ? `${video}
+          ` : ""}<div class="scene-card-body">
             <div class="meta-row">
               <span>${escapeHtml(card.label)}</span>
               <span class="health-${escapeHtml(card.health)}">${escapeHtml(card.health)}</span>

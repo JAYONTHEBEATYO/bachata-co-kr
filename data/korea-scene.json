@@ -17,36 +17,84 @@
       "id": "teams",
       "label": "팀·동호회",
       "title": "한국에서 실제로 만날 수 있는 팀과 동호회",
-      "description": "Gray & Loren, Cluny & Journey, 에버라틴, 라틴씨엘로처럼 국내 검색과 영상 신호가 있는 팀을 우선 묶습니다.",
-      "profileCategories": ["korea-scene"],
-      "boardCategories": ["venues"],
-      "keywords": ["한국 바차타", "동호회", "라틴씨엘로", "에버라틴", "Gray Loren", "Cluny Journey"]
+      "description": "Gray & Loren, Cluny & Journey, 에버라틴, 라틴씨엘로, 라스트댄스처럼 국내 검색과 영상 신호가 있는 팀·동호회를 우선 묶습니다.",
+      "profileCategories": [
+        "korea-scene"
+      ],
+      "boardCategories": [
+        "venues"
+      ],
+      "keywords": [
+        "한국 바차타",
+        "동호회",
+        "라틴씨엘로",
+        "에버라틴",
+        "Gray Loren",
+        "Cluny Journey",
+        "Last Dance",
+        "lastdance_people",
+        "라스트댄스",
+        "2030 바차타 동호회"
+      ]
     },
     {
       "id": "venues",
       "label": "장소",
       "title": "소셜을 상상할 수 있는 장소 노트",
       "description": "홍대 보니따와 강남권 라틴바처럼 영상, 계정, 커뮤니티 제보로 분위기를 확인할 수 있는 장소를 정리합니다.",
-      "profileCategories": ["venues"],
-      "boardCategories": ["venues"],
-      "keywords": ["홍대 보니따", "강남 라틴바", "서울 바차타", "바차타 소셜", "장소"]
+      "profileCategories": [
+        "venues"
+      ],
+      "boardCategories": [
+        "venues"
+      ],
+      "keywords": [
+        "홍대 보니따",
+        "강남 라틴바",
+        "서울 바차타",
+        "바차타 소셜",
+        "장소"
+      ]
     },
     {
       "id": "events",
       "label": "행사·내한",
       "title": "월별 내한과 페스티벌 레이더",
       "description": "K-Sensual, Seoul Bachata Festival, Gangnam Latin Festival, 최근 내한 아카이브를 한 흐름으로 보여줍니다.",
-      "eventStatuses": ["confirmed", "archive"],
-      "boardCategories": ["events"],
-      "keywords": ["내한", "페스티벌", "워크숍", "K-Sensual", "Seoul Bachata Festival", "Gangnam Latin Festival"]
+      "eventStatuses": [
+        "confirmed",
+        "archive"
+      ],
+      "boardCategories": [
+        "events"
+      ],
+      "keywords": [
+        "내한",
+        "페스티벌",
+        "워크숍",
+        "K-Sensual",
+        "Seoul Bachata Festival",
+        "Gangnam Latin Festival"
+      ]
     },
     {
       "id": "community",
       "label": "커뮤니티",
       "title": "구인·양도·제보까지 이어지는 운영 보드",
       "description": "중고거래, 티켓 양도, 구인구직, 장소 제보를 웹진의 운영 기능으로 연결합니다.",
-      "boardCategories": ["market", "jobs", "events", "venues"],
-      "keywords": ["중고", "양도", "구인구직", "제보", "커뮤니티"]
+      "boardCategories": [
+        "market",
+        "jobs",
+        "events",
+        "venues"
+      ],
+      "keywords": [
+        "중고",
+        "양도",
+        "구인구직",
+        "제보",
+        "커뮤니티"
+      ]
     }
   ],
   "sourcePolicy": [

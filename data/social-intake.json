@@ -49,6 +49,14 @@
       "limit": "커뮤니티 의견은 사실 확정 자료가 아니므로 공식 출처나 영상 근거와 같이 둡니다.",
       "publishRule": "논쟁은 자극적으로 옮기지 않고, 입문자가 이해할 수 있는 기준과 질문으로 정리합니다.",
       "sourceUrl": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/"
+    },
+    {
+      "id": "style-hub-routing",
+      "channel": "Style Hub Routing",
+      "use": "센슈얼, 도미니칸, Bachata Influence 같은 스타일 클릭을 기사·프로그램·프로필·영상 큐로 연결",
+      "limit": "자동 매칭 점수는 내부 정렬 기준일 뿐 화면에는 편집 라벨로만 노출합니다.",
+      "publishRule": "클릭 후 바로 관련 발행물, 핵심 영상, 출처가 보이도록 허브 페이지를 먼저 갱신합니다.",
+      "sourceUrl": "/styles/"
     }
   ],
   "publishFormats": [
@@ -56,54 +64,111 @@
       "id": "event",
       "label": "행사·내한",
       "target": "/events/",
-      "roles": ["festival", "event"],
+      "roles": [
+        "festival",
+        "event"
+      ],
       "cadence": "daily",
-      "evidence": ["공식 행사 링크", "날짜", "장소", "아티스트 라인업", "관련 영상"],
+      "evidence": [
+        "공식 행사 링크",
+        "날짜",
+        "장소",
+        "아티스트 라인업",
+        "관련 영상"
+      ],
       "nextAction": "행사명, 일정, 장소, 티켓/공지 링크를 확인한 뒤 이벤트 카드와 브리프에 연결"
     },
     {
       "id": "profile",
       "label": "인물·팀·장소 프로필",
       "target": "/profiles/",
-      "roles": ["artist", "team", "club", "venue", "method"],
+      "roles": [
+        "artist",
+        "team",
+        "club",
+        "venue",
+        "method"
+      ],
       "cadence": "weekly",
-      "evidence": ["공식 계정", "대표 영상", "국내 활동 맥락", "수업·소셜 연결"],
+      "evidence": [
+        "공식 계정",
+        "대표 영상",
+        "국내 활동 맥락",
+        "수업·소셜 연결"
+      ],
       "nextAction": "반복적으로 언급되는 계정은 프로필 페이지와 스타일 허브로 연결"
     },
     {
       "id": "learning",
       "label": "학습 프로그램",
       "target": "/programs/",
-      "roles": ["method", "style", "tutorial"],
+      "roles": [
+        "method",
+        "style",
+        "tutorial"
+      ],
       "cadence": "weekly",
-      "evidence": ["공개 튜토리얼", "스타일 출처", "용어 목록", "주의점"],
+      "evidence": [
+        "공개 튜토리얼",
+        "스타일 출처",
+        "용어 목록",
+        "주의점"
+      ],
       "nextAction": "센슈얼·도미니칸·Bachazouk 같은 코어 주제를 프로그램 모듈로 확장"
     },
     {
       "id": "brief",
       "label": "일간 브리프",
       "target": "/briefs/",
-      "roles": ["hashtag", "trend", "search"],
+      "roles": [
+        "hashtag",
+        "trend",
+        "search"
+      ],
       "cadence": "daily",
-      "evidence": ["검색 의도", "출처 URL", "관련 페이지", "반복 신호"],
+      "evidence": [
+        "검색 의도",
+        "출처 URL",
+        "관련 페이지",
+        "반복 신호"
+      ],
       "nextAction": "오늘 확인할 후보를 3문장 브리프와 다음 취재 질문으로 압축"
     },
     {
       "id": "gear",
       "label": "댄스화·기어",
       "target": "/gear/",
-      "roles": ["brand", "market"],
+      "roles": [
+        "brand",
+        "market"
+      ],
       "cadence": "weekly",
-      "evidence": ["공식 제품 페이지", "착용 영상", "리뷰 영상", "한국 구매 변수"],
+      "evidence": [
+        "공식 제품 페이지",
+        "착용 영상",
+        "리뷰 영상",
+        "한국 구매 변수"
+      ],
       "nextAction": "브랜드 홍보 문구와 실제 플로어 기준을 분리해 비교 노트로 발행"
     },
     {
       "id": "community",
       "label": "커뮤니티·구인·홍보",
       "target": "/community/",
-      "roles": ["submission", "job", "market", "venue"],
+      "roles": [
+        "submission",
+        "job",
+        "market",
+        "venue"
+      ],
       "cadence": "weekly",
-      "evidence": ["제보자 연락처", "공개 링크", "기간", "위치", "검수 상태"],
+      "evidence": [
+        "제보자 연락처",
+        "공개 링크",
+        "기간",
+        "위치",
+        "검수 상태"
+      ],
       "nextAction": "제보 템플릿을 채우고 커뮤니티 보드 카테고리로 이동"
     }
   ],

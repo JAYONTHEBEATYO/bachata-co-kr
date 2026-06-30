@@ -8,7 +8,14 @@
       "dek": "Melvin & Gatica 계열의 흐름을 기술 이름이 아니라 음악성, 프레임, 감정선, 교육 시스템으로 읽는 한국어 입문 노트.",
       "publishedAt": "2026-06-30",
       "updatedAt": "2026-06-30",
-      "keywords": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "Emilio Serap", "바차타 인플루언스", "센슈얼 바차타"],
+      "keywords": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Emilien Tehina",
+        "Emilio Serap",
+        "바차타 인플루언스",
+        "센슈얼 바차타"
+      ],
       "heroVideo": {
         "id": "sUy5L7x5pyE",
         "title": "Bachata Influence Tutorial | Melvin & Gatica"
@@ -57,13 +64,34 @@
         }
       ],
       "sourceLinks": [
-        { "label": "Influence Academy Official", "url": "https://bachatainfluenceacademy.com/" },
-        { "label": "Influence Academy 2026", "url": "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" },
-        { "label": "byGatica", "url": "https://bygatica.com/" },
-        { "label": "Melvin & Gatica Instagram", "url": "https://www.instagram.com/melvin_gatica_bachata/" },
-        { "label": "Emilio & Serap Instagram", "url": "https://www.instagram.com/emilio_serap_bachata/" },
-        { "label": "YouTube Reference", "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE" },
-        { "label": "YouTube Interview", "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8" }
+        {
+          "label": "Influence Academy Official",
+          "url": "https://bachatainfluenceacademy.com/"
+        },
+        {
+          "label": "Influence Academy 2026",
+          "url": "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1"
+        },
+        {
+          "label": "byGatica",
+          "url": "https://bygatica.com/"
+        },
+        {
+          "label": "Melvin & Gatica Instagram",
+          "url": "https://www.instagram.com/melvin_gatica_bachata/"
+        },
+        {
+          "label": "Emilio & Serap Instagram",
+          "url": "https://www.instagram.com/emilio_serap_bachata/"
+        },
+        {
+          "label": "YouTube Reference",
+          "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE"
+        },
+        {
+          "label": "YouTube Interview",
+          "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8"
+        }
       ]
     },
     {
@@ -73,7 +101,14 @@
       "dek": "Korke y Judith 계열에서 자주 언급되는 센슈얼 바차타 16개 펀더멘탈을 안전, 프레임, 축, 음악성 기준으로 다시 정리한 한국어 롱폼.",
       "publishedAt": "2026-06-30",
       "updatedAt": "2026-06-30",
-      "keywords": ["센슈얼 바차타", "코르케 주디스", "Korke Judith", "Bachata Sensual 16 fundamentals", "바차타 웨이브", "바차타 헤드롤"],
+      "keywords": [
+        "센슈얼 바차타",
+        "코르케 주디스",
+        "Korke Judith",
+        "Bachata Sensual 16 fundamentals",
+        "바차타 웨이브",
+        "바차타 헤드롤"
+      ],
       "heroVideo": {
         "id": "B7Wv3cqHrSU",
         "title": "16 Bachata Sensual Fundamentals by Korke y Judith"
@@ -90,6 +125,12 @@
           "title": "Chaves y Silvia Bachata Basic Workshop",
           "videoId": "OcGcZ0IY6s0",
           "note": "한국어권 학습자가 베이직과 골반 사용을 비교해서 보기 좋은 공개 워크숍 영상입니다."
+        },
+        {
+          "label": "Safety companion",
+          "title": "Bachata Sensual Top 6 Mistakes",
+          "videoId": "HL1qRQav8OE",
+          "note": "기술 이름을 외우기 전에 피해야 할 과한 리드와 프레임 손실을 확인합니다."
         }
       ],
       "summary": [
@@ -157,14 +198,58 @@
             "영상의 크기를 그대로 따라 하기보다 자신의 범위 안에서 줄여 씁니다.",
             "좋은 센슈얼은 과감한 동작보다 안전한 복귀가 먼저입니다."
           ]
+        },
+        {
+          "heading": "교차검증: 공식 설명, Reddit 타임스탬프, 영상은 역할이 다릅니다",
+          "paragraphs": [
+            "공식 Bachata Sensual 페이지는 이 스타일을 몸의 구조, 음악과의 연결, 서로의 공간을 존중하는 방법론으로 설명합니다. VDanceClub의 Judith Cordero 소개와 Go Out Dancing의 Korke & Judith 프로필도 센슈얼이 전통 바차타를 버린 것이 아니라, 음악 해석과 신체 표현을 확장한 흐름이라는 점을 반복합니다.",
+            "Reddit의 16 fundamentals 글은 Onda부터 Impulso까지 타임스탬프를 빠르게 확인하는 데 좋습니다. 다만 이 목록은 수업을 대체하는 정답표가 아니라, 영상과 수업에서 쓰이는 단어를 정리한 색인으로 읽어야 합니다."
+          ],
+          "bullets": [
+            "공식 페이지: 움직임의 철학과 안전 기준을 확인합니다.",
+            "Judith/Korke 프로필: 스타일의 역사와 교육 배경을 확인합니다.",
+            "Reddit 글: 16개 이름과 영상 타임스탬프를 빠르게 대조합니다.",
+            "YouTube: 임베드가 살아 있는 영상만 남기고, 삭제·제한 가능성은 source health로 분리합니다."
+          ]
         }
       ],
       "sourceLinks": [
-        { "label": "Bachata Sensual Official", "url": "https://bachatasensual.com/" },
-        { "label": "Reddit 16 Fundamentals Thread", "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/" },
-        { "label": "16 Fundamentals Video", "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU" },
-        { "label": "Onda Tutorial", "url": "https://www.youtube.com/watch?v=mLIT9UaZ_4w" },
-        { "label": "Korean Bachata Basic Workshop", "url": "https://www.youtube.com/watch?v=OcGcZ0IY6s0" }
+        {
+          "label": "Bachata Sensual Official",
+          "url": "https://bachatasensual.com/"
+        },
+        {
+          "label": "Reddit 16 Fundamentals Thread",
+          "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/"
+        },
+        {
+          "label": "16 Fundamentals Video",
+          "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU"
+        },
+        {
+          "label": "Onda Tutorial",
+          "url": "https://www.youtube.com/watch?v=mLIT9UaZ_4w"
+        },
+        {
+          "label": "Korean Bachata Basic Workshop",
+          "url": "https://www.youtube.com/watch?v=OcGcZ0IY6s0"
+        },
+        {
+          "label": "VDanceClub Judith Cordero",
+          "url": "https://vdanceclub.com/instructors/judith-cordero/"
+        },
+        {
+          "label": "Go Out Dancing Korke & Judith",
+          "url": "https://gooutdancing.com/pro/korke-judith/"
+        },
+        {
+          "label": "Bachata Sensual Academy",
+          "url": "https://academy.bachatasensual.com/"
+        },
+        {
+          "label": "Top 6 Mistakes Video",
+          "url": "https://www.youtube.com/watch?v=HL1qRQav8OE"
+        }
       ]
     },
     {
@@ -174,7 +259,14 @@
       "dek": "UNESCO와 도미니카 문화 자료, 공개 풋워크 튜토리얼을 바탕으로 도미니칸 바차타의 음악성, 탭, 싱코페이션, 소셜 적용법을 정리했습니다.",
       "publishedAt": "2026-06-30",
       "updatedAt": "2026-06-30",
-      "keywords": ["도미니칸 바차타", "Dominican Bachata", "바차타 풋워크", "바차타 리듬", "bachata footwork", "bachata syncopation"],
+      "keywords": [
+        "도미니칸 바차타",
+        "Dominican Bachata",
+        "바차타 풋워크",
+        "바차타 리듬",
+        "bachata footwork",
+        "bachata syncopation"
+      ],
       "heroVideo": {
         "id": "xmvDKN5cwT0",
         "title": "Dominican Bachata Footwork - Beginner Basics"
@@ -191,6 +283,12 @@
           "title": "Chaves y Silvia Bachata Basic Workshop",
           "videoId": "OcGcZ0IY6s0",
           "note": "한국어권 입문자가 베이직, 골반, 리듬의 연결을 비교해 보기 좋은 공개 워크숍입니다."
+        },
+        {
+          "label": "Basic step",
+          "title": "Dominican Bachata Basic Steps Footwork",
+          "videoId": "xQ1XLqo_Aqc",
+          "note": "발을 많이 쓰기 전에 체중과 탭을 작게 정리하는 데 좋은 기본 영상."
         }
       ],
       "summary": [
@@ -249,11 +347,34 @@
         }
       ],
       "sourceLinks": [
-        { "label": "UNESCO Music and dance of Dominican Bachata", "url": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514" },
-        { "label": "Dominican Embassy Bachata Introduction", "url": "https://www.dominicanembassy.in/blogcult2021/bachata" },
-        { "label": "iASO Records Bachata History", "url": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic" },
-        { "label": "Beginner Footwork Video", "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0" },
-        { "label": "Follow Along Video", "url": "https://www.youtube.com/watch?v=csvyhfrLv74" }
+        {
+          "label": "UNESCO Music and dance of Dominican Bachata",
+          "url": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514"
+        },
+        {
+          "label": "Dominican Embassy Bachata Introduction",
+          "url": "https://www.dominicanembassy.in/blogcult2021/bachata"
+        },
+        {
+          "label": "iASO Records Bachata History",
+          "url": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic"
+        },
+        {
+          "label": "Beginner Footwork Video",
+          "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0"
+        },
+        {
+          "label": "Follow Along Video",
+          "url": "https://www.youtube.com/watch?v=csvyhfrLv74"
+        },
+        {
+          "label": "Dominican Basic Steps Video",
+          "url": "https://www.youtube.com/watch?v=xQ1XLqo_Aqc"
+        },
+        {
+          "label": "Dominican Partnerwork Video",
+          "url": "https://www.youtube.com/watch?v=vaiSaxgn-cU"
+        }
       ]
     },
     {
@@ -263,7 +384,13 @@
       "dek": "Bachata와 Brazilian Zouk가 만나는 지점을 안전, 음악성, 문화적 존중의 관점으로 정리한 한국어 가이드.",
       "publishedAt": "2026-06-30",
       "updatedAt": "2026-06-30",
-      "keywords": ["Bachazouk", "BachaZouk", "Brazilian Zouk", "바차주크", "bachata zouk"],
+      "keywords": [
+        "Bachazouk",
+        "BachaZouk",
+        "Brazilian Zouk",
+        "바차주크",
+        "bachata zouk"
+      ],
       "heroVideo": {
         "id": "Qng3Wdmt3WE",
         "title": "BachaZouk Tutorial | Azael & Marta"
@@ -300,9 +427,18 @@
         }
       ],
       "sourceLinks": [
-        { "label": "BachaZouk Official", "url": "https://www.bachazouk.com/" },
-        { "label": "What is BachaZouk", "url": "https://www.bachazouk.com/posts/what-is-bachazouk" },
-        { "label": "Tutorial Reference", "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE" }
+        {
+          "label": "BachaZouk Official",
+          "url": "https://www.bachazouk.com/"
+        },
+        {
+          "label": "What is BachaZouk",
+          "url": "https://www.bachazouk.com/posts/what-is-bachazouk"
+        },
+        {
+          "label": "Tutorial Reference",
+          "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE"
+        }
       ]
     },
     {
@@ -312,7 +448,14 @@
       "dek": "Fuego, Pana Mio, On1, Pulse 같은 브랜드를 한국 소비자 관점에서 비교하기 전 확인해야 할 회전감, 쿠션, 바닥, 사이즈, 배송 리스크.",
       "publishedAt": "2026-06-30",
       "updatedAt": "2026-06-30",
-      "keywords": ["바차타 댄스화", "Fuego dance shoes", "Pana Mio", "On1 dance shoes", "Pulse dance shoes", "라틴댄스화"],
+      "keywords": [
+        "바차타 댄스화",
+        "Fuego dance shoes",
+        "Pana Mio",
+        "On1 dance shoes",
+        "Pulse dance shoes",
+        "라틴댄스화"
+      ],
       "heroVideo": {
         "id": "FtcPRwVIdNk",
         "title": "Fuego Dance Shoes Review"
@@ -349,12 +492,30 @@
         }
       ],
       "sourceLinks": [
-        { "label": "Fuego Technology", "url": "https://fuegodance.com/pages/technology" },
-        { "label": "Fuego Bachata Collection", "url": "https://fuegodance.com/collections/bachata" },
-        { "label": "Pulse Official", "url": "https://www.pulsedanceshoes.com/" },
-        { "label": "Fuego Review Video", "url": "https://www.youtube.com/watch?v=FtcPRwVIdNk" },
-        { "label": "Pana Mio Instagram", "url": "https://www.instagram.com/panamiodance/" },
-        { "label": "On1 Instagram", "url": "https://www.instagram.com/on1danceshoes/" }
+        {
+          "label": "Fuego Technology",
+          "url": "https://fuegodance.com/pages/technology"
+        },
+        {
+          "label": "Fuego Bachata Collection",
+          "url": "https://fuegodance.com/collections/bachata"
+        },
+        {
+          "label": "Pulse Official",
+          "url": "https://www.pulsedanceshoes.com/"
+        },
+        {
+          "label": "Fuego Review Video",
+          "url": "https://www.youtube.com/watch?v=FtcPRwVIdNk"
+        },
+        {
+          "label": "Pana Mio Instagram",
+          "url": "https://www.instagram.com/panamiodance/"
+        },
+        {
+          "label": "On1 Instagram",
+          "url": "https://www.instagram.com/on1danceshoes/"
+        }
       ]
     }
   ]
