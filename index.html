@@ -1446,6 +1446,15 @@
             "url": "https://bachata.co.kr/articles/"
           },
           {
+            "@type": "CollectionPage",
+            "@id": "https://bachata.co.kr/community/",
+            "name": "바차타 코리아 커뮤니티 보드",
+            "description": "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 검수해 모으는 커뮤니티 보드.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/community/"
+          },
+          {
             "@type": "Dataset",
             "@id": "https://bachata.co.kr/data/generated/latest-brief.json",
             "name": "Bachata Korea Latest Brief Pointer",
@@ -1462,6 +1471,15 @@
             "inLanguage": "ko-KR",
             "isPartOf": {"@id": "https://bachata.co.kr/#website"},
             "url": "https://bachata.co.kr/data/generated/article-index.json"
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://bachata.co.kr/data/generated/board-index.json",
+            "name": "Bachata Korea Community Board Index",
+            "description": "바차타 코리아 커뮤니티 보드의 카테고리, 항목, 상태, 태그, URL을 담은 JSON.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/data/generated/board-index.json"
           },
           {
             "@type": "VideoObject",
@@ -1575,11 +1593,11 @@
           <a href="/articles/">기사</a>
           <a href="#magazine">웹진</a>
           <a href="#scene">소셜</a>
-          <a href="#community">커뮤니티</a>
+          <a href="/community/">커뮤니티</a>
           <a href="/briefs/">브리프</a>
           <a href="#publishing-os">발행</a>
         </div>
-        <a class="cta" href="#submit">소식 제보</a>
+        <a class="cta" href="/community/">소식 제보</a>
       </nav>
     </header>
 
@@ -1602,6 +1620,7 @@
             <div class="hero-actions">
               <a class="button primary" href="/briefs/">오늘 브리프</a>
               <a class="button" href="/articles/">기사 라이브러리</a>
+              <a class="button" href="/community/">커뮤니티 보드</a>
               <a class="button" href="#publishing-os">발행 시스템</a>
               <a class="button" href="http://test.bachata.co.kr/">바차타 심리테스트</a>
             </div>
@@ -2244,17 +2263,17 @@
               <article>
                 <strong>홍보</strong>
                 <p>새 클래스, 정기 소셜, 워크숍, 페스티벌 오픈 소식을 정리합니다.</p>
-                <a class="button" href="#submit">제보</a>
+                <a class="button" href="/community/events.html">제보</a>
               </article>
               <article>
                 <strong>구인</strong>
                 <p>강사, 보조강사, DJ, 운영 스태프, 촬영자를 찾는 글을 모읍니다.</p>
-                <a class="button" href="#submit">등록</a>
+                <a class="button" href="/community/jobs.html">등록</a>
               </article>
               <article>
-                <strong>웹진</strong>
-                <p>인터뷰, 리뷰, 플레이리스트, 입문 가이드, 커뮤니티 칼럼을 발행합니다.</p>
-                <a class="button" href="#magazine">보기</a>
+                <strong>양도·중고</strong>
+                <p>워크숍·파티 티켓 양도와 댄스화·의상 중고 거래 글을 검수해 모읍니다.</p>
+                <a class="button" href="/community/market.html">보기</a>
               </article>
             </div>
           </div>
@@ -2310,7 +2329,7 @@
             <article class="automation-note">
               <span class="tag">Now Wired</span>
               <h3>매일 후보 데이터를 만드는 파일 구조</h3>
-              <p>현재 repo에는 `data/sources.json`, `tools/collect-scene-signals.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`을 갱신하는 구조입니다.</p>
+              <p>현재 repo에는 `data/sources.json`, `data/board.json`, `tools/collect-scene-signals.mjs`, `tools/build-board.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`과 커뮤니티 보드 페이지를 갱신하는 구조입니다.</p>
               <ul class="signal-list">
                 <li><strong>Seed</strong><span>편집자가 믿을 수 있는 공식/영상 출처를 먼저 넣습니다.</span></li>
                 <li><strong>Validate</strong><span>YouTube oEmbed와 embed HEAD를 확인해 죽은 영상은 후보에서 제외합니다.</span></li>
@@ -2325,7 +2344,9 @@
                 <a href="/data/sources.json">Source Map</a>
                 <a href="/data/generated/scene-signals.json">Generated Signals</a>
                 <a href="/data/generated/latest-brief.json">Latest Brief JSON</a>
+                <a href="/data/generated/board-index.json">Board Index</a>
                 <a href="/briefs/">Daily Brief</a>
+                <a href="/community/">Community Board</a>
                 <a href="https://developers.facebook.com/blog/post/2024/09/04/update-on-instagram-basic-display-api/" target="_blank" rel="noreferrer">Instagram API Update</a>
               </div>
             </article>

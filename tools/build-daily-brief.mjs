@@ -7,7 +7,9 @@ const signalsPath = resolve(root, "data/generated/scene-signals.json");
 const latestPath = resolve(root, "data/generated/latest-brief.json");
 const briefsDir = resolve(root, "briefs");
 const articlesDir = resolve(root, "articles");
+const boardDir = resolve(root, "community");
 const articleIndexPath = resolve(root, "data/generated/article-index.json");
+const boardIndexPath = resolve(root, "data/generated/board-index.json");
 const sitemapPath = resolve(root, "sitemap.xml");
 
 const topicNotes = {
@@ -324,6 +326,40 @@ const updateSitemap = async (dateText) => {
     <priority>0.75</priority>
   </url>`).join("\n");
 
+  let boardPages = [];
+  try {
+    const boardIndex = await readJson(boardIndexPath);
+    boardPages = [
+      { url: "/community/", updatedAt: boardIndex.updatedAt || dateText, priority: "0.82", changefreq: "weekly" },
+      ...(boardIndex.categories || []).map((category) => ({
+        url: category.url,
+        updatedAt: boardIndex.updatedAt || dateText,
+        priority: "0.72",
+        changefreq: "weekly"
+      }))
+    ];
+  } catch {
+    try {
+      boardPages = (await readdir(boardDir))
+        .filter((name) => name.endsWith(".html"))
+        .map((name) => ({
+          url: name === "index.html" ? "/community/" : `/community/${name}`,
+          updatedAt: dateText,
+          priority: name === "index.html" ? "0.82" : "0.72",
+          changefreq: "weekly"
+        }));
+    } catch {
+      boardPages = [];
+    }
+  }
+
+  const boardUrls = boardPages.map((page) => `  <url>
+    <loc>https://bachata.co.kr${page.url}</loc>
+    <lastmod>${page.updatedAt || dateText}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join("\n");
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -346,6 +382,7 @@ ${briefUrls}
     <priority>0.85</priority>
   </url>
 ${articleUrls}
+${boardUrls}
   <url>
     <loc>http://test.bachata.co.kr/</loc>
     <lastmod>2026-06-30</lastmod>

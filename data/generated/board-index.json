@@ -1,0 +1,155 @@
+{
+  "generatedAt": "2026-06-30T08:12:48.998Z",
+  "updatedAt": "2026-06-30",
+  "categories": [
+    {
+      "id": "events",
+      "label": "소셜·행사",
+      "title": "바차타 소셜·워크숍·내한 일정",
+      "url": "/community/events.html",
+      "entryCount": 2
+    },
+    {
+      "id": "market",
+      "label": "양도·중고",
+      "title": "바차타 양도·중고 마켓",
+      "url": "/community/market.html",
+      "entryCount": 2
+    },
+    {
+      "id": "jobs",
+      "label": "구인구직",
+      "title": "라틴댄스 구인구직",
+      "url": "/community/jobs.html",
+      "entryCount": 2
+    },
+    {
+      "id": "venues",
+      "label": "장소·팀",
+      "title": "한국 바차타 장소·팀 디렉터리",
+      "url": "/community/venues.html",
+      "entryCount": 3
+    }
+  ],
+  "entries": [
+    {
+      "id": "events-monthly-visiting-dancers",
+      "category": "events",
+      "title": "월별 내한 댄서 캘린더",
+      "url": "/community/events.html#events-monthly-visiting-dancers",
+      "status": "editorial-series",
+      "tags": [
+        "내한",
+        "워크숍",
+        "페스티벌",
+        "캘린더"
+      ]
+    },
+    {
+      "id": "events-weekly-socials",
+      "category": "events",
+      "title": "주간 서울 바차타 소셜 큐",
+      "url": "/community/events.html#events-weekly-socials",
+      "status": "collecting",
+      "tags": [
+        "서울 바차타",
+        "소셜",
+        "초보",
+        "음악비율"
+      ]
+    },
+    {
+      "id": "market-ticket-transfer",
+      "category": "market",
+      "title": "워크숍·파티 티켓 양도",
+      "url": "/community/market.html#market-ticket-transfer",
+      "status": "submission-ready",
+      "tags": [
+        "티켓양도",
+        "워크숍",
+        "페스티벌",
+        "안전거래"
+      ]
+    },
+    {
+      "id": "market-dance-shoes",
+      "category": "market",
+      "title": "댄스화·의상 중고 거래",
+      "url": "/community/market.html#market-dance-shoes",
+      "status": "submission-ready",
+      "tags": [
+        "댄스화",
+        "중고",
+        "Fuego",
+        "Pana Mio",
+        "Pulse"
+      ]
+    },
+    {
+      "id": "jobs-instructor-dj-staff",
+      "category": "jobs",
+      "title": "강사·DJ·운영 스태프 구인",
+      "url": "/community/jobs.html#jobs-instructor-dj-staff",
+      "status": "submission-ready",
+      "tags": [
+        "구인",
+        "강사",
+        "DJ",
+        "촬영",
+        "운영"
+      ]
+    },
+    {
+      "id": "jobs-space-partnership",
+      "category": "jobs",
+      "title": "스튜디오 대관·협찬·제휴",
+      "url": "/community/jobs.html#jobs-space-partnership",
+      "status": "submission-ready",
+      "tags": [
+        "대관",
+        "협찬",
+        "제휴",
+        "촬영"
+      ]
+    },
+    {
+      "id": "venues-bonita-seoul",
+      "category": "venues",
+      "title": "홍대 보니따 소셜 아카이브",
+      "url": "/community/venues.html#venues-bonita-seoul",
+      "status": "research-queue",
+      "tags": [
+        "홍대",
+        "보니따",
+        "소셜",
+        "장소"
+      ]
+    },
+    {
+      "id": "venues-everlatin-club",
+      "category": "venues",
+      "title": "에버라틴 동호회·클래스 노트",
+      "url": "/community/venues.html#venues-everlatin-club",
+      "status": "research-queue",
+      "tags": [
+        "에버라틴",
+        "동호회",
+        "클래스",
+        "2030"
+      ]
+    },
+    {
+      "id": "venues-latincielo",
+      "category": "venues",
+      "title": "라틴씨엘로 팀·수업 소개 큐",
+      "url": "/community/venues.html#venues-latincielo",
+      "status": "research-queue",
+      "tags": [
+        "라틴씨엘로",
+        "팀소개",
+        "클래스",
+        "한국 바차타"
+      ]
+    }
+  ]
+}
