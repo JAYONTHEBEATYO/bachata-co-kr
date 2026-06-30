@@ -1,0 +1,71 @@
+{
+  "generatedAt": "2026-06-30T08:27:13.682Z",
+  "updatedAt": "2026-06-30",
+  "guides": [
+    {
+      "id": "sensual",
+      "title": "센슈얼 바차타 허브",
+      "url": "/styles/sensual.html",
+      "keywords": [
+        "센슈얼 바차타",
+        "센슈얼 바차타 16 펀더멘탈",
+        "Korke Judith",
+        "Bachata Sensual",
+        "바차타 웨이브"
+      ],
+      "heroVideo": "B7Wv3cqHrSU"
+    },
+    {
+      "id": "dominican",
+      "title": "도미니칸 바차타 허브",
+      "url": "/styles/dominican.html",
+      "keywords": [
+        "도미니칸 바차타",
+        "Dominican Bachata",
+        "바차타 풋워크",
+        "바차타 리듬",
+        "바차타 음악"
+      ],
+      "heroVideo": "xmvDKN5cwT0"
+    },
+    {
+      "id": "modern",
+      "title": "모던 바차타 허브",
+      "url": "/styles/modern.html",
+      "keywords": [
+        "모던 바차타",
+        "Bachata Fusion",
+        "바차타 입문",
+        "바차타 기본스텝",
+        "바차타 파트너워크"
+      ],
+      "heroVideo": "xhrdh-uFkog"
+    },
+    {
+      "id": "influence",
+      "title": "Bachata Influence 허브",
+      "url": "/styles/influence.html",
+      "keywords": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Emilien Tehina",
+        "Influence Academy",
+        "바차타 인플루언스"
+      ],
+      "heroVideo": "sUy5L7x5pyE"
+    },
+    {
+      "id": "bachazouk",
+      "title": "Bachazouk 허브",
+      "url": "/styles/bachazouk.html",
+      "keywords": [
+        "Bachazouk",
+        "BachaZouk",
+        "바차주크",
+        "Brazilian Zouk",
+        "bachata zouk"
+      ],
+      "heroVideo": "Qng3Wdmt3WE"
+    }
+  ]
+}

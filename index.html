@@ -1447,6 +1447,15 @@
           },
           {
             "@type": "CollectionPage",
+            "@id": "https://bachata.co.kr/styles/",
+            "name": "바차타 스타일 허브",
+            "description": "센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk를 영상과 학습 순서로 정리한 바차타 스타일 허브.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/styles/"
+          },
+          {
+            "@type": "CollectionPage",
             "@id": "https://bachata.co.kr/community/",
             "name": "바차타 코리아 커뮤니티 보드",
             "description": "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 검수해 모으는 커뮤니티 보드.",
@@ -1471,6 +1480,15 @@
             "inLanguage": "ko-KR",
             "isPartOf": {"@id": "https://bachata.co.kr/#website"},
             "url": "https://bachata.co.kr/data/generated/article-index.json"
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://bachata.co.kr/data/generated/style-index.json",
+            "name": "Bachata Korea Style Index",
+            "description": "바차타 스타일 허브의 개별 URL, 키워드, 대표 영상 ID를 담은 JSON.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/data/generated/style-index.json"
           },
           {
             "@type": "Dataset",
@@ -1588,7 +1606,7 @@
         </a>
         <div class="nav-links" aria-label="섹션 이동">
           <a href="#intro">바차타란</a>
-          <a href="#styles">스타일</a>
+          <a href="/styles/">스타일</a>
           <a href="#trend-desk">트렌드</a>
           <a href="/articles/">기사</a>
           <a href="#magazine">웹진</a>
@@ -1619,6 +1637,7 @@
             <p class="hero-copy">바차타 입문, 센슈얼 펀더멘탈, 도미니칸 리듬, 바차타 인플루언스, 내한 소식, 서울 소셜과 클래스까지. bachata.co.kr은 흩어진 라틴댄스 정보를 매일 큐레이션하는 한국어 웹매거진으로 갑니다.</p>
             <div class="hero-actions">
               <a class="button primary" href="/briefs/">오늘 브리프</a>
+              <a class="button" href="/styles/">스타일 허브</a>
               <a class="button" href="/articles/">기사 라이브러리</a>
               <a class="button" href="/community/">커뮤니티 보드</a>
               <a class="button" href="#publishing-os">발행 시스템</a>
@@ -1693,7 +1712,7 @@
             <p>한국 바차타 클래스와 소셜에서는 여러 스타일이 섞여 나타납니다. 입문자는 어느 한쪽이 정답이라고 보기보다 음악과 파트너에 맞게 선택하는 감각을 키우는 것이 좋습니다.</p>
           </div>
           <div class="grid three">
-            <a class="card style-card" href="#dossier-dominican">
+            <a class="card style-card" href="/styles/dominican.html">
               <div class="card-body">
                 <span class="number">01</span>
                 <h3>도미니칸 바차타</h3>
@@ -1701,7 +1720,7 @@
                 <span class="read-more">Dossier 보기</span>
               </div>
             </a>
-            <a class="card style-card" href="#dossier-modern">
+            <a class="card style-card" href="/styles/modern.html">
               <div class="card-body">
                 <span class="number">02</span>
                 <h3>모던 바차타</h3>
@@ -1709,7 +1728,7 @@
                 <span class="read-more">Dossier 보기</span>
               </div>
             </a>
-            <a class="card style-card" href="#dossier-sensual">
+            <a class="card style-card" href="/styles/sensual.html">
               <div class="card-body">
                 <span class="number">03</span>
                 <h3>센슈얼 바차타</h3>
@@ -2329,7 +2348,7 @@
             <article class="automation-note">
               <span class="tag">Now Wired</span>
               <h3>매일 후보 데이터를 만드는 파일 구조</h3>
-              <p>현재 repo에는 `data/sources.json`, `data/board.json`, `tools/collect-scene-signals.mjs`, `tools/build-board.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`과 커뮤니티 보드 페이지를 갱신하는 구조입니다.</p>
+              <p>현재 repo에는 `data/sources.json`, `data/style-guides.json`, `data/board.json`, `tools/collect-scene-signals.mjs`, `tools/build-style-guides.mjs`, `tools/build-board.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`, 스타일 허브, 커뮤니티 보드 페이지를 갱신하는 구조입니다.</p>
               <ul class="signal-list">
                 <li><strong>Seed</strong><span>편집자가 믿을 수 있는 공식/영상 출처를 먼저 넣습니다.</span></li>
                 <li><strong>Validate</strong><span>YouTube oEmbed와 embed HEAD를 확인해 죽은 영상은 후보에서 제외합니다.</span></li>
@@ -2344,6 +2363,8 @@
                 <a href="/data/sources.json">Source Map</a>
                 <a href="/data/generated/scene-signals.json">Generated Signals</a>
                 <a href="/data/generated/latest-brief.json">Latest Brief JSON</a>
+                <a href="/data/generated/style-index.json">Style Index</a>
+                <a href="/styles/">Style Hub</a>
                 <a href="/data/generated/board-index.json">Board Index</a>
                 <a href="/briefs/">Daily Brief</a>
                 <a href="/community/">Community Board</a>
