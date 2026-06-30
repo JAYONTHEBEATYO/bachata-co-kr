@@ -64,9 +64,20 @@
       .tag-list span { background: rgba(216, 159, 70, 0.16); border-color: rgba(216, 159, 70, 0.25); color: #73501f; }
       .entry-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
       .entry-links a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 11px; border: 1px solid rgba(25, 21, 18, 0.2); border-radius: 999px; font-size: 12px; font-weight: 950; }
-      .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #070707; }
-      .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .mini-list { display: grid; gap: 7px; margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+      .mini-list li::marker { color: var(--gold); }
+      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #070707; }
+      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
+      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
+      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 7, 7, 0.08), rgba(7, 7, 7, 0.58)); }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(13, 12, 11, 0.76); color: var(--cream); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
+      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
+      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(13, 12, 11, 0.68); color: var(--cream); font-size: 12px; font-weight: 900; }
+      .video-loader[data-loaded="true"] .youtube-link { display: none; }
       .entry-side { display: grid; gap: 12px; align-content: start; }
+      .entry-side > article { padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 250, 240, 0.74); }
       .side-note { position: sticky; top: 96px; display: grid; gap: 14px; }
       .side-note article { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 250, 240, 0.72); }
       .submission { margin-top: 32px; padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: #191512; color: var(--cream); }
@@ -162,7 +173,7 @@
               <div class="entry-links"><a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%9D%BC%ED%8B%B4%EB%8C%84%EC%8A%A4%20%EA%B5%AC%EC%9D%B8%20%EB%93%B1%EB%A1%9D">구인 등록</a></div>
             </div>
             <div class="entry-side">
-              <div class="side-note"><article><span class="tag">Editorial Check</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>
+              <article><span class="tag">Posting Check</span><ul class="mini-list"><li>역할과 업무 범위</li><li>페이 또는 정산 방식</li><li>근무 시간과 장소</li><li>지원 방법</li></ul></article>
             </div>
           </article>
 <article class="entry" id="jobs-space-partnership">
@@ -179,7 +190,7 @@
               <div class="entry-links"><a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%8C%80%EA%B4%80%20%EC%A0%9C%ED%9C%B4%20%EC%A0%9C%EC%95%88">제휴 등록</a></div>
             </div>
             <div class="entry-side">
-              <div class="side-note"><article><span class="tag">Editorial Check</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>
+              <article><span class="tag">Posting Check</span><ul class="mini-list"><li>공간 사진</li><li>수용 인원</li><li>바닥과 음향 정보</li><li>대관료 또는 제휴 조건</li></ul></article>
             </div>
           </article>
         </section>
@@ -200,5 +211,22 @@
         </aside>
       </div>
     </main>
+    <script>
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-video-button]");
+        if (!button) return;
+        const loader = button.closest(".video-loader");
+        if (!loader || loader.dataset.loaded === "true") return;
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.src = loader.dataset.embed;
+        iframe.title = loader.dataset.title || "Bachata community video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        loader.dataset.loaded = "true";
+        loader.textContent = "";
+        loader.appendChild(iframe);
+      });
+    </script>
   </body>
 </html>

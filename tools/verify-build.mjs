@@ -11,6 +11,7 @@ const requiredFiles = [
   "data/generated/style-index.json",
   "data/generated/profile-index.json",
   "data/generated/program-index.json",
+  "data/generated/board-index.json",
   "data/generated/social-radar-index.json",
   "data/generated/social-intake-index.json",
   "data/generated/signal-history.json",
@@ -297,6 +298,53 @@ const verifyProgramVideoLoading = async () => {
   };
 };
 
+const verifyCommunityBoard = async () => {
+  const board = await readJson("data/generated/board-index.json");
+  const communityHome = await readText("community/index.html");
+  const expectedCategories = ["events", "market", "jobs", "venues"];
+  const categoryIds = (board.categories || []).map((category) => category.id);
+  const missingCategories = expectedCategories.filter((id) => !categoryIds.includes(id));
+  assert(missingCategories.length === 0, "Community board is missing required categories", {
+    missingCategories,
+    categoryIds
+  });
+  assert((board.entries || []).length >= 8, "Community board has too few starter entries", {
+    entries: (board.entries || []).length
+  });
+  assert((board.categories || []).every((category) => (category.submissionFields || []).length >= 4), "Community categories need submission field guidance", {
+    categories: board.categories
+  });
+  assert((board.entries || []).every((entry) => (entry.requirements || []).length >= 4), "Community entries need posting requirements", {
+    missing: (board.entries || []).filter((entry) => !(entry.requirements || []).length)
+  });
+
+  for (const category of board.categories || []) {
+    const page = category.url?.replace(/^\//, "");
+    assert(page, "Community category is missing a URL", category);
+    const html = await readText(page);
+    assert(communityHome.includes(`href="${category.url}"`), "Community index does not link to category page", category);
+    assert(html.includes("Posting Check"), "Community category page does not render posting requirements", category);
+    const iframeCount = (html.match(/<iframe\b/g) || []).length;
+    const loaderCount = (html.match(/class="video-loader"/g) || []).length;
+    assert(iframeCount === 0, "Community category pages should not eager-load video iframes", {
+      category: category.id,
+      iframeCount
+    });
+    if (category.id === "venues") {
+      assert(loaderCount >= 1, "Venues community page should expose video as a click-to-load thumbnail", {
+        loaderCount
+      });
+      assert(html.includes("data-video-button"), "Venues community page is missing click-to-load video controls");
+    }
+  }
+
+  return {
+    categories: board.categories?.length || 0,
+    entries: board.entries?.length || 0,
+    videoEntries: (board.entries || []).filter((entry) => entry.hasVideo).length
+  };
+};
+
 const verifyIndexesAndSitemap = async () => {
   const sitemap = await readText("sitemap.xml");
   const articleIndex = await readJson("data/generated/article-index.json");
@@ -337,7 +385,7 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos] = await Promise.all([
+  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, communityBoard] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
     verifySocialRadar(),
@@ -347,7 +395,8 @@ const main = async () => {
     verifyHomeHero(),
     verifyStyleVideoLoading(),
     verifyArticleVideoLoading(),
-    verifyProgramVideoLoading()
+    verifyProgramVideoLoading(),
+    verifyCommunityBoard()
   ]);
 
   const report = {
@@ -360,6 +409,7 @@ const main = async () => {
     styleVideos,
     articleVideos,
     programVideos,
+    communityBoard,
     signalHistory,
     socialIntake
   };

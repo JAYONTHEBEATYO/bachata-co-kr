@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T15:04:53.065Z",
+  "generatedAt": "2026-06-30T16:17:42.925Z",
   "updatedAt": "2026-06-30",
   "categories": [
     {
@@ -7,28 +7,64 @@
       "label": "소셜·행사",
       "title": "바차타 소셜·워크숍·내한 일정",
       "url": "/community/events.html",
-      "entryCount": 2
+      "entryCount": 2,
+      "submitLabel": "행사 등록",
+      "submissionFields": [
+        "행사명",
+        "날짜와 시간",
+        "장소",
+        "예매·공지 링크",
+        "인스타 계정",
+        "대표 영상"
+      ]
     },
     {
       "id": "market",
       "label": "양도·중고",
       "title": "바차타 양도·중고 마켓",
       "url": "/community/market.html",
-      "entryCount": 2
+      "entryCount": 2,
+      "submitLabel": "거래 글 등록",
+      "submissionFields": [
+        "품목 또는 티켓명",
+        "원가와 양도가",
+        "거래 가능 지역",
+        "상태 사진",
+        "주최 측 양도 가능 여부",
+        "연락 방식"
+      ]
     },
     {
       "id": "jobs",
       "label": "구인구직",
       "title": "라틴댄스 구인구직",
       "url": "/community/jobs.html",
-      "entryCount": 2
+      "entryCount": 2,
+      "submitLabel": "구인·제휴 등록",
+      "submissionFields": [
+        "역할",
+        "페이 또는 조건",
+        "날짜와 시간",
+        "장소",
+        "업무 범위",
+        "지원 방법"
+      ]
     },
     {
       "id": "venues",
       "label": "장소·팀",
       "title": "한국 바차타 장소·팀 디렉터리",
       "url": "/community/venues.html",
-      "entryCount": 3
+      "entryCount": 3,
+      "submitLabel": "장소·팀 소개",
+      "submissionFields": [
+        "팀·장소명",
+        "운영 지역",
+        "정기 일정",
+        "초보자 동선",
+        "인스타·웹 링크",
+        "대표 영상"
+      ]
     }
   ],
   "entries": [
@@ -43,7 +79,14 @@
         "워크숍",
         "페스티벌",
         "캘린더"
-      ]
+      ],
+      "requirements": [
+        "공식 포스터 또는 주최 계정",
+        "아티스트 이름과 날짜",
+        "예매·문의 링크",
+        "임베드 가능한 대표 영상"
+      ],
+      "hasVideo": false
     },
     {
       "id": "events-weekly-socials",
@@ -56,7 +99,14 @@
         "소셜",
         "초보",
         "음악비율"
-      ]
+      ],
+      "requirements": [
+        "요일과 시작 시간",
+        "장소와 입장료",
+        "바차타 음악 비율",
+        "초보 참여 가능 여부"
+      ],
+      "hasVideo": false
     },
     {
       "id": "market-ticket-transfer",
@@ -69,7 +119,14 @@
         "워크숍",
         "페스티벌",
         "안전거래"
-      ]
+      ],
+      "requirements": [
+        "행사명과 날짜",
+        "원가와 양도가",
+        "주최 측 양도 가능 여부",
+        "거래 완료 후 내림 요청 방식"
+      ],
+      "hasVideo": false
     },
     {
       "id": "market-dance-shoes",
@@ -83,7 +140,14 @@
         "Fuego",
         "Pana Mio",
         "Pulse"
-      ]
+      ],
+      "requirements": [
+        "브랜드와 사이즈",
+        "착용 횟수와 사용 플로어",
+        "하자 사진",
+        "가격과 거래 지역"
+      ],
+      "hasVideo": false
     },
     {
       "id": "jobs-instructor-dj-staff",
@@ -97,7 +161,14 @@
         "DJ",
         "촬영",
         "운영"
-      ]
+      ],
+      "requirements": [
+        "역할과 업무 범위",
+        "페이 또는 정산 방식",
+        "근무 시간과 장소",
+        "지원 방법"
+      ],
+      "hasVideo": false
     },
     {
       "id": "jobs-space-partnership",
@@ -110,7 +181,14 @@
         "협찬",
         "제휴",
         "촬영"
-      ]
+      ],
+      "requirements": [
+        "공간 사진",
+        "수용 인원",
+        "바닥과 음향 정보",
+        "대관료 또는 제휴 조건"
+      ],
+      "hasVideo": false
     },
     {
       "id": "venues-bonita-seoul",
@@ -123,7 +201,14 @@
         "보니따",
         "소셜",
         "장소"
-      ]
+      ],
+      "requirements": [
+        "정기 소셜 요일",
+        "초보 참여 가능 여부",
+        "음악 비율",
+        "촬영 분위기"
+      ],
+      "hasVideo": true
     },
     {
       "id": "venues-everlatin-club",
@@ -136,7 +221,14 @@
         "동호회",
         "클래스",
         "2030"
-      ]
+      ],
+      "requirements": [
+        "정기 클래스 구조",
+        "초보자 시작 방법",
+        "소셜 연결 방식",
+        "공개 영상 또는 웹 링크"
+      ],
+      "hasVideo": false
     },
     {
       "id": "venues-latincielo",
@@ -149,7 +241,14 @@
         "팀소개",
         "클래스",
         "한국 바차타"
-      ]
+      ],
+      "requirements": [
+        "수업 또는 팀 소개",
+        "정기 일정",
+        "공개 가능한 사진·영상",
+        "인스타 또는 문의 링크"
+      ],
+      "hasVideo": false
     }
   ]
 }

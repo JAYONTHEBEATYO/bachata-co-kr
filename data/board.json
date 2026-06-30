@@ -9,25 +9,37 @@
       "id": "events",
       "label": "소셜·행사",
       "title": "바차타 소셜·워크숍·내한 일정",
-      "description": "정기 소셜, 원데이 클래스, 워크숍, 페스티벌, DJ 파티, 내한 댄서 정보를 모으는 보드입니다."
+      "description": "정기 소셜, 원데이 클래스, 워크숍, 페스티벌, DJ 파티, 내한 댄서 정보를 모으는 보드입니다.",
+      "submitLabel": "행사 등록",
+      "submissionFields": ["행사명", "날짜와 시간", "장소", "예매·공지 링크", "인스타 계정", "대표 영상"],
+      "reviewChecklist": ["주최 측 공개 공지 확인", "날짜와 장소 확인", "예매 링크 유효성 확인", "영상·이미지 출처 확인"]
     },
     {
       "id": "market",
       "label": "양도·중고",
       "title": "바차타 양도·중고 마켓",
-      "description": "파티 티켓 양도, 워크숍 양도, 댄스화·의상·촬영권 등 라틴댄스 관련 중고/양도 글을 위한 보드입니다."
+      "description": "파티 티켓 양도, 워크숍 양도, 댄스화·의상·촬영권 등 라틴댄스 관련 중고/양도 글을 위한 보드입니다.",
+      "submitLabel": "거래 글 등록",
+      "submissionFields": ["품목 또는 티켓명", "원가와 양도가", "거래 가능 지역", "상태 사진", "주최 측 양도 가능 여부", "연락 방식"],
+      "reviewChecklist": ["가격과 원가 표시", "실물·티켓 증빙 확인", "환불·양도 가능 여부 확인", "개인정보 노출 제거"]
     },
     {
       "id": "jobs",
       "label": "구인구직",
       "title": "라틴댄스 구인구직",
-      "description": "강사, 보조강사, DJ, 촬영, 운영 스태프, 공간 대관, 협찬 제휴 요청을 모으는 보드입니다."
+      "description": "강사, 보조강사, DJ, 촬영, 운영 스태프, 공간 대관, 협찬 제휴 요청을 모으는 보드입니다.",
+      "submitLabel": "구인·제휴 등록",
+      "submissionFields": ["역할", "페이 또는 조건", "날짜와 시간", "장소", "업무 범위", "지원 방법"],
+      "reviewChecklist": ["보상 조건 명시", "업무 범위 명시", "모집 주체 확인", "연락처 공개 범위 확인"]
     },
     {
       "id": "venues",
       "label": "장소·팀",
       "title": "한국 바차타 장소·팀 디렉터리",
-      "description": "홍대 보니따, 강남 라틴바, 에버라틴, 라스트댄스, 라틴씨엘로 같은 장소·팀·동호회를 취재하고 정리하는 보드입니다."
+      "description": "홍대 보니따, 강남 라틴바, 에버라틴, 라스트댄스, 라틴씨엘로 같은 장소·팀·동호회를 취재하고 정리하는 보드입니다.",
+      "submitLabel": "장소·팀 소개",
+      "submissionFields": ["팀·장소명", "운영 지역", "정기 일정", "초보자 동선", "인스타·웹 링크", "대표 영상"],
+      "reviewChecklist": ["공개 계정 확인", "정기 일정 확인", "영상 출처 확인", "입문자에게 필요한 정보 보강"]
     }
   ],
   "entries": [
@@ -41,6 +53,7 @@
       "summary": "해외 아티스트 내한, 부트캠프, 페스티벌 게스트, DJ 파티를 월별로 묶는 기획입니다. 공식 포스터, 인스타 공지, 예매 링크, 영상 자료가 확인된 건만 등록합니다.",
       "tags": ["내한", "워크숍", "페스티벌", "캘린더"],
       "callToAction": "내한/워크숍 제보",
+      "requirements": ["공식 포스터 또는 주최 계정", "아티스트 이름과 날짜", "예매·문의 링크", "임베드 가능한 대표 영상"],
       "sourceLinks": [
         { "label": "제보 메일", "url": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%82%B4%ED%95%9C%20%EB%8C%84%EC%84%9C%20%EC%A0%9C%EB%B3%B4" },
         { "label": "인스타 DM", "url": "https://www.instagram.com/zumjersy/" }
@@ -56,6 +69,7 @@
       "summary": "강남, 홍대, 신촌, 잠실 등에서 열리는 바차타 소셜을 요일별로 정리할 예정입니다. 초보 환영 여부, 음악 비율, 촬영 분위기, 장소 접근성을 함께 기록합니다.",
       "tags": ["서울 바차타", "소셜", "초보", "음악비율"],
       "callToAction": "정기 소셜 등록",
+      "requirements": ["요일과 시작 시간", "장소와 입장료", "바차타 음악 비율", "초보 참여 가능 여부"],
       "sourceLinks": [
         { "label": "소셜 제보", "url": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EC%A0%95%EA%B8%B0%20%EC%86%8C%EC%85%9C%20%EB%93%B1%EB%A1%9D" }
       ]
@@ -70,6 +84,7 @@
       "summary": "불참하게 된 워크숍, 페스티벌, 파티 티켓을 안전하게 양도할 수 있도록 행사명, 날짜, 원가, 양도가, 주최 측 양도 가능 여부를 확인하는 템플릿입니다.",
       "tags": ["티켓양도", "워크숍", "페스티벌", "안전거래"],
       "callToAction": "양도 글 보내기",
+      "requirements": ["행사명과 날짜", "원가와 양도가", "주최 측 양도 가능 여부", "거래 완료 후 내림 요청 방식"],
       "sourceLinks": [
         { "label": "양도 템플릿", "url": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%ED%8B%B0%EC%BC%93%20%EC%96%91%EB%8F%84%20%EB%93%B1%EB%A1%9D&body=%ED%96%89%EC%82%AC%EB%AA%85%3A%0A%EB%82%A0%EC%A7%9C%3A%0A%EC%9B%90%EA%B0%80%3A%0A%EC%96%91%EB%8F%84%EA%B0%80%3A%0A%EC%A3%BC%EC%B5%9C%EC%B8%A1%20%EC%96%91%EB%8F%84%20%EA%B0%80%EB%8A%A5%20%EC%97%AC%EB%B6%80%3A" }
       ]
@@ -84,6 +99,7 @@
       "summary": "Fuego, Pana Mio, On1, Pulse 등 댄스화나 라틴댄스 의상을 거래할 때 사이즈, 착용 횟수, 플로어 사용 여부, 하자 사진을 함께 받는 게시판입니다.",
       "tags": ["댄스화", "중고", "Fuego", "Pana Mio", "Pulse"],
       "callToAction": "중고 글 보내기",
+      "requirements": ["브랜드와 사이즈", "착용 횟수와 사용 플로어", "하자 사진", "가격과 거래 지역"],
       "sourceLinks": [
         { "label": "중고 등록", "url": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%8C%84%EC%8A%A4%ED%99%94%20%EC%A4%91%EA%B3%A0%20%EB%93%B1%EB%A1%9D" },
         { "label": "댄스화 기사", "url": "/articles/bachata-dance-shoes-korea.html" }
@@ -99,6 +115,7 @@
       "summary": "클래스 보조강사, 원데이 강사, DJ, 촬영, 리셉션, 파티 운영 스태프를 찾는 글을 받습니다. 페이, 시간, 장소, 역할 범위가 있는 글만 게시합니다.",
       "tags": ["구인", "강사", "DJ", "촬영", "운영"],
       "callToAction": "구인 글 보내기",
+      "requirements": ["역할과 업무 범위", "페이 또는 정산 방식", "근무 시간과 장소", "지원 방법"],
       "sourceLinks": [
         { "label": "구인 등록", "url": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%9D%BC%ED%8B%B4%EB%8C%84%EC%8A%A4%20%EA%B5%AC%EC%9D%B8%20%EB%93%B1%EB%A1%9D" }
       ]
@@ -113,6 +130,7 @@
       "summary": "스튜디오, 라틴바, 촬영팀, 브랜드가 바차타 클래스나 파티와 제휴하고 싶을 때 사용할 수 있는 보드입니다. 장소 사진, 수용 인원, 음향, 바닥, 대관료를 함께 받습니다.",
       "tags": ["대관", "협찬", "제휴", "촬영"],
       "callToAction": "제휴 제안 보내기",
+      "requirements": ["공간 사진", "수용 인원", "바닥과 음향 정보", "대관료 또는 제휴 조건"],
       "sourceLinks": [
         { "label": "제휴 등록", "url": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%8C%80%EA%B4%80%20%EC%A0%9C%ED%9C%B4%20%EC%A0%9C%EC%95%88" }
       ]
@@ -127,6 +145,7 @@
       "summary": "공개 영상과 인스타 신호가 많은 장소는 초보자가 분위기를 미리 보는 데 좋습니다. 음악 비율, 요일별 성격, 촬영 분위기, 초보 환영도를 확인해 장소 가이드로 확장합니다.",
       "tags": ["홍대", "보니따", "소셜", "장소"],
       "callToAction": "장소 정보 제보",
+      "requirements": ["정기 소셜 요일", "초보 참여 가능 여부", "음악 비율", "촬영 분위기"],
       "sourceLinks": [
         { "label": "보니따 인스타", "url": "https://www.instagram.com/jessica_latinclub_bonita/" },
         { "label": "보니따 영상", "url": "https://www.youtube.com/watch?v=gDtOwUqeWKw" }
@@ -142,6 +161,7 @@
       "summary": "국내 2030 라틴댄스 동호회와 정기 클래스는 입문자 검색 의도가 강합니다. 클래스 구조, 초보자 동선, 소셜 연결 방식, 영상 자료를 모아 팀 소개 기사로 확장합니다.",
       "tags": ["에버라틴", "동호회", "클래스", "2030"],
       "callToAction": "팀 정보 제보",
+      "requirements": ["정기 클래스 구조", "초보자 시작 방법", "소셜 연결 방식", "공개 영상 또는 웹 링크"],
       "sourceLinks": [
         { "label": "Everlatin", "url": "https://everlatin.com/" },
         { "label": "Instagram", "url": "https://www.instagram.com/clublatin_everlatin/" }
@@ -157,6 +177,7 @@
       "summary": "라틴씨엘로 같은 국내 팀은 클래스, 소셜, 공연, 커뮤니티 운영을 함께 다루기 좋습니다. 공개 가능한 사진/영상/수업 정보를 받아 팀 소개 기사로 확장합니다.",
       "tags": ["라틴씨엘로", "팀소개", "클래스", "한국 바차타"],
       "callToAction": "팀 소개 제보",
+      "requirements": ["수업 또는 팀 소개", "정기 일정", "공개 가능한 사진·영상", "인스타 또는 문의 링크"],
       "sourceLinks": [
         { "label": "팀 소개 제보", "url": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%ED%8C%80%20%EC%86%8C%EA%B0%9C%20%EC%A0%9C%EB%B3%B4" }
       ]

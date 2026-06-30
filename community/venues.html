@@ -64,9 +64,20 @@
       .tag-list span { background: rgba(216, 159, 70, 0.16); border-color: rgba(216, 159, 70, 0.25); color: #73501f; }
       .entry-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
       .entry-links a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 11px; border: 1px solid rgba(25, 21, 18, 0.2); border-radius: 999px; font-size: 12px; font-weight: 950; }
-      .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #070707; }
-      .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .mini-list { display: grid; gap: 7px; margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+      .mini-list li::marker { color: var(--gold); }
+      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #070707; }
+      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
+      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
+      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 7, 7, 0.08), rgba(7, 7, 7, 0.58)); }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(13, 12, 11, 0.76); color: var(--cream); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
+      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
+      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(13, 12, 11, 0.68); color: var(--cream); font-size: 12px; font-weight: 900; }
+      .video-loader[data-loaded="true"] .youtube-link { display: none; }
       .entry-side { display: grid; gap: 12px; align-content: start; }
+      .entry-side > article { padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 250, 240, 0.74); }
       .side-note { position: sticky; top: 96px; display: grid; gap: 14px; }
       .side-note article { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 250, 240, 0.72); }
       .submission { margin-top: 32px; padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: #191512; color: var(--cream); }
@@ -168,9 +179,14 @@
               <div class="entry-links"><a href="https://www.instagram.com/jessica_latinclub_bonita/" target="_blank" rel="noreferrer">보니따 인스타</a><a href="https://www.youtube.com/watch?v=gDtOwUqeWKw" target="_blank" rel="noreferrer">보니따 영상</a></div>
             </div>
             <div class="entry-side">
-              <div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/gDtOwUqeWKw" title="홍대 보니따 소셜 아카이브 reference video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/gDtOwUqeWKw" data-title="홍대 보니따 소셜 아카이브 reference video">
+            <button type="button" data-video-button aria-label="홍대 보니따 소셜 아카이브 reference video 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/gDtOwUqeWKw/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=gDtOwUqeWKw" target="_blank" rel="noreferrer">YouTube</a>
           </div>
+              <article><span class="tag">Posting Check</span><ul class="mini-list"><li>정기 소셜 요일</li><li>초보 참여 가능 여부</li><li>음악 비율</li><li>촬영 분위기</li></ul></article>
             </div>
           </article>
 <article class="entry" id="venues-everlatin-club">
@@ -187,7 +203,7 @@
               <div class="entry-links"><a href="https://everlatin.com/" target="_blank" rel="noreferrer">Everlatin</a><a href="https://www.instagram.com/clublatin_everlatin/" target="_blank" rel="noreferrer">Instagram</a></div>
             </div>
             <div class="entry-side">
-              <div class="side-note"><article><span class="tag">Editorial Check</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>
+              <article><span class="tag">Posting Check</span><ul class="mini-list"><li>정기 클래스 구조</li><li>초보자 시작 방법</li><li>소셜 연결 방식</li><li>공개 영상 또는 웹 링크</li></ul></article>
             </div>
           </article>
 <article class="entry" id="venues-latincielo">
@@ -204,7 +220,7 @@
               <div class="entry-links"><a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%ED%8C%80%20%EC%86%8C%EA%B0%9C%20%EC%A0%9C%EB%B3%B4">팀 소개 제보</a></div>
             </div>
             <div class="entry-side">
-              <div class="side-note"><article><span class="tag">Editorial Check</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>
+              <article><span class="tag">Posting Check</span><ul class="mini-list"><li>수업 또는 팀 소개</li><li>정기 일정</li><li>공개 가능한 사진·영상</li><li>인스타 또는 문의 링크</li></ul></article>
             </div>
           </article>
         </section>
@@ -225,5 +241,22 @@
         </aside>
       </div>
     </main>
+    <script>
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-video-button]");
+        if (!button) return;
+        const loader = button.closest(".video-loader");
+        if (!loader || loader.dataset.loaded === "true") return;
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.src = loader.dataset.embed;
+        iframe.title = loader.dataset.title || "Bachata community video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        loader.dataset.loaded = "true";
+        loader.textContent = "";
+        loader.appendChild(iframe);
+      });
+    </script>
   </body>
 </html>

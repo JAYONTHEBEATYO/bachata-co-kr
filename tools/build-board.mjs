@@ -57,16 +57,32 @@ const extractYouTubeId = (url = "") => {
   return "";
 };
 
+const videoEmbedUrl = (videoId) => `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
+const videoWatchUrl = (videoId) => `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
+const youtubeThumb = (videoId) => videoId
+  ? `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`
+  : "";
+
 const renderLinks = (links = []) => links.map((link) => (
   `<a href="${escapeHtml(link.url)}"${link.url.startsWith("http") ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>${escapeHtml(link.label)}</a>`
 )).join("");
+
+const renderMiniList = (items = []) => {
+  if (!items.length) return "";
+  return `<ul class="mini-list">${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+};
 
 const renderVideoFromLinks = (entry) => {
   const source = (entry.sourceLinks || []).find((link) => extractYouTubeId(link.url));
   const id = source ? extractYouTubeId(source.url) : "";
   if (!id) return "";
-  return `<div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/${escapeHtml(id)}" title="${escapeHtml(entry.title)} reference video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  const title = `${entry.title} reference video`;
+  return `<div class="video-loader" data-embed="${escapeHtml(videoEmbedUrl(id))}" data-title="${escapeHtml(title)}">
+            <button type="button" data-video-button aria-label="${escapeHtml(title)} 영상 열기">
+              <img loading="lazy" src="${escapeHtml(youtubeThumb(id))}" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="${escapeHtml(videoWatchUrl(id))}" target="_blank" rel="noreferrer">YouTube</a>
           </div>`;
 };
 
@@ -134,9 +150,20 @@ const styles = `    <style>
       .tag-list span { background: rgba(216, 159, 70, 0.16); border-color: rgba(216, 159, 70, 0.25); color: #73501f; }
       .entry-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
       .entry-links a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 11px; border: 1px solid rgba(25, 21, 18, 0.2); border-radius: 999px; font-size: 12px; font-weight: 950; }
-      .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #070707; }
-      .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .mini-list { display: grid; gap: 7px; margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.5; }
+      .mini-list li::marker { color: var(--gold); }
+      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #070707; }
+      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
+      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
+      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 7, 7, 0.08), rgba(7, 7, 7, 0.58)); }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(13, 12, 11, 0.76); color: var(--cream); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
+      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
+      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(13, 12, 11, 0.68); color: var(--cream); font-size: 12px; font-weight: 900; }
+      .video-loader[data-loaded="true"] .youtube-link { display: none; }
       .entry-side { display: grid; gap: 12px; align-content: start; }
+      .entry-side > article { padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 250, 240, 0.74); }
       .side-note { position: sticky; top: 96px; display: grid; gap: 14px; }
       .side-note article { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 250, 240, 0.72); }
       .submission { margin-top: 32px; padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: #191512; color: var(--cream); }
@@ -168,6 +195,24 @@ const nav = `    <header class="nav">
       </nav>
     </header>`;
 
+const videoLoaderScript = `    <script>
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-video-button]");
+        if (!button) return;
+        const loader = button.closest(".video-loader");
+        if (!loader || loader.dataset.loaded === "true") return;
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.src = loader.dataset.embed;
+        iframe.title = loader.dataset.title || "Bachata community video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        loader.dataset.loaded = "true";
+        loader.textContent = "";
+        loader.appendChild(iframe);
+      });
+    </script>`;
+
 const renderCategoryCard = (category, entries) => {
   const categoryEntries = entries.filter((entry) => entry.category === category.id);
   return `<article class="category-card">
@@ -175,6 +220,7 @@ const renderCategoryCard = (category, entries) => {
             <span class="tag">${escapeHtml(categoryIntro[category.id]?.eyebrow || "Board")}</span>
             <h3>${escapeHtml(category.label)}</h3>
             <p>${escapeHtml(category.description)}</p>
+            ${renderMiniList(category.submissionFields || [])}
           </div>
           <div>
             <span class="count">${categoryEntries.length}개 큐레이션</span>
@@ -187,7 +233,11 @@ const renderEntry = (entry) => {
   const tags = (entry.tags || []).map((tag) => `<span class="pill">${escapeHtml(tag)}</span>`).join("");
   const links = renderLinks(entry.sourceLinks);
   const video = renderVideoFromLinks(entry);
+  const requirements = entry.requirements?.length
+    ? `<article><span class="tag">Posting Check</span>${renderMiniList(entry.requirements)}</article>`
+    : "";
   const status = statusLabels[entry.status] || entry.status;
+  const sideBlocks = [video, requirements].filter(Boolean).join("\n              ");
   return `<article class="entry" id="${escapeHtml(entry.id)}">
             <div>
               <span class="tag">${escapeHtml(status)}</span>
@@ -202,7 +252,7 @@ const renderEntry = (entry) => {
               <div class="entry-links">${links}</div>
             </div>
             <div class="entry-side">
-              ${video || `<div class="side-note"><article><span class="tag">Editorial Check</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>`}
+              ${sideBlocks || `<div class="side-note"><article><span class="tag">Editorial Check</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>`}
             </div>
           </article>`;
 };
@@ -219,6 +269,7 @@ ${styles}
   <body>
 ${nav}
 ${body}
+${videoLoaderScript}
   </body>
 </html>
 `;
@@ -378,7 +429,9 @@ const main = async () => {
       label: category.label,
       title: category.title,
       url: slugPath(category.id),
-      entryCount: data.entries.filter((entry) => entry.category === category.id).length
+      entryCount: data.entries.filter((entry) => entry.category === category.id).length,
+      submitLabel: category.submitLabel,
+      submissionFields: category.submissionFields || []
     })),
     entries: data.entries.map((entry) => ({
       id: entry.id,
@@ -386,7 +439,9 @@ const main = async () => {
       title: entry.title,
       url: `${slugPath(entry.category)}#${entry.id}`,
       status: entry.status,
-      tags: entry.tags || []
+      tags: entry.tags || [],
+      requirements: entry.requirements || [],
+      hasVideo: (entry.sourceLinks || []).some((link) => extractYouTubeId(link.url))
     }))
   }, null, 2)}\n`, "utf8");
 
