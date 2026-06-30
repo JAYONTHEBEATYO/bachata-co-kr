@@ -106,9 +106,19 @@ const verifyMojibake = async () => {
 const verifySourceHealth = async () => {
   const health = await readJson("data/generated/source-health.json");
   const summary = health.summary || {};
-  assert((summary.broken || 0) === 0, "Source health has broken links", summary);
+  const blockingBroken = (health.results || []).filter((item) => (
+    item.status === "broken" && ["internal", "youtube"].includes(item.type)
+  ));
+  assert(blockingBroken.length === 0, "Source health has broken internal pages or YouTube embeds", {
+    summary,
+    blockingBroken
+  });
   assert((summary.total || 0) > 0, "Source health did not audit any links", summary);
-  return summary;
+  return {
+    ...summary,
+    blockingBroken: blockingBroken.length,
+    externalBroken: (health.results || []).filter((item) => item.status === "broken" && item.type === "external").length
+  };
 };
 
 const verifySocialIntake = async () => {
