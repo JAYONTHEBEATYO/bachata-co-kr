@@ -247,8 +247,8 @@ const buildEditorialDeskTopic = (editorialDesk) => {
     type: "editorial-queue",
     id: item.id,
     title: `${item.priority} · ${item.title}`,
-    sourceUrl: "/desk/",
-    relatedUrl: item.internalLinks?.[0]?.url || item.linkedUrl || "/desk/",
+    sourceUrl: item.internalLinks?.[0]?.url || item.linkedUrl || "/articles/",
+    relatedUrl: item.internalLinks?.[0]?.url || item.linkedUrl || "/articles/",
     embedUrl: item.video?.id ? `https://www.youtube-nocookie.com/embed/${item.video.id}${item.video.start ? `?start=${encodeURIComponent(item.video.start)}` : ""}` : undefined,
     videoId: item.video?.id,
     beat: item.beat,
@@ -262,8 +262,8 @@ const buildEditorialDeskTopic = (editorialDesk) => {
 
   return {
     id: "editorial-desk",
-    label: "Editorial Desk",
-    keywords: ["바차타 편집 데스크", "바차타 콘텐츠 발행", "센슈얼 바차타", "도미니칸 바차타", "Bachata Influence"],
+    label: "기획 노트",
+    keywords: ["바차타 기획 노트", "바차타 콘텐츠", "센슈얼 바차타", "도미니칸 바차타", "Bachata Influence"],
     candidateCount: candidates.length,
     candidates: candidates.slice(0, 12)
   };

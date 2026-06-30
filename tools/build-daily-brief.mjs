@@ -70,17 +70,17 @@ const topicNotes = {
     ]
   },
   "social-radar": {
-    dek: "인스타 신호는 캡션을 복제하지 않고, 원문 링크·핸들·해시태그·관련 사이트 페이지로 묶어 편집 후보를 만듭니다.",
+    dek: "인스타 흐름은 캡션을 복제하지 않고, 원문 링크·핸들·해시태그·관련 사이트 페이지로 묶어 읽습니다.",
     questions: [
-      "오늘 확인한 인스타 신호가 행사, 팀 소개, 댄서 프로필, 상품 비교 중 어디에 들어가야 하는가?",
+      "오늘 확인한 인스타 흐름이 행사, 팀 소개, 댄서 프로필, 상품 비교 중 어디에 가까운가?",
       "공식 링크와 유튜브 아카이브가 함께 있어 기사화할 만큼 검증됐는가?"
     ]
   },
   "editorial-desk": {
-    dek: "편집 데스크 큐는 자동 수집 후보를 어떤 evergreen 기사, 프로그램, 인물 프로필, 커뮤니티 기능으로 승격할지 정하는 운영 보드입니다.",
+    dek: "기획 노트는 센슈얼, 도미니칸, 한국씬, 행사, 상품처럼 더 깊게 읽을 만한 주제를 골라 확장합니다.",
     questions: [
       "오늘은 센슈얼·도미니칸 같은 코어 콘텐츠를 보강할 차례인가, 한국씬·행사·상품 같은 시의성 콘텐츠를 발행할 차례인가?",
-      "영상, 내부 링크, 출처 체크리스트가 모두 채워져 바로 발행 가능한 후보는 무엇인가?"
+      "함께 볼 영상, 내부 링크, 원문 출처가 모두 충분한 주제는 무엇인가?"
     ]
   }
 };
@@ -101,8 +101,7 @@ const formatDateKo = (dateText) => {
 const renderCandidate = (candidate) => {
   const title = escapeHtml(candidate.title || "Untitled source");
   const sourceUrl = escapeHtml(candidate.sourceUrl || "#");
-  const type = escapeHtml(candidate.type || "source");
-  const score = Number.isFinite(candidate.score) ? candidate.score : 0;
+  const type = publicTypeLabel(candidate.type);
   const embed = candidate.embedUrl
     ? `<div class="video-frame"><iframe loading="lazy" src="${escapeHtml(candidate.embedUrl)}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`
     : "";
@@ -110,17 +109,37 @@ const renderCandidate = (candidate) => {
   return `
               <article class="candidate">
 ${embed ? `                ${embed}\n` : ""}                <div class="candidate-body">
-                  <span class="tag">${type} · score ${score}</span>
+                  <span class="tag">${escapeHtml(type)}</span>
                   <h3>${title}</h3>
                   <a href="${sourceUrl}" target="_blank" rel="noreferrer">원본 확인</a>
                 </div>
               </article>`;
 };
 
+const publicTypeLabel = (type = "") => {
+  const normalized = String(type).toLowerCase();
+  if (normalized.includes("youtube")) return "영상 큐레이션";
+  if (normalized.includes("instagram")) return "소셜 포스트";
+  if (normalized.includes("naver")) return "검색 트렌드";
+  if (normalized.includes("editorial")) return "편집 노트";
+  return "바차타 소식";
+};
+
+const publicTopicLabel = (label = "", id = "") => {
+  const normalized = `${id} ${label}`.toLowerCase();
+  if (normalized.includes("editorial")) return "기획 노트";
+  if (normalized.includes("social")) return "소셜 레이더";
+  if (normalized.includes("korea")) return "한국 바차타씬";
+  if (normalized.includes("gear")) return "댄스화와 용품";
+  if (normalized.includes("global")) return "글로벌 댄서";
+  return label;
+};
+
 const renderTopic = (topic) => {
+  const label = publicTopicLabel(topic.label, topic.id);
   const note = topicNotes[topic.id] || {
-    dek: "오늘 수집된 후보를 편집자가 확인해 기사, 인터뷰, 캘린더, 상품 노트 중 알맞은 형식으로 발행합니다.",
-    questions: ["이 후보가 한국 바차타 독자에게 왜 필요한가?", "출처와 영상은 오래 유지될 가능성이 있는가?"]
+    dek: "오늘 확인한 흐름을 기사, 인터뷰, 캘린더, 상품 노트 중 알맞은 형식으로 이어갑니다.",
+    questions: ["한국 바차타 독자가 바로 써먹을 수 있는 포인트는 무엇인가?", "함께 볼 영상과 원문 링크가 오래 유지될 가능성이 있는가?"]
   };
 
   const candidates = topic.candidates.slice(0, 3).map(renderCandidate).join("\n");
@@ -129,15 +148,15 @@ const renderTopic = (topic) => {
   return `
           <section class="topic" id="${escapeHtml(topic.id)}">
             <div class="topic-head">
-              <span class="eyebrow">${escapeHtml(topic.label)}</span>
-              <h2>${escapeHtml(topic.label)} 오늘의 관찰</h2>
+              <span class="eyebrow">${escapeHtml(label)}</span>
+              <h2>${escapeHtml(label)} 오늘의 포인트</h2>
               <p>${escapeHtml(note.dek)}</p>
             </div>
             <div class="candidate-grid">
-${candidates || "              <p>오늘은 검증된 후보가 없습니다.</p>"}
+${candidates || "              <p>오늘은 새로 소개할 링크가 없습니다.</p>"}
             </div>
             <div class="questions">
-              <strong>다음 취재 질문</strong>
+              <strong>이어 볼 포인트</strong>
               <ul>${questions}</ul>
             </div>
           </section>`;
@@ -145,16 +164,11 @@ ${candidates || "              <p>오늘은 검증된 후보가 없습니다.</p
 
 const renderBriefHtml = (signals) => {
   const dateText = signals.generationDate;
-  const title = `${formatDateKo(dateText)} 바차타 씬 브리프`;
+  const title = `${formatDateKo(dateText)} 바차타 리포트`;
   const sourceCount = signals.topics.reduce((sum, topic) => sum + topic.candidateCount, 0);
-  const topicLinks = signals.topics.map((topic) => `<a href="#${escapeHtml(topic.id)}">${escapeHtml(topic.label)}</a>`).join("");
+  const topicLinks = signals.topics.map((topic) => `<a href="#${escapeHtml(topic.id)}">${escapeHtml(publicTopicLabel(topic.label, topic.id))}</a>`).join("");
   const topics = signals.topics.map(renderTopic).join("\n");
   const generatedAt = new Date(signals.generatedAt).toISOString();
-  const apiMode = [
-    signals.mode.youtubeApi ? "YouTube API on" : "seed YouTube only",
-    signals.mode.naverApi ? "Naver API on" : "Naver API off",
-    signals.mode.instagramGraph ? "Instagram Graph on" : "Instagram Graph off"
-  ].join(" · ");
 
   return `<!doctype html>
 <html lang="ko">
@@ -163,7 +177,7 @@ const renderBriefHtml = (signals) => {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>${escapeHtml(title)} | 바차타 코리아</title>
-    <meta name="description" content="${escapeHtml(title)}. Bachata Influence, Bachazouk, 글로벌 댄서, 한국 소셜, 바차타 댄스화 후보를 영상과 출처 중심으로 정리한 일간 브리프.">
+    <meta name="description" content="${escapeHtml(title)}. Bachata Influence, Bachazouk, 글로벌 댄서, 한국 소셜, 바차타 댄스화 흐름을 영상과 원문 링크 중심으로 정리한 일간 바차타 매거진.">
     <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
     <link rel="canonical" href="https://bachata.co.kr/briefs/${dateText}.html">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -228,7 +242,7 @@ const renderBriefHtml = (signals) => {
         "dateModified": generatedAt,
         "inLanguage": "ko-KR",
         "isPartOf": { "@id": "https://bachata.co.kr/#website" },
-        "about": signals.topics.map((topic) => topic.label),
+        "about": signals.topics.map((topic) => publicTopicLabel(topic.label, topic.id)),
         "mainEntityOfPage": `https://bachata.co.kr/briefs/${dateText}.html`
       }, null, 6)}
     </script>
@@ -239,19 +253,20 @@ const renderBriefHtml = (signals) => {
       <nav class="nav-links" aria-label="브리프 이동">
         <a href="/">홈</a>
         <a href="/articles/">기사</a>
-        <a href="/#trend-desk">트렌드</a>
-        <a href="/#publishing-os">발행 시스템</a>
-        <a href="/briefs/">브리프 목록</a>
+        <a href="/styles/">스타일</a>
+        <a href="/korea-scene/">한국씬</a>
+        <a href="/community/">커뮤니티</a>
+        <a href="/briefs/">리포트</a>
       </nav>
     </header>
     <section class="hero">
-      <span class="eyebrow">Daily Scene Brief</span>
+      <span class="eyebrow">Daily Bachata Report</span>
       <h1>${escapeHtml(title)}</h1>
-      <p>오늘의 바차타 후보 ${sourceCount}개를 영상과 출처 중심으로 정리했습니다. 이 페이지는 자동 생성되지만, 원문을 복제하지 않고 어떤 방향으로 기사화할지 편집 질문을 남기는 방식으로 운영합니다.</p>
+      <p>오늘 확인한 바차타 영상, 행사, 소셜 포스트, 커뮤니티 흐름을 한국 독자가 읽기 좋은 맥락으로 묶었습니다. 원문을 복제하지 않고 링크와 해석 중심으로 소개합니다.</p>
       <div class="meta">
-        <span>${escapeHtml(apiMode)}</span>
-        <span>generated ${escapeHtml(generatedAt)}</span>
-        <span>${sourceCount} candidates</span>
+        <span>${signals.topics.length}개 섹션</span>
+        <span>영상과 원문 링크 중심</span>
+        <span>${sourceCount}개 참고 링크</span>
       </div>
     </section>
     <main>
@@ -259,7 +274,7 @@ const renderBriefHtml = (signals) => {
       ${topics}
     </main>
     <footer class="footer">
-      <p>Source map: <a href="/data/sources.json">data/sources.json</a> · Generated data: <a href="/data/generated/scene-signals.json">scene-signals.json</a> · Articles: <a href="/articles/">articles/</a></p>
+      <p><a href="/articles/">바차타 기사</a> · <a href="/styles/">스타일 허브</a> · <a href="/korea-scene/">한국 바차타씬</a> · <a href="/community/">커뮤니티</a></p>
     </footer>
   </body>
 </html>
@@ -279,7 +294,7 @@ const renderBriefIndex = async (signals) => {
 
   const items = files.map((file) => {
     const dateText = file.replace(".html", "");
-    return `<li><a href="/briefs/${file}">${formatDateKo(dateText)} 바차타 씬 브리프</a></li>`;
+    return `<li><a href="/briefs/${file}">${formatDateKo(dateText)} 바차타 리포트</a></li>`;
   }).join("\n");
 
   return `<!doctype html>
@@ -287,14 +302,14 @@ const renderBriefIndex = async (signals) => {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>바차타 씬 브리프 | 바차타 코리아</title>
-    <meta name="description" content="Bachata Influence, Bachazouk, 글로벌 댄서, 한국 소셜, 댄스화 신호를 모아 정리하는 바차타 코리아 일간 브리프 목록.">
+    <title>바차타 리포트 | 바차타 코리아</title>
+    <meta name="description" content="Bachata Influence, Bachazouk, 글로벌 댄서, 한국 소셜, 댄스화 흐름을 영상과 원문 링크로 정리하는 바차타 코리아 일간 리포트 목록.">
     <link rel="canonical" href="https://bachata.co.kr/briefs/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/complete/WantedSansVariable.css">
     <style>
-      body { margin: 0; background: #0b0a08; color: #fff7e8; font-family: "SUIT Variable", SUIT, Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      body { margin: 0; background: #0b0a08; color: #fff7e8; font-family: "Pretendard Variable", Pretendard, "Wanted Sans Variable", "Wanted Sans", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       main { width: min(880px, calc(100% - 36px)); margin: 0 auto; padding: 72px 0; }
       a { color: inherit; text-decoration: none; }
       .back { color: #e2ad58; font-weight: 800; }
@@ -307,8 +322,8 @@ const renderBriefIndex = async (signals) => {
   <body>
     <main>
       <a class="back" href="/">← 바차타 코리아 홈</a>
-      <h1>바차타 씬 브리프</h1>
-      <p>자동 수집 후보를 편집 질문과 함께 정리하는 일간 브리프입니다. API 키가 연결될수록 YouTube, Naver, Instagram Graph 신호가 더 풍부해집니다.</p>
+      <h1>바차타 리포트</h1>
+      <p>매일 새로 확인한 영상과 공개 링크를 짧게 묶은 리포트입니다. 깊게 읽을 주제는 기사와 스타일 허브로 이어집니다.</p>
       <p><a class="back" href="/articles/">영구 기사 라이브러리 보기</a></p>
       <ul>${items}</ul>
     </main>
@@ -726,15 +741,12 @@ const updateSitemap = async (dateText) => {
 ${briefUrls}
 ${styleUrls}
 ${programUrls}
-${deskUrls}
 ${submitUrls}
 ${profileUrls}
 ${eventUrls}
 ${radarUrls}
-${intakeUrls}
 ${koreaSceneUrls}
 ${gearUrls}
-${healthUrls}
   <url>
     <loc>https://bachata.co.kr/articles/</loc>
     <lastmod>${dateText}</lastmod>

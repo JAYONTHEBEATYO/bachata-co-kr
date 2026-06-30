@@ -457,7 +457,7 @@ const renderGuide = (guide, allGuides) => {
                 <span class="eyebrow">Content Graph</span>
                 <h2>이 스타일로 이어지는 발행물</h2>
               </div>
-              <p>기사, 프로그램, 프로필, 행사, 장비, 소셜 인테이크 큐를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
+              <p>기사, 프로그램, 프로필, 행사, 장비, 한국 바차타씬 콘텐츠를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
             </div>
             <div class="content-grid">
               ${guide.relatedContent.map((item) => renderContentCard(item, { cta: "콘텐츠 보기" })).join("\n              ")}

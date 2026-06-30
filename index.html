@@ -1578,12 +1578,12 @@
               {"@type":"ListItem","position":6,"name":"도미니칸 바차타 리듬 읽기"},
               {"@type":"ListItem","position":7,"name":"모던 바차타와 퓨전의 문법"},
               {"@type":"ListItem","position":8,"name":"Bachata Influence 영상 큐레이션"},
-              {"@type":"ListItem","position":9,"name":"라틴댄스 소식 자동 수집 발행 시스템"},
+              {"@type":"ListItem","position":9,"name":"라틴댄스 소식과 영상 큐레이션"},
               {"@type":"ListItem","position":10,"name":"Bachazouk와 Brazilian Zouk 융합 흐름"},
               {"@type":"ListItem","position":11,"name":"Gero & Migle, Luis & Andrea, Andi & Silvia 글로벌 댄서 노트"},
               {"@type":"ListItem","position":12,"name":"홍대 보니따, 에버라틴, 그레이 로렌 한국 바차타 씬"},
               {"@type":"ListItem","position":13,"name":"바차타 댄스화와 라틴댄스 상품 비교"},
-              {"@type":"ListItem","position":14,"name":"매일 자동 생성되는 바차타 씬 브리프"},
+              {"@type":"ListItem","position":14,"name":"매일 읽는 바차타 리포트"},
               {"@type":"ListItem","position":15,"name":"Bachata Influence, Bachazouk, 댄스화 개별 기사 라이브러리"}
             ]
           },
@@ -1639,19 +1639,10 @@
             ]
           },
           {
-            "@type": "Dataset",
-            "@id": "https://bachata.co.kr/data/generated/scene-signals.json",
-            "name": "Bachata Korea Scene Discovery Signals",
-            "description": "바차타 코리아가 매일 수집·검수할 라틴댄스 소식 후보 데이터.",
-            "inLanguage": "ko-KR",
-            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
-            "url": "https://bachata.co.kr/data/generated/scene-signals.json"
-          },
-          {
             "@type": "CollectionPage",
             "@id": "https://bachata.co.kr/briefs/",
-            "name": "바차타 씬 브리프",
-            "description": "Bachata Influence, Bachazouk, 글로벌 댄서, 한국 소셜, 바차타 댄스화 신호를 모아 정리하는 바차타 코리아 일간 브리프 목록.",
+            "name": "바차타 리포트",
+            "description": "Bachata Influence, Bachazouk, 글로벌 댄서, 한국 소셜, 바차타 댄스화 흐름을 영상과 원문 링크로 정리하는 바차타 코리아 일간 리포트 목록.",
             "inLanguage": "ko-KR",
             "isPartOf": {"@id": "https://bachata.co.kr/#website"},
             "url": "https://bachata.co.kr/briefs/"
@@ -1709,69 +1700,6 @@
             "inLanguage": "ko-KR",
             "isPartOf": {"@id": "https://bachata.co.kr/#website"},
             "url": "https://bachata.co.kr/gear/"
-          },
-          {
-            "@type": "Dataset",
-            "@id": "https://bachata.co.kr/data/generated/latest-brief.json",
-            "name": "Bachata Korea Latest Brief Pointer",
-            "description": "가장 최근 자동 생성 바차타 씬 브리프의 URL과 후보 수를 담은 JSON.",
-            "inLanguage": "ko-KR",
-            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
-            "url": "https://bachata.co.kr/data/generated/latest-brief.json"
-          },
-          {
-            "@type": "Dataset",
-            "@id": "https://bachata.co.kr/data/generated/article-index.json",
-            "name": "Bachata Korea Article Index",
-            "description": "바차타 코리아의 개별 기사 URL, 키워드, 업데이트 날짜를 담은 JSON.",
-            "inLanguage": "ko-KR",
-            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
-            "url": "https://bachata.co.kr/data/generated/article-index.json"
-          },
-          {
-            "@type": "Dataset",
-            "@id": "https://bachata.co.kr/data/generated/style-index.json",
-            "name": "Bachata Korea Style Index",
-            "description": "바차타 스타일 허브의 개별 URL, 키워드, 대표 영상 ID를 담은 JSON.",
-            "inLanguage": "ko-KR",
-            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
-            "url": "https://bachata.co.kr/data/generated/style-index.json"
-          },
-          {
-            "@type": "Dataset",
-            "@id": "https://bachata.co.kr/data/generated/profile-index.json",
-            "name": "Bachata Korea Profile Index",
-            "description": "바차타 인물·팀·장소 프로필의 카테고리, URL, 대표 영상 ID, 태그를 담은 JSON.",
-            "inLanguage": "ko-KR",
-            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
-            "url": "https://bachata.co.kr/data/generated/profile-index.json"
-          },
-          {
-            "@type": "Dataset",
-            "@id": "https://bachata.co.kr/data/generated/board-index.json",
-            "name": "Bachata Korea Community Board Index",
-            "description": "바차타 코리아 커뮤니티 보드의 카테고리, 항목, 상태, 태그, URL을 담은 JSON.",
-            "inLanguage": "ko-KR",
-            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
-            "url": "https://bachata.co.kr/data/generated/board-index.json"
-          },
-          {
-            "@type": "Dataset",
-            "@id": "https://bachata.co.kr/data/generated/event-index.json",
-            "name": "Bachata Korea Event Index",
-            "description": "한국 바차타 월별 내한·행사 레이더의 일정, 상태, URL, 대표 영상, 출처 링크를 담은 JSON.",
-            "inLanguage": "ko-KR",
-            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
-            "url": "https://bachata.co.kr/data/generated/event-index.json"
-          },
-          {
-            "@type": "Dataset",
-            "@id": "https://bachata.co.kr/data/generated/gear-index.json",
-            "name": "Bachata Korea Gear Index",
-            "description": "바차타 댄스화와 라틴댄스 스니커 비교 페이지의 브랜드, URL, 대표 영상, 출처 링크를 담은 JSON.",
-            "inLanguage": "ko-KR",
-            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
-            "url": "https://bachata.co.kr/data/generated/gear-index.json"
           },
           {
             "@type": "VideoObject",
@@ -2679,7 +2607,7 @@
         <div class="wrap">
           <div class="section-head">
             <div>
-              <p class="eyebrow">Editorial Desk</p>
+              <p class="eyebrow">Magazine Desk</p>
               <h2>소식은 빠르게, 기사는 천천히</h2>
             </div>
             <p>코어 가이드는 오래 보이게 다듬고, 행사·내한·팀·장소·상품 소식은 매일 확인합니다. 인스타와 유튜브에서 흐름을 찾되 사진·캡션은 베끼지 않고, 공개 링크와 영상 근거만 남깁니다.</p>
@@ -2715,14 +2643,14 @@
                 <a href="https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" target="_blank" rel="noreferrer">Influence Academy 2026</a>
                 <a href="https://bygatica.com/" target="_blank" rel="noreferrer">byGatica</a>
                 <a href="/radar/">Social Radar</a>
-                <a href="/intake/">Social Intake</a>
+                <a href="/korea-scene/">한국 바차타씬</a>
                 <a href="/korea-scene/">Korea Scene</a>
                 <a href="/gear/">Gear Hub</a>
               </div>
             </article>
           </div>
 
-          <div class="automation-board" aria-label="자동 발행 구현 메모">
+          <div class="automation-board" aria-label="콘텐츠 운영 원칙">
             <article class="automation-note">
               <span class="tag">Source Desk</span>
               <h3>매일 확인하는 출처 지도</h3>
@@ -2738,10 +2666,10 @@
               <h3>인스타그램과 YouTube를 같이 봅니다</h3>
               <p>라틴댄스 홍보는 인스타그램에서 먼저 움직이고, 수업과 퍼포먼스의 근거는 YouTube 영상으로 남는 경우가 많습니다. 그래서 공개 계정, YouTube 검색, 네이버 검색, 제보를 함께 보되 최종 발행은 출처와 맥락을 확인한 뒤 진행합니다.</p>
               <div class="source-links">
-                <a href="/desk/">Editorial Desk</a>
+                <a href="/articles/">기사 라이브러리</a>
                 <a href="/styles/">Style Hub</a>
                 <a href="/profiles/">Profile Hub</a>
-                <a href="/briefs/">Daily Brief</a>
+                <a href="/briefs/">Daily Report</a>
                 <a href="/community/">Community Board</a>
               </div>
             </article>

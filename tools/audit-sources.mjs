@@ -188,7 +188,7 @@ const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>${escapeHtml(title)}</title>
     <meta name="description" content="${escapeHtml(description)}">
-    <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
+    <meta name="robots" content="noindex,nofollow">
     <link rel="canonical" href="${escapeHtml(canonical)}">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">

@@ -97,12 +97,6 @@
     <priority>0.82</priority>
   </url>
   <url>
-    <loc>https://bachata.co.kr/desk/</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
     <loc>https://bachata.co.kr/submit/</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>weekly</changefreq>
@@ -247,12 +241,6 @@
     <priority>0.82</priority>
   </url>
   <url>
-    <loc>https://bachata.co.kr/intake/</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.82</priority>
-  </url>
-  <url>
     <loc>https://bachata.co.kr/korea-scene/</loc>
     <lastmod>2026-06-30</lastmod>
     <changefreq>daily</changefreq>
@@ -287,12 +275,6 @@
     <lastmod>2026-06-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://bachata.co.kr/health/</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.72</priority>
   </url>
   <url>
     <loc>https://bachata.co.kr/articles/</loc>

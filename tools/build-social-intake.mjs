@@ -330,7 +330,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>바차타 소셜 인테이크 | Bachata Korea</title>
     <meta name="description" content="Instagram, YouTube, Naver, 커뮤니티 신호를 한국 바차타 웹매거진의 기사, 행사, 프로필, 프로그램 발행 후보로 정규화하는 편집 큐.">
-    <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
+    <meta name="robots" content="noindex,nofollow">
     <link rel="canonical" href="https://bachata.co.kr/intake/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Pretendard/subsets/Pretendard-dynamic-subset.css">

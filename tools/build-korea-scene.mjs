@@ -121,7 +121,7 @@ const intakeToCard = (item, health) => ({
   label: item.publishFormat || "Signal",
   title: item.title,
   description: item.beat || item.searchIntent || item.healthNote || "소셜 신호에서 들어온 발행 후보입니다.",
-  url: item.relatedUrl || item.target || "/intake/",
+  url: item.relatedUrl || item.target || "/community/",
   sourceUrl: item.sourceUrl || "",
   videoId: item.videoId || "",
   tags: [item.type, item.role, item.watchlist].filter(Boolean),
@@ -326,7 +326,7 @@ const renderPage = ({ config, lenses, summary, sourceHealth }) => {
         <a href="/profiles/">Profiles</a>
         <a href="/events/">Events</a>
         <a href="/community/">Community</a>
-        <a href="/intake/">Intake</a>
+        <a href="/briefs/">Report</a>
       </nav>
     </header>
     <section class="hero">

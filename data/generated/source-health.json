@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-30T14:25:08.755Z",
+  "generatedAt": "2026-06-30T14:53:59.007Z",
   "generationDate": "2026-06-30",
   "summary": {
-    "total": 171,
-    "ok": 150,
+    "total": 170,
+    "ok": 149,
     "watch": 21,
     "warn": 0,
     "broken": 0
@@ -1889,8 +1889,8 @@
     },
     {
       "type": "internal",
-      "url": "/intake/",
-      "label": "/intake/",
+      "url": "/korea-scene/",
+      "label": "/korea-scene/",
       "sources": [
         {
           "file": "data/style-guides.json",
@@ -1902,21 +1902,11 @@
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.4.contentDrops.3.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "local file exists"
-    },
-    {
-      "type": "internal",
-      "url": "/korea-scene/",
-      "label": "/korea-scene/",
-      "sources": [
+          "path": "guides.2.contentDrops.3.url"
+        },
         {
           "file": "data/style-guides.json",
-          "path": "guides.2.contentDrops.3.url"
+          "path": "guides.4.contentDrops.3.url"
         },
         {
           "file": "data/profiles.json",
