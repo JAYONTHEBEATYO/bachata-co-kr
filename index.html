@@ -806,6 +806,69 @@
         border: 0;
       }
 
+      .video-loader {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        overflow: hidden;
+        border: 0;
+        background: #050505;
+        color: var(--ink);
+        cursor: pointer;
+      }
+
+      .video-loader img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.72;
+        transform: scale(1.02);
+        transition: opacity 160ms ease, transform 160ms ease;
+      }
+
+      .video-loader:hover img,
+      .video-loader:focus-visible img {
+        opacity: 0.9;
+        transform: scale(1.04);
+      }
+
+      .video-loader .play-badge {
+        position: relative;
+        z-index: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 68px;
+        height: 68px;
+        border: 1px solid rgba(255, 249, 239, 0.72);
+        border-radius: 999px;
+        background: rgba(8, 8, 10, 0.74);
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+        font-size: 13px;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      .video-loader strong {
+        position: absolute;
+        left: 14px;
+        right: 14px;
+        bottom: 12px;
+        z-index: 1;
+        color: rgba(255, 249, 239, 0.9);
+        font-size: 13px;
+        line-height: 1.36;
+        text-align: left;
+        text-shadow: 0 2px 10px rgba(0, 0, 0, 0.76);
+        overflow-wrap: anywhere;
+      }
+
       .video-meta {
         padding: 18px;
       }
@@ -2030,7 +2093,11 @@
                   <div class="video-stack">
                     <article class="video-card">
                       <div class="video-frame">
-                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99" title="16 Bachata Sensual Fundamental Techniques by Korke y Judith" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99" data-title="16 Bachata Sensual Fundamental Techniques by Korke y Judith" aria-label="?? ??: 16 Bachata Sensual Fundamental Techniques by Korke y Judith">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/B7Wv3cqHrSU/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>16 Bachata Sensual Fundamental Techniques by Korke y Judith</strong>
+                        </button>
                       </div>
                       <div class="video-meta">
                         <span class="tag">Core Video</span>
@@ -2040,7 +2107,11 @@
                     </article>
                     <article class="video-card">
                       <div class="video-frame">
-                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/mLIT9UaZ_4w" title="Bachata Waves Tutorial with Korke y Judith" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/mLIT9UaZ_4w" data-title="Bachata Waves Tutorial with Korke y Judith" aria-label="?? ??: Bachata Waves Tutorial with Korke y Judith">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/mLIT9UaZ_4w/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Bachata Waves Tutorial with Korke y Judith</strong>
+                        </button>
                       </div>
                       <div class="video-meta">
                         <span class="tag">Technique Companion</span>
@@ -2110,7 +2181,11 @@
                   <div class="video-stack">
                     <article class="video-card">
                       <div class="video-frame">
-                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xmvDKN5cwT0" title="Dominican Bachata Footwork Beginner Basics" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/xmvDKN5cwT0" data-title="Dominican Bachata Footwork Beginner Basics" aria-label="?? ??: Dominican Bachata Footwork Beginner Basics">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/xmvDKN5cwT0/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Dominican Bachata Footwork Beginner Basics</strong>
+                        </button>
                       </div>
                       <div class="video-meta">
                         <span class="tag">Beginner Footwork</span>
@@ -2120,7 +2195,11 @@
                     </article>
                     <article class="video-card">
                       <div class="video-frame">
-                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/csvyhfrLv74" title="Dominican Bachata Basic Footwork Follow Along" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/csvyhfrLv74" data-title="Dominican Bachata Basic Footwork Follow Along" aria-label="?? ??: Dominican Bachata Basic Footwork Follow Along">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/csvyhfrLv74/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Dominican Bachata Basic Footwork Follow Along</strong>
+                        </button>
                       </div>
                       <div class="video-meta">
                         <span class="tag">Follow Along</span>
@@ -2171,7 +2250,11 @@
                   <div class="video-stack">
                     <article class="video-card">
                       <div class="video-frame">
-                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xhrdh-uFkog" title="Bachata Beginner Basic Steps Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/xhrdh-uFkog" data-title="Bachata Beginner Basic Steps Tutorial" aria-label="?? ??: Bachata Beginner Basic Steps Tutorial">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/xhrdh-uFkog/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Bachata Beginner Basic Steps Tutorial</strong>
+                        </button>
                       </div>
                       <div class="video-meta">
                         <span class="tag">Modern Basics</span>
@@ -2181,7 +2264,11 @@
                     </article>
                     <article class="video-card">
                       <div class="video-frame">
-                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dfsSL8QRjrM" title="Carlos Espinosa Bachata Fusion Performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/dfsSL8QRjrM" data-title="Carlos Espinosa Bachata Fusion Performance" aria-label="?? ??: Carlos Espinosa Bachata Fusion Performance">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/dfsSL8QRjrM/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Carlos Espinosa Bachata Fusion Performance</strong>
+                        </button>
                       </div>
                       <div class="video-meta">
                         <span class="tag">Fusion Reference</span>
@@ -2239,7 +2326,11 @@
 
               <article class="trend-card">
                 <div class="video-frame">
-                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FNv7eOMg-_k" title="Emilien and Tehina Bachata Influence at Prague Bachata Dominant Congress 2025" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/FNv7eOMg-_k" data-title="Emilien and Tehina Bachata Influence at Prague Bachata Dominant Congress 2025" aria-label="?? ??: Emilien and Tehina Bachata Influence at Prague Bachata Dominant Congress 2025">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/FNv7eOMg-_k/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Emilien and Tehina Bachata Influence at Prague Bachata Dominant Congress 2025</strong>
+                        </button>
                 </div>
                 <span class="tag">Influence Video</span>
                 <h3>Emilien & Tehina로 보는 Influence 계열</h3>
@@ -2250,7 +2341,11 @@
             <div class="trend-grid" aria-label="글로벌 바차타 트렌드 큐">
               <article class="trend-card">
                 <div class="video-frame">
-                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE" title="BachaZouk Tutorial by Azael and Marta at Bachata Geneva Festival" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE" data-title="BachaZouk Tutorial by Azael and Marta at Bachata Geneva Festival" aria-label="?? ??: BachaZouk Tutorial by Azael and Marta at Bachata Geneva Festival">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/Qng3Wdmt3WE/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>BachaZouk Tutorial by Azael and Marta at Bachata Geneva Festival</strong>
+                        </button>
                 </div>
                 <span class="tag">Bachazouk</span>
                 <h3>바차주크는 유행어가 아니라 별도 문법으로 봐야 합니다</h3>
@@ -2264,7 +2359,11 @@
 
               <article class="trend-card">
                 <div class="video-frame">
-                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/j4CmXKDCMzI" title="Gero and Migle Bachata Para Besarte" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/j4CmXKDCMzI" data-title="Gero and Migle Bachata Para Besarte" aria-label="?? ??: Gero and Migle Bachata Para Besarte">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/j4CmXKDCMzI/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Gero and Migle Bachata Para Besarte</strong>
+                        </button>
                 </div>
                 <span class="tag">Global Pair</span>
                 <h3>Gero & Migle: 소셜 친화적인 시그니처 흐름</h3>
@@ -2277,7 +2376,11 @@
 
               <article class="trend-card">
                 <div class="video-frame">
-                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/L1vzrcpeBuw" title="Luis y Andrea Bachata Inspire KHE Manny Rod X DJ Tronky" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/L1vzrcpeBuw" data-title="Luis y Andrea Bachata Inspire KHE Manny Rod X DJ Tronky" aria-label="?? ??: Luis y Andrea Bachata Inspire KHE Manny Rod X DJ Tronky">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/L1vzrcpeBuw/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Luis y Andrea Bachata Inspire KHE Manny Rod X DJ Tronky</strong>
+                        </button>
                 </div>
                 <span class="tag">Bachata Inspire</span>
                 <h3>Luis & Andrea: 에너지와 무대성을 소셜 언어로 번역하기</h3>
@@ -2290,7 +2393,11 @@
 
               <article class="trend-card">
                 <div class="video-frame">
-                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FzOWJRxp9r0" title="Andi and Silvia Bachata Just As I Am Australia 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/FzOWJRxp9r0" data-title="Andi and Silvia Bachata Just As I Am Australia 2026" aria-label="?? ??: Andi and Silvia Bachata Just As I Am Australia 2026">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/FzOWJRxp9r0/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Andi and Silvia Bachata Just As I Am Australia 2026</strong>
+                        </button>
                 </div>
                 <span class="tag">Global Pair</span>
                 <h3>Andi & Silvia: 최신 영상으로 추적하는 공연형 센슈얼</h3>
@@ -2303,7 +2410,11 @@
 
               <article class="trend-card">
                 <div class="video-frame">
-                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/nrJM-arshvE" title="Gray and Loren Bachata Social in Korea" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/nrJM-arshvE" data-title="Gray and Loren Bachata Social in Korea" aria-label="?? ??: Gray and Loren Bachata Social in Korea">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/nrJM-arshvE/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Gray and Loren Bachata Social in Korea</strong>
+                        </button>
                 </div>
                 <span class="tag">Korea Scene</span>
                 <h3>그레이 & 로렌: 한국 인플루언스 흐름의 관찰 지점</h3>
@@ -2316,7 +2427,11 @@
 
               <article class="trend-card">
                 <div class="video-frame">
-                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/gDtOwUqeWKw" title="Bachata Social Dance at Bonita in Seoul Korea 20240304" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  <button class="video-loader" type="button" data-src="https://www.youtube-nocookie.com/embed/gDtOwUqeWKw" data-title="Bachata Social Dance at Bonita in Seoul Korea 20240304" aria-label="?? ??: Bachata Social Dance at Bonita in Seoul Korea 20240304">
+                          <img loading="lazy" src="https://i.ytimg.com/vi/gDtOwUqeWKw/hqdefault.jpg" alt="">
+                          <span class="play-badge">Play</span>
+                          <strong>Bachata Social Dance at Bonita in Seoul Korea 20240304</strong>
+                        </button>
                 </div>
                 <span class="tag">Venue Watch</span>
                 <h3>홍대 보니따와 서울 소셜 아카이브</h3>
@@ -2761,5 +2876,21 @@
         <a class="button" href="#main">맨 위로</a>
       </div>
     </footer>
+    <script>
+      (() => {
+        const allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        document.querySelectorAll(".video-loader").forEach((button) => {
+          button.addEventListener("click", () => {
+            const iframe = document.createElement("iframe");
+            iframe.loading = "lazy";
+            iframe.src = button.dataset.src;
+            iframe.title = button.dataset.title || "Bachata video";
+            iframe.allow = allow;
+            iframe.allowFullscreen = true;
+            button.replaceWith(iframe);
+          }, { once: true });
+        });
+      })();
+    </script>
   </body>
 </html>
