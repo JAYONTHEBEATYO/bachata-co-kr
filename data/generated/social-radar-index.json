@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-30T11:39:28.540Z",
+  "generatedAt": "2026-06-30T12:30:43.537Z",
   "updatedAt": "2026-06-30",
   "title": "바차타 소셜 레이더",
   "url": "/radar/",
-  "accountCount": 11,
+  "accountCount": 14,
   "hashtagCount": 7,
   "watchlists": [
     {
@@ -87,6 +87,27 @@
           "url": "https://www.instagram.com/andiysilviabs/",
           "role": "artist",
           "relatedUrl": "/profiles/andi-silvia.html"
+        },
+        {
+          "name": "Cristian & Gabriella",
+          "handle": "cristianygabriella",
+          "url": "https://www.instagram.com/cristianygabriella/",
+          "role": "artist",
+          "relatedUrl": "/profiles/cristian-gabriella.html"
+        },
+        {
+          "name": "Klau & Ros",
+          "handle": "klauyros",
+          "url": "https://www.instagram.com/klauyros/",
+          "role": "artist",
+          "relatedUrl": "/profiles/klau-ros.html"
+        },
+        {
+          "name": "Sara Panero",
+          "handle": "sarapanero",
+          "url": "https://www.instagram.com/sarapanero/",
+          "role": "artist",
+          "relatedUrl": "/profiles/sara-panero.html"
         }
       ]
     },

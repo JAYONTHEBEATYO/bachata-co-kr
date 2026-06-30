@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T11:39:28.344Z",
+  "generatedAt": "2026-06-30T12:30:43.486Z",
   "updatedAt": "2026-06-30",
   "categories": [
     {
@@ -106,6 +106,48 @@
         "Sensual",
         "Global Dancers",
         "Performance"
+      ]
+    },
+    {
+      "id": "cristian-gabriella",
+      "category": "global-dancers",
+      "title": "Cristian & Gabriella",
+      "url": "/profiles/cristian-gabriella.html",
+      "status": "source-verified",
+      "heroVideo": "CZEB8wdVXOc",
+      "tags": [
+        "Cristian Gabriella",
+        "Bachata Sensual",
+        "Global Dancers",
+        "Spain"
+      ]
+    },
+    {
+      "id": "klau-ros",
+      "category": "global-dancers",
+      "title": "Klau & Ros",
+      "url": "/profiles/klau-ros.html",
+      "status": "source-verified",
+      "heroVideo": "9YqwDG2_MqI",
+      "tags": [
+        "Klau Ros",
+        "Endless Bachata",
+        "New Generation",
+        "Musicality"
+      ]
+    },
+    {
+      "id": "sara-panero",
+      "category": "global-dancers",
+      "title": "Sara Panero",
+      "url": "/profiles/sara-panero.html",
+      "status": "source-verified",
+      "heroVideo": "FCAt14yr0j4",
+      "tags": [
+        "Sara Panero",
+        "Lady Style",
+        "Marco y Sara",
+        "Body Movement"
       ]
     },
     {

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-30T11:43:28.831Z",
+  "generatedAt": "2026-06-30T12:31:23.576Z",
   "generationDate": "2026-06-30",
   "summary": {
-    "total": 118,
-    "ok": 106,
-    "watch": 12,
+    "total": 132,
+    "ok": 117,
+    "watch": 15,
     "warn": 0,
     "broken": 0
   },
@@ -42,11 +42,33 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.sourceLinks.1.url"
+          "path": "profiles.12.sourceLinks.1.url"
         },
         {
           "file": "data/board.json",
           "path": "entries.7.sourceLinks.1.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
+      "url": "https://www.instagram.com/cristianygabriella/",
+      "label": "https://www.instagram.com/cristianygabriella/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.9"
+        },
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.2.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.6.sourceLinks.0.url"
         }
       ],
       "status": "watch",
@@ -90,11 +112,33 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.sourceLinks.0.url"
+          "path": "profiles.11.sourceLinks.0.url"
         },
         {
           "file": "data/board.json",
           "path": "entries.6.sourceLinks.0.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
+      "url": "https://www.instagram.com/klauyros/",
+      "label": "https://www.instagram.com/klauyros/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.12"
+        },
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.3.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.7.sourceLinks.0.url"
         }
       ],
       "status": "watch",
@@ -134,7 +178,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.10.sourceLinks.0.url"
+          "path": "profiles.13.sourceLinks.0.url"
         }
       ],
       "status": "watch",
@@ -152,7 +196,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.sourceLinks.1.url"
+          "path": "profiles.9.sourceLinks.1.url"
         }
       ],
       "status": "watch",
@@ -235,6 +279,28 @@
         {
           "file": "data/gear.json",
           "path": "products.1.links.2.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
+      "url": "https://www.instagram.com/sarapanero/",
+      "label": "https://www.instagram.com/sarapanero/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.14"
+        },
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.4.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.8.sourceLinks.0.url"
         }
       ],
       "status": "watch",
@@ -446,7 +512,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.sourceLinks.0.url"
+          "path": "profiles.12.sourceLinks.0.url"
         },
         {
           "file": "data/board.json",
@@ -563,6 +629,24 @@
         {
           "file": "data/events.json",
           "path": "watchSources.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://marcoysara.com/",
+      "label": "https://marcoysara.com/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.13"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.8.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -711,6 +795,20 @@
     },
     {
       "type": "external",
+      "url": "https://www.goandance.com/en/artist/3542/cristian-y-gabriella",
+      "label": "https://www.goandance.com/en/artist/3542/cristian-y-gabriella",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.6.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
       "url": "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1",
       "label": "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1",
       "sources": [
@@ -729,6 +827,20 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://www.goandance.com/es/artista/4219/klau-y-ros",
+      "label": "https://www.goandance.com/es/artista/4219/klau-y-ros",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.7.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -849,6 +961,24 @@
     },
     {
       "type": "external",
+      "url": "https://www.youtube.com/@CristianyGabriella",
+      "label": "https://www.youtube.com/@CristianyGabriella",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.7"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.6.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
       "url": "https://www.youtube.com/@LuisyAndreaOfficial",
       "label": "https://www.youtube.com/@LuisyAndreaOfficial",
       "sources": [
@@ -867,12 +997,30 @@
     },
     {
       "type": "external",
+      "url": "https://www.youtube.com/channel/UCG3C650Ly0sPjA-pXKFYi1Q",
+      "label": "https://www.youtube.com/channel/UCG3C650Ly0sPjA-pXKFYi1Q",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.10"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.7.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
       "url": "https://www.youtube.com/channel/UCNjCsd6dFwTH4pHAk8xDgNw",
       "label": "https://www.youtube.com/channel/UCNjCsd6dFwTH4pHAk8xDgNw",
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.10.sourceLinks.2.url"
+          "path": "profiles.13.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -1232,23 +1380,23 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.related.1.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.7.related.0.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.8.related.0.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.9.related.0.url"
+          "path": "profiles.9.related.1.url"
         },
         {
           "file": "data/profiles.json",
           "path": "profiles.10.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.11.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.12.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.13.related.0.url"
         },
         {
           "file": "data/submissions.json",
@@ -1419,6 +1567,10 @@
           "path": "programs.5.modules.2.url"
         },
         {
+          "file": "data/profiles.json",
+          "path": "profiles.6.related.1.url"
+        },
+        {
           "file": "data/submissions.json",
           "path": "templates.5.targetBoard"
         }
@@ -1449,6 +1601,20 @@
         {
           "file": "data/social-radar.json",
           "path": "watchlists.1.accounts.2.relatedUrl"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/profiles/cristian-gabriella.html",
+      "label": "/profiles/cristian-gabriella.html",
+      "sources": [
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.2.relatedUrl"
         }
       ],
       "status": "ok",
@@ -1495,6 +1661,20 @@
         {
           "file": "data/social-radar.json",
           "path": "watchlists.1.accounts.3.relatedUrl"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/profiles/klau-ros.html",
+      "label": "/profiles/klau-ros.html",
+      "sources": [
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.3.relatedUrl"
         }
       ],
       "status": "ok",
@@ -1565,12 +1745,30 @@
     },
     {
       "type": "internal",
+      "url": "/profiles/sara-panero.html",
+      "label": "/profiles/sara-panero.html",
+      "sources": [
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.4.relatedUrl"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
       "url": "/programs/",
       "label": "/programs/",
       "sources": [
         {
           "file": "data/social-intake.json",
           "path": "publishFormats.2.target"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.8.related.1.url"
         }
       ],
       "status": "ok",
@@ -1770,7 +1968,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.related.0.url"
+          "path": "profiles.9.related.0.url"
         }
       ],
       "status": "ok",
@@ -1785,6 +1983,10 @@
         {
           "file": "data/programs.json",
           "path": "programs.0.modules.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.7.related.0.url"
         }
       ],
       "status": "ok",
@@ -1847,6 +2049,18 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.5.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.6.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.7.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.8.related.0.url"
         }
       ],
       "status": "ok",
@@ -1891,6 +2105,30 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Bachata Footwork Tutorial - Tap, Tap, Triple Step - Bachata Dance Academy",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "9YqwDG2_MqI",
+      "url": "https://www.youtube.com/watch?v=9YqwDG2_MqI",
+      "label": "https://www.youtube.com/watch?v=9YqwDG2_MqI",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.11"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.7.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.7.sourceLinks.3.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Klau y Ros [EXPLICALE] @ Miami Bachata Paradise 2025 🦩",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -1953,11 +2191,11 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.heroVideo.id"
+          "path": "profiles.12.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.sourceLinks.2.url"
+          "path": "profiles.12.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -2001,16 +2239,40 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.heroVideo.id"
+          "path": "profiles.10.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.sourceLinks.0.url"
+          "path": "profiles.10.sourceLinks.0.url"
         }
       ],
       "status": "ok",
       "httpStatus": 200,
       "title": "M/V 바차타 그루포에센시아 인라틴 - 클루니 & 져니, Grupo Essensia in Laint - Clooney & Jeony Bachata",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "CZEB8wdVXOc",
+      "url": "https://www.youtube.com/watch?v=CZEB8wdVXOc",
+      "label": "https://www.youtube.com/watch?v=CZEB8wdVXOc",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.8"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.6.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.6.sourceLinks.3.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Cristian & Gabriella 💃 Bachata Demo dance 🎵 Bailame - DJ Husky 📍 Bachataking festival 2025",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -2031,6 +2293,30 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Ed Sheeran - Perfect  - Carlos Espinosa y M Angeles | BACHATA FUSION",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "FCAt14yr0j4",
+      "url": "https://www.youtube.com/watch?v=FCAt14yr0j4",
+      "label": "https://www.youtube.com/watch?v=FCAt14yr0j4",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.15"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.8.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.8.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Sara Panero [CARITA] @ Istanbul World Dance Congress 2026 ⚜️🇹🇷",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -2157,11 +2443,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.heroVideo.id"
+          "path": "profiles.11.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.sourceLinks.1.url"
+          "path": "profiles.11.sourceLinks.1.url"
         },
         {
           "file": "data/board.json",
@@ -2181,11 +2467,11 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.10.heroVideo.id"
+          "path": "profiles.13.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.10.sourceLinks.1.url"
+          "path": "profiles.13.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -2333,11 +2619,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.heroVideo.id"
+          "path": "profiles.9.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.sourceLinks.0.url"
+          "path": "profiles.9.sourceLinks.0.url"
         }
       ],
       "status": "ok",

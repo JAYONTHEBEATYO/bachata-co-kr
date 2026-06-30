@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T11:44:04.770Z",
+  "generatedAt": "2026-06-30T12:31:23.725Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -37,6 +37,13 @@
           "videoId": "B7Wv3cqHrSU"
         },
         {
+          "label": "Profile",
+          "title": "Cristian & Gabriella",
+          "url": "/profiles/cristian-gabriella.html",
+          "score": 36,
+          "videoId": "CZEB8wdVXOc"
+        },
+        {
           "label": "일간 브리프",
           "title": "#bachatasensual - 센슈얼 바차타 흐름",
           "url": "/briefs/",
@@ -63,13 +70,6 @@
           "url": "/profiles/everlatin.html",
           "score": 28,
           "videoId": "BWzJvto5gD4"
-        },
-        {
-          "label": "Profile",
-          "title": "Gero & Migle",
-          "url": "/profiles/gero-migle.html",
-          "score": 24,
-          "videoId": "j4CmXKDCMzI"
         }
       ]
     },
@@ -172,6 +172,13 @@
           "videoId": "xmvDKN5cwT0"
         },
         {
+          "label": "Profile",
+          "title": "Klau & Ros",
+          "url": "/profiles/klau-ros.html",
+          "score": 32,
+          "videoId": "9YqwDG2_MqI"
+        },
+        {
           "label": "Article",
           "title": "코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것",
           "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html",
@@ -205,13 +212,6 @@
           "url": "/events/seoul-bachata-festival-vol4-2026.html",
           "score": 16,
           "videoId": "jpCY0QqZqWE"
-        },
-        {
-          "label": "Gear",
-          "title": "푸에고 / Fuego",
-          "url": "/gear/fuego.html",
-          "score": 16,
-          "videoId": "FtcPRwVIdNk"
         }
       ]
     },

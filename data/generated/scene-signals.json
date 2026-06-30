@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T11:39:26.479Z",
+  "generatedAt": "2026-06-30T12:30:39.007Z",
   "generationDate": "2026-06-30",
   "mode": {
     "youtubeApi": false,
@@ -83,9 +83,12 @@
         "Gero Migle",
         "Luis Andrea bachata",
         "Andi Silvia bachata",
-        "Korke Judith bachata"
+        "Korke Judith bachata",
+        "Cristian Gabriella bachata",
+        "Klau Ros bachata",
+        "Sara Panero bachata"
       ],
-      "candidateCount": 3,
+      "candidateCount": 6,
       "candidates": [
         {
           "type": "youtube",
@@ -111,6 +114,33 @@
           "title": "Andi & Silvia | Bachata | Just As I Am - Prince Royce Ft SpiffTv and Chris Brown [ Australia 2026 ]",
           "sourceUrl": "https://www.youtube.com/watch?v=FzOWJRxp9r0",
           "embedUrl": "https://www.youtube-nocookie.com/embed/FzOWJRxp9r0",
+          "scoreBoost": 25,
+          "score": 45
+        },
+        {
+          "type": "youtube",
+          "id": "CZEB8wdVXOc",
+          "title": "Cristian & Gabriella 💃 Bachata Demo dance 🎵 Bailame - DJ Husky 📍 Bachataking festival 2025",
+          "sourceUrl": "https://www.youtube.com/watch?v=CZEB8wdVXOc",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/CZEB8wdVXOc",
+          "scoreBoost": 25,
+          "score": 45
+        },
+        {
+          "type": "youtube",
+          "id": "9YqwDG2_MqI",
+          "title": "Klau y Ros [EXPLICALE] @ Miami Bachata Paradise 2025 🦩",
+          "sourceUrl": "https://www.youtube.com/watch?v=9YqwDG2_MqI",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/9YqwDG2_MqI",
+          "scoreBoost": 25,
+          "score": 45
+        },
+        {
+          "type": "youtube",
+          "id": "FCAt14yr0j4",
+          "title": "Sara Panero [CARITA] @ Istanbul World Dance Congress 2026 ⚜️🇹🇷",
+          "sourceUrl": "https://www.youtube.com/watch?v=FCAt14yr0j4",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/FCAt14yr0j4",
           "scoreBoost": 25,
           "score": 45
         }
@@ -190,7 +220,7 @@
         "bachata Korea",
         "bachata event"
       ],
-      "candidateCount": 18,
+      "candidateCount": 21,
       "candidates": [
         {
           "type": "instagram-watch",
@@ -284,31 +314,33 @@
         },
         {
           "type": "instagram-watch",
-          "title": "Pana Mio @panamiodance",
-          "sourceUrl": "https://www.instagram.com/panamiodance/",
-          "relatedUrl": "/gear/pana-mio.html",
-          "role": "brand",
-          "watchlist": "상품·댄스화",
-          "scoreBoost": 74,
-          "score": 92
+          "title": "Cristian & Gabriella @cristianygabriella",
+          "sourceUrl": "https://www.instagram.com/cristianygabriella/",
+          "relatedUrl": "/profiles/cristian-gabriella.html",
+          "role": "artist",
+          "watchlist": "글로벌 메소드·댄서",
+          "scoreBoost": 88,
+          "score": 106
         },
         {
           "type": "instagram-watch",
-          "title": "On1 Dance Shoes @on1danceshoes",
-          "sourceUrl": "https://www.instagram.com/on1danceshoes/",
-          "relatedUrl": "/gear/on1.html",
-          "role": "brand",
-          "watchlist": "상품·댄스화",
-          "scoreBoost": 74,
-          "score": 92
+          "title": "Klau & Ros @klauyros",
+          "sourceUrl": "https://www.instagram.com/klauyros/",
+          "relatedUrl": "/profiles/klau-ros.html",
+          "role": "artist",
+          "watchlist": "글로벌 메소드·댄서",
+          "scoreBoost": 88,
+          "score": 106
         },
         {
-          "type": "instagram-hashtag",
-          "title": "#바차타 한국어 핵심 키워드",
-          "sourceUrl": "https://www.instagram.com/explore/tags/%EB%B0%94%EC%B0%A8%ED%83%80/",
-          "cadence": "daily",
-          "scoreBoost": 70,
-          "score": 80
+          "type": "instagram-watch",
+          "title": "Sara Panero @sarapanero",
+          "sourceUrl": "https://www.instagram.com/sarapanero/",
+          "relatedUrl": "/profiles/sara-panero.html",
+          "role": "artist",
+          "watchlist": "글로벌 메소드·댄서",
+          "scoreBoost": 88,
+          "score": 106
         }
       ]
     },

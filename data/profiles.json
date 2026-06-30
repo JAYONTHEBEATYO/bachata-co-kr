@@ -189,6 +189,101 @@
       ]
     },
     {
+      "id": "cristian-gabriella",
+      "category": "global-dancers",
+      "status": "source-verified",
+      "title": "Cristian & Gabriella",
+      "subtitle": "부드러운 센슈얼 라인과 소셜 친화적 움직임을 같이 볼 수 있는 스페인 페어",
+      "location": "Spain",
+      "tags": ["Cristian Gabriella", "Bachata Sensual", "Global Dancers", "Spain"],
+      "heroVideo": {
+        "id": "CZEB8wdVXOc",
+        "title": "Cristian & Gabriella Bachata Demo"
+      },
+      "summary": [
+        "Cristian & Gabriella는 큰 무대용 표현보다 부드러운 연결, 자연스러운 라인, 음악에 맞춘 속도 조절을 같이 보기 좋은 페어입니다.",
+        "한국 콘텐츠에서는 이들의 영상을 패턴 목록으로 소비하기보다, 팔로워가 자기 축을 잃지 않는 시간과 리더가 길을 여는 방식을 분리해 읽는 편이 좋습니다."
+      ],
+      "angles": [
+        "느린 곡에서 가까운 연결을 과하게 만들지 않는 법",
+        "부드러운 라인을 소셜 플로어 크기에 맞추는 법",
+        "워크숍 영상과 데모 영상의 목적 차이"
+      ],
+      "related": [
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" },
+        { "label": "글로벌 프로필", "url": "/profiles/" }
+      ],
+      "sourceLinks": [
+        { "label": "Instagram", "url": "https://www.instagram.com/cristianygabriella/" },
+        { "label": "YouTube Channel", "url": "https://www.youtube.com/@CristianyGabriella" },
+        { "label": "go&dance Profile", "url": "https://www.goandance.com/en/artist/3542/cristian-y-gabriella" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=CZEB8wdVXOc" }
+      ]
+    },
+    {
+      "id": "klau-ros",
+      "category": "global-dancers",
+      "status": "source-verified",
+      "title": "Klau & Ros",
+      "subtitle": "Endless Bachata 흐름으로 몸의 인식, 연결, 음악성을 강조하는 신세대 페어",
+      "location": "Madrid / International",
+      "tags": ["Klau Ros", "Endless Bachata", "New Generation", "Musicality"],
+      "heroVideo": {
+        "id": "9YqwDG2_MqI",
+        "title": "Klau y Ros Bachata Reference"
+      },
+      "summary": [
+        "Klau & Ros는 빠르게 소비되는 쇼츠형 무브보다 몸의 인식, 파트너 연결, 적용 가능한 음악성을 하나의 언어로 밀고 가는 페어로 볼 수 있습니다.",
+        "한국 독자에게는 화려한 드롭보다 연결이 끊기지 않는 전환, 작은 플로어에서 살아남는 타이밍, 신세대 바차타 영상 문법을 설명하는 데 적합합니다."
+      ],
+      "angles": [
+        "Endless Bachata가 말하는 연결과 흐름",
+        "쇼츠에서 눈에 띄는 동작과 실제 소셜 적용의 차이",
+        "빠른 전환 안에서도 프레임을 잃지 않는 방식"
+      ],
+      "related": [
+        { "label": "모던 허브", "url": "/styles/modern.html" },
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" }
+      ],
+      "sourceLinks": [
+        { "label": "Instagram", "url": "https://www.instagram.com/klauyros/" },
+        { "label": "YouTube Channel", "url": "https://www.youtube.com/channel/UCG3C650Ly0sPjA-pXKFYi1Q" },
+        { "label": "go&dance Profile", "url": "https://www.goandance.com/es/artista/4219/klau-y-ros" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=9YqwDG2_MqI" }
+      ]
+    },
+    {
+      "id": "sara-panero",
+      "category": "global-dancers",
+      "status": "source-verified",
+      "title": "Sara Panero",
+      "subtitle": "바차타 레이디 스타일과 무대 표현을 한국어로 풀어가기 좋은 아티스트",
+      "location": "International",
+      "tags": ["Sara Panero", "Lady Style", "Marco y Sara", "Body Movement"],
+      "heroVideo": {
+        "id": "FCAt14yr0j4",
+        "title": "Sara Panero Lady Style Reference"
+      },
+      "summary": [
+        "Sara Panero는 파트너워크 안에서의 역할뿐 아니라 레이디 스타일, 바디무브먼트, 자기 표현을 독립적인 학습 주제로 다루기 좋은 아티스트입니다.",
+        "사이트에서는 단순히 팔 동작이나 포즈를 따라 하는 콘텐츠보다 음악 문장 안에서 라인, 손끝, 시선이 어떻게 정리되는지 설명하는 쪽으로 발행하는 것이 맞습니다."
+      ],
+      "angles": [
+        "레이디 스타일을 장식이 아니라 음악 해석으로 읽기",
+        "솔로 표현과 파트너워크 안의 표현을 구분하기",
+        "무대 영상에서 소셜에 가져올 수 있는 요소만 걸러내기"
+      ],
+      "related": [
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" },
+        { "label": "프로그램", "url": "/programs/" }
+      ],
+      "sourceLinks": [
+        { "label": "Instagram", "url": "https://www.instagram.com/sarapanero/" },
+        { "label": "Marco y Sara", "url": "https://marcoysara.com/" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=FCAt14yr0j4" }
+      ]
+    },
+    {
       "id": "gray-loren",
       "category": "korea-scene",
       "status": "source-verified",
