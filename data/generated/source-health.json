@@ -1,14 +1,50 @@
 {
-  "generatedAt": "2026-06-30T11:31:57.712Z",
+  "generatedAt": "2026-06-30T11:39:54.589Z",
   "generationDate": "2026-06-30",
   "summary": {
     "total": 118,
-    "ok": 106,
-    "watch": 12,
+    "ok": 103,
+    "watch": 13,
     "warn": 0,
-    "broken": 0
+    "broken": 2
   },
   "results": [
+    {
+      "type": "external",
+      "url": "https://fuegodance.com/pages/technology",
+      "label": "https://fuegodance.com/pages/technology",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.4.sources.1"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.4.sourceLinks.0.url"
+        },
+        {
+          "file": "data/gear.json",
+          "path": "products.0.links.0.url"
+        }
+      ],
+      "status": "broken",
+      "httpStatus": 503,
+      "note": "external URL needs manual review"
+    },
+    {
+      "type": "external",
+      "url": "https://www.panamiodance.com/collections/all",
+      "label": "https://www.panamiodance.com/collections/all",
+      "sources": [
+        {
+          "file": "data/gear.json",
+          "path": "products.1.links.1.url"
+        }
+      ],
+      "status": "broken",
+      "httpStatus": 503,
+      "note": "external URL needs manual review"
+    },
     {
       "type": "external",
       "url": "https://www.instagram.com/andiysilviabs/",
@@ -283,6 +319,32 @@
     },
     {
       "type": "external",
+      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.4.sourceUrl"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.1.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": 403,
+      "note": "external URL needs manual review"
+    },
+    {
+      "type": "external",
       "url": "https://bachamap.com/festivals/south-korea",
       "label": "https://bachamap.com/festivals/south-korea",
       "sources": [
@@ -477,28 +539,6 @@
         {
           "file": "data/gear.json",
           "path": "products.0.links.1.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "external URL reachable"
-    },
-    {
-      "type": "external",
-      "url": "https://fuegodance.com/pages/technology",
-      "label": "https://fuegodance.com/pages/technology",
-      "sources": [
-        {
-          "file": "data/sources.json",
-          "path": "topics.4.sources.1"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.4.sourceLinks.0.url"
-        },
-        {
-          "file": "data/gear.json",
-          "path": "products.0.links.0.url"
         }
       ],
       "status": "ok",
@@ -765,20 +805,6 @@
     },
     {
       "type": "external",
-      "url": "https://www.panamiodance.com/collections/all",
-      "label": "https://www.panamiodance.com/collections/all",
-      "sources": [
-        {
-          "file": "data/gear.json",
-          "path": "products.1.links.1.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "external URL reachable"
-    },
-    {
-      "type": "external",
       "url": "https://www.pulsedanceshoes.com/",
       "label": "https://www.pulsedanceshoes.com/",
       "sources": [
@@ -797,32 +823,6 @@
         {
           "file": "data/gear.json",
           "path": "products.3.links.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "external URL reachable"
-    },
-    {
-      "type": "external",
-      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "sources": [
-        {
-          "file": "data/social-intake.json",
-          "path": "sourcePolicy.4.sourceUrl"
-        },
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.1.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.2.sourceLinks.1.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.1.url"
         }
       ],
       "status": "ok",
