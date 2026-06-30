@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>바차타 코리아 편집 데스크 | Bachata Korea</title>
+    <meta name="description" content="흩어진 영상, 인스타 신호, 행사 공지, 브랜드 자료를 기사와 프로그램으로 승격하기 위한 공개 편집 큐입니다. 자동 수집은 후보를 만들고, 발행은 출처와 영상 유효성을 확인한 뒤 진행합니다.">
+    <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
+    <link rel="canonical" href="https://bachata.co.kr/desk/">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b0a08;
+        --ink: #fff7e8;
+        --muted: rgba(255, 247, 232, 0.68);
+        --line: rgba(255, 247, 232, 0.14);
+        --panel: rgba(255, 247, 232, 0.06);
+        --panel-strong: #17130f;
+        --paper: #f4efe6;
+        --paper-ink: #1a1510;
+        --gold: #e2ad58;
+        --wine: #a82e4b;
+        --green: #5caf96;
+        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); }
+      a { color: inherit; text-decoration: none; }
+      .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 0 max(18px, calc((100vw - 1180px) / 2)); border-bottom: 1px solid var(--line); background: rgba(11, 10, 8, 0.92); backdrop-filter: blur(18px); }
+      .brand strong { display: block; font-size: 20px; line-height: 1; }
+      .brand span { display: block; margin-top: 5px; color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+      .nav-links { display: flex; gap: 20px; color: var(--muted); font-size: 14px; font-weight: 850; }
+      .hero { padding: clamp(60px, 9vw, 118px) max(18px, calc((100vw - 1180px) / 2)) 50px; background: var(--paper); color: var(--paper-ink); }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 0.76fr) minmax(320px, 0.42fr); gap: clamp(22px, 5vw, 56px); align-items: end; }
+      .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.13em; text-transform: uppercase; }
+      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; word-break: keep-all; }
+      h1 { max-width: 940px; margin: 14px 0 18px; font-size: clamp(46px, 8vw, 96px); line-height: 0.95; overflow-wrap: anywhere; }
+      .hero p { max-width: 790px; color: rgba(26, 21, 16, 0.72); font-size: clamp(17px, 2vw, 22px); line-height: 1.72; }
+      main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: clamp(42px, 7vw, 76px) 0 90px; }
+      .section { margin-top: clamp(42px, 7vw, 76px); }
+      .section:first-child { margin-top: 0; }
+      .section-head { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.36fr); gap: 24px; align-items: end; margin-bottom: 22px; }
+      .section-head h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.02; }
+      .section-head p, .queue-card p, .series-card p, .rhythm-card p, .policy-card li, .automation-card p { color: var(--muted); line-height: 1.72; }
+      .quick-nav, .link-row, .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .quick-nav { margin-top: 26px; }
+      .quick-nav a, .link-row a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid currentColor; border-radius: 999px; font-size: 13px; font-weight: 900; }
+      .rhythm-grid { display: grid; gap: 12px; }
+      .rhythm-card { padding: 20px; border: 1px solid rgba(26, 21, 16, 0.14); border-radius: 8px; background: rgba(26, 21, 16, 0.05); }
+      .rhythm-card strong { display: block; margin: 6px 0; font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; font-size: 22px; line-height: 1.08; }
+      .queue-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .queue-card, .series-card, .policy-card, .automation-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .queue-card { display: grid; gap: 18px; padding: clamp(20px, 3vw, 28px); }
+      .queue-card h2 { margin: 10px 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.04; }
+      .meta-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .meta-row span, .tag-row span { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; color: rgba(255, 247, 232, 0.76); font-size: 12px; font-weight: 900; }
+      .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050505; }
+      .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .series-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .series-card { display: grid; gap: 18px; padding: 22px; min-height: 360px; align-content: space-between; }
+      .series-card h3 { margin: 8px 0 10px; font-size: 28px; line-height: 1.08; }
+      .series-card ul { display: grid; gap: 6px; margin: 12px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.55; }
+      .policy-grid, .automation-grid { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.38fr); gap: 14px; }
+      .policy-card, .automation-card { padding: clamp(20px, 3vw, 28px); }
+      .policy-card ul { display: grid; gap: 10px; margin: 16px 0 0; padding-left: 18px; }
+      .automation-card dl { display: grid; gap: 12px; margin: 16px 0 0; }
+      .automation-card dt { color: var(--gold); font-weight: 950; }
+      .automation-card dd { margin: 4px 0 0; color: var(--muted); line-height: 1.6; }
+      .paper-cta { padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: var(--paper); color: var(--paper-ink); }
+      .paper-cta h2 { margin: 8px 0 12px; font-size: clamp(30px, 5vw, 56px); line-height: 1.04; }
+      .paper-cta p { max-width: 820px; color: rgba(26, 21, 16, 0.72); line-height: 1.72; }
+      @media (max-width: 1020px) {
+        .hero-grid, .section-head, .policy-grid, .automation-grid { grid-template-columns: 1fr; }
+        .series-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      }
+      @media (max-width: 760px) {
+        .nav-links { display: none; }
+        h1 { font-size: clamp(42px, 13vw, 66px); }
+        .queue-grid, .series-grid { grid-template-columns: 1fr; }
+        .queue-card, .series-card, .policy-card, .automation-card, .rhythm-card { padding: 20px; }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://bachata.co.kr/desk/",
+      "name": "바차타 코리아 편집 데스크",
+      "description": "흩어진 영상, 인스타 신호, 행사 공지, 브랜드 자료를 기사와 프로그램으로 승격하기 위한 공개 편집 큐입니다. 자동 수집은 후보를 만들고, 발행은 출처와 영상 유효성을 확인한 뒤 진행합니다.",
+      "inLanguage": "ko-KR",
+      "isPartOf": {
+            "@id": "https://bachata.co.kr/#website"
+      },
+      "about": [
+            "센슈얼 바차타 16 펀더멘털",
+            "도미니칸 리듬과 풋워크",
+            "Bachata Influence 멤버와 철학",
+            "한국 팀·동호회·장소 지도",
+            "바차주크 안전과 음악성",
+            "댄스화·중고·양도양수"
+      ],
+      "hasPart": [
+            {
+                  "@type": "CreativeWork",
+                  "name": "센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조",
+                  "description": "동작명 나열보다 안전한 프레임, 웨이브, 헤드무브, 팔로워 동의와 리드 품질을 먼저 설명합니다.",
+                  "keywords": "센슈얼 바차타, Bachata Sensual 16 fundamentals, 코르케 주디스"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "도미니칸 바차타는 풋워크보다 리듬 듣기부터",
+                  "description": "기본스텝, 싱코페이션, 악기 듣기를 분리해 모던·센슈얼 학습자도 리듬을 잃지 않게 만듭니다.",
+                  "keywords": "도미니칸 바차타, bachata footwork, bachata rhythm"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "Bachata Influence는 왜 요즘 바차타 문법처럼 보이나",
+                  "description": "멜빈·가티카, 에밀리앙·테히나, Influence Academy를 한 번에 묶어 테크닉보다 철학과 훈련 구조를 설명합니다.",
+                  "keywords": "Bachata Influence, Melvin Gatica, Emilien Tehina, Influence Academy"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "한국 바차타 팀·동호회·장소를 실제 입문 동선으로 정리",
+                  "description": "클루니·져니, 그레이·로렌, 라틴씨엘로, 에버라틴, 보니따 등 검색자가 바로 방문 경로를 이해하게 만듭니다.",
+                  "keywords": "한국 바차타, 서울 바차타, 바차타 동호회, 라틴씨엘로, 에버라틴, 보니따"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "바차주크를 센슈얼 변형으로만 보면 놓치는 안전 기준",
+                  "description": "목·상체·축을 다루는 움직임은 멋보다 합의와 컨트롤이 먼저라는 관점으로 정리합니다.",
+                  "keywords": "Bachazouk, BachaZouk, bachata zouk, Brazilian Zouk"
+            },
+            {
+                  "@type": "CreativeWork",
+                  "name": "파나미오·푸에고·On1·Pulse, 한국 바차타 댄스화 선택 기준",
+                  "description": "브랜드 홍보문이 아니라 바닥, 회전, 쿠션, 사이즈, 배송, 소셜 사용감으로 나눠 비교합니다.",
+                  "keywords": "바차타 댄스화, Fuego dance shoes, Pana Mio, On1 dance shoes, Pulse dance shoes"
+            }
+      ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
+      <nav class="nav-links" aria-label="편집 데스크 이동">
+        <a href="/">홈</a>
+        <a href="/desk/">편집실</a>
+        <a href="/programs/">프로그램</a>
+        <a href="/styles/">스타일</a>
+        <a href="/radar/">소셜 레이더</a>
+        <a href="/briefs/">브리프</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Editorial Desk</span>
+          <h1>다음 바차타 콘텐츠를 공개 편집 큐로 관리합니다</h1>
+          <p>흩어진 영상, 인스타 신호, 행사 공지, 브랜드 자료를 기사와 프로그램으로 승격하기 위한 공개 편집 큐입니다. 자동 수집은 후보를 만들고, 발행은 출처와 영상 유효성을 확인한 뒤 진행합니다.</p>
+          <div class="quick-nav">
+            <a href="#q-sensual-16">A1 · core</a><a href="#q-dominican-rhythm">A1 · core</a><a href="#q-influence-members">A2 · trend</a><a href="#q-korea-teams">A2 · korea</a><a href="#q-bachazouk-safety">B1 · style</a><a href="#q-gear-shoes">B1 · market</a>
+          </div>
+        </div>
+        <aside class="rhythm-grid" aria-label="발행 리듬">
+          <article class="rhythm-card">
+            <span class="tag">매일 오전</span>
+            <strong>Daily scan</strong>
+            <p>scene-signals.json과 일간 브리프 후보 갱신</p>
+          </article><article class="rhythm-card">
+            <span class="tag">주 2회</span>
+            <strong>Weekly edit</strong>
+            <p>기사, 스타일 허브, 프로그램, 행사 레이더로 승격</p>
+          </article><article class="rhythm-card">
+            <span class="tag">월 1회</span>
+            <strong>Evergreen refresh</strong>
+            <p>센슈얼, 도미니칸, Bachata Influence, Bachazouk 같은 코어 페이지 업데이트</p>
+          </article>
+        </aside>
+      </div>
+    </section>
+    <main>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Story Queue</span>
+            <h2>영상과 출처가 붙은 발행 대기열</h2>
+          </div>
+          <p>이 큐는 자동 생성 기사 목록이 아니라 편집 방향표입니다. 각 카드의 영상, 내부 링크, 체크리스트가 채워진 뒤 기사·프로그램·프로필·커뮤니티 기능으로 승격합니다.</p>
+        </div>
+        <div class="queue-grid">
+          <article class="queue-card" id="q-sensual-16">
+          <div>
+            <span class="tag">core</span>
+            <h2>센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조</h2>
+            <p>동작명 나열보다 안전한 프레임, 웨이브, 헤드무브, 팔로워 동의와 리드 품질을 먼저 설명합니다.</p>
+            <div class="meta-row">
+              <span>A1</span>
+              <span>ready to expand</span>
+              <span>센슈얼 바차타, Bachata Sensual 16 fundamentals, 코르케 주디스</span>
+            </div>
+          </div>
+          <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99" title="Bachata Sensual fundamentals reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          <div>
+            <div class="link-row"><a href="/programs/sensual-fundamentals.html">센슈얼 프로그램</a><a href="/styles/sensual.html">센슈얼 스타일 허브</a><a href="/profiles/korke-judith.html">코르케·주디스 프로필</a></div>
+            <div class="tag-row" style="margin-top:12px">
+              <span>Bachata Sensual 공식 자료</span><span>관련 강의 영상</span><span>커뮤니티 질문에서 반복되는 안전 이슈</span><span>한국 초보자 검색어</span>
+            </div>
+          </div>
+        </article>
+<article class="queue-card" id="q-dominican-rhythm">
+          <div>
+            <span class="tag">core</span>
+            <h2>도미니칸 바차타는 풋워크보다 리듬 듣기부터</h2>
+            <p>기본스텝, 싱코페이션, 악기 듣기를 분리해 모던·센슈얼 학습자도 리듬을 잃지 않게 만듭니다.</p>
+            <div class="meta-row">
+              <span>A1</span>
+              <span>ready to expand</span>
+              <span>도미니칸 바차타, bachata footwork, bachata rhythm</span>
+            </div>
+          </div>
+          <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xmvDKN5cwT0" title="Dominican bachata rhythm and footwork reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          <div>
+            <div class="link-row"><a href="/programs/dominican-rhythm.html">도미니칸 프로그램</a><a href="/styles/dominican.html">도미니칸 스타일 허브</a><a href="/articles/dominican-bachata-rhythm-footwork-guide.html">리듬 기사</a></div>
+            <div class="tag-row" style="margin-top:12px">
+              <span>도미니칸 풋워크 영상</span><span>리듬 용어 교차 확인</span><span>초급 수업에서 설명 가능한 언어</span><span>임베드 가능한 영상</span>
+            </div>
+          </div>
+        </article>
+<article class="queue-card" id="q-influence-members">
+          <div>
+            <span class="tag">trend</span>
+            <h2>Bachata Influence는 왜 요즘 바차타 문법처럼 보이나</h2>
+            <p>멜빈·가티카, 에밀리앙·테히나, Influence Academy를 한 번에 묶어 테크닉보다 철학과 훈련 구조를 설명합니다.</p>
+            <div class="meta-row">
+              <span>A2</span>
+              <span>researching</span>
+              <span>Bachata Influence, Melvin Gatica, Emilien Tehina, Influence Academy</span>
+            </div>
+          </div>
+          <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/sUy5L7x5pyE" title="Melvin &amp; Gatica Bachata Influence tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          <div>
+            <div class="link-row"><a href="/programs/influence-method.html">Influence 프로그램</a><a href="/profiles/melvin-gatica.html">Melvin &amp; Gatica</a><a href="/profiles/emilien-tehina.html">Emilien &amp; Tehina</a></div>
+            <div class="tag-row" style="margin-top:12px">
+              <span>공식 아카데미 페이지</span><span>댄서 공식 사이트·인스타</span><span>YouTube 클래스 영상</span><span>한국 씬에서 쓰이는 용어</span>
+            </div>
+          </div>
+        </article>
+<article class="queue-card" id="q-korea-teams">
+          <div>
+            <span class="tag">korea</span>
+            <h2>한국 바차타 팀·동호회·장소를 실제 입문 동선으로 정리</h2>
+            <p>클루니·져니, 그레이·로렌, 라틴씨엘로, 에버라틴, 보니따 등 검색자가 바로 방문 경로를 이해하게 만듭니다.</p>
+            <div class="meta-row">
+              <span>A2</span>
+              <span>source watch</span>
+              <span>한국 바차타, 서울 바차타, 바차타 동호회, 라틴씨엘로, 에버라틴, 보니따</span>
+            </div>
+          </div>
+          <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/nrJM-arshvE" title="Korea bachata scene reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          <div>
+            <div class="link-row"><a href="/profiles/">프로필 허브</a><a href="/community/">커뮤니티 보드</a><a href="/radar/">소셜 레이더</a></div>
+            <div class="tag-row" style="margin-top:12px">
+              <span>팀·동호회 공식 계정</span><span>장소 운영 공지</span><span>행사 포스터 원문 링크</span><span>초보자 접근성</span>
+            </div>
+          </div>
+        </article>
+<article class="queue-card" id="q-bachazouk-safety">
+          <div>
+            <span class="tag">style</span>
+            <h2>바차주크를 센슈얼 변형으로만 보면 놓치는 안전 기준</h2>
+            <p>목·상체·축을 다루는 움직임은 멋보다 합의와 컨트롤이 먼저라는 관점으로 정리합니다.</p>
+            <div class="meta-row">
+              <span>B1</span>
+              <span>outline ready</span>
+              <span>Bachazouk, BachaZouk, bachata zouk, Brazilian Zouk</span>
+            </div>
+          </div>
+          <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE" title="Bachazouk reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          <div>
+            <div class="link-row"><a href="/programs/bachazouk-safety.html">Bachazouk 프로그램</a><a href="/articles/bachazouk-guide.html">Bachazouk 기사</a><a href="/styles/sensual.html">센슈얼 스타일</a></div>
+            <div class="tag-row" style="margin-top:12px">
+              <span>Bachazouk 공식 설명</span><span>Brazilian Zouk 기본 용어</span><span>안전 가이드</span><span>음악성 예시 영상</span>
+            </div>
+          </div>
+        </article>
+<article class="queue-card" id="q-gear-shoes">
+          <div>
+            <span class="tag">market</span>
+            <h2>파나미오·푸에고·On1·Pulse, 한국 바차타 댄스화 선택 기준</h2>
+            <p>브랜드 홍보문이 아니라 바닥, 회전, 쿠션, 사이즈, 배송, 소셜 사용감으로 나눠 비교합니다.</p>
+            <div class="meta-row">
+              <span>B1</span>
+              <span>buyer guide</span>
+              <span>바차타 댄스화, Fuego dance shoes, Pana Mio, On1 dance shoes, Pulse dance shoes</span>
+            </div>
+          </div>
+          <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FtcPRwVIdNk" title="Dance shoes buyer reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          <div>
+            <div class="link-row"><a href="/gear/">기어 허브</a><a href="/articles/bachata-dance-shoes-korea.html">댄스화 기사</a><a href="/community/market.html">중고·양도 게시판</a></div>
+            <div class="tag-row" style="margin-top:12px">
+              <span>브랜드 공식 페이지</span><span>상품 라인업</span><span>리뷰 영상</span><span>한국 배송·사이즈 이슈</span>
+            </div>
+          </div>
+        </article>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Magazine Series</span>
+            <h2>반복 발행 가능한 시리즈 설계</h2>
+          </div>
+          <p>코어 개념은 오래 읽히는 evergreen으로 두고, 한국 씬·내한·상품·커뮤니티는 주기적으로 갱신하는 방식으로 분리합니다.</p>
+        </div>
+        <div class="series-grid">
+          <article class="series-card" id="sensual-core">
+          <div>
+            <span class="tag">Sensual Core</span>
+            <h3>센슈얼 바차타 16 펀더멘털</h3>
+            <p>코르케·주디스 계열의 16개 펀더멘털을 초보자 관점에서 다시 배열하고, 웨이브·프레임·헤드무브를 안전 기준으로 묶는 시리즈.</p>
+            <div class="meta-row">
+              <span>A</span>
+              <span>core evergreen</span>
+            </div>
+          </div>
+          <div>
+            <ul><li>16개 항목별 짧은 해설</li><li>리더/팔로워 체크리스트</li><li>소셜에서 하지 말아야 할 동작</li></ul>
+            <div class="link-row" style="margin-top:14px"><a href="/programs/sensual-fundamentals.html">관련 허브 보기</a></div>
+          </div>
+        </article>
+<article class="series-card" id="dominican-rhythm">
+          <div>
+            <span class="tag">Rhythm Lab</span>
+            <h3>도미니칸 리듬과 풋워크</h3>
+            <p>카운트, 싱코페이션, 악기 듣기, 풋워크 패턴을 영상 중심으로 풀어 한국 수강생이 리듬을 먼저 잡게 만드는 시리즈.</p>
+            <div class="meta-row">
+              <span>A</span>
+              <span>core evergreen</span>
+            </div>
+          </div>
+          <div>
+            <ul><li>기본 스텝 변주</li><li>기타·봉고·기라 듣기</li><li>소셜에서 리듬을 잃는 순간</li></ul>
+            <div class="link-row" style="margin-top:14px"><a href="/programs/dominican-rhythm.html">관련 허브 보기</a></div>
+          </div>
+        </article>
+<article class="series-card" id="influence-map">
+          <div>
+            <span class="tag">Influence Map</span>
+            <h3>Bachata Influence 멤버와 철학</h3>
+            <p>Melvin &amp; Gatica를 중심으로 Emilien &amp; Tehina, 관련 댄서와 아카데미 흐름을 추적해 현재 유럽식 바차타 트렌드를 설명합니다.</p>
+            <div class="meta-row">
+              <span>A</span>
+              <span>profile series</span>
+            </div>
+          </div>
+          <div>
+            <ul><li>멜빈·가티카 입문</li><li>에밀리앙·테히나 스타일 노트</li><li>한국팀이 가져올 수 있는 트레이닝 방식</li></ul>
+            <div class="link-row" style="margin-top:14px"><a href="/programs/influence-method.html">관련 허브 보기</a></div>
+          </div>
+        </article>
+<article class="series-card" id="korea-scene">
+          <div>
+            <span class="tag">Korea Scene</span>
+            <h3>한국 팀·동호회·장소 지도</h3>
+            <p>클루니·져니, 그레이·로렌, 라틴씨엘로, 에버라틴, 보니따, 강남 라틴바 같은 한국 씬의 실제 접점을 프로필과 가이드로 정리합니다.</p>
+            <div class="meta-row">
+              <span>A</span>
+              <span>community series</span>
+            </div>
+          </div>
+          <div>
+            <ul><li>서울 소셜 지도</li><li>팀 인터뷰 질문지</li><li>처음 가는 사람을 위한 장소별 분위기</li></ul>
+            <div class="link-row" style="margin-top:14px"><a href="/profiles/">관련 허브 보기</a></div>
+          </div>
+        </article>
+<article class="series-card" id="bachazouk-safety">
+          <div>
+            <span class="tag">Bachazouk</span>
+            <h3>바차주크 안전과 음악성</h3>
+            <p>센슈얼과 주크의 접점을 자극적인 변형으로만 소비하지 않고, 프레임·축·넥라인 안전 기준을 먼저 세우는 콘텐츠.</p>
+            <div class="meta-row">
+              <span>B</span>
+              <span>style dossier</span>
+            </div>
+          </div>
+          <div>
+            <ul><li>주크에서 온 동작 분류</li><li>목·상체 안전 체크</li><li>음악성으로 구분하는 좋은 변형</li></ul>
+            <div class="link-row" style="margin-top:14px"><a href="/programs/bachazouk-safety.html">관련 허브 보기</a></div>
+          </div>
+        </article>
+<article class="series-card" id="gear-market">
+          <div>
+            <span class="tag">Gear Market</span>
+            <h3>댄스화·중고·양도양수</h3>
+            <p>파나미오, 푸에고, On1, Pulse 같은 바차타 댄스화를 한국 소비자 기준으로 비교하고 커뮤니티 거래 수요까지 연결합니다.</p>
+            <div class="meta-row">
+              <span>B</span>
+              <span>buyer guide</span>
+            </div>
+          </div>
+          <div>
+            <ul><li>스니커 vs 힐</li><li>바닥별 회전감</li><li>배송·사이즈·반품 체크</li></ul>
+            <div class="link-row" style="margin-top:14px"><a href="/gear/">관련 허브 보기</a></div>
+          </div>
+        </article>
+        </div>
+      </section>
+      <section class="section">
+        <div class="policy-grid">
+          <article class="policy-card">
+            <span class="tag">Source Rules</span>
+            <h2>무단 복제가 아니라 출처 기반 편집</h2>
+            <ul><li>원문 캡션과 사진을 그대로 복제하지 않고 링크, 핸들, 영상 임베드, 요약 관찰만 남깁니다.</li><li>YouTube 영상은 oEmbed 200 또는 임베드 가능한 URL만 후보로 둡니다.</li><li>인스타그램은 공개 링크와 Graph API 후보를 우선하고, 무단 스크래핑을 운영 기본값으로 두지 않습니다.</li><li>한국 바차타 검색 의도, 초보자 유용성, 영상 신뢰도, 행사 시의성을 별도 점수로 봅니다.</li><li>AI는 초안 구조화와 태깅 보조로만 쓰고, 최종 페이지는 출처와 문맥을 확인한 편집 콘텐츠로 다듬습니다.</li></ul>
+          </article>
+          <article class="automation-card">
+            <span class="tag">Automation Files</span>
+            <h2>현재 연결된 운영 파일</h2>
+            <dl>
+              <div><dt>data/sources.json</dt><dd>공식 사이트, YouTube, 인스타 계정, 브랜드 페이지의 seed를 관리합니다.</dd></div><div><dt>data/social-radar.json</dt><dd>한국팀, 행사, 브랜드, 해시태그를 추적하고 일간 브리프 후보에 연결합니다.</dd></div><div><dt>data/generated/scene-signals.json</dt><dd>API와 seed 기반 후보를 점수화해 매일 갱신합니다.</dd></div><div><dt>data/editorial-desk.json</dt><dd>자동 후보를 어떤 기사, 프로그램, 프로필, 커뮤니티 기능으로 발행할지 공개 큐로 관리합니다.</dd></div>
+            </dl>
+          </article>
+        </div>
+      </section>
+      <section class="section paper-cta">
+        <span class="tag">Next Publishing Loop</span>
+        <h2>브리프는 매일, 깊은 기획은 시리즈로 쌓습니다</h2>
+        <p>오늘의 신호는 브리프로 빠르게 보이고, 검증된 주제는 스타일 허브·프로그램·프로필·기사·커뮤니티 보드로 승격합니다. 이렇게 해야 사이트가 AI가 만든 일회성 페이지처럼 보이지 않고 실제 편집 의도를 가진 한국 바차타 매거진으로 축적됩니다.</p>
+        <div class="link-row">
+          <a href="/briefs/">오늘 브리프</a>
+          <a href="/radar/">소셜 레이더</a>
+          <a href="/programs/">학습 프로그램</a>
+          <a href="/community/">커뮤니티 보드</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

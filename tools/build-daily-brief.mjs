@@ -10,6 +10,7 @@ const articlesDir = resolve(root, "articles");
 const boardDir = resolve(root, "community");
 const stylesDir = resolve(root, "styles");
 const programsDir = resolve(root, "programs");
+const deskDir = resolve(root, "desk");
 const profilesDir = resolve(root, "profiles");
 const gearDir = resolve(root, "gear");
 const eventsDir = resolve(root, "events");
@@ -18,6 +19,7 @@ const articleIndexPath = resolve(root, "data/generated/article-index.json");
 const boardIndexPath = resolve(root, "data/generated/board-index.json");
 const styleIndexPath = resolve(root, "data/generated/style-index.json");
 const programIndexPath = resolve(root, "data/generated/program-index.json");
+const editorialDeskIndexPath = resolve(root, "data/generated/editorial-desk-index.json");
 const profileIndexPath = resolve(root, "data/generated/profile-index.json");
 const gearIndexPath = resolve(root, "data/generated/gear-index.json");
 const eventIndexPath = resolve(root, "data/generated/event-index.json");
@@ -446,6 +448,32 @@ const updateSitemap = async (dateText) => {
     <priority>${page.priority}</priority>
   </url>`).join("\n");
 
+  let deskPages = [];
+  try {
+    const deskIndex = await readJson(editorialDeskIndexPath);
+    deskPages = [{ url: "/desk/", updatedAt: deskIndex.updatedAt || dateText, priority: "0.82", changefreq: "weekly" }];
+  } catch {
+    try {
+      deskPages = (await readdir(deskDir))
+        .filter((name) => name.endsWith(".html"))
+        .map((name) => ({
+          url: name === "index.html" ? "/desk/" : `/desk/${name}`,
+          updatedAt: dateText,
+          priority: name === "index.html" ? "0.82" : "0.7",
+          changefreq: "weekly"
+        }));
+    } catch {
+      deskPages = [];
+    }
+  }
+
+  const deskUrls = deskPages.map((page) => `  <url>
+    <loc>https://bachata.co.kr${page.url}</loc>
+    <lastmod>${page.updatedAt || dateText}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join("\n");
+
   let profilePages = [];
   try {
     const profileIndex = await readJson(profileIndexPath);
@@ -591,6 +619,7 @@ const updateSitemap = async (dateText) => {
 ${briefUrls}
 ${styleUrls}
 ${programUrls}
+${deskUrls}
 ${profileUrls}
 ${eventUrls}
 ${radarUrls}
