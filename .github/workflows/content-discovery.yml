@@ -46,7 +46,15 @@ jobs:
             echo "No discovery changes to commit"
           else
             git commit -m "Update bachata scene brief"
+            HEAD_SHA="$(git rev-parse HEAD)"
             git push
+            for i in {1..12}; do
+              REMOTE_SHA="$(git ls-remote origin refs/heads/main | awk '{print $1}')"
+              if [ "$REMOTE_SHA" = "$HEAD_SHA" ]; then
+                break
+              fi
+              sleep 5
+            done
             curl -fsSL -X POST \
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer ${GH_TOKEN}" \
