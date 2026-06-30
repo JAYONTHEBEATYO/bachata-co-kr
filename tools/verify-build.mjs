@@ -12,6 +12,7 @@ const requiredFiles = [
   "data/generated/profile-index.json",
   "data/generated/program-index.json",
   "data/generated/social-intake-index.json",
+  "data/generated/signal-history.json",
   "data/generated/source-health.json",
   "data/generated/home-index.json",
   "data/generated/latest-brief.json"
@@ -127,7 +128,21 @@ const verifySocialIntake = async () => {
   assert((summary.totalQueue || 0) > 0, "Social intake queue is empty", summary);
   assert((summary.brokenLinks || 0) === 0, "Social intake has broken links", summary);
   assert((summary.videos || 0) > 0, "Social intake has no video candidates", summary);
+  assert((intake.queue || []).some((item) => item.novelty), "Social intake queue is missing novelty metadata", summary);
   return summary;
+};
+
+const verifySignalHistory = async () => {
+  const signals = await readJson("data/generated/scene-signals.json");
+  const history = await readJson("data/generated/signal-history.json");
+  const topicCandidates = (signals.topics || []).flatMap((topic) => topic.candidates || []);
+  const missingHistory = topicCandidates.filter((candidate) => !candidate.signalKey || !history.signals?.[candidate.signalKey]);
+  assert(topicCandidates.length > 0, "Scene signals have no candidates", signals.historySummary || {});
+  assert(missingHistory.length === 0, "Some scene signal candidates are missing history records", {
+    missingHistory: missingHistory.slice(0, 10).map((candidate) => candidate.title || candidate.id)
+  });
+  assert((history.summary?.totalSignals || 0) > 0, "Signal history is empty", history.summary || {});
+  return history.summary;
 };
 
 const verifyHomeHero = async () => {
@@ -189,9 +204,10 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, indexCounts, scannedFiles, homeHero] = await Promise.all([
+  const [sourceHealth, socialIntake, signalHistory, indexCounts, scannedFiles, homeHero] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
+    verifySignalHistory(),
     verifyIndexesAndSitemap(),
     verifyMojibake(),
     verifyHomeHero()
@@ -203,6 +219,7 @@ const main = async () => {
     indexCounts,
     homeHero,
     sourceHealth,
+    signalHistory,
     socialIntake
   };
 

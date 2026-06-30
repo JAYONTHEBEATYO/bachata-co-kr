@@ -6,6 +6,13 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const outDir = resolve(root, "health");
 const outputPath = resolve(root, "data/generated/source-health.json");
 
+const koreaDate = (date = new Date()) => new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Seoul",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+}).format(date);
+
 const dataFiles = [
   "data/sources.json",
   "data/social-radar.json",
@@ -369,7 +376,7 @@ const main = async () => {
 
   const report = {
     generatedAt: new Date().toISOString(),
-    generationDate: new Date().toISOString().slice(0, 10),
+    generationDate: koreaDate(),
     summary,
     results: checked
   };

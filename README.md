@@ -20,7 +20,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `data/editorial-desk.json`: editor-managed story queue and publishing series plan
 - `data/gear.json`: editor-managed dance shoes and gear comparison data
 - `data/home-rail.json`: editor-managed homepage watch-next rail slots
-- `tools/collect-scene-signals.mjs`: validates YouTube embeds and prepares candidate signals
+- `tools/collect-scene-signals.mjs`: validates YouTube embeds, prepares candidate signals, and updates signal history
 - `tools/audit-sources.mjs`: audits internal links, external source URLs, and YouTube oEmbed health
 - `tools/build-home.mjs`: builds the homepage watch-next rail and `data/generated/home-index.json`
 - `tools/build-articles.mjs`: builds `/articles/` and `data/generated/article-index.json`
@@ -39,6 +39,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `tools/verify-build.mjs`: fails the daily workflow if generated pages have missing files, sitemap gaps, mojibake-like text, broken internal links, broken YouTube embeds, or an empty intake queue
 - `.github/workflows/content-discovery.yml`: scheduled GitHub Actions workflow
 - `data/generated/scene-signals.json`: generated candidate queue for editorial review
+- `data/generated/signal-history.json`: generated memory of seen signals, novelty state, first-seen dates, and recurring counts
 - `data/generated/source-health.json`: generated source, link, and video health report
 - `data/generated/home-index.json`: generated homepage rail model for the current daily brief
 - `data/generated/social-intake-index.json`: generated publish queue from social, search, and editorial signals
@@ -70,3 +71,5 @@ The scheduled workflow runs every day at `05:10` Korea time. It works without se
 - `INSTAGRAM_HASHTAG_LIMIT`: optional repository variable, defaults to `8` and is capped at `30` to respect Instagram hashtag search limits.
 
 Instagram collection is intentionally not a public scraper. When Graph credentials are missing, the site still publishes a daily brief from official links, YouTube, Naver, and the editor watchlist. When Graph credentials are present, recent hashtag media is added to `data/generated/scene-signals.json` as `instagram-hashtag-media` and routed into `/intake/` for editorial review.
+
+The daily collector also writes `data/generated/signal-history.json`. Each candidate receives a stable `signalKey`, `firstSeenAt`, `seenCount`, `novelty`, `publishFormat`, `targetUrl`, and `evidenceLevel`. This lets the brief distinguish a first-time signal from a recurring theme, so event news, Korean scene updates, style education, and gear notes can be prioritized without exposing internal scoring language on public pages.

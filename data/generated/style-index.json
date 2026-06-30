@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T14:49:00.655Z",
+  "generatedAt": "2026-06-30T15:05:59.635Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -122,25 +122,25 @@
           "videoId": "FtcPRwVIdNk"
         },
         {
+          "label": "댄스화·기어",
+          "title": "B1 · 파나미오·푸에고·On1·Pulse, 한국 바차타 댄스화 선택 기준",
+          "url": "/gear/",
+          "score": 16,
+          "videoId": "FtcPRwVIdNk"
+        },
+        {
+          "label": "인물·팀·장소 프로필",
+          "title": "A2 · 한국 바차타 팀·동호회·장소를 실제 입문 동선으로 정리",
+          "url": "/profiles/",
+          "score": 16,
+          "videoId": "nrJM-arshvE"
+        },
+        {
           "label": "학습 프로그램",
           "title": "A1 · 센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조",
           "url": "/programs/sensual-fundamentals.html",
           "score": 16,
           "videoId": "B7Wv3cqHrSU"
-        },
-        {
-          "label": "학습 프로그램",
-          "title": "Fuego Dance Shoes Review | Are They Worth It?",
-          "url": "/programs/",
-          "score": 12,
-          "videoId": "FtcPRwVIdNk"
-        },
-        {
-          "label": "Gear",
-          "title": "펄스 / Pulse Dance Shoes",
-          "url": "/gear/pulse.html",
-          "score": 8,
-          "videoId": "G03ElXib6dI"
         }
       ]
     },

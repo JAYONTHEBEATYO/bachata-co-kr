@@ -5,11 +5,19 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourcesPath = resolve(root, "data/sources.json");
 const socialRadarPath = resolve(root, "data/social-radar.json");
+const socialIntakePath = resolve(root, "data/social-intake.json");
 const editorialDeskPath = resolve(root, "data/editorial-desk.json");
 const outputPath = resolve(root, "data/generated/scene-signals.json");
+const historyPath = resolve(root, "data/generated/signal-history.json");
 
 const now = new Date();
-const today = now.toISOString().slice(0, 10);
+const koreaDate = (date = new Date()) => new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Seoul",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+}).format(date);
+const today = koreaDate(now);
 const youtubeKey = process.env.YOUTUBE_API_KEY || "";
 const instagramToken = process.env.INSTAGRAM_GRAPH_TOKEN || "";
 const instagramBusinessAccountId = process.env.INSTAGRAM_BUSINESS_ACCOUNT_ID || process.env.INSTAGRAM_IG_USER_ID || "";
@@ -27,6 +35,128 @@ const readOptionalJson = async (path) => {
   } catch {
     return null;
   }
+};
+
+const formatById = (config = {}) => new Map((config.publishFormats || []).map((format) => [format.id, format]));
+
+const stableSignalKey = (candidate = {}) => {
+  const basis = candidate.sourceUrl || candidate.id || candidate.embedUrl || candidate.title || "unknown";
+  return `${candidate.type || "source"}:${String(basis).trim().toLowerCase()}`;
+};
+
+const inferPublishFormat = (candidate = {}, topic = {}, config = {}) => {
+  const role = candidate.role || "";
+  if (role && config.roleAliases?.[role]) return config.roleAliases[role];
+
+  const relatedUrl = candidate.relatedUrl || candidate.sourceUrl || "";
+  if (relatedUrl.startsWith("/events/")) return "event";
+  if (relatedUrl.startsWith("/profiles/")) return "profile";
+  if (relatedUrl.startsWith("/programs/") || relatedUrl.startsWith("/styles/") || relatedUrl.startsWith("/articles/")) return "learning";
+  if (relatedUrl.startsWith("/gear/")) return "gear";
+  if (relatedUrl.startsWith("/community/") || relatedUrl.startsWith("/submit/")) return "community";
+
+  if (topic.id === "gear-market") return "gear";
+  if (topic.id === "korea-scene" && /event|festival/i.test(`${candidate.role || ""} ${candidate.title || ""}`)) return "event";
+  if (candidate.type?.includes("instagram") || candidate.type?.includes("naver")) return "brief";
+  if (candidate.embedUrl || candidate.videoId || candidate.type?.includes("youtube")) return "learning";
+  return "brief";
+};
+
+const evidenceLevel = (candidate = {}) => {
+  const evidence = [
+    candidate.sourceUrl,
+    candidate.relatedUrl,
+    candidate.embedUrl || candidate.videoId,
+    ...(candidate.evidence || [])
+  ].filter(Boolean).length;
+
+  if (evidence >= 3) return "strong";
+  if (evidence === 2) return "medium";
+  return "watch";
+};
+
+const noveltyLabel = (historyRecord) => {
+  if (!historyRecord) return "new";
+  const seenCount = Number(historyRecord.seenCount || 0);
+  if (seenCount >= 3) return "recurring";
+  return "returning";
+};
+
+const noveltyBoost = (novelty) => {
+  if (novelty === "new") return 18;
+  if (novelty === "recurring") return 10;
+  if (novelty === "returning") return 6;
+  return 0;
+};
+
+const enrichTopicsWithHistory = ({ topics, history, socialIntake }) => {
+  const previous = history?.signals || {};
+  const formats = formatById(socialIntake);
+  const nextSignals = {};
+  const noveltyCounts = { new: 0, returning: 0, recurring: 0 };
+  const formatCounts = {};
+
+  const enrichedTopics = topics.map((topic) => {
+    const candidates = (topic.candidates || []).map((candidate) => {
+      const signalKey = stableSignalKey(candidate);
+      const existing = previous[signalKey];
+      const novelty = noveltyLabel(existing);
+      const seenCount = Number(existing?.seenCount || 0) + 1;
+      const publishFormatId = inferPublishFormat(candidate, topic, socialIntake);
+      const format = formats.get(publishFormatId);
+      const targetUrl = candidate.relatedUrl || format?.target || "/briefs/";
+      const level = evidenceLevel(candidate);
+      const nextScore = Math.round((candidate.score || candidate.scoreBoost || 0) + noveltyBoost(novelty));
+
+      noveltyCounts[novelty] = (noveltyCounts[novelty] || 0) + 1;
+      formatCounts[publishFormatId] = (formatCounts[publishFormatId] || 0) + 1;
+      nextSignals[signalKey] = {
+        key: signalKey,
+        title: candidate.title || "",
+        type: candidate.type || "source",
+        sourceUrl: candidate.sourceUrl || "",
+        relatedUrl: candidate.relatedUrl || "",
+        publishFormatId,
+        firstSeenAt: existing?.firstSeenAt || today,
+        lastSeenAt: today,
+        seenCount
+      };
+
+      return {
+        ...candidate,
+        signalKey,
+        novelty,
+        seenCount,
+        firstSeenAt: existing?.firstSeenAt || today,
+        lastSeenAt: today,
+        publishFormatId,
+        publishFormat: format?.label || publishFormatId,
+        targetUrl,
+        evidenceLevel: level,
+        score: nextScore
+      };
+    }).sort((a, b) => b.score - a.score);
+
+    return {
+      ...topic,
+      candidateCount: candidates.length,
+      candidates
+    };
+  });
+
+  return {
+    topics: enrichedTopics,
+    history: {
+      generatedAt: now.toISOString(),
+      generationDate: today,
+      summary: {
+        totalSignals: Object.keys(nextSignals).length,
+        novelty: noveltyCounts,
+        formats: formatCounts
+      },
+      signals: nextSignals
+    }
+  };
 };
 
 const fetchJson = async (url, options = {}) => {
@@ -280,7 +410,9 @@ const scoreCandidate = (candidate, topic) => {
 const main = async () => {
   const sourceMap = await readJson(sourcesPath);
   const socialRadar = await readOptionalJson(socialRadarPath);
+  const socialIntake = await readOptionalJson(socialIntakePath) || {};
   const editorialDesk = await readOptionalJson(editorialDeskPath);
+  const signalHistory = await readOptionalJson(historyPath) || {};
   const instagramMedia = await collectInstagramHashtagSignals(socialRadar);
   const topics = [];
 
@@ -325,6 +457,12 @@ const main = async () => {
     topics.push(editorialDeskTopic);
   }
 
+  const enriched = enrichTopicsWithHistory({
+    topics,
+    history: signalHistory,
+    socialIntake
+  });
+
   const output = {
     generatedAt: now.toISOString(),
     generationDate: today,
@@ -336,13 +474,16 @@ const main = async () => {
       instagramApiVersion
     },
     diagnostics,
+    historySummary: enriched.history.summary,
     editorialPrinciples: sourceMap.editorialPrinciples,
-    topics
+    topics: enriched.topics
   };
 
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(output, null, 2)}\n`, "utf8");
+  await writeFile(historyPath, `${JSON.stringify(enriched.history, null, 2)}\n`, "utf8");
   console.log(`Wrote ${outputPath}`);
+  console.log(`Wrote ${historyPath}`);
 };
 
 main().catch((error) => {

@@ -13,6 +13,13 @@ const sourceHealthPath = resolve(root, "data/generated/source-health.json");
 const sceneSignalsPath = resolve(root, "data/generated/scene-signals.json");
 const outputPath = resolve(root, "data/generated/home-index.json");
 
+const koreaDate = (date = new Date()) => new Intl.DateTimeFormat("en-CA", {
+  timeZone: "Asia/Seoul",
+  year: "numeric",
+  month: "2-digit",
+  day: "2-digit"
+}).format(date);
+
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
 
 const escapeHtml = (value = "") => String(value)
@@ -172,7 +179,7 @@ const main = async () => {
     readJson(sceneSignalsPath)
   ]);
 
-  const today = latestBrief.generationDate || new Date().toISOString().slice(0, 10);
+  const today = latestBrief.generationDate || koreaDate();
   const context = {
     programs: programIndex.programs || [],
     articles: articleIndex.articles || [],

@@ -59,6 +59,7 @@ const healthFor = (item, healthIndex) => {
 const formatById = (config) => new Map((config.publishFormats || []).map((format) => [format.id, format]));
 
 const inferFormatId = (item, config) => {
+  if (item.publishFormatId) return item.publishFormatId;
   const role = item.role || "";
   if (role && config.roleAliases?.[role]) return config.roleAliases[role];
 
@@ -79,8 +80,10 @@ const scoreItem = (item, config, health) => {
   const base = Number.isFinite(item.score) ? item.score : Number(item.scoreBoost || 0);
   const relatedBoost = item.relatedUrl ? 10 : 0;
   const embedBoost = item.embedUrl || item.videoId ? 8 : 0;
+  const noveltyBoost = item.novelty === "new" ? 12 : item.novelty === "recurring" ? 8 : item.novelty === "returning" ? 4 : 0;
+  const evidenceBoost = item.evidenceLevel === "strong" ? 8 : item.evidenceLevel === "medium" ? 4 : 0;
   const healthPenalty = health?.status === "broken" ? -60 : health?.status === "warn" ? -14 : 0;
-  return Math.max(0, Math.round(base + channelWeight + relatedBoost + embedBoost + healthPenalty));
+  return Math.max(0, Math.round(base + channelWeight + relatedBoost + embedBoost + noveltyBoost + evidenceBoost + healthPenalty));
 };
 
 const classifyStage = (item) => {
@@ -147,6 +150,12 @@ const normalizeItem = (raw, config, healthIndex, sourceLabel) => {
     embedUrl: raw.embedUrl || (videoId ? `https://www.youtube-nocookie.com/embed/${videoId}` : ""),
     videoId,
     formatId,
+    targetUrl: raw.targetUrl || "",
+    novelty: raw.novelty || "",
+    seenCount: raw.seenCount || 0,
+    firstSeenAt: raw.firstSeenAt || "",
+    lastSeenAt: raw.lastSeenAt || "",
+    evidenceLevel: raw.evidenceLevel || "",
     cadence: raw.cadence || "",
     evidence: raw.evidence || [],
     beat: raw.beat || "",
@@ -275,17 +284,23 @@ const renderQueueItem = (item, formats) => {
   const links = [
     item.sourceUrl ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">원본 보기</a>` : "",
     item.relatedUrl ? `<a href="${escapeHtml(item.relatedUrl)}">관련 페이지</a>` : "",
+    item.targetUrl ? `<a href="${escapeHtml(item.targetUrl)}">발행 위치</a>` : "",
     format?.target ? `<a href="${escapeHtml(format.target)}">${escapeHtml(format.label)}</a>` : ""
   ].filter(Boolean).join("");
+  const metaBadges = [
+    `<span>${escapeHtml(item.type)}</span>`,
+    `<span>${escapeHtml(format?.label || item.formatId)}</span>`,
+    `<span>${escapeHtml(item.stageLabel)}</span>`,
+    item.novelty ? `<span>${escapeHtml(publicNoveltyLabel(item.novelty, item.seenCount))}</span>` : "",
+    item.evidenceLevel ? `<span>${escapeHtml(publicEvidenceLabel(item.evidenceLevel))}</span>` : "",
+    `<span class="health-${escapeHtml(item.healthStatus)}">${escapeHtml(item.healthStatus)}</span>`
+  ].filter(Boolean).join("\n              ");
 
   return `<article class="queue-card">
           ${embed ? `${embed}
           ` : ""}<div class="queue-body">
             <div class="meta-row">
-              <span>${escapeHtml(item.type)}</span>
-              <span>${escapeHtml(format?.label || item.formatId)}</span>
-              <span>${escapeHtml(item.stageLabel)}</span>
-              <span class="health-${escapeHtml(item.healthStatus)}">${escapeHtml(item.healthStatus)}</span>
+              ${metaBadges}
             </div>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.beat || item.searchIntent || item.healthNote || "편집자가 원본과 관련 페이지를 확인해 발행 포맷을 결정합니다.")}</p>
@@ -293,6 +308,20 @@ const renderQueueItem = (item, formats) => {
             <div class="link-row">${links}</div>
           </div>
         </article>`;
+};
+
+const publicNoveltyLabel = (novelty = "", seenCount = 0) => {
+  if (novelty === "new") return "새 신호";
+  if (novelty === "recurring") return `반복 ${seenCount}회`;
+  if (novelty === "returning") return "재등장";
+  return novelty;
+};
+
+const publicEvidenceLabel = (level = "") => {
+  if (level === "strong") return "근거 충분";
+  if (level === "medium") return "근거 보통";
+  if (level === "watch") return "관찰";
+  return level;
 };
 
 const renderPolicy = (policy) => `<article class="policy-card">
@@ -314,7 +343,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://bachata.co.kr/intake/",
-    "name": "바차타 소셜 인테이크",
+    "name": "바차타 소셜 큐",
     "description": config.dek,
     "inLanguage": "ko-KR",
     "dateModified": generatedAt,
@@ -328,8 +357,8 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>바차타 소셜 인테이크 | Bachata Korea</title>
-    <meta name="description" content="Instagram, YouTube, Naver, 커뮤니티 신호를 한국 바차타 웹매거진의 기사, 행사, 프로필, 프로그램 발행 후보로 정규화하는 편집 큐.">
+    <title>바차타 소셜 큐 | Bachata Korea</title>
+    <meta name="description" content="Instagram, YouTube, Naver, 커뮤니티 신호를 한국 바차타 웹매거진의 기사, 행사, 프로필, 프로그램 발행 후보로 정리하는 공개 큐.">
     <meta name="robots" content="noindex,nofollow">
     <link rel="canonical" href="https://bachata.co.kr/intake/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -416,17 +445,17 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
   <body>
     <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="소셜 인테이크 이동">
+      <nav class="nav-links" aria-label="소셜 큐 이동">
         <a href="/radar/">Radar</a>
-        <a href="/desk/">Desk</a>
-        <a href="/briefs/">Briefs</a>
-        <a href="/health/">Health</a>
+        <a href="/briefs/">Reports</a>
+        <a href="/styles/">Styles</a>
+        <a href="/korea-scene/">Korea</a>
       </nav>
     </header>
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Social Intake</span>
+          <span class="eyebrow">Signal Queue</span>
           <h1>소셜 신호를 바로 발행 후보로 바꾸는 큐</h1>
           <p>${escapeHtml(config.dek)} 센슈얼, 도미니칸, Bachata Influence, 한국 소셜, 기어, 행사 신호를 각각 맞는 콘텐츠 포맷으로 보냅니다.</p>
         </div>
@@ -438,7 +467,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
       </div>
     </section>
     <main>
-      <section class="summary-grid" aria-label="소셜 인테이크 요약">
+      <section class="summary-grid" aria-label="소셜 큐 요약">
         <article class="summary-card"><span class="tag">Queue</span><strong>${escapeHtml(summary.totalQueue)}</strong></article>
         <article class="summary-card"><span class="tag">Today</span><strong>${escapeHtml(summary.readyNow)}</strong></article>
         <article class="summary-card"><span class="tag">Review</span><strong>${escapeHtml(summary.needsReview)}</strong></article>
@@ -510,7 +539,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
             <span class="eyebrow">Policy</span>
             <h2>수집과 발행의 선</h2>
           </div>
-          <p>자동 수집은 후보를 만드는 데까지만 씁니다. 실제 글은 출처를 확인하고 한국 바차타 독자가 읽기 좋은 맥락으로 다시 작성합니다.</p>
+          <p>수집 루틴은 후보를 만드는 데까지만 씁니다. 실제 글은 출처를 확인하고 한국 바차타 독자가 읽기 좋은 맥락으로 다시 작성합니다.</p>
         </div>
         <div class="policy-grid">
           ${(config.sourcePolicy || []).map(renderPolicy).join("\n          ")}

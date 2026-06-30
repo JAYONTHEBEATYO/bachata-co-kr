@@ -101,7 +101,11 @@ const formatDateKo = (dateText) => {
 const renderCandidate = (candidate) => {
   const title = escapeHtml(candidate.title || "Untitled source");
   const sourceUrl = escapeHtml(candidate.sourceUrl || "#");
-  const type = publicTypeLabel(candidate.type);
+  const labels = [
+    candidate.publishFormat || publicTypeLabel(candidate.type),
+    candidate.novelty ? publicNoveltyLabel(candidate.novelty, candidate.seenCount) : "",
+    candidate.evidenceLevel === "strong" ? "근거 충분" : ""
+  ].filter(Boolean);
   const embed = candidate.embedUrl
     ? `<div class="video-frame"><iframe loading="lazy" src="${escapeHtml(candidate.embedUrl)}" title="${title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`
     : "";
@@ -109,7 +113,7 @@ const renderCandidate = (candidate) => {
   return `
               <article class="candidate">
 ${embed ? `                ${embed}\n` : ""}                <div class="candidate-body">
-                  <span class="tag">${escapeHtml(type)}</span>
+                  <span class="tag">${escapeHtml(labels.join(" · "))}</span>
                   <h3>${title}</h3>
                   <a href="${sourceUrl}" target="_blank" rel="noreferrer">원본 확인</a>
                 </div>
@@ -123,6 +127,13 @@ const publicTypeLabel = (type = "") => {
   if (normalized.includes("naver")) return "검색 트렌드";
   if (normalized.includes("editorial")) return "편집 노트";
   return "바차타 소식";
+};
+
+const publicNoveltyLabel = (novelty = "", seenCount = 0) => {
+  if (novelty === "new") return "새 신호";
+  if (novelty === "returning") return "재등장";
+  if (novelty === "recurring") return `반복 ${seenCount}회`;
+  return novelty;
 };
 
 const publicTopicLabel = (label = "", id = "") => {

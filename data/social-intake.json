@@ -1,10 +1,10 @@
 {
   "updatedAt": "2026-06-30",
-  "title": "바차타 소셜 인테이크",
-  "dek": "Instagram, YouTube, Naver, 제보 신호를 바로 기사·프로그램·행사·커뮤니티 발행 후보로 바꾸는 편집 큐입니다.",
+  "title": "바차타 소셜 큐",
+  "dek": "Instagram, YouTube, Naver, 제보 신호를 바로 기사·프로그램·행사·커뮤니티 발행 후보로 정리하는 공개 큐입니다.",
   "principles": [
     "인스타그램 캡션과 이미지는 복제하지 않고, 공개 링크·핸들·해시태그·관련 사이트만 기록합니다.",
-    "YouTube 영상은 oEmbed와 source health를 통과한 공개 영상만 임베드 후보로 둡니다.",
+    "YouTube 영상은 임베드와 링크 점검을 통과한 공개 영상만 임베드 후보로 둡니다.",
     "네이버와 구글 검색 결과는 원문 요약이 아니라 한국 바차타 이용자의 검색 의도와 출처 지도 보강에 사용합니다.",
     "Reddit, Quora, 커뮤니티 글은 단일 정답처럼 쓰지 않고 공식 출처·영상·현장 자료와 교차 확인합니다.",
     "바차타, bachata, 센슈얼 바차타, 도미니칸 바차타, 서울 바차타 키워드를 한국어 문맥으로 다시 씁니다."
@@ -38,7 +38,7 @@
       "id": "youtube-oembed",
       "channel": "YouTube oEmbed",
       "use": "센슈얼, 도미니칸, Bachata Influence, Bachazouk, 한국 소셜 영상의 임베드 유효성 확인",
-      "limit": "영상 삭제, 지역 제한, 임베드 제한이 생기면 source health에서 경고로 분리합니다.",
+      "limit": "영상 삭제, 지역 제한, 임베드 제한이 생기면 링크 점검 목록에서 경고로 분리합니다.",
       "publishRule": "영상은 출처 링크와 함께 임베드하고, 본문은 한국어 해설 콘텐츠로 재구성합니다.",
       "sourceUrl": "https://developers.google.com/youtube/v3"
     },
