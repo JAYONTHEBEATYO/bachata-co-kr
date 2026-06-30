@@ -9,6 +9,7 @@ const outputPath = resolve(root, "data/generated/source-health.json");
 const dataFiles = [
   "data/sources.json",
   "data/social-radar.json",
+  "data/social-intake.json",
   "data/editorial-desk.json",
   "data/programs.json",
   "data/style-guides.json",

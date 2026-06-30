@@ -16,6 +16,7 @@ const profilesDir = resolve(root, "profiles");
 const gearDir = resolve(root, "gear");
 const eventsDir = resolve(root, "events");
 const radarDir = resolve(root, "radar");
+const intakeDir = resolve(root, "intake");
 const articleIndexPath = resolve(root, "data/generated/article-index.json");
 const boardIndexPath = resolve(root, "data/generated/board-index.json");
 const styleIndexPath = resolve(root, "data/generated/style-index.json");
@@ -26,6 +27,7 @@ const profileIndexPath = resolve(root, "data/generated/profile-index.json");
 const gearIndexPath = resolve(root, "data/generated/gear-index.json");
 const eventIndexPath = resolve(root, "data/generated/event-index.json");
 const socialRadarIndexPath = resolve(root, "data/generated/social-radar-index.json");
+const socialIntakeIndexPath = resolve(root, "data/generated/social-intake-index.json");
 const sourceHealthIndexPath = resolve(root, "data/generated/source-health.json");
 const sitemapPath = resolve(root, "sitemap.xml");
 
@@ -638,6 +640,32 @@ const updateSitemap = async (dateText) => {
     <priority>${page.priority}</priority>
   </url>`).join("\n");
 
+  let intakePages = [];
+  try {
+    const intakeIndex = await readJson(socialIntakeIndexPath);
+    intakePages = [{ url: "/intake/", updatedAt: intakeIndex.updatedAt || dateText, priority: "0.82", changefreq: "daily" }];
+  } catch {
+    try {
+      intakePages = (await readdir(intakeDir))
+        .filter((name) => name.endsWith(".html"))
+        .map((name) => ({
+          url: name === "index.html" ? "/intake/" : `/intake/${name}`,
+          updatedAt: dateText,
+          priority: name === "index.html" ? "0.82" : "0.72",
+          changefreq: "daily"
+        }));
+    } catch {
+      intakePages = [];
+    }
+  }
+
+  const intakeUrls = intakePages.map((page) => `  <url>
+    <loc>https://bachata.co.kr${page.url}</loc>
+    <lastmod>${page.updatedAt || dateText}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join("\n");
+
   let healthLastmod = dateText;
   try {
     const sourceHealth = await readJson(sourceHealthIndexPath);
@@ -675,6 +703,7 @@ ${submitUrls}
 ${profileUrls}
 ${eventUrls}
 ${radarUrls}
+${intakeUrls}
 ${gearUrls}
 ${healthUrls}
   <url>

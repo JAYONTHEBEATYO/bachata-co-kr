@@ -1,22 +1,34 @@
 {
-  "generatedAt": "2026-06-30T11:04:05.215Z",
+  "generatedAt": "2026-06-30T11:14:24.376Z",
   "generationDate": "2026-06-30",
   "summary": {
-    "total": 113,
-    "ok": 99,
-    "watch": 13,
+    "total": 118,
+    "ok": 105,
+    "watch": 12,
     "warn": 1,
     "broken": 0
   },
   "results": [
     {
       "type": "external",
-      "url": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
-      "label": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
+      "url": "https://bachatasensual.com/",
+      "label": "https://bachatasensual.com/",
       "sources": [
         {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.6"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.0.url"
+        },
+        {
           "file": "data/articles.json",
-          "path": "articles.2.sourceLinks.2.url"
+          "path": "articles.1.sourceLinks.0.url"
         }
       ],
       "status": "warn",
@@ -297,28 +309,6 @@
     },
     {
       "type": "external",
-      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "sources": [
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.1.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.2.sourceLinks.1.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.1.url"
-        }
-      ],
-      "status": "watch",
-      "httpStatus": 403,
-      "note": "external URL needs manual review"
-    },
-    {
-      "type": "external",
       "url": "https://bachamap.com/festivals/south-korea",
       "label": "https://bachamap.com/festivals/south-korea",
       "sources": [
@@ -351,32 +341,6 @@
     },
     {
       "type": "external",
-      "url": "https://bachatasensual.com/",
-      "label": "https://bachatasensual.com/",
-      "sources": [
-        {
-          "file": "data/sources.json",
-          "path": "topics.2.sources.6"
-        },
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.0.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.2.sourceLinks.0.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "external URL reachable"
-    },
-    {
-      "type": "external",
       "url": "https://bygatica.com/",
       "label": "https://bygatica.com/",
       "sources": [
@@ -395,6 +359,62 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-facebook-login/hashtag-search",
+      "label": "https://developers.facebook.com/documentation/instagram-platform/instagram-api-with-facebook-login/hashtag-search",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.1.sourceUrl"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://developers.facebook.com/documentation/instagram-platform/oembed",
+      "label": "https://developers.facebook.com/documentation/instagram-platform/oembed",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.2.sourceUrl"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://developers.facebook.com/documentation/instagram-platform/overview",
+      "label": "https://developers.facebook.com/documentation/instagram-platform/overview",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.0.sourceUrl"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://developers.google.com/youtube/v3",
+      "label": "https://developers.google.com/youtube/v3",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.3.sourceUrl"
         }
       ],
       "status": "ok",
@@ -717,6 +737,20 @@
     },
     {
       "type": "external",
+      "url": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
+      "label": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
+      "sources": [
+        {
+          "file": "data/articles.json",
+          "path": "articles.2.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
       "url": "https://www.panamiodance.com/",
       "label": "https://www.panamiodance.com/",
       "sources": [
@@ -763,6 +797,32 @@
         {
           "file": "data/gear.json",
           "path": "products.3.links.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.4.sourceUrl"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -1029,6 +1089,10 @@
       "label": "/briefs/",
       "sources": [
         {
+          "file": "data/social-intake.json",
+          "path": "publishFormats.3.target"
+        },
+        {
           "file": "data/programs.json",
           "path": "programs.0.related.0.url"
         },
@@ -1073,6 +1137,10 @@
         {
           "file": "data/social-radar.json",
           "path": "watchlists.1.sourceLinks.0.url"
+        },
+        {
+          "file": "data/social-intake.json",
+          "path": "publishFormats.5.target"
         },
         {
           "file": "data/editorial-desk.json",
@@ -1197,6 +1265,10 @@
       "label": "/events/",
       "sources": [
         {
+          "file": "data/social-intake.json",
+          "path": "publishFormats.0.target"
+        },
+        {
           "file": "data/programs.json",
           "path": "programs.2.modules.3.url"
         },
@@ -1277,6 +1349,10 @@
           "path": "watchlists.3.sourceLinks.0.url"
         },
         {
+          "file": "data/social-intake.json",
+          "path": "publishFormats.4.target"
+        },
+        {
           "file": "data/editorial-desk.json",
           "path": "series.5.linkedUrl"
         },
@@ -1325,6 +1401,10 @@
         {
           "file": "data/social-radar.json",
           "path": "watchlists.1.sourceLinks.1.url"
+        },
+        {
+          "file": "data/social-intake.json",
+          "path": "publishFormats.1.target"
         },
         {
           "file": "data/editorial-desk.json",
@@ -1477,6 +1557,20 @@
         {
           "file": "data/programs.json",
           "path": "programs.3.modules.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/programs/",
+      "label": "/programs/",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "publishFormats.2.target"
         }
       ],
       "status": "ok",
