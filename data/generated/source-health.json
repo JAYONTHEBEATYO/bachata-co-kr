@@ -1,40 +1,14 @@
 {
-  "generatedAt": "2026-06-30T12:54:26.182Z",
+  "generatedAt": "2026-06-30T13:00:38.412Z",
   "generationDate": "2026-06-30",
   "summary": {
     "total": 141,
     "ok": 121,
-    "watch": 19,
-    "warn": 1,
+    "watch": 20,
+    "warn": 0,
     "broken": 0
   },
   "results": [
-    {
-      "type": "external",
-      "url": "https://bachatasensual.com/",
-      "label": "https://bachatasensual.com/",
-      "sources": [
-        {
-          "file": "data/sources.json",
-          "path": "topics.2.sources.6"
-        },
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.0.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.3.sourceLinks.0.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.0.url"
-        }
-      ],
-      "status": "warn",
-      "httpStatus": null,
-      "note": "external check timed out or failed: The operation was aborted due to timeout"
-    },
     {
       "type": "external",
       "url": "https://www.instagram.com/__the3d__/",
@@ -455,6 +429,32 @@
     },
     {
       "type": "external",
+      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.4.sourceUrl"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.3.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.1.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": 403,
+      "note": "external URL needs manual review"
+    },
+    {
+      "type": "external",
       "url": "https://bachamap.com/festivals/south-korea",
       "label": "https://bachamap.com/festivals/south-korea",
       "sources": [
@@ -501,6 +501,32 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://bachatasensual.com/",
+      "label": "https://bachatasensual.com/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.6"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.3.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -1011,32 +1037,6 @@
         {
           "file": "data/gear.json",
           "path": "products.3.links.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "external URL reachable"
-    },
-    {
-      "type": "external",
-      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "sources": [
-        {
-          "file": "data/social-intake.json",
-          "path": "sourcePolicy.4.sourceUrl"
-        },
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.1.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.3.sourceLinks.1.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.1.url"
         }
       ],
       "status": "ok",
