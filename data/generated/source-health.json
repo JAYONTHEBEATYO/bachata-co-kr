@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-06-30T10:44:13.688Z",
+  "generatedAt": "2026-06-30T10:46:28.325Z",
   "generationDate": "2026-06-30",
   "summary": {
     "total": 113,
-    "ok": 101,
-    "watch": 12,
+    "ok": 100,
+    "watch": 13,
     "warn": 0,
     "broken": 0
   },
@@ -280,6 +280,28 @@
       "status": "watch",
       "httpStatus": null,
       "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
+      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.1.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": 403,
+      "note": "external URL needs manual review"
     },
     {
       "type": "external",
@@ -741,28 +763,6 @@
         {
           "file": "data/gear.json",
           "path": "products.3.links.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "external URL reachable"
-    },
-    {
-      "type": "external",
-      "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
-      "sources": [
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.1.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.2.sourceLinks.1.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.1.url"
         }
       ],
       "status": "ok",
