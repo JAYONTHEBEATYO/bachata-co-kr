@@ -1,14 +1,32 @@
 {
-  "generatedAt": "2026-06-30T12:31:23.576Z",
+  "generatedAt": "2026-06-30T12:43:26.354Z",
   "generationDate": "2026-06-30",
   "summary": {
-    "total": 132,
-    "ok": 117,
-    "watch": 15,
+    "total": 141,
+    "ok": 122,
+    "watch": 19,
     "warn": 0,
     "broken": 0
   },
   "results": [
+    {
+      "type": "external",
+      "url": "https://www.instagram.com/__the3d__/",
+      "label": "https://www.instagram.com/__the3d__/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.0.sources.6"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.2.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
     {
       "type": "external",
       "url": "https://www.instagram.com/andiysilviabs/",
@@ -16,11 +34,25 @@
       "sources": [
         {
           "file": "data/social-radar.json",
-          "path": "watchlists.2.accounts.1.url"
+          "path": "watchlists.2.accounts.3.url"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.5.sourceLinks.1.url"
+          "path": "profiles.6.sourceLinks.1.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
+      "url": "https://www.instagram.com/bachata.influence/",
+      "label": "https://www.instagram.com/bachata.influence/",
+      "sources": [
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.1.url"
         }
       ],
       "status": "watch",
@@ -42,7 +74,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.12.sourceLinks.1.url"
+          "path": "profiles.13.sourceLinks.1.url"
         },
         {
           "file": "data/board.json",
@@ -64,11 +96,41 @@
         },
         {
           "file": "data/social-radar.json",
-          "path": "watchlists.2.accounts.2.url"
+          "path": "watchlists.2.accounts.4.url"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.sourceLinks.0.url"
+          "path": "profiles.7.sourceLinks.0.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
+      "url": "https://www.instagram.com/emilio_serap_bachata/",
+      "label": "https://www.instagram.com/emilio_serap_bachata/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.0.sources.4"
+        },
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.2.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.3.sourceLinks.4.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.0.sourceLinks.4.url"
         }
       ],
       "status": "watch",
@@ -112,7 +174,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.11.sourceLinks.0.url"
+          "path": "profiles.12.sourceLinks.0.url"
         },
         {
           "file": "data/board.json",
@@ -134,11 +196,11 @@
         },
         {
           "file": "data/social-radar.json",
-          "path": "watchlists.2.accounts.3.url"
+          "path": "watchlists.2.accounts.5.url"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.sourceLinks.0.url"
+          "path": "profiles.8.sourceLinks.0.url"
         }
       ],
       "status": "watch",
@@ -178,7 +240,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.13.sourceLinks.0.url"
+          "path": "profiles.14.sourceLinks.0.url"
         }
       ],
       "status": "watch",
@@ -196,7 +258,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.sourceLinks.1.url"
+          "path": "profiles.10.sourceLinks.1.url"
         }
       ],
       "status": "watch",
@@ -210,7 +272,7 @@
       "sources": [
         {
           "file": "data/sources.json",
-          "path": "topics.0.sources.2"
+          "path": "topics.0.sources.3"
         },
         {
           "file": "data/social-radar.json",
@@ -218,7 +280,7 @@
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.3.sourceLinks.2.url"
+          "path": "guides.3.sourceLinks.3.url"
         },
         {
           "file": "data/profiles.json",
@@ -226,7 +288,7 @@
         },
         {
           "file": "data/articles.json",
-          "path": "articles.0.sourceLinks.2.url"
+          "path": "articles.0.sourceLinks.3.url"
         }
       ],
       "status": "watch",
@@ -296,11 +358,11 @@
         },
         {
           "file": "data/social-radar.json",
-          "path": "watchlists.2.accounts.4.url"
+          "path": "watchlists.2.accounts.6.url"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.sourceLinks.0.url"
+          "path": "profiles.9.sourceLinks.0.url"
         }
       ],
       "status": "watch",
@@ -319,6 +381,24 @@
         {
           "file": "data/events.json",
           "path": "radar.2.sourceLinks.2.url"
+        }
+      ],
+      "status": "watch",
+      "httpStatus": null,
+      "note": "Instagram public pages can be access-limited; verify through Graph API or manual review"
+    },
+    {
+      "type": "external",
+      "url": "https://www.instagram.com/serapkocaboy/",
+      "label": "https://www.instagram.com/serapkocaboy/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.0.sources.5"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.1.url"
         }
       ],
       "status": "watch",
@@ -381,6 +461,28 @@
     },
     {
       "type": "external",
+      "url": "https://bachatainfluenceacademy.com/",
+      "label": "https://bachatainfluenceacademy.com/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.0.sources.0"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.3.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.0.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
       "url": "https://bachatasensual.com/",
       "label": "https://bachatasensual.com/",
       "sources": [
@@ -394,7 +496,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.2.sourceLinks.0.url"
+          "path": "profiles.3.sourceLinks.0.url"
         },
         {
           "file": "data/articles.json",
@@ -412,11 +514,11 @@
       "sources": [
         {
           "file": "data/sources.json",
-          "path": "topics.0.sources.1"
+          "path": "topics.0.sources.2"
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.3.sourceLinks.1.url"
+          "path": "guides.3.sourceLinks.2.url"
         },
         {
           "file": "data/profiles.json",
@@ -424,7 +526,7 @@
         },
         {
           "file": "data/articles.json",
-          "path": "articles.0.sourceLinks.1.url"
+          "path": "articles.0.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -512,7 +614,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.12.sourceLinks.0.url"
+          "path": "profiles.13.sourceLinks.0.url"
         },
         {
           "file": "data/board.json",
@@ -646,7 +748,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.sourceLinks.1.url"
+          "path": "profiles.9.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -772,7 +874,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.3.sourceLinks.0.url"
+          "path": "profiles.4.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -786,7 +888,7 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.4.sourceLinks.1.url"
+          "path": "profiles.5.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -800,7 +902,7 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.sourceLinks.2.url"
+          "path": "profiles.7.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -814,11 +916,11 @@
       "sources": [
         {
           "file": "data/sources.json",
-          "path": "topics.0.sources.0"
+          "path": "topics.0.sources.1"
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.3.sourceLinks.0.url"
+          "path": "guides.3.sourceLinks.1.url"
         },
         {
           "file": "data/profiles.json",
@@ -826,7 +928,7 @@
         },
         {
           "file": "data/articles.json",
-          "path": "articles.0.sourceLinks.0.url"
+          "path": "articles.0.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -840,7 +942,7 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.sourceLinks.2.url"
+          "path": "profiles.8.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -930,7 +1032,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.2.sourceLinks.1.url"
+          "path": "profiles.3.sourceLinks.1.url"
         },
         {
           "file": "data/articles.json",
@@ -952,7 +1054,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.5.sourceLinks.0.url"
+          "path": "profiles.6.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -970,7 +1072,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.sourceLinks.1.url"
+          "path": "profiles.7.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -988,7 +1090,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.4.sourceLinks.0.url"
+          "path": "profiles.5.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -1006,7 +1108,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.sourceLinks.1.url"
+          "path": "profiles.8.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -1020,7 +1122,7 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.13.sourceLinks.2.url"
+          "path": "profiles.14.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -1141,6 +1243,10 @@
           "path": "guides.3.related.0.url"
         },
         {
+          "file": "data/style-guides.json",
+          "path": "guides.3.contentDrops.1.url"
+        },
+        {
           "file": "data/profiles.json",
           "path": "profiles.0.related.1.url"
         }
@@ -1190,7 +1296,7 @@
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.3.related.1.url"
+          "path": "guides.3.related.2.url"
         },
         {
           "file": "data/style-guides.json",
@@ -1258,7 +1364,7 @@
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.3.related.2.url"
+          "path": "guides.3.related.3.url"
         },
         {
           "file": "data/style-guides.json",
@@ -1380,11 +1486,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.related.1.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.10.related.0.url"
+          "path": "profiles.10.related.1.url"
         },
         {
           "file": "data/profiles.json",
@@ -1397,6 +1499,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.13.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.14.related.0.url"
         },
         {
           "file": "data/submissions.json",
@@ -1568,7 +1674,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.related.1.url"
+          "path": "profiles.7.related.1.url"
         },
         {
           "file": "data/submissions.json",
@@ -1586,7 +1692,7 @@
       "sources": [
         {
           "file": "data/social-radar.json",
-          "path": "watchlists.2.accounts.1.relatedUrl"
+          "path": "watchlists.2.accounts.3.relatedUrl"
         }
       ],
       "status": "ok",
@@ -1614,7 +1720,7 @@
       "sources": [
         {
           "file": "data/social-radar.json",
-          "path": "watchlists.2.accounts.2.relatedUrl"
+          "path": "watchlists.2.accounts.4.relatedUrl"
         }
       ],
       "status": "ok",
@@ -1633,6 +1739,32 @@
         {
           "file": "data/programs.json",
           "path": "programs.3.modules.3.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.related.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/profiles/emilio-serap.html",
+      "label": "/profiles/emilio-serap.html",
+      "sources": [
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.2.relatedUrl"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.3.related.1.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.3.contentDrops.0.url"
         }
       ],
       "status": "ok",
@@ -1674,7 +1806,7 @@
       "sources": [
         {
           "file": "data/social-radar.json",
-          "path": "watchlists.2.accounts.3.relatedUrl"
+          "path": "watchlists.2.accounts.5.relatedUrl"
         }
       ],
       "status": "ok",
@@ -1737,6 +1869,10 @@
         {
           "file": "data/programs.json",
           "path": "programs.3.modules.2.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.related.1.url"
         }
       ],
       "status": "ok",
@@ -1750,7 +1886,7 @@
       "sources": [
         {
           "file": "data/social-radar.json",
-          "path": "watchlists.2.accounts.4.relatedUrl"
+          "path": "watchlists.2.accounts.6.relatedUrl"
         }
       ],
       "status": "ok",
@@ -1768,7 +1904,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.related.1.url"
+          "path": "profiles.9.related.1.url"
         }
       ],
       "status": "ok",
@@ -1831,6 +1967,10 @@
         {
           "file": "data/editorial-desk.json",
           "path": "queue.2.internalLinks.0.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.3.contentDrops.2.url"
         }
       ],
       "status": "ok",
@@ -1952,6 +2092,10 @@
       "sources": [
         {
           "file": "data/social-radar.json",
+          "path": "watchlists.2.accounts.1.relatedUrl"
+        },
+        {
+          "file": "data/social-radar.json",
           "path": "watchlists.2.sourceLinks.0.url"
         },
         {
@@ -1968,7 +2112,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.related.0.url"
+          "path": "profiles.2.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.10.related.0.url"
         }
       ],
       "status": "ok",
@@ -1986,7 +2134,7 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.related.0.url"
+          "path": "profiles.8.related.0.url"
         }
       ],
       "status": "ok",
@@ -2036,10 +2184,6 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.2.related.0.url"
-        },
-        {
-          "file": "data/profiles.json",
           "path": "profiles.3.related.0.url"
         },
         {
@@ -2056,16 +2200,40 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.related.1.url"
+          "path": "profiles.7.related.0.url"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.related.0.url"
+          "path": "profiles.8.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.9.related.0.url"
         }
       ],
       "status": "ok",
       "httpStatus": 200,
       "note": "local file exists"
+    },
+    {
+      "type": "youtube",
+      "videoId": "2lygAoTSk1Y",
+      "url": "https://www.youtube.com/watch?v=2lygAoTSk1Y",
+      "label": "https://www.youtube.com/watch?v=2lygAoTSk1Y",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.0.sources.10"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.4.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Emilio & Serap Bachata Couple give us their take about all their dance floor secrets - Episode 2",
+      "note": "YouTube oEmbed ok"
     },
     {
       "type": "youtube",
@@ -2119,11 +2287,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.heroVideo.id"
+          "path": "profiles.8.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.7.sourceLinks.3.url"
+          "path": "profiles.8.sourceLinks.3.url"
         }
       ],
       "status": "ok",
@@ -2163,11 +2331,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.2.heroVideo.id"
+          "path": "profiles.3.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.2.sourceLinks.2.url"
+          "path": "profiles.3.sourceLinks.2.url"
         },
         {
           "file": "data/articles.json",
@@ -2191,11 +2359,11 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.12.heroVideo.id"
+          "path": "profiles.13.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.12.sourceLinks.2.url"
+          "path": "profiles.13.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -2239,11 +2407,11 @@
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.10.heroVideo.id"
+          "path": "profiles.11.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.10.sourceLinks.0.url"
+          "path": "profiles.11.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -2263,11 +2431,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.heroVideo.id"
+          "path": "profiles.7.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.6.sourceLinks.3.url"
+          "path": "profiles.7.sourceLinks.3.url"
         }
       ],
       "status": "ok",
@@ -2307,11 +2475,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.heroVideo.id"
+          "path": "profiles.9.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.8.sourceLinks.2.url"
+          "path": "profiles.9.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -2327,7 +2495,7 @@
       "sources": [
         {
           "file": "data/sources.json",
-          "path": "topics.0.sources.4"
+          "path": "topics.0.sources.8"
         },
         {
           "file": "data/style-guides.json",
@@ -2399,11 +2567,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.5.heroVideo.id"
+          "path": "profiles.6.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.5.sourceLinks.2.url"
+          "path": "profiles.6.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -2443,11 +2611,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.11.heroVideo.id"
+          "path": "profiles.12.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.11.sourceLinks.1.url"
+          "path": "profiles.12.sourceLinks.1.url"
         },
         {
           "file": "data/board.json",
@@ -2461,17 +2629,45 @@
     },
     {
       "type": "youtube",
+      "videoId": "h4hZt9akWWc",
+      "url": "https://www.youtube.com/watch?v=h4hZt9akWWc",
+      "label": "https://www.youtube.com/watch?v=h4hZt9akWWc",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.0.sources.9"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.3.watchlist.2.videoId"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.2.sourceLinks.3.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Emilio & Serap @ Let's dance together at Gang TURN 2026-05-19",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
       "videoId": "hk4oF_T82-E",
       "url": "https://www.youtube.com/watch?v=hk4oF_T82-E",
       "label": "Latin Cielo Bachata Performance Reference",
       "sources": [
         {
           "file": "data/profiles.json",
-          "path": "profiles.13.heroVideo.id"
+          "path": "profiles.14.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.13.sourceLinks.1.url"
+          "path": "profiles.14.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -2491,11 +2687,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.3.heroVideo.id"
+          "path": "profiles.4.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.3.sourceLinks.1.url"
+          "path": "profiles.4.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -2547,16 +2743,44 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.4.heroVideo.id"
+          "path": "profiles.5.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.4.sourceLinks.2.url"
+          "path": "profiles.5.sourceLinks.2.url"
         }
       ],
       "status": "ok",
       "httpStatus": 200,
       "title": "LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "lGRDZkVG2r8",
+      "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
+      "label": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.0.sources.11"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.3.watchlist.3.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.3.sourceLinks.6.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.0.sourceLinks.6.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Bachata Influence: Interview with Melvin & Gatica, Masters of the 'Bachata Influence' Style",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -2619,11 +2843,11 @@
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.heroVideo.id"
+          "path": "profiles.10.heroVideo.id"
         },
         {
           "file": "data/profiles.json",
-          "path": "profiles.9.sourceLinks.0.url"
+          "path": "profiles.10.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -2735,7 +2959,7 @@
       "sources": [
         {
           "file": "data/sources.json",
-          "path": "topics.0.sources.3"
+          "path": "topics.0.sources.7"
         },
         {
           "file": "data/editorial-desk.json",
@@ -2759,7 +2983,7 @@
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.3.sourceLinks.3.url"
+          "path": "guides.3.sourceLinks.5.url"
         },
         {
           "file": "data/profiles.json",
@@ -2775,7 +2999,7 @@
         },
         {
           "file": "data/articles.json",
-          "path": "articles.0.sourceLinks.3.url"
+          "path": "articles.0.sourceLinks.5.url"
         },
         {
           "file": "data/events.json",

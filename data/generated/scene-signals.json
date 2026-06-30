@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T12:30:39.007Z",
+  "generatedAt": "2026-06-30T12:42:39.982Z",
   "generationDate": "2026-06-30",
   "mode": {
     "youtubeApi": false,
@@ -21,9 +21,11 @@
         "Bachata Influence",
         "Melvin Gatica",
         "Emilien Tehina",
+        "Emilio Serap",
+        "Serap Kocaboy",
         "Influence Academy"
       ],
-      "candidateCount": 2,
+      "candidateCount": 5,
       "candidates": [
         {
           "type": "youtube",
@@ -42,6 +44,33 @@
           "embedUrl": "https://www.youtube-nocookie.com/embed/FNv7eOMg-_k",
           "scoreBoost": 25,
           "score": 55
+        },
+        {
+          "type": "youtube",
+          "id": "lGRDZkVG2r8",
+          "title": "Bachata Influence: Interview with Melvin & Gatica, Masters of the 'Bachata Influence' Style",
+          "sourceUrl": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/lGRDZkVG2r8",
+          "scoreBoost": 25,
+          "score": 55
+        },
+        {
+          "type": "youtube",
+          "id": "h4hZt9akWWc",
+          "title": "Emilio & Serap @ Let's dance together at Gang TURN 2026-05-19",
+          "sourceUrl": "https://www.youtube.com/watch?v=h4hZt9akWWc",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/h4hZt9akWWc",
+          "scoreBoost": 25,
+          "score": 45
+        },
+        {
+          "type": "youtube",
+          "id": "2lygAoTSk1Y",
+          "title": "Emilio & Serap Bachata Couple give us their take about all their dance floor secrets - Episode 2",
+          "sourceUrl": "https://www.youtube.com/watch?v=2lygAoTSk1Y",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/2lygAoTSk1Y",
+          "scoreBoost": 25,
+          "score": 45
         }
       ]
     },
@@ -220,7 +249,7 @@
         "bachata Korea",
         "bachata event"
       ],
-      "candidateCount": 21,
+      "candidateCount": 23,
       "candidates": [
         {
           "type": "instagram-watch",
@@ -304,6 +333,26 @@
         },
         {
           "type": "instagram-watch",
+          "title": "Bachata Influence @bachata.influence",
+          "sourceUrl": "https://www.instagram.com/bachata.influence/",
+          "relatedUrl": "/styles/influence.html",
+          "role": "method",
+          "watchlist": "글로벌 메소드·댄서",
+          "scoreBoost": 88,
+          "score": 106
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Emilio & Serap @emilio_serap_bachata",
+          "sourceUrl": "https://www.instagram.com/emilio_serap_bachata/",
+          "relatedUrl": "/profiles/emilio-serap.html",
+          "role": "artist",
+          "watchlist": "글로벌 메소드·댄서",
+          "scoreBoost": 88,
+          "score": 106
+        },
+        {
+          "type": "instagram-watch",
           "title": "Andi & Silvia @andiysilviabs",
           "sourceUrl": "https://www.instagram.com/andiysilviabs/",
           "relatedUrl": "/profiles/andi-silvia.html",
@@ -317,26 +366,6 @@
           "title": "Cristian & Gabriella @cristianygabriella",
           "sourceUrl": "https://www.instagram.com/cristianygabriella/",
           "relatedUrl": "/profiles/cristian-gabriella.html",
-          "role": "artist",
-          "watchlist": "글로벌 메소드·댄서",
-          "scoreBoost": 88,
-          "score": 106
-        },
-        {
-          "type": "instagram-watch",
-          "title": "Klau & Ros @klauyros",
-          "sourceUrl": "https://www.instagram.com/klauyros/",
-          "relatedUrl": "/profiles/klau-ros.html",
-          "role": "artist",
-          "watchlist": "글로벌 메소드·댄서",
-          "scoreBoost": 88,
-          "score": 106
-        },
-        {
-          "type": "instagram-watch",
-          "title": "Sara Panero @sarapanero",
-          "sourceUrl": "https://www.instagram.com/sarapanero/",
-          "relatedUrl": "/profiles/sara-panero.html",
           "role": "artist",
           "watchlist": "글로벌 메소드·댄서",
           "scoreBoost": 88,

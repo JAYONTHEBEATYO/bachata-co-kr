@@ -274,8 +274,8 @@
       "id": "influence",
       "eyebrow": "Bachata Influence",
       "title": "Bachata Influence 허브",
-      "dek": "Melvin & Gatica, Emilien & Tehina, Influence Academy 계열을 기술 이름보다 음악성·멈춤·프레임·교육 시스템으로 읽는 트렌드 허브.",
-      "keywords": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "Influence Academy", "바차타 인플루언스"],
+      "dek": "Melvin & Gatica, Emilien & Tehina, Emilio & Serap, Influence Academy 계열을 기술 이름보다 음악성·멈춤·프레임·교육 시스템으로 읽는 트렌드 허브.",
+      "keywords": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "Emilio Serap", "Influence Academy", "바차타 인플루언스"],
       "heroVideo": {
         "id": "sUy5L7x5pyE",
         "title": "Bachata Influence Tutorial | Melvin & Gatica"
@@ -296,6 +296,18 @@
           "title": "Emilien & Tehina Influence Reference",
           "videoId": "FNv7eOMg-_k",
           "note": "멈춤과 진행, 팔로워 라인, 리더의 길 열기를 비교하기 좋은 영상."
+        },
+        {
+          "label": "Certified Network",
+          "title": "Emilio & Serap Korea Event Reference",
+          "videoId": "h4hZt9akWWc",
+          "note": "Influence 계열이 공식 팀 밖의 인증 강사와 지역 이벤트로 번역되는 방식을 보기 좋은 공개 영상."
+        },
+        {
+          "label": "Interview",
+          "title": "Melvin & Gatica Bachata Influence Interview",
+          "videoId": "lGRDZkVG2r8",
+          "note": "창시자가 직접 말하는 스타일의 의도와 교육 언어를 기사화할 때 참고하기 좋은 인터뷰."
         }
       ],
       "sections": [
@@ -306,18 +318,72 @@
             "한국에서는 그레이·로렌 같은 인플루언스 계열 수업/소셜 영상, 클루니와 솔미 같은 국내 소셜 영상, 워크숍 공지를 하나의 시리즈로 묶어 추적할 가치가 있습니다."
           ],
           "bullets": ["멈춤 이후 다시 들어가는 타이밍", "팔로워가 자기 축으로 서 있는 시간", "무대 표현과 소셜 적용의 경계", "한국 수업에서의 번역 방식"]
+        },
+        {
+          "heading": "공식 아카데미가 말하는 여섯 축",
+          "paragraphs": [
+            "공식 Influence Academy는 Bachata Influence를 연결, 호흡, 음악성, 파워, 의도, 에너지의 조합으로 설명합니다. 이 여섯 단어를 그대로 슬로건으로 소비하기보다, 영상에서 어디에 드러나는지 표시해 두면 콘텐츠의 해상도가 올라갑니다.",
+            "예를 들어 호흡은 느린 구간에서 멈춰 보이는 정지 시간이 아니라 다음 움직임을 준비하는 시간이고, 파워는 큰 동작이 아니라 악센트를 어디까지 쓰고 어디서 거두는지의 문제입니다."
+          ],
+          "bullets": ["Connection: 손의 압이 아니라 파트너와 음악을 동시에 듣는 상태", "Breathing: 멈춤과 재개의 시간을 만드는 장치", "Musicality: 리믹스의 드롭보다 문장 구조를 읽는 능력", "Intention: 감정 연기가 아니라 방향과 목적이 있는 움직임"]
+        },
+        {
+          "heading": "한국 콘텐츠로 번역할 때의 기준",
+          "paragraphs": [
+            "Influence 계열은 릴스에서 강하게 보이기 때문에 과장된 감정선만 따라 하기 쉽습니다. 한국어 콘텐츠에서는 먼저 안전하게 줄일 수 있는 요소와 무대용으로 남겨야 하는 요소를 분리해야 합니다.",
+            "Emilio & Serap, Emilien & Tehina 같은 페어를 함께 보면 창시자 스타일이 다른 강사에게 넘어갈 때 무엇이 유지되고 무엇이 지역 이벤트 문법으로 바뀌는지 비교할 수 있습니다."
+          ],
+          "bullets": ["소셜 플로어에서는 멈춤 시간을 짧게 줄이기", "팔로워가 예측할 수 없는 드롭은 수업·연습 맥락에서만 다루기", "감정 표현보다 프레임 회복 타이밍을 먼저 설명하기", "국내 팀·동호회 영상과 해외 레퍼런스를 같은 기사 안에서 교차검증하기"]
         }
       ],
       "related": [
         { "label": "Influence 기사", "url": "/articles/bachata-influence-melvin-gatica.html" },
+        { "label": "Emilio & Serap 프로필", "url": "/profiles/emilio-serap.html" },
         { "label": "Bachazouk 기사", "url": "/articles/bachazouk-guide.html" },
         { "label": "오늘 브리프", "url": "/briefs/" }
       ],
       "sourceLinks": [
+        { "label": "Influence Academy Official", "url": "https://bachatainfluenceacademy.com/" },
         { "label": "Influence Academy 2026", "url": "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" },
         { "label": "byGatica", "url": "https://bygatica.com/" },
         { "label": "Melvin & Gatica Instagram", "url": "https://www.instagram.com/melvin_gatica_bachata/" },
-        { "label": "YouTube Reference", "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE" }
+        { "label": "Emilio & Serap Instagram", "url": "https://www.instagram.com/emilio_serap_bachata/" },
+        { "label": "YouTube Reference", "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE" },
+        { "label": "YouTube Interview", "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8" }
+      ],
+      "contentDrops": [
+        {
+          "label": "Profile",
+          "title": "Emilio & Serap: 인증 강사 네트워크로 확장되는 Influence",
+          "description": "Malta 기반 계정과 최근 한국 이벤트 영상을 연결해, 창시자 스타일이 지역 수업과 소셜 이벤트로 번역되는 지점을 추적합니다.",
+          "url": "/profiles/emilio-serap.html",
+          "cta": "프로필 보기"
+        },
+        {
+          "label": "Longform",
+          "title": "Bachata Influence는 무엇이 다른가",
+          "description": "Melvin & Gatica, Pro Team, 아카데미 구조, 커뮤니티 논쟁을 한국어 입문자가 읽기 쉬운 기준으로 정리한 긴 글.",
+          "url": "/articles/bachata-influence-melvin-gatica.html",
+          "cta": "기사 읽기"
+        },
+        {
+          "label": "Program",
+          "title": "Bachata Influence 읽는 법",
+          "description": "멈춤, 호흡, 악센트, 프레임 회복을 영상으로 체크하는 20분 학습 루틴.",
+          "url": "/programs/influence-method.html",
+          "cta": "프로그램 보기"
+        }
+      ],
+      "fundamentalsLabel": "Influence Compass",
+      "fundamentalsTitle": "Bachata Influence를 읽는 6개 축",
+      "fundamentalsIntro": "공식 아카데미와 공개 영상에서 반복적으로 확인되는 키워드를 한국어 콘텐츠 발행 기준으로 다시 정리했습니다. 이 축은 기술 이름을 외우는 목록이 아니라 영상과 수업을 평가하는 체크리스트입니다.",
+      "fundamentals": [
+        { "name": "Connection", "translation": "연결", "description": "손의 힘이 아니라 파트너의 축, 호흡, 음악 문장을 같이 듣는 상태입니다. 리더가 길을 열고 팔로워가 자기 축을 잃지 않는지 먼저 봅니다." },
+        { "name": "Breathing", "translation": "호흡", "description": "멈춤이 죽은 시간이 아니라 다음 문장을 준비하는 시간인지 확인합니다. 호흡이 없으면 Influence는 과장된 포즈처럼 보입니다." },
+        { "name": "Musicality", "translation": "음악성", "description": "드롭과 가사에만 반응하는 것이 아니라 벌스, 프리코러스, 악센트의 흐름을 읽는 능력입니다." },
+        { "name": "Power", "translation": "파워", "description": "큰 힘을 쓰는 것이 아니라 악센트가 필요한 순간에만 에너지를 모았다가 바로 회수하는 기술입니다." },
+        { "name": "Intention", "translation": "의도", "description": "감정 연기나 표정이 아니라 움직임이 어디로 가고 왜 멈추는지 명확한 상태입니다." },
+        { "name": "Energy", "translation": "에너지", "description": "파트너와 음악 사이에서 긴장이 끊기지 않는 밀도입니다. 소셜에서는 이 밀도를 작은 범위로 줄이는 능력이 중요합니다." }
       ]
     },
     {
