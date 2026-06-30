@@ -24,14 +24,14 @@
       },
       {
         "label": "Follow",
-        "title": "댄서와 팀 아카이브",
-        "description": "Melvin & Gatica, Korke & Judith, Emilien & Tehina, Gray & Loren 같은 이름을 관찰 포인트로 묶습니다.",
+        "title": "댄서와 팀",
+        "description": "Melvin & Gatica, Korke & Judith, Emilien & Tehina, Gray & Loren의 대표 영상과 국내 연결 맥락을 함께 봅니다.",
         "href": "/profiles/",
         "meta": "16 profiles"
       },
       {
         "label": "Scene",
-        "title": "한국 바차타 레이더",
+        "title": "한국 바차타 소식",
         "description": "행사, 내한, 동호회, 장소, 양도·구인 제보까지 한국 독자가 바로 쓸 수 있는 소식으로 정리합니다.",
         "href": "/korea-scene/",
         "meta": "Korea map"
@@ -56,7 +56,7 @@
     {
       "label": "Artists",
       "title": "댄서와 팀",
-      "description": "Melvin & Gatica, Korke & Judith, 한국팀까지 관찰 포인트로 묶습니다.",
+      "description": "Melvin & Gatica, Korke & Judith부터 국내 팀까지 대표 영상과 읽을거리를 함께 묶었습니다.",
       "href": "/profiles/",
       "metric": "16 profiles"
     },
@@ -114,7 +114,7 @@
       "label": "Scene",
       "title": "이번 달 한국 바차타",
       "description": "내한, 워크숍, 소셜, 팀 소식을 영상과 공식 출처 중심으로 묶었습니다.",
-      "meta": "월간 레이더"
+      "meta": "월간 소식"
     }
   ]
 }

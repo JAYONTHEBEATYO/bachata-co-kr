@@ -125,7 +125,7 @@ const nav = `    <header class="nav">
         <a href="/desk/">편집실</a>
         <a href="/programs/">프로그램</a>
         <a href="/styles/">스타일</a>
-        <a href="/radar/">소셜 레이더</a>
+        <a href="/radar/">소셜 소식</a>
         <a href="/briefs/">브리프</a>
       </nav>
     </header>`;
@@ -203,13 +203,13 @@ ${nav}
       <div class="hero-grid">
         <div>
           <span class="eyebrow">Editorial Desk</span>
-          <h1>다음 바차타 콘텐츠를 공개 편집 큐로 관리합니다</h1>
+          <h1>곧 다룰 바차타 이야기를 모아둡니다</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
             ${data.queue.slice(0, 6).map((item) => `<a href="#${escapeHtml(item.id)}">${escapeHtml(item.priority)} · ${escapeHtml(item.beat)}</a>`).join("")}
           </div>
         </div>
-        <aside class="rhythm-grid" aria-label="발행 리듬">
+        <aside class="rhythm-grid" aria-label="업데이트 리듬">
           ${data.cadence.map((item) => `<article class="rhythm-card">
             <span class="tag">${escapeHtml(item.cadence)}</span>
             <strong>${escapeHtml(item.label)}</strong>
@@ -222,10 +222,10 @@ ${nav}
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Story Queue</span>
-            <h2>영상과 출처가 붙은 발행 대기열</h2>
+            <span class="eyebrow">Next Stories</span>
+            <h2>영상과 출처가 있는 준비 중인 주제</h2>
           </div>
-          <p>이 큐는 자동 생성 기사 목록이 아니라 편집 방향표입니다. 각 카드의 영상, 내부 링크, 체크리스트가 채워진 뒤 기사·프로그램·프로필·커뮤니티 기능으로 승격합니다.</p>
+          <p>이 목록은 자동 생성 기사 묶음이 아니라 앞으로 다룰 방향표입니다. 각 주제는 영상과 출처를 확인한 뒤 기사, 프로그램, 프로필, 커뮤니티 안내로 이어집니다.</p>
         </div>
         <div class="queue-grid">
           ${data.queue.map(renderQueueCard).join("\n")}
@@ -235,7 +235,7 @@ ${nav}
         <div class="section-head">
           <div>
             <span class="eyebrow">Magazine Series</span>
-            <h2>반복 발행 가능한 시리즈 설계</h2>
+            <h2>반복해서 다룰 수 있는 시리즈</h2>
           </div>
           <p>코어 개념은 오래 읽히는 evergreen으로 두고, 한국 씬·내한·상품·커뮤니티는 주기적으로 갱신하는 방식으로 분리합니다.</p>
         </div>
@@ -262,10 +262,10 @@ ${nav}
       <section class="section paper-cta">
         <span class="tag">Next Publishing Loop</span>
         <h2>브리프는 매일, 깊은 기획은 시리즈로 쌓습니다</h2>
-        <p>오늘의 신호는 브리프로 빠르게 보이고, 검증된 주제는 스타일 허브·프로그램·프로필·기사·커뮤니티 보드로 승격합니다. 빠른 소식과 오래 읽는 가이드를 분리해야 한국 바차타 매거진의 결이 꾸준히 쌓입니다.</p>
+        <p>오늘 확인한 소식은 브리프로 짧게 전하고, 깊게 볼 주제는 스타일 허브·프로그램·프로필·기사·커뮤니티 보드로 정리합니다. 빠른 소식과 오래 읽는 가이드를 분리해야 한국 바차타 매거진의 결이 꾸준히 쌓입니다.</p>
         <div class="link-row">
           <a href="/briefs/">오늘 브리프</a>
-          <a href="/radar/">소셜 레이더</a>
+          <a href="/radar/">소셜 소식</a>
           <a href="/programs/">학습 프로그램</a>
           <a href="/community/">커뮤니티 보드</a>
         </div>

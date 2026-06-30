@@ -20,7 +20,7 @@ const absoluteUrl = (path) => `https://bachata.co.kr${path}`;
 
 const statusLabels = {
   "editorial-series": "편집 시리즈",
-  "collecting": "수집 중",
+  "collecting": "정보 확인 중",
   "submission-ready": "제보 접수",
   "research-queue": "취재 대기"
 };
@@ -223,7 +223,7 @@ const renderCategoryCard = (category, entries) => {
             ${renderMiniList(category.submissionFields || [])}
           </div>
           <div>
-            <span class="count">${categoryEntries.length}개 큐레이션</span>
+            <span class="count">${categoryEntries.length}개 항목</span>
             <div class="entry-links"><a href="${slugPath(category.id)}">보드 보기</a></div>
           </div>
         </article>`;
@@ -280,7 +280,7 @@ const renderIndexPage = (data) => {
     "@type": "CollectionPage",
     "@id": "https://bachata.co.kr/community/",
     "name": "바차타 코리아 커뮤니티 보드",
-    "description": "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 검수해 모으는 커뮤니티 보드.",
+    "description": "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 확인해 정리하는 커뮤니티 보드.",
     "inLanguage": "ko-KR",
     "isPartOf": { "@id": "https://bachata.co.kr/#website" },
     "hasPart": data.categories.map((category) => ({
@@ -295,7 +295,7 @@ const renderIndexPage = (data) => {
         <div>
           <span class="eyebrow">Community Desk</span>
           <h1>한국 바차타씬의 소식과 연결을 모으는 보드</h1>
-          <p>소셜·워크숍·내한, 티켓 양도, 댄스화 중고, 강사·DJ 구인, 장소·팀 디렉터리를 제보와 공개 출처 기반으로 정리합니다. 지금은 검수형 보드로 시작하고, 축적된 항목은 기사와 캘린더로 확장합니다.</p>
+          <p>소셜·워크숍·내한, 티켓 양도, 댄스화 중고, 강사·DJ 구인, 장소·팀 디렉터리를 제보와 공개 링크를 바탕으로 정리합니다. 확인된 항목은 기사와 캘린더로 이어집니다.</p>
           <div class="quick-nav">
             ${data.categories.map((category) => `<a href="${slugPath(category.id)}">${escapeHtml(category.label)}</a>`).join("")}
           </div>
@@ -322,7 +322,7 @@ const renderIndexPage = (data) => {
       <section class="submission">
         <span class="tag">Submit</span>
         <h2>홍보·구인·양도·팀 소개를 보내주세요</h2>
-        <p>제목, 날짜, 장소, 가격, 원본 링크, 이미지/영상 링크, 연락처를 보내면 검수 후 카테고리에 맞춰 정리합니다.</p>
+        <p>제목, 날짜, 장소, 가격, 원본 링크, 이미지/영상 링크, 연락처를 보내면 확인 후 카테고리에 맞춰 정리합니다.</p>
         <div class="entry-links">
           <a href="/submit/">제보 센터</a>
           <a href="mailto:${escapeHtml(data.contact.email)}?subject=%5Bbachata.co.kr%5D%20%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%20%EC%A0%9C%EB%B3%B4">메일로 제보</a>
@@ -333,7 +333,7 @@ const renderIndexPage = (data) => {
 
   return layout({
     title: "바차타 커뮤니티 보드 | Bachata Korea",
-    description: "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 검수해 모으는 bachata.co.kr 커뮤니티 보드.",
+    description: "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 확인해 정리하는 bachata.co.kr 커뮤니티 보드.",
     canonical: "https://bachata.co.kr/community/",
     jsonLd,
     body
@@ -375,7 +375,7 @@ const renderCategoryPage = (data, category) => {
         </div>
         <aside class="hero-note">
           <strong>${entries.length}개 항목</strong>
-          <p>${escapeHtml(data.updatedAt)} 기준 초기 큐레이션입니다. 실제 운영 중에는 최신 제보와 검수된 공개 링크가 이 페이지에 누적됩니다.</p>
+          <p>${escapeHtml(data.updatedAt)} 기준으로 먼저 정리한 목록입니다. 실제 운영 중에는 최신 제보와 확인된 공개 링크가 이 페이지에 누적됩니다.</p>
         </aside>
       </div>
     </section>
@@ -387,7 +387,7 @@ const renderCategoryPage = (data, category) => {
         <aside class="side-note" aria-label="보드 운영 기준">
           <article>
             <span class="tag">Policy</span>
-            <p>개인 정보, 무단 이미지, 출처 없는 홍보문은 싣지 않습니다. 일정·가격·장소·연락 방식이 확인된 항목부터 발행합니다.</p>
+            <p>개인 정보, 무단 이미지, 출처 없는 홍보문은 싣지 않습니다. 일정·가격·장소·연락 방식이 확인된 항목부터 공개합니다.</p>
           </article>
           <article>
             <span class="tag">Submit</span>

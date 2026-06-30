@@ -44,14 +44,14 @@ const renderAccount = (account) => `<article class="account-card">
 const socialAutomation = (data, sceneSignals = {}) => {
   const mode = sceneSignals.mode || {};
   const graphNote = mode.instagramHashtagSearch
-    ? "Instagram Graph API와 Business Account ID가 연결되어 해시태그 recent media 후보를 매일 수집합니다."
+    ? "인스타그램 공식 권한이 연결되어 해시태그와 공개 계정 소식을 매일 확인합니다."
     : mode.instagramGraph
-      ? "Instagram Graph token은 있지만 Business Account ID가 없어 해시태그 recent media 수집은 아직 대기 상태입니다."
-      : "현재는 공식 Graph API 자격 증명이 없어 핸들·해시태그·공식 링크 watchlist로 후보를 만들고, 편집자가 원문을 확인합니다.";
+      ? "인스타그램 연결 토큰은 있지만 비즈니스 계정 연결이 남아 있어 공개 계정과 원본 링크를 우선 확인합니다."
+      : "현재는 공식 인스타그램 권한이 없어 공개 계정, 해시태그, 공식 링크를 편집자가 직접 확인합니다.";
 
   return {
     graphApi: {
-      label: "Instagram Graph API",
+      label: "인스타그램 공식 확인",
       status: mode.instagramHashtagSearch ? "hashtag-ready" : mode.instagramGraph ? "account-id-needed" : "credential-needed",
       note: graphNote
     },
@@ -64,18 +64,18 @@ const socialAutomation = (data, sceneSignals = {}) => {
       status: mode.instagramHashtagSearch ? "backup" : "active"
     },
     youtube: {
-      label: "YouTube Data API",
+      label: "YouTube 영상 확인",
       status: mode.youtubeApi ? "search-ready" : "seeded-oembed",
       note: mode.youtubeApi
-        ? "YouTube Data API 검색 후보와 사전 검증된 임베드 영상을 함께 사용합니다."
-        : "API 키가 없을 때는 편집 seed 영상과 YouTube oEmbed 검증으로 깨지지 않는 영상 후보만 유지합니다."
+        ? "YouTube 검색 결과와 사전 확인된 임베드 영상을 함께 사용합니다."
+        : "API 키가 없을 때는 편집자가 고른 영상과 임베드 점검을 통과한 영상만 유지합니다."
     },
     naver: {
-      label: "Naver Search API",
+      label: "네이버 검색 확인",
       status: mode.naverApi ? "search-ready" : "credential-needed",
       note: mode.naverApi
-        ? "Naver 검색 후보를 최신 브리프 후보에 더합니다."
-        : "Naver API 자격 증명이 없을 때는 공식 링크와 내부 레이더 후보 중심으로 발행합니다."
+        ? "네이버 검색에서 반복적으로 보이는 소식을 최신 브리프에 더합니다."
+        : "네이버 API 자격 증명이 없을 때는 공식 링크와 편집자가 확인한 목록 중심으로 공개합니다."
     }
   };
 };
@@ -164,9 +164,9 @@ const styles = `    <style>
 
 const nav = `    <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="소셜 레이더 이동">
+      <nav class="nav-links" aria-label="소셜 소식 이동">
         <a href="/">홈</a>
-        <a href="/radar/">소셜 레이더</a>
+        <a href="/radar/">소셜 소식</a>
         <a href="/events/">행사</a>
         <a href="/profiles/">인물·팀</a>
         <a href="/briefs/">브리프</a>
@@ -216,15 +216,15 @@ ${nav}
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Social Radar</span>
-          <h1>인스타에서 먼저 뜨는 바차타 소식을 놓치지 않기</h1>
+          <span class="eyebrow">Social News</span>
+          <h1>인스타에서 먼저 뜨는 바차타 소식을 한곳에</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
             ${data.watchlists.map((watchlist) => `<a href="#${escapeHtml(watchlist.id)}">${escapeHtml(watchlist.label)}</a>`).join("")}
           </div>
         </div>
         <aside class="ops-card">
-          <span class="tag">Automation Stack</span>
+          <span class="tag">확인 방식</span>
           <dl>
             ${Object.values(automation).map((item) => `<div><dt>${escapeHtml(item.label)} · ${escapeHtml(item.status)}</dt><dd>${escapeHtml(item.note)}</dd></div>`).join("")}
           </dl>
@@ -235,10 +235,10 @@ ${nav}
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Watchlists</span>
-            <h2>매일 확인할 인스타·공식 소스</h2>
+            <span class="eyebrow">Sources</span>
+            <h2>매일 확인할 인스타그램 계정과 공식 출처</h2>
           </div>
-          <p>계정 자체를 기사로 복제하지 않고, 어떤 신호를 볼 것인지와 사이트의 어느 콘텐츠로 연결할지를 정합니다. 이 데이터가 일간 브리프의 Social Radar 후보가 됩니다.</p>
+          <p>계정 자체를 기사로 복제하지 않고 어떤 소식을 확인할지, 사이트의 어느 글과 연결할지 안내합니다. 확인된 소식은 일간 브리프와 관련 페이지로 이어집니다.</p>
         </div>
         <div class="watchlist-stack">
           ${data.watchlists.map((watchlist) => `<section class="watchlist-card" id="${escapeHtml(watchlist.id)}">
@@ -246,8 +246,8 @@ ${nav}
             <h2>${escapeHtml(watchlist.label)}</h2>
             <p>${escapeHtml(watchlist.why)}</p>
             <div class="watchlist-meta">
-              <span>priority ${escapeHtml(watchlist.priority)}</span>
-              <span>${watchlist.accounts.length} accounts</span>
+              <span>중요도 ${escapeHtml(watchlist.priority)}</span>
+              <span>${watchlist.accounts.length}개 계정</span>
             </div>
             <div class="account-grid">
               ${watchlist.accounts.map(renderAccount).join("\n")}
@@ -278,23 +278,23 @@ ${nav}
             <span class="eyebrow">Policy</span>
             <h2>복제하지 않는 운영 원칙</h2>
           </div>
-          <p>자동화는 수집과 후보 정렬까지만 담당합니다. 발행문은 출처를 보고 한국 독자에게 맞는 문장으로 다시 편집합니다.</p>
+          <p>자동화는 공개 링크를 정리하는 데까지만 씁니다. 본문은 출처를 확인한 뒤 한국 독자에게 맞는 문장으로 다시 씁니다.</p>
         </div>
         <div class="policy-grid">
           ${data.principles.map((item, index) => `<article class="policy-card">
             <span class="tag">Rule ${index + 1}</span>
-            <h3>${index === 0 ? "복제 금지" : index === 1 ? "API 분리" : index === 2 ? "교차 확인" : "검수 발행"}</h3>
+            <h3>${index === 0 ? "복제 금지" : index === 1 ? "API 분리" : index === 2 ? "교차 확인" : "확인 후 공개"}</h3>
             <p>${escapeHtml(item)}</p>
           </article>`).join("\n")}
         </div>
       </section>
       <section class="section paper-cta">
-        <span class="tag">Generated Index</span>
-        <h2>${accounts.length}개 계정과 ${data.hashtags.length}개 태그를 추적합니다</h2>
-        <p>이 페이지의 소스는 <a href="/data/social-radar.json">data/social-radar.json</a>이고, 자동 브리프는 매일 이 데이터에서 Social Radar 후보를 만들어 냅니다.</p>
+        <span class="tag">Source Index</span>
+        <h2>${accounts.length}개 계정과 ${data.hashtags.length}개 태그를 확인합니다</h2>
+        <p>이 페이지의 소스는 <a href="/data/social-radar.json">data/social-radar.json</a>입니다. 매일 브리프를 만들 때 이 목록을 참고합니다.</p>
         <div class="link-row">
           <a href="/briefs/">오늘 브리프</a>
-          <a href="/events/">행사 레이더</a>
+          <a href="/events/">행사 일정</a>
           <a href="/profiles/">인물·팀 허브</a>
         </div>
       </section>

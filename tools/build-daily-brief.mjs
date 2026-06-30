@@ -56,7 +56,7 @@ const topicNotes = {
     ]
   },
   "korea-scene": {
-    dek: "한국 씬은 인스타와 유튜브에 신호가 흩어져 있어 장소, 팀, 강사, 동호회를 함께 묶어 보는 편집이 필요합니다.",
+    dek: "한국 바차타 소식은 인스타그램과 유튜브에 흩어져 있어 장소, 팀, 강사, 동호회를 함께 보는 정리가 필요합니다.",
     questions: [
       "그레이 & 로렌, 클루니, 보니따, 에버라틴 영상은 어떤 초보자 정보를 제공하는가?",
       "장소별 음악 비율, 촬영 분위기, 초보 환영도를 어떻게 기록할 것인가?"
@@ -70,16 +70,16 @@ const topicNotes = {
     ]
   },
   "social-radar": {
-    dek: "인스타 흐름은 캡션을 복제하지 않고, 원문 링크·핸들·해시태그·관련 사이트 페이지로 묶어 읽습니다.",
+    dek: "인스타그램 소식은 캡션을 복제하지 않고, 원문 링크·핸들·해시태그·관련 사이트 페이지를 함께 확인해 읽습니다.",
     questions: [
       "오늘 확인한 인스타 흐름이 행사, 팀 소개, 댄서 프로필, 상품 비교 중 어디에 가까운가?",
-      "공식 링크와 유튜브 아카이브가 함께 있어 기사화할 만큼 검증됐는가?"
+      "공식 링크와 유튜브 영상이 함께 있어 기사로 정리할 만큼 확인됐는가?"
     ]
   },
   "editorial-desk": {
     dek: "기획 노트는 센슈얼, 도미니칸, 한국씬, 행사, 상품처럼 더 깊게 읽을 만한 주제를 골라 확장합니다.",
     questions: [
-      "오늘은 센슈얼·도미니칸 같은 코어 콘텐츠를 보강할 차례인가, 한국씬·행사·상품 같은 시의성 콘텐츠를 발행할 차례인가?",
+      "오늘은 센슈얼·도미니칸 같은 코어 콘텐츠를 보강할 차례인가, 한국 바차타 현장·행사·상품 같은 시의성 있는 글을 공개할 차례인가?",
       "함께 볼 영상, 내부 링크, 원문 출처가 모두 충분한 주제는 무엇인가?"
     ]
   }
@@ -122,7 +122,7 @@ ${embed ? `                ${embed}\n` : ""}                <div class="candidat
 
 const publicTypeLabel = (type = "") => {
   const normalized = String(type).toLowerCase();
-  if (normalized.includes("youtube")) return "영상 큐레이션";
+  if (normalized.includes("youtube")) return "영상 가이드";
   if (normalized.includes("instagram")) return "소셜 포스트";
   if (normalized.includes("naver")) return "검색 트렌드";
   if (normalized.includes("editorial")) return "편집 노트";
@@ -130,7 +130,7 @@ const publicTypeLabel = (type = "") => {
 };
 
 const publicNoveltyLabel = (novelty = "", seenCount = 0) => {
-  if (novelty === "new") return "새 신호";
+  if (novelty === "new") return "새 소식";
   if (novelty === "returning") return "재등장";
   if (novelty === "recurring") return `반복 ${seenCount}회`;
   return novelty;
@@ -139,7 +139,7 @@ const publicNoveltyLabel = (novelty = "", seenCount = 0) => {
 const publicTopicLabel = (label = "", id = "") => {
   const normalized = `${id} ${label}`.toLowerCase();
   if (normalized.includes("editorial")) return "기획 노트";
-  if (normalized.includes("social")) return "소셜 레이더";
+  if (normalized.includes("social")) return "소셜 소식";
   if (normalized.includes("korea")) return "한국 바차타씬";
   if (normalized.includes("gear")) return "댄스화와 용품";
   if (normalized.includes("global")) return "글로벌 댄서";

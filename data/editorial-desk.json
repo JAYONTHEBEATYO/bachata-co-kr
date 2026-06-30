@@ -1,19 +1,19 @@
 {
   "updatedAt": "2026-06-30",
-  "title": "바차타 코리아 편집 데스크",
-  "dek": "흩어진 영상, 인스타 신호, 행사 공지, 브랜드 자료를 기사와 프로그램으로 승격하기 위한 공개 편집 큐입니다. 수집 루틴은 후보를 만들고, 발행은 출처와 영상 유효성을 확인한 뒤 진행합니다.",
+  "title": "바차타 코리아 다음 이야기",
+  "dek": "곧 다룰 영상, 행사 소식, 브랜드 자료를 모아두고 출처가 확인되면 기사와 가이드로 정리합니다.",
   "cadence": [
     {
       "label": "Daily scan",
       "cadence": "매일 오전",
-      "output": "scene-signals.json과 일간 브리프 후보 갱신",
-      "why": "행사, 워크숍, 내한 공지는 인스타와 영상 업로드에서 먼저 움직이므로 하루 단위로 후보만 모읍니다."
+      "output": "일간 브리프 준비",
+      "why": "행사, 워크숍, 내한 공지는 인스타와 영상 업로드에서 먼저 움직이므로 하루 단위로 확인할 소식을 모읍니다."
     },
     {
       "label": "Weekly edit",
       "cadence": "주 2회",
-      "output": "기사, 스타일 허브, 프로그램, 행사 레이더로 승격",
-      "why": "자동 요약만으로 발행하지 않고 출처, 영상, 한국 독자 검색 의도를 확인합니다."
+      "output": "기사, 스타일 허브, 프로그램, 행사 일정으로 정리",
+      "why": "자동 요약만으로 공개하지 않고 출처, 영상, 한국 독자가 찾는 맥락을 확인합니다."
     },
     {
       "label": "Evergreen refresh",
@@ -23,10 +23,10 @@
     }
   ],
   "sourceRules": [
-    "원문 캡션과 사진을 그대로 복제하지 않고 링크, 핸들, 영상 임베드, 요약 관찰만 남깁니다.",
-    "YouTube 영상은 oEmbed 200 또는 임베드 가능한 URL만 후보로 둡니다.",
-    "인스타그램은 공개 링크와 공식 후보를 우선하고, 무단 스크래핑을 운영 기본값으로 두지 않습니다.",
-    "한국 바차타 검색 의도, 초보자 유용성, 영상 신뢰도, 행사 시의성을 따로 확인합니다.",
+    "원문 캡션과 사진을 그대로 복제하지 않고 링크, 핸들, 영상 임베드, 직접 쓴 요약만 남깁니다.",
+    "YouTube 영상은 임베드 가능한 공개 링크만 사용합니다.",
+    "인스타그램은 공개 링크와 공식 계정을 우선하고, 무단 스크래핑을 운영 기본값으로 두지 않습니다.",
+    "한국 바차타 검색 맥락, 초보자 유용성, 영상 신뢰도, 행사 시의성을 따로 확인합니다.",
     "최종 페이지는 출처와 문맥을 확인한 편집 콘텐츠로 다듬습니다."
   ],
   "series": [
@@ -38,8 +38,17 @@
       "priority": "A",
       "linkedUrl": "/programs/sensual-fundamentals.html",
       "brief": "코르케·주디스 계열의 16개 펀더멘털을 초보자 관점에서 다시 배열하고, 웨이브·프레임·헤드무브를 안전 기준으로 묶는 시리즈.",
-      "targets": ["센슈얼 바차타", "Bachata Sensual 16 fundamentals", "코르케 주디스", "바차타 웨이브"],
-      "nextPieces": ["16개 항목별 짧은 해설", "리더/팔로워 체크리스트", "소셜에서 하지 말아야 할 동작"]
+      "targets": [
+        "센슈얼 바차타",
+        "Bachata Sensual 16 fundamentals",
+        "코르케 주디스",
+        "바차타 웨이브"
+      ],
+      "nextPieces": [
+        "16개 항목별 짧은 해설",
+        "리더/팔로워 체크리스트",
+        "소셜에서 하지 말아야 할 동작"
+      ]
     },
     {
       "id": "dominican-rhythm",
@@ -49,8 +58,17 @@
       "priority": "A",
       "linkedUrl": "/programs/dominican-rhythm.html",
       "brief": "카운트, 싱코페이션, 악기 듣기, 풋워크 패턴을 영상 중심으로 풀어 한국 수강생이 리듬을 먼저 잡게 만드는 시리즈.",
-      "targets": ["도미니칸 바차타", "bachata footwork", "bachata syncopation", "바차타 리듬"],
-      "nextPieces": ["기본 스텝 변주", "기타·봉고·기라 듣기", "소셜에서 리듬을 잃는 순간"]
+      "targets": [
+        "도미니칸 바차타",
+        "bachata footwork",
+        "bachata syncopation",
+        "바차타 리듬"
+      ],
+      "nextPieces": [
+        "기본 스텝 변주",
+        "기타·봉고·기라 듣기",
+        "소셜에서 리듬을 잃는 순간"
+      ]
     },
     {
       "id": "influence-map",
@@ -60,8 +78,17 @@
       "priority": "A",
       "linkedUrl": "/programs/influence-method.html",
       "brief": "Melvin & Gatica를 중심으로 Emilien & Tehina, 관련 댄서와 아카데미 흐름을 추적해 현재 유럽식 바차타 트렌드를 설명합니다.",
-      "targets": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "Influence Academy"],
-      "nextPieces": ["멜빈·가티카 입문", "에밀리앙·테히나 스타일 노트", "한국팀이 가져올 수 있는 트레이닝 방식"]
+      "targets": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Emilien Tehina",
+        "Influence Academy"
+      ],
+      "nextPieces": [
+        "멜빈·가티카 입문",
+        "에밀리앙·테히나 스타일 노트",
+        "한국팀이 가져올 수 있는 트레이닝 방식"
+      ]
     },
     {
       "id": "korea-scene",
@@ -71,8 +98,18 @@
       "priority": "A",
       "linkedUrl": "/profiles/",
       "brief": "클루니·져니, 그레이·로렌, 라틴씨엘로, 에버라틴, 보니따, 강남 라틴바 같은 한국 씬의 실제 접점을 프로필과 가이드로 정리합니다.",
-      "targets": ["한국 바차타", "서울 바차타", "라틴씨엘로", "에버라틴", "보니따"],
-      "nextPieces": ["서울 소셜 지도", "팀 인터뷰 질문지", "처음 가는 사람을 위한 장소별 분위기"]
+      "targets": [
+        "한국 바차타",
+        "서울 바차타",
+        "라틴씨엘로",
+        "에버라틴",
+        "보니따"
+      ],
+      "nextPieces": [
+        "서울 소셜 지도",
+        "팀 인터뷰 질문지",
+        "처음 가는 사람을 위한 장소별 분위기"
+      ]
     },
     {
       "id": "bachazouk-safety",
@@ -82,8 +119,17 @@
       "priority": "B",
       "linkedUrl": "/programs/bachazouk-safety.html",
       "brief": "센슈얼과 주크의 접점을 자극적인 변형으로만 소비하지 않고, 프레임·축·넥라인 안전 기준을 먼저 세우는 콘텐츠.",
-      "targets": ["Bachazouk", "BachaZouk", "Brazilian Zouk", "바차주크"],
-      "nextPieces": ["주크에서 온 동작 분류", "목·상체 안전 체크", "음악성으로 구분하는 좋은 변형"]
+      "targets": [
+        "Bachazouk",
+        "BachaZouk",
+        "Brazilian Zouk",
+        "바차주크"
+      ],
+      "nextPieces": [
+        "주크에서 온 동작 분류",
+        "목·상체 안전 체크",
+        "음악성으로 구분하는 좋은 변형"
+      ]
     },
     {
       "id": "gear-market",
@@ -93,8 +139,18 @@
       "priority": "B",
       "linkedUrl": "/gear/",
       "brief": "파나미오, 푸에고, On1, Pulse 같은 바차타 댄스화를 한국 소비자 기준으로 비교하고 커뮤니티 거래 수요까지 연결합니다.",
-      "targets": ["바차타 댄스화", "Fuego dance shoes", "Pana Mio", "On1 dance shoes", "Pulse dance shoes"],
-      "nextPieces": ["스니커 vs 힐", "바닥별 회전감", "배송·사이즈·반품 체크"]
+      "targets": [
+        "바차타 댄스화",
+        "Fuego dance shoes",
+        "Pana Mio",
+        "On1 dance shoes",
+        "Pulse dance shoes"
+      ],
+      "nextPieces": [
+        "스니커 vs 힐",
+        "바닥별 회전감",
+        "배송·사이즈·반품 체크"
+      ]
     }
   ],
   "queue": [
@@ -112,11 +168,25 @@
         "start": 99
       },
       "internalLinks": [
-        { "label": "센슈얼 프로그램", "url": "/programs/sensual-fundamentals.html" },
-        { "label": "센슈얼 스타일 허브", "url": "/styles/sensual.html" },
-        { "label": "코르케·주디스 프로필", "url": "/profiles/korke-judith.html" }
+        {
+          "label": "센슈얼 프로그램",
+          "url": "/programs/sensual-fundamentals.html"
+        },
+        {
+          "label": "센슈얼 스타일 허브",
+          "url": "/styles/sensual.html"
+        },
+        {
+          "label": "코르케·주디스 프로필",
+          "url": "/profiles/korke-judith.html"
+        }
       ],
-      "sourceChecklist": ["Bachata Sensual 공식 자료", "관련 강의 영상", "커뮤니티 질문에서 반복되는 안전 이슈", "한국 초보자 검색어"]
+      "sourceChecklist": [
+        "Bachata Sensual 공식 자료",
+        "관련 강의 영상",
+        "커뮤니티 질문에서 반복되는 안전 이슈",
+        "한국 초보자 검색어"
+      ]
     },
     {
       "id": "q-dominican-rhythm",
@@ -131,11 +201,25 @@
         "title": "Dominican bachata rhythm and footwork reference"
       },
       "internalLinks": [
-        { "label": "도미니칸 프로그램", "url": "/programs/dominican-rhythm.html" },
-        { "label": "도미니칸 스타일 허브", "url": "/styles/dominican.html" },
-        { "label": "리듬 기사", "url": "/articles/dominican-bachata-rhythm-footwork-guide.html" }
+        {
+          "label": "도미니칸 프로그램",
+          "url": "/programs/dominican-rhythm.html"
+        },
+        {
+          "label": "도미니칸 스타일 허브",
+          "url": "/styles/dominican.html"
+        },
+        {
+          "label": "리듬 기사",
+          "url": "/articles/dominican-bachata-rhythm-footwork-guide.html"
+        }
       ],
-      "sourceChecklist": ["도미니칸 풋워크 영상", "리듬 용어 교차 확인", "초급 수업에서 설명 가능한 언어", "임베드 가능한 영상"]
+      "sourceChecklist": [
+        "도미니칸 풋워크 영상",
+        "리듬 용어 교차 확인",
+        "초급 수업에서 설명 가능한 언어",
+        "임베드 가능한 영상"
+      ]
     },
     {
       "id": "q-influence-members",
@@ -150,11 +234,25 @@
         "title": "Melvin & Gatica Bachata Influence tutorial"
       },
       "internalLinks": [
-        { "label": "Influence 프로그램", "url": "/programs/influence-method.html" },
-        { "label": "Melvin & Gatica", "url": "/profiles/melvin-gatica.html" },
-        { "label": "Emilien & Tehina", "url": "/profiles/emilien-tehina.html" }
+        {
+          "label": "Influence 프로그램",
+          "url": "/programs/influence-method.html"
+        },
+        {
+          "label": "Melvin & Gatica",
+          "url": "/profiles/melvin-gatica.html"
+        },
+        {
+          "label": "Emilien & Tehina",
+          "url": "/profiles/emilien-tehina.html"
+        }
       ],
-      "sourceChecklist": ["공식 아카데미 페이지", "댄서 공식 사이트·인스타", "YouTube 클래스 영상", "한국 씬에서 쓰이는 용어"]
+      "sourceChecklist": [
+        "공식 아카데미 페이지",
+        "댄서 공식 사이트·인스타",
+        "YouTube 클래스 영상",
+        "한국 씬에서 쓰이는 용어"
+      ]
     },
     {
       "id": "q-korea-teams",
@@ -169,11 +267,25 @@
         "title": "Korea bachata scene reference"
       },
       "internalLinks": [
-        { "label": "프로필 허브", "url": "/profiles/" },
-        { "label": "커뮤니티 보드", "url": "/community/" },
-        { "label": "소셜 레이더", "url": "/radar/" }
+        {
+          "label": "프로필 허브",
+          "url": "/profiles/"
+        },
+        {
+          "label": "커뮤니티 보드",
+          "url": "/community/"
+        },
+        {
+          "label": "소셜 소식",
+          "url": "/radar/"
+        }
       ],
-      "sourceChecklist": ["팀·동호회 공식 계정", "장소 운영 공지", "행사 포스터 원문 링크", "초보자 접근성"]
+      "sourceChecklist": [
+        "팀·동호회 공식 계정",
+        "장소 운영 공지",
+        "행사 포스터 원문 링크",
+        "초보자 접근성"
+      ]
     },
     {
       "id": "q-bachazouk-safety",
@@ -188,11 +300,25 @@
         "title": "Bachazouk reference"
       },
       "internalLinks": [
-        { "label": "Bachazouk 프로그램", "url": "/programs/bachazouk-safety.html" },
-        { "label": "Bachazouk 기사", "url": "/articles/bachazouk-guide.html" },
-        { "label": "센슈얼 스타일", "url": "/styles/sensual.html" }
+        {
+          "label": "Bachazouk 프로그램",
+          "url": "/programs/bachazouk-safety.html"
+        },
+        {
+          "label": "Bachazouk 기사",
+          "url": "/articles/bachazouk-guide.html"
+        },
+        {
+          "label": "센슈얼 스타일",
+          "url": "/styles/sensual.html"
+        }
       ],
-      "sourceChecklist": ["Bachazouk 공식 설명", "Brazilian Zouk 기본 용어", "안전 가이드", "음악성 예시 영상"]
+      "sourceChecklist": [
+        "Bachazouk 공식 설명",
+        "Brazilian Zouk 기본 용어",
+        "안전 가이드",
+        "음악성 예시 영상"
+      ]
     },
     {
       "id": "q-gear-shoes",
@@ -207,11 +333,25 @@
         "title": "Dance shoes buyer reference"
       },
       "internalLinks": [
-        { "label": "기어 허브", "url": "/gear/" },
-        { "label": "댄스화 기사", "url": "/articles/bachata-dance-shoes-korea.html" },
-        { "label": "중고·양도 게시판", "url": "/community/market.html" }
+        {
+          "label": "기어 허브",
+          "url": "/gear/"
+        },
+        {
+          "label": "댄스화 기사",
+          "url": "/articles/bachata-dance-shoes-korea.html"
+        },
+        {
+          "label": "중고·양도 게시판",
+          "url": "/community/market.html"
+        }
       ],
-      "sourceChecklist": ["브랜드 공식 페이지", "상품 라인업", "리뷰 영상", "한국 배송·사이즈 이슈"]
+      "sourceChecklist": [
+        "브랜드 공식 페이지",
+        "상품 라인업",
+        "리뷰 영상",
+        "한국 배송·사이즈 이슈"
+      ]
     }
   ],
   "automation": [
@@ -223,17 +363,17 @@
     {
       "label": "Social radar",
       "file": "data/social-radar.json",
-      "role": "한국팀, 행사, 브랜드, 해시태그를 추적하고 일간 브리프 후보에 연결합니다."
+      "role": "한국팀, 행사, 브랜드, 해시태그를 확인하고 일간 브리프에 연결합니다."
     },
     {
-      "label": "Scene signals",
+      "label": "Scene news",
       "file": "data/generated/scene-signals.json",
-      "role": "공개 소식과 seed 기반 후보를 매일 갱신합니다."
+      "role": "공개 소식과 편집자가 고른 출처를 매일 갱신합니다."
     },
     {
       "label": "Editorial desk",
       "file": "data/editorial-desk.json",
-      "role": "새 소식을 어떤 기사, 프로그램, 프로필, 커뮤니티 기능으로 발행할지 공개 큐로 관리합니다."
+      "role": "새 소식을 어떤 기사, 프로그램, 프로필, 커뮤니티 기능으로 공개할지 공개 목록으로 관리합니다."
     }
   ]
 }

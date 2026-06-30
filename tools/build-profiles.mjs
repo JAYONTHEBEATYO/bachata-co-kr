@@ -191,9 +191,9 @@ const renderIndex = (data) => {
         <div class="section-head">
           <div>
             <span class="eyebrow">Directory</span>
-            <h2>편집 대기열에서 프로필로 승격한 항목</h2>
+            <h2>영상과 공개 링크로 정리한 프로필</h2>
           </div>
-          <p>복제한 홍보문이 아니라, 영상·공식 링크·인스타 신호를 보존하고 한국 독자가 볼 포인트를 붙이는 방식입니다.</p>
+          <p>홍보문을 복제하지 않고 영상·공식 링크·인스타그램 계정을 확인한 뒤 한국 독자가 볼 포인트를 붙입니다.</p>
         </div>
         <div class="category-strip">
           ${data.categories.map((category) => `<a id="${escapeHtml(category.id)}" href="#${escapeHtml(category.id)}-${escapeHtml(data.profiles.find((profile) => profile.category === category.id)?.id || "")}">${escapeHtml(category.title)}</a>`).join("")}
@@ -269,7 +269,7 @@ const renderProfile = (data, profile) => {
           <section class="note-card">
             <span class="tag">Video Note</span>
             <h2>영상 임베드 기준</h2>
-            <p>공개 YouTube 링크를 oEmbed 기준으로 확인한 뒤 임베드합니다. 인스타그램 사진과 캡션은 무단 복제하지 않고 원본 링크만 보존합니다.</p>
+            <p>재생 가능한 공개 YouTube 영상만 임베드합니다. 인스타그램 사진과 캡션은 무단 복제하지 않고 원본 링크만 보존합니다.</p>
           </section>
         </article>
         <aside class="side-stack" aria-label="프로필 출처와 관련 링크">

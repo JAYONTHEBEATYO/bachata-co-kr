@@ -24,13 +24,13 @@ const monthLabel = (month) => {
 
 const statusLabels = {
   confirmed: "확정 소스",
-  watch: "관찰 중",
-  archive: "최근 아카이브"
+  watch: "추가 확인 중",
+  archive: "최근 기록"
 };
 
 const statusDescriptions = {
   confirmed: "공식 행사/티켓/디렉터리 링크가 확인된 일정입니다.",
-  watch: "인스타그램과 검색 신호가 강하지만 세부 조건을 더 확인해야 합니다.",
+  watch: "인스타그램과 검색 결과에서 보이지만 날짜·장소·가격을 더 확인해야 합니다.",
   archive: "지난 워크숍·소셜 영상 기록입니다. 예매 정보가 아니라 씬 흐름을 읽는 자료입니다."
 };
 
@@ -144,7 +144,7 @@ const styles = `    <style>
 
 const nav = `    <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="행사 레이더 이동">
+      <nav class="nav-links" aria-label="행사 일정 이동">
         <a href="/">홈</a>
         <a href="/events/">행사</a>
         <a href="/styles/">스타일</a>
@@ -186,7 +186,7 @@ const renderEventCard = (event) => {
           <div>
             <div class="tag-row">${event.tags.slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>
             <div class="link-row" style="margin-top:14px">
-              <a href="${pagePath(event)}">레이더 노트</a>
+              <a href="${pagePath(event)}">일정 상세</a>
               ${event.sourceLinks[0] ? `<a href="${escapeHtml(event.sourceLinks[0].url)}" target="_blank" rel="noreferrer">원본 확인</a>` : ""}
             </div>
           </div>
@@ -210,8 +210,8 @@ const renderIndex = (data) => {
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Event Radar</span>
-          <h1>월별 내한·페스티벌 레이더</h1>
+          <span class="eyebrow">Event Calendar</span>
+          <h1>월별 내한·페스티벌 일정</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
             ${months.map((month) => `<a href="#month-${escapeHtml(month)}">${escapeHtml(monthLabel(month))}</a>`).join("")}
@@ -228,9 +228,9 @@ const renderIndex = (data) => {
         <div class="section-head">
           <div>
             <span class="eyebrow">Korea Bachata Calendar</span>
-            <h2>확정 일정과 최근 영상 신호</h2>
+            <h2>확인된 일정과 최근 영상</h2>
           </div>
-          <p>행사 페이지, 인스타 공지, 유튜브 기록을 한 화면에서 보고 개별 레이더 노트로 들어갑니다. 날짜가 다른 소스는 그대로 표시하고 재확인 포인트를 남깁니다.</p>
+          <p>행사 페이지, 인스타 공지, 유튜브 기록을 한 화면에서 보고 개별 일정 상세로 들어갑니다. 날짜가 다른 소스는 그대로 표시하고 재확인 포인트를 남깁니다.</p>
         </div>
         <div class="month-stack">
           ${months.map((month) => `<section class="month-band" id="month-${escapeHtml(month)}">
@@ -242,7 +242,7 @@ const renderIndex = (data) => {
       <section class="section paper-cta">
         <span class="tag">Watch Sources</span>
         <h2>매일 브리프와 연결되는 행사 소스</h2>
-        <p>이 페이지는 고정 캘린더가 아니라 편집 레이더입니다. 새 행사 신호가 생기면 data/events.json에 추가하고, 공식 링크와 영상 검증을 거쳐 발행합니다.</p>
+        <p>이 페이지는 고정 캘린더가 아니라 계속 업데이트되는 일정표입니다. 새 행사 소식은 공식 링크와 영상 근거를 확인한 뒤 공개합니다.</p>
         <div class="link-row">${renderLinks(data.watchSources)}</div>
       </section>
     </main>`;
@@ -292,7 +292,7 @@ const renderEvent = (event, data) => {
           <h1>${escapeHtml(event.title)}</h1>
           <p>${escapeHtml(event.summary)}</p>
           <div class="quick-nav">
-            <a href="/events/">행사 레이더</a>
+            <a href="/events/">행사 일정</a>
             ${otherEvents.slice(0, 3).map((item) => `<a href="${pagePath(item)}">${escapeHtml(item.title)}</a>`).join("")}
           </div>
         </div>
@@ -342,7 +342,7 @@ const renderEvent = (event, data) => {
     </main>`;
 
   return layout({
-    title: `${event.title} | 바차타 행사 레이더`,
+    title: `${event.title} | 바차타 행사 일정`,
     description: event.summary,
     canonical: pageUrl(event),
     jsonLd,

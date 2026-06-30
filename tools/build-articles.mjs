@@ -144,7 +144,7 @@ const nav = `    <header class="nav">
         <a href="/">홈</a>
         <a href="/articles/">기사</a>
         <a href="/briefs/">브리프</a>
-        <a href="/#publishing-os">발행 시스템</a>
+        <a href="/#publishing-os">운영 방식</a>
       </nav>
     </header>`;
 
@@ -320,7 +320,7 @@ ${nav}
     <section class="hero">
       <span class="eyebrow">Article Library</span>
       <h1>바차타 코리아 기사 라이브러리</h1>
-      <p>일간 브리프에서 발견한 신호를 오래 남는 개별 기사로 정리합니다. Influence, Bachazouk, 글로벌 페어, 한국 씬, 댄스화와 마켓 콘텐츠가 이곳에 누적됩니다.</p>
+      <p>오늘의 브리프에서 다룬 주제를 더 자세한 기사로 정리합니다. Influence, Bachazouk, 글로벌 페어, 한국 바차타 현장, 댄스화와 마켓 이야기를 이곳에 모읍니다.</p>
     </section>
     <main>
       <div class="article-list">

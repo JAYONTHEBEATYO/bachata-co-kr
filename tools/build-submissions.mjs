@@ -166,7 +166,7 @@ const renderPage = (data) => {
             <span class="eyebrow">Submission Types</span>
             <h2>받는 제보 종류</h2>
           </div>
-          <p>정적 사이트라 로그인 게시판은 아직 없지만, 운영자가 바로 검수할 수 있도록 카테고리별 필수 항목을 먼저 표준화했습니다.</p>
+          <p>정적 사이트라 로그인 게시판은 아직 없지만, 운영자가 바로 확인할 수 있도록 카테고리별 필수 항목을 먼저 표준화했습니다.</p>
         </div>
         <div class="template-grid">
           ${data.templates.map(renderTemplateCard).join("\n")}
@@ -221,13 +221,13 @@ const renderPage = (data) => {
         <div class="rule-grid">
           <article class="rule-card">
             <span class="tag">Review Rules</span>
-            <h2>검수 기준</h2>
+            <h2>확인 기준</h2>
             <ul>${data.rules.map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}</ul>
           </article>
           <article class="paper-cta">
             <span class="tag">Where It Goes</span>
             <h2>제보는 보드와 편집 데스크로 이동합니다</h2>
-            <p>행사와 양도는 커뮤니티 보드에, 검증된 팀·장소·댄서 정보는 프로필과 기사로, 반복되는 주제는 편집 데스크의 발행 큐로 승격합니다.</p>
+            <p>행사와 양도는 커뮤니티 보드에, 확인된 팀·장소·댄서 정보는 프로필과 기사로, 반복되는 주제는 편집 데스크의 준비 중인 글로 이어집니다.</p>
             <div class="link-row">
               <a href="/community/">커뮤니티 보드</a>
               <a href="/briefs/">일간 브리프</a>

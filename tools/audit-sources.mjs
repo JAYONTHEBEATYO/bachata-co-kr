@@ -151,10 +151,10 @@ const validateYoutube = async (item) => {
   try {
     const response = await fetch(oembedUrl, { signal: AbortSignal.timeout(8000) });
     if (!response.ok) {
-      return { ...item, status: "broken", httpStatus: response.status, note: "YouTube oEmbed rejected this video" };
+      return { ...item, status: "broken", httpStatus: response.status, note: "YouTube 영상 재생 확인 실패" };
     }
     const data = await response.json();
-    return { ...item, status: "ok", httpStatus: response.status, title: data.title || item.label, note: "YouTube oEmbed ok" };
+    return { ...item, status: "ok", httpStatus: response.status, title: data.title || item.label, note: "YouTube 영상 확인 완료" };
   } catch (error) {
     return { ...item, status: "warn", httpStatus: null, note: `YouTube check timed out or failed: ${error.message}` };
   }
@@ -163,7 +163,7 @@ const validateYoutube = async (item) => {
 const validateExternal = async (item) => {
   const host = new URL(item.url).hostname;
   if (host.includes("instagram.com")) {
-    return { ...item, status: "watch", httpStatus: null, note: "Instagram public pages can be access-limited; verify through Graph API or manual review" };
+    return { ...item, status: "watch", httpStatus: null, note: "Instagram 공개 페이지는 접근 제한이 있을 수 있어 원문을 직접 확인해야 합니다." };
   }
 
   try {
@@ -176,7 +176,7 @@ const validateExternal = async (item) => {
       : response.status === 401 || response.status === 403
         ? "watch"
         : "broken";
-    return { ...item, status, httpStatus: response.status, note: status === "ok" ? "external URL reachable" : "external URL needs manual review" };
+    return { ...item, status, httpStatus: response.status, note: status === "ok" ? "외부 링크 확인 완료" : "외부 링크 추가 확인 필요" };
   } catch (error) {
     return { ...item, status: "warn", httpStatus: null, note: `external check timed out or failed: ${error.message}` };
   }

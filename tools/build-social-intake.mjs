@@ -91,14 +91,14 @@ const classifyStage = (item) => {
     return {
       id: "blocked",
       label: "보류",
-      nextStep: "링크나 영상이 복구되기 전까지 공개 발행에서 제외합니다."
+      nextStep: "링크나 영상이 복구되기 전까지 공개하지 않습니다."
     };
   }
 
   if (item.relatedUrl && (item.videoId || item.type === "editorial-queue" || item.type === "youtube")) {
     return {
       id: "ready",
-      label: "오늘 발행",
+      label: "오늘 소개",
       nextStep: "영상과 내부 연결이 있으므로 브리프나 관련 허브에 바로 올릴 수 있습니다."
     };
   }
@@ -106,7 +106,7 @@ const classifyStage = (item) => {
   if (item.relatedUrl) {
     return {
       id: "review",
-      label: "원문 검수",
+      label: "원문 확인",
       nextStep: "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다."
     };
   }
@@ -114,15 +114,15 @@ const classifyStage = (item) => {
   if (item.videoId) {
     return {
       id: "review",
-      label: "영상 검수",
+      label: "영상 확인",
       nextStep: "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다."
     };
   }
 
   return {
     id: "watch",
-    label: "관찰",
-    nextStep: "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다."
+    label: "지켜볼 소식",
+    nextStep: "반복해서 확인되는 소식은 브리프에 올리고, 단발성 소식은 확인 목록에 남깁니다."
   };
 };
 
@@ -259,7 +259,7 @@ const renderFormat = (format, counts) => `<article class="format-card">
           <p>${escapeHtml(format.nextAction)}</p>
           <div class="pill-row">
             <span>${escapeHtml(format.target)}</span>
-            <span>${counts[format.id] || 0} signals</span>
+          <span>${counts[format.id] || 0}개 소식</span>
           </div>
         </article>`;
 
@@ -284,16 +284,16 @@ const renderQueueItem = (item, formats) => {
   const links = [
     item.sourceUrl ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">원본 보기</a>` : "",
     item.relatedUrl ? `<a href="${escapeHtml(item.relatedUrl)}">관련 페이지</a>` : "",
-    item.targetUrl ? `<a href="${escapeHtml(item.targetUrl)}">발행 위치</a>` : "",
+    item.targetUrl ? `<a href="${escapeHtml(item.targetUrl)}">관련 페이지</a>` : "",
     format?.target ? `<a href="${escapeHtml(format.target)}">${escapeHtml(format.label)}</a>` : ""
   ].filter(Boolean).join("");
   const metaBadges = [
-    `<span>${escapeHtml(item.type)}</span>`,
+    `<span>${escapeHtml(publicSourceLabel(item.type))}</span>`,
     `<span>${escapeHtml(format?.label || item.formatId)}</span>`,
     `<span>${escapeHtml(item.stageLabel)}</span>`,
     item.novelty ? `<span>${escapeHtml(publicNoveltyLabel(item.novelty, item.seenCount))}</span>` : "",
     item.evidenceLevel ? `<span>${escapeHtml(publicEvidenceLabel(item.evidenceLevel))}</span>` : "",
-    `<span class="health-${escapeHtml(item.healthStatus)}">${escapeHtml(item.healthStatus)}</span>`
+    `<span class="health-${escapeHtml(item.healthStatus)}">${escapeHtml(publicHealthLabel(item.healthStatus))}</span>`
   ].filter(Boolean).join("\n              ");
 
   return `<article class="queue-card">
@@ -303,7 +303,7 @@ const renderQueueItem = (item, formats) => {
               ${metaBadges}
             </div>
             <h3>${escapeHtml(item.title)}</h3>
-            <p>${escapeHtml(item.beat || item.searchIntent || item.healthNote || "편집자가 원본과 관련 페이지를 확인해 발행 포맷을 결정합니다.")}</p>
+            <p>${escapeHtml(item.beat || item.searchIntent || item.healthNote || "편집자가 원본과 관련 페이지를 확인해 어떤 형식으로 소개할지 정합니다.")}</p>
             <p class="next-step">${escapeHtml(item.nextStep)}</p>
             <div class="link-row">${links}</div>
           </div>
@@ -311,7 +311,7 @@ const renderQueueItem = (item, formats) => {
 };
 
 const publicNoveltyLabel = (novelty = "", seenCount = 0) => {
-  if (novelty === "new") return "새 신호";
+  if (novelty === "new") return "새 소식";
   if (novelty === "recurring") return `반복 ${seenCount}회`;
   if (novelty === "returning") return "재등장";
   return novelty;
@@ -320,8 +320,27 @@ const publicNoveltyLabel = (novelty = "", seenCount = 0) => {
 const publicEvidenceLabel = (level = "") => {
   if (level === "strong") return "근거 충분";
   if (level === "medium") return "근거 보통";
-  if (level === "watch") return "관찰";
+  if (level === "watch") return "지켜볼 소식";
   return level;
+};
+
+const publicSourceLabel = (type = "") => {
+  const normalized = String(type).toLowerCase();
+  if (normalized.includes("instagram")) return "인스타그램";
+  if (normalized.includes("youtube")) return "YouTube";
+  if (normalized.includes("naver")) return "네이버 검색";
+  if (normalized.includes("editorial")) return "편집 노트";
+  if (normalized.includes("manual")) return "직접 확인";
+  return type || "소식";
+};
+
+const publicHealthLabel = (status = "") => {
+  if (status === "ok") return "링크 확인";
+  if (status === "warn") return "추가 확인";
+  if (status === "watch") return "원문 확인";
+  if (status === "broken") return "제외";
+  if (status === "untracked") return "수동 확인";
+  return status || "확인";
 };
 
 const renderPolicy = (policy) => `<article class="policy-card">
@@ -329,7 +348,7 @@ const renderPolicy = (policy) => `<article class="policy-card">
           <h3>${escapeHtml(policy.use)}</h3>
           <p>${escapeHtml(policy.limit)}</p>
           <p>${escapeHtml(policy.publishRule)}</p>
-          <a href="${escapeHtml(policy.sourceUrl)}" target="_blank" rel="noreferrer">공식/참고 문서</a>
+          <a href="${escapeHtml(policy.sourceUrl)}" target="_blank" rel="noreferrer">출처 문서</a>
         </article>`;
 
 const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
@@ -343,7 +362,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://bachata.co.kr/intake/",
-    "name": "바차타 소셜 큐",
+    "name": "바차타 새 소식 모음",
     "description": config.dek,
     "inLanguage": "ko-KR",
     "dateModified": generatedAt,
@@ -357,8 +376,8 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
-    <title>바차타 소셜 큐 | Bachata Korea</title>
-    <meta name="description" content="Instagram, YouTube, Naver, 커뮤니티 신호를 한국 바차타 웹매거진의 기사, 행사, 프로필, 프로그램 발행 후보로 정리하는 공개 큐.">
+    <title>바차타 새 소식 모음 | Bachata Korea</title>
+    <meta name="description" content="Instagram, YouTube, Naver, 커뮤니티 제보로 들어온 바차타 소식을 기사, 행사, 프로필, 프로그램으로 연결하는 페이지.">
     <meta name="robots" content="noindex,nofollow">
     <link rel="canonical" href="https://bachata.co.kr/intake/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -445,9 +464,9 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
   <body>
     <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="소셜 큐 이동">
-        <a href="/radar/">Radar</a>
-        <a href="/briefs/">Reports</a>
+      <nav class="nav-links" aria-label="소셜 소식 이동">
+        <a href="/radar/">소식판</a>
+        <a href="/briefs/">리포트</a>
         <a href="/styles/">Styles</a>
         <a href="/korea-scene/">Korea</a>
       </nav>
@@ -455,9 +474,9 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
     <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">Signal Queue</span>
-          <h1>소셜 신호를 바로 발행 후보로 바꾸는 큐</h1>
-          <p>${escapeHtml(config.dek)} 센슈얼, 도미니칸, Bachata Influence, 한국 소셜, 기어, 행사 신호를 각각 맞는 콘텐츠 포맷으로 보냅니다.</p>
+          <span class="eyebrow">News Desk</span>
+          <h1>새로운 바차타 소식을 모아봅니다</h1>
+          <p>${escapeHtml(config.dek)} 센슈얼, 도미니칸, Bachata Influence, 한국 소셜, 기어, 행사 소식을 각각 알맞은 글과 가이드로 연결합니다.</p>
         </div>
         <aside class="hero-note">
           <strong>편집 원칙</strong>
@@ -467,22 +486,22 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
       </div>
     </section>
     <main>
-      <section class="summary-grid" aria-label="소셜 큐 요약">
-        <article class="summary-card"><span class="tag">Queue</span><strong>${escapeHtml(summary.totalQueue)}</strong></article>
-        <article class="summary-card"><span class="tag">Today</span><strong>${escapeHtml(summary.readyNow)}</strong></article>
-        <article class="summary-card"><span class="tag">Review</span><strong>${escapeHtml(summary.needsReview)}</strong></article>
-        <article class="summary-card"><span class="tag">Watch</span><strong>${escapeHtml(summary.watchOnly)}</strong></article>
-        <article class="summary-card"><span class="tag">Videos</span><strong>${escapeHtml(summary.videos)}</strong></article>
-        <article class="summary-card"><span class="tag">Broken</span><strong>${escapeHtml(summary.brokenLinks)}</strong></article>
+      <section class="summary-grid" aria-label="소식 요약">
+        <article class="summary-card"><span class="tag">전체</span><strong>${escapeHtml(summary.totalQueue)}</strong></article>
+        <article class="summary-card"><span class="tag">오늘 소개</span><strong>${escapeHtml(summary.readyNow)}</strong></article>
+        <article class="summary-card"><span class="tag">원문 확인</span><strong>${escapeHtml(summary.needsReview)}</strong></article>
+        <article class="summary-card"><span class="tag">지켜볼 소식</span><strong>${escapeHtml(summary.watchOnly)}</strong></article>
+        <article class="summary-card"><span class="tag">영상</span><strong>${escapeHtml(summary.videos)}</strong></article>
+        <article class="summary-card"><span class="tag">제외</span><strong>${escapeHtml(summary.brokenLinks)}</strong></article>
       </section>
 
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Collection Stack</span>
-            <h2>인스타에서 시작해 사이트 발행까지</h2>
+            <span class="eyebrow">Source Flow</span>
+            <h2>인스타그램에서 시작한 소식을 사이트 글로 정리하기까지</h2>
           </div>
-          <p>Graph API, hashtag watch, oEmbed, YouTube, Naver, 편집 watchlist를 역할별로 나눠 씁니다. 자동화는 후보를 만들고, 사이트에는 출처 확인이 끝난 맥락만 발행합니다.</p>
+          <p>공개 링크, 해시태그, YouTube, Naver, 제보를 역할별로 나눠 확인합니다. 사이트에는 출처가 확인된 내용만 한국어 문장으로 다시 정리합니다.</p>
         </div>
         <div class="automation-grid">
           ${Object.entries(automation || {}).map(renderAutomationCard).join("\n          ")}
@@ -493,16 +512,16 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
         <div class="section-head">
           <div>
             <span class="eyebrow">Publishing Stages</span>
-            <h2>큐를 그냥 쌓지 않고 발행 단계로 나눕니다</h2>
+            <h2>소식을 쌓아두지 않고 확인 단계로 나눕니다</h2>
           </div>
-          <p>유튜브가 살아 있고 내부 페이지와 연결된 후보는 바로 브리프에 올립니다. 인스타 기반 신호는 계정, 일정, 장소, 공지 원문을 확인한 뒤 기사나 프로필로 넘깁니다.</p>
+          <p>유튜브가 살아 있고 관련 페이지가 있는 소식은 바로 브리프에 올립니다. 인스타그램 기반 소식은 계정, 일정, 장소, 공지 원문을 확인한 뒤 기사나 프로필로 넘깁니다.</p>
         </div>
         <div class="stage-grid">
           ${[
-            { label: "오늘 발행", count: summary.readyNow, body: "영상과 내부 연결이 있어 바로 브리프나 허브에 넣을 수 있는 후보입니다." },
-            { label: "원문 검수", count: summary.needsReview, body: "인스타 공지, 계정명, 일정, 장소를 편집자가 확인해야 하는 후보입니다." },
-            { label: "관찰", count: summary.watchOnly, body: "반복 신호가 쌓이는지 더 보며 주간 브리프로 넘길 후보입니다." },
-            { label: "보류", count: summary.blocked, body: "링크 상태가 깨졌거나 공개 발행 근거가 부족해 제외한 후보입니다." }
+            { label: "오늘 소개", count: summary.readyNow, body: "영상과 내부 연결이 있어 바로 브리프나 허브에 넣을 수 있는 소식입니다." },
+            { label: "원문 확인", count: summary.needsReview, body: "인스타 공지, 계정명, 일정, 장소를 편집자가 확인해야 하는 소식입니다." },
+            { label: "지켜볼 소식", count: summary.watchOnly, body: "반복해서 확인되는지 더 본 뒤 주간 브리프로 넘길 소식입니다." },
+            { label: "보류", count: summary.blocked, body: "링크 상태가 깨졌거나 공개할 근거가 부족해 제외한 소식입니다." }
           ].map(renderStageCard).join("\n          ")}
         </div>
       </section>
@@ -513,7 +532,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
             <span class="eyebrow">Format Matrix</span>
             <h2>클릭 이후 보일 콘텐츠 구조</h2>
           </div>
-          <p>센슈얼은 16개 펀더멘탈과 영상 기반 학습 프로그램으로, 도미니칸은 리듬·풋워크·음악성으로, 행사와 팀 신호는 이벤트와 프로필로 이어지게 설계했습니다.</p>
+          <p>센슈얼은 16개 펀더멘탈과 영상 기반 학습 프로그램으로, 도미니칸은 리듬·풋워크·음악성으로, 행사와 팀 소식은 이벤트와 프로필로 이어지게 설계했습니다.</p>
         </div>
         <div class="format-grid">
           ${(config.publishFormats || []).map((format) => renderFormat(format, formatCounts)).join("\n          ")}
@@ -523,10 +542,10 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Priority Queue</span>
-            <h2>오늘 발행 후보</h2>
+            <span class="eyebrow">Today</span>
+            <h2>오늘 소개할 소식</h2>
           </div>
-          <p>우선순위는 기존 watchlist, 영상 여부, 관련 페이지 존재, 링크 상태를 함께 봅니다. 인스타 신호는 원문 복제가 아니라 편집자가 확인할 링크로만 둡니다.</p>
+          <p>우선순위는 원본 링크, 영상 여부, 관련 페이지 존재, 링크 상태를 함께 봅니다. 인스타그램 소식은 원문을 복제하지 않고 편집자가 확인할 링크로만 둡니다.</p>
         </div>
         <div class="queue-grid">
           ${queue.slice(0, 18).map((item) => renderQueueItem(item, formats)).join("\n          ")}
@@ -537,9 +556,9 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
         <div class="section-head">
           <div>
             <span class="eyebrow">Policy</span>
-            <h2>수집과 발행의 선</h2>
+            <h2>확인과 공개의 선</h2>
           </div>
-          <p>수집 루틴은 후보를 만드는 데까지만 씁니다. 실제 글은 출처를 확인하고 한국 바차타 독자가 읽기 좋은 맥락으로 다시 작성합니다.</p>
+          <p>자동 확인은 공개 링크를 정리하는 데까지만 씁니다. 실제 글은 출처를 확인하고 한국 바차타 독자가 읽기 좋은 맥락으로 다시 작성합니다.</p>
         </div>
         <div class="policy-grid">
           ${(config.sourcePolicy || []).map(renderPolicy).join("\n          ")}

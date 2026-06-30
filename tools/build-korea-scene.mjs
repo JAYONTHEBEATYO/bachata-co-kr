@@ -120,7 +120,7 @@ const intakeToCard = (item, health) => ({
   id: item.id,
   label: item.publishFormat || "Signal",
   title: item.title,
-  description: item.beat || item.searchIntent || item.healthNote || "소셜 신호에서 들어온 발행 후보입니다.",
+  description: item.beat || item.searchIntent || item.healthNote || "소셜 소식에서 들어온 확인 대상입니다.",
   url: item.relatedUrl || item.target || "/community/",
   sourceUrl: item.sourceUrl || "",
   videoId: item.videoId || "",
@@ -334,7 +334,7 @@ const renderPage = ({ config, lenses, summary, sourceHealth }) => {
         <div>
           <span class="eyebrow">Korea Scene</span>
           <h1>${escapeHtml(config.title)}</h1>
-          <p>${escapeHtml(config.dek)} 흩어진 팀·장소·동호회·페스티벌 신호를 한 화면에 모아 한국 바차타 입문자가 바로 길을 찾게 합니다.</p>
+          <p>${escapeHtml(config.dek)} 흩어진 팀·장소·동호회·페스티벌 정보를 한 화면에 모아 한국 바차타 입문자가 바로 길을 찾게 합니다.</p>
           <div class="quick-nav">
             ${lenses.map((lens) => `<a href="#${escapeHtml(lens.id)}">${escapeHtml(lens.label)}</a>`).join("")}
             <a href="/submit/">제보하기</a>
@@ -348,7 +348,7 @@ const renderPage = ({ config, lenses, summary, sourceHealth }) => {
         <article class="summary-card"><span class="tag">Profiles</span><strong>${escapeHtml(summary.profiles)}</strong></article>
         <article class="summary-card"><span class="tag">Events</span><strong>${escapeHtml(summary.events)}</strong></article>
         <article class="summary-card"><span class="tag">Board</span><strong>${escapeHtml(summary.board)}</strong></article>
-        <article class="summary-card"><span class="tag">Signals</span><strong>${escapeHtml(summary.signals)}</strong></article>
+        <article class="summary-card"><span class="tag">소식</span><strong>${escapeHtml(summary.signals)}</strong></article>
         <article class="summary-card"><span class="tag">Broken</span><strong>${escapeHtml(summary.brokenLinks)}</strong></article>
       </section>
       ${lenses.map(renderLens).join("\n      ")}
@@ -358,7 +358,7 @@ const renderPage = ({ config, lenses, summary, sourceHealth }) => {
             <span class="eyebrow">Editorial Rules</span>
             <h2>한국 씬을 다룰 때 지키는 기준</h2>
           </div>
-          <p>홍보를 그대로 붙이는 대신 영상, 공식 링크, 인스타 신호, 제보 템플릿을 나눠 확인합니다. 출처가 불안정한 신호는 watch 상태로 두고 편집자가 검수합니다.</p>
+          <p>홍보문을 그대로 붙이지 않고 영상, 공식 링크, 인스타그램 계정, 제보 내용을 나눠 확인합니다. 출처가 불확실한 정보는 확인될 때까지 공개하지 않습니다.</p>
         </div>
         <div class="policy-grid">
           ${config.sourcePolicy.map((item) => `<article class="policy-card"><span class="tag">${escapeHtml(item.label)}</span><h3>${escapeHtml(item.label)}</h3><p>${escapeHtml(item.body)}</p></article>`).join("\n          ")}

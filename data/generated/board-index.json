@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T16:17:42.925Z",
+  "generatedAt": "2026-06-30T17:03:51.878Z",
   "updatedAt": "2026-06-30",
   "categories": [
     {
@@ -91,7 +91,7 @@
     {
       "id": "events-weekly-socials",
       "category": "events",
-      "title": "주간 서울 바차타 소셜 큐",
+      "title": "주간 서울 바차타 소셜·출빠 모음",
       "url": "/community/events.html#events-weekly-socials",
       "status": "collecting",
       "tags": [
@@ -193,7 +193,7 @@
     {
       "id": "venues-bonita-seoul",
       "category": "venues",
-      "title": "홍대 보니따 소셜 아카이브",
+      "title": "홍대 보니따 소셜 기록",
       "url": "/community/venues.html#venues-bonita-seoul",
       "status": "research-queue",
       "tags": [
@@ -213,7 +213,7 @@
     {
       "id": "venues-everlatin-club",
       "category": "venues",
-      "title": "에버라틴 동호회·클래스 노트",
+      "title": "에버라틴 동호회·강습 안내",
       "url": "/community/venues.html#venues-everlatin-club",
       "status": "research-queue",
       "tags": [
@@ -233,7 +233,7 @@
     {
       "id": "venues-latincielo",
       "category": "venues",
-      "title": "라틴씨엘로 팀·수업 소개 큐",
+      "title": "라틴씨엘로 팀·수업 소개",
       "url": "/community/venues.html#venues-latincielo",
       "status": "research-queue",
       "tags": [

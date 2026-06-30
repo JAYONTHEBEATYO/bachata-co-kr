@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-06-30T15:04:53.155Z",
+  "generatedAt": "2026-06-30T17:08:02.703Z",
   "updatedAt": "2026-06-30",
-  "title": "한국 바차타 월별 내한·행사 레이더",
+  "title": "한국 바차타 월별 행사·내한 일정",
   "url": "/events/",
   "events": [
     {
       "id": "emilian-tehina-korea-archive-2026",
-      "title": "Emilian y Tehina 한국 워크숍·데모 아카이브",
+      "title": "Emilian y Tehina 한국 워크숍·데모 기록",
       "month": "2026-06",
       "url": "/events/emilian-tehina-korea-archive-2026.html",
       "startDate": "2026-06-23",
@@ -22,7 +22,7 @@
         "Emilian y Tehina",
         "바차타 인플루언스",
         "한국 워크숍",
-        "아카이브"
+        "기록"
       ]
     },
     {

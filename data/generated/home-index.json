@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T15:40:10.907Z",
+  "generatedAt": "2026-06-30T17:08:08.816Z",
   "updatedAt": "2026-07-01",
   "latestBrief": {
     "url": "/briefs/2026-07-01.html",
@@ -18,7 +18,7 @@
     "topic": "Korea Scene",
     "sourceUrl": "https://www.youtube.com/watch?v=nrJM-arshvE",
     "videoId": "nrJM-arshvE",
-    "score": 106
+    "score": 98
   },
   "channels": [
     {
@@ -76,13 +76,13 @@
       },
       {
         "label": "Follow",
-        "title": "댄서와 팀 아카이브",
+        "title": "댄서와 팀",
         "url": "/profiles/",
         "meta": "16 profiles"
       },
       {
         "label": "Scene",
-        "title": "한국 바차타 레이더",
+        "title": "한국 바차타 소식",
         "url": "/korea-scene/",
         "meta": "Korea map"
       }

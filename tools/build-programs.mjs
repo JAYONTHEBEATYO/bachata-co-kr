@@ -163,7 +163,7 @@ const nav = `    <header class="nav">
         <a href="/programs/">프로그램</a>
         <a href="/styles/">스타일</a>
         <a href="/articles/">기사</a>
-        <a href="/radar/">소셜 레이더</a>
+        <a href="/radar/">소셜 소식</a>
         <a href="/briefs/">브리프</a>
       </nav>
     </header>`;
@@ -255,7 +255,7 @@ const renderIndex = (data) => {
             <span class="eyebrow">Learning Paths</span>
             <h2>VOD처럼 고른 뒤, 웹진처럼 깊게 읽습니다</h2>
           </div>
-          <p>구독형 강의 플랫폼은 아니지만 첫 화면은 영상 중심으로, 다음 단계는 기사·허브·프로필·레이더로 이어지게 구성했습니다.</p>
+          <p>구독형 강의 플랫폼은 아니지만 첫 화면은 영상 중심으로, 다음 단계는 기사·허브·프로필·소식로 이어지게 구성했습니다.</p>
         </div>
         <div class="program-grid">
           ${data.programs.map(renderProgramCard).join("\n")}
@@ -264,11 +264,11 @@ const renderIndex = (data) => {
       <section class="section paper-cta">
         <span class="tag">Editorial Loop</span>
         <h2>코어 콘텐츠와 매일 갱신되는 소식을 분리합니다</h2>
-        <p>센슈얼 16 펀더멘털, 도미니칸 리듬, Bachazouk 안전 기준은 오래 가는 프로그램으로 두고, 내한·소셜·상품·팀 소식은 레이더와 브리프에서 매일 갱신합니다.</p>
+        <p>센슈얼 16 펀더멘털, 도미니칸 리듬, Bachazouk 안전 기준은 오래 가는 프로그램으로 두고, 내한·소셜·상품·팀 소식은 소식과 브리프에서 매일 갱신합니다.</p>
         <div class="link-row">
-          <a href="/radar/">소셜 레이더</a>
+          <a href="/radar/">소셜 소식</a>
           <a href="/briefs/">오늘 브리프</a>
-          <a href="/events/">행사 레이더</a>
+          <a href="/events/">행사 일정</a>
         </div>
       </section>
     </main>`;
@@ -379,7 +379,7 @@ const renderProgram = (program, data) => {
               <span>${escapeHtml(program.level)}</span>
               <span>${escapeHtml(program.duration)}</span>
             </div>
-            <p>이 프로그램은 영상, 기사, 스타일 허브, 레이더를 한 경로로 묶은 편집형 학습 루틴입니다.</p>
+            <p>이 프로그램은 영상, 기사, 스타일 허브, 소식을 한 경로로 묶은 학습 루틴입니다.</p>
           </section>
           <section class="side-card">
             <span class="tag">Keywords</span>

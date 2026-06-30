@@ -1,11 +1,11 @@
 {
   "updatedAt": "2026-06-30",
   "title": "바차타 코리아 프로그램",
-  "dek": "입문자와 소셜댄서를 위해 흩어진 영상, 기사, 스타일 허브, 행사·인스타 레이더를 20분 단위 학습 경로로 묶은 바차타 프로그램 라이브러리입니다.",
+  "dek": "입문자와 소셜댄서를 위해 영상, 기사, 스타일 가이드, 행사 소식을 20분 단위 학습 경로로 정리한 바차타 프로그램 라이브러리입니다.",
   "method": [
     "첫 영상으로 움직임의 질감을 먼저 보고, 바로 아래 모듈에서 읽을거리와 체크 포인트를 따라갑니다.",
-    "각 프로그램은 evergreen 코어 콘텐츠와 매일 갱신되는 레이더를 함께 연결해 오래 가는 지식과 최신 소식을 분리합니다.",
-    "영상은 YouTube oEmbed로 확인 가능한 공개 링크만 사용하고, 인스타그램은 원문 링크와 핸들만 연결합니다."
+    "각 프로그램은 오래 볼 수 있는 코어 콘텐츠와 매일 갱신되는 소식을 함께 연결해 기본 지식과 최신 소식을 분리합니다.",
+    "영상은 YouTube 임베드 가능한 공개 링크만 사용하고, 인스타그램은 원문 링크와 핸들만 연결합니다."
   ],
   "programs": [
     {
@@ -42,7 +42,7 @@
         {
           "title": "처음 갈 소셜 고르기",
           "type": "Community",
-          "description": "장소와 팀 프로필, 행사 레이더를 보고 초보자가 갈 수 있는 소셜 신호를 찾습니다.",
+          "description": "장소와 팀 프로필, 행사 일정을 보고 초보자가 갈 수 있는 소셜을 찾습니다.",
           "url": "/community/venues.html"
         }
       ],
@@ -56,7 +56,7 @@
           "url": "/community/"
         },
         {
-          "label": "소셜 레이더",
+          "label": "소셜 소식",
           "url": "/radar/"
         }
       ],
@@ -156,7 +156,7 @@
           "url": "/styles/sensual.html"
         },
         {
-          "label": "소셜 레이더",
+          "label": "소셜 소식",
           "url": "/radar/"
         },
         {
@@ -203,15 +203,15 @@
           "url": "/styles/dominican.html"
         },
         {
-          "title": "행사에서 도미니칸 신호 찾기",
-          "type": "Radar",
-          "description": "페스티벌과 워크숍 공지를 보며 도미니칸/전통 바차타 수업 신호를 찾습니다.",
+          "title": "행사에서 도미니칸 수업 찾기",
+          "type": "소식",
+          "description": "페스티벌과 워크숍 공지를 보며 도미니칸/전통 바차타 수업을 찾습니다.",
           "url": "/events/"
         },
         {
           "title": "도미니칸 허브에서 관련 콘텐츠 이어 보기",
           "type": "Style",
-          "description": "리듬 기사, 풋워크 영상, 역사 출처, 한국 행사 신호가 한 페이지에서 이어지도록 허브를 확인합니다.",
+          "description": "리듬 기사, 풋워크 영상, 역사 출처, 한국 행사 소식가 한 페이지에서 이어지도록 허브를 확인합니다.",
           "url": "/styles/dominican.html"
         }
       ],
@@ -259,7 +259,7 @@
           "url": "/styles/dominican.html"
         },
         {
-          "label": "행사 레이더",
+          "label": "행사 일정",
           "url": "/events/"
         },
         {
@@ -290,7 +290,7 @@
         {
           "title": "메소드의 언어 보기",
           "type": "Video",
-          "description": "Influence 계열 영상에서 멈춤, 재개, 프레임의 질감을 먼저 관찰합니다.",
+          "description": "Influence 계열 영상에서 멈춤, 재개, 프레임의 질감을 먼저 봅니다.",
           "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE"
         },
         {
@@ -322,7 +322,7 @@
           "url": "/events/gangnam-latin-festival-2026.html"
         },
         {
-          "label": "소셜 레이더",
+          "label": "소셜 소식",
           "url": "/radar/"
         }
       ],
@@ -396,7 +396,7 @@
       "id": "korea-social-intelligence",
       "eyebrow": "Korea Scene",
       "title": "한국 바차타 소셜 읽기",
-      "dek": "클루니·져니, 그레이·로렌, 에버라틴, 라틴씨엘로, 보니따 같은 국내 신호를 영상과 인스타 원문으로 따라가는 프로그램입니다.",
+      "dek": "클루니·져니, 그레이·로렌, 에버라틴, 라틴씨엘로, 보니따 같은 국내 팀과 장소를 영상과 공개 계정으로 따라가는 프로그램입니다.",
       "level": "All Levels",
       "duration": "20분 x 5",
       "style": "Korea Scene",
@@ -406,15 +406,15 @@
       },
       "modules": [
         {
-          "title": "서울 바차타 페스티벌 아카이브 보기",
+          "title": "서울 바차타 페스티벌 영상 보기",
           "type": "Video",
           "description": "소셜 플로어 분위기, 촬영 밀도, 음악 흐름을 먼저 영상으로 확인합니다.",
           "url": "https://www.youtube.com/watch?v=jpCY0QqZqWE"
         },
         {
-          "title": "소셜 레이더로 오늘의 원문 확인",
-          "type": "Radar",
-          "description": "인스타 계정과 해시태그를 따라가며 공식 공지와 팀 신호를 봅니다.",
+          "title": "소셜 소식로 오늘의 원문 확인",
+          "type": "소식",
+          "description": "인스타그램 계정과 해시태그를 따라가며 공식 공지와 팀 소식을 봅니다.",
           "url": "/radar/"
         },
         {
@@ -424,19 +424,19 @@
           "url": "/profiles/"
         },
         {
-          "title": "행사 레이더와 커뮤니티 보드 연결",
+          "title": "행사 일정와 커뮤니티 보드 연결",
           "type": "Community",
-          "description": "월별 내한·행사와 커뮤니티 제보를 함께 보며 다음 취재 후보를 정합니다.",
+          "description": "월별 내한·행사와 커뮤니티 제보를 함께 보며 다음에 다룰 소식을 정합니다.",
           "url": "/events/"
         }
       ],
       "related": [
         {
-          "label": "소셜 레이더",
+          "label": "소셜 소식",
           "url": "/radar/"
         },
         {
-          "label": "행사 레이더",
+          "label": "행사 일정",
           "url": "/events/"
         },
         {

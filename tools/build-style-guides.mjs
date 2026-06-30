@@ -429,7 +429,7 @@ const renderIndex = (data) => {
       <section class="index-cta">
         <span class="tag">Editorial Loop</span>
         <h2>브리프에서 발견한 영상은 허브로 누적합니다</h2>
-        <p>매일 생성되는 브리프의 후보 영상과 출처가 검수되면 관련 스타일 허브, 개별 기사, 커뮤니티 보드로 이동합니다.</p>
+        <p>매일 생성되는 브리프에서 영상과 출처가 확인되면 관련 스타일 허브, 개별 기사, 커뮤니티 보드로 이동합니다.</p>
         <div class="link-row">
           <a href="/briefs/">오늘 브리프</a>
           <a href="/articles/">기사 라이브러리</a>
@@ -483,7 +483,7 @@ const renderGuide = (guide, allGuides) => {
             <div class="section-head">
               <div>
                 <span class="eyebrow">Published</span>
-                <h2>이 스타일로 발행된 콘텐츠</h2>
+                <h2>이 스타일로 읽을 콘텐츠</h2>
               </div>
               <p>허브에서 바로 읽을 수 있는 심화 기사와 커뮤니티/행사 페이지입니다. 새 영상이 검증되면 이 블록에 계속 붙습니다.</p>
             </div>
@@ -495,7 +495,7 @@ const renderGuide = (guide, allGuides) => {
             <div class="section-head">
               <div>
                 <span class="eyebrow">Content Graph</span>
-                <h2>이 스타일로 이어지는 발행물</h2>
+                <h2>이 스타일로 이어지는 글과 가이드</h2>
               </div>
               <p>기사, 프로그램, 프로필, 행사, 장비, 한국 바차타씬 콘텐츠를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
             </div>
@@ -548,7 +548,7 @@ const renderGuide = (guide, allGuides) => {
                 <span class="eyebrow">Watchlist</span>
                 <h2>먼저 볼 영상</h2>
               </div>
-              <p>죽은 링크를 피하려고 YouTube oEmbed 기준으로 확인 가능한 영상만 허브에 넣습니다.</p>
+              <p>죽은 링크를 피하려고 재생 가능한 공개 YouTube 영상만 허브에 넣습니다.</p>
             </div>
             <div class="watch-grid">${watchlist}</div>
           </section>

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T16:03:15.236Z",
+  "generatedAt": "2026-06-30T17:08:02.885Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -180,13 +180,6 @@
           "videoId": "9YqwDG2_MqI"
         },
         {
-          "label": "Profile",
-          "title": "라스트댄스",
-          "url": "/profiles/lastdance-people.html",
-          "score": 32,
-          "videoId": "0Yytf9NKtfQ"
-        },
-        {
           "label": "Article",
           "title": "코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것",
           "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html",
@@ -209,10 +202,17 @@
         },
         {
           "label": "Article",
-          "title": "한국 바차타 Influence 계열 장면을 어디서 볼 수 있나",
+          "title": "한국 바차타 Influence 계열은 어디서 볼 수 있을까",
           "url": "/articles/korea-bachata-influence-scene-map.html",
           "score": 24,
           "videoId": "nrJM-arshvE"
+        },
+        {
+          "label": "학습 프로그램",
+          "title": "바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304",
+          "url": "/programs/",
+          "score": 16,
+          "videoId": "gDtOwUqeWKw"
         }
       ]
     },
