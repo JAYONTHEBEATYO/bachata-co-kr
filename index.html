@@ -3,9 +3,10 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>바차타 코리아 | Bachata Korea 매거진, 소셜댄스, 클래스, 커뮤니티</title>
-    <meta name="description" content="바차타 코리아는 바차타 뜻, 유래, 음악, 도미니칸·모던·센슈얼 스타일, 센슈얼 바차타 16 펀더멘탈, 서울 바차타 소셜, 클래스, 행사, 웹진과 커뮤니티 소식을 정리하는 한국 바차타 허브입니다.">
-    <meta name="keywords" content="바차타, bachata, Bachata Influence, Bachazouk, 센슈얼 바차타, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타, 모던 바차타, 바차타 코리아, 한국 바차타, 서울 바차타, 바차타 소셜, 바차타 클래스, 바차타 강습, 바차타 음악, 바차타 입문, bachata Korea, bachata Seoul, Latin dance Korea">
+    <meta name="description" content="바차타 코리아는 바차타 뜻, 음악, 센슈얼·도미니칸·모던 스타일, Bachata Influence, Bachazouk, 글로벌 댄서, 서울 바차타 소셜, 클래스, 행사, 댄스화와 커뮤니티 소식을 정리하는 한국 바차타 웹매거진입니다.">
+    <meta name="keywords" content="바차타, bachata, Bachata Influence, Bachazouk, Melvin Gatica, Emilien Tehina, Gero Migle, Luis Andrea, Andi Silvia, 센슈얼 바차타, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타, 모던 바차타, 바차타 코리아, 한국 바차타, 서울 바차타, 홍대 보니따, 에버라틴, 그레이 로렌 바차타, 바차타 소셜, 바차타 클래스, 바차타 강습, 바차타 음악, 바차타 댄스화, bachata Korea, bachata Seoul, Latin dance Korea">
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <meta name="author" content="Bachata Korea">
     <link rel="canonical" href="https://bachata.co.kr/">
@@ -15,12 +16,12 @@
     <meta property="og:locale" content="ko_KR">
     <meta property="og:site_name" content="바차타 코리아">
     <meta property="og:title" content="바차타 코리아 | 한국 바차타씬의 웹매거진">
-    <meta property="og:description" content="바차타 입문부터 음악, 소셜, 클래스, 행사, 홍보와 구인까지. 한국 바차타씬을 한곳에 모으는 웹매거진.">
+    <meta property="og:description" content="바차타 입문부터 Bachata Influence, Bachazouk, 글로벌 댄서, 서울 소셜, 클래스, 행사, 댄스화와 커뮤니티까지. 한국 바차타씬을 한곳에 모으는 웹매거진.">
     <meta property="og:url" content="https://bachata.co.kr/">
     <meta property="og:image" content="https://bachata.co.kr/assets/bachata-seoul-hero.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="바차타 코리아 | Bachata Korea">
-    <meta name="twitter:description" content="한국 바차타씬을 위한 입문 가이드, 웹진, 소셜댄스 커뮤니티 허브.">
+    <meta name="twitter:description" content="한국 바차타씬을 위한 영상 중심 웹매거진, 입문 가이드, 트렌드 데스크, 소셜댄스 커뮤니티 허브.">
     <meta name="twitter:image" content="https://bachata.co.kr/assets/bachata-seoul-hero.png">
     <link rel="preload" href="assets/bachata-seoul-hero.png" as="image">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
@@ -881,6 +882,144 @@
         line-height: 1.55;
       }
 
+      .trend-shell {
+        display: grid;
+        gap: 14px;
+      }
+
+      .trend-lead {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: 14px;
+        align-items: stretch;
+      }
+
+      .trend-copy,
+      .trend-card,
+      .market-note,
+      .automation-note {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255, 249, 239, 0.06);
+      }
+
+      .trend-copy,
+      .trend-card,
+      .market-note,
+      .automation-note {
+        padding: clamp(20px, 3vw, 30px);
+      }
+
+      .trend-copy h3,
+      .trend-card h3,
+      .market-note h3,
+      .automation-note h3 {
+        font-size: clamp(25px, 3.4vw, 40px);
+        line-height: 1.08;
+      }
+
+      .trend-copy p,
+      .trend-card p,
+      .market-note p,
+      .automation-note p {
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      .trend-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .trend-card {
+        display: grid;
+        gap: 16px;
+        align-content: start;
+      }
+
+      .trend-card .video-frame,
+      .trend-lead .video-frame {
+        border: 1px solid rgba(255, 249, 239, 0.12);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #050505;
+      }
+
+      .trend-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 16px;
+      }
+
+      .trend-tags span {
+        display: inline-flex;
+        align-items: center;
+        min-height: 30px;
+        padding: 0 10px;
+        border: 1px solid rgba(255, 249, 239, 0.12);
+        border-radius: 999px;
+        color: rgba(255, 249, 239, 0.7);
+        font-size: 12px;
+        font-weight: 900;
+      }
+
+      .market-grid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .market-note {
+        min-height: 220px;
+      }
+
+      .market-note strong {
+        display: block;
+        color: var(--amber);
+        font-size: 22px;
+      }
+
+      .market-note ul {
+        display: grid;
+        gap: 9px;
+        margin: 16px 0 0;
+        padding: 0;
+        list-style: none;
+        color: rgba(255, 249, 239, 0.72);
+        line-height: 1.55;
+      }
+
+      .automation-board {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        gap: 14px;
+        margin-top: 14px;
+      }
+
+      .signal-list {
+        display: grid;
+        gap: 10px;
+        margin: 18px 0 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .signal-list li {
+        display: grid;
+        grid-template-columns: 108px 1fr;
+        gap: 12px;
+        padding: 12px 0;
+        border-top: 1px solid rgba(255, 249, 239, 0.1);
+        color: rgba(255, 249, 239, 0.74);
+        line-height: 1.58;
+      }
+
+      .signal-list strong {
+        color: var(--amber);
+      }
+
       .notice {
         padding: 22px;
         border-radius: 8px;
@@ -1082,6 +1221,10 @@
         .magazine,
         .board,
         .ops-grid,
+        .trend-lead,
+        .trend-grid,
+        .market-grid,
+        .automation-board,
         .submit,
         .section-head {
           grid-template-columns: 1fr;
@@ -1160,6 +1303,7 @@
         .hero-meta,
         .fundamentals,
         .topic-wall,
+        .signal-list li,
         .search-map {
           grid-template-columns: 1fr;
         }
@@ -1214,7 +1358,11 @@
               {"@type":"ListItem","position":6,"name":"도미니칸 바차타 리듬 읽기"},
               {"@type":"ListItem","position":7,"name":"모던 바차타와 퓨전의 문법"},
               {"@type":"ListItem","position":8,"name":"Bachata Influence 영상 큐레이션"},
-              {"@type":"ListItem","position":9,"name":"라틴댄스 소식 자동 수집 발행 시스템"}
+              {"@type":"ListItem","position":9,"name":"라틴댄스 소식 자동 수집 발행 시스템"},
+              {"@type":"ListItem","position":10,"name":"Bachazouk와 Brazilian Zouk 융합 흐름"},
+              {"@type":"ListItem","position":11,"name":"Gero & Migle, Luis & Andrea, Andi & Silvia 글로벌 댄서 노트"},
+              {"@type":"ListItem","position":12,"name":"홍대 보니따, 에버라틴, 그레이 로렌 한국 바차타 씬"},
+              {"@type":"ListItem","position":13,"name":"바차타 댄스화와 라틴댄스 상품 비교"}
             ]
           },
           {
@@ -1254,6 +1402,30 @@
             "video": {"@id": "https://bachata.co.kr/#video-modern-basic"}
           },
           {
+            "@type": "Article",
+            "@id": "https://bachata.co.kr/#trend-desk",
+            "headline": "요즘 바차타씬을 움직이는 이름들",
+            "inLanguage": "ko-KR",
+            "about": ["Bachata Influence", "Bachazouk", "Gero & Migle", "Luis & Andrea", "Andi & Silvia", "한국 바차타"],
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "video": [
+              {"@id": "https://bachata.co.kr/#video-emilien-tehina"},
+              {"@id": "https://bachata.co.kr/#video-bachazouk"},
+              {"@id": "https://bachata.co.kr/#video-gero-migle"},
+              {"@id": "https://bachata.co.kr/#video-luis-andrea"},
+              {"@id": "https://bachata.co.kr/#video-korea-gray-loren"}
+            ]
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://bachata.co.kr/data/generated/scene-signals.json",
+            "name": "Bachata Korea Scene Discovery Signals",
+            "description": "바차타 코리아가 매일 수집·검수할 라틴댄스 소식 후보 데이터.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/data/generated/scene-signals.json"
+          },
+          {
             "@type": "VideoObject",
             "@id": "https://bachata.co.kr/#video-sensual-16",
             "name": "16 Bachata Sensual Fundamental Techniques by Korke y Judith",
@@ -1279,6 +1451,51 @@
             "embedUrl": "https://www.youtube-nocookie.com/embed/xhrdh-uFkog",
             "url": "https://www.youtube.com/watch?v=xhrdh-uFkog",
             "inLanguage": "en"
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://bachata.co.kr/#video-emilien-tehina",
+            "name": "Emilien and Tehina Bachata Influence",
+            "description": "Bachata Influence 계열을 관찰하기 위한 Emilien & Tehina 공개 영상.",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/FNv7eOMg-_k",
+            "url": "https://www.youtube.com/watch?v=FNv7eOMg-_k",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://bachata.co.kr/#video-bachazouk",
+            "name": "BachaZouk Tutorial by Azael and Marta",
+            "description": "Bachazouk와 bachata-zouk 융합 흐름을 설명하는 공개 영상.",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE",
+            "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://bachata.co.kr/#video-gero-migle",
+            "name": "Gero and Migle Bachata",
+            "description": "Gero & Migle의 소셜 친화적 bachata 스타일을 보여주는 공개 영상.",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/j4CmXKDCMzI",
+            "url": "https://www.youtube.com/watch?v=j4CmXKDCMzI",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://bachata.co.kr/#video-luis-andrea",
+            "name": "Luis y Andrea Bachata Inspire",
+            "description": "Luis & Andrea의 Bachata Inspire 계열 공개 영상.",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/L1vzrcpeBuw",
+            "url": "https://www.youtube.com/watch?v=L1vzrcpeBuw",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://bachata.co.kr/#video-korea-gray-loren",
+            "name": "Gray and Loren Bachata Social in Korea",
+            "description": "한국 바차타 소셜 씬을 보여주는 그레이 & 로렌 공개 영상.",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/nrJM-arshvE",
+            "url": "https://www.youtube.com/watch?v=nrJM-arshvE",
+            "inLanguage": "ko-KR"
           },
           {
             "@type": "FAQPage",
@@ -1316,6 +1533,7 @@
         <div class="nav-links" aria-label="섹션 이동">
           <a href="#intro">바차타란</a>
           <a href="#styles">스타일</a>
+          <a href="#trend-desk">트렌드</a>
           <a href="#magazine">웹진</a>
           <a href="#scene">소셜</a>
           <a href="#community">커뮤니티</a>
@@ -1656,6 +1874,173 @@
         </div>
       </section>
 
+      <section id="trend-desk" class="section alt">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Trend Desk</p>
+              <h2>요즘 바차타씬을 움직이는 이름들</h2>
+            </div>
+            <p>센슈얼의 코어는 오래 가는 라이브러리로 두고, 새 흐름은 영상과 출처를 붙여 계속 갱신합니다. 아래 큐는 Bachata Influence, Bachazouk, 글로벌 페어, 한국 소셜 영상, 댄스화 시장을 한 번에 보는 편집판입니다.</p>
+          </div>
+
+          <div class="trend-shell">
+            <div class="trend-lead">
+              <article class="trend-copy">
+                <span class="tag">Bachata Influence</span>
+                <h3>Melvin & Gatica 이후의 감정선</h3>
+                <p>Bachata Influence는 “기술이 많은 센슈얼”보다 음악 안에서 감정선과 대비를 어떻게 세우는지에 가까운 흐름으로 읽힙니다. Melvin & Gatica, Emilien & Tehina 같은 팀은 바디무브를 크게 보이게 만드는 것보다 프레임, 숨, 시선, 멈춤을 통해 소셜에서도 재현 가능한 질감을 만듭니다.</p>
+                <p>2026 Influence Academy 자료는 Melvin & Gatica와 Pro Team이 테크닉, 메소드, 뮤지컬리티, 파트너워크, 바디무브먼트, 티칭 도구까지 묶어 다루는 형식으로 공지되어 있습니다. 한국에서는 그레이·로렌 등 인플루언스 계열 수업과 소셜 영상이 검색 신호로 잡히기 시작해 별도 시리즈로 추적할 가치가 큽니다.</p>
+                <div class="trend-tags">
+                  <span>Melvin & Gatica</span>
+                  <span>Emilien & Tehina</span>
+                  <span>Influence Academy</span>
+                  <span>한국 인플루언스 클래스</span>
+                </div>
+                <div class="source-links">
+                  <a href="https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" target="_blank" rel="noreferrer">Academy Source</a>
+                  <a href="https://bygatica.com/" target="_blank" rel="noreferrer">byGatica</a>
+                  <a href="https://www.instagram.com/melvin_gatica_bachata/" target="_blank" rel="noreferrer">Melvin & Gatica Instagram</a>
+                </div>
+              </article>
+
+              <article class="trend-card">
+                <div class="video-frame">
+                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FNv7eOMg-_k" title="Emilien and Tehina Bachata Influence at Prague Bachata Dominant Congress 2025" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <span class="tag">Influence Video</span>
+                <h3>Emilien & Tehina로 보는 Influence 계열</h3>
+                <p>Melvin & Gatica의 흐름을 배운 팀들이 어떻게 음악의 긴장과 해소를 만드는지 보기 좋은 공개 영상입니다. 국내 기사로 확장할 때는 “따라 할 동작”보다 어떤 구간에서 호흡과 정지가 생기는지를 분석합니다.</p>
+              </article>
+            </div>
+
+            <div class="trend-grid" aria-label="글로벌 바차타 트렌드 큐">
+              <article class="trend-card">
+                <div class="video-frame">
+                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE" title="BachaZouk Tutorial by Azael and Marta at Bachata Geneva Festival" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <span class="tag">Bachazouk</span>
+                <h3>바차주크는 유행어가 아니라 별도 문법으로 봐야 합니다</h3>
+                <p>BachaZouk 공식 설명은 Dominican Bachata와 Brazilian Zouk를 존중하면서 연결하는 커뮤니티와 교육 프레임을 강조합니다. 그래서 기사에서는 “센슈얼에 주크 동작을 섞었다”가 아니라 축, 헤드무브 안전, 속도 조절, 음악 선택을 분리해서 씁니다.</p>
+                <div class="source-links">
+                  <a href="https://www.bachazouk.com/" target="_blank" rel="noreferrer">BachaZouk</a>
+                  <a href="https://www.bachazouk.com/posts/what-is-bachazouk" target="_blank" rel="noreferrer">What is BachaZouk</a>
+                </div>
+              </article>
+
+              <article class="trend-card">
+                <div class="video-frame">
+                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/j4CmXKDCMzI" title="Gero and Migle Bachata Para Besarte" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <span class="tag">Global Pair</span>
+                <h3>Gero & Migle: 소셜 친화적인 시그니처 흐름</h3>
+                <p>Gero & Migle 계열 영상은 짧은 컴비네이션 안에서 선명한 입구와 출구를 보여주기 좋아 한국어 패턴 해설 콘텐츠로 확장하기 좋습니다. 초보자에게는 “멋진 동작”보다 리더가 어디서 길을 열고 팔로워가 어디서 선택권을 갖는지 읽히게 해야 합니다.</p>
+                <div class="source-links">
+                  <a href="https://www.geroymigle.com/" target="_blank" rel="noreferrer">Gero & Migle</a>
+                  <a href="https://www.youtube.com/watch?v=j4CmXKDCMzI" target="_blank" rel="noreferrer">Video Source</a>
+                </div>
+              </article>
+
+              <article class="trend-card">
+                <div class="video-frame">
+                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/L1vzrcpeBuw" title="Luis y Andrea Bachata Inspire KHE Manny Rod X DJ Tronky" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <span class="tag">Bachata Inspire</span>
+                <h3>Luis & Andrea: 에너지와 무대성을 소셜 언어로 번역하기</h3>
+                <p>Luis & Andrea는 국제 페스티벌과 워크숍 맥락에서 자주 언급되는 센슈얼 페어입니다. 국내 콘텐츠에서는 고난도 쇼케이스를 그대로 소비하기보다, 입문자가 배울 수 있는 타이밍, 방향 전환, 표정의 과잉과 절제를 구분해 설명합니다.</p>
+                <div class="source-links">
+                  <a href="https://www.youtube.com/@LuisyAndreaOfficial" target="_blank" rel="noreferrer">LuisyAndrea Official</a>
+                  <a href="https://www.goandance.com/en/artist/1560/luis-andrea" target="_blank" rel="noreferrer">go&dance Profile</a>
+                </div>
+              </article>
+
+              <article class="trend-card">
+                <div class="video-frame">
+                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FzOWJRxp9r0" title="Andi and Silvia Bachata Just As I Am Australia 2026" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <span class="tag">Global Pair</span>
+                <h3>Andi & Silvia: 최신 영상으로 추적하는 공연형 센슈얼</h3>
+                <p>Andi & Silvia 영상은 무대형 라인과 소셜형 연결 사이의 간극을 설명하기 좋습니다. 월별 큐레이션에서는 최신 영상, 페스티벌 지역, 음악, 반복되는 시그니처를 데이터로 모아 인물 노트로 만듭니다.</p>
+                <div class="source-links">
+                  <a href="https://www.youtube.com/@andiysilviabs" target="_blank" rel="noreferrer">YouTube Channel</a>
+                  <a href="https://www.instagram.com/andiysilviabs/" target="_blank" rel="noreferrer">Instagram</a>
+                </div>
+              </article>
+
+              <article class="trend-card">
+                <div class="video-frame">
+                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/nrJM-arshvE" title="Gray and Loren Bachata Social in Korea" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <span class="tag">Korea Scene</span>
+                <h3>그레이 & 로렌: 한국 인플루언스 흐름의 관찰 지점</h3>
+                <p>국내 검색 결과에서 그레이·로렌 관련 인플루언스 클래스와 소셜 영상이 반복적으로 잡힙니다. 공개 영상이 쌓이면 수업 홍보를 넘어 한국형 해석, 소셜 적용성, 잭앤질/페스티벌 흐름으로 연결할 수 있습니다.</p>
+                <div class="source-links">
+                  <a href="https://www.youtube.com/watch?v=nrJM-arshvE" target="_blank" rel="noreferrer">Video Source</a>
+                  <a href="https://www.instagram.com/lauren_bachatista/reels/" target="_blank" rel="noreferrer">Lauren Signals</a>
+                </div>
+              </article>
+
+              <article class="trend-card">
+                <div class="video-frame">
+                  <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/gDtOwUqeWKw" title="Bachata Social Dance at Bonita in Seoul Korea 20240304" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <span class="tag">Venue Watch</span>
+                <h3>홍대 보니따와 서울 소셜 아카이브</h3>
+                <p>보니따처럼 영상이 자주 남는 장소는 초보자가 분위기를 미리 보는 데 좋습니다. 장소 소개는 주소와 운영 정보만 적는 것보다 음악 비율, 초보 친화도, 영상 촬영 분위기, 요일별 성격을 같이 정리해야 검색 가치가 생깁니다.</p>
+                <div class="source-links">
+                  <a href="https://www.instagram.com/jessica_latinclub_bonita/" target="_blank" rel="noreferrer">Bonita Seoul</a>
+                  <a href="https://pf.kakao.com/_RIMtM" target="_blank" rel="noreferrer">Kakao Channel</a>
+                </div>
+              </article>
+            </div>
+
+            <div class="market-grid" aria-label="바차타 댄스화 시장 노트">
+              <article class="market-note">
+                <strong>Fuego</strong>
+                <ul>
+                  <li>FlowTec outsole, 피벗 포인트, 거리/스튜디오 겸용 이미지를 전면에 둔 브랜드.</li>
+                  <li>한국어 콘텐츠는 “왜 많이 보이는가”와 “무릎·바닥·회전감”을 분리해 봐야 합니다.</li>
+                </ul>
+                <div class="source-links">
+                  <a href="https://fuegodance.com/collections/bachata" target="_blank" rel="noreferrer">Fuego Bachata</a>
+                  <a href="https://www.youtube.com/watch?v=FtcPRwVIdNk" target="_blank" rel="noreferrer">Review Video</a>
+                </div>
+              </article>
+              <article class="market-note">
+                <strong>Pana Mio</strong>
+                <ul>
+                  <li>검색 신호상 Pana Mio는 스니커형 댄스화 추천 목록과 인스타 홍보에서 자주 등장합니다.</li>
+                  <li>가죽, 경량감, 피벗 포인트 같은 소재·기능 정보를 검증해 비교표로 확장합니다.</li>
+                </ul>
+                <div class="source-links">
+                  <a href="https://www.instagram.com/panamiodance/" target="_blank" rel="noreferrer">Pana Mio Instagram</a>
+                </div>
+              </article>
+              <article class="market-note">
+                <strong>On1 Shoes</strong>
+                <ul>
+                  <li>인스타와 페스티벌 스폰서 노출이 강한 브랜드군입니다.</li>
+                  <li>한국 소비자에게는 배송, 사이즈, 반품, 실제 바닥별 회전감을 따로 확인해야 합니다.</li>
+                </ul>
+                <div class="source-links">
+                  <a href="https://www.instagram.com/on1danceshoes/" target="_blank" rel="noreferrer">On1 Instagram</a>
+                </div>
+              </article>
+              <article class="market-note">
+                <strong>Pulse</strong>
+                <ul>
+                  <li>공식 사이트는 spin zones, 15mm heel-to-toe taper, microfiber build를 강조합니다.</li>
+                  <li>리뷰성 콘텐츠에서는 공식 장점과 커뮤니티 피드백을 분리해 장단점으로 정리합니다.</li>
+                </ul>
+                <div class="source-links">
+                  <a href="https://www.pulsedanceshoes.com/" target="_blank" rel="noreferrer">Pulse Official</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="learn" class="section">
         <div class="wrap">
           <div class="section-head">
@@ -1873,6 +2258,29 @@
                 <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noreferrer">YouTube Data API</a>
                 <a href="https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" target="_blank" rel="noreferrer">Influence Academy 2026</a>
                 <a href="https://bygatica.com/" target="_blank" rel="noreferrer">byGatica</a>
+              </div>
+            </article>
+          </div>
+
+          <div class="automation-board" aria-label="자동 발행 구현 메모">
+            <article class="automation-note">
+              <span class="tag">Now Wired</span>
+              <h3>매일 후보 데이터를 만드는 파일 구조</h3>
+              <p>현재 repo에는 `data/sources.json`, `tools/collect-scene-signals.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`을 갱신하는 구조입니다.</p>
+              <ul class="signal-list">
+                <li><strong>Seed</strong><span>편집자가 믿을 수 있는 공식/영상 출처를 먼저 넣습니다.</span></li>
+                <li><strong>Validate</strong><span>YouTube oEmbed와 embed HEAD를 확인해 죽은 영상은 후보에서 제외합니다.</span></li>
+                <li><strong>Score</strong><span>키워드 적합도, 한국성, 영상 유효성, 출처 품질로 우선순위를 만듭니다.</span></li>
+              </ul>
+            </article>
+            <article class="automation-note">
+              <span class="tag">Next Switches</span>
+              <h3>API 키를 넣으면 더 똑똑해지는 구조</h3>
+              <p>Secrets에 `YOUTUBE_API_KEY`, `NAVER_CLIENT_ID`, `NAVER_CLIENT_SECRET`, `INSTAGRAM_GRAPH_TOKEN`을 추가하면 YouTube 최신 영상, 네이버 블로그 신호, 인스타그램 공식 Graph 신호까지 후보 큐에 붙습니다. 무단 스크래핑 대신 장기 운영 가능한 쪽으로 설계했습니다.</p>
+              <div class="source-links">
+                <a href="/data/sources.json">Source Map</a>
+                <a href="/data/generated/scene-signals.json">Generated Signals</a>
+                <a href="https://developers.facebook.com/blog/post/2024/09/04/update-on-instagram-basic-display-api/" target="_blank" rel="noreferrer">Instagram API Update</a>
               </div>
             </article>
           </div>

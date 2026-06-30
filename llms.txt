@@ -10,7 +10,10 @@
 - 도미니칸 바차타 리듬, 풋워크, 싱코페이션, 기타 리프 읽기
 - 모던 바차타와 Bachata Fusion 스타일의 구조
 - Bachata Influence: Melvin & Gatica, Emilien & Tehina, Influence Academy, 영상 기반 스타일 큐레이션
-- Bachazouk, 글로벌 바차타 댄서, 내한 소식, 한국 동호회, 장소, 구인구직, 댄스화 비교
+- Bachazouk: Dominican Bachata와 Brazilian Zouk의 융합 흐름, 안전한 헤드무브·축·프레임 기준
+- 글로벌 바차타 댄서: Gero & Migle, Luis & Andrea, Andi & Silvia, Korke & Judith 등 영상 기반 인물 노트
+- 한국 바차타 씬: 그레이 & 로렌, 클루니, 홍대 보니따, 에버라틴, 국내 동호회와 소셜 영상 아카이브
+- 바차타 댄스화와 상품: Fuego, Pana Mio, On1, Pulse 등 비교 콘텐츠
 - Instagram, YouTube, Naver, Google, 제보 폼 기반의 라틴댄스 소식 수집 및 검수 발행 시스템
 - 바차타 입문자 가이드
 - 서울 바차타 소셜, 클래스, 워크숍, 페스티벌
@@ -25,3 +28,8 @@
 ## 대표 URL
 - https://bachata.co.kr/
 - http://test.bachata.co.kr/
+- https://bachata.co.kr/data/sources.json
+- https://bachata.co.kr/data/generated/scene-signals.json
+
+## 자동화
+`data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다.

@@ -1,0 +1,75 @@
+{
+  "updatedAt": "2026-06-30",
+  "editorialPrinciples": [
+    "Use official APIs or public feeds where possible.",
+    "Keep source URLs with every candidate.",
+    "Do not copy Instagram captions or photos into articles without permission.",
+    "Use AI only for summaries, tags, and draft structure; editor review is required before publishing.",
+    "Prioritize Korean bachata relevance, verified video embeds, and beginner usefulness."
+  ],
+  "topics": [
+    {
+      "id": "bachata-influence",
+      "label": "Bachata Influence",
+      "keywords": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "Influence Academy"],
+      "sources": [
+        "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1",
+        "https://bygatica.com/",
+        "https://www.instagram.com/melvin_gatica_bachata/",
+        "https://www.youtube.com/watch?v=sUy5L7x5pyE",
+        "https://www.youtube.com/watch?v=FNv7eOMg-_k"
+      ]
+    },
+    {
+      "id": "bachazouk",
+      "label": "Bachazouk",
+      "keywords": ["Bachazouk", "BachaZouk", "bachata zouk", "Brazilian Zouk bachata"],
+      "sources": [
+        "https://www.bachazouk.com/",
+        "https://www.bachazouk.com/posts/what-is-bachazouk",
+        "https://www.youtube.com/watch?v=Qng3Wdmt3WE",
+        "https://www.youtube.com/watch?v=5Mx_xhWSiL0"
+      ]
+    },
+    {
+      "id": "global-dancers",
+      "label": "Global Dancers",
+      "keywords": ["Gero Migle", "Luis Andrea bachata", "Andi Silvia bachata", "Korke Judith bachata"],
+      "sources": [
+        "https://www.geroymigle.com/",
+        "https://www.youtube.com/watch?v=j4CmXKDCMzI",
+        "https://www.youtube.com/@LuisyAndreaOfficial",
+        "https://www.youtube.com/watch?v=L1vzrcpeBuw",
+        "https://www.youtube.com/@andiysilviabs",
+        "https://www.youtube.com/watch?v=FzOWJRxp9r0",
+        "https://bachatasensual.com/"
+      ]
+    },
+    {
+      "id": "korea-scene",
+      "label": "Korea Scene",
+      "keywords": ["바차타", "그레이 로렌 바차타", "클루니 바차타", "홍대 보니따 바차타", "에버라틴 바차타"],
+      "sources": [
+        "https://www.youtube.com/watch?v=nrJM-arshvE",
+        "https://www.youtube.com/watch?v=w_uCz9JkRfE",
+        "https://www.youtube.com/watch?v=gDtOwUqeWKw",
+        "https://everlatin.com/",
+        "https://www.instagram.com/jessica_latinclub_bonita/",
+        "https://www.instagram.com/clublatin_everlatin/"
+      ]
+    },
+    {
+      "id": "gear-market",
+      "label": "Gear & Market",
+      "keywords": ["bachata dance shoes", "Fuego dance shoes", "Pana Mio dance shoes", "On1 dance shoes", "Pulse dance shoes"],
+      "sources": [
+        "https://fuegodance.com/collections/bachata",
+        "https://fuegodance.com/pages/technology",
+        "https://www.instagram.com/panamiodance/",
+        "https://www.instagram.com/on1danceshoes/",
+        "https://www.pulsedanceshoes.com/",
+        "https://www.youtube.com/watch?v=FtcPRwVIdNk"
+      ]
+    }
+  ]
+}

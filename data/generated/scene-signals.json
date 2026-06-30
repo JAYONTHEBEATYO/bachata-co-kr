@@ -1,0 +1,184 @@
+{
+  "generatedAt": "2026-06-30T07:24:32.680Z",
+  "generationDate": "2026-06-30",
+  "mode": {
+    "youtubeApi": false,
+    "naverApi": false,
+    "instagramGraph": false
+  },
+  "editorialPrinciples": [
+    "Use official APIs or public feeds where possible.",
+    "Keep source URLs with every candidate.",
+    "Do not copy Instagram captions or photos into articles without permission.",
+    "Use AI only for summaries, tags, and draft structure; editor review is required before publishing.",
+    "Prioritize Korean bachata relevance, verified video embeds, and beginner usefulness."
+  ],
+  "topics": [
+    {
+      "id": "bachata-influence",
+      "label": "Bachata Influence",
+      "keywords": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Emilien Tehina",
+        "Influence Academy"
+      ],
+      "candidateCount": 2,
+      "candidates": [
+        {
+          "type": "youtube",
+          "id": "sUy5L7x5pyE",
+          "title": "Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland",
+          "sourceUrl": "https://www.youtube.com/watch?v=sUy5L7x5pyE",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/sUy5L7x5pyE",
+          "scoreBoost": 25,
+          "score": 55
+        },
+        {
+          "type": "youtube",
+          "id": "FNv7eOMg-_k",
+          "title": "Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant Congress 2025 🏰",
+          "sourceUrl": "https://www.youtube.com/watch?v=FNv7eOMg-_k",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/FNv7eOMg-_k",
+          "scoreBoost": 25,
+          "score": 55
+        }
+      ]
+    },
+    {
+      "id": "bachazouk",
+      "label": "Bachazouk",
+      "keywords": [
+        "Bachazouk",
+        "BachaZouk",
+        "bachata zouk",
+        "Brazilian Zouk bachata"
+      ],
+      "candidateCount": 2,
+      "candidates": [
+        {
+          "type": "youtube",
+          "id": "Qng3Wdmt3WE",
+          "title": "BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival",
+          "sourceUrl": "https://www.youtube.com/watch?v=Qng3Wdmt3WE",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE",
+          "scoreBoost": 25,
+          "score": 65
+        },
+        {
+          "type": "youtube",
+          "id": "5Mx_xhWSiL0",
+          "title": "Learn Bachata, Tutorial 41:  Bachazouk Pattern 1 (Fusion intermediate)",
+          "sourceUrl": "https://www.youtube.com/watch?v=5Mx_xhWSiL0",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/5Mx_xhWSiL0",
+          "scoreBoost": 25,
+          "score": 65
+        }
+      ]
+    },
+    {
+      "id": "global-dancers",
+      "label": "Global Dancers",
+      "keywords": [
+        "Gero Migle",
+        "Luis Andrea bachata",
+        "Andi Silvia bachata",
+        "Korke Judith bachata"
+      ],
+      "candidateCount": 3,
+      "candidates": [
+        {
+          "type": "youtube",
+          "id": "j4CmXKDCMzI",
+          "title": "Gero & Migle | Bachata | Para Besarte - Lean & Akai",
+          "sourceUrl": "https://www.youtube.com/watch?v=j4CmXKDCMzI",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/j4CmXKDCMzI",
+          "scoreBoost": 25,
+          "score": 45
+        },
+        {
+          "type": "youtube",
+          "id": "L1vzrcpeBuw",
+          "title": "LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿",
+          "sourceUrl": "https://www.youtube.com/watch?v=L1vzrcpeBuw",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/L1vzrcpeBuw",
+          "scoreBoost": 25,
+          "score": 45
+        },
+        {
+          "type": "youtube",
+          "id": "FzOWJRxp9r0",
+          "title": "Andi & Silvia | Bachata | Just As I Am - Prince Royce Ft SpiffTv and Chris Brown [ Australia 2026 ]",
+          "sourceUrl": "https://www.youtube.com/watch?v=FzOWJRxp9r0",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/FzOWJRxp9r0",
+          "scoreBoost": 25,
+          "score": 45
+        }
+      ]
+    },
+    {
+      "id": "korea-scene",
+      "label": "Korea Scene",
+      "keywords": [
+        "바차타",
+        "그레이 로렌 바차타",
+        "클루니 바차타",
+        "홍대 보니따 바차타",
+        "에버라틴 바차타"
+      ],
+      "candidateCount": 3,
+      "candidates": [
+        {
+          "type": "youtube",
+          "id": "nrJM-arshvE",
+          "title": "바차타소셜 | 그레이 & 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24",
+          "sourceUrl": "https://www.youtube.com/watch?v=nrJM-arshvE",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/nrJM-arshvE",
+          "scoreBoost": 25,
+          "score": 70
+        },
+        {
+          "type": "youtube",
+          "id": "w_uCz9JkRfE",
+          "title": "바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따",
+          "sourceUrl": "https://www.youtube.com/watch?v=w_uCz9JkRfE",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/w_uCz9JkRfE",
+          "scoreBoost": 25,
+          "score": 70
+        },
+        {
+          "type": "youtube",
+          "id": "gDtOwUqeWKw",
+          "title": "바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304",
+          "sourceUrl": "https://www.youtube.com/watch?v=gDtOwUqeWKw",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/gDtOwUqeWKw",
+          "scoreBoost": 25,
+          "score": 70
+        }
+      ]
+    },
+    {
+      "id": "gear-market",
+      "label": "Gear & Market",
+      "keywords": [
+        "bachata dance shoes",
+        "Fuego dance shoes",
+        "Pana Mio dance shoes",
+        "On1 dance shoes",
+        "Pulse dance shoes"
+      ],
+      "candidateCount": 1,
+      "candidates": [
+        {
+          "type": "youtube",
+          "id": "FtcPRwVIdNk",
+          "title": "Fuego Dance Shoes Review | Are They Worth It?",
+          "sourceUrl": "https://www.youtube.com/watch?v=FtcPRwVIdNk",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/FtcPRwVIdNk",
+          "scoreBoost": 25,
+          "score": 55
+        }
+      ]
+    }
+  ]
+}
