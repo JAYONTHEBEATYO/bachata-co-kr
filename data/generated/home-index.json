@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T11:14:30.912Z",
+  "generatedAt": "2026-06-30T11:19:41.206Z",
   "updatedAt": "2026-06-30",
   "latestBrief": {
     "url": "/briefs/2026-06-30.html",
@@ -8,10 +8,10 @@
   },
   "sourceHealth": {
     "total": 118,
-    "ok": 105,
-    "watch": 12,
-    "warn": 1,
-    "broken": 0
+    "ok": 101,
+    "watch": 13,
+    "warn": 0,
+    "broken": 4
   },
   "cards": [
     {
