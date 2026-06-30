@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T11:44:04.886Z",
+  "generatedAt": "2026-06-30T11:59:42.378Z",
   "updatedAt": "2026-06-30",
   "latestBrief": {
     "url": "/briefs/2026-06-30.html",
@@ -15,10 +15,10 @@
   },
   "cards": [
     {
-      "label": "Core Program",
+      "label": "Core",
       "title": "센슈얼 16 펀더멘털",
       "url": "/programs/sensual-fundamentals.html",
-      "meta": "4 videos · 16 cards",
+      "meta": "4개 영상 · 16개 노트",
       "videoId": "B7Wv3cqHrSU",
       "featured": true
     },
@@ -26,7 +26,7 @@
       "label": "Rhythm",
       "title": "도미니칸 풋워크",
       "url": "/programs/dominican-rhythm.html",
-      "meta": "Beginner route",
+      "meta": "입문 루트",
       "videoId": "xmvDKN5cwT0",
       "featured": false
     },
@@ -34,8 +34,8 @@
       "label": "Trend",
       "title": "Bachata Influence",
       "url": "/articles/bachata-influence-melvin-gatica.html",
-      "meta": "Feature article",
-      "videoId": null,
+      "meta": "트렌드 기사",
+      "videoId": "sUy5L7x5pyE",
       "featured": false
     },
     {

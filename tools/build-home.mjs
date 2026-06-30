@@ -22,6 +22,7 @@ const escapeHtml = (value = "") => String(value)
 
 const findProgram = (programs, id) => programs.find((item) => item.id === id);
 const findArticle = (articles, slug) => articles.find((item) => item.slug === slug || item.url?.endsWith(`/${slug}.html`));
+const youtubeThumb = (videoId) => videoId ? `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg` : "";
 
 const nextEvent = (events, today) => {
   const upcoming = events
@@ -37,7 +38,7 @@ const resolveCard = (card, context) => {
       ...card,
       title: card.title || program?.title,
       href: program?.url || "/programs/",
-      videoId: program?.videoId || null
+      videoId: card.videoId || program?.videoId || null
     };
   }
 
@@ -47,7 +48,7 @@ const resolveCard = (card, context) => {
       ...card,
       title: card.title || article?.title,
       href: article?.url || "/articles/",
-      videoId: article?.heroVideo || null
+      videoId: card.videoId || article?.heroVideo?.id || article?.heroVideo || null
     };
   }
 
@@ -57,7 +58,7 @@ const resolveCard = (card, context) => {
       ...card,
       title: card.title || event?.title || "이번 달 한국 바차타",
       href: event?.url || "/events/",
-      videoId: event?.videoId || null,
+      videoId: card.videoId || event?.videoId || null,
       meta: event?.startDate ? `${event.startDate} · ${event.city || "Korea"}` : card.meta
     };
   }
@@ -74,7 +75,11 @@ const resolveCard = (card, context) => {
 };
 
 const renderCard = (card) => `<a class="rail-card${card.featured ? " featured" : ""}" href="${escapeHtml(card.href)}">
-            <div>
+            ${card.videoId ? `<figure class="rail-thumb">
+              <img loading="lazy" src="${escapeHtml(youtubeThumb(card.videoId))}" alt="" aria-hidden="true">
+              <span>Watch</span>
+            </figure>` : ""}
+            <div class="rail-card-copy">
               <span>${escapeHtml(card.label)}</span>
               <strong>${escapeHtml(card.title)}</strong>
               <p>${escapeHtml(card.description)}</p>
@@ -83,8 +88,9 @@ const renderCard = (card) => `<a class="rail-card${card.featured ? " featured" :
           </a>`;
 
 const renderShelf = (config, cards, latestBrief, sourceHealth) => {
-  const healthText = sourceHealth?.summary ? `${sourceHealth.summary.broken} broken links` : "source checked";
-  const briefText = latestBrief?.candidateCount ? `${latestBrief.candidateCount} signals` : "daily brief";
+  const broken = sourceHealth?.summary?.broken || 0;
+  const healthText = sourceHealth?.summary ? (broken ? `출처 ${broken}개 검수 중` : "출처 점검 완료") : "출처 확인 중";
+  const briefText = latestBrief?.candidateCount ? `오늘 후보 ${latestBrief.candidateCount}개` : "오늘 브리프";
   return `<!-- home-rail:start -->
       <section class="home-shelf" aria-labelledby="watch-next-title">
         <div class="shelf-head">

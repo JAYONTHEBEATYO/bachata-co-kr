@@ -394,30 +394,74 @@
         width: min(1180px, calc(100% - 36px));
         margin: 0 auto;
         display: grid;
-        grid-template-columns: 1.2fr repeat(3, minmax(0, 1fr));
+        grid-template-columns: 1.22fr repeat(3, minmax(0, 1fr));
         gap: 12px;
       }
 
       .rail-card {
-        min-height: 238px;
+        min-height: 286px;
         display: grid;
+        grid-template-rows: auto 1fr auto;
         align-content: space-between;
-        padding: 20px;
+        overflow: hidden;
         border: 1px solid rgba(255, 249, 239, 0.14);
         border-radius: 8px;
         background: rgba(255, 249, 239, 0.06);
       }
 
       .rail-card.featured {
-        background: #f4efe7;
-        color: #17120b;
+        background: rgba(244, 239, 231, 0.12);
+        color: var(--ink);
+      }
+
+      .rail-thumb {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        margin: 0;
+        overflow: hidden;
+        background: #050505;
+        border-bottom: 1px solid rgba(255, 249, 239, 0.12);
+      }
+
+      .rail-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: saturate(0.94) contrast(1.02);
+        transition: transform 180ms ease;
+      }
+
+      .rail-card:hover .rail-thumb img,
+      .rail-card:focus-visible .rail-thumb img {
+        transform: scale(1.035);
+      }
+
+      .rail-thumb span {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        min-height: 30px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba(8, 8, 10, 0.76);
+        color: #fff9ef !important;
+        font-size: 11px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        backdrop-filter: blur(10px);
+      }
+
+      .rail-card-copy {
+        padding: 18px 18px 8px;
       }
 
       .rail-card strong {
         display: block;
         margin-top: 10px;
         font-family: Paperlogy, "Pretendard Variable", Pretendard, sans-serif;
-        font-size: clamp(25px, 3vw, 39px);
+        font-size: clamp(22px, 2.6vw, 34px);
         line-height: 1.04;
         letter-spacing: 0;
         word-break: keep-all;
@@ -431,8 +475,8 @@
         text-transform: uppercase;
       }
 
-      .rail-card.featured span {
-        color: var(--wine);
+      .rail-card.featured .rail-card-copy > span {
+        color: var(--amber);
       }
 
       .rail-card p {
@@ -442,10 +486,12 @@
       }
 
       .rail-card.featured p {
-        color: rgba(23, 18, 11, 0.72);
+        color: rgba(255, 249, 239, 0.72);
       }
 
       .rail-card em {
+        display: block;
+        padding: 0 18px 18px;
         font-style: normal;
         color: rgba(255, 249, 239, 0.54);
         font-size: 13px;
@@ -453,7 +499,7 @@
       }
 
       .rail-card.featured em {
-        color: rgba(23, 18, 11, 0.56);
+        color: rgba(255, 249, 239, 0.58);
       }
 
       section {
@@ -1761,7 +1807,7 @@
           <span>Bachata Korea</span>
         </a>
         <div class="nav-links" aria-label="섹션 이동">
-          <a href="/programs/">Programs</a>
+          <a href="/programs/">프로그램</a>
           <a href="/styles/">스타일</a>
           <a href="/profiles/">아티스트</a>
           <a href="/korea-scene/">한국씬</a>
@@ -1782,7 +1828,7 @@
               <iframe loading="eager" src="https://www.youtube-nocookie.com/embed/sUy5L7x5pyE" title="Bachata Influence Tutorial by Melvin and Gatica" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="hero-media-caption">
-              <span>Featured Video</span>
+              <span>오늘의 영상</span>
               <span>Melvin & Gatica · Bachata Influence</span>
             </div>
           </div>
@@ -1791,8 +1837,8 @@
             <h1 id="hero-title">한국 바차타씬을 영상으로 먼저 봅니다</h1>
             <p class="hero-copy">센슈얼 펀더멘탈, 도미니칸 리듬, Bachata Influence, 서울 소셜과 내한 소식까지. 영상과 출처가 있는 콘텐츠만 골라 한국어로 정리합니다.</p>
             <div class="hero-actions">
-              <a class="button primary" href="/briefs/">오늘 브리프</a>
-              <a class="button" href="/programs/">학습 프로그램</a>
+              <a class="button primary" href="/briefs/">오늘의 브리프</a>
+              <a class="button" href="/programs/">프로그램</a>
               <a class="button" href="/styles/">스타일 허브</a>
               <a class="button" href="/events/">이번 달 행사</a>
             </div>
@@ -1804,41 +1850,57 @@
       <section class="home-shelf" aria-labelledby="watch-next-title">
         <div class="shelf-head">
           <div>
-            <p class="eyebrow">Watch Next</p>
-            <h2 id="watch-next-title">오늘 바로 볼 만한 바차타 콘텐츠</h2>
+            <p class="eyebrow">Now Playing</p>
+            <h2 id="watch-next-title">오늘은 이 흐름부터 보세요</h2>
           </div>
-          <p>지금 볼 영상, 이어 읽을 기사, 이번 달 움직이는 씬으로 바로 연결합니다. <a href="/briefs/2026-06-30.html">35 signals</a> · <a href="/health/">0 broken links</a></p>
+          <p>영상으로 감을 잡고, 기사로 맥락을 붙이고, 이번 달 한국씬까지 한 번에 이어봅니다. <a href="/briefs/2026-06-30.html">오늘 후보 35개</a> · <a href="/health/">출처 점검 완료</a></p>
         </div>
         <div class="content-rail">
           <a class="rail-card featured" href="/programs/sensual-fundamentals.html">
-            <div>
-              <span>Core Program</span>
+            <figure class="rail-thumb">
+              <img loading="lazy" src="https://i.ytimg.com/vi/B7Wv3cqHrSU/hqdefault.jpg" alt="" aria-hidden="true">
+              <span>Watch</span>
+            </figure>
+            <div class="rail-card-copy">
+              <span>Core</span>
               <strong>센슈얼 16 펀더멘털</strong>
-              <p>Korke &amp; Judith 영상, 한국어 해설, 16개 카드로 이어지는 핵심 학습 경로.</p>
+              <p>Korke &amp; Judith 기준 영상을 보며 웨이브, 축, 리드의 언어를 차분히 정리합니다.</p>
             </div>
-            <em>4 videos · 16 cards</em>
+            <em>4개 영상 · 16개 노트</em>
           </a>
           <a class="rail-card" href="/programs/dominican-rhythm.html">
-            <div>
+            <figure class="rail-thumb">
+              <img loading="lazy" src="https://i.ytimg.com/vi/xmvDKN5cwT0/hqdefault.jpg" alt="" aria-hidden="true">
+              <span>Watch</span>
+            </figure>
+            <div class="rail-card-copy">
               <span>Rhythm</span>
               <strong>도미니칸 풋워크</strong>
-              <p>탭, 싱코페이션, 기타 리프를 작고 정확하게 듣는 입문 루틴.</p>
+              <p>발을 많이 쓰기보다 기타와 봉고의 작은 악센트에 어떻게 답할지 봅니다.</p>
             </div>
-            <em>Beginner route</em>
+            <em>입문 루트</em>
           </a>
           <a class="rail-card" href="/articles/bachata-influence-melvin-gatica.html">
-            <div>
+            <figure class="rail-thumb">
+              <img loading="lazy" src="https://i.ytimg.com/vi/sUy5L7x5pyE/hqdefault.jpg" alt="" aria-hidden="true">
+              <span>Watch</span>
+            </figure>
+            <div class="rail-card-copy">
               <span>Trend</span>
               <strong>Bachata Influence</strong>
-              <p>Melvin &amp; Gatica 흐름을 영상과 방법론 중심으로 읽는 트렌드 기사.</p>
+              <p>Melvin Gatica 계열이 왜 지금 한국 바차타씬에서도 자주 언급되는지 읽습니다.</p>
             </div>
-            <em>Feature article</em>
+            <em>트렌드 기사</em>
           </a>
           <a class="rail-card" href="/events/k-sensual-summer-2026.html">
-            <div>
+            <figure class="rail-thumb">
+              <img loading="lazy" src="https://i.ytimg.com/vi/zQXNPwMqpdw/hqdefault.jpg" alt="" aria-hidden="true">
+              <span>Watch</span>
+            </figure>
+            <div class="rail-card-copy">
               <span>Scene</span>
               <strong>이번 달 한국 바차타</strong>
-              <p>내한, 워크숍, 소셜, 팀 소식을 월별 레이더로 정리합니다.</p>
+              <p>내한, 워크숍, 소셜, 팀 소식을 영상과 공식 출처 중심으로 묶었습니다.</p>
             </div>
             <em>2026-07-09 · 제주</em>
           </a>
