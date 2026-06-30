@@ -191,8 +191,8 @@ const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
     <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
     <link rel="canonical" href="${escapeHtml(canonical)}">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">`;
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/complete/WantedSansVariable.css">`;
 
 const styles = `    <style>
       :root {
@@ -207,7 +207,7 @@ const styles = `    <style>
         --gold: #e2ad58;
         --wine: #a82e4b;
         --green: #5caf96;
-        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+        font-family: "Pretendard Variable", Pretendard, "Wanted Sans Variable", "Wanted Sans", "Noto Sans KR", system-ui, sans-serif;
       }
       * { box-sizing: border-box; }
       body { margin: 0; background: var(--bg); color: var(--ink); }
@@ -219,14 +219,14 @@ const styles = `    <style>
       .hero { padding: clamp(60px, 9vw, 118px) max(18px, calc((100vw - 1180px) / 2)) 50px; background: var(--paper); color: var(--paper-ink); }
       .hero-grid { display: grid; grid-template-columns: minmax(0, 0.76fr) minmax(320px, 0.42fr); gap: clamp(22px, 5vw, 56px); align-items: end; }
       .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.13em; text-transform: uppercase; }
-      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; word-break: keep-all; }
+      h1, h2, h3 { font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; letter-spacing: 0; word-break: keep-all; }
       h1 { max-width: 940px; margin: 14px 0 18px; font-size: clamp(46px, 8vw, 96px); line-height: 0.95; overflow-wrap: anywhere; }
       .hero p { max-width: 790px; color: rgba(26, 21, 16, 0.72); font-size: clamp(17px, 2vw, 22px); line-height: 1.72; }
       main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: clamp(42px, 7vw, 76px) 0 90px; }
       .summary-grid, .result-grid { display: grid; gap: 14px; }
       .summary-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
       .summary-card, .result-card, .policy-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
-      .summary-card strong { display: block; margin-top: 8px; font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; font-size: clamp(28px, 5vw, 48px); line-height: 1; }
+      .summary-card strong { display: block; margin-top: 8px; font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-size: clamp(28px, 5vw, 48px); line-height: 1; }
       .section { margin-top: clamp(42px, 7vw, 76px); }
       .section-head { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.36fr); gap: 24px; align-items: end; margin-bottom: 22px; }
       .section-head h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.02; }

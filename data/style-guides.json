@@ -501,13 +501,14 @@
       "id": "modern",
       "eyebrow": "Modern Bachata",
       "title": "모던 바차타 허브",
-      "dek": "입문 클래스에서 가장 많이 만나는 모던 바차타의 기본 스텝, 파트너워크, 퓨전 감각을 실전 소셜 관점으로 정리합니다.",
+      "dek": "입문 클래스에서 가장 자주 만나는 모던 바차타를 기본 스텝, 턴패턴, 거리 회복, 소셜 매너, 센슈얼·도미니칸과의 경계까지 묶어 정리합니다.",
       "keywords": [
         "모던 바차타",
-        "Bachata Fusion",
+        "Bachata Moderna",
         "바차타 입문",
-        "바차타 기본스텝",
-        "바차타 파트너워크"
+        "바차타 턴패턴",
+        "바차타 파트너워크",
+        "bachata turn pattern"
       ],
       "heroVideo": {
         "id": "xhrdh-uFkog",
@@ -520,29 +521,72 @@
       "watchlist": [
         {
           "label": "Beginner Basics",
-          "title": "바차타 기본 스텝과 파트너워크",
+          "title": "Bachata Beginner Basic Steps Tutorial",
           "videoId": "xhrdh-uFkog",
-          "note": "입문자가 모던 바차타의 기본 구조를 확인하기 좋은 영상."
+          "note": "입문자가 기본 스텝과 파트너워크의 큰 구조를 확인하기 좋은 영상."
         },
         {
-          "label": "Fusion Reference",
-          "title": "Bachata Fusion Performance",
-          "videoId": "dfsSL8QRjrM",
-          "note": "모던/퓨전 계열이 무대에서 어떻게 확장되는지 보는 참고 영상."
+          "label": "Turn Pattern",
+          "title": "8 Bachata Turns For The Party",
+          "videoId": "fSvr8GThrnU",
+          "note": "모던 바차타가 왜 턴패턴 중심으로 받아들여지는지 보기 좋은 초급 패턴 영상."
+        },
+        {
+          "label": "Directional Turns",
+          "title": "Bachata Directional Turns",
+          "videoId": "3RbkiFy7p-k",
+          "note": "리드와 팔로우가 방향 전환 후 다시 거리와 축을 회복하는 법을 볼 수 있는 자료."
+        },
+        {
+          "label": "Social Pattern",
+          "title": "Underhanded Easy Bachata Turn Pattern",
+          "videoId": "dJNnjZwuGaw",
+          "note": "소셜에서 과하지 않게 쓰기 좋은 초급 손길과 턴 구조를 관찰하는 영상."
+        },
+        {
+          "label": "Moderna",
+          "title": "Hammerlock Pattern for Improver Moderna",
+          "videoId": "ARGUYLPTD24",
+          "note": "Bachata moderna라는 이름이 실제 수업에서 어떤 패턴 언어로 쓰이는지 보여주는 참고 영상."
         }
       ],
       "sections": [
         {
-          "heading": "가장 쉬워 보이지만 기본이 가장 많이 드러나는 스타일",
+          "heading": "모던은 “쉬운 스타일”이 아니라 구조가 잘 보이는 스타일입니다",
           "paragraphs": [
-            "모던 바차타는 패턴을 배우기 쉽고 소셜에서 바로 쓰기 좋아 보입니다. 하지만 프레임, 손의 압력, 걷는 품질, 턴 이후 거리 회복이 약하면 초보자에게 가장 불편한 스타일이 되기도 합니다.",
-            "그래서 모던 허브는 화려한 콤비네이션보다 기본 연결, 방향 전환, 팔 사용의 절제, 음악 문장에 맞는 패턴 선택을 먼저 다룹니다."
+            "모던 바차타는 살사식 턴, 랩, 해머락, 인사이드·아웃사이드 턴처럼 구조가 눈에 잘 보이는 파트너워크를 많이 씁니다. 그래서 입문자가 배우기 쉽지만, 손의 압력과 거리 회복이 거칠면 바로 불편한 춤이 됩니다.",
+            "좋은 모던은 패턴이 많아서 좋은 것이 아니라, 기본 스텝 위에서 방향 전환과 프레임이 깔끔하게 정리되어 상대가 다음 움직임을 예측할 수 있게 만드는 방식입니다."
           ],
           "bullets": [
-            "기본 스텝이 안정된 뒤 턴 추가",
-            "손보다 몸의 방향으로 리드",
-            "패턴 끝마다 파트너와 거리 회복",
-            "소셜에서는 무대용 장식을 줄이기"
+            "턴 전후 기본 박자 유지",
+            "손으로 당기기보다 몸의 방향으로 안내",
+            "패턴 끝마다 거리와 손 위치 회복",
+            "소셜에서는 무대용 장식보다 파트너의 안정감 우선"
+          ]
+        },
+        {
+          "heading": "센슈얼·도미니칸과 섞이기 전에 기준을 나눠야 합니다",
+          "paragraphs": [
+            "현장에서는 모던, 센슈얼, 도미니칸이 늘 섞입니다. 다만 학습 콘텐츠에서는 축을 나눠야 합니다. 모던은 턴과 파트너워크 구조, 센슈얼은 몸의 파동과 프레임, 도미니칸은 음악 문장과 발의 대답으로 읽으면 혼란이 줄어듭니다.",
+            "초보자는 모던을 먼저 배운 뒤 센슈얼의 바디무브먼트나 도미니칸 풋워크를 얹는 경우가 많습니다. 이때 기본 스텝과 거리 회복이 약하면 모든 퓨전이 과해 보입니다."
+          ],
+          "bullets": [
+            "모던: 턴패턴과 길 안내",
+            "센슈얼: 몸의 파동과 축",
+            "도미니칸: 리듬과 발 장식",
+            "퓨전: 세 기준이 무너지지 않을 때만 확장"
+          ]
+        },
+        {
+          "heading": "한국 소셜에서 바로 쓰는 체크리스트",
+          "paragraphs": [
+            "한국 소셜 플로어는 공간이 넓지 않은 경우가 많습니다. 그래서 긴 패턴보다 작은 턴, 짧은 랩, 빠른 거리 회복이 더 실용적입니다. 파트너가 초보인지, 바닥이 미끄러운지, 주변 공간이 비어 있는지 확인하는 습관이 필요합니다."
+          ],
+          "bullets": [
+            "첫 곡에서는 쉬운 기본과 단일 턴으로 레벨 확인",
+            "헤머락·랩은 팔이 편한 범위에서만 사용",
+            "혼잡한 플로어에서는 이동 큰 패턴 줄이기",
+            "패턴을 멈출 수 있는 출구를 항상 준비"
           ]
         }
       ],
@@ -562,12 +606,97 @@
       ],
       "sourceLinks": [
         {
-          "label": "Beginner Video",
+          "label": "Beginner Basic Video",
           "url": "https://www.youtube.com/watch?v=xhrdh-uFkog"
         },
         {
-          "label": "Fusion Video",
-          "url": "https://www.youtube.com/watch?v=dfsSL8QRjrM"
+          "label": "Bachata Turns Video",
+          "url": "https://www.youtube.com/watch?v=fSvr8GThrnU"
+        },
+        {
+          "label": "Directional Turns Video",
+          "url": "https://www.youtube.com/watch?v=3RbkiFy7p-k"
+        },
+        {
+          "label": "Underhanded Pattern Video",
+          "url": "https://www.youtube.com/watch?v=dJNnjZwuGaw"
+        },
+        {
+          "label": "Moderna Hammerlock Video",
+          "url": "https://www.youtube.com/watch?v=ARGUYLPTD24"
+        },
+        {
+          "label": "Salsa Vida Styles",
+          "url": "https://www.salsavida.com/articles/the-different-styles-of-bachata-dancing/"
+        },
+        {
+          "label": "For the Love of Bachata Styles",
+          "url": "https://www.fortheloveofbachata.com/blog-1/bachatastyles"
+        }
+      ],
+      "contentDrops": [
+        {
+          "label": "Program",
+          "title": "바차타 입문 20분 루틴",
+          "description": "베이직, 방향 전환, 파트너워크를 영상 순서대로 묶어 초보자가 바로 따라갈 수 있게 만든 학습 경로.",
+          "url": "/programs/bachata-starter.html",
+          "cta": "입문 루틴 보기"
+        },
+        {
+          "label": "Style",
+          "title": "센슈얼과 도미니칸으로 이어지는 다음 길",
+          "description": "모던에서 배운 기본 프레임이 센슈얼 웨이브와 도미니칸 풋워크로 어떻게 분기되는지 비교합니다.",
+          "url": "/styles/sensual.html",
+          "cta": "센슈얼 비교"
+        },
+        {
+          "label": "Article",
+          "title": "글로벌 바차타 댄서 지도",
+          "description": "모던·센슈얼·퓨전 계열에서 자주 언급되는 글로벌 댄서와 영상 레퍼런스를 한 번에 봅니다.",
+          "url": "/articles/global-bachata-dancers-watchlist-korea.html",
+          "cta": "댄서 지도 보기"
+        },
+        {
+          "label": "Community",
+          "title": "한국 바차타 소셜 읽기",
+          "description": "클래스, 동호회, 장소, 행사 정보를 연결해 어디서 모던/센슈얼 수업을 만날 수 있는지 확인합니다.",
+          "url": "/korea-scene/",
+          "cta": "한국씬 보기"
+        }
+      ],
+      "fundamentalsLabel": "Pattern Map",
+      "fundamentalsTitle": "모던 바차타를 읽는 6개 구조",
+      "fundamentalsIntro": "모던 바차타는 기술 이름보다 구조를 보는 편이 좋습니다. 아래 기준을 잡으면 영상 속 패턴이 왜 편하거나 불편한지 빠르게 읽을 수 있습니다.",
+      "fundamentals": [
+        {
+          "name": "Basic step",
+          "translation": "Pulse and weight",
+          "description": "패턴 전후에 항상 돌아오는 기본 박자와 체중 이동. 모든 턴의 출발점입니다."
+        },
+        {
+          "name": "Open basic",
+          "translation": "Space control",
+          "description": "파트너와 거리를 만들고 다시 회복하는 구조. 손보다 몸의 방향이 먼저입니다."
+        },
+        {
+          "name": "Inside turn",
+          "translation": "Clean pathway",
+          "description": "가장 많이 쓰이는 방향 전환. 팔 높이와 회전축이 편해야 다음 패턴이 이어집니다."
+        },
+        {
+          "name": "Wrap / Hammerlock",
+          "translation": "Arm pathway",
+          "description": "팔이 접히는 패턴. 어깨 가동 범위를 넘지 않고 짧게 풀어야 소셜에서 안전합니다."
+        },
+        {
+          "name": "Cross-body path",
+          "translation": "Shared lane",
+          "description": "서로 지나가는 길을 정하는 구조. 주변 공간과 파트너의 보폭을 함께 봅니다."
+        },
+        {
+          "name": "Exit",
+          "translation": "Recovery point",
+          "description": "패턴을 끝내고 기본으로 돌아오는 지점. 좋은 리드는 멈출 수 있는 길을 항상 남깁니다."
         }
       ]
     },
@@ -770,7 +899,7 @@
       "id": "bachazouk",
       "eyebrow": "Bachazouk",
       "title": "Bachazouk 허브",
-      "dek": "Bachata와 Brazilian Zouk가 만나는 지점을 유행어가 아니라 안전, 축, 음악 선택, 문화적 존중의 관점으로 정리합니다.",
+      "dek": "Bachata와 Brazilian Zouk가 만나는 지점을 유행어가 아니라 안전, 축, 음악 선택, 문화적 존중, 커뮤니티 정체성의 관점으로 정리합니다.",
       "keywords": [
         "Bachazouk",
         "BachaZouk",
@@ -788,30 +917,74 @@
       ],
       "watchlist": [
         {
-          "label": "Tutorial",
+          "label": "Core Tutorial",
           "title": "BachaZouk Tutorial Reference",
           "videoId": "Qng3Wdmt3WE",
           "note": "Bachazouk의 움직임 질감을 입문자가 관찰하기 좋은 공개 튜토리얼."
         },
         {
-          "label": "Companion",
-          "title": "Bachazouk Companion Reference",
-          "videoId": "5Mx_xhWSiL0",
-          "note": "축과 헤드무브 안전 기준을 설명할 때 함께 검토할 보조 영상."
+          "label": "Identity Talk",
+          "title": "Is BachaZouk an Evolution of Bachata",
+          "videoId": "j4BtUL6ZI-g",
+          "note": "Chesco Leveratto가 BachaZouk를 단순 기술 조합이 아니라 정체성으로 설명하는 인터뷰."
+        },
+        {
+          "label": "Community Memory",
+          "title": "Uniting the Bachata and Brazilian Zouk Communities",
+          "videoId": "PNUNftRM2yo",
+          "note": "2022년 커뮤니티 결합 흐름을 영상 기록으로 확인할 수 있는 자료."
+        },
+        {
+          "label": "Debate",
+          "title": "Bachazouk. Is It Still Bachata?",
+          "videoId": "zJBdsHceF8o",
+          "note": "퓨전이 어디까지 bachata인가를 읽을 때 함께 봐야 하는 관점 영상."
+        },
+        {
+          "label": "Demo",
+          "title": "BachaZouk in New York City - Chesco + Valentina",
+          "videoId": "sRzESqw1L9c",
+          "note": "실제 데모에서 Zouk 질감과 Bachata 음악성이 어떻게 보이는지 참고하는 영상."
         }
       ],
       "sections": [
         {
-          "heading": "헤드무브를 기술로 소비하지 않기",
+          "heading": "Bachazouk는 “센슈얼에 주크를 얹은 것”보다 넓은 말입니다",
           "paragraphs": [
-            "Bachazouk 영상은 멋져 보이지만 목과 허리의 방향 전환이 들어가는 순간 난도가 급격히 올라갑니다. 리더가 목을 밀거나 당기는 순간 위험해지고, 팔로워가 축을 잃으면 동작은 즉시 작아져야 합니다.",
-            "좋은 콘텐츠는 ‘멋진 동작’보다 언제 하지 말아야 하는지, 어떤 음악과 속도에서 가능한지, 어느 지점에서 Brazilian Zouk의 훈련이 필요한지를 먼저 설명해야 합니다."
+            "공식 BachaZouk 글은 예전부터 소셜 플로어에서 Bachata와 Brazilian Zouk 움직임을 섞는 일이 있었고, 그 흐름을 Zoukchata라고 부르기도 했다고 설명합니다. 하지만 BachaZouk는 단순 조합명보다 더 의도적인 커뮤니티 이름과 가치 체계로 제시됩니다.",
+            "핵심은 Dominican Bachata와 Brazilian Zouk를 각각 공부하고, 둘의 뿌리를 흐리지 않으면서 새로운 공간을 만드는 데 있습니다. 그래서 이 허브는 “멋진 헤드무브”보다 문화적 존중과 안전 기준을 먼저 둡니다."
+          ],
+          "bullets": [
+            "Bachata와 Brazilian Zouk를 각각의 문화로 읽기",
+            "Zoukchata와 BachaZouk의 이름 차이 이해",
+            "기술보다 커뮤니티 정체성 먼저 보기",
+            "퓨전이 뿌리를 지우지 않도록 설명하기"
+          ]
+        },
+        {
+          "heading": "헤드무브를 콘텐츠의 중심으로 소비하지 않기",
+          "paragraphs": [
+            "Bachazouk 영상은 목, 등, 골반의 방향 전환이 크고 아름답게 보일 수 있습니다. 하지만 목과 허리가 개입되는 순간 리더와 팔로워 모두에게 책임이 생깁니다. 리더가 목을 밀거나 당기는 순간 위험하고, 팔로워가 자기 축을 잃으면 동작은 즉시 작아져야 합니다.",
+            "따라서 한국어 콘텐츠는 “어떻게 크게 보이나”보다 언제 줄여야 하는지, 어느 속도와 음악에서 가능한지, Brazilian Zouk의 별도 훈련이 필요한 지점을 먼저 설명해야 합니다."
           ],
           "bullets": [
             "목을 직접 리드하지 않기",
-            "팔로워가 자기 축을 잃으면 축소",
+            "팔로워의 자기 축과 가동 범위 우선",
             "느린 음악에서 작은 범위로 시작",
-            "Bachata와 Zouk를 각각 존중하기"
+            "불확실하면 헤드무브 대신 바디웨이브로 축소"
+          ]
+        },
+        {
+          "heading": "한국 장면에서 다룰 수 있는 시리즈",
+          "paragraphs": [
+            "한국 바차타 커뮤니티에서는 Bachazouk가 아직 대중적 표준이라기보다 관심 있는 댄서들이 영상과 워크숍을 통해 접하는 영역에 가깝습니다. 그래서 사이트에서는 기술 소개, 안전 가이드, 음악 추천, Brazilian Zouk 입문 자료, 국내 워크숍 신호를 분리한 시리즈로 운영하는 편이 좋습니다.",
+            "매일 수집되는 YouTube와 인스타그램 후보 중 Bachazouk, Brazilian Zouk, head movement, fusion 키워드가 보이면 이 허브와 기사, 안전 프로그램으로 연결합니다."
+          ],
+          "bullets": [
+            "기술 소개: 움직임의 모양보다 원리",
+            "안전 가이드: 목·허리·축 체크",
+            "음악 추천: 느린 bachata와 zouk 질감 구분",
+            "장면 레이더: 워크숍과 커뮤니티 신호 추적"
           ]
         }
       ],
@@ -839,8 +1012,89 @@
           "url": "https://www.bachazouk.com/posts/what-is-bachazouk"
         },
         {
+          "label": "BachaZouk Evolution Interview",
+          "url": "https://www.youtube.com/watch?v=j4BtUL6ZI-g"
+        },
+        {
+          "label": "BachaZouk Community Video",
+          "url": "https://www.youtube.com/watch?v=PNUNftRM2yo"
+        },
+        {
+          "label": "Bachazouk Debate Video",
+          "url": "https://www.youtube.com/watch?v=zJBdsHceF8o"
+        },
+        {
+          "label": "BachaZouk Demo Video",
+          "url": "https://www.youtube.com/watch?v=sRzESqw1L9c"
+        },
+        {
           "label": "Tutorial Reference",
           "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE"
+        }
+      ],
+      "contentDrops": [
+        {
+          "label": "Longform",
+          "title": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
+          "description": "공식 BachaZouk 글과 공개 영상, 안전 기준을 엮어 한국어로 읽는 심화 가이드.",
+          "url": "/articles/bachazouk-guide.html",
+          "cta": "Bachazouk 기사"
+        },
+        {
+          "label": "Program",
+          "title": "Bachazouk 안전과 음악성",
+          "description": "헤드무브와 바디웨이브를 무작정 따라 하기 전에 축, 신호, 음악 선택을 점검하는 영상 학습 경로.",
+          "url": "/programs/bachazouk-safety.html",
+          "cta": "안전 프로그램"
+        },
+        {
+          "label": "Style",
+          "title": "센슈얼 허브에서 몸의 파동 먼저 보기",
+          "description": "Bachazouk를 이해하기 전에 센슈얼의 wave, axis, frame 기준을 먼저 확인합니다.",
+          "url": "/styles/sensual.html",
+          "cta": "센슈얼 허브"
+        },
+        {
+          "label": "Radar",
+          "title": "퓨전·Bachazouk 영상 후보 모으기",
+          "description": "매일 수집되는 영상과 소셜 후보 중 Bachazouk로 이어질 신호를 편집 큐에서 확인합니다.",
+          "url": "/intake/",
+          "cta": "인테이크 보기"
+        }
+      ],
+      "fundamentalsLabel": "Safety Map",
+      "fundamentalsTitle": "Bachazouk를 볼 때 먼저 체크할 6개 기준",
+      "fundamentalsIntro": "Bachazouk는 보기 좋은 모양보다 두 장르의 뿌리, 축, 안전 신호를 함께 읽어야 합니다. 아래 기준은 한국어 독자가 영상과 수업을 볼 때 바로 적용할 수 있는 체크리스트입니다.",
+      "fundamentals": [
+        {
+          "name": "Root awareness",
+          "translation": "Culture first",
+          "description": "Dominican Bachata와 Brazilian Zouk를 각각의 역사와 훈련으로 존중합니다."
+        },
+        {
+          "name": "Axis",
+          "translation": "Self-balance",
+          "description": "팔로워의 자기 축이 사라지면 동작을 줄입니다. 큰 모양보다 균형이 먼저입니다."
+        },
+        {
+          "name": "Head safety",
+          "translation": "Neck boundary",
+          "description": "목은 직접 리드하지 않습니다. 머리 움직임은 신호, 준비, 동의, 가동 범위가 모두 맞아야 합니다."
+        },
+        {
+          "name": "Breath and timing",
+          "translation": "Slow control",
+          "description": "느린 음악에서 작게 시작하고, 호흡과 박자가 맞을 때만 범위를 넓힙니다."
+        },
+        {
+          "name": "Zouk literacy",
+          "translation": "Separate training",
+          "description": "Brazilian Zouk의 기본 축과 head movement 훈련을 별도로 존중해야 합니다."
+        },
+        {
+          "name": "Social filter",
+          "translation": "Floor decision",
+          "description": "혼잡한 소셜에서는 데모용 동작을 줄이고, 작은 wave와 turn으로 대체합니다."
         }
       ]
     }

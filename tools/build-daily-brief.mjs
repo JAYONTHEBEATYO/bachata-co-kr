@@ -167,8 +167,8 @@ const renderBriefHtml = (signals) => {
     <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
     <link rel="canonical" href="https://bachata.co.kr/briefs/${dateText}.html">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/complete/WantedSansVariable.css">
     <style>
       :root {
         color-scheme: dark;
@@ -179,7 +179,7 @@ const renderBriefHtml = (signals) => {
         --line: rgba(255, 247, 232, 0.14);
         --gold: #e2ad58;
         --teal: #1d7972;
-        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+        font-family: "Pretendard Variable", Pretendard, "Wanted Sans Variable", "Wanted Sans", "Noto Sans KR", system-ui, sans-serif;
       }
       * { box-sizing: border-box; }
       body { margin: 0; background: var(--bg); color: var(--ink); }
@@ -190,7 +190,7 @@ const renderBriefHtml = (signals) => {
       .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; font-weight: 850; }
       .hero { padding: clamp(64px, 11vw, 128px) max(18px, calc((100vw - 1180px) / 2)) 54px; background: #f3ede3; color: #17120b; }
       .eyebrow, .tag { color: #9d2447; font-size: 12px; font-weight: 950; letter-spacing: 0.12em; text-transform: uppercase; }
-      .hero h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; }
+      .hero h1, h2, h3 { font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; letter-spacing: 0; }
       .hero h1 { max-width: 920px; margin: 12px 0 18px; font-size: clamp(48px, 9vw, 104px); line-height: 0.95; word-break: keep-all; overflow-wrap: anywhere; }
       .hero p { max-width: 760px; color: rgba(23, 18, 11, 0.72); font-size: clamp(17px, 2vw, 21px); line-height: 1.72; }
       .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
@@ -291,14 +291,14 @@ const renderBriefIndex = async (signals) => {
     <meta name="description" content="Bachata Influence, Bachazouk, 글로벌 댄서, 한국 소셜, 댄스화 신호를 모아 정리하는 바차타 코리아 일간 브리프 목록.">
     <link rel="canonical" href="https://bachata.co.kr/briefs/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/complete/WantedSansVariable.css">
     <style>
       body { margin: 0; background: #0b0a08; color: #fff7e8; font-family: "SUIT Variable", SUIT, Pretendard, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
       main { width: min(880px, calc(100% - 36px)); margin: 0 auto; padding: 72px 0; }
       a { color: inherit; text-decoration: none; }
       .back { color: #e2ad58; font-weight: 800; }
-      h1 { margin: 24px 0; font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; font-size: clamp(42px, 8vw, 78px); line-height: 0.98; letter-spacing: 0; }
+      h1 { margin: 24px 0; font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-size: clamp(42px, 8vw, 78px); line-height: 0.98; letter-spacing: 0; }
       p { color: rgba(255, 247, 232, 0.68); line-height: 1.7; }
       ul { display: grid; gap: 12px; padding: 0; list-style: none; margin-top: 28px; }
       li a { display: block; padding: 18px; border: 1px solid rgba(255, 247, 232, 0.14); border-radius: 8px; background: rgba(255, 247, 232, 0.06); font-weight: 850; }

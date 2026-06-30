@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>모던 바차타 허브 | 바차타 스타일 허브</title>
-    <meta name="description" content="입문 클래스에서 가장 많이 만나는 모던 바차타의 기본 스텝, 파트너워크, 퓨전 감각을 실전 소셜 관점으로 정리합니다.">
+    <meta name="description" content="입문 클래스에서 가장 자주 만나는 모던 바차타를 기본 스텝, 턴패턴, 거리 회복, 소셜 매너, 센슈얼·도미니칸과의 경계까지 묶어 정리합니다.">
     <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
     <link rel="canonical" href="https://bachata.co.kr/styles/modern.html">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/complete/WantedSansVariable.css">
     <style>
       :root {
         color-scheme: dark;
@@ -23,7 +23,7 @@
         --gold: #e2ad58;
         --wine: #a72c4d;
         --green: #58a999;
-        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+        font-family: "Pretendard Variable", Pretendard, "Wanted Sans Variable", "Wanted Sans", "Noto Sans KR", system-ui, sans-serif;
       }
       * { box-sizing: border-box; }
       body { margin: 0; background: var(--bg); color: var(--ink); }
@@ -35,7 +35,7 @@
       .hero { padding: clamp(64px, 10vw, 126px) max(18px, calc((100vw - 1180px) / 2)) 46px; background: #f3ede3; color: #18130d; }
       .hero-grid { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(320px, 0.46fr); gap: clamp(22px, 5vw, 56px); align-items: end; }
       .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.13em; text-transform: uppercase; }
-      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; word-break: keep-all; }
+      h1, h2, h3 { font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; letter-spacing: 0; word-break: keep-all; }
       h1 { max-width: 900px; margin: 14px 0 18px; font-size: clamp(46px, 8vw, 98px); line-height: 0.95; overflow-wrap: anywhere; }
       .hero p { max-width: 780px; color: rgba(24, 19, 13, 0.72); font-size: clamp(17px, 2vw, 22px); line-height: 1.72; }
       .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050505; }
@@ -62,13 +62,18 @@
       .watch-card-body { padding: 18px; }
       .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
       .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-      .content-card { display: grid; align-content: space-between; min-height: 260px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
+      .content-card { display: grid; align-content: space-between; min-height: 300px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); overflow: hidden; }
+      .content-card.has-video { padding-top: 0; }
+      .content-thumb { position: relative; display: block; min-height: 0; margin: 0 -22px; aspect-ratio: 16 / 9; overflow: hidden; border: 0; border-radius: 0; }
+      .content-thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.88) contrast(1.08); transform: scale(1.02); }
+      .content-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 3, 3, 0.08), rgba(3, 3, 3, 0.54)); }
+      .content-thumb span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border-radius: 999px; background: rgba(12, 11, 9, 0.72); color: var(--ink); font-size: 12px; font-weight: 950; }
       .content-card h3 { margin: 8px 0 10px; font-size: 26px; line-height: 1.08; }
       .content-card p { color: var(--muted); line-height: 1.72; }
       .content-card a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(226, 173, 88, 0.38); border-radius: 999px; color: var(--gold); font-size: 13px; font-weight: 900; }
       .fundamental-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
       .fundamental-card { padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.045); }
-      .fundamental-card strong { display: block; font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; font-size: 20px; line-height: 1.05; }
+      .fundamental-card strong { display: block; font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-size: 20px; line-height: 1.05; }
       .fundamental-card em { display: block; margin: 6px 0 10px; color: var(--gold); font-size: 12px; font-style: normal; font-weight: 950; text-transform: uppercase; }
       .fundamental-card span { display: block; color: var(--muted); font-size: 14px; line-height: 1.6; }
       .side-stack { position: sticky; top: 96px; }
@@ -95,9 +100,9 @@
       "@type": "LearningResource",
       "@id": "https://bachata.co.kr/styles/modern.html",
       "name": "모던 바차타 허브",
-      "description": "입문 클래스에서 가장 많이 만나는 모던 바차타의 기본 스텝, 파트너워크, 퓨전 감각을 실전 소셜 관점으로 정리합니다.",
+      "description": "입문 클래스에서 가장 자주 만나는 모던 바차타를 기본 스텝, 턴패턴, 거리 회복, 소셜 매너, 센슈얼·도미니칸과의 경계까지 묶어 정리합니다.",
       "inLanguage": "ko-KR",
-      "keywords": "모던 바차타, Bachata Fusion, 바차타 입문, 바차타 기본스텝, 바차타 파트너워크",
+      "keywords": "모던 바차타, Bachata Moderna, 바차타 입문, 바차타 턴패턴, 바차타 파트너워크, bachata turn pattern",
       "isPartOf": {
             "@id": "https://bachata.co.kr/styles/"
       },
@@ -127,7 +132,7 @@
         <div>
           <span class="eyebrow">Modern Bachata</span>
           <h1>모던 바차타 허브</h1>
-          <p>입문 클래스에서 가장 많이 만나는 모던 바차타의 기본 스텝, 파트너워크, 퓨전 감각을 실전 소셜 관점으로 정리합니다.</p>
+          <p>입문 클래스에서 가장 자주 만나는 모던 바차타를 기본 스텝, 턴패턴, 거리 회복, 소셜 매너, 센슈얼·도미니칸과의 경계까지 묶어 정리합니다.</p>
           <div class="quick-nav">
             <a href="/styles/">전체 스타일</a>
             <a href="/styles/sensual.html">Sensual Bachata</a><a href="/styles/dominican.html">Dominican Bachata</a><a href="/styles/influence.html">Bachata Influence</a><a href="/styles/bachazouk.html">Bachazouk</a>
@@ -155,26 +160,106 @@
             </div>
             <div class="watch-grid"><article class="watch-card">
           <div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xhrdh-uFkog" title="바차타 기본 스텝과 파트너워크" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xhrdh-uFkog" title="Bachata Beginner Basic Steps Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
           <div class="watch-card-body">
             <span class="tag">Beginner Basics</span>
-            <h3>바차타 기본 스텝과 파트너워크</h3>
-            <p>입문자가 모던 바차타의 기본 구조를 확인하기 좋은 영상.</p>
+            <h3>Bachata Beginner Basic Steps Tutorial</h3>
+            <p>입문자가 기본 스텝과 파트너워크의 큰 구조를 확인하기 좋은 영상.</p>
           </div>
         </article>
 <article class="watch-card">
           <div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dfsSL8QRjrM" title="Bachata Fusion Performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/fSvr8GThrnU" title="8 Bachata Turns For The Party" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
           <div class="watch-card-body">
-            <span class="tag">Fusion Reference</span>
-            <h3>Bachata Fusion Performance</h3>
-            <p>모던/퓨전 계열이 무대에서 어떻게 확장되는지 보는 참고 영상.</p>
+            <span class="tag">Turn Pattern</span>
+            <h3>8 Bachata Turns For The Party</h3>
+            <p>모던 바차타가 왜 턴패턴 중심으로 받아들여지는지 보기 좋은 초급 패턴 영상.</p>
+          </div>
+        </article>
+<article class="watch-card">
+          <div class="video-frame">
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/3RbkiFy7p-k" title="Bachata Directional Turns" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="watch-card-body">
+            <span class="tag">Directional Turns</span>
+            <h3>Bachata Directional Turns</h3>
+            <p>리드와 팔로우가 방향 전환 후 다시 거리와 축을 회복하는 법을 볼 수 있는 자료.</p>
+          </div>
+        </article>
+<article class="watch-card">
+          <div class="video-frame">
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dJNnjZwuGaw" title="Underhanded Easy Bachata Turn Pattern" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="watch-card-body">
+            <span class="tag">Social Pattern</span>
+            <h3>Underhanded Easy Bachata Turn Pattern</h3>
+            <p>소셜에서 과하지 않게 쓰기 좋은 초급 손길과 턴 구조를 관찰하는 영상.</p>
+          </div>
+        </article>
+<article class="watch-card">
+          <div class="video-frame">
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/ARGUYLPTD24" title="Hammerlock Pattern for Improver Moderna" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          <div class="watch-card-body">
+            <span class="tag">Moderna</span>
+            <h3>Hammerlock Pattern for Improver Moderna</h3>
+            <p>Bachata moderna라는 이름이 실제 수업에서 어떤 패턴 언어로 쓰이는지 보여주는 참고 영상.</p>
           </div>
         </article></div>
           </section>
-
+<section>
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">Published</span>
+                <h2>이 스타일로 발행된 콘텐츠</h2>
+              </div>
+              <p>허브에서 바로 읽을 수 있는 심화 기사와 커뮤니티/행사 페이지입니다. 새 영상이 검증되면 이 블록에 계속 붙습니다.</p>
+            </div>
+            <div class="content-grid">
+              <article class="content-card">
+                <div>
+                  <span class="tag">Program</span>
+                  <h3>바차타 입문 20분 루틴</h3>
+                  <p>베이직, 방향 전환, 파트너워크를 영상 순서대로 묶어 초보자가 바로 따라갈 수 있게 만든 학습 경로.</p>
+                </div>
+                <div class="link-row">
+                  <a href="/programs/bachata-starter.html">입문 루틴 보기</a>
+                </div>
+              </article>
+              <article class="content-card">
+                <div>
+                  <span class="tag">Style</span>
+                  <h3>센슈얼과 도미니칸으로 이어지는 다음 길</h3>
+                  <p>모던에서 배운 기본 프레임이 센슈얼 웨이브와 도미니칸 풋워크로 어떻게 분기되는지 비교합니다.</p>
+                </div>
+                <div class="link-row">
+                  <a href="/styles/sensual.html">센슈얼 비교</a>
+                </div>
+              </article>
+              <article class="content-card">
+                <div>
+                  <span class="tag">Article</span>
+                  <h3>글로벌 바차타 댄서 지도</h3>
+                  <p>모던·센슈얼·퓨전 계열에서 자주 언급되는 글로벌 댄서와 영상 레퍼런스를 한 번에 봅니다.</p>
+                </div>
+                <div class="link-row">
+                  <a href="/articles/global-bachata-dancers-watchlist-korea.html">댄서 지도 보기</a>
+                </div>
+              </article>
+              <article class="content-card">
+                <div>
+                  <span class="tag">Community</span>
+                  <h3>한국 바차타 소셜 읽기</h3>
+                  <p>클래스, 동호회, 장소, 행사 정보를 연결해 어디서 모던/센슈얼 수업을 만날 수 있는지 확인합니다.</p>
+                </div>
+                <div class="link-row">
+                  <a href="/korea-scene/">한국씬 보기</a>
+                </div>
+              </article>
+            </div>
+          </section>
 <section>
             <div class="section-head">
               <div>
@@ -184,7 +269,11 @@
               <p>기사, 프로그램, 프로필, 행사, 장비, 소셜 인테이크 큐를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
             </div>
             <div class="content-grid">
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/programs/bachata-starter.html" aria-label="바차타 입문 20분 루틴 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/OcGcZ0IY6s0/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Program</span>
                   <h3>바차타 입문 20분 루틴</h3>
@@ -195,7 +284,11 @@
                   <a href="https://www.youtube.com/watch?v=OcGcZ0IY6s0" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/articles/dominican-bachata-rhythm-footwork-guide.html" aria-label="도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/xmvDKN5cwT0/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Article</span>
                   <h3>도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다</h3>
@@ -206,7 +299,11 @@
                   <a href="https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/profiles/klau-ros.html" aria-label="Klau &amp; Ros 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/9YqwDG2_MqI/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Profile</span>
                   <h3>Klau &amp; Ros</h3>
@@ -217,7 +314,11 @@
                   <a href="https://www.instagram.com/klauyros/" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/profiles/lastdance-people.html" aria-label="라스트댄스 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/0Yytf9NKtfQ/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Profile</span>
                   <h3>라스트댄스</h3>
@@ -228,7 +329,11 @@
                   <a href="https://www.instagram.com/lastdance_people/" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/articles/bachata-sensual-16-fundamentals-korke-judith.html" aria-label="코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/B7Wv3cqHrSU/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Article</span>
                   <h3>코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것</h3>
@@ -239,18 +344,26 @@
                   <a href="https://bachatasensual.com/" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/articles/bachazouk-guide.html" aria-label="Bachazouk를 센슈얼 변형으로만 보면 놓치는 것 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/Qng3Wdmt3WE/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Article</span>
                   <h3>Bachazouk를 센슈얼 변형으로만 보면 놓치는 것</h3>
-                  <p>Bachata와 Brazilian Zouk가 만나는 지점을 안전, 음악성, 문화적 존중의 관점으로 정리한 한국어 가이드.</p>
+                  <p>Bachata와 Brazilian Zouk가 만나는 지점을 안전, 음악성, 커뮤니티 정체성, 문화적 존중의 관점으로 정리한 한국어 가이드.</p>
                 </div>
                 <div class="link-row">
                   <a href="/articles/bachazouk-guide.html">콘텐츠 보기</a>
                   <a href="https://www.bachazouk.com/" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/articles/global-bachata-dancers-watchlist-korea.html" aria-label="한국 바차타 입문자가 먼저 봐야 할 글로벌 댄서 지도 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/j4CmXKDCMzI/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Article</span>
                   <h3>한국 바차타 입문자가 먼저 봐야 할 글로벌 댄서 지도</h3>
@@ -261,7 +374,11 @@
                   <a href="https://www.geroymigle.com/" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/articles/korea-bachata-influence-scene-map.html" aria-label="한국 바차타 Influence 계열 장면을 어디서 볼 수 있나 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/nrJM-arshvE/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Article</span>
                   <h3>한국 바차타 Influence 계열 장면을 어디서 볼 수 있나</h3>
@@ -274,20 +391,69 @@
               </article>
             </div>
           </section>
-
+<section class="section-card">
+            <span class="tag">Pattern Map</span>
+            <h2>모던 바차타를 읽는 6개 구조</h2>
+            <p>모던 바차타는 기술 이름보다 구조를 보는 편이 좋습니다. 아래 기준을 잡으면 영상 속 패턴이 왜 편하거나 불편한지 빠르게 읽을 수 있습니다.</p>
+            <div class="fundamental-grid">
+              <div class="fundamental-card">
+                <strong>Basic step</strong>
+                <em>Pulse and weight</em>
+                <span>패턴 전후에 항상 돌아오는 기본 박자와 체중 이동. 모든 턴의 출발점입니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Open basic</strong>
+                <em>Space control</em>
+                <span>파트너와 거리를 만들고 다시 회복하는 구조. 손보다 몸의 방향이 먼저입니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Inside turn</strong>
+                <em>Clean pathway</em>
+                <span>가장 많이 쓰이는 방향 전환. 팔 높이와 회전축이 편해야 다음 패턴이 이어집니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Wrap / Hammerlock</strong>
+                <em>Arm pathway</em>
+                <span>팔이 접히는 패턴. 어깨 가동 범위를 넘지 않고 짧게 풀어야 소셜에서 안전합니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Cross-body path</strong>
+                <em>Shared lane</em>
+                <span>서로 지나가는 길을 정하는 구조. 주변 공간과 파트너의 보폭을 함께 봅니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Exit</strong>
+                <em>Recovery point</em>
+                <span>패턴을 끝내고 기본으로 돌아오는 지점. 좋은 리드는 멈출 수 있는 길을 항상 남깁니다.</span>
+              </div>
+            </div>
+          </section>
           <section class="section-card">
             <span class="tag">Guide</span>
-            <h2>가장 쉬워 보이지만 기본이 가장 많이 드러나는 스타일</h2>
-            <p>모던 바차타는 패턴을 배우기 쉽고 소셜에서 바로 쓰기 좋아 보입니다. 하지만 프레임, 손의 압력, 걷는 품질, 턴 이후 거리 회복이 약하면 초보자에게 가장 불편한 스타일이 되기도 합니다.</p>
-            <p>그래서 모던 허브는 화려한 콤비네이션보다 기본 연결, 방향 전환, 팔 사용의 절제, 음악 문장에 맞는 패턴 선택을 먼저 다룹니다.</p>
-            <ul><li>기본 스텝이 안정된 뒤 턴 추가</li><li>손보다 몸의 방향으로 리드</li><li>패턴 끝마다 파트너와 거리 회복</li><li>소셜에서는 무대용 장식을 줄이기</li></ul>
+            <h2>모던은 “쉬운 스타일”이 아니라 구조가 잘 보이는 스타일입니다</h2>
+            <p>모던 바차타는 살사식 턴, 랩, 해머락, 인사이드·아웃사이드 턴처럼 구조가 눈에 잘 보이는 파트너워크를 많이 씁니다. 그래서 입문자가 배우기 쉽지만, 손의 압력과 거리 회복이 거칠면 바로 불편한 춤이 됩니다.</p>
+            <p>좋은 모던은 패턴이 많아서 좋은 것이 아니라, 기본 스텝 위에서 방향 전환과 프레임이 깔끔하게 정리되어 상대가 다음 움직임을 예측할 수 있게 만드는 방식입니다.</p>
+            <ul><li>턴 전후 기본 박자 유지</li><li>손으로 당기기보다 몸의 방향으로 안내</li><li>패턴 끝마다 거리와 손 위치 회복</li><li>소셜에서는 무대용 장식보다 파트너의 안정감 우선</li></ul>
+          </section>
+<section class="section-card">
+            <span class="tag">Guide</span>
+            <h2>센슈얼·도미니칸과 섞이기 전에 기준을 나눠야 합니다</h2>
+            <p>현장에서는 모던, 센슈얼, 도미니칸이 늘 섞입니다. 다만 학습 콘텐츠에서는 축을 나눠야 합니다. 모던은 턴과 파트너워크 구조, 센슈얼은 몸의 파동과 프레임, 도미니칸은 음악 문장과 발의 대답으로 읽으면 혼란이 줄어듭니다.</p>
+            <p>초보자는 모던을 먼저 배운 뒤 센슈얼의 바디무브먼트나 도미니칸 풋워크를 얹는 경우가 많습니다. 이때 기본 스텝과 거리 회복이 약하면 모든 퓨전이 과해 보입니다.</p>
+            <ul><li>모던: 턴패턴과 길 안내</li><li>센슈얼: 몸의 파동과 축</li><li>도미니칸: 리듬과 발 장식</li><li>퓨전: 세 기준이 무너지지 않을 때만 확장</li></ul>
+          </section>
+<section class="section-card">
+            <span class="tag">Guide</span>
+            <h2>한국 소셜에서 바로 쓰는 체크리스트</h2>
+            <p>한국 소셜 플로어는 공간이 넓지 않은 경우가 많습니다. 그래서 긴 패턴보다 작은 턴, 짧은 랩, 빠른 거리 회복이 더 실용적입니다. 파트너가 초보인지, 바닥이 미끄러운지, 주변 공간이 비어 있는지 확인하는 습관이 필요합니다.</p>
+            <ul><li>첫 곡에서는 쉬운 기본과 단일 턴으로 레벨 확인</li><li>헤머락·랩은 팔이 편한 범위에서만 사용</li><li>혼잡한 플로어에서는 이동 큰 패턴 줄이기</li><li>패턴을 멈출 수 있는 출구를 항상 준비</li></ul>
           </section>
         </article>
         <aside class="side-stack" aria-label="관련 링크와 출처">
           <section class="side-box">
             <span class="tag">Keywords</span>
             <h2>검색 키워드</h2>
-            <div class="tag-row"><span>모던 바차타</span><span>Bachata Fusion</span><span>바차타 입문</span><span>바차타 기본스텝</span><span>바차타 파트너워크</span></div>
+            <div class="tag-row"><span>모던 바차타</span><span>Bachata Moderna</span><span>바차타 입문</span><span>바차타 턴패턴</span><span>바차타 파트너워크</span><span>bachata turn pattern</span></div>
           </section>
           <section class="side-box">
             <span class="tag">Related</span>
@@ -297,7 +463,7 @@
           <section class="side-box">
             <span class="tag">Sources</span>
             <h2>출처</h2>
-            <div class="link-row"><a href="https://www.youtube.com/watch?v=xhrdh-uFkog" target="_blank" rel="noreferrer">Beginner Video</a><a href="https://www.youtube.com/watch?v=dfsSL8QRjrM" target="_blank" rel="noreferrer">Fusion Video</a></div>
+            <div class="link-row"><a href="https://www.youtube.com/watch?v=xhrdh-uFkog" target="_blank" rel="noreferrer">Beginner Basic Video</a><a href="https://www.youtube.com/watch?v=fSvr8GThrnU" target="_blank" rel="noreferrer">Bachata Turns Video</a><a href="https://www.youtube.com/watch?v=3RbkiFy7p-k" target="_blank" rel="noreferrer">Directional Turns Video</a><a href="https://www.youtube.com/watch?v=dJNnjZwuGaw" target="_blank" rel="noreferrer">Underhanded Pattern Video</a><a href="https://www.youtube.com/watch?v=ARGUYLPTD24" target="_blank" rel="noreferrer">Moderna Hammerlock Video</a><a href="https://www.salsavida.com/articles/the-different-styles-of-bachata-dancing/" target="_blank" rel="noreferrer">Salsa Vida Styles</a><a href="https://www.fortheloveofbachata.com/blog-1/bachatastyles" target="_blank" rel="noreferrer">For the Love of Bachata Styles</a></div>
           </section>
         </aside>
       </div>

@@ -9,8 +9,8 @@
     <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
     <link rel="canonical" href="https://bachata.co.kr/styles/influence.html">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/complete/WantedSansVariable.css">
     <style>
       :root {
         color-scheme: dark;
@@ -23,7 +23,7 @@
         --gold: #e2ad58;
         --wine: #a72c4d;
         --green: #58a999;
-        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+        font-family: "Pretendard Variable", Pretendard, "Wanted Sans Variable", "Wanted Sans", "Noto Sans KR", system-ui, sans-serif;
       }
       * { box-sizing: border-box; }
       body { margin: 0; background: var(--bg); color: var(--ink); }
@@ -35,7 +35,7 @@
       .hero { padding: clamp(64px, 10vw, 126px) max(18px, calc((100vw - 1180px) / 2)) 46px; background: #f3ede3; color: #18130d; }
       .hero-grid { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(320px, 0.46fr); gap: clamp(22px, 5vw, 56px); align-items: end; }
       .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.13em; text-transform: uppercase; }
-      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; word-break: keep-all; }
+      h1, h2, h3 { font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; letter-spacing: 0; word-break: keep-all; }
       h1 { max-width: 900px; margin: 14px 0 18px; font-size: clamp(46px, 8vw, 98px); line-height: 0.95; overflow-wrap: anywhere; }
       .hero p { max-width: 780px; color: rgba(24, 19, 13, 0.72); font-size: clamp(17px, 2vw, 22px); line-height: 1.72; }
       .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050505; }
@@ -62,13 +62,18 @@
       .watch-card-body { padding: 18px; }
       .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
       .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-      .content-card { display: grid; align-content: space-between; min-height: 260px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
+      .content-card { display: grid; align-content: space-between; min-height: 300px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); overflow: hidden; }
+      .content-card.has-video { padding-top: 0; }
+      .content-thumb { position: relative; display: block; min-height: 0; margin: 0 -22px; aspect-ratio: 16 / 9; overflow: hidden; border: 0; border-radius: 0; }
+      .content-thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.88) contrast(1.08); transform: scale(1.02); }
+      .content-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 3, 3, 0.08), rgba(3, 3, 3, 0.54)); }
+      .content-thumb span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border-radius: 999px; background: rgba(12, 11, 9, 0.72); color: var(--ink); font-size: 12px; font-weight: 950; }
       .content-card h3 { margin: 8px 0 10px; font-size: 26px; line-height: 1.08; }
       .content-card p { color: var(--muted); line-height: 1.72; }
       .content-card a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(226, 173, 88, 0.38); border-radius: 999px; color: var(--gold); font-size: 13px; font-weight: 900; }
       .fundamental-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
       .fundamental-card { padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.045); }
-      .fundamental-card strong { display: block; font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; font-size: 20px; line-height: 1.05; }
+      .fundamental-card strong { display: block; font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-size: 20px; line-height: 1.05; }
       .fundamental-card em { display: block; margin: 6px 0 10px; color: var(--gold); font-size: 12px; font-style: normal; font-weight: 950; text-transform: uppercase; }
       .fundamental-card span { display: block; color: var(--muted); font-size: 14px; line-height: 1.6; }
       .side-stack { position: sticky; top: 96px; }
@@ -209,7 +214,9 @@
                   <h3>Emilio &amp; Serap: 인증 강사 네트워크로 확장되는 Influence</h3>
                   <p>Malta 기반 계정과 최근 한국 이벤트 영상을 연결해, 창시자 스타일이 지역 수업과 소셜 이벤트로 번역되는 지점을 추적합니다.</p>
                 </div>
-                <a href="/profiles/emilio-serap.html">프로필 보기</a>
+                <div class="link-row">
+                  <a href="/profiles/emilio-serap.html">프로필 보기</a>
+                </div>
               </article>
               <article class="content-card">
                 <div>
@@ -217,7 +224,9 @@
                   <h3>Bachata Influence는 무엇이 다른가</h3>
                   <p>Melvin &amp; Gatica, Pro Team, 아카데미 구조, 커뮤니티 논쟁을 한국어 입문자가 읽기 쉬운 기준으로 정리한 긴 글.</p>
                 </div>
-                <a href="/articles/bachata-influence-melvin-gatica.html">기사 읽기</a>
+                <div class="link-row">
+                  <a href="/articles/bachata-influence-melvin-gatica.html">기사 읽기</a>
+                </div>
               </article>
               <article class="content-card">
                 <div>
@@ -225,7 +234,9 @@
                   <h3>Bachata Influence 읽는 법</h3>
                   <p>멈춤, 호흡, 악센트, 프레임 회복을 영상으로 체크하는 20분 학습 루틴.</p>
                 </div>
-                <a href="/programs/influence-method.html">프로그램 보기</a>
+                <div class="link-row">
+                  <a href="/programs/influence-method.html">프로그램 보기</a>
+                </div>
               </article>
             </div>
           </section>
@@ -238,7 +249,11 @@
               <p>기사, 프로그램, 프로필, 행사, 장비, 소셜 인테이크 큐를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
             </div>
             <div class="content-grid">
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/articles/bachata-influence-team-map-2026.html" aria-label="Bachata Influence 팀 지도: Melvin &amp; Gatica 이후 누구를 봐야 하나 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/sUy5L7x5pyE/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Article</span>
                   <h3>Bachata Influence 팀 지도: Melvin &amp; Gatica 이후 누구를 봐야 하나</h3>
@@ -249,7 +264,11 @@
                   <a href="https://bachatainfluenceacademy.com/" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/articles/bachata-influence-melvin-gatica.html" aria-label="Bachata Influence는 무엇이 다른가 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/sUy5L7x5pyE/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Article</span>
                   <h3>Bachata Influence는 무엇이 다른가</h3>
@@ -260,7 +279,11 @@
                   <a href="https://bachatainfluenceacademy.com/" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/programs/influence-method.html" aria-label="Bachata Influence 읽는 법 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/sUy5L7x5pyE/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Program</span>
                   <h3>Bachata Influence 읽는 법</h3>
@@ -271,7 +294,11 @@
                   <a href="https://www.youtube.com/watch?v=sUy5L7x5pyE" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/programs/" aria-label="Bachata Influence Tutorial | Melvin &amp; Gatica | Bachata Geneva Festival, Switzerland 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/sUy5L7x5pyE/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">학습 프로그램</span>
                   <h3>Bachata Influence Tutorial | Melvin &amp; Gatica | Bachata Geneva Festival, Switzerland</h3>
@@ -282,7 +309,11 @@
                   <a href="https://www.youtube.com/watch?v=sUy5L7x5pyE" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/profiles/emilio-serap.html" aria-label="Emilio &amp; Serap 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/h4hZt9akWWc/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Profile</span>
                   <h3>Emilio &amp; Serap</h3>
@@ -293,7 +324,11 @@
                   <a href="https://www.instagram.com/emilio_serap_bachata/" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/profiles/melvin-gatica.html" aria-label="Melvin &amp; Gatica 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/sUy5L7x5pyE/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Profile</span>
                   <h3>Melvin &amp; Gatica</h3>
@@ -304,7 +339,11 @@
                   <a href="https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/profiles/emilien-tehina.html" aria-label="Emilien &amp; Tehina 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/FNv7eOMg-_k/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Profile</span>
                   <h3>Emilien &amp; Tehina</h3>
@@ -315,7 +354,11 @@
                   <a href="https://www.youtube.com/watch?v=FNv7eOMg-_k" target="_blank" rel="noreferrer">출처</a>
                 </div>
               </article>
-              <article class="content-card">
+              <article class="content-card has-video">
+                <a class="content-thumb" href="/events/gangnam-latin-festival-2026.html" aria-label="Gangnam Latin Festival 2026 - Bachata Influence 보기">
+          <img loading="lazy" src="https://i.ytimg.com/vi/sUy5L7x5pyE/hqdefault.jpg" alt="">
+          <span>영상 포함</span>
+        </a>
                 <div>
                   <span class="tag">Event</span>
                   <h3>Gangnam Latin Festival 2026 - Bachata Influence</h3>

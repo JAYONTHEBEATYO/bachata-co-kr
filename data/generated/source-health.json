@@ -1,28 +1,14 @@
 {
-  "generatedAt": "2026-06-30T14:13:12.964Z",
+  "generatedAt": "2026-06-30T14:25:08.755Z",
   "generationDate": "2026-06-30",
   "summary": {
-    "total": 160,
-    "ok": 138,
+    "total": 171,
+    "ok": 150,
     "watch": 21,
-    "warn": 1,
+    "warn": 0,
     "broken": 0
   },
   "results": [
-    {
-      "type": "external",
-      "url": "https://developers.google.com/youtube/v3",
-      "label": "https://developers.google.com/youtube/v3",
-      "sources": [
-        {
-          "file": "data/social-intake.json",
-          "path": "sourcePolicy.3.sourceUrl"
-        }
-      ],
-      "status": "warn",
-      "httpStatus": null,
-      "note": "external check timed out or failed: The operation was aborted due to timeout"
-    },
     {
       "type": "external",
       "url": "https://www.instagram.com/__the3d__/",
@@ -691,6 +677,20 @@
     },
     {
       "type": "external",
+      "url": "https://developers.google.com/youtube/v3",
+      "label": "https://developers.google.com/youtube/v3",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.3.sourceUrl"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
       "url": "https://en.wikipedia.org/wiki/Bachata_(dance)",
       "label": "https://en.wikipedia.org/wiki/Bachata_(dance)",
       "sources": [
@@ -1009,6 +1009,20 @@
     },
     {
       "type": "external",
+      "url": "https://www.fortheloveofbachata.com/blog-1/bachatastyles",
+      "label": "https://www.fortheloveofbachata.com/blog-1/bachatastyles",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.sourceLinks.6.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
       "url": "https://www.geroymigle.com/",
       "label": "https://www.geroymigle.com/",
       "sources": [
@@ -1193,6 +1207,20 @@
         {
           "file": "data/articles.json",
           "path": "articles.1.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://www.salsavida.com/articles/the-different-styles-of-bachata-dancing/",
+      "label": "https://www.salsavida.com/articles/the-different-styles-of-bachata-dancing/",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.sourceLinks.5.url"
         }
       ],
       "status": "ok",
@@ -1495,6 +1523,10 @@
         {
           "file": "data/style-guides.json",
           "path": "guides.4.related.0.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.contentDrops.0.url"
         }
       ],
       "status": "ok",
@@ -1525,6 +1557,20 @@
         {
           "file": "data/style-guides.json",
           "path": "guides.1.contentDrops.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/articles/global-bachata-dancers-watchlist-korea.html",
+      "label": "/articles/global-bachata-dancers-watchlist-korea.html",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.contentDrops.2.url"
         }
       ],
       "status": "ok",
@@ -1853,6 +1899,10 @@
         {
           "file": "data/style-guides.json",
           "path": "guides.0.contentDrops.4.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.contentDrops.3.url"
         }
       ],
       "status": "ok",
@@ -1864,6 +1914,10 @@
       "url": "/korea-scene/",
       "label": "/korea-scene/",
       "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.contentDrops.3.url"
+        },
         {
           "file": "data/profiles.json",
           "path": "profiles.15.related.0.url"
@@ -2157,6 +2211,20 @@
     },
     {
       "type": "internal",
+      "url": "/programs/bachata-starter.html",
+      "label": "/programs/bachata-starter.html",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.contentDrops.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
       "url": "/programs/bachazouk-safety.html",
       "label": "/programs/bachazouk-safety.html",
       "sources": [
@@ -2167,6 +2235,10 @@
         {
           "file": "data/editorial-desk.json",
           "path": "queue.4.internalLinks.0.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.contentDrops.1.url"
         }
       ],
       "status": "ok",
@@ -2450,7 +2522,15 @@
         },
         {
           "file": "data/style-guides.json",
+          "path": "guides.2.contentDrops.1.url"
+        },
+        {
+          "file": "data/style-guides.json",
           "path": "guides.4.related.1.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.contentDrops.2.url"
         },
         {
           "file": "data/profiles.json",
@@ -2543,6 +2623,26 @@
     },
     {
       "type": "youtube",
+      "videoId": "3RbkiFy7p-k",
+      "url": "https://www.youtube.com/watch?v=3RbkiFy7p-k",
+      "label": "Bachata Directional Turns",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.watchlist.2.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Bachata Directional Turns (for Leads & Follows)",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
       "videoId": "4BwmF3jNiLE",
       "url": "https://www.youtube.com/watch?v=4BwmF3jNiLE",
       "label": "https://www.youtube.com/watch?v=4BwmF3jNiLE",
@@ -2566,10 +2666,6 @@
         {
           "file": "data/sources.json",
           "path": "topics.1.sources.3"
-        },
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.4.watchlist.1.videoId"
         }
       ],
       "status": "ok",
@@ -2623,6 +2719,26 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Klau y Ros [EXPLICALE] @ Miami Bachata Paradise 2025 🦩",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "ARGUYLPTD24",
+      "url": "https://www.youtube.com/watch?v=ARGUYLPTD24",
+      "label": "Hammerlock Pattern for Improver Moderna",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.watchlist.4.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.sourceLinks.4.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Learn Bachata, Tutorial 14: Hammerlock pattern (improver moderna)",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -2783,22 +2899,22 @@
     },
     {
       "type": "youtube",
-      "videoId": "dfsSL8QRjrM",
-      "url": "https://www.youtube.com/watch?v=dfsSL8QRjrM",
-      "label": "Bachata Fusion Performance",
+      "videoId": "dJNnjZwuGaw",
+      "url": "https://www.youtube.com/watch?v=dJNnjZwuGaw",
+      "label": "Underhanded Easy Bachata Turn Pattern",
       "sources": [
         {
           "file": "data/style-guides.json",
-          "path": "guides.2.watchlist.1.videoId"
+          "path": "guides.2.watchlist.3.videoId"
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.2.sourceLinks.1.url"
+          "path": "guides.2.sourceLinks.3.url"
         }
       ],
       "status": "ok",
       "httpStatus": 200,
-      "title": "Ed Sheeran - Perfect  - Carlos Espinosa y M Angeles | BACHATA FUSION",
+      "title": "Underhanded - Easy Bachata Turn Pattern for Beginners (Demo)",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -2879,6 +2995,26 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "KISF 2016 Korky & Judith - Bachata Sensual fundamentals",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "fSvr8GThrnU",
+      "url": "https://www.youtube.com/watch?v=fSvr8GThrnU",
+      "label": "8 Bachata Turns For The Party",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.watchlist.1.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.2.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "8 Bachata Turns For The Party! | Beginner Bachata Tutorial",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -3079,6 +3215,34 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "🔥 Bachata Sensual : Top 6 Mistakes and How to Fix Them 💃🕺🏻",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "j4BtUL6ZI-g",
+      "url": "https://www.youtube.com/watch?v=j4BtUL6ZI-g",
+      "label": "Is BachaZouk an Evolution of Bachata",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.watchlist.1.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.3.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.3.watchlist.0.videoId"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Is BachaZouk an Evolution of Bachata - Erick Ortiz x Chesco Leveratto",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -3323,6 +3487,34 @@
     },
     {
       "type": "youtube",
+      "videoId": "PNUNftRM2yo",
+      "url": "https://www.youtube.com/watch?v=PNUNftRM2yo",
+      "label": "Uniting the Bachata and Brazilian Zouk Communities",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.watchlist.2.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.sourceLinks.3.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.3.sourceLinks.3.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.3.watchlist.1.videoId"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "BachaZouk - Uniting the Bachata and Brazilian Zouk Communities in July 2022",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
       "videoId": "qLKSM3wwQ8I",
       "url": "https://www.youtube.com/watch?v=qLKSM3wwQ8I",
       "label": "Pana Mio Dance Sneakers",
@@ -3369,7 +3561,7 @@
         },
         {
           "file": "data/style-guides.json",
-          "path": "guides.4.sourceLinks.2.url"
+          "path": "guides.4.sourceLinks.6.url"
         },
         {
           "file": "data/articles.json",
@@ -3377,12 +3569,40 @@
         },
         {
           "file": "data/articles.json",
-          "path": "articles.3.sourceLinks.2.url"
+          "path": "articles.3.sourceLinks.6.url"
         }
       ],
       "status": "ok",
       "httpStatus": 200,
       "title": "BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "sRzESqw1L9c",
+      "url": "https://www.youtube.com/watch?v=sRzESqw1L9c",
+      "label": "BachaZouk in New York City - Chesco + Valentina",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.watchlist.4.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.sourceLinks.5.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.3.sourceLinks.5.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.3.watchlist.3.videoId"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Santa de Mi Devoción by Tutto Durán | BachaZouk in New York City - Chesco + Valentina",
       "note": "YouTube oEmbed ok"
     },
     {
@@ -3667,6 +3887,34 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "바차타 소셜패턴2  A팀    솔 꽃님 밀라  레벨업 파티 라스트댄스 Last Dance - 보니따 2026.04.26",
+      "note": "YouTube oEmbed ok"
+    },
+    {
+      "type": "youtube",
+      "videoId": "zJBdsHceF8o",
+      "url": "https://www.youtube.com/watch?v=zJBdsHceF8o",
+      "label": "Bachazouk. Is It Still Bachata?",
+      "sources": [
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.watchlist.3.videoId"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.4.sourceLinks.4.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.3.sourceLinks.4.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.3.watchlist.2.videoId"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Bachazouk. Is It Still Bachata?",
       "note": "YouTube oEmbed ok"
     },
     {

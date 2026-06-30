@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T14:13:13.138Z",
+  "generatedAt": "2026-06-30T14:32:47.098Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -101,18 +101,18 @@
           "videoId": "xmvDKN5cwT0"
         },
         {
+          "label": "Article",
+          "title": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
+          "url": "/articles/bachazouk-guide.html",
+          "score": 56,
+          "videoId": "Qng3Wdmt3WE"
+        },
+        {
           "label": "Program",
           "title": "바차타 입문 20분 루틴",
           "url": "/programs/bachata-starter.html",
           "score": 56,
           "videoId": "OcGcZ0IY6s0"
-        },
-        {
-          "label": "Article",
-          "title": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
-          "url": "/articles/bachazouk-guide.html",
-          "score": 48,
-          "videoId": "Qng3Wdmt3WE"
         },
         {
           "label": "Article",
@@ -150,10 +150,11 @@
       "url": "/styles/modern.html",
       "keywords": [
         "모던 바차타",
-        "Bachata Fusion",
+        "Bachata Moderna",
         "바차타 입문",
-        "바차타 기본스텝",
-        "바차타 파트너워크"
+        "바차타 턴패턴",
+        "바차타 파트너워크",
+        "bachata turn pattern"
       ],
       "heroVideo": "xhrdh-uFkog",
       "relatedContent": [
@@ -161,7 +162,7 @@
           "label": "Program",
           "title": "바차타 입문 20분 루틴",
           "url": "/programs/bachata-starter.html",
-          "score": 96,
+          "score": 88,
           "videoId": "OcGcZ0IY6s0"
         },
         {
@@ -304,7 +305,7 @@
           "label": "Article",
           "title": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
           "url": "/articles/bachazouk-guide.html",
-          "score": 120,
+          "score": 144,
           "videoId": "Qng3Wdmt3WE"
         },
         {

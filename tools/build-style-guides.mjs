@@ -41,6 +41,10 @@ const videoWatchUrl = (video = {}) => {
   return `https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}${start}`;
 };
 
+const youtubeThumb = (videoId) => videoId
+  ? `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`
+  : "";
+
 const renderLinks = (links = []) => links.map((link) => {
   const external = /^https?:\/\//.test(link.url);
   return `<a href="${escapeHtml(link.url)}"${external ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>${escapeHtml(link.label)}</a>`;
@@ -51,6 +55,34 @@ const renderVideo = (video, className = "video-frame") => {
   return `<div class="${className}">
             <iframe loading="lazy" src="${videoEmbedUrl(video)}" title="${escapeHtml(video.title || "Bachata reference video")}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>`;
+};
+
+const renderContentCard = (item, options = {}) => {
+  const url = escapeHtml(item.url);
+  const sourceLink = item.sourceUrl && /^https?:\/\//.test(item.sourceUrl)
+    ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">출처</a>`
+    : "";
+  const thumb = item.videoId
+    ? `<a class="content-thumb" href="${url}" aria-label="${escapeHtml(item.title)} 보기">
+          <img loading="lazy" src="${escapeHtml(youtubeThumb(item.videoId))}" alt="">
+          <span>영상 포함</span>
+        </a>`
+    : "";
+  const links = [
+    `<a href="${url}">${escapeHtml(options.cta || item.cta || "콘텐츠 보기")}</a>`,
+    sourceLink
+  ].filter(Boolean).join("\n                  ");
+
+  return `<article class="content-card${item.videoId ? " has-video" : ""}">
+                ${thumb ? `${thumb}\n                ` : ""}<div>
+                  <span class="tag">${escapeHtml(item.label)}</span>
+                  <h3>${escapeHtml(item.title)}</h3>
+                  <p>${escapeHtml(item.description || "관련 기사와 영상 자료를 이어서 볼 수 있는 콘텐츠입니다.")}</p>
+                </div>
+                <div class="link-row">
+                  ${links}
+                </div>
+              </article>`;
 };
 
 const styleTerms = {
@@ -190,8 +222,8 @@ const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
     <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
     <link rel="canonical" href="${escapeHtml(canonical)}">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">`;
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/complete/WantedSansVariable.css">`;
 
 const styles = `    <style>
       :root {
@@ -205,7 +237,7 @@ const styles = `    <style>
         --gold: #e2ad58;
         --wine: #a72c4d;
         --green: #58a999;
-        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+        font-family: "Pretendard Variable", Pretendard, "Wanted Sans Variable", "Wanted Sans", "Noto Sans KR", system-ui, sans-serif;
       }
       * { box-sizing: border-box; }
       body { margin: 0; background: var(--bg); color: var(--ink); }
@@ -217,7 +249,7 @@ const styles = `    <style>
       .hero { padding: clamp(64px, 10vw, 126px) max(18px, calc((100vw - 1180px) / 2)) 46px; background: #f3ede3; color: #18130d; }
       .hero-grid { display: grid; grid-template-columns: minmax(0, 0.78fr) minmax(320px, 0.46fr); gap: clamp(22px, 5vw, 56px); align-items: end; }
       .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.13em; text-transform: uppercase; }
-      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; word-break: keep-all; }
+      h1, h2, h3 { font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; letter-spacing: 0; word-break: keep-all; }
       h1 { max-width: 900px; margin: 14px 0 18px; font-size: clamp(46px, 8vw, 98px); line-height: 0.95; overflow-wrap: anywhere; }
       .hero p { max-width: 780px; color: rgba(24, 19, 13, 0.72); font-size: clamp(17px, 2vw, 22px); line-height: 1.72; }
       .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050505; }
@@ -244,13 +276,18 @@ const styles = `    <style>
       .watch-card-body { padding: 18px; }
       .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
       .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-      .content-card { display: grid; align-content: space-between; min-height: 260px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
+      .content-card { display: grid; align-content: space-between; min-height: 300px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); overflow: hidden; }
+      .content-card.has-video { padding-top: 0; }
+      .content-thumb { position: relative; display: block; min-height: 0; margin: 0 -22px; aspect-ratio: 16 / 9; overflow: hidden; border: 0; border-radius: 0; }
+      .content-thumb img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.88) contrast(1.08); transform: scale(1.02); }
+      .content-thumb::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3, 3, 3, 0.08), rgba(3, 3, 3, 0.54)); }
+      .content-thumb span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border-radius: 999px; background: rgba(12, 11, 9, 0.72); color: var(--ink); font-size: 12px; font-weight: 950; }
       .content-card h3 { margin: 8px 0 10px; font-size: 26px; line-height: 1.08; }
       .content-card p { color: var(--muted); line-height: 1.72; }
       .content-card a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(226, 173, 88, 0.38); border-radius: 999px; color: var(--gold); font-size: 13px; font-weight: 900; }
       .fundamental-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
       .fundamental-card { padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.045); }
-      .fundamental-card strong { display: block; font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; font-size: 20px; line-height: 1.05; }
+      .fundamental-card strong { display: block; font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-size: 20px; line-height: 1.05; }
       .fundamental-card em { display: block; margin: 6px 0 10px; color: var(--gold); font-size: 12px; font-style: normal; font-weight: 950; text-transform: uppercase; }
       .fundamental-card span { display: block; color: var(--muted); font-size: 14px; line-height: 1.6; }
       .side-stack { position: sticky; top: 96px; }
@@ -411,14 +448,7 @@ const renderGuide = (guide, allGuides) => {
               <p>허브에서 바로 읽을 수 있는 심화 기사와 커뮤니티/행사 페이지입니다. 새 영상이 검증되면 이 블록에 계속 붙습니다.</p>
             </div>
             <div class="content-grid">
-              ${guide.contentDrops.map((item) => `<article class="content-card">
-                <div>
-                  <span class="tag">${escapeHtml(item.label)}</span>
-                  <h3>${escapeHtml(item.title)}</h3>
-                  <p>${escapeHtml(item.description)}</p>
-                </div>
-                <a href="${escapeHtml(item.url)}">${escapeHtml(item.cta || "읽기")}</a>
-              </article>`).join("\n              ")}
+              ${guide.contentDrops.map((item) => renderContentCard(item)).join("\n              ")}
             </div>
           </section>` : "";
   const relatedContent = guide.relatedContent?.length ? `<section>
@@ -430,17 +460,7 @@ const renderGuide = (guide, allGuides) => {
               <p>기사, 프로그램, 프로필, 행사, 장비, 소셜 인테이크 큐를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
             </div>
             <div class="content-grid">
-              ${guide.relatedContent.map((item) => `<article class="content-card">
-                <div>
-                  <span class="tag">${escapeHtml(item.label)}</span>
-                  <h3>${escapeHtml(item.title)}</h3>
-                  <p>${escapeHtml(item.description || "관련 출처와 영상 신호를 묶은 다음 발행 후보입니다.")}</p>
-                </div>
-                <div class="link-row">
-                  <a href="${escapeHtml(item.url)}">콘텐츠 보기</a>
-                  ${item.sourceUrl && /^https?:\/\//.test(item.sourceUrl) ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">출처</a>` : ""}
-                </div>
-              </article>`).join("\n              ")}
+              ${guide.relatedContent.map((item) => renderContentCard(item, { cta: "콘텐츠 보기" })).join("\n              ")}
             </div>
           </section>` : "";
   const fundamentals = guide.fundamentals?.length ? `<section class="section-card">
