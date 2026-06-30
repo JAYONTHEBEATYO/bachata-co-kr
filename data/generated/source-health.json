@@ -1,14 +1,28 @@
 {
-  "generatedAt": "2026-06-30T10:46:28.325Z",
+  "generatedAt": "2026-06-30T11:04:05.215Z",
   "generationDate": "2026-06-30",
   "summary": {
     "total": 113,
-    "ok": 100,
+    "ok": 99,
     "watch": 13,
-    "warn": 0,
+    "warn": 1,
     "broken": 0
   },
   "results": [
+    {
+      "type": "external",
+      "url": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
+      "label": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
+      "sources": [
+        {
+          "file": "data/articles.json",
+          "path": "articles.2.sourceLinks.2.url"
+        }
+      ],
+      "status": "warn",
+      "httpStatus": null,
+      "note": "external check timed out or failed: The operation was aborted due to timeout"
+    },
     {
       "type": "external",
       "url": "https://www.instagram.com/andiysilviabs/",
@@ -695,20 +709,6 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "external URL reachable"
-    },
-    {
-      "type": "external",
-      "url": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
-      "label": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
-      "sources": [
-        {
-          "file": "data/articles.json",
-          "path": "articles.2.sourceLinks.2.url"
         }
       ],
       "status": "ok",
