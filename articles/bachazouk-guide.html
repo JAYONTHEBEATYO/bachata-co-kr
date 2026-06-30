@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>Bachazouk를 센슈얼 변형으로만 보면 놓치는 것 | 바차타 코리아</title>
+    <meta name="description" content="Bachata와 Brazilian Zouk가 만나는 지점을 안전, 음악성, 문화적 존중의 관점으로 정리한 한국어 가이드.">
+    <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
+    <link rel="canonical" href="https://bachata.co.kr/articles/bachazouk-guide.html">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b0a08;
+        --panel: #17130f;
+        --ink: #fff7e8;
+        --muted: rgba(255, 247, 232, 0.68);
+        --line: rgba(255, 247, 232, 0.14);
+        --gold: #e2ad58;
+        --wine: #9d2447;
+        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); }
+      a { color: inherit; text-decoration: none; }
+      .nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 0 max(18px, calc((100vw - 1180px) / 2)); border-bottom: 1px solid var(--line); background: rgba(11, 10, 8, 0.92); backdrop-filter: blur(18px); }
+      .brand strong { display: block; font-size: 20px; }
+      .brand span { color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+      .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; font-weight: 850; }
+      .hero { padding: clamp(68px, 10vw, 126px) max(18px, calc((100vw - 1180px) / 2)) 56px; background: #f3ede3; color: #17120b; }
+      .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.12em; text-transform: uppercase; }
+      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; }
+      h1 { max-width: 980px; margin: 14px 0 20px; font-size: clamp(46px, 8vw, 96px); line-height: 0.97; word-break: keep-all; overflow-wrap: anywhere; }
+      .hero p { max-width: 760px; color: rgba(23, 18, 11, 0.72); font-size: clamp(17px, 2vw, 21px); line-height: 1.7; }
+      .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+      .meta span { display: inline-flex; align-items: center; min-height: 34px; padding: 0 12px; border: 1px solid rgba(23, 18, 11, 0.14); border-radius: 999px; font-size: 13px; font-weight: 900; }
+      main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 54px 0 90px; }
+      .article-grid { display: grid; grid-template-columns: minmax(0, 0.76fr) minmax(300px, 0.24fr); gap: 24px; align-items: start; }
+      .prose { display: grid; gap: 30px; }
+      .summary { display: grid; gap: 12px; padding: clamp(22px, 4vw, 34px); border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
+      .summary p, .section p, .side p { color: var(--muted); line-height: 1.82; font-size: 17px; }
+      .section { padding-top: 30px; border-top: 1px solid var(--line); }
+      .section h2 { margin: 0 0 16px; font-size: clamp(30px, 4vw, 50px); line-height: 1.06; }
+      .section ul { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: rgba(255, 247, 232, 0.74); line-height: 1.65; }
+      .video-frame { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #030303; }
+      .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .side { position: sticky; top: 96px; display: grid; gap: 14px; }
+      .side-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
+      .source-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .source-links a, .article-card a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 10px; border: 1px solid rgba(226, 173, 88, 0.36); border-radius: 999px; color: var(--gold); font-size: 12px; font-weight: 900; }
+      .article-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+      .article-card { min-height: 300px; display: grid; align-content: space-between; gap: 16px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
+      .article-card h2 { margin: 10px 0 0; font-size: 30px; line-height: 1.08; }
+      .article-card p { color: var(--muted); line-height: 1.68; }
+      @media (max-width: 880px) {
+        .nav-links { display: none; }
+        .article-grid, .article-list { grid-template-columns: 1fr; }
+        .side { position: static; }
+        h1 { font-size: clamp(42px, 13vw, 64px); }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://bachata.co.kr/articles/bachazouk-guide.html",
+      "headline": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
+      "description": "Bachata와 Brazilian Zouk가 만나는 지점을 안전, 음악성, 문화적 존중의 관점으로 정리한 한국어 가이드.",
+      "datePublished": "2026-06-30T00:00:00+09:00",
+      "dateModified": "2026-06-30T00:00:00+09:00",
+      "inLanguage": "ko-KR",
+      "keywords": "Bachazouk, BachaZouk, Brazilian Zouk, 바차주크, bachata zouk",
+      "isPartOf": {
+            "@id": "https://bachata.co.kr/#website"
+      },
+      "mainEntityOfPage": "https://bachata.co.kr/articles/bachazouk-guide.html",
+      "video": {
+            "@type": "VideoObject",
+            "name": "BachaZouk Tutorial | Azael & Marta",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE",
+            "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE"
+      }
+}
+    </script>
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
+      <nav class="nav-links" aria-label="기사 이동">
+        <a href="/">홈</a>
+        <a href="/articles/">기사</a>
+        <a href="/briefs/">브리프</a>
+        <a href="/#publishing-os">발행 시스템</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <span class="eyebrow">Bachazouk</span>
+      <h1>Bachazouk를 센슈얼 변형으로만 보면 놓치는 것</h1>
+      <p>Bachata와 Brazilian Zouk가 만나는 지점을 안전, 음악성, 문화적 존중의 관점으로 정리한 한국어 가이드.</p>
+      <div class="meta">
+        <span>2026년 6월 30일 업데이트</span>
+        <span>Bachazouk</span><span>BachaZouk</span><span>Brazilian Zouk</span><span>바차주크</span><span>bachata zouk</span>
+      </div>
+    </section>
+    <main>
+      <div class="article-grid">
+        <article class="prose">
+          <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE" title="BachaZouk Tutorial | Azael &amp; Marta" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          <section class="summary">
+            <p>Bachazouk는 bachata에 주크 모양을 얹는 유행어가 아니라, 두 장르의 뿌리와 움직임을 동시에 존중하려는 정체성으로 소개되고 있습니다.</p>
+              <p>한국 독자에게는 헤드무브, 틸트, 바디웨이브의 화려함보다 안전한 축, 리드 신호, 음악 선택 기준을 먼저 설명하는 편이 필요합니다.</p>
+          </section>
+          <section class="section">
+            <h2>Zoukchata와 BachaZouk의 차이</h2>
+            <p>공식 BachaZouk 글은 예전부터 소셜 플로어에서 bachata와 Brazilian Zouk 움직임을 섞는 일이 있었고, 이를 casual하게 Zoukchata라고 부르기도 했다고 설명합니다. BachaZouk는 그보다 더 의도적인 이름과 커뮤니티 정체성으로 소개됩니다.</p>
+              <p>중요한 지점은 fusion이 뿌리를 흐리는 방향이 아니라 Dominican Bachata와 Brazilian Zouk를 각각 공부하고 존중하는 방향이어야 한다는 점입니다.</p>
+            
+          </section>
+          <section class="section">
+            <h2>한국 수업에서 먼저 정리해야 할 안전 기준</h2>
+            <p>Bachazouk 영상은 초보자가 보기엔 멋지지만, 목과 허리의 방향 전환이 들어가는 순간 난도가 급격히 올라갑니다. 따라서 콘텐츠는 '멋진 동작'보다 어떤 조건에서 하지 말아야 하는지부터 써야 합니다.</p>
+              <p>특히 헤드무브는 리더가 던지는 기술이 아니라 팔로워가 자기 축과 목의 가동 범위를 유지한 상태에서 선택하는 움직임에 가깝게 설명해야 합니다.</p>
+            <ul><li>리더: 목을 밀거나 당기는 신호를 만들지 않기</li><li>팔로워: 축이 사라지면 즉시 작은 동작으로 줄이기</li><li>둘 다: 느린 음악에서 먼저 합의된 범위로 연습하기</li></ul>
+          </section>
+          <section class="section">
+            <h2>콘텐츠 시리즈 방향</h2>
+            <p>Bachazouk 시리즈는 기술 소개, 안전 가이드, 음악 추천, Brazilian Zouk 입문 자료, 국내 워크숍 신호를 묶어 운영할 수 있습니다. 매일 브리프에서 영상 후보가 쌓이면 이 기사에 관련 영상과 한국 수업 정보를 연결합니다.</p>
+            
+          </section>
+        </article>
+        <aside class="side" aria-label="기사 출처와 관련 기사">
+          <div class="side-card">
+            <span class="tag">Sources</span>
+            <p>공식/공개 출처를 바탕으로 한국어 독자에게 맞게 재편집했습니다.</p>
+            <div class="source-links"><a href="https://www.bachazouk.com/" target="_blank" rel="noreferrer">BachaZouk Official</a><a href="https://www.bachazouk.com/posts/what-is-bachazouk" target="_blank" rel="noreferrer">What is BachaZouk</a><a href="https://www.youtube.com/watch?v=Qng3Wdmt3WE" target="_blank" rel="noreferrer">Tutorial Reference</a></div>
+          </div>
+          <div class="side-card">
+            <span class="tag">Related</span>
+            <div class="source-links"><a href="/articles/bachata-influence-melvin-gatica.html">Bachata Influence는 무엇이 다른가</a><a href="/articles/bachata-dance-shoes-korea.html">바차타 댄스화, 브랜드보다 먼저 봐야 할 기준</a></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>

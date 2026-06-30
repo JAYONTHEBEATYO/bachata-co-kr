@@ -6,6 +6,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const signalsPath = resolve(root, "data/generated/scene-signals.json");
 const latestPath = resolve(root, "data/generated/latest-brief.json");
 const briefsDir = resolve(root, "briefs");
+const articlesDir = resolve(root, "articles");
+const articleIndexPath = resolve(root, "data/generated/article-index.json");
 const sitemapPath = resolve(root, "sitemap.xml");
 
 const topicNotes = {
@@ -200,6 +202,7 @@ const renderBriefHtml = (signals) => {
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
       <nav class="nav-links" aria-label="브리프 이동">
         <a href="/">홈</a>
+        <a href="/articles/">기사</a>
         <a href="/#trend-desk">트렌드</a>
         <a href="/#publishing-os">발행 시스템</a>
         <a href="/briefs/">브리프 목록</a>
@@ -220,7 +223,7 @@ const renderBriefHtml = (signals) => {
       ${topics}
     </main>
     <footer class="footer">
-      <p>Source map: <a href="/data/sources.json">data/sources.json</a> · Generated data: <a href="/data/generated/scene-signals.json">scene-signals.json</a></p>
+      <p>Source map: <a href="/data/sources.json">data/sources.json</a> · Generated data: <a href="/data/generated/scene-signals.json">scene-signals.json</a> · Articles: <a href="/articles/">articles/</a></p>
     </footer>
   </body>
 </html>
@@ -270,6 +273,7 @@ const renderBriefIndex = async (signals) => {
       <a class="back" href="/">← 바차타 코리아 홈</a>
       <h1>바차타 씬 브리프</h1>
       <p>자동 수집 후보를 편집 질문과 함께 정리하는 일간 브리프입니다. API 키가 연결될수록 YouTube, Naver, Instagram Graph 신호가 더 풍부해집니다.</p>
+      <p><a class="back" href="/articles/">영구 기사 라이브러리 보기</a></p>
       <ul>${items}</ul>
     </main>
   </body>
@@ -286,6 +290,23 @@ const updateSitemap = async (dateText) => {
   }
   if (!briefFiles.includes(`${dateText}.html`)) briefFiles.unshift(`${dateText}.html`);
 
+  let articles = [];
+  try {
+    const articleIndex = await readJson(articleIndexPath);
+    articles = articleIndex.articles || [];
+  } catch {
+    try {
+      articles = (await readdir(articlesDir))
+        .filter((name) => name.endsWith(".html") && name !== "index.html")
+        .map((name) => ({
+          url: `/articles/${name}`,
+          updatedAt: dateText
+        }));
+    } catch {
+      articles = [];
+    }
+  }
+
   const briefUrls = briefFiles.map((file) => {
     const day = file.replace(".html", "");
     return `  <url>
@@ -295,6 +316,13 @@ const updateSitemap = async (dateText) => {
     <priority>0.7</priority>
   </url>`;
   }).join("\n");
+
+  const articleUrls = articles.map((article) => `  <url>
+    <loc>https://bachata.co.kr${article.url}</loc>
+    <lastmod>${article.updatedAt || dateText}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>`).join("\n");
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -311,6 +339,13 @@ const updateSitemap = async (dateText) => {
     <priority>0.8</priority>
   </url>
 ${briefUrls}
+  <url>
+    <loc>https://bachata.co.kr/articles/</loc>
+    <lastmod>${dateText}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+${articleUrls}
   <url>
     <loc>http://test.bachata.co.kr/</loc>
     <lastmod>2026-06-30</lastmod>
