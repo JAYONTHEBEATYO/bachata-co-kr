@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T15:05:52.151Z",
+  "generatedAt": "2026-06-30T16:04:14.257Z",
   "generationDate": "2026-07-01",
   "summary": {
     "total": 170,
@@ -493,6 +493,10 @@
       "label": "https://academy.bachatasensual.com/",
       "sources": [
         {
+          "file": "data/programs.json",
+          "path": "programs.1.sourceLinks.3.url"
+        },
+        {
           "file": "data/style-guides.json",
           "path": "guides.0.sourceLinks.7.url"
         },
@@ -571,6 +575,10 @@
         {
           "file": "data/sources.json",
           "path": "topics.2.sources.6"
+        },
+        {
+          "file": "data/programs.json",
+          "path": "programs.1.sourceLinks.0.url"
         },
         {
           "file": "data/style-guides.json",
@@ -829,6 +837,10 @@
       "label": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514",
       "sources": [
         {
+          "file": "data/programs.json",
+          "path": "programs.2.sourceLinks.0.url"
+        },
+        {
           "file": "data/style-guides.json",
           "path": "guides.1.sourceLinks.0.url"
         },
@@ -995,6 +1007,10 @@
       "label": "https://www.dominicanembassy.in/blogcult2021/bachata",
       "sources": [
         {
+          "file": "data/programs.json",
+          "path": "programs.2.sourceLinks.1.url"
+        },
+        {
           "file": "data/style-guides.json",
           "path": "guides.1.sourceLinks.1.url"
         },
@@ -1121,6 +1137,10 @@
       "label": "https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic",
       "sources": [
         {
+          "file": "data/programs.json",
+          "path": "programs.2.sourceLinks.2.url"
+        },
+        {
           "file": "data/style-guides.json",
           "path": "guides.1.sourceLinks.6.url"
         },
@@ -1195,6 +1215,10 @@
         {
           "file": "data/social-intake.json",
           "path": "sourcePolicy.4.sourceUrl"
+        },
+        {
+          "file": "data/programs.json",
+          "path": "programs.1.sourceLinks.1.url"
         },
         {
           "file": "data/style-guides.json",
@@ -2750,6 +2774,10 @@
           "path": "programs.1.modules.0.url"
         },
         {
+          "file": "data/programs.json",
+          "path": "programs.1.sourceLinks.2.url"
+        },
+        {
           "file": "data/style-guides.json",
           "path": "guides.0.heroVideo.id"
         },
@@ -2807,8 +2835,12 @@
       "type": "youtube",
       "videoId": "csvyhfrLv74",
       "url": "https://www.youtube.com/watch?v=csvyhfrLv74",
-      "label": "음악에 맞춘 도미니칸 풋워크",
+      "label": "Dominican Bachata Basic Footwork",
       "sources": [
+        {
+          "file": "data/programs.json",
+          "path": "programs.2.watchlist.0.videoId"
+        },
         {
           "file": "data/style-guides.json",
           "path": "guides.1.watchlist.1.videoId"
@@ -2975,8 +3007,12 @@
       "type": "youtube",
       "videoId": "FSP1AXI_gxQ",
       "url": "https://www.youtube.com/watch?v=FSP1AXI_gxQ",
-      "label": "Korke & Judith fundamentals archive",
+      "label": "KISF 2016 Korky & Judith - Bachata Sensual fundamentals",
       "sources": [
+        {
+          "file": "data/programs.json",
+          "path": "programs.1.watchlist.2.videoId"
+        },
         {
           "file": "data/style-guides.json",
           "path": "guides.0.watchlist.4.videoId"
@@ -3186,6 +3222,10 @@
       "label": "Bachata Sensual Top 6 Mistakes",
       "sources": [
         {
+          "file": "data/programs.json",
+          "path": "programs.1.watchlist.1.videoId"
+        },
+        {
           "file": "data/style-guides.json",
           "path": "guides.0.watchlist.3.videoId"
         },
@@ -3363,8 +3403,12 @@
       "type": "youtube",
       "videoId": "mLIT9UaZ_4w",
       "url": "https://www.youtube.com/watch?v=mLIT9UaZ_4w",
-      "label": "Onda / Wave / Body Roll",
+      "label": "Onda, Wave, Body Roll with Korke y Judith",
       "sources": [
+        {
+          "file": "data/programs.json",
+          "path": "programs.1.watchlist.0.videoId"
+        },
         {
           "file": "data/style-guides.json",
           "path": "guides.0.watchlist.1.videoId"
@@ -3691,8 +3735,12 @@
       "type": "youtube",
       "videoId": "vaiSaxgn-cU",
       "url": "https://www.youtube.com/watch?v=vaiSaxgn-cU",
-      "label": "Dominican Footwork & Partnerwork",
+      "label": "Dominican Bachata Footwork & Partnerwork",
       "sources": [
+        {
+          "file": "data/programs.json",
+          "path": "programs.2.watchlist.2.videoId"
+        },
         {
           "file": "data/style-guides.json",
           "path": "guides.1.watchlist.4.videoId"
@@ -3810,6 +3858,10 @@
           "path": "programs.2.modules.0.url"
         },
         {
+          "file": "data/programs.json",
+          "path": "programs.2.sourceLinks.3.url"
+        },
+        {
           "file": "data/style-guides.json",
           "path": "guides.1.heroVideo.id"
         },
@@ -3841,6 +3893,10 @@
       "url": "https://www.youtube.com/watch?v=xQ1XLqo_Aqc",
       "label": "Dominican Bachata Basic Steps Footwork",
       "sources": [
+        {
+          "file": "data/programs.json",
+          "path": "programs.2.watchlist.1.videoId"
+        },
         {
           "file": "data/style-guides.json",
           "path": "guides.1.watchlist.3.videoId"

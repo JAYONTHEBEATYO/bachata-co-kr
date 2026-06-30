@@ -47,6 +47,16 @@
       .section ul { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: rgba(255, 247, 232, 0.74); line-height: 1.65; }
       .video-frame { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #030303; }
       .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: #050505; }
+      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
+      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
+      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.56)); }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(12, 11, 9, 0.76); color: var(--ink); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
+      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
+      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(12, 11, 9, 0.68); color: var(--ink); font-size: 12px; font-weight: 900; }
+      .video-loader[data-loaded="true"] .youtube-link { display: none; }
       .watch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
       .watch-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
       .watch-card-body { padding: 18px; }
@@ -162,8 +172,12 @@
             <h2>함께 볼 영상</h2>
             <div class="watch-grid">
               <article class="watch-card">
-                <div class="video-frame">
-              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/j4CmXKDCMzI" title="Gero &amp; Migle Bachata Reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/j4CmXKDCMzI" data-title="Gero &amp; Migle Bachata Reference">
+              <button type="button" data-video-button aria-label="Gero &amp; Migle Bachata Reference 영상 열기">
+                <img loading="lazy" src="https://i.ytimg.com/vi/j4CmXKDCMzI/hqdefault.jpg" alt="">
+                <span>Play</span>
+              </button>
+              <a class="youtube-link" href="https://www.youtube.com/watch?v=j4CmXKDCMzI" target="_blank" rel="noreferrer">YouTube</a>
             </div>
                 <div class="watch-card-body">
                   <span class="tag">Emotion Line</span>
@@ -172,8 +186,12 @@
                 </div>
               </article>
               <article class="watch-card">
-                <div class="video-frame">
-              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/L1vzrcpeBuw" title="Luis &amp; Andrea Bachata Reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/L1vzrcpeBuw" data-title="Luis &amp; Andrea Bachata Reference">
+              <button type="button" data-video-button aria-label="Luis &amp; Andrea Bachata Reference 영상 열기">
+                <img loading="lazy" src="https://i.ytimg.com/vi/L1vzrcpeBuw/hqdefault.jpg" alt="">
+                <span>Play</span>
+              </button>
+              <a class="youtube-link" href="https://www.youtube.com/watch?v=L1vzrcpeBuw" target="_blank" rel="noreferrer">YouTube</a>
             </div>
                 <div class="watch-card-body">
                   <span class="tag">Showcase Control</span>
@@ -182,8 +200,12 @@
                 </div>
               </article>
               <article class="watch-card">
-                <div class="video-frame">
-              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FzOWJRxp9r0" title="Andi &amp; Silvia Bachata Reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/FzOWJRxp9r0" data-title="Andi &amp; Silvia Bachata Reference">
+              <button type="button" data-video-button aria-label="Andi &amp; Silvia Bachata Reference 영상 열기">
+                <img loading="lazy" src="https://i.ytimg.com/vi/FzOWJRxp9r0/hqdefault.jpg" alt="">
+                <span>Play</span>
+              </button>
+              <a class="youtube-link" href="https://www.youtube.com/watch?v=FzOWJRxp9r0" target="_blank" rel="noreferrer">YouTube</a>
             </div>
                 <div class="watch-card-body">
                   <span class="tag">Performance Flow</span>
@@ -192,8 +214,12 @@
                 </div>
               </article>
               <article class="watch-card">
-                <div class="video-frame">
-              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/CZEB8wdVXOc" title="Cristian &amp; Gabriella Bachata Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/CZEB8wdVXOc" data-title="Cristian &amp; Gabriella Bachata Demo">
+              <button type="button" data-video-button aria-label="Cristian &amp; Gabriella Bachata Demo 영상 열기">
+                <img loading="lazy" src="https://i.ytimg.com/vi/CZEB8wdVXOc/hqdefault.jpg" alt="">
+                <span>Play</span>
+              </button>
+              <a class="youtube-link" href="https://www.youtube.com/watch?v=CZEB8wdVXOc" target="_blank" rel="noreferrer">YouTube</a>
             </div>
                 <div class="watch-card-body">
                   <span class="tag">Soft Connection</span>
@@ -202,8 +228,12 @@
                 </div>
               </article>
               <article class="watch-card">
-                <div class="video-frame">
-              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/9YqwDG2_MqI" title="Klau y Ros Bachata Reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/9YqwDG2_MqI" data-title="Klau y Ros Bachata Reference">
+              <button type="button" data-video-button aria-label="Klau y Ros Bachata Reference 영상 열기">
+                <img loading="lazy" src="https://i.ytimg.com/vi/9YqwDG2_MqI/hqdefault.jpg" alt="">
+                <span>Play</span>
+              </button>
+              <a class="youtube-link" href="https://www.youtube.com/watch?v=9YqwDG2_MqI" target="_blank" rel="noreferrer">YouTube</a>
             </div>
                 <div class="watch-card-body">
                   <span class="tag">Body Awareness</span>
@@ -212,8 +242,12 @@
                 </div>
               </article>
               <article class="watch-card">
-                <div class="video-frame">
-              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FCAt14yr0j4" title="Sara Panero Lady Style Reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/FCAt14yr0j4" data-title="Sara Panero Lady Style Reference">
+              <button type="button" data-video-button aria-label="Sara Panero Lady Style Reference 영상 열기">
+                <img loading="lazy" src="https://i.ytimg.com/vi/FCAt14yr0j4/hqdefault.jpg" alt="">
+                <span>Play</span>
+              </button>
+              <a class="youtube-link" href="https://www.youtube.com/watch?v=FCAt14yr0j4" target="_blank" rel="noreferrer">YouTube</a>
             </div>
                 <div class="watch-card-body">
                   <span class="tag">Lady Style</span>
@@ -261,5 +295,22 @@
         </aside>
       </div>
     </main>
+    <script>
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-video-button]");
+        if (!button) return;
+        const loader = button.closest(".video-loader");
+        if (!loader || loader.dataset.loaded === "true") return;
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.src = loader.dataset.embed;
+        iframe.title = loader.dataset.title || "Bachata reference video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        loader.dataset.loaded = "true";
+        loader.textContent = "";
+        loader.appendChild(iframe);
+      });
+    </script>
   </body>
 </html>

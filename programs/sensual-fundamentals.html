@@ -43,6 +43,16 @@
       .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050505; }
       .hero .video-frame { border-color: rgba(26, 21, 16, 0.18); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22); }
       .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: #050505; }
+      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
+      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
+      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.56)); }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(12, 11, 9, 0.76); color: var(--ink); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
+      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
+      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(12, 11, 9, 0.68); color: var(--ink); font-size: 12px; font-weight: 900; }
+      .video-loader[data-loaded="true"] .youtube-link { display: none; }
       .quick-nav, .link-row, .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
       .quick-nav { margin-top: 26px; }
       .quick-nav a, .link-row a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid currentColor; border-radius: 999px; font-size: 13px; font-weight: 900; }
@@ -67,6 +77,11 @@
       .module-number { display: inline-grid; place-items: center; width: 52px; height: 52px; border: 1px solid rgba(226, 173, 88, 0.42); border-radius: 50%; color: var(--gold); font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-weight: 900; }
       .module-card h2 { margin: 6px 0 10px; font-size: clamp(26px, 4vw, 38px); line-height: 1.06; }
       .module-card a { display: inline-flex; margin-top: 12px; color: var(--gold); font-weight: 900; }
+      .watch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .watch-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
+      .watch-card-body { padding: 18px; }
+      .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .watch-card p { margin: 0; color: var(--muted); line-height: 1.65; }
       .side-stack { position: sticky; top: 96px; }
       .side-card h2 { margin: 8px 0 12px; font-size: 28px; line-height: 1.08; }
       .paper-cta { padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: var(--paper); color: var(--paper-ink); }
@@ -80,7 +95,7 @@
       @media (max-width: 760px) {
         .nav-links { display: none; }
         h1 { font-size: clamp(42px, 13vw, 66px); }
-        .program-grid, .module-card { grid-template-columns: 1fr; }
+        .program-grid, .module-card, .watch-grid { grid-template-columns: 1fr; }
         .program-card, .module-card, .side-card { padding: 20px; }
       }
     </style>
@@ -104,12 +119,32 @@
             "courseMode": "online",
             "courseWorkload": "20분 x 5"
       },
-      "video": {
-            "@type": "VideoObject",
-            "name": "16 Bachata Sensual Fundamentals by Korke y Judith",
-            "embedUrl": "https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99",
-            "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU&t=99s"
-      }
+      "video": [
+            {
+                  "@type": "VideoObject",
+                  "name": "16 Bachata Sensual Fundamentals by Korke y Judith",
+                  "embedUrl": "https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99",
+                  "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU&t=99s"
+            },
+            {
+                  "@type": "VideoObject",
+                  "name": "Onda, Wave, Body Roll with Korke y Judith",
+                  "embedUrl": "https://www.youtube-nocookie.com/embed/mLIT9UaZ_4w",
+                  "url": "https://www.youtube.com/watch?v=mLIT9UaZ_4w"
+            },
+            {
+                  "@type": "VideoObject",
+                  "name": "Bachata Sensual Top 6 Mistakes",
+                  "embedUrl": "https://www.youtube-nocookie.com/embed/HL1qRQav8OE",
+                  "url": "https://www.youtube.com/watch?v=HL1qRQav8OE"
+            },
+            {
+                  "@type": "VideoObject",
+                  "name": "KISF 2016 Korky & Judith - Bachata Sensual fundamentals",
+                  "embedUrl": "https://www.youtube-nocookie.com/embed/FSP1AXI_gxQ",
+                  "url": "https://www.youtube.com/watch?v=FSP1AXI_gxQ"
+            }
+      ]
 }
     </script>
   </head>
@@ -189,6 +224,55 @@
               <a href="/articles/bachata-sensual-16-fundamentals-korke-judith.html">모듈 열기</a>
             </div>
           </article>
+          <section class="side-card">
+            <span class="tag">Watchlist</span>
+            <h2>함께 볼 영상</h2>
+            <p>대표 영상은 바로 보이고, 보조 영상은 썸네일을 누를 때만 불러와 페이지를 가볍게 유지합니다.</p>
+            <div class="watch-grid">
+              <article class="watch-card">
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/mLIT9UaZ_4w" data-title="Onda, Wave, Body Roll with Korke y Judith">
+            <button type="button" data-video-button aria-label="Onda, Wave, Body Roll with Korke y Judith 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/mLIT9UaZ_4w/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=mLIT9UaZ_4w" target="_blank" rel="noreferrer">YouTube</a>
+          </div>
+                <div class="watch-card-body">
+                  <span class="tag">Companion</span>
+                  <h3>Onda, Wave, Body Roll with Korke y Judith</h3>
+                  <p>Onda 계열을 먼저 분리해서 보고, 상체를 꺾는 동작이 아니라 순서와 호흡으로 읽습니다.</p>
+                </div>
+              </article>
+              <article class="watch-card">
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/HL1qRQav8OE" data-title="Bachata Sensual Top 6 Mistakes">
+            <button type="button" data-video-button aria-label="Bachata Sensual Top 6 Mistakes 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/HL1qRQav8OE/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=HL1qRQav8OE" target="_blank" rel="noreferrer">YouTube</a>
+          </div>
+                <div class="watch-card-body">
+                  <span class="tag">Safety</span>
+                  <h3>Bachata Sensual Top 6 Mistakes</h3>
+                  <p>큰 동작보다 프레임 손실, 과한 리드, 불안정한 복귀를 먼저 체크합니다.</p>
+                </div>
+              </article>
+              <article class="watch-card">
+                <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/FSP1AXI_gxQ" data-title="KISF 2016 Korky &amp; Judith - Bachata Sensual fundamentals">
+            <button type="button" data-video-button aria-label="KISF 2016 Korky &amp; Judith - Bachata Sensual fundamentals 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/FSP1AXI_gxQ/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=FSP1AXI_gxQ" target="_blank" rel="noreferrer">YouTube</a>
+          </div>
+                <div class="watch-card-body">
+                  <span class="tag">Archive</span>
+                  <h3>KISF 2016 Korky &amp; Judith - Bachata Sensual fundamentals</h3>
+                  <p>같은 펀더멘털 언어가 워크숍 현장에서 어떻게 설명되는지 비교합니다.</p>
+                </div>
+              </article>
+            </div>
+          </section>
         </article>
         <aside class="side-stack" aria-label="프로그램 정보">
           <section class="side-card">
@@ -210,8 +294,30 @@
             <h2>이어 보기</h2>
             <div class="link-row"><a href="/styles/sensual.html">센슈얼 허브</a><a href="/radar/">소셜 레이더</a><a href="/briefs/">오늘 브리프</a></div>
           </section>
+          <section class="side-card">
+            <span class="tag">Sources</span>
+            <h2>출처</h2>
+            <div class="link-row"><a href="https://bachatasensual.com/" target="_blank" rel="noreferrer">Bachata Sensual Official</a><a href="https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/" target="_blank" rel="noreferrer">Reddit 16 Fundamentals Thread</a><a href="https://www.youtube.com/watch?v=B7Wv3cqHrSU" target="_blank" rel="noreferrer">16 Fundamentals Video</a><a href="https://academy.bachatasensual.com/" target="_blank" rel="noreferrer">Bachata Sensual Academy</a></div>
+          </section>
         </aside>
       </div>
     </main>
+    <script>
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-video-button]");
+        if (!button) return;
+        const loader = button.closest(".video-loader");
+        if (!loader || loader.dataset.loaded === "true") return;
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.src = loader.dataset.embed;
+        iframe.title = loader.dataset.title || "Bachata program video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        loader.dataset.loaded = "true";
+        loader.textContent = "";
+        loader.appendChild(iframe);
+      });
+    </script>
   </body>
 </html>

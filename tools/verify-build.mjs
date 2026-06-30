@@ -234,6 +234,69 @@ const verifyStyleVideoLoading = async () => {
   };
 };
 
+const verifyArticleVideoLoading = async () => {
+  const articlesData = await readJson("data/articles.json");
+  const pages = [];
+
+  for (const article of articlesData.articles || []) {
+    if (!article.heroVideo?.id || !(article.watchlist || []).length) continue;
+    const page = `articles/${article.slug}.html`;
+    const html = await readText(page);
+    const iframeCount = (html.match(/<iframe\b/g) || []).length;
+    const loaderCount = (html.match(/class="video-loader"/g) || []).length;
+    assert(iframeCount === 1, "Article should load only the hero iframe before interaction", {
+      slug: article.slug,
+      iframeCount
+    });
+    assert(loaderCount >= article.watchlist.length, "Article watchlist videos should render as click-to-load thumbnails", {
+      slug: article.slug,
+      loaderCount,
+      watchlist: article.watchlist.length
+    });
+    assert(html.includes("data-video-button"), "Article is missing click-to-load video controls", {
+      slug: article.slug
+    });
+    pages.push({ slug: article.slug, iframeCount, loaderCount });
+  }
+
+  return {
+    pageCount: pages.length,
+    loaderCount: pages.reduce((total, page) => total + page.loaderCount, 0)
+  };
+};
+
+const verifyProgramVideoLoading = async () => {
+  const programsData = await readJson("data/programs.json");
+  const pages = [];
+
+  for (const program of programsData.programs || []) {
+    const page = `programs/${program.id}.html`;
+    const html = await readText(page);
+    const iframeCount = (html.match(/<iframe\b/g) || []).length;
+    const loaderCount = (html.match(/class="video-loader"/g) || []).length;
+    assert(iframeCount === 1, "Program should load only the hero iframe before interaction", {
+      id: program.id,
+      iframeCount
+    });
+    if ((program.watchlist || []).length) {
+      assert(loaderCount >= program.watchlist.length, "Program watchlist videos should render as click-to-load thumbnails", {
+        id: program.id,
+        loaderCount,
+        watchlist: program.watchlist.length
+      });
+      assert(html.includes("data-video-button"), "Program is missing click-to-load video controls", {
+        id: program.id
+      });
+    }
+    pages.push({ id: program.id, iframeCount, loaderCount });
+  }
+
+  return {
+    pageCount: pages.length,
+    loaderCount: pages.reduce((total, page) => total + page.loaderCount, 0)
+  };
+};
+
 const verifyIndexesAndSitemap = async () => {
   const sitemap = await readText("sitemap.xml");
   const articleIndex = await readJson("data/generated/article-index.json");
@@ -274,7 +337,7 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos] = await Promise.all([
+  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
     verifySocialRadar(),
@@ -282,7 +345,9 @@ const main = async () => {
     verifyIndexesAndSitemap(),
     verifyMojibake(),
     verifyHomeHero(),
-    verifyStyleVideoLoading()
+    verifyStyleVideoLoading(),
+    verifyArticleVideoLoading(),
+    verifyProgramVideoLoading()
   ]);
 
   const report = {
@@ -293,6 +358,8 @@ const main = async () => {
     sourceHealth,
     socialRadar,
     styleVideos,
+    articleVideos,
+    programVideos,
     signalHistory,
     socialIntake
   };

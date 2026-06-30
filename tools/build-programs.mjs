@@ -35,6 +35,22 @@ const renderVideo = (video, className = "video-frame") => {
           </div>`;
 };
 
+const youtubeThumb = (videoId) => videoId
+  ? `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`
+  : "";
+
+const renderVideoLoader = (video) => {
+  if (!video?.id) return "";
+  const title = escapeHtml(video.title || "Bachata program video");
+  return `<div class="video-loader" data-embed="${escapeHtml(videoEmbedUrl(video))}" data-title="${title}">
+            <button type="button" data-video-button aria-label="${title} 영상 열기">
+              <img loading="lazy" src="${escapeHtml(youtubeThumb(video.id))}" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="${escapeHtml(videoWatchUrl(video))}" target="_blank" rel="noreferrer">YouTube</a>
+          </div>`;
+};
+
 const renderLinks = (links = []) => links.map((link) => {
   const external = /^https?:\/\//.test(link.url);
   return `<a href="${escapeHtml(link.url)}"${external ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>${escapeHtml(link.label)}</a>`;
@@ -83,6 +99,16 @@ const styles = `    <style>
       .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050505; }
       .hero .video-frame { border-color: rgba(26, 21, 16, 0.18); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22); }
       .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: #050505; }
+      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
+      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
+      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.56)); }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(12, 11, 9, 0.76); color: var(--ink); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
+      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
+      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(12, 11, 9, 0.68); color: var(--ink); font-size: 12px; font-weight: 900; }
+      .video-loader[data-loaded="true"] .youtube-link { display: none; }
       .quick-nav, .link-row, .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
       .quick-nav { margin-top: 26px; }
       .quick-nav a, .link-row a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid currentColor; border-radius: 999px; font-size: 13px; font-weight: 900; }
@@ -107,6 +133,11 @@ const styles = `    <style>
       .module-number { display: inline-grid; place-items: center; width: 52px; height: 52px; border: 1px solid rgba(226, 173, 88, 0.42); border-radius: 50%; color: var(--gold); font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-weight: 900; }
       .module-card h2 { margin: 6px 0 10px; font-size: clamp(26px, 4vw, 38px); line-height: 1.06; }
       .module-card a { display: inline-flex; margin-top: 12px; color: var(--gold); font-weight: 900; }
+      .watch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .watch-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
+      .watch-card-body { padding: 18px; }
+      .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .watch-card p { margin: 0; color: var(--muted); line-height: 1.65; }
       .side-stack { position: sticky; top: 96px; }
       .side-card h2 { margin: 8px 0 12px; font-size: 28px; line-height: 1.08; }
       .paper-cta { padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: var(--paper); color: var(--paper-ink); }
@@ -120,7 +151,7 @@ const styles = `    <style>
       @media (max-width: 760px) {
         .nav-links { display: none; }
         h1 { font-size: clamp(42px, 13vw, 66px); }
-        .program-grid, .module-card { grid-template-columns: 1fr; }
+        .program-grid, .module-card, .watch-grid { grid-template-columns: 1fr; }
         .program-card, .module-card, .side-card { padding: 20px; }
       }
     </style>`;
@@ -137,6 +168,24 @@ const nav = `    <header class="nav">
       </nav>
     </header>`;
 
+const videoLoaderScript = `    <script>
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-video-button]");
+        if (!button) return;
+        const loader = button.closest(".video-loader");
+        if (!loader || loader.dataset.loaded === "true") return;
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.src = loader.dataset.embed;
+        iframe.title = loader.dataset.title || "Bachata program video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        loader.dataset.loaded = "true";
+        loader.textContent = "";
+        loader.appendChild(iframe);
+      });
+    </script>`;
+
 const layout = ({ title, description, canonical, jsonLd, body }) => `<!doctype html>
 <html lang="ko">
   <head>
@@ -149,6 +198,7 @@ ${styles}
   <body>
 ${nav}
 ${body}
+${videoLoaderScript}
   </body>
 </html>
 `;
@@ -233,6 +283,11 @@ const renderIndex = (data) => {
 };
 
 const renderProgram = (program, data) => {
+  const videos = [program.heroVideo, ...(program.watchlist || []).map((item) => ({
+    id: item.videoId,
+    start: item.start,
+    title: item.title
+  }))].filter((video) => video?.id);
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Course",
@@ -250,12 +305,12 @@ const renderProgram = (program, data) => {
       "courseMode": "online",
       "courseWorkload": program.duration
     },
-    "video": {
+    "video": videos.map((video) => ({
       "@type": "VideoObject",
-      "name": program.heroVideo.title,
-      "embedUrl": videoEmbedUrl(program.heroVideo),
-      "url": videoWatchUrl(program.heroVideo)
-    }
+      "name": video.title,
+      "embedUrl": videoEmbedUrl(video),
+      "url": videoWatchUrl(video)
+    }))
   };
 
   const otherPrograms = data.programs
@@ -273,6 +328,28 @@ const renderProgram = (program, data) => {
               <a href="${escapeHtml(module.url)}"${/^https?:\/\//.test(module.url) ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>모듈 열기</a>
             </div>
           </article>`).join("\n");
+
+  const watchlist = program.watchlist?.length ? `<section class="side-card">
+            <span class="tag">Watchlist</span>
+            <h2>함께 볼 영상</h2>
+            <p>대표 영상은 바로 보이고, 보조 영상은 썸네일을 누를 때만 불러와 페이지를 가볍게 유지합니다.</p>
+            <div class="watch-grid">
+              ${program.watchlist.map((item) => `<article class="watch-card">
+                ${renderVideoLoader({ id: item.videoId, start: item.start, title: item.title })}
+                <div class="watch-card-body">
+                  <span class="tag">${escapeHtml(item.label)}</span>
+                  <h3>${escapeHtml(item.title)}</h3>
+                  <p>${escapeHtml(item.note)}</p>
+                </div>
+              </article>`).join("\n              ")}
+            </div>
+          </section>` : "";
+
+  const sources = program.sourceLinks?.length ? `<section class="side-card">
+            <span class="tag">Sources</span>
+            <h2>출처</h2>
+            <div class="link-row">${renderLinks(program.sourceLinks)}</div>
+          </section>` : "";
 
   const body = `    <section class="hero">
       <div class="hero-grid">
@@ -292,6 +369,7 @@ const renderProgram = (program, data) => {
       <div class="program-layout">
         <article class="module-stack">
           ${modules}
+          ${watchlist}
         </article>
         <aside class="side-stack" aria-label="프로그램 정보">
           <section class="side-card">
@@ -313,6 +391,7 @@ const renderProgram = (program, data) => {
             <h2>이어 보기</h2>
             <div class="link-row">${renderLinks(program.related)}</div>
           </section>
+          ${sources}
         </aside>
       </div>
     </main>`;
