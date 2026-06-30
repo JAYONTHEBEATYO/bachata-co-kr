@@ -11,6 +11,7 @@ const boardDir = resolve(root, "community");
 const stylesDir = resolve(root, "styles");
 const programsDir = resolve(root, "programs");
 const deskDir = resolve(root, "desk");
+const submitDir = resolve(root, "submit");
 const profilesDir = resolve(root, "profiles");
 const gearDir = resolve(root, "gear");
 const eventsDir = resolve(root, "events");
@@ -20,6 +21,7 @@ const boardIndexPath = resolve(root, "data/generated/board-index.json");
 const styleIndexPath = resolve(root, "data/generated/style-index.json");
 const programIndexPath = resolve(root, "data/generated/program-index.json");
 const editorialDeskIndexPath = resolve(root, "data/generated/editorial-desk-index.json");
+const submissionIndexPath = resolve(root, "data/generated/submission-index.json");
 const profileIndexPath = resolve(root, "data/generated/profile-index.json");
 const gearIndexPath = resolve(root, "data/generated/gear-index.json");
 const eventIndexPath = resolve(root, "data/generated/event-index.json");
@@ -481,6 +483,32 @@ const updateSitemap = async (dateText) => {
     <priority>${page.priority}</priority>
   </url>`).join("\n");
 
+  let submitPages = [];
+  try {
+    const submissionIndex = await readJson(submissionIndexPath);
+    submitPages = [{ url: "/submit/", updatedAt: submissionIndex.updatedAt || dateText, priority: "0.82", changefreq: "weekly" }];
+  } catch {
+    try {
+      submitPages = (await readdir(submitDir))
+        .filter((name) => name.endsWith(".html"))
+        .map((name) => ({
+          url: name === "index.html" ? "/submit/" : `/submit/${name}`,
+          updatedAt: dateText,
+          priority: name === "index.html" ? "0.82" : "0.7",
+          changefreq: "weekly"
+        }));
+    } catch {
+      submitPages = [];
+    }
+  }
+
+  const submitUrls = submitPages.map((page) => `  <url>
+    <loc>https://bachata.co.kr${page.url}</loc>
+    <lastmod>${page.updatedAt || dateText}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join("\n");
+
   let profilePages = [];
   try {
     const profileIndex = await readJson(profileIndexPath);
@@ -627,6 +655,7 @@ ${briefUrls}
 ${styleUrls}
 ${programUrls}
 ${deskUrls}
+${submitUrls}
 ${profileUrls}
 ${eventUrls}
 ${radarUrls}

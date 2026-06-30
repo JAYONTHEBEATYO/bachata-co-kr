@@ -163,6 +163,7 @@ const nav = `    <header class="nav">
         <a href="/articles/">기사</a>
         <a href="/briefs/">브리프</a>
         <a href="/community/">커뮤니티</a>
+        <a href="/submit/">제보</a>
         <a href="http://test.bachata.co.kr/">테스트</a>
       </nav>
     </header>`;
@@ -272,6 +273,7 @@ const renderIndexPage = (data) => {
         <h2>홍보·구인·양도·팀 소개를 보내주세요</h2>
         <p>제목, 날짜, 장소, 가격, 원본 링크, 이미지/영상 링크, 연락처를 보내면 검수 후 카테고리에 맞춰 정리합니다.</p>
         <div class="entry-links">
+          <a href="/submit/">제보 센터</a>
           <a href="mailto:${escapeHtml(data.contact.email)}?subject=%5Bbachata.co.kr%5D%20%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%20%EC%A0%9C%EB%B3%B4">메일로 제보</a>
           <a href="${escapeHtml(data.contact.instagram)}" target="_blank" rel="noreferrer">인스타그램 DM</a>
         </div>
@@ -341,6 +343,7 @@ const renderCategoryPage = (data, category) => {
             <p>업데이트가 필요하면 원본 링크와 수정 내용을 함께 보내주세요.</p>
             <div class="entry-links">
               <a href="mailto:${escapeHtml(data.contact.email)}?subject=%5Bbachata.co.kr%5D%20${encodeURIComponent(category.label)}%20%EC%A0%9C%EB%B3%B4">제보</a>
+              <a href="/submit/">제보 센터</a>
               <a href="${escapeHtml(data.contact.instagram)}" target="_blank" rel="noreferrer">DM</a>
             </div>
           </article>

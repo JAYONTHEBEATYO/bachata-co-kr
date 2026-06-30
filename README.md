@@ -11,6 +11,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `data/style-guides.json`: editor-managed bachata style guide library
 - `data/profiles.json`: editor-managed dancer, team, venue profile library
 - `data/board.json`: editor-managed community board seed data
+- `data/submissions.json`: editor-managed submission templates for events, market, jobs, venues, and profiles
 - `data/events.json`: editor-managed monthly event and visiting artist radar data
 - `data/social-radar.json`: editor-managed Instagram, hashtag, and official source watchlist
 - `data/programs.json`: editor-managed video-first learning program library
@@ -21,6 +22,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `tools/build-style-guides.mjs`: builds `/styles/` and `data/generated/style-index.json`
 - `tools/build-profiles.mjs`: builds `/profiles/` and `data/generated/profile-index.json`
 - `tools/build-board.mjs`: builds `/community/` and `data/generated/board-index.json`
+- `tools/build-submissions.mjs`: builds `/submit/` and `data/generated/submission-index.json`
 - `tools/build-events.mjs`: builds `/events/` and `data/generated/event-index.json`
 - `tools/build-social-radar.mjs`: builds `/radar/` and `data/generated/social-radar-index.json`
 - `tools/build-programs.mjs`: builds `/programs/` and `data/generated/program-index.json`
@@ -34,6 +36,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `styles/`: generated style guide pages
 - `profiles/`: generated dancer, team, venue profile pages
 - `community/`: generated community board pages
+- `submit/`: generated submission center and message builder page
 - `events/`: generated monthly visiting artist and festival radar pages
 - `radar/`: generated Instagram and source watchlist pages
 - `programs/`: generated video-first learning path pages

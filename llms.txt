@@ -41,6 +41,7 @@
 - https://bachata.co.kr/radar/
 - https://bachata.co.kr/programs/
 - https://bachata.co.kr/desk/
+- https://bachata.co.kr/submit/
 - https://bachata.co.kr/programs/bachata-starter.html
 - https://bachata.co.kr/programs/sensual-fundamentals.html
 - https://bachata.co.kr/programs/dominican-rhythm.html
@@ -84,11 +85,13 @@
 - https://bachata.co.kr/data/social-radar.json
 - https://bachata.co.kr/data/programs.json
 - https://bachata.co.kr/data/editorial-desk.json
+- https://bachata.co.kr/data/submissions.json
 - https://bachata.co.kr/data/generated/scene-signals.json
 - https://bachata.co.kr/data/generated/latest-brief.json
 - https://bachata.co.kr/data/generated/style-index.json
 - https://bachata.co.kr/data/generated/program-index.json
 - https://bachata.co.kr/data/generated/editorial-desk-index.json
+- https://bachata.co.kr/data/generated/submission-index.json
 - https://bachata.co.kr/data/generated/profile-index.json
 - https://bachata.co.kr/data/generated/article-index.json
 - https://bachata.co.kr/data/generated/board-index.json
