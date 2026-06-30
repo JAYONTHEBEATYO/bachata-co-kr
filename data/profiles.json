@@ -1,0 +1,339 @@
+{
+  "updatedAt": "2026-06-30",
+  "categories": [
+    { "id": "influence", "label": "Influence", "title": "Bachata Influence 계열" },
+    { "id": "global-dancers", "label": "Global", "title": "글로벌 바차타 댄서" },
+    { "id": "korea-scene", "label": "Korea", "title": "한국 바차타 팀·동호회" },
+    { "id": "venues", "label": "Venues", "title": "한국 바차타 장소" }
+  ],
+  "profiles": [
+    {
+      "id": "melvin-gatica",
+      "category": "influence",
+      "status": "source-verified",
+      "title": "Melvin & Gatica",
+      "subtitle": "Bachata Influence의 중심으로 읽는 팀",
+      "location": "International",
+      "tags": ["Bachata Influence", "Melvin Gatica", "Method", "Musicality"],
+      "heroVideo": {
+        "id": "sUy5L7x5pyE",
+        "title": "Bachata Influence Tutorial | Melvin & Gatica"
+      },
+      "summary": [
+        "Melvin & Gatica는 Bachata Influence를 단순한 패턴 모음이 아니라 음악성, 프레임, 감정선, 교육 메소드까지 포함한 언어로 보게 만드는 기준점입니다.",
+        "이 페이지는 공식/공개 링크와 튜토리얼 영상을 중심으로 한국 독자가 어떤 지점을 관찰하면 좋은지 정리합니다."
+      ],
+      "angles": [
+        "멈춤과 재개의 타이밍",
+        "큰 바디무브보다 프레임과 숨의 질감",
+        "워크숍 메소드가 한국 수업에서 어떻게 번역되는지"
+      ],
+      "related": [
+        { "label": "Influence 허브", "url": "/styles/influence.html" },
+        { "label": "Influence 기사", "url": "/articles/bachata-influence-melvin-gatica.html" }
+      ],
+      "sourceLinks": [
+        { "label": "Influence Academy 2026", "url": "https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" },
+        { "label": "byGatica", "url": "https://bygatica.com/" },
+        { "label": "Instagram", "url": "https://www.instagram.com/melvin_gatica_bachata/" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE" }
+      ]
+    },
+    {
+      "id": "emilien-tehina",
+      "category": "influence",
+      "status": "source-verified",
+      "title": "Emilien & Tehina",
+      "subtitle": "Influence 계열을 소셜과 무대 사이에서 읽기 좋은 페어",
+      "location": "International",
+      "tags": ["Bachata Influence", "Emilien Tehina", "Pro Team", "Connection"],
+      "heroVideo": {
+        "id": "FNv7eOMg-_k",
+        "title": "Emilien & Tehina Bachata Influence Reference"
+      },
+      "summary": [
+        "Emilien & Tehina 영상은 정지와 진행의 대비, 팔로워 라인, 리더의 길 열기가 비교적 선명해서 Influence 계열을 분석하기 좋은 자료입니다.",
+        "한국 콘텐츠에서는 동작 복제보다 어느 타이밍에 상대의 축을 기다리는지, 어떤 표현은 소셜에서 줄여야 하는지를 중심으로 다룹니다."
+      ],
+      "angles": [
+        "멈춤 이후 다시 진행하는 길",
+        "팔로워가 자기 축으로 서 있는 시간",
+        "소셜에서 가능한 표현과 공연형 표현의 경계"
+      ],
+      "related": [
+        { "label": "Influence 허브", "url": "/styles/influence.html" },
+        { "label": "오늘 브리프", "url": "/briefs/" }
+      ],
+      "sourceLinks": [
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=FNv7eOMg-_k" }
+      ]
+    },
+    {
+      "id": "korke-judith",
+      "category": "global-dancers",
+      "status": "source-verified",
+      "title": "Korke & Judith",
+      "subtitle": "센슈얼 바차타의 기본 언어를 만든 기준점",
+      "location": "Spain",
+      "tags": ["Korke Judith", "Bachata Sensual", "16 Fundamentals", "Sensual"],
+      "heroVideo": {
+        "id": "B7Wv3cqHrSU",
+        "start": 99,
+        "title": "16 Bachata Sensual Fundamental Techniques"
+      },
+      "summary": [
+        "Korke & Judith는 센슈얼 바차타를 설명할 때 빠질 수 없는 이름입니다. 16 펀더멘탈은 이름을 외우기보다 안전한 축과 프레임을 이해하는 지도처럼 보는 편이 좋습니다.",
+        "이 프로필은 센슈얼 허브와 연결해 기초 용어, 안전 기준, 영상 학습 순서를 함께 제공합니다."
+      ],
+      "angles": [
+        "16개 명칭을 기술표가 아니라 언어로 보기",
+        "웨이브·딥·헤드롤의 안전 기준",
+        "공식 설명과 커뮤니티 정리를 교차해 읽기"
+      ],
+      "related": [
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" }
+      ],
+      "sourceLinks": [
+        { "label": "Bachata Sensual Official", "url": "https://bachatasensual.com/" },
+        { "label": "Reddit 16 Fundamentals", "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU" }
+      ]
+    },
+    {
+      "id": "gero-migle",
+      "category": "global-dancers",
+      "status": "source-verified",
+      "title": "Gero & Migle",
+      "subtitle": "감정선과 컨트롤을 같이 보기 좋은 글로벌 페어",
+      "location": "International",
+      "tags": ["Gero Migle", "Global Dancers", "Sensual", "Performance"],
+      "heroVideo": {
+        "id": "j4CmXKDCMzI",
+        "title": "Gero & Migle Bachata Reference"
+      },
+      "summary": [
+        "Gero & Migle는 영상만으로도 감정선, 라인, 무게 중심의 변화가 잘 드러나는 페어입니다.",
+        "초보자가 따라 할 때는 큰 모양보다 시작 전 준비, 프레임의 유지, 음악의 브레이크를 먼저 관찰하는 편이 좋습니다."
+      ],
+      "angles": [
+        "감정 표현과 축의 균형",
+        "큰 동작 전에 준비되는 프레임",
+        "브레이크와 악센트에서의 멈춤"
+      ],
+      "related": [
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" }
+      ],
+      "sourceLinks": [
+        { "label": "Official", "url": "https://www.geroymigle.com/" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=j4CmXKDCMzI" }
+      ]
+    },
+    {
+      "id": "luis-andrea",
+      "category": "global-dancers",
+      "status": "source-verified",
+      "title": "Luis & Andrea",
+      "subtitle": "국제 페스티벌 맥락에서 자주 언급되는 센슈얼 페어",
+      "location": "International",
+      "tags": ["Luis Andrea", "Global Dancers", "Sensual", "Workshop"],
+      "heroVideo": {
+        "id": "L1vzrcpeBuw",
+        "title": "Luis & Andrea Bachata Reference"
+      },
+      "summary": [
+        "Luis & Andrea는 고난도 쇼케이스만 소비하기보다 타이밍, 방향 전환, 표현의 절제와 과잉을 구분해 읽기 좋은 페어입니다.",
+        "한국 독자에게는 페스티벌 영상과 워크숍 프로필을 함께 연결해 학습 방향을 제시합니다."
+      ],
+      "angles": [
+        "타이밍과 방향 전환",
+        "표정과 동작의 과잉 조절",
+        "무대용 콤비네이션을 소셜로 줄이는 방식"
+      ],
+      "related": [
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" }
+      ],
+      "sourceLinks": [
+        { "label": "YouTube Channel", "url": "https://www.youtube.com/@LuisyAndreaOfficial" },
+        { "label": "go&dance Profile", "url": "https://www.goandance.com/en/artist/1560/luis-andrea" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=L1vzrcpeBuw" }
+      ]
+    },
+    {
+      "id": "andi-silvia",
+      "category": "global-dancers",
+      "status": "source-verified",
+      "title": "Andi & Silvia",
+      "subtitle": "최신 공연형 센슈얼 흐름을 추적하기 좋은 페어",
+      "location": "International",
+      "tags": ["Andi Silvia", "Sensual", "Global Dancers", "Performance"],
+      "heroVideo": {
+        "id": "FzOWJRxp9r0",
+        "title": "Andi & Silvia Bachata Reference"
+      },
+      "summary": [
+        "Andi & Silvia는 최신 공연형 센슈얼 흐름을 관찰하기 좋은 페어입니다.",
+        "콘텐츠에서는 동작의 화려함보다 음악 문장, 선의 정리, 촬영 영상에서 보이는 무대성과 소셜성의 차이를 나눠 봅니다."
+      ],
+      "angles": [
+        "무대성과 소셜성의 경계",
+        "라인 정리와 악센트",
+        "큰 동작을 작은 플로어에서 줄이는 법"
+      ],
+      "related": [
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" }
+      ],
+      "sourceLinks": [
+        { "label": "YouTube Channel", "url": "https://www.youtube.com/@andiysilviabs" },
+        { "label": "Instagram", "url": "https://www.instagram.com/andiysilviabs/" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=FzOWJRxp9r0" }
+      ]
+    },
+    {
+      "id": "gray-loren",
+      "category": "korea-scene",
+      "status": "source-verified",
+      "title": "Gray & Loren",
+      "subtitle": "한국 바차타 인플루언스 계열 신호로 추적할 팀",
+      "location": "Korea",
+      "tags": ["한국 바차타", "Gray Loren", "Influence Korea", "Social"],
+      "heroVideo": {
+        "id": "nrJM-arshvE",
+        "title": "Gray & Loren Bachata Social in Korea"
+      },
+      "summary": [
+        "Gray & Loren은 한국에서 Bachata Influence 계열 흐름을 추적할 때 함께 봐야 할 신호입니다.",
+        "공개 소셜 영상을 중심으로 프레임, 음악성, 한국 소셜 플로어에서의 적용성을 편집 노트로 쌓습니다."
+      ],
+      "angles": [
+        "국내 소셜에서 보이는 Influence 질감",
+        "수업/소셜 영상의 연결",
+        "해외 계열을 한국 플로어에 맞추는 방식"
+      ],
+      "related": [
+        { "label": "Influence 허브", "url": "/styles/influence.html" },
+        { "label": "장소·팀 보드", "url": "/community/venues.html" }
+      ],
+      "sourceLinks": [
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=nrJM-arshvE" },
+        { "label": "Lauren Signals", "url": "https://www.instagram.com/lauren_bachatista/reels/" }
+      ]
+    },
+    {
+      "id": "cluny-journey",
+      "category": "korea-scene",
+      "status": "source-verified",
+      "title": "Cluny & Journey",
+      "subtitle": "한국 소셜·공연 영상으로 축적할 국내 페어",
+      "location": "Korea",
+      "tags": ["클루니", "져니", "한국 바차타", "Social"],
+      "heroVideo": {
+        "id": "CypEYpiRzCo",
+        "title": "Cluny & Journey Bachata Reference"
+      },
+      "summary": [
+        "Cluny & Journey는 한국 바차타 영상 아카이브에서 별도 프로필로 묶어 둘 가치가 있는 페어입니다.",
+        "공개 영상 기반으로 소셜성과 공연성, 국내 라틴댄스 영상 기록의 맥락을 함께 정리합니다."
+      ],
+      "angles": [
+        "국내 영상 아카이브에서 반복 등장하는 페어 추적",
+        "소셜 영상과 공연 영상의 차이",
+        "한국 독자에게 필요한 배경 정보 보강"
+      ],
+      "related": [
+        { "label": "장소·팀 보드", "url": "/community/venues.html" }
+      ],
+      "sourceLinks": [
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=CypEYpiRzCo" }
+      ]
+    },
+    {
+      "id": "bonita-seoul",
+      "category": "venues",
+      "status": "source-verified",
+      "title": "홍대 보니따",
+      "subtitle": "한국 바차타 소셜 영상을 장소 가이드로 확장하기 좋은 지점",
+      "location": "홍대",
+      "tags": ["홍대 보니따", "서울 바차타", "소셜", "Venue"],
+      "heroVideo": {
+        "id": "gDtOwUqeWKw",
+        "title": "Bachata Social Dance at Bonita in Seoul"
+      },
+      "summary": [
+        "홍대 보니따는 공개 소셜 영상과 인스타 신호를 묶어 초보자가 분위기를 미리 보는 장소 가이드로 확장하기 좋습니다.",
+        "음악 비율, 요일별 성격, 촬영 분위기, 초보 환영도 같은 정보를 제보와 영상으로 보강합니다."
+      ],
+      "angles": [
+        "초보자가 가기 전 알아야 할 분위기",
+        "영상으로 보는 소셜 플로어 밀도",
+        "요일별 음악 비율과 촬영 문화"
+      ],
+      "related": [
+        { "label": "장소·팀 보드", "url": "/community/venues.html" }
+      ],
+      "sourceLinks": [
+        { "label": "Instagram", "url": "https://www.instagram.com/jessica_latinclub_bonita/" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=gDtOwUqeWKw" }
+      ]
+    },
+    {
+      "id": "everlatin",
+      "category": "korea-scene",
+      "status": "source-verified",
+      "title": "에버라틴",
+      "subtitle": "2030 라틴댄스 동호회·클래스 신호를 모으는 국내 페이지",
+      "location": "서울",
+      "tags": ["에버라틴", "동호회", "클래스", "2030"],
+      "heroVideo": {
+        "id": "BWzJvto5gD4",
+        "title": "Everlatin Bachata Sensual Reference"
+      },
+      "summary": [
+        "에버라틴은 입문자 검색 의도가 강한 국내 라틴댄스 동호회·클래스 신호로 묶어둘 필요가 있습니다.",
+        "공식 사이트, 인스타그램, 공개 영상 자료를 기준으로 클래스 구조와 초보자 동선을 정리하는 페이지로 확장합니다."
+      ],
+      "angles": [
+        "입문 클래스와 소셜 연결 방식",
+        "2030 동호회 문맥",
+        "공식 사이트와 인스타 공지의 교차 확인"
+      ],
+      "related": [
+        { "label": "장소·팀 보드", "url": "/community/venues.html" }
+      ],
+      "sourceLinks": [
+        { "label": "Everlatin", "url": "https://everlatin.com/" },
+        { "label": "Instagram", "url": "https://www.instagram.com/clublatin_everlatin/" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=BWzJvto5gD4" }
+      ]
+    },
+    {
+      "id": "latin-cielo",
+      "category": "korea-scene",
+      "status": "source-verified",
+      "title": "라틴씨엘로",
+      "subtitle": "수업·공연·팀 커리큘럼을 콘텐츠화하기 좋은 국내 팀",
+      "location": "Korea",
+      "tags": ["라틴씨엘로", "Latin Cielo", "한국 바차타", "Performance"],
+      "heroVideo": {
+        "id": "hk4oF_T82-E",
+        "title": "Latin Cielo Bachata Performance Reference"
+      },
+      "summary": [
+        "라틴씨엘로는 수업, 공연, 커리큘럼, 팀 운영을 함께 다루기 좋은 국내 바차타 팀 신호입니다.",
+        "인스타그램과 공개 유튜브 영상을 중심으로 수업 소개, 공연 리뷰, 팀 인터뷰로 확장할 수 있습니다."
+      ],
+      "angles": [
+        "수업 커리큘럼과 공연 클래스의 연결",
+        "팀 운영과 한국 바차타 씬의 기록",
+        "영상과 인스타 태그를 함께 보존하는 방식"
+      ],
+      "related": [
+        { "label": "장소·팀 보드", "url": "/community/venues.html" }
+      ],
+      "sourceLinks": [
+        { "label": "Instagram", "url": "https://www.instagram.com/latin_cielo/" },
+        { "label": "YouTube", "url": "https://www.youtube.com/watch?v=hk4oF_T82-E" },
+        { "label": "YouTube Channel", "url": "https://www.youtube.com/channel/UCNjCsd6dFwTH4pHAk8xDgNw" }
+      ]
+    }
+  ]
+}

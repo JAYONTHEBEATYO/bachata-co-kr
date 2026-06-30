@@ -17,6 +17,7 @@
 - Instagram, YouTube, Naver, Google, 제보 폼 기반의 라틴댄스 소식 수집 및 검수 발행 시스템
 - 매일 자동 생성되는 바차타 씬 브리프: `/briefs/`, `/briefs/YYYY-MM-DD.html`
 - 스타일 허브: `/styles/`, 센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk 학습 페이지
+- 인물·팀·장소 프로필 허브: `/profiles/`, 글로벌 댄서, 한국 팀, 장소, 동호회 프로필
 - 개별 기사 라이브러리: `/articles/`, Bachata Influence, Bachazouk, 바차타 댄스화 기사
 - 커뮤니티 보드: `/community/`, 소셜·행사, 양도·중고, 구인구직, 장소·팀 디렉터리
 - 바차타 입문자 가이드
@@ -40,6 +41,12 @@
 - https://bachata.co.kr/styles/modern.html
 - https://bachata.co.kr/styles/influence.html
 - https://bachata.co.kr/styles/bachazouk.html
+- https://bachata.co.kr/profiles/
+- https://bachata.co.kr/profiles/melvin-gatica.html
+- https://bachata.co.kr/profiles/gero-migle.html
+- https://bachata.co.kr/profiles/gray-loren.html
+- https://bachata.co.kr/profiles/bonita-seoul.html
+- https://bachata.co.kr/profiles/latin-cielo.html
 - https://bachata.co.kr/articles/
 - https://bachata.co.kr/articles/bachata-influence-melvin-gatica.html
 - https://bachata.co.kr/articles/bachazouk-guide.html
@@ -53,8 +60,9 @@
 - https://bachata.co.kr/data/generated/scene-signals.json
 - https://bachata.co.kr/data/generated/latest-brief.json
 - https://bachata.co.kr/data/generated/style-index.json
+- https://bachata.co.kr/data/generated/profile-index.json
 - https://bachata.co.kr/data/generated/article-index.json
 - https://bachata.co.kr/data/generated/board-index.json
 
 ## 자동화
-`data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다. `tools/build-daily-brief.mjs`는 그 후보를 `briefs/YYYY-MM-DD.html` 일간 브리프와 `data/generated/latest-brief.json`으로 발행합니다. `data/style-guides.json`과 `tools/build-style-guides.mjs`는 스타일 허브를 `/styles/`와 `data/generated/style-index.json`으로 발행합니다. `data/articles.json`과 `tools/build-articles.mjs`는 evergreen 기사를 `/articles/`와 `data/generated/article-index.json`으로 발행합니다. `data/board.json`과 `tools/build-board.mjs`는 커뮤니티 보드를 `/community/`와 `data/generated/board-index.json`으로 발행합니다.
+`data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다. `tools/build-daily-brief.mjs`는 그 후보를 `briefs/YYYY-MM-DD.html` 일간 브리프와 `data/generated/latest-brief.json`으로 발행합니다. `data/style-guides.json`과 `tools/build-style-guides.mjs`는 스타일 허브를 `/styles/`와 `data/generated/style-index.json`으로 발행합니다. `data/profiles.json`과 `tools/build-profiles.mjs`는 인물·팀·장소 프로필을 `/profiles/`와 `data/generated/profile-index.json`으로 발행합니다. `data/articles.json`과 `tools/build-articles.mjs`는 evergreen 기사를 `/articles/`와 `data/generated/article-index.json`으로 발행합니다. `data/board.json`과 `tools/build-board.mjs`는 커뮤니티 보드를 `/community/`와 `data/generated/board-index.json`으로 발행합니다.

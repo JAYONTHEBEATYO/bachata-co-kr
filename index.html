@@ -1456,6 +1456,15 @@
           },
           {
             "@type": "CollectionPage",
+            "@id": "https://bachata.co.kr/profiles/",
+            "name": "바차타 인물·팀·장소 프로필 허브",
+            "description": "글로벌 바차타 댄서, Bachata Influence 계열, 한국 바차타 팀과 장소를 영상과 출처 중심으로 정리하는 프로필 허브.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/profiles/"
+          },
+          {
+            "@type": "CollectionPage",
             "@id": "https://bachata.co.kr/community/",
             "name": "바차타 코리아 커뮤니티 보드",
             "description": "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 검수해 모으는 커뮤니티 보드.",
@@ -1489,6 +1498,15 @@
             "inLanguage": "ko-KR",
             "isPartOf": {"@id": "https://bachata.co.kr/#website"},
             "url": "https://bachata.co.kr/data/generated/style-index.json"
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://bachata.co.kr/data/generated/profile-index.json",
+            "name": "Bachata Korea Profile Index",
+            "description": "바차타 인물·팀·장소 프로필의 카테고리, URL, 대표 영상 ID, 태그를 담은 JSON.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/data/generated/profile-index.json"
           },
           {
             "@type": "Dataset",
@@ -1607,6 +1625,7 @@
         <div class="nav-links" aria-label="섹션 이동">
           <a href="#intro">바차타란</a>
           <a href="/styles/">스타일</a>
+          <a href="/profiles/">인물·팀</a>
           <a href="#trend-desk">트렌드</a>
           <a href="/articles/">기사</a>
           <a href="#magazine">웹진</a>
@@ -1638,6 +1657,7 @@
             <div class="hero-actions">
               <a class="button primary" href="/briefs/">오늘 브리프</a>
               <a class="button" href="/styles/">스타일 허브</a>
+              <a class="button" href="/profiles/">인물·팀 허브</a>
               <a class="button" href="/articles/">기사 라이브러리</a>
               <a class="button" href="/community/">커뮤니티 보드</a>
               <a class="button" href="#publishing-os">발행 시스템</a>
@@ -2348,7 +2368,7 @@
             <article class="automation-note">
               <span class="tag">Now Wired</span>
               <h3>매일 후보 데이터를 만드는 파일 구조</h3>
-              <p>현재 repo에는 `data/sources.json`, `data/style-guides.json`, `data/board.json`, `tools/collect-scene-signals.mjs`, `tools/build-style-guides.mjs`, `tools/build-board.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`, 스타일 허브, 커뮤니티 보드 페이지를 갱신하는 구조입니다.</p>
+              <p>현재 repo에는 `data/sources.json`, `data/style-guides.json`, `data/profiles.json`, `data/board.json`, `tools/collect-scene-signals.mjs`, `tools/build-style-guides.mjs`, `tools/build-profiles.mjs`, `tools/build-board.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`, 스타일 허브, 프로필 허브, 커뮤니티 보드 페이지를 갱신하는 구조입니다.</p>
               <ul class="signal-list">
                 <li><strong>Seed</strong><span>편집자가 믿을 수 있는 공식/영상 출처를 먼저 넣습니다.</span></li>
                 <li><strong>Validate</strong><span>YouTube oEmbed와 embed HEAD를 확인해 죽은 영상은 후보에서 제외합니다.</span></li>
@@ -2365,6 +2385,8 @@
                 <a href="/data/generated/latest-brief.json">Latest Brief JSON</a>
                 <a href="/data/generated/style-index.json">Style Index</a>
                 <a href="/styles/">Style Hub</a>
+                <a href="/data/generated/profile-index.json">Profile Index</a>
+                <a href="/profiles/">Profile Hub</a>
                 <a href="/data/generated/board-index.json">Board Index</a>
                 <a href="/briefs/">Daily Brief</a>
                 <a href="/community/">Community Board</a>

@@ -9,9 +9,11 @@ const briefsDir = resolve(root, "briefs");
 const articlesDir = resolve(root, "articles");
 const boardDir = resolve(root, "community");
 const stylesDir = resolve(root, "styles");
+const profilesDir = resolve(root, "profiles");
 const articleIndexPath = resolve(root, "data/generated/article-index.json");
 const boardIndexPath = resolve(root, "data/generated/board-index.json");
 const styleIndexPath = resolve(root, "data/generated/style-index.json");
+const profileIndexPath = resolve(root, "data/generated/profile-index.json");
 const sitemapPath = resolve(root, "sitemap.xml");
 
 const topicNotes = {
@@ -396,6 +398,40 @@ const updateSitemap = async (dateText) => {
     <priority>${page.priority}</priority>
   </url>`).join("\n");
 
+  let profilePages = [];
+  try {
+    const profileIndex = await readJson(profileIndexPath);
+    profilePages = [
+      { url: "/profiles/", updatedAt: profileIndex.updatedAt || dateText, priority: "0.84", changefreq: "weekly" },
+      ...(profileIndex.profiles || []).map((profile) => ({
+        url: profile.url,
+        updatedAt: profileIndex.updatedAt || dateText,
+        priority: "0.74",
+        changefreq: "monthly"
+      }))
+    ];
+  } catch {
+    try {
+      profilePages = (await readdir(profilesDir))
+        .filter((name) => name.endsWith(".html"))
+        .map((name) => ({
+          url: name === "index.html" ? "/profiles/" : `/profiles/${name}`,
+          updatedAt: dateText,
+          priority: name === "index.html" ? "0.84" : "0.74",
+          changefreq: name === "index.html" ? "weekly" : "monthly"
+        }));
+    } catch {
+      profilePages = [];
+    }
+  }
+
+  const profileUrls = profilePages.map((page) => `  <url>
+    <loc>https://bachata.co.kr${page.url}</loc>
+    <lastmod>${page.updatedAt || dateText}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join("\n");
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -412,6 +448,7 @@ const updateSitemap = async (dateText) => {
   </url>
 ${briefUrls}
 ${styleUrls}
+${profileUrls}
   <url>
     <loc>https://bachata.co.kr/articles/</loc>
     <lastmod>${dateText}</lastmod>

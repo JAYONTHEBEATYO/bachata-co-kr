@@ -35,6 +35,9 @@ jobs:
       - name: Build style guides
         run: node tools/build-style-guides.mjs
 
+      - name: Build profiles
+        run: node tools/build-profiles.mjs
+
       - name: Build community board
         run: node tools/build-board.mjs
 
@@ -47,7 +50,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/generated/scene-signals.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/board-index.json articles styles briefs community sitemap.xml
+          git add data/generated/scene-signals.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/profile-index.json data/generated/board-index.json articles styles profiles briefs community sitemap.xml
           if git diff --cached --quiet; then
             echo "No discovery changes to commit"
           else

@@ -1,0 +1,182 @@
+{
+  "generatedAt": "2026-06-30T08:37:30.544Z",
+  "updatedAt": "2026-06-30",
+  "categories": [
+    {
+      "id": "influence",
+      "label": "Influence",
+      "title": "Bachata Influence 계열"
+    },
+    {
+      "id": "global-dancers",
+      "label": "Global",
+      "title": "글로벌 바차타 댄서"
+    },
+    {
+      "id": "korea-scene",
+      "label": "Korea",
+      "title": "한국 바차타 팀·동호회"
+    },
+    {
+      "id": "venues",
+      "label": "Venues",
+      "title": "한국 바차타 장소"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "melvin-gatica",
+      "category": "influence",
+      "title": "Melvin & Gatica",
+      "url": "/profiles/melvin-gatica.html",
+      "status": "source-verified",
+      "heroVideo": "sUy5L7x5pyE",
+      "tags": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Method",
+        "Musicality"
+      ]
+    },
+    {
+      "id": "emilien-tehina",
+      "category": "influence",
+      "title": "Emilien & Tehina",
+      "url": "/profiles/emilien-tehina.html",
+      "status": "source-verified",
+      "heroVideo": "FNv7eOMg-_k",
+      "tags": [
+        "Bachata Influence",
+        "Emilien Tehina",
+        "Pro Team",
+        "Connection"
+      ]
+    },
+    {
+      "id": "korke-judith",
+      "category": "global-dancers",
+      "title": "Korke & Judith",
+      "url": "/profiles/korke-judith.html",
+      "status": "source-verified",
+      "heroVideo": "B7Wv3cqHrSU",
+      "tags": [
+        "Korke Judith",
+        "Bachata Sensual",
+        "16 Fundamentals",
+        "Sensual"
+      ]
+    },
+    {
+      "id": "gero-migle",
+      "category": "global-dancers",
+      "title": "Gero & Migle",
+      "url": "/profiles/gero-migle.html",
+      "status": "source-verified",
+      "heroVideo": "j4CmXKDCMzI",
+      "tags": [
+        "Gero Migle",
+        "Global Dancers",
+        "Sensual",
+        "Performance"
+      ]
+    },
+    {
+      "id": "luis-andrea",
+      "category": "global-dancers",
+      "title": "Luis & Andrea",
+      "url": "/profiles/luis-andrea.html",
+      "status": "source-verified",
+      "heroVideo": "L1vzrcpeBuw",
+      "tags": [
+        "Luis Andrea",
+        "Global Dancers",
+        "Sensual",
+        "Workshop"
+      ]
+    },
+    {
+      "id": "andi-silvia",
+      "category": "global-dancers",
+      "title": "Andi & Silvia",
+      "url": "/profiles/andi-silvia.html",
+      "status": "source-verified",
+      "heroVideo": "FzOWJRxp9r0",
+      "tags": [
+        "Andi Silvia",
+        "Sensual",
+        "Global Dancers",
+        "Performance"
+      ]
+    },
+    {
+      "id": "gray-loren",
+      "category": "korea-scene",
+      "title": "Gray & Loren",
+      "url": "/profiles/gray-loren.html",
+      "status": "source-verified",
+      "heroVideo": "nrJM-arshvE",
+      "tags": [
+        "한국 바차타",
+        "Gray Loren",
+        "Influence Korea",
+        "Social"
+      ]
+    },
+    {
+      "id": "cluny-journey",
+      "category": "korea-scene",
+      "title": "Cluny & Journey",
+      "url": "/profiles/cluny-journey.html",
+      "status": "source-verified",
+      "heroVideo": "CypEYpiRzCo",
+      "tags": [
+        "클루니",
+        "져니",
+        "한국 바차타",
+        "Social"
+      ]
+    },
+    {
+      "id": "bonita-seoul",
+      "category": "venues",
+      "title": "홍대 보니따",
+      "url": "/profiles/bonita-seoul.html",
+      "status": "source-verified",
+      "heroVideo": "gDtOwUqeWKw",
+      "tags": [
+        "홍대 보니따",
+        "서울 바차타",
+        "소셜",
+        "Venue"
+      ]
+    },
+    {
+      "id": "everlatin",
+      "category": "korea-scene",
+      "title": "에버라틴",
+      "url": "/profiles/everlatin.html",
+      "status": "source-verified",
+      "heroVideo": "BWzJvto5gD4",
+      "tags": [
+        "에버라틴",
+        "동호회",
+        "클래스",
+        "2030"
+      ]
+    },
+    {
+      "id": "latin-cielo",
+      "category": "korea-scene",
+      "title": "라틴씨엘로",
+      "url": "/profiles/latin-cielo.html",
+      "status": "source-verified",
+      "heroVideo": "hk4oF_T82-E",
+      "tags": [
+        "라틴씨엘로",
+        "Latin Cielo",
+        "한국 바차타",
+        "Performance"
+      ]
+    }
+  ]
+}
