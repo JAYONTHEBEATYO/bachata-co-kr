@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T14:02:16.027Z",
+  "generatedAt": "2026-06-30T14:13:13.138Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -200,18 +200,18 @@
           "videoId": "Qng3Wdmt3WE"
         },
         {
-          "label": "학습 프로그램",
-          "title": "바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304",
-          "url": "/programs/",
-          "score": 16,
-          "videoId": "gDtOwUqeWKw"
+          "label": "Article",
+          "title": "한국 바차타 입문자가 먼저 봐야 할 글로벌 댄서 지도",
+          "url": "/articles/global-bachata-dancers-watchlist-korea.html",
+          "score": 24,
+          "videoId": "j4CmXKDCMzI"
         },
         {
           "label": "Article",
-          "title": "Bachata Influence는 무엇이 다른가",
-          "url": "/articles/bachata-influence-melvin-gatica.html",
-          "score": 16,
-          "videoId": "sUy5L7x5pyE"
+          "title": "한국 바차타 Influence 계열 장면을 어디서 볼 수 있나",
+          "url": "/articles/korea-bachata-influence-scene-map.html",
+          "score": 24,
+          "videoId": "nrJM-arshvE"
         }
       ]
     },
@@ -229,6 +229,13 @@
       ],
       "heroVideo": "sUy5L7x5pyE",
       "relatedContent": [
+        {
+          "label": "Article",
+          "title": "Bachata Influence 팀 지도: Melvin & Gatica 이후 누구를 봐야 하나",
+          "url": "/articles/bachata-influence-team-map-2026.html",
+          "score": 168,
+          "videoId": "sUy5L7x5pyE"
+        },
         {
           "label": "Article",
           "title": "Bachata Influence는 무엇이 다른가",
@@ -277,13 +284,6 @@
           "url": "/events/gangnam-latin-festival-2026.html",
           "score": 72,
           "videoId": "sUy5L7x5pyE"
-        },
-        {
-          "label": "Profile",
-          "title": "Gray & Loren",
-          "url": "/profiles/gray-loren.html",
-          "score": 68,
-          "videoId": "nrJM-arshvE"
         }
       ]
     },

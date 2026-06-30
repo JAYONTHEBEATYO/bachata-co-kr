@@ -1,14 +1,28 @@
 {
-  "generatedAt": "2026-06-30T14:02:15.828Z",
+  "generatedAt": "2026-06-30T14:13:12.964Z",
   "generationDate": "2026-06-30",
   "summary": {
-    "total": 159,
+    "total": 160,
     "ok": 138,
     "watch": 21,
-    "warn": 0,
+    "warn": 1,
     "broken": 0
   },
   "results": [
+    {
+      "type": "external",
+      "url": "https://developers.google.com/youtube/v3",
+      "label": "https://developers.google.com/youtube/v3",
+      "sources": [
+        {
+          "file": "data/social-intake.json",
+          "path": "sourcePolicy.3.sourceUrl"
+        }
+      ],
+      "status": "warn",
+      "httpStatus": null,
+      "note": "external check timed out or failed: The operation was aborted due to timeout"
+    },
     {
       "type": "external",
       "url": "https://www.instagram.com/__the3d__/",
@@ -131,6 +145,10 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.4.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.sourceLinks.6.url"
         }
       ],
       "status": "watch",
@@ -177,6 +195,10 @@
           "path": "profiles.12.sourceLinks.0.url"
         },
         {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.4.url"
+        },
+        {
           "file": "data/board.json",
           "path": "entries.6.sourceLinks.0.url"
         }
@@ -201,6 +223,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.8.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.sourceLinks.4.url"
         }
       ],
       "status": "watch",
@@ -245,6 +271,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.15.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.5.url"
         }
       ],
       "status": "watch",
@@ -263,6 +293,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.14.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.2.url"
         }
       ],
       "status": "watch",
@@ -533,6 +567,10 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -585,6 +623,24 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "external URL reachable"
+    },
+    {
+      "type": "external",
+      "url": "https://bygatica.com/bio/",
+      "label": "https://bygatica.com/bio/",
+      "sources": [
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.sourceLinks.3.url"
         }
       ],
       "status": "ok",
@@ -635,20 +691,6 @@
     },
     {
       "type": "external",
-      "url": "https://developers.google.com/youtube/v3",
-      "label": "https://developers.google.com/youtube/v3",
-      "sources": [
-        {
-          "file": "data/social-intake.json",
-          "path": "sourcePolicy.3.sourceUrl"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "external URL reachable"
-    },
-    {
-      "type": "external",
       "url": "https://en.wikipedia.org/wiki/Bachata_(dance)",
       "label": "https://en.wikipedia.org/wiki/Bachata_(dance)",
       "sources": [
@@ -673,6 +715,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.13.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.3.url"
         },
         {
           "file": "data/board.json",
@@ -825,6 +871,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.9.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.sourceLinks.5.url"
         }
       ],
       "status": "ok",
@@ -969,6 +1019,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.4.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -1023,6 +1077,10 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -1175,6 +1233,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.6.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -1193,6 +1255,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.7.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.sourceLinks.3.url"
         }
       ],
       "status": "ok",
@@ -1211,6 +1277,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.5.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -2436,6 +2506,14 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.15.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.watchlist.3.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.6.url"
         }
       ],
       "status": "ok",
@@ -2536,6 +2614,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.8.sourceLinks.3.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.watchlist.4.videoId"
         }
       ],
       "status": "ok",
@@ -2656,6 +2738,14 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.11.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.watchlist.1.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -2680,6 +2770,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.7.sourceLinks.3.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.watchlist.3.videoId"
         }
       ],
       "status": "ok",
@@ -2724,6 +2818,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.9.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.watchlist.5.videoId"
         }
       ],
       "status": "ok",
@@ -2752,6 +2850,14 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.1.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.watchlist.1.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.sourceLinks.5.url"
         }
       ],
       "status": "ok",
@@ -2832,6 +2938,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.6.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.watchlist.2.videoId"
         }
       ],
       "status": "ok",
@@ -2908,6 +3018,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.2.sourceLinks.3.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.watchlist.2.videoId"
         }
       ],
       "status": "ok",
@@ -2928,6 +3042,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.14.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.watchlist.2.videoId"
         }
       ],
       "status": "ok",
@@ -2980,6 +3098,14 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.4.sourceLinks.1.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.heroVideo.id"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.watchlist.0.videoId"
         }
       ],
       "status": "ok",
@@ -3036,6 +3162,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.5.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.6.watchlist.1.videoId"
         }
       ],
       "status": "ok",
@@ -3064,6 +3194,10 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.6.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.watchlist.3.videoId"
         }
       ],
       "status": "ok",
@@ -3136,6 +3270,18 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.10.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.heroVideo.id"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.watchlist.0.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -3288,6 +3434,18 @@
         {
           "file": "data/articles.json",
           "path": "articles.0.sourceLinks.5.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.heroVideo.id"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.watchlist.0.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.5.sourceLinks.4.url"
         },
         {
           "file": "data/events.json",

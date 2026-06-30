@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T14:01:28.708Z",
+  "generatedAt": "2026-06-30T14:12:20.874Z",
   "updatedAt": "2026-06-30",
   "articles": [
     {
@@ -69,6 +69,52 @@
         "On1 dance shoes",
         "Pulse dance shoes",
         "라틴댄스화"
+      ]
+    },
+    {
+      "slug": "bachata-influence-team-map-2026",
+      "title": "Bachata Influence 팀 지도: Melvin & Gatica 이후 누구를 봐야 하나",
+      "url": "/articles/bachata-influence-team-map-2026.html",
+      "updatedAt": "2026-06-30",
+      "keywords": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Gatica",
+        "Emilien Tehina",
+        "Emilio Serap",
+        "Influence Academy",
+        "바차타 인플루언스"
+      ]
+    },
+    {
+      "slug": "global-bachata-dancers-watchlist-korea",
+      "title": "한국 바차타 입문자가 먼저 봐야 할 글로벌 댄서 지도",
+      "url": "/articles/global-bachata-dancers-watchlist-korea.html",
+      "updatedAt": "2026-06-30",
+      "keywords": [
+        "Gero Migle",
+        "Luis Andrea",
+        "Andi Silvia",
+        "Cristian Gabriella",
+        "Klau Ros",
+        "Sara Panero",
+        "바차타 댄서"
+      ]
+    },
+    {
+      "slug": "korea-bachata-influence-scene-map",
+      "title": "한국 바차타 Influence 계열 장면을 어디서 볼 수 있나",
+      "url": "/articles/korea-bachata-influence-scene-map.html",
+      "updatedAt": "2026-06-30",
+      "keywords": [
+        "한국 바차타",
+        "서울 바차타",
+        "Gray Loren",
+        "Cluny Journey",
+        "라틴씨엘로",
+        "라스트댄스",
+        "에버라틴",
+        "보니따"
       ]
     }
   ]
