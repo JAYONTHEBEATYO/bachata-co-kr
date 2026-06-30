@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>바차타 코리아 | Bachata Korea 매거진, 소셜댄스, 클래스, 커뮤니티</title>
-    <meta name="description" content="바차타 코리아는 바차타 뜻, 유래, 음악, 도미니칸·모던·센슈얼 스타일, 서울 바차타 소셜, 클래스, 행사, 웹진과 커뮤니티 소식을 정리하는 한국 바차타 허브입니다.">
-    <meta name="keywords" content="바차타, bachata, 바차타 코리아, 한국 바차타, 서울 바차타, 바차타 소셜, 바차타 클래스, 바차타 강습, 바차타 음악, 바차타 입문, bachata Korea, bachata Seoul, Latin dance Korea">
+    <meta name="description" content="바차타 코리아는 바차타 뜻, 유래, 음악, 도미니칸·모던·센슈얼 스타일, 센슈얼 바차타 16 펀더멘탈, 서울 바차타 소셜, 클래스, 행사, 웹진과 커뮤니티 소식을 정리하는 한국 바차타 허브입니다.">
+    <meta name="keywords" content="바차타, bachata, 센슈얼 바차타, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타, 모던 바차타, 바차타 코리아, 한국 바차타, 서울 바차타, 바차타 소셜, 바차타 클래스, 바차타 강습, 바차타 음악, 바차타 입문, bachata Korea, bachata Seoul, Latin dance Korea">
     <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
     <meta name="author" content="Bachata Korea">
     <link rel="canonical" href="https://bachata.co.kr/">
@@ -449,12 +449,239 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        color: inherit;
       }
 
       .style-card .number {
         color: rgba(216, 167, 94, 0.68);
         font-size: 15px;
         font-weight: 950;
+      }
+
+      .style-card .read-more {
+        margin-top: 18px;
+        color: var(--amber);
+        font-size: 13px;
+        font-weight: 950;
+        text-transform: uppercase;
+      }
+
+      .dossiers {
+        display: grid;
+        gap: 18px;
+      }
+
+      .dossier {
+        overflow: hidden;
+        border: 1px solid rgba(255, 249, 239, 0.16);
+        border-radius: 8px;
+        background: rgba(255, 249, 239, 0.045);
+      }
+
+      .dossier-head {
+        min-height: 360px;
+        display: grid;
+        grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .dossier-title {
+        padding: clamp(24px, 5vw, 44px);
+        background: var(--paper);
+        color: #17120b;
+      }
+
+      .dossier-title h3 {
+        margin-top: 10px;
+        font-size: clamp(34px, 5.4vw, 76px);
+        line-height: 0.96;
+      }
+
+      .dossier-title p {
+        color: rgba(23, 18, 11, 0.72);
+      }
+
+      .dossier-label {
+        color: var(--wine);
+        font-size: 12px;
+        font-weight: 950;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .dossier-cover {
+        display: grid;
+        align-content: end;
+        padding: clamp(22px, 4vw, 38px);
+        background:
+          linear-gradient(180deg, rgba(8, 8, 10, 0.18), rgba(8, 8, 10, 0.9)),
+          url("assets/bachata-seoul-hero.png") center / cover no-repeat;
+      }
+
+      .dossier-cover p {
+        max-width: 560px;
+        color: rgba(255, 249, 239, 0.84);
+        font-size: 18px;
+        line-height: 1.72;
+      }
+
+      .dossier-body {
+        display: grid;
+        gap: 18px;
+        padding: clamp(18px, 4vw, 34px);
+      }
+
+      .editorial-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+        gap: 18px;
+        align-items: start;
+      }
+
+      .essay-card,
+      .video-card,
+      .source-note {
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(8, 8, 10, 0.36);
+      }
+
+      .essay-card {
+        padding: clamp(22px, 4vw, 34px);
+      }
+
+      .essay-card h4,
+      .video-card h4,
+      .source-note h4 {
+        font-size: clamp(24px, 3.2vw, 38px);
+        line-height: 1.08;
+      }
+
+      .essay-card p {
+        color: rgba(255, 249, 239, 0.74);
+        font-size: 17px;
+        line-height: 1.78;
+      }
+
+      .principle-list {
+        display: grid;
+        gap: 10px;
+        margin-top: 24px;
+      }
+
+      .principle-list li {
+        display: grid;
+        grid-template-columns: 34px 1fr;
+        gap: 12px;
+        list-style: none;
+        padding: 14px 0;
+        border-top: 1px solid rgba(255, 249, 239, 0.12);
+        color: rgba(255, 249, 239, 0.78);
+        line-height: 1.62;
+      }
+
+      .principle-list span {
+        color: var(--amber);
+        font-weight: 950;
+      }
+
+      .video-card {
+        overflow: hidden;
+      }
+
+      .video-frame {
+        position: relative;
+        aspect-ratio: 16 / 9;
+        background: #050505;
+      }
+
+      .video-frame iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .video-meta {
+        padding: 18px;
+      }
+
+      .video-meta p {
+        color: var(--muted);
+        line-height: 1.62;
+      }
+
+      .video-stack {
+        display: grid;
+        gap: 14px;
+      }
+
+      .fundamentals {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .fundamental {
+        min-height: 170px;
+        padding: 16px;
+        border: 1px solid rgba(255, 249, 239, 0.14);
+        border-radius: 8px;
+        background: #18130f;
+      }
+
+      .fundamental strong {
+        display: block;
+        color: var(--amber);
+        font-size: 18px;
+        line-height: 1.2;
+      }
+
+      .fundamental em {
+        display: block;
+        margin-top: 6px;
+        color: rgba(255, 249, 239, 0.56);
+        font-size: 12px;
+        font-style: normal;
+        font-weight: 900;
+        text-transform: uppercase;
+      }
+
+      .fundamental span {
+        display: block;
+        margin-top: 10px;
+        color: rgba(255, 249, 239, 0.7);
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .source-note {
+        padding: 20px;
+      }
+
+      .source-note p {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .source-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .source-links a {
+        display: inline-flex;
+        align-items: center;
+        min-height: 34px;
+        padding: 0 10px;
+        border: 1px solid rgba(216, 167, 94, 0.36);
+        border-radius: 999px;
+        color: var(--gold);
+        font-size: 12px;
+        font-weight: 900;
       }
 
       .magazine {
@@ -717,11 +944,17 @@
         .grid.three,
         .grid.two,
         .rich,
+        .dossier-head,
+        .editorial-grid,
         .magazine,
         .board,
         .submit,
         .section-head {
           grid-template-columns: 1fr;
+        }
+
+        .fundamentals {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
         }
 
         .search-map {
@@ -755,6 +988,7 @@
         }
 
         .hero-meta,
+        .fundamentals,
         .search-map {
           grid-template-columns: 1fr;
         }
@@ -804,8 +1038,65 @@
               {"@type":"ListItem","position":1,"name":"바차타 입문 가이드"},
               {"@type":"ListItem","position":2,"name":"바차타 음악과 역사"},
               {"@type":"ListItem","position":3,"name":"서울 바차타 소셜과 클래스"},
-              {"@type":"ListItem","position":4,"name":"한국 바차타 웹진과 커뮤니티"}
+              {"@type":"ListItem","position":4,"name":"한국 바차타 웹진과 커뮤니티"},
+              {"@type":"ListItem","position":5,"name":"센슈얼 바차타 16 펀더멘탈"},
+              {"@type":"ListItem","position":6,"name":"도미니칸 바차타 리듬 읽기"},
+              {"@type":"ListItem","position":7,"name":"모던 바차타와 퓨전의 문법"}
             ]
+          },
+          {
+            "@type": "Article",
+            "@id": "https://bachata.co.kr/#dossier-sensual",
+            "headline": "센슈얼 바차타 16 펀더멘탈",
+            "inLanguage": "ko-KR",
+            "about": ["센슈얼 바차타", "Korke y Judith", "바차타 펀더멘탈"],
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "video": {"@id": "https://bachata.co.kr/#video-sensual-16"}
+          },
+          {
+            "@type": "Article",
+            "@id": "https://bachata.co.kr/#dossier-dominican",
+            "headline": "도미니칸 바차타 리듬 읽기",
+            "inLanguage": "ko-KR",
+            "about": ["도미니칸 바차타", "바차타 풋워크", "Dominican Bachata"],
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "video": {"@id": "https://bachata.co.kr/#video-dominican-basic"}
+          },
+          {
+            "@type": "Article",
+            "@id": "https://bachata.co.kr/#dossier-modern",
+            "headline": "모던 바차타와 퓨전의 문법",
+            "inLanguage": "ko-KR",
+            "about": ["모던 바차타", "바차타 퓨전", "Bachata Fusion"],
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "video": {"@id": "https://bachata.co.kr/#video-modern-basic"}
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://bachata.co.kr/#video-sensual-16",
+            "name": "16 Bachata Sensual Fundamental Techniques by Korke y Judith",
+            "description": "센슈얼 바차타 16 펀더멘탈을 설명하는 공개 유튜브 영상.",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99",
+            "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU",
+            "inLanguage": "ko-KR"
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://bachata.co.kr/#video-dominican-basic",
+            "name": "Dominican Bachata Footwork - Beginner Basics",
+            "description": "도미니칸 바차타 기본 풋워크 공개 튜토리얼.",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/xmvDKN5cwT0",
+            "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0",
+            "inLanguage": "en"
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://bachata.co.kr/#video-modern-basic",
+            "name": "Bachata Beginner Basic Steps Tutorial",
+            "description": "모던 바차타 입문 기본 스텝 공개 튜토리얼.",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/xhrdh-uFkog",
+            "url": "https://www.youtube.com/watch?v=xhrdh-uFkog",
+            "inLanguage": "en"
           },
           {
             "@type": "FAQPage",
@@ -931,25 +1222,241 @@
             <p>한국 바차타 클래스와 소셜에서는 여러 스타일이 섞여 나타납니다. 입문자는 어느 한쪽이 정답이라고 보기보다 음악과 파트너에 맞게 선택하는 감각을 키우는 것이 좋습니다.</p>
           </div>
           <div class="grid three">
-            <article class="card style-card">
+            <a class="card style-card" href="#dossier-dominican">
               <div class="card-body">
                 <span class="number">01</span>
                 <h3>도미니칸 바차타</h3>
                 <p>발놀림, 싱코페이션, 기타 리듬을 섬세하게 타는 스타일입니다. 음악을 깊게 듣는 사람에게 매력적이며, 바차타의 뿌리를 이해하는 데 중요한 출발점입니다.</p>
+                <span class="read-more">Dossier 보기</span>
               </div>
-            </article>
-            <article class="card style-card">
+            </a>
+            <a class="card style-card" href="#dossier-modern">
               <div class="card-body">
                 <span class="number">02</span>
                 <h3>모던 바차타</h3>
                 <p>살사, 탱고, 라틴 파트너댄스의 연결감이 섞이며 세계적으로 확장된 스타일입니다. 입문 클래스에서 가장 접근하기 쉬운 구조로 자주 소개됩니다.</p>
+                <span class="read-more">Dossier 보기</span>
               </div>
-            </article>
-            <article class="card style-card">
+            </a>
+            <a class="card style-card" href="#dossier-sensual">
               <div class="card-body">
                 <span class="number">03</span>
                 <h3>센슈얼 바차타</h3>
                 <p>바디 무브먼트, 웨이브, 프레임의 탄성을 강조합니다. 안전한 리드와 팔로우, 동의와 배려가 특히 중요하며 좋은 기본기 위에서 가장 아름답게 보입니다.</p>
+                <span class="read-more">16 Fundamentals 보기</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="style-dossiers" class="section">
+        <div class="wrap">
+          <div class="section-head">
+            <div>
+              <p class="eyebrow">Style Dossiers</p>
+              <h2>클릭하면 바로 읽히는 바차타 스타일 매거진</h2>
+            </div>
+            <p>각 스타일은 검색결과의 흩어진 단어를 그대로 옮기지 않고, 공식 설명·커뮤니티 정리·공개 영상·소셜 현장의 학습 포인트를 교차해서 한국어 기사로 편집합니다.</p>
+          </div>
+
+          <div class="dossiers">
+            <article id="dossier-sensual" class="dossier">
+              <div class="dossier-head">
+                <div class="dossier-title">
+                  <span class="dossier-label">Issue 01 / Sensual Bachata</span>
+                  <h3>센슈얼 바차타 16 펀더멘탈</h3>
+                  <p>Korke y Judith 계열에서 자주 언급되는 핵심 어휘를 한국어 학습 노트로 재정리했습니다. 멋진 웨이브보다 먼저, 몸을 안전하게 쓰는 원리와 파트너의 편안함을 봅니다.</p>
+                </div>
+                <div class="dossier-cover">
+                  <p>센슈얼은 “몸을 크게 쓰는 춤”이 아니라 음악을 몸의 파동, 회전, 저항, 프레임으로 번역하는 방식입니다. 그래서 좋은 센슈얼은 과시보다 정교하고, 강한 리드보다 섬세한 합의에 가깝습니다.</p>
+                </div>
+              </div>
+              <div class="dossier-body">
+                <div class="editorial-grid">
+                  <div class="essay-card">
+                    <span class="tag">Published Guide</span>
+                    <h4>16개 이름을 외우기 전에 봐야 할 4가지 기준</h4>
+                    <p>센슈얼 바차타의 단어들은 대부분 파동, 축, 골반, 머리, 방향 전환을 설명합니다. 하지만 이름을 외운다고 춤이 안전해지지는 않습니다. 리더는 상대의 몸을 밀어 넣는 것이 아니라 가능한 길을 제안해야 하고, 팔로워는 무게 중심과 목·허리의 한계를 스스로 지킬 수 있어야 합니다.</p>
+                    <p>아래 16개는 Reddit 커뮤니티 정리와 해당 영상의 스페인어 명칭을 바탕으로 한국어 설명을 붙인 편집본입니다. 강사와 스쿨에 따라 명칭과 범주는 달라질 수 있으니, “정답표”가 아니라 수업을 이해하기 위한 지도처럼 보는 것이 좋습니다.</p>
+                    <ol class="principle-list">
+                      <li><span>01</span><strong>Consent</strong> 바디웨이브, 딥, 헤드롤은 리드가 가능해 보여도 상대가 준비되어 있지 않으면 하지 않습니다.</li>
+                      <li><span>02</span><strong>Frame</strong> 손으로 당기는 느낌보다 등, 중심, 호흡, 공간으로 길을 만듭니다.</li>
+                      <li><span>03</span><strong>Axis</strong> 큰 동작일수록 목과 허리의 축을 보호하고, 체중을 어디에 싣는지 명확히 합니다.</li>
+                      <li><span>04</span><strong>Music</strong> 모든 동작은 음악의 문장에 들어갈 때만 빛납니다. 빈 공간을 채우려고 움직이지 않습니다.</li>
+                    </ol>
+                  </div>
+                  <div class="video-stack">
+                    <article class="video-card">
+                      <div class="video-frame">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99" title="16 Bachata Sensual Fundamental Techniques by Korke y Judith" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-meta">
+                        <span class="tag">Core Video</span>
+                        <h4>Korke y Judith 16 Fundamentals</h4>
+                        <p>oEmbed와 embed URL 기준으로 확인한 공개 영상입니다. 타임스탬프 1:39 부근부터 핵심 명칭 흐름을 볼 수 있습니다.</p>
+                      </div>
+                    </article>
+                    <article class="video-card">
+                      <div class="video-frame">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/mLIT9UaZ_4w" title="Bachata Waves Tutorial with Korke y Judith" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-meta">
+                        <span class="tag">Technique Companion</span>
+                        <h4>Onda / Wave / Body Roll</h4>
+                        <p>16개 중 가장 자주 오해되는 웨이브를 별도 영상으로 연결했습니다.</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+
+                <div class="fundamentals" aria-label="센슈얼 바차타 16 펀더멘탈">
+                  <div class="fundamental"><strong>Onda</strong><em>Wave / Body roll</em><span>상체와 골반이 한 번에 무너지는 것이 아니라, 파동이 순서대로 지나가게 만드는 기본 감각.</span></div>
+                  <div class="fundamental"><strong>Onda Lateral</strong><em>Side wave</em><span>앞뒤가 아니라 좌우 방향으로 흐르는 파동. 갈비뼈와 골반의 분리가 핵심입니다.</span></div>
+                  <div class="fundamental"><strong>Caida</strong><em>Dip</em><span>떨어지는 동작처럼 보이지만 실제로는 지지, 축, 동의가 먼저인 하강 표현입니다.</span></div>
+                  <div class="fundamental"><strong>Bolero</strong><em>Bolero texture</em><span>바차타의 감정선과 가까운 닫힌 연결. 과한 장식보다 음악의 호흡을 살립니다.</span></div>
+                  <div class="fundamental"><strong>Completo</strong><em>360 turn</em><span>프레임을 유지한 채 완성되는 회전. 팔로워를 돌리는 것이 아니라 축을 안내합니다.</span></div>
+                  <div class="fundamental"><strong>Paséala</strong><em>Walk her</em><span>팔로워가 자신의 걸음으로 지나갈 수 있게 길을 여는 리드. 걷는 품질이 먼저입니다.</span></div>
+                  <div class="fundamental"><strong>Rompo Delante</strong><em>Break forward</em><span>앞 방향 에너지를 끊고 전환하는 테크닉. 상체와 골반 타이밍이 흐트러지기 쉽습니다.</span></div>
+                  <div class="fundamental"><strong>Pinza</strong><em>Block and roll</em><span>움직임을 막는 것이 아니라 에너지를 잠깐 잡아 회전·롤로 바꾸는 연결입니다.</span></div>
+                  <div class="fundamental"><strong>Culito</strong><em>Small hip roll</em><span>작은 골반 원. 접촉이 있더라도 압박이 아니라 방향과 타이밍의 합의가 중요합니다.</span></div>
+                  <div class="fundamental"><strong>Contra Cadera</strong><em>Hip reversal</em><span>골반 흐름을 반대로 보내는 감각. 허리를 꺾지 않고 중심을 바꿉니다.</span></div>
+                  <div class="fundamental"><strong>Lanzamiento</strong><em>Big hip roll</em><span>큰 골반 롤. 접촉 없이도 가능하며 음악의 긴 호흡에 맞을 때 가장 자연스럽습니다.</span></div>
+                  <div class="fundamental"><strong>Lateral</strong><em>Figure 8</em><span>무한대처럼 보이는 좌우 흐름. 발보다 몸통의 방향 전환을 먼저 듣습니다.</span></div>
+                  <div class="fundamental"><strong>Cabeza</strong><em>Head roll</em><span>목을 꺾는 기술이 아니라 등과 흉추의 흐름 끝에 머리가 따라오는 표현입니다.</span></div>
+                  <div class="fundamental"><strong>Golpes</strong><em>Staccato</em><span>부드러운 파동 사이에 들어가는 짧은 악센트. 멈춤이 정확해야 음악성이 살아납니다.</span></div>
+                  <div class="fundamental"><strong>Media</strong><em>Half turn</em><span>절반 회전 안에서 축과 시야를 정리하는 기초. 빠른 패턴보다 마무리가 중요합니다.</span></div>
+                  <div class="fundamental"><strong>Impulso</strong><em>Side push</em><span>옆 방향 에너지를 보내는 리드. 밀어내는 힘이 아니라 시작 신호에 가깝습니다.</span></div>
+                </div>
+
+                <div class="source-note">
+                  <h4>편집 기준</h4>
+                  <p>이 글은 공식 Bachata Sensual 설명에서 강조하는 몸을 존중하는 움직임, Reddit에 정리된 16개 스페인어 명칭, 공개 유튜브 영상의 타임스탬프를 교차해서 한국어 학습 콘텐츠로 재구성했습니다.</p>
+                  <div class="source-links">
+                    <a href="https://bachatasensual.com/" target="_blank" rel="noreferrer">Bachata Sensual Official</a>
+                    <a href="https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/" target="_blank" rel="noreferrer">Reddit 16 Fundamentals</a>
+                    <a href="https://www.youtube.com/watch?v=B7Wv3cqHrSU" target="_blank" rel="noreferrer">YouTube 원본</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article id="dossier-dominican" class="dossier">
+              <div class="dossier-head">
+                <div class="dossier-title">
+                  <span class="dossier-label">Issue 02 / Dominican Bachata</span>
+                  <h3>도미니칸 바차타 리듬 읽기</h3>
+                  <p>도미니칸은 “발을 많이 쓰는 스타일”로만 이해하면 얕습니다. 기타, 봉고, 귀라, 보컬의 문장에 발이 대답하는 방식입니다.</p>
+                </div>
+                <div class="dossier-cover">
+                  <p>UNESCO가 기록한 도미니카 바차타의 핵심은 음악과 춤이 분리되지 않는다는 점입니다. 발놀림은 장식이 아니라 리듬을 듣는 능력의 결과입니다.</p>
+                </div>
+              </div>
+              <div class="dossier-body">
+                <div class="editorial-grid">
+                  <div class="essay-card">
+                    <span class="tag">Published Guide</span>
+                    <h4>도미니칸을 배울 때 먼저 봐야 할 것</h4>
+                    <p>초보자는 복잡한 샤인보다 1-2-3-탭, 5-6-7-탭의 질감을 먼저 다듬는 편이 좋습니다. 체중을 어디에 두는지, 탭에서 발을 얼마나 가볍게 닫는지, 싱코페이션이 음악을 따라가는지 확인하면 도미니칸이 갑자기 훨씬 선명해집니다.</p>
+                    <ol class="principle-list">
+                      <li><span>01</span><strong>Guitar</strong> 기타 리프가 촘촘해질 때 발의 작은 장식이 자연스럽게 들어갑니다.</li>
+                      <li><span>02</span><strong>Tap</strong> 탭은 쉬는 박자가 아니라 리듬을 접는 순간입니다.</li>
+                      <li><span>03</span><strong>Syncopation</strong> 박자 사이에 들어가는 발은 빠른 발이 아니라 정확한 귀에서 나옵니다.</li>
+                      <li><span>04</span><strong>Social</strong> 파트너와 가까운 거리에서도 무릎과 발목의 탄성이 살아야 합니다.</li>
+                    </ol>
+                  </div>
+                  <div class="video-stack">
+                    <article class="video-card">
+                      <div class="video-frame">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xmvDKN5cwT0" title="Dominican Bachata Footwork Beginner Basics" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-meta">
+                        <span class="tag">Beginner Footwork</span>
+                        <h4>파트너 없이 시작하는 도미니칸 기본</h4>
+                        <p>기본 발, 무게 이동, 탭을 독립적으로 확인하기 좋은 공개 튜토리얼입니다.</p>
+                      </div>
+                    </article>
+                    <article class="video-card">
+                      <div class="video-frame">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/csvyhfrLv74" title="Dominican Bachata Basic Footwork Follow Along" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-meta">
+                        <span class="tag">Follow Along</span>
+                        <h4>음악에 맞춘 도미니칸 풋워크</h4>
+                        <p>설명보다 몸으로 반복하고 싶을 때 붙여두기 좋은 연습 영상입니다.</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="source-note">
+                  <h4>편집 기준</h4>
+                  <p>도미니칸 콘텐츠는 UNESCO의 도미니카 바차타 설명, 바차타 댄스/음악의 역사적 정리, 공개 풋워크 튜토리얼을 기준으로 한국 입문자가 이해하기 쉽게 재구성했습니다.</p>
+                  <div class="source-links">
+                    <a href="https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514" target="_blank" rel="noreferrer">UNESCO Bachata</a>
+                    <a href="https://en.wikipedia.org/wiki/Bachata_(dance)" target="_blank" rel="noreferrer">Bachata Dance Reference</a>
+                    <a href="https://www.youtube.com/watch?v=xmvDKN5cwT0" target="_blank" rel="noreferrer">YouTube 튜토리얼</a>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article id="dossier-modern" class="dossier">
+              <div class="dossier-head">
+                <div class="dossier-title">
+                  <span class="dossier-label">Issue 03 / Modern & Fusion</span>
+                  <h3>모던 바차타와 퓨전의 문법</h3>
+                  <p>모던은 입문자가 가장 빨리 만나는 바차타의 언어입니다. 기본 스텝과 턴 패턴 위에 살사, 주크, 탱고, 팝 감각이 섞이면서 무대와 소셜 모두에서 확장됐습니다.</p>
+                </div>
+                <div class="dossier-cover">
+                  <p>모던과 퓨전은 “아무거나 섞기”가 아닙니다. 바차타의 타이밍을 잃지 않으면서 다른 장르의 질감을 가져오는 편집 감각에 가깝습니다.</p>
+                </div>
+              </div>
+              <div class="dossier-body">
+                <div class="editorial-grid">
+                  <div class="essay-card">
+                    <span class="tag">Published Guide</span>
+                    <h4>패턴이 아니라 문장으로 배우기</h4>
+                    <p>모던 바차타는 입문자가 클래스로 배우기 쉬운 구조를 제공합니다. 사이드 베이직, 오픈 포지션, 기본 턴, 크로스 연결이 명료하기 때문입니다. 하지만 패턴을 계속 추가하면 금방 복잡해지고, 음악과 연결은 약해질 수 있습니다.</p>
+                    <p>퓨전은 Carlos Espinosa 계열 설명에서 보이듯 살사, 주크, 삼바 데 가피에이라 등 다른 장르의 질감을 바차타 타이밍 위에 얹습니다. 그래서 핵심은 “얼마나 많이 섞는가”가 아니라 “바차타의 8카운트와 파트너 연결을 지키는가”입니다.</p>
+                    <ol class="principle-list">
+                      <li><span>01</span><strong>Basic</strong> 사이드 베이직의 체중 이동이 흔들리면 모든 패턴이 가벼워집니다.</li>
+                      <li><span>02</span><strong>Turn</strong> 턴은 손 기술이 아니라 축과 시선, 발의 준비가 만든 결과입니다.</li>
+                      <li><span>03</span><strong>Fusion</strong> 다른 장르를 가져와도 바차타 음악의 문장과 타이밍이 먼저입니다.</li>
+                      <li><span>04</span><strong>Social</strong> 쇼케이스처럼 보이는 동작도 소셜에서는 공간과 상대 수준에 맞게 줄여야 합니다.</li>
+                    </ol>
+                  </div>
+                  <div class="video-stack">
+                    <article class="video-card">
+                      <div class="video-frame">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xhrdh-uFkog" title="Bachata Beginner Basic Steps Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-meta">
+                        <span class="tag">Modern Basics</span>
+                        <h4>입문자가 먼저 볼 기본 스텝과 턴</h4>
+                        <p>모던/클래스형 바차타의 출발점으로 쓰기 좋은 기본 튜토리얼입니다.</p>
+                      </div>
+                    </article>
+                    <article class="video-card">
+                      <div class="video-frame">
+                        <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dfsSL8QRjrM" title="Carlos Espinosa Bachata Fusion Performance" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                      </div>
+                      <div class="video-meta">
+                        <span class="tag">Fusion Reference</span>
+                        <h4>Carlos Espinosa Bachata Fusion</h4>
+                        <p>퓨전이 어떻게 바차타 타이밍 위에 다른 움직임의 질감을 얹는지 볼 수 있는 레퍼런스 영상입니다.</p>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+                <div class="source-note">
+                  <h4>편집 기준</h4>
+                  <p>모던/퓨전 콘텐츠는 Carlos Espinosa 소개 자료, 바차타 스타일 분류 자료, 공개 튜토리얼과 퍼포먼스 영상을 바탕으로 한국어 웹진 톤으로 재정리했습니다.</p>
+                  <div class="source-links">
+                    <a href="https://www.goandance.com/en/artist/3896/carlos-espinosa" target="_blank" rel="noreferrer">Carlos Espinosa 자료</a>
+                    <a href="https://en.wikipedia.org/wiki/Bachata_(dance)" target="_blank" rel="noreferrer">Bachata Styles</a>
+                    <a href="https://www.youtube.com/watch?v=dfsSL8QRjrM" target="_blank" rel="noreferrer">Fusion Video</a>
+                  </div>
+                </div>
               </div>
             </article>
           </div>
