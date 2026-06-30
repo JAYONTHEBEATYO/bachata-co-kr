@@ -17,8 +17,10 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `data/programs.json`: editor-managed video-first learning program library
 - `data/editorial-desk.json`: editor-managed story queue and publishing series plan
 - `data/gear.json`: editor-managed dance shoes and gear comparison data
+- `data/home-rail.json`: editor-managed homepage watch-next rail slots
 - `tools/collect-scene-signals.mjs`: validates YouTube embeds and prepares candidate signals
 - `tools/audit-sources.mjs`: audits internal links, external source URLs, and YouTube oEmbed health
+- `tools/build-home.mjs`: builds the homepage watch-next rail and `data/generated/home-index.json`
 - `tools/build-articles.mjs`: builds `/articles/` and `data/generated/article-index.json`
 - `tools/build-style-guides.mjs`: builds `/styles/` and `data/generated/style-index.json`
 - `tools/build-profiles.mjs`: builds `/profiles/` and `data/generated/profile-index.json`
@@ -33,6 +35,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `.github/workflows/content-discovery.yml`: scheduled GitHub Actions workflow
 - `data/generated/scene-signals.json`: generated candidate queue for editorial review
 - `data/generated/source-health.json`: generated source, link, and video health report
+- `data/generated/home-index.json`: generated homepage rail model for the current daily brief
 - `briefs/`: generated daily brief pages
 - `articles/`: generated evergreen article pages
 - `styles/`: generated style guide pages

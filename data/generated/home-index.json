@@ -1,0 +1,50 @@
+{
+  "generatedAt": "2026-06-30T11:00:15.552Z",
+  "updatedAt": "2026-06-30",
+  "latestBrief": {
+    "url": "/briefs/2026-06-30.html",
+    "candidateCount": 35,
+    "generationDate": "2026-06-30"
+  },
+  "sourceHealth": {
+    "total": 113,
+    "ok": 100,
+    "watch": 13,
+    "warn": 0,
+    "broken": 0
+  },
+  "cards": [
+    {
+      "label": "Core Program",
+      "title": "센슈얼 16 펀더멘털",
+      "url": "/programs/sensual-fundamentals.html",
+      "meta": "4 videos · 16 cards",
+      "videoId": "B7Wv3cqHrSU",
+      "featured": true
+    },
+    {
+      "label": "Rhythm",
+      "title": "도미니칸 풋워크",
+      "url": "/programs/dominican-rhythm.html",
+      "meta": "Beginner route",
+      "videoId": "xmvDKN5cwT0",
+      "featured": false
+    },
+    {
+      "label": "Trend",
+      "title": "Bachata Influence",
+      "url": "/articles/bachata-influence-melvin-gatica.html",
+      "meta": "Feature article",
+      "videoId": null,
+      "featured": false
+    },
+    {
+      "label": "Scene",
+      "title": "이번 달 한국 바차타",
+      "url": "/events/k-sensual-summer-2026.html",
+      "meta": "2026-07-09 · 제주",
+      "videoId": "zQXNPwMqpdw",
+      "featured": false
+    }
+  ]
+}

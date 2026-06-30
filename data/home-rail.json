@@ -1,0 +1,40 @@
+{
+  "updatedAt": "2026-06-30",
+  "eyebrow": "Watch Next",
+  "title": "오늘 바로 볼 만한 바차타 콘텐츠",
+  "intro": "지금 볼 영상, 이어 읽을 기사, 이번 달 움직이는 씬으로 바로 연결합니다.",
+  "cards": [
+    {
+      "kind": "program",
+      "id": "sensual-fundamentals",
+      "label": "Core Program",
+      "title": "센슈얼 16 펀더멘털",
+      "description": "Korke & Judith 영상, 한국어 해설, 16개 카드로 이어지는 핵심 학습 경로.",
+      "meta": "4 videos · 16 cards",
+      "featured": true
+    },
+    {
+      "kind": "program",
+      "id": "dominican-rhythm",
+      "label": "Rhythm",
+      "title": "도미니칸 풋워크",
+      "description": "탭, 싱코페이션, 기타 리프를 작고 정확하게 듣는 입문 루틴.",
+      "meta": "Beginner route"
+    },
+    {
+      "kind": "article",
+      "slug": "bachata-influence-melvin-gatica",
+      "label": "Trend",
+      "title": "Bachata Influence",
+      "description": "Melvin & Gatica 흐름을 영상과 방법론 중심으로 읽는 트렌드 기사.",
+      "meta": "Feature article"
+    },
+    {
+      "kind": "next-event",
+      "label": "Scene",
+      "title": "이번 달 한국 바차타",
+      "description": "내한, 워크숍, 소셜, 팀 소식을 월별 레이더로 정리합니다.",
+      "meta": "Monthly radar"
+    }
+  ]
+}

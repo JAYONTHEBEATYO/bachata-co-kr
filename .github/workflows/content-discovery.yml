@@ -65,13 +65,16 @@ jobs:
       - name: Build daily brief
         run: node tools/build-daily-brief.mjs
 
+      - name: Build homepage rail
+        run: node tools/build-home.mjs
+
       - name: Commit generated discovery data and brief
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/generated/scene-signals.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/program-index.json data/generated/editorial-desk-index.json data/generated/profile-index.json data/generated/board-index.json data/generated/submission-index.json data/generated/event-index.json data/generated/social-radar-index.json data/generated/gear-index.json data/generated/source-health.json articles styles programs desk profiles briefs community submit events radar gear health sitemap.xml
+          git add data/generated/scene-signals.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/program-index.json data/generated/editorial-desk-index.json data/generated/profile-index.json data/generated/board-index.json data/generated/submission-index.json data/generated/event-index.json data/generated/social-radar-index.json data/generated/gear-index.json data/generated/source-health.json data/generated/home-index.json articles styles programs desk profiles briefs community submit events radar gear health index.html sitemap.xml
           if git diff --cached --quiet; then
             echo "No discovery changes to commit"
           else
