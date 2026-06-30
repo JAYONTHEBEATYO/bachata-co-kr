@@ -12,12 +12,14 @@ const stylesDir = resolve(root, "styles");
 const profilesDir = resolve(root, "profiles");
 const gearDir = resolve(root, "gear");
 const eventsDir = resolve(root, "events");
+const radarDir = resolve(root, "radar");
 const articleIndexPath = resolve(root, "data/generated/article-index.json");
 const boardIndexPath = resolve(root, "data/generated/board-index.json");
 const styleIndexPath = resolve(root, "data/generated/style-index.json");
 const profileIndexPath = resolve(root, "data/generated/profile-index.json");
 const gearIndexPath = resolve(root, "data/generated/gear-index.json");
 const eventIndexPath = resolve(root, "data/generated/event-index.json");
+const socialRadarIndexPath = resolve(root, "data/generated/social-radar-index.json");
 const sitemapPath = resolve(root, "sitemap.xml");
 
 const topicNotes = {
@@ -55,6 +57,13 @@ const topicNotes = {
       "Fuego, Pana Mio, On1, Pulse는 어떤 바닥과 춤 스타일에 맞는가?",
       "한국 구매자에게 사이즈와 반품 리스크를 어떻게 알려줄 것인가?"
     ]
+  },
+  "social-radar": {
+    dek: "인스타 신호는 캡션을 복제하지 않고, 원문 링크·핸들·해시태그·관련 사이트 페이지로 묶어 편집 후보를 만듭니다.",
+    questions: [
+      "오늘 확인한 인스타 신호가 행사, 팀 소개, 댄서 프로필, 상품 비교 중 어디에 들어가야 하는가?",
+      "공식 링크와 유튜브 아카이브가 함께 있어 기사화할 만큼 검증됐는가?"
+    ]
   }
 };
 
@@ -82,8 +91,7 @@ const renderCandidate = (candidate) => {
 
   return `
               <article class="candidate">
-                ${embed}
-                <div class="candidate-body">
+${embed ? `                ${embed}\n` : ""}                <div class="candidate-body">
                   <span class="tag">${type} · score ${score}</span>
                   <h3>${title}</h3>
                   <a href="${sourceUrl}" target="_blank" rel="noreferrer">원본 확인</a>
@@ -108,7 +116,7 @@ const renderTopic = (topic) => {
               <p>${escapeHtml(note.dek)}</p>
             </div>
             <div class="candidate-grid">
-              ${candidates || "<p>오늘은 검증된 후보가 없습니다.</p>"}
+${candidates || "              <p>오늘은 검증된 후보가 없습니다.</p>"}
             </div>
             <div class="questions">
               <strong>다음 취재 질문</strong>
@@ -504,6 +512,32 @@ const updateSitemap = async (dateText) => {
     <priority>${page.priority}</priority>
   </url>`).join("\n");
 
+  let radarPages = [];
+  try {
+    const radarIndex = await readJson(socialRadarIndexPath);
+    radarPages = [{ url: "/radar/", updatedAt: radarIndex.updatedAt || dateText, priority: "0.82", changefreq: "daily" }];
+  } catch {
+    try {
+      radarPages = (await readdir(radarDir))
+        .filter((name) => name.endsWith(".html"))
+        .map((name) => ({
+          url: name === "index.html" ? "/radar/" : `/radar/${name}`,
+          updatedAt: dateText,
+          priority: name === "index.html" ? "0.82" : "0.72",
+          changefreq: "daily"
+        }));
+    } catch {
+      radarPages = [];
+    }
+  }
+
+  const radarUrls = radarPages.map((page) => `  <url>
+    <loc>https://bachata.co.kr${page.url}</loc>
+    <lastmod>${page.updatedAt || dateText}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join("\n");
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -522,6 +556,7 @@ ${briefUrls}
 ${styleUrls}
 ${profileUrls}
 ${eventUrls}
+${radarUrls}
 ${gearUrls}
   <url>
     <loc>https://bachata.co.kr/articles/</loc>

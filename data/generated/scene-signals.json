@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T09:29:48.328Z",
+  "generatedAt": "2026-06-30T09:38:49.091Z",
   "generationDate": "2026-06-30",
   "mode": {
     "youtubeApi": false,
@@ -177,6 +177,138 @@
           "embedUrl": "https://www.youtube-nocookie.com/embed/FtcPRwVIdNk",
           "scoreBoost": 25,
           "score": 55
+        }
+      ]
+    },
+    {
+      "id": "social-radar",
+      "label": "Social Radar",
+      "keywords": [
+        "Instagram",
+        "바차타 인스타",
+        "한국 바차타 소식",
+        "bachata Korea",
+        "bachata event"
+      ],
+      "candidateCount": 18,
+      "candidates": [
+        {
+          "type": "instagram-watch",
+          "title": "K-Sensual Official @ksensual_official",
+          "sourceUrl": "https://www.instagram.com/ksensual_official/",
+          "relatedUrl": "/events/k-sensual-summer-2026.html",
+          "role": "festival",
+          "watchlist": "한국 행사·내한",
+          "scoreBoost": 96,
+          "score": 114
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Seoul Bachata Festival @seoulbachatafestival",
+          "sourceUrl": "https://www.instagram.com/seoulbachatafestival/",
+          "relatedUrl": "/events/seoul-bachata-festival-vol4-2026.html",
+          "role": "festival",
+          "watchlist": "한국 행사·내한",
+          "scoreBoost": 96,
+          "score": 114
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Gangnam Latin Festival @gangnamlatinfestival",
+          "sourceUrl": "https://www.instagram.com/gangnamlatinfestival/",
+          "relatedUrl": "/events/gangnam-latin-festival-2026.html",
+          "role": "festival",
+          "watchlist": "한국 행사·내한",
+          "scoreBoost": 96,
+          "score": 114
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Latin Cielo @latin_cielo",
+          "sourceUrl": "https://www.instagram.com/latin_cielo/",
+          "relatedUrl": "/profiles/latin-cielo.html",
+          "role": "team",
+          "watchlist": "한국 팀·동호회·장소",
+          "scoreBoost": 92,
+          "score": 110
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Everlatin @clublatin_everlatin",
+          "sourceUrl": "https://www.instagram.com/clublatin_everlatin/",
+          "relatedUrl": "/profiles/everlatin.html",
+          "role": "club",
+          "watchlist": "한국 팀·동호회·장소",
+          "scoreBoost": 92,
+          "score": 110
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Bonita Seoul @jessica_latinclub_bonita",
+          "sourceUrl": "https://www.instagram.com/jessica_latinclub_bonita/",
+          "relatedUrl": "/profiles/bonita-seoul.html",
+          "role": "venue",
+          "watchlist": "한국 팀·동호회·장소",
+          "scoreBoost": 92,
+          "score": 110
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Lauren Bachatista @lauren_bachatista",
+          "sourceUrl": "https://www.instagram.com/lauren_bachatista/reels/",
+          "relatedUrl": "/profiles/gray-loren.html",
+          "role": "artist",
+          "watchlist": "한국 팀·동호회·장소",
+          "scoreBoost": 92,
+          "score": 110
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Melvin & Gatica @melvin_gatica_bachata",
+          "sourceUrl": "https://www.instagram.com/melvin_gatica_bachata/",
+          "relatedUrl": "/profiles/melvin-gatica.html",
+          "role": "method",
+          "watchlist": "글로벌 메소드·댄서",
+          "scoreBoost": 88,
+          "score": 106
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Andi & Silvia @andiysilviabs",
+          "sourceUrl": "https://www.instagram.com/andiysilviabs/",
+          "relatedUrl": "/profiles/andi-silvia.html",
+          "role": "artist",
+          "watchlist": "글로벌 메소드·댄서",
+          "scoreBoost": 88,
+          "score": 106
+        },
+        {
+          "type": "instagram-watch",
+          "title": "Pana Mio @panamiodance",
+          "sourceUrl": "https://www.instagram.com/panamiodance/",
+          "relatedUrl": "/gear/pana-mio.html",
+          "role": "brand",
+          "watchlist": "상품·댄스화",
+          "scoreBoost": 74,
+          "score": 92
+        },
+        {
+          "type": "instagram-watch",
+          "title": "On1 Dance Shoes @on1danceshoes",
+          "sourceUrl": "https://www.instagram.com/on1danceshoes/",
+          "relatedUrl": "/gear/on1.html",
+          "role": "brand",
+          "watchlist": "상품·댄스화",
+          "scoreBoost": 74,
+          "score": 92
+        },
+        {
+          "type": "instagram-hashtag",
+          "title": "#바차타 한국어 핵심 키워드",
+          "sourceUrl": "https://www.instagram.com/explore/tags/%EB%B0%94%EC%B0%A8%ED%83%80/",
+          "cadence": "daily",
+          "scoreBoost": 70,
+          "score": 80
         }
       ]
     }

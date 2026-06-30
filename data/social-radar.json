@@ -1,0 +1,179 @@
+{
+  "updatedAt": "2026-06-30",
+  "title": "바차타 소셜 레이더",
+  "dek": "인스타그램, 유튜브, 행사 캘린더, 공식 웹사이트에 흩어진 한국 바차타 소식 신호를 매일 확인하기 위한 편집 소스 지도입니다.",
+  "principles": [
+    "인스타 캡션과 이미지는 무단 복제하지 않고 링크, 핸들, 태그, 공개 임베드 가능 여부만 기록합니다.",
+    "Instagram Graph API는 professional account, hashtag search, oEmbed 용도와 권한이 다르므로 수집 목적별로 분리합니다.",
+    "행사·내한·워크숍은 공식 페이지, 주최자 인스타, 유튜브 아카이브 중 두 개 이상으로 교차 확인한 뒤 기사화합니다.",
+    "매일 자동 브리프는 후보 수집이고, evergreen 기사와 커뮤니티 공지는 편집 검수 후 발행합니다."
+  ],
+  "automation": {
+    "graphApi": {
+      "label": "Instagram Graph API",
+      "status": "token-ready",
+      "env": "INSTAGRAM_GRAPH_TOKEN",
+      "note": "토큰이 있으면 professional account 기반 hashtag search, mentions, owned media 신호를 매일 수집합니다. 30개 hashtag / 7일 제한을 고려해 추적 태그를 작게 유지합니다."
+    },
+    "oembed": {
+      "label": "Instagram oEmbed",
+      "status": "embed-only",
+      "note": "공개 게시물 URL을 확보한 뒤 웹페이지 임베드 용도로만 사용합니다. 검색·대량 수집 용도가 아니므로 브리프 후보 복제에는 쓰지 않습니다."
+    },
+    "fallback": {
+      "label": "Editorial Watchlist",
+      "status": "active",
+      "note": "Graph API 권한이 없거나 외부 계정 데이터 접근이 제한될 때는 핸들·해시태그·공식 링크를 레이더로 노출하고 편집자가 원문을 확인합니다."
+    }
+  },
+  "hashtags": [
+    { "tag": "바차타", "intent": "한국어 핵심 키워드", "cadence": "daily" },
+    { "tag": "bachata", "intent": "글로벌 바차타 기본 태그", "cadence": "daily" },
+    { "tag": "bachatasensual", "intent": "센슈얼 바차타 흐름", "cadence": "daily" },
+    { "tag": "bachatainfluence", "intent": "Bachata Influence 계열", "cadence": "daily" },
+    { "tag": "koreabachata", "intent": "한국 바차타 영어 신호", "cadence": "weekly" },
+    { "tag": "seoulbachata", "intent": "서울 소셜·행사 신호", "cadence": "weekly" },
+    { "tag": "ksensual", "intent": "K-Sensual 행사·워크숍", "cadence": "weekly" }
+  ],
+  "watchlists": [
+    {
+      "id": "korea-events",
+      "label": "한국 행사·내한",
+      "priority": 96,
+      "why": "행사와 내한 정보는 대부분 인스타 공지로 먼저 올라오므로 매일 확인해야 하는 핵심 소스입니다.",
+      "accounts": [
+        {
+          "name": "K-Sensual Official",
+          "handle": "ksensual_official",
+          "url": "https://www.instagram.com/ksensual_official/",
+          "role": "festival",
+          "beat": "제주 K-Sensual, 아티스트 라인업, 패스 판매, 워크숍 공지",
+          "relatedUrl": "/events/k-sensual-summer-2026.html"
+        },
+        {
+          "name": "Seoul Bachata Festival",
+          "handle": "seoulbachatafestival",
+          "url": "https://www.instagram.com/seoulbachatafestival/",
+          "role": "festival",
+          "beat": "서울 바차타 페스티벌 라인업, 파티, 공연, 티켓 공지",
+          "relatedUrl": "/events/seoul-bachata-festival-vol4-2026.html"
+        },
+        {
+          "name": "Gangnam Latin Festival",
+          "handle": "gangnamlatinfestival",
+          "url": "https://www.instagram.com/gangnamlatinfestival/",
+          "role": "festival",
+          "beat": "Bachata Influence 내한, Melvin & Gatica 라인업, 강남권 페스티벌 공지",
+          "relatedUrl": "/events/gangnam-latin-festival-2026.html"
+        }
+      ],
+      "sourceLinks": [
+        { "label": "BachaMap South Korea", "url": "https://bachamap.com/festivals/south-korea" },
+        { "label": "Latin Dance Calendar", "url": "https://latindancecalendar.com/festivals/location/south-korea/style/bachata/" },
+        { "label": "M Latin Hub", "url": "https://mlatinhub.com/" }
+      ]
+    },
+    {
+      "id": "korea-teams",
+      "label": "한국 팀·동호회·장소",
+      "priority": 92,
+      "why": "한국 독자가 실제로 갈 수 있는 소셜, 클래스, 동호회, 장소 신호를 모으는 레이어입니다.",
+      "accounts": [
+        {
+          "name": "Latin Cielo",
+          "handle": "latin_cielo",
+          "url": "https://www.instagram.com/latin_cielo/",
+          "role": "team",
+          "beat": "수업, 공연, 팀 운영, 국내 바차타 커리큘럼",
+          "relatedUrl": "/profiles/latin-cielo.html"
+        },
+        {
+          "name": "Everlatin",
+          "handle": "clublatin_everlatin",
+          "url": "https://www.instagram.com/clublatin_everlatin/",
+          "role": "club",
+          "beat": "2030 라틴댄스 동호회, 입문반, 소셜, 클래스 공지",
+          "relatedUrl": "/profiles/everlatin.html"
+        },
+        {
+          "name": "Bonita Seoul",
+          "handle": "jessica_latinclub_bonita",
+          "url": "https://www.instagram.com/jessica_latinclub_bonita/",
+          "role": "venue",
+          "beat": "홍대 보니따 소셜, 바차타 파티, 현장 영상",
+          "relatedUrl": "/profiles/bonita-seoul.html"
+        },
+        {
+          "name": "Lauren Bachatista",
+          "handle": "lauren_bachatista",
+          "url": "https://www.instagram.com/lauren_bachatista/reels/",
+          "role": "artist",
+          "beat": "한국 Bachata Influence 계열 수업·소셜 신호",
+          "relatedUrl": "/profiles/gray-loren.html"
+        }
+      ],
+      "sourceLinks": [
+        { "label": "Community board", "url": "/community/" },
+        { "label": "Korea profiles", "url": "/profiles/" }
+      ]
+    },
+    {
+      "id": "global-methods",
+      "label": "글로벌 메소드·댄서",
+      "priority": 88,
+      "why": "센슈얼, Bachata Influence, Bachazouk 같은 코어 콘텐츠와 연결할 글로벌 원천 신호입니다.",
+      "accounts": [
+        {
+          "name": "Melvin & Gatica",
+          "handle": "melvin_gatica_bachata",
+          "url": "https://www.instagram.com/melvin_gatica_bachata/",
+          "role": "method",
+          "beat": "Bachata Influence, 메소드, 워크숍, Pro Team",
+          "relatedUrl": "/profiles/melvin-gatica.html"
+        },
+        {
+          "name": "Andi & Silvia",
+          "handle": "andiysilviabs",
+          "url": "https://www.instagram.com/andiysilviabs/",
+          "role": "artist",
+          "beat": "센슈얼 바차타 퍼포먼스와 최신 글로벌 영상 신호",
+          "relatedUrl": "/profiles/andi-silvia.html"
+        }
+      ],
+      "sourceLinks": [
+        { "label": "Influence hub", "url": "/styles/influence.html" },
+        { "label": "Sensual hub", "url": "/styles/sensual.html" },
+        { "label": "Bachazouk hub", "url": "/styles/bachazouk.html" }
+      ]
+    },
+    {
+      "id": "gear-market",
+      "label": "상품·댄스화",
+      "priority": 74,
+      "why": "한국 소비자가 검색하는 댄스화·스니커 정보는 인스타 신상품과 리뷰 영상으로 빠르게 움직입니다.",
+      "accounts": [
+        {
+          "name": "Pana Mio",
+          "handle": "panamiodance",
+          "url": "https://www.instagram.com/panamiodance/",
+          "role": "brand",
+          "beat": "라틴댄스화 신상품, 착용 이미지, 사이즈·색상 신호",
+          "relatedUrl": "/gear/pana-mio.html"
+        },
+        {
+          "name": "On1 Dance Shoes",
+          "handle": "on1danceshoes",
+          "url": "https://www.instagram.com/on1danceshoes/",
+          "role": "brand",
+          "beat": "On1 스니커, 리뷰, 구매자 착용 신호",
+          "relatedUrl": "/gear/on1.html"
+        }
+      ],
+      "sourceLinks": [
+        { "label": "Gear hub", "url": "/gear/" },
+        { "label": "Fuego Bachata", "url": "https://fuegodance.com/collections/bachata" },
+        { "label": "Pulse Dance Shoes", "url": "https://www.pulsedanceshoes.com/" }
+      ]
+    }
+  ]
+}

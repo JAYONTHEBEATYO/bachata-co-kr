@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourcesPath = resolve(root, "data/sources.json");
+const socialRadarPath = resolve(root, "data/social-radar.json");
 const outputPath = resolve(root, "data/generated/scene-signals.json");
 
 const now = new Date();
@@ -14,6 +15,14 @@ const naverClientId = process.env.NAVER_CLIENT_ID || "";
 const naverClientSecret = process.env.NAVER_CLIENT_SECRET || "";
 
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
+
+const readOptionalJson = async (path) => {
+  try {
+    return await readJson(path);
+  } catch {
+    return null;
+  }
+};
 
 const fetchJson = async (url, options = {}) => {
   const response = await fetch(url, options);
@@ -103,6 +112,52 @@ const checkInstagramReady = () => {
   }];
 };
 
+const buildSocialRadarTopic = (socialRadar) => {
+  if (!socialRadar?.watchlists?.length) return null;
+
+  const accountCandidates = socialRadar.watchlists.flatMap((watchlist) => (
+    watchlist.accounts.map((account) => ({
+      type: "instagram-watch",
+      title: `${account.name} @${account.handle}`,
+      sourceUrl: account.url,
+      relatedUrl: account.relatedUrl,
+      role: account.role,
+      watchlist: watchlist.label,
+      scoreBoost: watchlist.priority || 50
+    }))
+  ));
+
+  const hashtagCandidates = (socialRadar.hashtags || []).map((hashtag) => ({
+    type: "instagram-hashtag",
+    title: `#${hashtag.tag} ${hashtag.intent}`,
+    sourceUrl: `https://www.instagram.com/explore/tags/${encodeURIComponent(hashtag.tag)}/`,
+    cadence: hashtag.cadence,
+    scoreBoost: hashtag.cadence === "daily" ? 70 : 54
+  }));
+
+  const graphSignal = instagramToken ? [{
+    type: "instagram-graph",
+    title: "Instagram Graph token configured for Social Radar",
+    sourceUrl: "https://developers.facebook.com/documentation/instagram-platform/overview",
+    scoreBoost: 82
+  }] : [];
+
+  const candidates = [...graphSignal, ...accountCandidates, ...hashtagCandidates]
+    .map((candidate) => ({
+      ...candidate,
+      score: candidate.scoreBoost + (candidate.type === "instagram-watch" ? 18 : 10)
+    }))
+    .sort((a, b) => b.score - a.score);
+
+  return {
+    id: "social-radar",
+    label: "Social Radar",
+    keywords: ["Instagram", "바차타 인스타", "한국 바차타 소식", "bachata Korea", "bachata event"],
+    candidateCount: candidates.length,
+    candidates: candidates.slice(0, 12)
+  };
+};
+
 const scoreCandidate = (candidate, topic) => {
   const text = `${candidate.title || ""} ${candidate.sourceUrl || ""}`.toLowerCase();
   const keywordHits = topic.keywords.filter((keyword) => text.includes(keyword.toLowerCase())).length;
@@ -113,6 +168,7 @@ const scoreCandidate = (candidate, topic) => {
 
 const main = async () => {
   const sourceMap = await readJson(sourcesPath);
+  const socialRadar = await readOptionalJson(socialRadarPath);
   const topics = [];
 
   for (const topic of sourceMap.topics) {
@@ -144,6 +200,11 @@ const main = async () => {
       candidateCount: candidates.length,
       candidates: candidates.slice(0, 12)
     });
+  }
+
+  const socialRadarTopic = buildSocialRadarTopic(socialRadar);
+  if (socialRadarTopic) {
+    topics.push(socialRadarTopic);
   }
 
   const output = {

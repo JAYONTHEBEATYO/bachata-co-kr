@@ -1,0 +1,152 @@
+{
+  "generatedAt": "2026-06-30T09:38:52.252Z",
+  "updatedAt": "2026-06-30",
+  "title": "바차타 소셜 레이더",
+  "url": "/radar/",
+  "accountCount": 11,
+  "hashtagCount": 7,
+  "watchlists": [
+    {
+      "id": "korea-events",
+      "label": "한국 행사·내한",
+      "priority": 96,
+      "accounts": [
+        {
+          "name": "K-Sensual Official",
+          "handle": "ksensual_official",
+          "url": "https://www.instagram.com/ksensual_official/",
+          "role": "festival",
+          "relatedUrl": "/events/k-sensual-summer-2026.html"
+        },
+        {
+          "name": "Seoul Bachata Festival",
+          "handle": "seoulbachatafestival",
+          "url": "https://www.instagram.com/seoulbachatafestival/",
+          "role": "festival",
+          "relatedUrl": "/events/seoul-bachata-festival-vol4-2026.html"
+        },
+        {
+          "name": "Gangnam Latin Festival",
+          "handle": "gangnamlatinfestival",
+          "url": "https://www.instagram.com/gangnamlatinfestival/",
+          "role": "festival",
+          "relatedUrl": "/events/gangnam-latin-festival-2026.html"
+        }
+      ]
+    },
+    {
+      "id": "korea-teams",
+      "label": "한국 팀·동호회·장소",
+      "priority": 92,
+      "accounts": [
+        {
+          "name": "Latin Cielo",
+          "handle": "latin_cielo",
+          "url": "https://www.instagram.com/latin_cielo/",
+          "role": "team",
+          "relatedUrl": "/profiles/latin-cielo.html"
+        },
+        {
+          "name": "Everlatin",
+          "handle": "clublatin_everlatin",
+          "url": "https://www.instagram.com/clublatin_everlatin/",
+          "role": "club",
+          "relatedUrl": "/profiles/everlatin.html"
+        },
+        {
+          "name": "Bonita Seoul",
+          "handle": "jessica_latinclub_bonita",
+          "url": "https://www.instagram.com/jessica_latinclub_bonita/",
+          "role": "venue",
+          "relatedUrl": "/profiles/bonita-seoul.html"
+        },
+        {
+          "name": "Lauren Bachatista",
+          "handle": "lauren_bachatista",
+          "url": "https://www.instagram.com/lauren_bachatista/reels/",
+          "role": "artist",
+          "relatedUrl": "/profiles/gray-loren.html"
+        }
+      ]
+    },
+    {
+      "id": "global-methods",
+      "label": "글로벌 메소드·댄서",
+      "priority": 88,
+      "accounts": [
+        {
+          "name": "Melvin & Gatica",
+          "handle": "melvin_gatica_bachata",
+          "url": "https://www.instagram.com/melvin_gatica_bachata/",
+          "role": "method",
+          "relatedUrl": "/profiles/melvin-gatica.html"
+        },
+        {
+          "name": "Andi & Silvia",
+          "handle": "andiysilviabs",
+          "url": "https://www.instagram.com/andiysilviabs/",
+          "role": "artist",
+          "relatedUrl": "/profiles/andi-silvia.html"
+        }
+      ]
+    },
+    {
+      "id": "gear-market",
+      "label": "상품·댄스화",
+      "priority": 74,
+      "accounts": [
+        {
+          "name": "Pana Mio",
+          "handle": "panamiodance",
+          "url": "https://www.instagram.com/panamiodance/",
+          "role": "brand",
+          "relatedUrl": "/gear/pana-mio.html"
+        },
+        {
+          "name": "On1 Dance Shoes",
+          "handle": "on1danceshoes",
+          "url": "https://www.instagram.com/on1danceshoes/",
+          "role": "brand",
+          "relatedUrl": "/gear/on1.html"
+        }
+      ]
+    }
+  ],
+  "hashtags": [
+    {
+      "tag": "바차타",
+      "intent": "한국어 핵심 키워드",
+      "cadence": "daily"
+    },
+    {
+      "tag": "bachata",
+      "intent": "글로벌 바차타 기본 태그",
+      "cadence": "daily"
+    },
+    {
+      "tag": "bachatasensual",
+      "intent": "센슈얼 바차타 흐름",
+      "cadence": "daily"
+    },
+    {
+      "tag": "bachatainfluence",
+      "intent": "Bachata Influence 계열",
+      "cadence": "daily"
+    },
+    {
+      "tag": "koreabachata",
+      "intent": "한국 바차타 영어 신호",
+      "cadence": "weekly"
+    },
+    {
+      "tag": "seoulbachata",
+      "intent": "서울 소셜·행사 신호",
+      "cadence": "weekly"
+    },
+    {
+      "tag": "ksensual",
+      "intent": "K-Sensual 행사·워크숍",
+      "cadence": "weekly"
+    }
+  ]
+}

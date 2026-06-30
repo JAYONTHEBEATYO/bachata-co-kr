@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>바차타 소셜 레이더 | Bachata Korea</title>
+    <meta name="description" content="인스타그램, 유튜브, 행사 캘린더, 공식 웹사이트에 흩어진 한국 바차타 소식 신호를 매일 확인하기 위한 편집 소스 지도입니다.">
+    <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
+    <link rel="canonical" href="https://bachata.co.kr/radar/">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b0a08;
+        --ink: #fff7e8;
+        --muted: rgba(255, 247, 232, 0.68);
+        --line: rgba(255, 247, 232, 0.14);
+        --panel: rgba(255, 247, 232, 0.06);
+        --panel-strong: #17130f;
+        --paper: #f4efe6;
+        --paper-ink: #1a1510;
+        --gold: #e2ad58;
+        --wine: #a82e4b;
+        --green: #57a891;
+        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; background: var(--bg); color: var(--ink); }
+      a { color: inherit; text-decoration: none; }
+      .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 0 max(18px, calc((100vw - 1180px) / 2)); border-bottom: 1px solid var(--line); background: rgba(11, 10, 8, 0.92); backdrop-filter: blur(18px); }
+      .brand strong { display: block; font-size: 20px; line-height: 1; }
+      .brand span { display: block; margin-top: 5px; color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+      .nav-links { display: flex; gap: 20px; color: var(--muted); font-size: 14px; font-weight: 850; }
+      .hero { padding: clamp(60px, 9vw, 118px) max(18px, calc((100vw - 1180px) / 2)) 50px; background: var(--paper); color: var(--paper-ink); }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(320px, 0.38fr); gap: clamp(22px, 5vw, 56px); align-items: end; }
+      .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.13em; text-transform: uppercase; }
+      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; word-break: keep-all; }
+      h1 { max-width: 940px; margin: 14px 0 18px; font-size: clamp(46px, 8vw, 96px); line-height: 0.95; overflow-wrap: anywhere; }
+      .hero p { max-width: 790px; color: rgba(26, 21, 16, 0.72); font-size: clamp(17px, 2vw, 22px); line-height: 1.72; }
+      .quick-nav, .link-row, .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .quick-nav { margin-top: 26px; }
+      .quick-nav a, .link-row a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid currentColor; border-radius: 999px; font-size: 13px; font-weight: 900; }
+      .ops-card { padding: 22px; border: 1px solid rgba(26, 21, 16, 0.14); border-radius: 8px; background: rgba(26, 21, 16, 0.05); }
+      .ops-card dl { display: grid; gap: 13px; margin: 14px 0 0; }
+      .ops-card dt { color: var(--wine); font-size: 12px; font-weight: 950; text-transform: uppercase; }
+      .ops-card dd { margin: 3px 0 0; color: rgba(26, 21, 16, 0.72); line-height: 1.58; }
+      main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: clamp(42px, 7vw, 76px) 0 90px; }
+      .section { margin-top: clamp(42px, 7vw, 76px); }
+      .section:first-child { margin-top: 0; }
+      .section-head { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.36fr); gap: 24px; align-items: end; margin-bottom: 22px; }
+      .section-head h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.02; }
+      .section-head p, .watchlist-card p, .account-card p, .policy-card p, .hashtag-card span { color: var(--muted); line-height: 1.72; }
+      .watchlist-stack { display: grid; gap: 18px; }
+      .watchlist-card { padding: clamp(20px, 4vw, 30px); border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .watchlist-card h2 { margin: 8px 0 10px; font-size: clamp(30px, 5vw, 54px); line-height: 1.04; }
+      .watchlist-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 18px; }
+      .watchlist-meta span { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; color: rgba(255, 247, 232, 0.76); font-size: 12px; font-weight: 900; }
+      .account-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .account-card { display: grid; align-content: space-between; gap: 18px; min-height: 260px; padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
+      .account-card h3 { margin: 8px 0 0; font-size: 28px; line-height: 1.04; }
+      .handle { margin: 8px 0 10px; color: var(--gold) !important; font-weight: 900; }
+      .policy-grid, .hashtag-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+      .policy-card, .hashtag-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .policy-card h3, .hashtag-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .policy-card strong { color: var(--green); }
+      .hashtag-card span { display: block; font-size: 14px; }
+      .paper-cta { padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: var(--paper); color: var(--paper-ink); }
+      .paper-cta h2 { margin: 8px 0 12px; font-size: clamp(30px, 5vw, 56px); line-height: 1.04; }
+      .paper-cta p { max-width: 780px; color: rgba(26, 21, 16, 0.72); line-height: 1.72; }
+      @media (max-width: 1020px) {
+        .hero-grid, .section-head, .policy-grid, .hashtag-grid { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 760px) {
+        .nav-links { display: none; }
+        h1 { font-size: clamp(42px, 13vw, 66px); }
+        .account-grid { grid-template-columns: 1fr; }
+        .watchlist-card, .policy-card, .hashtag-card { padding: 20px; }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://bachata.co.kr/radar/",
+      "name": "바차타 소셜 레이더",
+      "description": "인스타그램, 유튜브, 행사 캘린더, 공식 웹사이트에 흩어진 한국 바차타 소식 신호를 매일 확인하기 위한 편집 소스 지도입니다.",
+      "inLanguage": "ko-KR",
+      "isPartOf": {
+            "@id": "https://bachata.co.kr/#website"
+      },
+      "about": [
+            "한국 행사·내한",
+            "한국 팀·동호회·장소",
+            "글로벌 메소드·댄서",
+            "상품·댄스화"
+      ],
+      "hasPart": [
+            {
+                  "@type": "ItemList",
+                  "name": "한국 행사·내한",
+                  "numberOfItems": 3
+            },
+            {
+                  "@type": "ItemList",
+                  "name": "한국 팀·동호회·장소",
+                  "numberOfItems": 4
+            },
+            {
+                  "@type": "ItemList",
+                  "name": "글로벌 메소드·댄서",
+                  "numberOfItems": 2
+            },
+            {
+                  "@type": "ItemList",
+                  "name": "상품·댄스화",
+                  "numberOfItems": 2
+            }
+      ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
+      <nav class="nav-links" aria-label="소셜 레이더 이동">
+        <a href="/">홈</a>
+        <a href="/radar/">소셜 레이더</a>
+        <a href="/events/">행사</a>
+        <a href="/profiles/">인물·팀</a>
+        <a href="/briefs/">브리프</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Social Radar</span>
+          <h1>인스타에서 먼저 뜨는 바차타 소식을 놓치지 않기</h1>
+          <p>인스타그램, 유튜브, 행사 캘린더, 공식 웹사이트에 흩어진 한국 바차타 소식 신호를 매일 확인하기 위한 편집 소스 지도입니다.</p>
+          <div class="quick-nav">
+            <a href="#korea-events">한국 행사·내한</a><a href="#korea-teams">한국 팀·동호회·장소</a><a href="#global-methods">글로벌 메소드·댄서</a><a href="#gear-market">상품·댄스화</a>
+          </div>
+        </div>
+        <aside class="ops-card">
+          <span class="tag">Automation Stack</span>
+          <dl>
+            <div><dt>Instagram Graph API · token-ready</dt><dd>토큰이 있으면 professional account 기반 hashtag search, mentions, owned media 신호를 매일 수집합니다. 30개 hashtag / 7일 제한을 고려해 추적 태그를 작게 유지합니다.</dd></div><div><dt>Instagram oEmbed · embed-only</dt><dd>공개 게시물 URL을 확보한 뒤 웹페이지 임베드 용도로만 사용합니다. 검색·대량 수집 용도가 아니므로 브리프 후보 복제에는 쓰지 않습니다.</dd></div><div><dt>Editorial Watchlist · active</dt><dd>Graph API 권한이 없거나 외부 계정 데이터 접근이 제한될 때는 핸들·해시태그·공식 링크를 레이더로 노출하고 편집자가 원문을 확인합니다.</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </section>
+    <main>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Watchlists</span>
+            <h2>매일 확인할 인스타·공식 소스</h2>
+          </div>
+          <p>계정 자체를 기사로 복제하지 않고, 어떤 신호를 볼 것인지와 사이트의 어느 콘텐츠로 연결할지를 정합니다. 이 데이터가 일간 브리프의 Social Radar 후보가 됩니다.</p>
+        </div>
+        <div class="watchlist-stack">
+          <section class="watchlist-card" id="korea-events">
+            <span class="tag">한국 행사·내한</span>
+            <h2>한국 행사·내한</h2>
+            <p>행사와 내한 정보는 대부분 인스타 공지로 먼저 올라오므로 매일 확인해야 하는 핵심 소스입니다.</p>
+            <div class="watchlist-meta">
+              <span>priority 96</span>
+              <span>3 accounts</span>
+            </div>
+            <div class="account-grid">
+              <article class="account-card">
+              <div>
+                <span class="tag">festival</span>
+                <h3>K-Sensual Official</h3>
+                <p class="handle">@ksensual_official</p>
+                <p>제주 K-Sensual, 아티스트 라인업, 패스 판매, 워크숍 공지</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/ksensual_official/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/events/k-sensual-summer-2026.html">관련 페이지</a>
+              </div>
+            </article>
+<article class="account-card">
+              <div>
+                <span class="tag">festival</span>
+                <h3>Seoul Bachata Festival</h3>
+                <p class="handle">@seoulbachatafestival</p>
+                <p>서울 바차타 페스티벌 라인업, 파티, 공연, 티켓 공지</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/seoulbachatafestival/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/events/seoul-bachata-festival-vol4-2026.html">관련 페이지</a>
+              </div>
+            </article>
+<article class="account-card">
+              <div>
+                <span class="tag">festival</span>
+                <h3>Gangnam Latin Festival</h3>
+                <p class="handle">@gangnamlatinfestival</p>
+                <p>Bachata Influence 내한, Melvin &amp; Gatica 라인업, 강남권 페스티벌 공지</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/gangnamlatinfestival/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/events/gangnam-latin-festival-2026.html">관련 페이지</a>
+              </div>
+            </article>
+            </div>
+            <div class="link-row" style="margin-top:18px"><a href="https://bachamap.com/festivals/south-korea" target="_blank" rel="noreferrer">BachaMap South Korea</a><a href="https://latindancecalendar.com/festivals/location/south-korea/style/bachata/" target="_blank" rel="noreferrer">Latin Dance Calendar</a><a href="https://mlatinhub.com/" target="_blank" rel="noreferrer">M Latin Hub</a></div>
+          </section>
+<section class="watchlist-card" id="korea-teams">
+            <span class="tag">한국 팀·동호회·장소</span>
+            <h2>한국 팀·동호회·장소</h2>
+            <p>한국 독자가 실제로 갈 수 있는 소셜, 클래스, 동호회, 장소 신호를 모으는 레이어입니다.</p>
+            <div class="watchlist-meta">
+              <span>priority 92</span>
+              <span>4 accounts</span>
+            </div>
+            <div class="account-grid">
+              <article class="account-card">
+              <div>
+                <span class="tag">team</span>
+                <h3>Latin Cielo</h3>
+                <p class="handle">@latin_cielo</p>
+                <p>수업, 공연, 팀 운영, 국내 바차타 커리큘럼</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/latin_cielo/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/profiles/latin-cielo.html">관련 페이지</a>
+              </div>
+            </article>
+<article class="account-card">
+              <div>
+                <span class="tag">club</span>
+                <h3>Everlatin</h3>
+                <p class="handle">@clublatin_everlatin</p>
+                <p>2030 라틴댄스 동호회, 입문반, 소셜, 클래스 공지</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/clublatin_everlatin/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/profiles/everlatin.html">관련 페이지</a>
+              </div>
+            </article>
+<article class="account-card">
+              <div>
+                <span class="tag">venue</span>
+                <h3>Bonita Seoul</h3>
+                <p class="handle">@jessica_latinclub_bonita</p>
+                <p>홍대 보니따 소셜, 바차타 파티, 현장 영상</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/jessica_latinclub_bonita/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/profiles/bonita-seoul.html">관련 페이지</a>
+              </div>
+            </article>
+<article class="account-card">
+              <div>
+                <span class="tag">artist</span>
+                <h3>Lauren Bachatista</h3>
+                <p class="handle">@lauren_bachatista</p>
+                <p>한국 Bachata Influence 계열 수업·소셜 신호</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/lauren_bachatista/reels/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/profiles/gray-loren.html">관련 페이지</a>
+              </div>
+            </article>
+            </div>
+            <div class="link-row" style="margin-top:18px"><a href="/community/">Community board</a><a href="/profiles/">Korea profiles</a></div>
+          </section>
+<section class="watchlist-card" id="global-methods">
+            <span class="tag">글로벌 메소드·댄서</span>
+            <h2>글로벌 메소드·댄서</h2>
+            <p>센슈얼, Bachata Influence, Bachazouk 같은 코어 콘텐츠와 연결할 글로벌 원천 신호입니다.</p>
+            <div class="watchlist-meta">
+              <span>priority 88</span>
+              <span>2 accounts</span>
+            </div>
+            <div class="account-grid">
+              <article class="account-card">
+              <div>
+                <span class="tag">method</span>
+                <h3>Melvin &amp; Gatica</h3>
+                <p class="handle">@melvin_gatica_bachata</p>
+                <p>Bachata Influence, 메소드, 워크숍, Pro Team</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/melvin_gatica_bachata/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/profiles/melvin-gatica.html">관련 페이지</a>
+              </div>
+            </article>
+<article class="account-card">
+              <div>
+                <span class="tag">artist</span>
+                <h3>Andi &amp; Silvia</h3>
+                <p class="handle">@andiysilviabs</p>
+                <p>센슈얼 바차타 퍼포먼스와 최신 글로벌 영상 신호</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/andiysilviabs/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/profiles/andi-silvia.html">관련 페이지</a>
+              </div>
+            </article>
+            </div>
+            <div class="link-row" style="margin-top:18px"><a href="/styles/influence.html">Influence hub</a><a href="/styles/sensual.html">Sensual hub</a><a href="/styles/bachazouk.html">Bachazouk hub</a></div>
+          </section>
+<section class="watchlist-card" id="gear-market">
+            <span class="tag">상품·댄스화</span>
+            <h2>상품·댄스화</h2>
+            <p>한국 소비자가 검색하는 댄스화·스니커 정보는 인스타 신상품과 리뷰 영상으로 빠르게 움직입니다.</p>
+            <div class="watchlist-meta">
+              <span>priority 74</span>
+              <span>2 accounts</span>
+            </div>
+            <div class="account-grid">
+              <article class="account-card">
+              <div>
+                <span class="tag">brand</span>
+                <h3>Pana Mio</h3>
+                <p class="handle">@panamiodance</p>
+                <p>라틴댄스화 신상품, 착용 이미지, 사이즈·색상 신호</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/panamiodance/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/gear/pana-mio.html">관련 페이지</a>
+              </div>
+            </article>
+<article class="account-card">
+              <div>
+                <span class="tag">brand</span>
+                <h3>On1 Dance Shoes</h3>
+                <p class="handle">@on1danceshoes</p>
+                <p>On1 스니커, 리뷰, 구매자 착용 신호</p>
+              </div>
+              <div class="link-row">
+                <a href="https://www.instagram.com/on1danceshoes/" target="_blank" rel="noreferrer">Instagram</a>
+                <a href="/gear/on1.html">관련 페이지</a>
+              </div>
+            </article>
+            </div>
+            <div class="link-row" style="margin-top:18px"><a href="/gear/">Gear hub</a><a href="https://fuegodance.com/collections/bachata" target="_blank" rel="noreferrer">Fuego Bachata</a><a href="https://www.pulsedanceshoes.com/" target="_blank" rel="noreferrer">Pulse Dance Shoes</a></div>
+          </section>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Hashtags</span>
+            <h2>Graph API로 추적할 태그</h2>
+          </div>
+          <p>Meta 공식 제한을 고려해 30개 이하로 작게 유지합니다. 핵심 태그는 매일, 보조 태그는 주간으로 확인하도록 설계했습니다.</p>
+        </div>
+        <div class="hashtag-grid">
+          <article class="hashtag-card">
+            <span class="tag">daily</span>
+            <h3>#바차타</h3>
+            <span>한국어 핵심 키워드</span>
+          </article>
+<article class="hashtag-card">
+            <span class="tag">daily</span>
+            <h3>#bachata</h3>
+            <span>글로벌 바차타 기본 태그</span>
+          </article>
+<article class="hashtag-card">
+            <span class="tag">daily</span>
+            <h3>#bachatasensual</h3>
+            <span>센슈얼 바차타 흐름</span>
+          </article>
+<article class="hashtag-card">
+            <span class="tag">daily</span>
+            <h3>#bachatainfluence</h3>
+            <span>Bachata Influence 계열</span>
+          </article>
+<article class="hashtag-card">
+            <span class="tag">weekly</span>
+            <h3>#koreabachata</h3>
+            <span>한국 바차타 영어 신호</span>
+          </article>
+<article class="hashtag-card">
+            <span class="tag">weekly</span>
+            <h3>#seoulbachata</h3>
+            <span>서울 소셜·행사 신호</span>
+          </article>
+<article class="hashtag-card">
+            <span class="tag">weekly</span>
+            <h3>#ksensual</h3>
+            <span>K-Sensual 행사·워크숍</span>
+          </article>
+        </div>
+      </section>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Policy</span>
+            <h2>AI 티 안 나게 운영하는 규칙</h2>
+          </div>
+          <p>자동화는 수집과 후보 정렬까지만 담당합니다. 발행문은 출처를 보고 한국 독자에게 맞는 문장으로 다시 편집합니다.</p>
+        </div>
+        <div class="policy-grid">
+          <article class="policy-card">
+            <span class="tag">Rule 1</span>
+            <h3>복제 금지</h3>
+            <p>인스타 캡션과 이미지는 무단 복제하지 않고 링크, 핸들, 태그, 공개 임베드 가능 여부만 기록합니다.</p>
+          </article>
+<article class="policy-card">
+            <span class="tag">Rule 2</span>
+            <h3>API 분리</h3>
+            <p>Instagram Graph API는 professional account, hashtag search, oEmbed 용도와 권한이 다르므로 수집 목적별로 분리합니다.</p>
+          </article>
+<article class="policy-card">
+            <span class="tag">Rule 3</span>
+            <h3>교차 확인</h3>
+            <p>행사·내한·워크숍은 공식 페이지, 주최자 인스타, 유튜브 아카이브 중 두 개 이상으로 교차 확인한 뒤 기사화합니다.</p>
+          </article>
+<article class="policy-card">
+            <span class="tag">Rule 4</span>
+            <h3>검수 발행</h3>
+            <p>매일 자동 브리프는 후보 수집이고, evergreen 기사와 커뮤니티 공지는 편집 검수 후 발행합니다.</p>
+          </article>
+        </div>
+      </section>
+      <section class="section paper-cta">
+        <span class="tag">Generated Index</span>
+        <h2>11개 계정과 7개 태그를 추적합니다</h2>
+        <p>이 페이지의 소스는 <a href="/data/social-radar.json">data/social-radar.json</a>이고, 자동 브리프는 매일 이 데이터에서 Social Radar 후보를 만들어 냅니다.</p>
+        <div class="link-row">
+          <a href="/briefs/">오늘 브리프</a>
+          <a href="/events/">행사 레이더</a>
+          <a href="/profiles/">인물·팀 허브</a>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
