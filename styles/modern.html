@@ -61,6 +61,16 @@
       .watch-card { padding: 0; overflow: hidden; background: var(--panel-strong); }
       .watch-card-body { padding: 18px; }
       .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: #050505; }
+      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
+      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
+      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.56)); }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(12, 11, 9, 0.76); color: var(--ink); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
+      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
+      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(12, 11, 9, 0.68); color: var(--ink); font-size: 12px; font-weight: 900; }
+      .video-loader[data-loaded="true"] .youtube-link { display: none; }
       .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
       .content-card { display: grid; align-content: space-between; min-height: 300px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); overflow: hidden; }
       .content-card.has-video { padding-top: 0; }
@@ -159,8 +169,12 @@
               <p>죽은 링크를 피하려고 YouTube oEmbed 기준으로 확인 가능한 영상만 허브에 넣습니다.</p>
             </div>
             <div class="watch-grid"><article class="watch-card">
-          <div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xhrdh-uFkog" title="Bachata Beginner Basic Steps Tutorial" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/xhrdh-uFkog" data-title="Bachata Beginner Basic Steps Tutorial">
+            <button type="button" data-video-button aria-label="Bachata Beginner Basic Steps Tutorial 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/xhrdh-uFkog/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=xhrdh-uFkog" target="_blank" rel="noreferrer">YouTube</a>
           </div>
           <div class="watch-card-body">
             <span class="tag">Beginner Basics</span>
@@ -169,8 +183,12 @@
           </div>
         </article>
 <article class="watch-card">
-          <div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/fSvr8GThrnU" title="8 Bachata Turns For The Party" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/fSvr8GThrnU" data-title="8 Bachata Turns For The Party">
+            <button type="button" data-video-button aria-label="8 Bachata Turns For The Party 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/fSvr8GThrnU/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=fSvr8GThrnU" target="_blank" rel="noreferrer">YouTube</a>
           </div>
           <div class="watch-card-body">
             <span class="tag">Turn Pattern</span>
@@ -179,8 +197,12 @@
           </div>
         </article>
 <article class="watch-card">
-          <div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/3RbkiFy7p-k" title="Bachata Directional Turns" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/3RbkiFy7p-k" data-title="Bachata Directional Turns">
+            <button type="button" data-video-button aria-label="Bachata Directional Turns 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/3RbkiFy7p-k/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=3RbkiFy7p-k" target="_blank" rel="noreferrer">YouTube</a>
           </div>
           <div class="watch-card-body">
             <span class="tag">Directional Turns</span>
@@ -189,8 +211,12 @@
           </div>
         </article>
 <article class="watch-card">
-          <div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/dJNnjZwuGaw" title="Underhanded Easy Bachata Turn Pattern" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/dJNnjZwuGaw" data-title="Underhanded Easy Bachata Turn Pattern">
+            <button type="button" data-video-button aria-label="Underhanded Easy Bachata Turn Pattern 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/dJNnjZwuGaw/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=dJNnjZwuGaw" target="_blank" rel="noreferrer">YouTube</a>
           </div>
           <div class="watch-card-body">
             <span class="tag">Social Pattern</span>
@@ -199,8 +225,12 @@
           </div>
         </article>
 <article class="watch-card">
-          <div class="video-frame">
-            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/ARGUYLPTD24" title="Hammerlock Pattern for Improver Moderna" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          <div class="video-loader" data-embed="https://www.youtube-nocookie.com/embed/ARGUYLPTD24" data-title="Hammerlock Pattern for Improver Moderna">
+            <button type="button" data-video-button aria-label="Hammerlock Pattern for Improver Moderna 영상 열기">
+              <img loading="lazy" src="https://i.ytimg.com/vi/ARGUYLPTD24/hqdefault.jpg" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="https://www.youtube.com/watch?v=ARGUYLPTD24" target="_blank" rel="noreferrer">YouTube</a>
           </div>
           <div class="watch-card-body">
             <span class="tag">Moderna</span>
@@ -468,5 +498,22 @@
         </aside>
       </div>
     </main>
+    <script>
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-video-button]");
+        if (!button) return;
+        const loader = button.closest(".video-loader");
+        if (!loader || loader.dataset.loaded === "true") return;
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.src = loader.dataset.embed;
+        iframe.title = loader.dataset.title || "Bachata reference video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        loader.dataset.loaded = "true";
+        loader.textContent = "";
+        loader.appendChild(iframe);
+      });
+    </script>
   </body>
 </html>

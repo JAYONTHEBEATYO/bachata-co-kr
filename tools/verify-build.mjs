@@ -199,6 +199,41 @@ const verifyHomeHero = async () => {
   };
 };
 
+const verifyStyleVideoLoading = async () => {
+  const styleIndex = await readJson("data/generated/style-index.json");
+  const styleHome = await readText("styles/index.html");
+  const styleHomeIframeCount = (styleHome.match(/<iframe\b/g) || []).length;
+  assert(styleHomeIframeCount === 1, "Style index should load only its hero iframe", {
+    iframeCount: styleHomeIframeCount
+  });
+
+  const pages = [];
+  for (const guide of styleIndex.guides || []) {
+    const page = guide.url?.replace(/^\//, "");
+    if (!page) continue;
+    const html = await readText(page);
+    const iframeCount = (html.match(/<iframe\b/g) || []).length;
+    const loaderCount = (html.match(/class="video-loader"/g) || []).length;
+    assert(iframeCount === 1, "Style guide should load only the hero iframe before interaction", {
+      guide: guide.id,
+      iframeCount
+    });
+    assert(loaderCount >= 3, "Style guide should render watchlist videos as click-to-load thumbnails", {
+      guide: guide.id,
+      loaderCount
+    });
+    assert(html.includes("data-video-button"), "Style guide is missing click-to-load video controls", {
+      guide: guide.id
+    });
+    pages.push({ id: guide.id, iframeCount, loaderCount });
+  }
+
+  return {
+    pageCount: pages.length,
+    loaderCount: pages.reduce((total, page) => total + page.loaderCount, 0)
+  };
+};
+
 const verifyIndexesAndSitemap = async () => {
   const sitemap = await readText("sitemap.xml");
   const articleIndex = await readJson("data/generated/article-index.json");
@@ -239,14 +274,15 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero] = await Promise.all([
+  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
     verifySocialRadar(),
     verifySignalHistory(),
     verifyIndexesAndSitemap(),
     verifyMojibake(),
-    verifyHomeHero()
+    verifyHomeHero(),
+    verifyStyleVideoLoading()
   ]);
 
   const report = {
@@ -256,6 +292,7 @@ const main = async () => {
     homeHero,
     sourceHealth,
     socialRadar,
+    styleVideos,
     signalHistory,
     socialIntake
   };

@@ -57,6 +57,17 @@ const renderVideo = (video, className = "video-frame") => {
           </div>`;
 };
 
+const renderVideoLoader = (video, className = "video-loader") => {
+  if (!video?.id) return "";
+  return `<div class="${className}" data-embed="${escapeHtml(videoEmbedUrl(video))}" data-title="${escapeHtml(video.title || "Bachata reference video")}">
+            <button type="button" data-video-button aria-label="${escapeHtml(video.title || "Bachata reference video")} 영상 열기">
+              <img loading="lazy" src="${escapeHtml(youtubeThumb(video.id))}" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="${escapeHtml(videoWatchUrl(video))}" target="_blank" rel="noreferrer">YouTube</a>
+          </div>`;
+};
+
 const renderContentCard = (item, options = {}) => {
   const url = escapeHtml(item.url);
   const sourceLink = item.sourceUrl && /^https?:\/\//.test(item.sourceUrl)
@@ -275,6 +286,16 @@ const styles = `    <style>
       .watch-card { padding: 0; overflow: hidden; background: var(--panel-strong); }
       .watch-card-body { padding: 18px; }
       .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line); background: #050505; }
+      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
+      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
+      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 5, 5, 0.08), rgba(5, 5, 5, 0.56)); }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(12, 11, 9, 0.76); color: var(--ink); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
+      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
+      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(12, 11, 9, 0.68); color: var(--ink); font-size: 12px; font-weight: 900; }
+      .video-loader[data-loaded="true"] .youtube-link { display: none; }
       .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
       .content-card { display: grid; align-content: space-between; min-height: 300px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); overflow: hidden; }
       .content-card.has-video { padding-top: 0; }
@@ -320,6 +341,24 @@ const nav = `    <header class="nav">
       </nav>
     </header>`;
 
+const videoLoaderScript = `    <script>
+      document.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-video-button]");
+        if (!button) return;
+        const loader = button.closest(".video-loader");
+        if (!loader || loader.dataset.loaded === "true") return;
+        const iframe = document.createElement("iframe");
+        iframe.loading = "lazy";
+        iframe.src = loader.dataset.embed;
+        iframe.title = loader.dataset.title || "Bachata reference video";
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        iframe.allowFullscreen = true;
+        loader.dataset.loaded = "true";
+        loader.textContent = "";
+        loader.appendChild(iframe);
+      });
+    </script>`;
+
 const layout = ({ title, description, canonical, jsonLd, body }) => `<!doctype html>
 <html lang="ko">
   <head>
@@ -332,6 +371,7 @@ ${styles}
   <body>
 ${nav}
 ${body}
+${videoLoaderScript}
   </body>
 </html>
 `;
@@ -432,7 +472,7 @@ const renderGuide = (guide, allGuides) => {
     .join("");
   const summary = guide.summary.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n            ");
   const watchlist = guide.watchlist.map((item) => `<article class="watch-card">
-          ${renderVideo({ id: item.videoId, start: item.start, title: item.title })}
+          ${renderVideoLoader({ id: item.videoId, start: item.start, title: item.title })}
           <div class="watch-card-body">
             <span class="tag">${escapeHtml(item.label)}</span>
             <h3>${escapeHtml(item.title)}</h3>
