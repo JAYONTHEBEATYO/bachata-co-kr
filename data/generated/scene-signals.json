@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T10:11:25.979Z",
+  "generatedAt": "2026-06-30T10:14:33.922Z",
   "generationDate": "2026-06-30",
   "mode": {
     "youtubeApi": false,
@@ -309,6 +309,104 @@
           "cadence": "daily",
           "scoreBoost": 70,
           "score": 80
+        }
+      ]
+    },
+    {
+      "id": "editorial-desk",
+      "label": "Editorial Desk",
+      "keywords": [
+        "바차타 편집 데스크",
+        "바차타 콘텐츠 발행",
+        "센슈얼 바차타",
+        "도미니칸 바차타",
+        "Bachata Influence"
+      ],
+      "candidateCount": 6,
+      "candidates": [
+        {
+          "type": "editorial-queue",
+          "id": "q-sensual-16",
+          "title": "A1 · 센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조",
+          "sourceUrl": "/desk/",
+          "relatedUrl": "/programs/sensual-fundamentals.html",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99",
+          "videoId": "B7Wv3cqHrSU",
+          "beat": "core",
+          "status": "ready to expand",
+          "searchIntent": "센슈얼 바차타, Bachata Sensual 16 fundamentals, 코르케 주디스",
+          "scoreBoost": 98,
+          "score": 118
+        },
+        {
+          "type": "editorial-queue",
+          "id": "q-dominican-rhythm",
+          "title": "A1 · 도미니칸 바차타는 풋워크보다 리듬 듣기부터",
+          "sourceUrl": "/desk/",
+          "relatedUrl": "/programs/dominican-rhythm.html",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/xmvDKN5cwT0",
+          "videoId": "xmvDKN5cwT0",
+          "beat": "core",
+          "status": "ready to expand",
+          "searchIntent": "도미니칸 바차타, bachata footwork, bachata rhythm",
+          "scoreBoost": 98,
+          "score": 118
+        },
+        {
+          "type": "editorial-queue",
+          "id": "q-influence-members",
+          "title": "A2 · Bachata Influence는 왜 요즘 바차타 문법처럼 보이나",
+          "sourceUrl": "/desk/",
+          "relatedUrl": "/programs/influence-method.html",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/sUy5L7x5pyE",
+          "videoId": "sUy5L7x5pyE",
+          "beat": "trend",
+          "status": "researching",
+          "searchIntent": "Bachata Influence, Melvin Gatica, Emilien Tehina, Influence Academy",
+          "scoreBoost": 90,
+          "score": 110
+        },
+        {
+          "type": "editorial-queue",
+          "id": "q-korea-teams",
+          "title": "A2 · 한국 바차타 팀·동호회·장소를 실제 입문 동선으로 정리",
+          "sourceUrl": "/desk/",
+          "relatedUrl": "/profiles/",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/nrJM-arshvE",
+          "videoId": "nrJM-arshvE",
+          "beat": "korea",
+          "status": "source watch",
+          "searchIntent": "한국 바차타, 서울 바차타, 바차타 동호회, 라틴씨엘로, 에버라틴, 보니따",
+          "scoreBoost": 90,
+          "score": 110
+        },
+        {
+          "type": "editorial-queue",
+          "id": "q-bachazouk-safety",
+          "title": "B1 · 바차주크를 센슈얼 변형으로만 보면 놓치는 안전 기준",
+          "sourceUrl": "/desk/",
+          "relatedUrl": "/programs/bachazouk-safety.html",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE",
+          "videoId": "Qng3Wdmt3WE",
+          "beat": "style",
+          "status": "outline ready",
+          "searchIntent": "Bachazouk, BachaZouk, bachata zouk, Brazilian Zouk",
+          "scoreBoost": 78,
+          "score": 98
+        },
+        {
+          "type": "editorial-queue",
+          "id": "q-gear-shoes",
+          "title": "B1 · 파나미오·푸에고·On1·Pulse, 한국 바차타 댄스화 선택 기준",
+          "sourceUrl": "/desk/",
+          "relatedUrl": "/gear/",
+          "embedUrl": "https://www.youtube-nocookie.com/embed/FtcPRwVIdNk",
+          "videoId": "FtcPRwVIdNk",
+          "beat": "market",
+          "status": "buyer guide",
+          "searchIntent": "바차타 댄스화, Fuego dance shoes, Pana Mio, On1 dance shoes, Pulse dance shoes",
+          "scoreBoost": 78,
+          "score": 98
         }
       ]
     }

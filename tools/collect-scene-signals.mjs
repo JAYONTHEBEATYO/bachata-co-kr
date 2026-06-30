@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const sourcesPath = resolve(root, "data/sources.json");
 const socialRadarPath = resolve(root, "data/social-radar.json");
+const editorialDeskPath = resolve(root, "data/editorial-desk.json");
 const outputPath = resolve(root, "data/generated/scene-signals.json");
 
 const now = new Date();
@@ -158,6 +159,43 @@ const buildSocialRadarTopic = (socialRadar) => {
   };
 };
 
+const priorityScore = (priority = "") => {
+  if (priority.startsWith("A1")) return 98;
+  if (priority.startsWith("A2")) return 90;
+  if (priority.startsWith("B1")) return 78;
+  if (priority.startsWith("B2")) return 68;
+  return 58;
+};
+
+const buildEditorialDeskTopic = (editorialDesk) => {
+  if (!editorialDesk?.queue?.length) return null;
+
+  const candidates = editorialDesk.queue.map((item) => ({
+    type: "editorial-queue",
+    id: item.id,
+    title: `${item.priority} · ${item.title}`,
+    sourceUrl: "/desk/",
+    relatedUrl: item.internalLinks?.[0]?.url || item.linkedUrl || "/desk/",
+    embedUrl: item.video?.id ? `https://www.youtube-nocookie.com/embed/${item.video.id}${item.video.start ? `?start=${encodeURIComponent(item.video.start)}` : ""}` : undefined,
+    videoId: item.video?.id,
+    beat: item.beat,
+    status: item.status,
+    searchIntent: item.searchIntent,
+    scoreBoost: priorityScore(item.priority)
+  })).map((candidate) => ({
+    ...candidate,
+    score: candidate.scoreBoost + (candidate.embedUrl ? 20 : 0)
+  })).sort((a, b) => b.score - a.score);
+
+  return {
+    id: "editorial-desk",
+    label: "Editorial Desk",
+    keywords: ["바차타 편집 데스크", "바차타 콘텐츠 발행", "센슈얼 바차타", "도미니칸 바차타", "Bachata Influence"],
+    candidateCount: candidates.length,
+    candidates: candidates.slice(0, 12)
+  };
+};
+
 const scoreCandidate = (candidate, topic) => {
   const text = `${candidate.title || ""} ${candidate.sourceUrl || ""}`.toLowerCase();
   const keywordHits = topic.keywords.filter((keyword) => text.includes(keyword.toLowerCase())).length;
@@ -169,6 +207,7 @@ const scoreCandidate = (candidate, topic) => {
 const main = async () => {
   const sourceMap = await readJson(sourcesPath);
   const socialRadar = await readOptionalJson(socialRadarPath);
+  const editorialDesk = await readOptionalJson(editorialDeskPath);
   const topics = [];
 
   for (const topic of sourceMap.topics) {
@@ -205,6 +244,11 @@ const main = async () => {
   const socialRadarTopic = buildSocialRadarTopic(socialRadar);
   if (socialRadarTopic) {
     topics.push(socialRadarTopic);
+  }
+
+  const editorialDeskTopic = buildEditorialDeskTopic(editorialDesk);
+  if (editorialDeskTopic) {
+    topics.push(editorialDeskTopic);
   }
 
   const output = {
