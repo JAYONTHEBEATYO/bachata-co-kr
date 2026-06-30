@@ -74,6 +74,9 @@ jobs:
       - name: Build homepage rail
         run: node tools/build-home.mjs
 
+      - name: Verify generated build
+        run: node tools/verify-build.mjs
+
       - name: Commit generated discovery data and brief
         env:
           GH_TOKEN: ${{ github.token }}

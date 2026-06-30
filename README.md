@@ -36,6 +36,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `tools/build-editorial-desk.mjs`: builds `/desk/` and `data/generated/editorial-desk-index.json`
 - `tools/build-gear.mjs`: builds `/gear/` and `data/generated/gear-index.json`
 - `tools/build-daily-brief.mjs`: turns generated signals into static daily brief pages
+- `tools/verify-build.mjs`: fails the daily workflow if generated pages have missing files, sitemap gaps, mojibake-like text, broken links, or an empty intake queue
 - `.github/workflows/content-discovery.yml`: scheduled GitHub Actions workflow
 - `data/generated/scene-signals.json`: generated candidate queue for editorial review
 - `data/generated/source-health.json`: generated source, link, and video health report

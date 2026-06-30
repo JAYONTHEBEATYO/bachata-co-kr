@@ -1,0 +1,187 @@
+import { readdir, readFile, stat } from "node:fs/promises";
+import { dirname, extname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
+
+const requiredFiles = [
+  "index.html",
+  "sitemap.xml",
+  "data/generated/article-index.json",
+  "data/generated/style-index.json",
+  "data/generated/profile-index.json",
+  "data/generated/program-index.json",
+  "data/generated/social-intake-index.json",
+  "data/generated/source-health.json",
+  "data/generated/home-index.json",
+  "data/generated/latest-brief.json"
+];
+
+const publicDirs = [
+  "articles",
+  "styles",
+  "profiles",
+  "programs",
+  "community",
+  "submit",
+  "events",
+  "radar",
+  "intake",
+  "korea-scene",
+  "gear",
+  "health",
+  "briefs",
+  "data/generated"
+];
+
+const mojibakePattern = /[\uFFFD\u00C3\u00EC\u00ED\u00EB]|諛|쨌/;
+
+const readText = async (relativePath) => readFile(resolve(root, relativePath), "utf8");
+const readJson = async (relativePath) => JSON.parse(await readText(relativePath));
+
+const assert = (condition, message, details = {}) => {
+  if (!condition) {
+    const error = new Error(message);
+    error.details = details;
+    throw error;
+  }
+};
+
+const walkFiles = async (relativeDir) => {
+  const start = resolve(root, relativeDir);
+  const files = [];
+
+  const visit = async (absoluteDir) => {
+    const entries = await readdir(absoluteDir, { withFileTypes: true });
+    for (const entry of entries) {
+      const absolutePath = resolve(absoluteDir, entry.name);
+      if (entry.isDirectory()) {
+        await visit(absolutePath);
+      } else {
+        files.push(absolutePath);
+      }
+    }
+  };
+
+  try {
+    await visit(start);
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+
+  return files.map((absolutePath) => absolutePath
+    .replace(`${root}\\`, "")
+    .replaceAll("\\", "/"));
+};
+
+const verifyRequiredFiles = async () => {
+  for (const relativePath of requiredFiles) {
+    const info = await stat(resolve(root, relativePath));
+    assert(info.isFile() && info.size > 0, `Required build artifact is missing or empty: ${relativePath}`);
+  }
+};
+
+const verifyMojibake = async () => {
+  const files = [
+    "index.html",
+    "sitemap.xml",
+    ...(await Promise.all(publicDirs.map(walkFiles))).flat()
+  ].filter((file) => [".html", ".json", ".xml"].includes(extname(file)));
+
+  const seen = new Set();
+  const offenders = [];
+  for (const file of files) {
+    if (seen.has(file)) continue;
+    seen.add(file);
+    const text = await readText(file);
+    if (mojibakePattern.test(text)) {
+      offenders.push(file);
+    }
+  }
+
+  assert(offenders.length === 0, "Generated public files contain mojibake-like characters", { offenders });
+  return files.length;
+};
+
+const verifySourceHealth = async () => {
+  const health = await readJson("data/generated/source-health.json");
+  const summary = health.summary || {};
+  assert((summary.broken || 0) === 0, "Source health has broken links", summary);
+  assert((summary.total || 0) > 0, "Source health did not audit any links", summary);
+  return summary;
+};
+
+const verifySocialIntake = async () => {
+  const intake = await readJson("data/generated/social-intake-index.json");
+  const summary = intake.summary || {};
+  assert((summary.totalQueue || 0) > 0, "Social intake queue is empty", summary);
+  assert((summary.brokenLinks || 0) === 0, "Social intake has broken links", summary);
+  assert((summary.videos || 0) > 0, "Social intake has no video candidates", summary);
+  return summary;
+};
+
+const verifyIndexesAndSitemap = async () => {
+  const sitemap = await readText("sitemap.xml");
+  const articleIndex = await readJson("data/generated/article-index.json");
+  const styleIndex = await readJson("data/generated/style-index.json");
+  const profileIndex = await readJson("data/generated/profile-index.json");
+  const programIndex = await readJson("data/generated/program-index.json");
+
+  const pageRefs = [
+    ...(articleIndex.articles || []).map((item) => item.url),
+    ...(styleIndex.guides || []).map((item) => item.url),
+    ...(profileIndex.profiles || []).map((item) => item.url),
+    ...(programIndex.programs || []).map((item) => item.url)
+  ].filter(Boolean);
+
+  const missing = [];
+  for (const pageUrl of pageRefs) {
+    const relativePath = pageUrl.replace(/^\//, "");
+    try {
+      const info = await stat(resolve(root, relativePath));
+      if (!info.isFile() || info.size === 0) missing.push(pageUrl);
+    } catch {
+      missing.push(pageUrl);
+    }
+  }
+
+  const missingFromSitemap = pageRefs.filter((pageUrl) => !sitemap.includes(pageUrl));
+
+  assert(missing.length === 0, "Generated index points to missing public pages", { missing });
+  assert(missingFromSitemap.length === 0, "Generated pages are missing from sitemap", { missingFromSitemap });
+
+  return {
+    articles: articleIndex.articles?.length || 0,
+    styles: styleIndex.guides?.length || 0,
+    profiles: profileIndex.profiles?.length || 0,
+    programs: programIndex.programs?.length || 0
+  };
+};
+
+const main = async () => {
+  await verifyRequiredFiles();
+  const [sourceHealth, socialIntake, indexCounts, scannedFiles] = await Promise.all([
+    verifySourceHealth(),
+    verifySocialIntake(),
+    verifyIndexesAndSitemap(),
+    verifyMojibake()
+  ]);
+
+  const report = {
+    ok: true,
+    scannedFiles,
+    indexCounts,
+    sourceHealth,
+    socialIntake
+  };
+
+  console.log(JSON.stringify(report, null, 2));
+};
+
+main().catch((error) => {
+  console.error(error.message);
+  if (error.details) {
+    console.error(JSON.stringify(error.details, null, 2));
+  }
+  process.exitCode = 1;
+});
