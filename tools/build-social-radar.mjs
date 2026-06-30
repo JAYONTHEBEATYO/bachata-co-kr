@@ -212,7 +212,7 @@ ${nav}
         <div class="section-head">
           <div>
             <span class="eyebrow">Hashtags</span>
-            <h2>Graph API로 추적할 태그</h2>
+            <h2>매일 확인하는 태그</h2>
           </div>
           <p>Meta 공식 제한을 고려해 30개 이하로 작게 유지합니다. 핵심 태그는 매일, 보조 태그는 주간으로 확인하도록 설계했습니다.</p>
         </div>
@@ -228,7 +228,7 @@ ${nav}
         <div class="section-head">
           <div>
             <span class="eyebrow">Policy</span>
-            <h2>AI 티 안 나게 운영하는 규칙</h2>
+            <h2>복제하지 않는 운영 원칙</h2>
           </div>
           <p>자동화는 수집과 후보 정렬까지만 담당합니다. 발행문은 출처를 보고 한국 독자에게 맞는 문장으로 다시 편집합니다.</p>
         </div>

@@ -433,7 +433,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
         <aside class="hero-note">
           <strong>편집 원칙</strong>
           <p>${escapeHtml(config.principles[0])}</p>
-          <p>출처 점검 기준 깨진 링크 ${escapeHtml(summary.brokenLinks)}개, 내부 페이지와 연결된 발행 후보 ${escapeHtml(summary.publishReady)}개입니다.</p>
+          <p>오늘 들어온 공개 소식 중 바로 읽을거리로 연결할 만한 흐름은 ${escapeHtml(summary.publishReady)}개입니다. 재생되지 않는 영상과 불안정한 링크는 노출 전에 따로 확인합니다.</p>
         </aside>
       </div>
     </section>
@@ -497,7 +497,7 @@ const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
             <span class="eyebrow">Priority Queue</span>
             <h2>오늘 발행 후보</h2>
           </div>
-          <p>점수는 기존 watchlist 우선순위, 영상 여부, 관련 페이지 존재, source health 상태를 합산합니다. 인스타 신호는 원문 복제가 아니라 편집자가 확인할 링크로만 둡니다.</p>
+          <p>우선순위는 기존 watchlist, 영상 여부, 관련 페이지 존재, 링크 상태를 함께 봅니다. 인스타 신호는 원문 복제가 아니라 편집자가 확인할 링크로만 둡니다.</p>
         </div>
         <div class="queue-grid">
           ${queue.slice(0, 18).map((item) => renderQueueItem(item, formats)).join("\n          ")}

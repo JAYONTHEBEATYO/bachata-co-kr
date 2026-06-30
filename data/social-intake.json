@@ -54,7 +54,7 @@
       "id": "style-hub-routing",
       "channel": "Style Hub Routing",
       "use": "센슈얼, 도미니칸, Bachata Influence 같은 스타일 클릭을 기사·프로그램·프로필·영상 큐로 연결",
-      "limit": "자동 매칭 점수는 내부 정렬 기준일 뿐 화면에는 편집 라벨로만 노출합니다.",
+      "limit": "자동 매칭값은 내부 정렬 기준일 뿐 화면에는 편집 라벨로만 노출합니다.",
       "publishRule": "클릭 후 바로 관련 발행물, 핵심 영상, 출처가 보이도록 허브 페이지를 먼저 갱신합니다.",
       "sourceUrl": "/styles/"
     }

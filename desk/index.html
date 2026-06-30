@@ -427,13 +427,13 @@
           <article class="policy-card">
             <span class="tag">Source Rules</span>
             <h2>무단 복제가 아니라 출처 기반 편집</h2>
-            <ul><li>원문 캡션과 사진을 그대로 복제하지 않고 링크, 핸들, 영상 임베드, 요약 관찰만 남깁니다.</li><li>YouTube 영상은 oEmbed 200 또는 임베드 가능한 URL만 후보로 둡니다.</li><li>인스타그램은 공개 링크와 Graph API 후보를 우선하고, 무단 스크래핑을 운영 기본값으로 두지 않습니다.</li><li>한국 바차타 검색 의도, 초보자 유용성, 영상 신뢰도, 행사 시의성을 별도 점수로 봅니다.</li><li>AI는 초안 구조화와 태깅 보조로만 쓰고, 최종 페이지는 출처와 문맥을 확인한 편집 콘텐츠로 다듬습니다.</li></ul>
+            <ul><li>원문 캡션과 사진을 그대로 복제하지 않고 링크, 핸들, 영상 임베드, 요약 관찰만 남깁니다.</li><li>YouTube 영상은 oEmbed 200 또는 임베드 가능한 URL만 후보로 둡니다.</li><li>인스타그램은 공개 링크와 공식 후보를 우선하고, 무단 스크래핑을 운영 기본값으로 두지 않습니다.</li><li>한국 바차타 검색 의도, 초보자 유용성, 영상 신뢰도, 행사 시의성을 따로 확인합니다.</li><li>최종 페이지는 출처와 문맥을 확인한 편집 콘텐츠로 다듬습니다.</li></ul>
           </article>
           <article class="automation-card">
             <span class="tag">Automation Files</span>
             <h2>현재 연결된 운영 파일</h2>
             <dl>
-              <div><dt>data/sources.json</dt><dd>공식 사이트, YouTube, 인스타 계정, 브랜드 페이지의 seed를 관리합니다.</dd></div><div><dt>data/social-radar.json</dt><dd>한국팀, 행사, 브랜드, 해시태그를 추적하고 일간 브리프 후보에 연결합니다.</dd></div><div><dt>data/generated/scene-signals.json</dt><dd>API와 seed 기반 후보를 점수화해 매일 갱신합니다.</dd></div><div><dt>data/editorial-desk.json</dt><dd>자동 후보를 어떤 기사, 프로그램, 프로필, 커뮤니티 기능으로 발행할지 공개 큐로 관리합니다.</dd></div>
+              <div><dt>data/sources.json</dt><dd>공식 사이트, YouTube, 인스타 계정, 브랜드 페이지의 seed를 관리합니다.</dd></div><div><dt>data/social-radar.json</dt><dd>한국팀, 행사, 브랜드, 해시태그를 추적하고 일간 브리프 후보에 연결합니다.</dd></div><div><dt>data/generated/scene-signals.json</dt><dd>공개 소식과 seed 기반 후보를 매일 갱신합니다.</dd></div><div><dt>data/editorial-desk.json</dt><dd>새 소식을 어떤 기사, 프로그램, 프로필, 커뮤니티 기능으로 발행할지 공개 큐로 관리합니다.</dd></div>
             </dl>
           </article>
         </div>
@@ -441,7 +441,7 @@
       <section class="section paper-cta">
         <span class="tag">Next Publishing Loop</span>
         <h2>브리프는 매일, 깊은 기획은 시리즈로 쌓습니다</h2>
-        <p>오늘의 신호는 브리프로 빠르게 보이고, 검증된 주제는 스타일 허브·프로그램·프로필·기사·커뮤니티 보드로 승격합니다. 이렇게 해야 사이트가 AI가 만든 일회성 페이지처럼 보이지 않고 실제 편집 의도를 가진 한국 바차타 매거진으로 축적됩니다.</p>
+        <p>오늘의 신호는 브리프로 빠르게 보이고, 검증된 주제는 스타일 허브·프로그램·프로필·기사·커뮤니티 보드로 승격합니다. 빠른 소식과 오래 읽는 가이드를 분리해야 한국 바차타 매거진의 결이 꾸준히 쌓입니다.</p>
         <div class="link-row">
           <a href="/briefs/">오늘 브리프</a>
           <a href="/radar/">소셜 레이더</a>

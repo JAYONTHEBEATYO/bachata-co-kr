@@ -143,10 +143,8 @@ const renderHeroVideo = (heroVideo) => `<!-- hero-video:start -->
           </div>
           <!-- hero-video:end -->`;
 
-const renderShelf = (config, cards, latestBrief, sourceHealth) => {
-  const broken = sourceHealth?.summary?.broken || 0;
-  const healthText = sourceHealth?.summary ? (broken ? `출처 ${broken}개 검수 중` : "출처 점검 완료") : "출처 확인 중";
-  const briefText = latestBrief?.candidateCount ? `오늘 후보 ${latestBrief.candidateCount}개` : "오늘 브리프";
+const renderShelf = (config, cards, latestBrief) => {
+  const briefUrl = latestBrief.url || "/briefs/";
   return `<!-- home-rail:start -->
       <section class="home-shelf" aria-labelledby="watch-next-title">
         <div class="shelf-head">
@@ -154,7 +152,7 @@ const renderShelf = (config, cards, latestBrief, sourceHealth) => {
             <p class="eyebrow">${escapeHtml(config.eyebrow)}</p>
             <h2 id="watch-next-title">${escapeHtml(config.title)}</h2>
           </div>
-          <p>${escapeHtml(config.intro)} <a href="${escapeHtml(latestBrief.url || "/briefs/")}">${escapeHtml(briefText)}</a> · <a href="/health/">${escapeHtml(healthText)}</a></p>
+          <p>${escapeHtml(config.intro)} <a href="${escapeHtml(briefUrl)}">오늘의 브리프</a> · <a href="/radar/">소셜 레이더</a></p>
         </div>
         <div class="content-rail">
           ${cards.map(renderCard).join("\n          ")}
@@ -185,7 +183,7 @@ const main = async () => {
   };
   const cards = config.cards.map((card) => resolveCard(card, context));
   const heroVideo = selectHeroVideo(sceneSignals);
-  const shelf = renderShelf(config, cards, latestBrief, sourceHealth);
+  const shelf = renderShelf(config, cards, latestBrief);
   const html = await readFile(indexPath, "utf8");
   const withHero = html.replace(/<!-- hero-video:start -->[\s\S]*?<!-- hero-video:end -->/, renderHeroVideo(heroVideo));
   if (withHero === html && !html.includes("<!-- hero-video:start -->")) {

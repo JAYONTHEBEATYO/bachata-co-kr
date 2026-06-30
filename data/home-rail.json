@@ -1,8 +1,8 @@
 {
   "updatedAt": "2026-06-30",
-  "eyebrow": "Now Playing",
-  "title": "오늘은 이 흐름부터 보세요",
-  "intro": "영상으로 감을 잡고, 기사로 맥락을 붙이고, 이번 달 한국씬까지 한 번에 이어봅니다.",
+  "eyebrow": "Watch Next",
+  "title": "다음으로 볼 콘텐츠",
+  "intro": "영상 하나를 고르면 바로 읽을거리와 한국씬 맥락으로 이어집니다.",
   "cards": [
     {
       "kind": "program",
