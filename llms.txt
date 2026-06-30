@@ -23,6 +23,7 @@
 - 인물·팀·장소 프로필 허브: `/profiles/`, 글로벌 댄서, 한국 팀, 장소, 동호회 프로필
 - 개별 기사 라이브러리: `/articles/`, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타 리듬, Bachata Influence, Bachazouk, 바차타 댄스화 기사
 - 커뮤니티 보드: `/community/`, 소셜·행사, 양도·중고, 구인구직, 장소·팀 디렉터리
+- 소스 헬스: `/health/`, 내부 링크, 외부 출처, YouTube oEmbed 상태 리포트
 - 바차타 입문자 가이드
 - 서울 바차타 소셜, 클래스, 워크숍, 페스티벌
 - 한국 바차타 커뮤니티, 홍보, 구인, 제휴
@@ -42,6 +43,7 @@
 - https://bachata.co.kr/programs/
 - https://bachata.co.kr/desk/
 - https://bachata.co.kr/submit/
+- https://bachata.co.kr/health/
 - https://bachata.co.kr/programs/bachata-starter.html
 - https://bachata.co.kr/programs/sensual-fundamentals.html
 - https://bachata.co.kr/programs/dominican-rhythm.html
@@ -98,6 +100,8 @@
 - https://bachata.co.kr/data/generated/event-index.json
 - https://bachata.co.kr/data/generated/social-radar-index.json
 - https://bachata.co.kr/data/generated/gear-index.json
+- https://bachata.co.kr/data/generated/source-health.json
 
 ## 자동화
 `data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `data/social-radar.json`은 인스타그램 핸들, hashtag, 행사·팀·상품 공식 소스를 관리하는 편집 레이더입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, Social Radar 후보, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다. `tools/build-daily-brief.mjs`는 그 후보를 `briefs/YYYY-MM-DD.html` 일간 브리프와 `data/generated/latest-brief.json`으로 발행합니다. `data/programs.json`과 `tools/build-programs.mjs`는 영상 기반 학습 프로그램을 `/programs/`와 `data/generated/program-index.json`으로 발행합니다. `data/editorial-desk.json`과 `tools/build-editorial-desk.mjs`는 발행 대기열과 시리즈 기획을 `/desk/`와 `data/generated/editorial-desk-index.json`으로 발행합니다. `data/style-guides.json`과 `tools/build-style-guides.mjs`는 스타일 허브를 `/styles/`와 `data/generated/style-index.json`으로 발행합니다. `data/profiles.json`과 `tools/build-profiles.mjs`는 인물·팀·장소 프로필을 `/profiles/`와 `data/generated/profile-index.json`으로 발행합니다. `data/articles.json`과 `tools/build-articles.mjs`는 evergreen 기사를 `/articles/`와 `data/generated/article-index.json`으로 발행합니다. `data/board.json`과 `tools/build-board.mjs`는 커뮤니티 보드를 `/community/`와 `data/generated/board-index.json`으로 발행합니다. `data/events.json`과 `tools/build-events.mjs`는 월별 내한·행사 레이더를 `/events/`와 `data/generated/event-index.json`으로 발행합니다. `data/social-radar.json`과 `tools/build-social-radar.mjs`는 소셜 레이더를 `/radar/`와 `data/generated/social-radar-index.json`으로 발행합니다. `data/gear.json`과 `tools/build-gear.mjs`는 바차타 댄스화와 라틴댄스 스니커 비교 허브를 `/gear/`와 `data/generated/gear-index.json`으로 발행합니다.
+`tools/audit-sources.mjs`는 내부 페이지, 외부 출처, YouTube oEmbed 응답을 점검해 `/health/`와 `data/generated/source-health.json`을 발행합니다.

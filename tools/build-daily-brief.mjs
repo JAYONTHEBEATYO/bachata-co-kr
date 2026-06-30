@@ -26,6 +26,7 @@ const profileIndexPath = resolve(root, "data/generated/profile-index.json");
 const gearIndexPath = resolve(root, "data/generated/gear-index.json");
 const eventIndexPath = resolve(root, "data/generated/event-index.json");
 const socialRadarIndexPath = resolve(root, "data/generated/social-radar-index.json");
+const sourceHealthIndexPath = resolve(root, "data/generated/source-health.json");
 const sitemapPath = resolve(root, "sitemap.xml");
 
 const topicNotes = {
@@ -637,6 +638,21 @@ const updateSitemap = async (dateText) => {
     <priority>${page.priority}</priority>
   </url>`).join("\n");
 
+  let healthLastmod = dateText;
+  try {
+    const sourceHealth = await readJson(sourceHealthIndexPath);
+    healthLastmod = sourceHealth.generationDate || dateText;
+  } catch {
+    healthLastmod = dateText;
+  }
+
+  const healthUrls = `  <url>
+    <loc>https://bachata.co.kr/health/</loc>
+    <lastmod>${healthLastmod}</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.72</priority>
+  </url>`;
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -660,6 +676,7 @@ ${profileUrls}
 ${eventUrls}
 ${radarUrls}
 ${gearUrls}
+${healthUrls}
   <url>
     <loc>https://bachata.co.kr/articles/</loc>
     <lastmod>${dateText}</lastmod>

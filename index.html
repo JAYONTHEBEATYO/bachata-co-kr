@@ -1674,6 +1674,7 @@
           <a href="/community/">커뮤니티</a>
           <a href="/submit/">제보</a>
           <a href="/briefs/">브리프</a>
+          <a href="/health/">소스 헬스</a>
           <a href="#publishing-os">발행</a>
         </div>
         <a class="cta" href="/submit/">소식 제보</a>
@@ -1706,6 +1707,7 @@
               <a class="button" href="/articles/">기사 라이브러리</a>
               <a class="button" href="/community/">커뮤니티 보드</a>
               <a class="button" href="/submit/">소식 제보</a>
+              <a class="button" href="/health/">소스 헬스</a>
               <a class="button" href="#publishing-os">발행 시스템</a>
               <a class="button" href="http://test.bachata.co.kr/">바차타 심리테스트</a>
             </div>
@@ -2419,6 +2421,8 @@
                 <a href="/data/generated/social-radar-index.json">Social Radar Index</a>
                 <a href="/gear/">Gear Hub</a>
                 <a href="/data/generated/gear-index.json">Gear Index</a>
+                <a href="/health/">Source Health</a>
+                <a href="/data/generated/source-health.json">Source Health JSON</a>
               </div>
             </article>
           </div>
@@ -2427,7 +2431,7 @@
             <article class="automation-note">
               <span class="tag">Now Wired</span>
               <h3>매일 후보 데이터를 만드는 파일 구조</h3>
-              <p>현재 repo에는 `data/sources.json`, `data/social-radar.json`, `data/programs.json`, `data/editorial-desk.json`, `data/style-guides.json`, `data/profiles.json`, `data/board.json`, `data/events.json`, `data/gear.json`, `tools/collect-scene-signals.mjs`, `tools/build-social-radar.mjs`, `tools/build-programs.mjs`, `tools/build-editorial-desk.mjs`, `tools/build-style-guides.mjs`, `tools/build-profiles.mjs`, `tools/build-board.mjs`, `tools/build-events.mjs`, `tools/build-gear.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`, 소셜 레이더, 프로그램 허브, 편집 데스크, 스타일 허브, 프로필 허브, 커뮤니티 보드, 행사 레이더, 기어 허브 페이지를 갱신하는 구조입니다.</p>
+              <p>현재 repo에는 `data/sources.json`, `data/social-radar.json`, `data/programs.json`, `data/editorial-desk.json`, `data/style-guides.json`, `data/profiles.json`, `data/board.json`, `data/events.json`, `data/gear.json`, `tools/collect-scene-signals.mjs`, `tools/audit-sources.mjs`, `tools/build-social-radar.mjs`, `tools/build-programs.mjs`, `tools/build-editorial-desk.mjs`, `tools/build-style-guides.mjs`, `tools/build-profiles.mjs`, `tools/build-board.mjs`, `tools/build-events.mjs`, `tools/build-gear.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`, `data/generated/source-health.json`, 소셜 레이더, 프로그램 허브, 편집 데스크, 스타일 허브, 프로필 허브, 커뮤니티 보드, 행사 레이더, 기어 허브, 소스 헬스 페이지를 갱신하는 구조입니다.</p>
               <ul class="signal-list">
                 <li><strong>Seed</strong><span>편집자가 믿을 수 있는 공식/영상 출처를 먼저 넣습니다.</span></li>
                 <li><strong>Validate</strong><span>YouTube oEmbed와 embed HEAD를 확인해 죽은 영상은 후보에서 제외합니다.</span></li>

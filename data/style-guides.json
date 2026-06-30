@@ -29,6 +29,12 @@
           "title": "Onda / Wave / Body Roll",
           "videoId": "mLIT9UaZ_4w",
           "note": "가장 자주 오해되는 웨이브와 바디롤을 따로 볼 수 있는 보조 영상."
+        },
+        {
+          "label": "Method Preview",
+          "title": "Korke y Judith Bachata Sensual Course Preview",
+          "videoId": "vs3YqyTyOIo",
+          "note": "16 펀더멘털을 하나의 수업 언어로 어떻게 확장하는지 감을 잡기 좋은 공식 프리뷰."
         }
       ],
       "sections": [
@@ -50,6 +56,8 @@
       ],
       "related": [
         { "label": "16 펀더멘탈 심화 기사", "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html" },
+        { "label": "센슈얼 16 펀더멘털 프로그램", "url": "/programs/sensual-fundamentals.html" },
+        { "label": "Korke & Judith 프로필", "url": "/profiles/korke-judith.html" },
         { "label": "Bachata Influence 기사", "url": "/articles/bachata-influence-melvin-gatica.html" },
         { "label": "Bachazouk 기사", "url": "/articles/bachazouk-guide.html" },
         { "label": "홈 센슈얼 섹션", "url": "/#dossier-sensual" }
@@ -57,7 +65,9 @@
       "sourceLinks": [
         { "label": "Bachata Sensual Official", "url": "https://bachatasensual.com/" },
         { "label": "Reddit 16 Fundamentals", "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/" },
-        { "label": "YouTube Reference", "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU" }
+        { "label": "YouTube 16 Fundamentals", "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU" },
+        { "label": "YouTube Onda Tutorial", "url": "https://www.youtube.com/watch?v=mLIT9UaZ_4w" },
+        { "label": "Course Preview", "url": "https://www.youtube.com/watch?v=vs3YqyTyOIo" }
       ],
       "contentDrops": [
         {
@@ -73,6 +83,20 @@
           "description": "센슈얼을 고립된 장르가 아니라 현대 바차타의 방법론, 퓨전, 소셜 적용성 안에서 비교해 보는 연계 기사.",
           "url": "/articles/bachata-influence-melvin-gatica.html",
           "cta": "연결 흐름 보기"
+        },
+        {
+          "label": "Program",
+          "title": "센슈얼 16 펀더멘털 영상 학습 경로",
+          "description": "검증된 공개 영상, 한국어 해설, 허브 카드, 프로필을 한 흐름으로 묶은 자기주도 학습 프로그램.",
+          "url": "/programs/sensual-fundamentals.html",
+          "cta": "프로그램 보기"
+        },
+        {
+          "label": "Profile",
+          "title": "Korke & Judith 방법론 프로필",
+          "description": "센슈얼 바차타를 만든 팀의 공개 영상과 공식 출처를 따라가며 스타일의 출발점을 확인합니다.",
+          "url": "/profiles/korke-judith.html",
+          "cta": "프로필 보기"
         }
       ],
       "fundamentalsLabel": "16 Fundamentals",
@@ -123,6 +147,12 @@
           "title": "음악에 맞춘 도미니칸 풋워크",
           "videoId": "csvyhfrLv74",
           "note": "설명보다 반복 훈련이 필요할 때 연결하기 좋은 연습 영상."
+        },
+        {
+          "label": "Tap Drill",
+          "title": "Tap, Tap, Triple Step",
+          "videoId": "8SGd3za49B8",
+          "note": "탭과 작은 싱코페이션을 분리해서 보기 좋은 풋워크 드릴."
         }
       ],
       "sections": [
@@ -144,14 +174,18 @@
       ],
       "related": [
         { "label": "도미니칸 리듬 심화 기사", "url": "/articles/dominican-bachata-rhythm-footwork-guide.html" },
+        { "label": "도미니칸 리듬 프로그램", "url": "/programs/dominican-rhythm.html" },
         { "label": "홈 도미니칸 섹션", "url": "/#dossier-dominican" },
         { "label": "소셜·행사 보드", "url": "/community/events.html" },
         { "label": "오늘 브리프", "url": "/briefs/" }
       ],
       "sourceLinks": [
         { "label": "UNESCO Bachata", "url": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514" },
+        { "label": "Dominican Embassy Intro", "url": "https://www.dominicanembassy.in/blogcult2021/bachata" },
         { "label": "Bachata Dance Reference", "url": "https://en.wikipedia.org/wiki/Bachata_(dance)" },
-        { "label": "YouTube Tutorial", "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0" }
+        { "label": "YouTube Beginner Tutorial", "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0" },
+        { "label": "YouTube Follow Along", "url": "https://www.youtube.com/watch?v=csvyhfrLv74" },
+        { "label": "YouTube Tap Drill", "url": "https://www.youtube.com/watch?v=8SGd3za49B8" }
       ],
       "contentDrops": [
         {
@@ -167,6 +201,13 @@
           "description": "행사 레이더와 커뮤니티 보드에서 워크숍, 소셜, 내한 신호를 추적해 실제 배울 수 있는 기회를 이어 붙입니다.",
           "url": "/events/",
           "cta": "행사 레이더 보기"
+        },
+        {
+          "label": "Program",
+          "title": "도미니칸 리듬과 풋워크 영상 학습 경로",
+          "description": "기본 박자, 탭, 싱코페이션, 소셜 적용을 20분 루틴으로 이어 보는 프로그램.",
+          "url": "/programs/dominican-rhythm.html",
+          "cta": "프로그램 보기"
         }
       ],
       "fundamentalsLabel": "Rhythm Map",
