@@ -4,10 +4,18 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = resolve(root, "data/social-radar.json");
+const sceneSignalsPath = resolve(root, "data/generated/scene-signals.json");
 const outDir = resolve(root, "radar");
 const indexPath = resolve(root, "data/generated/social-radar-index.json");
 
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
+const readOptionalJson = async (path) => {
+  try {
+    return await readJson(path);
+  } catch {
+    return null;
+  }
+};
 
 const escapeHtml = (value = "") => String(value)
   .replace(/&/g, "&amp;")
@@ -32,6 +40,45 @@ const renderAccount = (account) => `<article class="account-card">
                 <a href="${escapeHtml(account.relatedUrl)}">관련 페이지</a>
               </div>
             </article>`;
+
+const socialAutomation = (data, sceneSignals = {}) => {
+  const mode = sceneSignals.mode || {};
+  const graphNote = mode.instagramHashtagSearch
+    ? "Instagram Graph API와 Business Account ID가 연결되어 해시태그 recent media 후보를 매일 수집합니다."
+    : mode.instagramGraph
+      ? "Instagram Graph token은 있지만 Business Account ID가 없어 해시태그 recent media 수집은 아직 대기 상태입니다."
+      : "현재는 공식 Graph API 자격 증명이 없어 핸들·해시태그·공식 링크 watchlist로 후보를 만들고, 편집자가 원문을 확인합니다.";
+
+  return {
+    graphApi: {
+      label: "Instagram Graph API",
+      status: mode.instagramHashtagSearch ? "hashtag-ready" : mode.instagramGraph ? "account-id-needed" : "credential-needed",
+      note: graphNote
+    },
+    oembed: {
+      ...(data.automation?.oembed || {}),
+      status: "embed-only"
+    },
+    fallback: {
+      ...(data.automation?.fallback || {}),
+      status: mode.instagramHashtagSearch ? "backup" : "active"
+    },
+    youtube: {
+      label: "YouTube Data API",
+      status: mode.youtubeApi ? "search-ready" : "seeded-oembed",
+      note: mode.youtubeApi
+        ? "YouTube Data API 검색 후보와 사전 검증된 임베드 영상을 함께 사용합니다."
+        : "API 키가 없을 때는 편집 seed 영상과 YouTube oEmbed 검증으로 깨지지 않는 영상 후보만 유지합니다."
+    },
+    naver: {
+      label: "Naver Search API",
+      status: mode.naverApi ? "search-ready" : "credential-needed",
+      note: mode.naverApi
+        ? "Naver 검색 후보를 최신 브리프 후보에 더합니다."
+        : "Naver API 자격 증명이 없을 때는 공식 링크와 내부 레이더 후보 중심으로 발행합니다."
+    }
+  };
+};
 
 const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -126,13 +173,14 @@ const nav = `    <header class="nav">
       </nav>
     </header>`;
 
-const renderIndex = (data) => {
+const renderIndex = (data, sceneSignals = {}) => {
   const accounts = data.watchlists.flatMap((watchlist) => watchlist.accounts.map((account) => ({
     ...account,
     watchlistId: watchlist.id,
     watchlistLabel: watchlist.label,
     priority: watchlist.priority
   })));
+  const automation = socialAutomation(data, sceneSignals);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -178,7 +226,7 @@ ${nav}
         <aside class="ops-card">
           <span class="tag">Automation Stack</span>
           <dl>
-            ${Object.values(data.automation).map((item) => `<div><dt>${escapeHtml(item.label)} · ${escapeHtml(item.status)}</dt><dd>${escapeHtml(item.note)}</dd></div>`).join("")}
+            ${Object.values(automation).map((item) => `<div><dt>${escapeHtml(item.label)} · ${escapeHtml(item.status)}</dt><dd>${escapeHtml(item.note)}</dd></div>`).join("")}
           </dl>
         </aside>
       </div>
@@ -258,6 +306,8 @@ ${nav}
 
 const main = async () => {
   const data = await readJson(dataPath);
+  const sceneSignals = await readOptionalJson(sceneSignalsPath) || {};
+  const automation = socialAutomation(data, sceneSignals);
   const accounts = data.watchlists.flatMap((watchlist) => watchlist.accounts.map((account) => ({
     ...account,
     watchlistId: watchlist.id,
@@ -267,7 +317,7 @@ const main = async () => {
 
   await mkdir(outDir, { recursive: true });
   await mkdir(dirname(indexPath), { recursive: true });
-  await writeFile(resolve(outDir, "index.html"), renderIndex(data), "utf8");
+  await writeFile(resolve(outDir, "index.html"), renderIndex(data, sceneSignals), "utf8");
   await writeFile(indexPath, `${JSON.stringify({
     generatedAt: new Date().toISOString(),
     updatedAt: data.updatedAt,
@@ -275,6 +325,8 @@ const main = async () => {
     url: "/radar/",
     accountCount: accounts.length,
     hashtagCount: data.hashtags.length,
+    mode: sceneSignals.mode || {},
+    automation,
     watchlists: data.watchlists.map((watchlist) => ({
       id: watchlist.id,
       label: watchlist.label,

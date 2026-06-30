@@ -1,10 +1,44 @@
 {
-  "generatedAt": "2026-06-30T15:04:53.200Z",
+  "generatedAt": "2026-06-30T15:25:53.480Z",
   "updatedAt": "2026-06-30",
   "title": "바차타 소셜 레이더",
   "url": "/radar/",
   "accountCount": 17,
   "hashtagCount": 7,
+  "mode": {
+    "youtubeApi": false,
+    "naverApi": false,
+    "instagramGraph": false,
+    "instagramHashtagSearch": false,
+    "instagramApiVersion": "v21.0"
+  },
+  "automation": {
+    "graphApi": {
+      "label": "Instagram Graph API",
+      "status": "credential-needed",
+      "note": "현재는 공식 Graph API 자격 증명이 없어 핸들·해시태그·공식 링크 watchlist로 후보를 만들고, 편집자가 원문을 확인합니다."
+    },
+    "oembed": {
+      "label": "Instagram oEmbed",
+      "status": "embed-only",
+      "note": "공개 게시물 URL을 확보한 뒤 웹페이지 임베드 용도로만 사용합니다. 검색·대량 수집 용도가 아니므로 브리프 후보 복제에는 쓰지 않습니다."
+    },
+    "fallback": {
+      "label": "Editorial Watchlist",
+      "status": "active",
+      "note": "Graph API 권한이 없거나 외부 계정 데이터 접근이 제한될 때는 핸들·해시태그·공식 링크를 레이더로 노출하고 편집자가 원문을 확인합니다."
+    },
+    "youtube": {
+      "label": "YouTube Data API",
+      "status": "seeded-oembed",
+      "note": "API 키가 없을 때는 편집 seed 영상과 YouTube oEmbed 검증으로 깨지지 않는 영상 후보만 유지합니다."
+    },
+    "naver": {
+      "label": "Naver Search API",
+      "status": "credential-needed",
+      "note": "Naver API 자격 증명이 없을 때는 공식 링크와 내부 레이더 후보 중심으로 발행합니다."
+    }
+  },
   "watchlists": [
     {
       "id": "korea-events",

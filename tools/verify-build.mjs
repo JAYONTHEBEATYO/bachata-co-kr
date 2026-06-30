@@ -11,6 +11,7 @@ const requiredFiles = [
   "data/generated/style-index.json",
   "data/generated/profile-index.json",
   "data/generated/program-index.json",
+  "data/generated/social-radar-index.json",
   "data/generated/social-intake-index.json",
   "data/generated/signal-history.json",
   "data/generated/source-health.json",
@@ -132,6 +133,28 @@ const verifySocialIntake = async () => {
   return summary;
 };
 
+const verifySocialRadar = async () => {
+  const radar = await readJson("data/generated/social-radar-index.json");
+  const html = await readText("radar/index.html");
+  const automation = radar.automation || {};
+  assert((radar.accountCount || 0) >= 10, "Social radar has too few tracked accounts", {
+    accountCount: radar.accountCount
+  });
+  assert((radar.hashtagCount || 0) >= 5, "Social radar has too few tracked hashtags", {
+    hashtagCount: radar.hashtagCount
+  });
+  assert(automation.graphApi?.status, "Social radar is missing Instagram Graph automation status", automation);
+  assert(automation.oembed?.status === "embed-only", "Instagram oEmbed must stay marked as embed-only", automation.oembed);
+  assert(html.includes(automation.graphApi.status), "Radar page does not render the current Graph API status", automation.graphApi);
+  return {
+    accountCount: radar.accountCount,
+    hashtagCount: radar.hashtagCount,
+    graphApi: automation.graphApi.status,
+    oembed: automation.oembed.status,
+    fallback: automation.fallback?.status
+  };
+};
+
 const verifySignalHistory = async () => {
   const signals = await readJson("data/generated/scene-signals.json");
   const history = await readJson("data/generated/signal-history.json");
@@ -210,9 +233,10 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, signalHistory, indexCounts, scannedFiles, homeHero] = await Promise.all([
+  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
+    verifySocialRadar(),
     verifySignalHistory(),
     verifyIndexesAndSitemap(),
     verifyMojibake(),
@@ -225,6 +249,7 @@ const main = async () => {
     indexCounts,
     homeHero,
     sourceHealth,
+    socialRadar,
     signalHistory,
     socialIntake
   };
