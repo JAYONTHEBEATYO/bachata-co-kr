@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bachata.co.kr/sitemap.xml
