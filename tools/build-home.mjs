@@ -101,6 +101,21 @@ const renderCard = (card) => `<a class="rail-card${card.featured ? " featured" :
             <em>${escapeHtml(card.meta)}</em>
           </a>`;
 
+const renderChannel = (channel) => `<a class="channel-link" href="${escapeHtml(channel.href)}">
+          <span>${escapeHtml(channel.label)}</span>
+          <strong>${escapeHtml(channel.title)}</strong>
+          <p>${escapeHtml(channel.description)}</p>
+          <em>${escapeHtml(channel.metric)}</em>
+        </a>`;
+
+const renderChannels = (config) => `<!-- home-channels:start -->
+      <section class="channel-strip" aria-label="바차타 코리아 콘텐츠 채널">
+        <div class="channel-row">
+          ${(config.channels || []).map(renderChannel).join("\n          ")}
+        </div>
+      </section>
+      <!-- home-channels:end -->`;
+
 const selectHeroVideo = (sceneSignals) => {
   const topicPriority = new Map([
     ["korea-scene", 18],
@@ -190,6 +205,7 @@ const main = async () => {
   };
   const cards = config.cards.map((card) => resolveCard(card, context));
   const heroVideo = selectHeroVideo(sceneSignals);
+  const channels = renderChannels(config);
   const shelf = renderShelf(config, cards, latestBrief);
   const html = await readFile(indexPath, "utf8");
   const withHero = html.replace(/<!-- hero-video:start -->[\s\S]*?<!-- hero-video:end -->/, renderHeroVideo(heroVideo));
@@ -197,8 +213,15 @@ const main = async () => {
     throw new Error("hero video markers not found in index.html");
   }
 
-  const nextHtml = withHero.replace(/<!-- home-rail:start -->[\s\S]*?<!-- home-rail:end -->/, shelf);
-  if (nextHtml === withHero && !withHero.includes("<!-- home-rail:start -->")) {
+  const withChannels = withHero.includes("<!-- home-channels:start -->")
+    ? withHero.replace(/<!-- home-channels:start -->[\s\S]*?<!-- home-channels:end -->/, channels)
+    : withHero.replace(/(<section class="hero"[\s\S]*?<\/section>)\s*(<!-- home-rail:start -->)/, `$1\n\n      ${channels}\n\n      $2`);
+  if (withChannels === withHero && !withHero.includes("<!-- home-channels:start -->")) {
+    throw new Error("home channel insertion point not found in index.html");
+  }
+
+  const nextHtml = withChannels.replace(/<!-- home-rail:start -->[\s\S]*?<!-- home-rail:end -->/, shelf);
+  if (nextHtml === withChannels && !withChannels.includes("<!-- home-rail:start -->")) {
     throw new Error("home rail markers not found in index.html");
   }
 
@@ -220,6 +243,12 @@ const main = async () => {
       videoId: heroVideo.id,
       score: heroVideo.score
     },
+    channels: (config.channels || []).map((channel) => ({
+      label: channel.label,
+      title: channel.title,
+      url: channel.href,
+      metric: channel.metric
+    })),
     cards: cards.map((card) => ({
       label: card.label,
       title: card.title,

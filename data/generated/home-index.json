@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-30T15:05:59.887Z",
-  "updatedAt": "2026-06-30",
+  "generatedAt": "2026-06-30T15:20:37.055Z",
+  "updatedAt": "2026-07-01",
   "latestBrief": {
     "url": "/briefs/2026-07-01.html",
     "candidateCount": 39,
@@ -20,6 +20,44 @@
     "videoId": "nrJM-arshvE",
     "score": 106
   },
+  "channels": [
+    {
+      "label": "Styles",
+      "title": "스타일별로 보기",
+      "url": "/styles/",
+      "metric": "5 guides"
+    },
+    {
+      "label": "Programs",
+      "title": "영상 루틴",
+      "url": "/programs/",
+      "metric": "6 paths"
+    },
+    {
+      "label": "Artists",
+      "title": "댄서와 팀",
+      "url": "/profiles/",
+      "metric": "16 profiles"
+    },
+    {
+      "label": "Korea",
+      "title": "한국 바차타씬",
+      "url": "/korea-scene/",
+      "metric": "scene map"
+    },
+    {
+      "label": "Gear",
+      "title": "댄스화와 장비",
+      "url": "/gear/",
+      "metric": "4 brands"
+    },
+    {
+      "label": "Submit",
+      "title": "소식 보내기",
+      "url": "/submit/",
+      "metric": "open"
+    }
+  ],
   "cards": [
     {
       "label": "Core",

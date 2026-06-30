@@ -1,8 +1,52 @@
 {
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "eyebrow": "Watch Next",
   "title": "다음으로 볼 콘텐츠",
   "intro": "영상 하나를 고르면 바로 읽을거리와 한국씬 맥락으로 이어집니다.",
+  "channels": [
+    {
+      "label": "Styles",
+      "title": "스타일별로 보기",
+      "description": "센슈얼, 도미니칸, 모던, Bachazouk, Influence를 한 번에 이동합니다.",
+      "href": "/styles/",
+      "metric": "5 guides"
+    },
+    {
+      "label": "Programs",
+      "title": "영상 루틴",
+      "description": "영상 하나를 보고 바로 읽을 수 있는 입문·리듬·안전 루트입니다.",
+      "href": "/programs/",
+      "metric": "6 paths"
+    },
+    {
+      "label": "Artists",
+      "title": "댄서와 팀",
+      "description": "Melvin & Gatica, Korke & Judith, 한국팀까지 관찰 포인트로 묶습니다.",
+      "href": "/profiles/",
+      "metric": "16 profiles"
+    },
+    {
+      "label": "Korea",
+      "title": "한국 바차타씬",
+      "description": "서울, 홍대, 강남, 동호회, 내한 소식을 지도처럼 봅니다.",
+      "href": "/korea-scene/",
+      "metric": "scene map"
+    },
+    {
+      "label": "Gear",
+      "title": "댄스화와 장비",
+      "description": "Fuego, Pana Mio, On1, Pulse를 한국 구매자 기준으로 비교합니다.",
+      "href": "/gear/",
+      "metric": "4 brands"
+    },
+    {
+      "label": "Submit",
+      "title": "소식 보내기",
+      "description": "행사, 양도, 구인, 대관, 팀 소개를 바로 보낼 수 있습니다.",
+      "href": "/submit/",
+      "metric": "open"
+    }
+  ],
   "cards": [
     {
       "kind": "program",
