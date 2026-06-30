@@ -13,6 +13,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `data/board.json`: editor-managed community board seed data
 - `data/events.json`: editor-managed monthly event and visiting artist radar data
 - `data/social-radar.json`: editor-managed Instagram, hashtag, and official source watchlist
+- `data/programs.json`: editor-managed video-first learning program library
 - `data/gear.json`: editor-managed dance shoes and gear comparison data
 - `tools/collect-scene-signals.mjs`: validates YouTube embeds and prepares candidate signals
 - `tools/build-articles.mjs`: builds `/articles/` and `data/generated/article-index.json`
@@ -21,6 +22,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `tools/build-board.mjs`: builds `/community/` and `data/generated/board-index.json`
 - `tools/build-events.mjs`: builds `/events/` and `data/generated/event-index.json`
 - `tools/build-social-radar.mjs`: builds `/radar/` and `data/generated/social-radar-index.json`
+- `tools/build-programs.mjs`: builds `/programs/` and `data/generated/program-index.json`
 - `tools/build-gear.mjs`: builds `/gear/` and `data/generated/gear-index.json`
 - `tools/build-daily-brief.mjs`: turns generated signals into static daily brief pages
 - `.github/workflows/content-discovery.yml`: scheduled GitHub Actions workflow
@@ -32,4 +34,5 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `community/`: generated community board pages
 - `events/`: generated monthly visiting artist and festival radar pages
 - `radar/`: generated Instagram and source watchlist pages
+- `programs/`: generated video-first learning path pages
 - `gear/`: generated dance shoes and gear comparison pages

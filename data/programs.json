@@ -1,0 +1,283 @@
+{
+  "updatedAt": "2026-06-30",
+  "title": "바차타 코리아 프로그램",
+  "dek": "입문자와 소셜댄서를 위해 흩어진 영상, 기사, 스타일 허브, 행사·인스타 레이더를 20분 단위 학습 경로로 묶은 바차타 프로그램 라이브러리입니다.",
+  "method": [
+    "첫 영상으로 움직임의 질감을 먼저 보고, 바로 아래 모듈에서 읽을거리와 체크 포인트를 따라갑니다.",
+    "각 프로그램은 evergreen 코어 콘텐츠와 매일 갱신되는 레이더를 함께 연결해 오래 가는 지식과 최신 소식을 분리합니다.",
+    "영상은 YouTube oEmbed로 확인 가능한 공개 링크만 사용하고, 인스타그램은 원문 링크와 핸들만 연결합니다."
+  ],
+  "programs": [
+    {
+      "id": "bachata-starter",
+      "eyebrow": "Starter Path",
+      "title": "바차타 입문 20분 루틴",
+      "dek": "기본 스텝, 골반, 리듬, 소셜 거리감을 한 번에 잡는 첫 학습 경로입니다.",
+      "level": "Beginner",
+      "duration": "20분 x 4",
+      "style": "Modern / Social",
+      "heroVideo": {
+        "id": "OcGcZ0IY6s0",
+        "title": "Chaves y Silvia Bachata Basic Workshop"
+      },
+      "modules": [
+        {
+          "title": "베이직과 골반을 먼저 보기",
+          "type": "Video",
+          "description": "한국어권 입문자가 바로 보기 좋은 베이직 워크숍 영상으로 박자와 골반 사용을 확인합니다.",
+          "url": "https://www.youtube.com/watch?v=OcGcZ0IY6s0"
+        },
+        {
+          "title": "모던 바차타 구조 읽기",
+          "type": "Style",
+          "description": "입문 클래스에서 가장 자주 만나는 모던 바차타의 기본 파트너워크를 정리합니다.",
+          "url": "/styles/modern.html"
+        },
+        {
+          "title": "도미니칸 리듬으로 귀 열기",
+          "type": "Article",
+          "description": "발놀림보다 리듬을 듣는 방법을 먼저 익혀 베이직이 음악에서 뜨지 않게 만듭니다.",
+          "url": "/articles/dominican-bachata-rhythm-footwork-guide.html"
+        },
+        {
+          "title": "처음 갈 소셜 고르기",
+          "type": "Community",
+          "description": "장소와 팀 프로필, 행사 레이더를 보고 초보자가 갈 수 있는 소셜 신호를 찾습니다.",
+          "url": "/community/venues.html"
+        }
+      ],
+      "related": [
+        { "label": "오늘 브리프", "url": "/briefs/" },
+        { "label": "커뮤니티 보드", "url": "/community/" },
+        { "label": "소셜 레이더", "url": "/radar/" }
+      ],
+      "keywords": ["바차타 입문", "바차타 기본스텝", "바차타 소셜", "bachata beginner"]
+    },
+    {
+      "id": "sensual-fundamentals",
+      "eyebrow": "Sensual Core",
+      "title": "센슈얼 바차타 16 펀더멘털",
+      "dek": "Korke & Judith 계열의 16개 명칭을 안전, 축, 프레임, 음악성 기준으로 읽는 코어 프로그램입니다.",
+      "level": "Beginner / Intermediate",
+      "duration": "20분 x 5",
+      "style": "Sensual Bachata",
+      "heroVideo": {
+        "id": "B7Wv3cqHrSU",
+        "start": 99,
+        "title": "16 Bachata Sensual Fundamentals by Korke y Judith"
+      },
+      "modules": [
+        {
+          "title": "16개 명칭 전체 보기",
+          "type": "Video",
+          "description": "공개 영상의 타임스탬프 흐름을 먼저 보고 각 명칭이 어떤 계열인지 감을 잡습니다.",
+          "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU"
+        },
+        {
+          "title": "한국어 심화 해설 읽기",
+          "type": "Article",
+          "description": "Onda, Caida, Cabeza, Impulso를 기술 사전이 아니라 안전 기준으로 다시 읽습니다.",
+          "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html"
+        },
+        {
+          "title": "센슈얼 허브에서 카드 복습",
+          "type": "Style",
+          "description": "16개 펀더멘털 카드를 보며 Wave, Axis, Hip, Accent 계열을 나눠 봅니다.",
+          "url": "/styles/sensual.html"
+        },
+        {
+          "title": "Korke & Judith 프로필 연결",
+          "type": "Profile",
+          "description": "공식 설명과 커뮤니티 정리를 분리해서 출처 기반으로 확인합니다.",
+          "url": "/profiles/korke-judith.html"
+        }
+      ],
+      "related": [
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" },
+        { "label": "소셜 레이더", "url": "/radar/" },
+        { "label": "오늘 브리프", "url": "/briefs/" }
+      ],
+      "keywords": ["센슈얼 바차타", "코르케 주디스", "Korke Judith", "Bachata Sensual 16 fundamentals"]
+    },
+    {
+      "id": "dominican-rhythm",
+      "eyebrow": "Rhythm Path",
+      "title": "도미니칸 바차타 리듬과 풋워크",
+      "dek": "발을 많이 쓰기 전에 기타, 봉고, 귀라, 보컬 문장을 듣는 법을 익히는 리듬 프로그램입니다.",
+      "level": "Beginner / Intermediate",
+      "duration": "20분 x 4",
+      "style": "Dominican Bachata",
+      "heroVideo": {
+        "id": "xmvDKN5cwT0",
+        "title": "Dominican Bachata Footwork Beginner Basics"
+      },
+      "modules": [
+        {
+          "title": "파트너 없이 풋워크 시작",
+          "type": "Video",
+          "description": "기본 스텝, 체중 이동, 탭을 분리해서 반복합니다.",
+          "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0"
+        },
+        {
+          "title": "음악성과 역사 맥락 읽기",
+          "type": "Article",
+          "description": "UNESCO와 도미니카 문화 자료를 바탕으로 도미니칸 바차타를 음악 중심으로 정리합니다.",
+          "url": "/articles/dominican-bachata-rhythm-footwork-guide.html"
+        },
+        {
+          "title": "도미니칸 허브에서 리듬 단서 복습",
+          "type": "Style",
+          "description": "Derecho, Mambo, Majao, Tap, Syncopation, Call and response를 체크합니다.",
+          "url": "/styles/dominican.html"
+        },
+        {
+          "title": "행사에서 도미니칸 신호 찾기",
+          "type": "Radar",
+          "description": "페스티벌과 워크숍 공지를 보며 도미니칸/전통 바차타 수업 신호를 찾습니다.",
+          "url": "/events/"
+        }
+      ],
+      "related": [
+        { "label": "도미니칸 허브", "url": "/styles/dominican.html" },
+        { "label": "행사 레이더", "url": "/events/" },
+        { "label": "오늘 브리프", "url": "/briefs/" }
+      ],
+      "keywords": ["도미니칸 바차타", "바차타 풋워크", "bachata footwork", "bachata syncopation"]
+    },
+    {
+      "id": "influence-method",
+      "eyebrow": "Influence Method",
+      "title": "Bachata Influence 읽는 법",
+      "dek": "Melvin & Gatica, Emilien & Tehina, Influence Team 흐름을 동작보다 음악성·멈춤·프레임으로 읽는 프로그램입니다.",
+      "level": "Intermediate",
+      "duration": "20분 x 5",
+      "style": "Bachata Influence",
+      "heroVideo": {
+        "id": "sUy5L7x5pyE",
+        "title": "Bachata Influence Tutorial | Melvin & Gatica"
+      },
+      "modules": [
+        {
+          "title": "메소드의 언어 보기",
+          "type": "Video",
+          "description": "Influence 계열 영상에서 멈춤, 재개, 프레임의 질감을 먼저 관찰합니다.",
+          "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE"
+        },
+        {
+          "title": "Bachata Influence 기사 읽기",
+          "type": "Article",
+          "description": "기술 이름이 아니라 음악 문장과 교육 시스템으로 보는 관점을 잡습니다.",
+          "url": "/articles/bachata-influence-melvin-gatica.html"
+        },
+        {
+          "title": "Melvin & Gatica 프로필",
+          "type": "Profile",
+          "description": "byGatica, Influence Academy, 공식 인스타와 연결해 메소드 원천을 확인합니다.",
+          "url": "/profiles/melvin-gatica.html"
+        },
+        {
+          "title": "Emilien & Tehina로 확장",
+          "type": "Profile",
+          "description": "Pro Team 계열이 같은 언어를 어떻게 소셜과 무대로 번역하는지 비교합니다.",
+          "url": "/profiles/emilien-tehina.html"
+        }
+      ],
+      "related": [
+        { "label": "Influence 허브", "url": "/styles/influence.html" },
+        { "label": "Gangnam Latin Festival", "url": "/events/gangnam-latin-festival-2026.html" },
+        { "label": "소셜 레이더", "url": "/radar/" }
+      ],
+      "keywords": ["Bachata Influence", "Melvin Gatica", "Emilien Tehina", "바차타 인플루언스"]
+    },
+    {
+      "id": "bachazouk-safety",
+      "eyebrow": "Fusion Safety",
+      "title": "Bachazouk 안전과 음악성",
+      "dek": "Bachata와 Brazilian Zouk가 만나는 지점을 헤드무브, 축, 속도, 음악 선택 기준으로 분리해서 보는 프로그램입니다.",
+      "level": "Intermediate",
+      "duration": "20분 x 4",
+      "style": "Bachazouk",
+      "heroVideo": {
+        "id": "Qng3Wdmt3WE",
+        "title": "BachaZouk Tutorial Reference"
+      },
+      "modules": [
+        {
+          "title": "Bachazouk 움직임 질감 보기",
+          "type": "Video",
+          "description": "헤드무브와 틸트보다 먼저 축과 프레임이 어떻게 유지되는지 봅니다.",
+          "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE"
+        },
+        {
+          "title": "Bachazouk 기사 읽기",
+          "type": "Article",
+          "description": "센슈얼 변형으로만 보면 놓치는 문화적 존중과 안전 기준을 정리합니다.",
+          "url": "/articles/bachazouk-guide.html"
+        },
+        {
+          "title": "Bachazouk 허브 복습",
+          "type": "Style",
+          "description": "Bachata와 Brazilian Zouk를 각각 존중하는 연결 기준을 확인합니다.",
+          "url": "/styles/bachazouk.html"
+        },
+        {
+          "title": "센슈얼 펀더멘털로 돌아가기",
+          "type": "Style",
+          "description": "큰 동작을 줄여 쓸 때 필요한 웨이브, 축, 악센트 기준을 다시 봅니다.",
+          "url": "/styles/sensual.html"
+        }
+      ],
+      "related": [
+        { "label": "Bachazouk 허브", "url": "/styles/bachazouk.html" },
+        { "label": "센슈얼 허브", "url": "/styles/sensual.html" },
+        { "label": "기사 라이브러리", "url": "/articles/" }
+      ],
+      "keywords": ["Bachazouk", "BachaZouk", "Brazilian Zouk", "바차주크"]
+    },
+    {
+      "id": "korea-social-intelligence",
+      "eyebrow": "Korea Scene",
+      "title": "한국 바차타 소셜 읽기",
+      "dek": "클루니·져니, 그레이·로렌, 에버라틴, 라틴씨엘로, 보니따 같은 국내 신호를 영상과 인스타 원문으로 따라가는 프로그램입니다.",
+      "level": "All Levels",
+      "duration": "20분 x 5",
+      "style": "Korea Scene",
+      "heroVideo": {
+        "id": "jpCY0QqZqWE",
+        "title": "Seoul Bachata Festival social archive"
+      },
+      "modules": [
+        {
+          "title": "서울 바차타 페스티벌 아카이브 보기",
+          "type": "Video",
+          "description": "소셜 플로어 분위기, 촬영 밀도, 음악 흐름을 먼저 영상으로 확인합니다.",
+          "url": "https://www.youtube.com/watch?v=jpCY0QqZqWE"
+        },
+        {
+          "title": "소셜 레이더로 오늘의 원문 확인",
+          "type": "Radar",
+          "description": "인스타 계정과 해시태그를 따라가며 공식 공지와 팀 신호를 봅니다.",
+          "url": "/radar/"
+        },
+        {
+          "title": "한국 팀·장소 프로필 읽기",
+          "type": "Profile",
+          "description": "그레이·로렌, 클루니·져니, 라틴씨엘로, 에버라틴, 보니따를 프로필 단위로 봅니다.",
+          "url": "/profiles/"
+        },
+        {
+          "title": "행사 레이더와 커뮤니티 보드 연결",
+          "type": "Community",
+          "description": "월별 내한·행사와 커뮤니티 제보를 함께 보며 다음 취재 후보를 정합니다.",
+          "url": "/events/"
+        }
+      ],
+      "related": [
+        { "label": "소셜 레이더", "url": "/radar/" },
+        { "label": "행사 레이더", "url": "/events/" },
+        { "label": "커뮤니티 보드", "url": "/community/" }
+      ],
+      "keywords": ["한국 바차타", "서울 바차타", "바차타 소셜", "라틴씨엘로", "에버라틴", "보니따"]
+    }
+  ]
+}

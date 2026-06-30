@@ -1,0 +1,100 @@
+{
+  "generatedAt": "2026-06-30T09:50:01.198Z",
+  "updatedAt": "2026-06-30",
+  "title": "바차타 코리아 프로그램",
+  "url": "/programs/",
+  "programs": [
+    {
+      "id": "bachata-starter",
+      "title": "바차타 입문 20분 루틴",
+      "url": "/programs/bachata-starter.html",
+      "level": "Beginner",
+      "duration": "20분 x 4",
+      "style": "Modern / Social",
+      "videoId": "OcGcZ0IY6s0",
+      "keywords": [
+        "바차타 입문",
+        "바차타 기본스텝",
+        "바차타 소셜",
+        "bachata beginner"
+      ]
+    },
+    {
+      "id": "sensual-fundamentals",
+      "title": "센슈얼 바차타 16 펀더멘털",
+      "url": "/programs/sensual-fundamentals.html",
+      "level": "Beginner / Intermediate",
+      "duration": "20분 x 5",
+      "style": "Sensual Bachata",
+      "videoId": "B7Wv3cqHrSU",
+      "keywords": [
+        "센슈얼 바차타",
+        "코르케 주디스",
+        "Korke Judith",
+        "Bachata Sensual 16 fundamentals"
+      ]
+    },
+    {
+      "id": "dominican-rhythm",
+      "title": "도미니칸 바차타 리듬과 풋워크",
+      "url": "/programs/dominican-rhythm.html",
+      "level": "Beginner / Intermediate",
+      "duration": "20분 x 4",
+      "style": "Dominican Bachata",
+      "videoId": "xmvDKN5cwT0",
+      "keywords": [
+        "도미니칸 바차타",
+        "바차타 풋워크",
+        "bachata footwork",
+        "bachata syncopation"
+      ]
+    },
+    {
+      "id": "influence-method",
+      "title": "Bachata Influence 읽는 법",
+      "url": "/programs/influence-method.html",
+      "level": "Intermediate",
+      "duration": "20분 x 5",
+      "style": "Bachata Influence",
+      "videoId": "sUy5L7x5pyE",
+      "keywords": [
+        "Bachata Influence",
+        "Melvin Gatica",
+        "Emilien Tehina",
+        "바차타 인플루언스"
+      ]
+    },
+    {
+      "id": "bachazouk-safety",
+      "title": "Bachazouk 안전과 음악성",
+      "url": "/programs/bachazouk-safety.html",
+      "level": "Intermediate",
+      "duration": "20분 x 4",
+      "style": "Bachazouk",
+      "videoId": "Qng3Wdmt3WE",
+      "keywords": [
+        "Bachazouk",
+        "BachaZouk",
+        "Brazilian Zouk",
+        "바차주크"
+      ]
+    },
+    {
+      "id": "korea-social-intelligence",
+      "title": "한국 바차타 소셜 읽기",
+      "url": "/programs/korea-social-intelligence.html",
+      "level": "All Levels",
+      "duration": "20분 x 5",
+      "style": "Korea Scene",
+      "videoId": "jpCY0QqZqWE",
+      "keywords": [
+        "한국 바차타",
+        "서울 바차타",
+        "바차타 소셜",
+        "라틴씨엘로",
+        "에버라틴",
+        "보니따"
+      ]
+    }
+  ]
+}

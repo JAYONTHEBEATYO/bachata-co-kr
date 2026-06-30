@@ -35,6 +35,9 @@ jobs:
       - name: Build style guides
         run: node tools/build-style-guides.mjs
 
+      - name: Build programs
+        run: node tools/build-programs.mjs
+
       - name: Build profiles
         run: node tools/build-profiles.mjs
 
@@ -59,7 +62,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/generated/scene-signals.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/profile-index.json data/generated/board-index.json data/generated/event-index.json data/generated/social-radar-index.json data/generated/gear-index.json articles styles profiles briefs community events radar gear sitemap.xml
+          git add data/generated/scene-signals.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/program-index.json data/generated/profile-index.json data/generated/board-index.json data/generated/event-index.json data/generated/social-radar-index.json data/generated/gear-index.json articles styles programs profiles briefs community events radar gear sitemap.xml
           if git diff --cached --quiet; then
             echo "No discovery changes to commit"
           else
