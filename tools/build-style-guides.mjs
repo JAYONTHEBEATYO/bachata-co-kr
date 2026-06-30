@@ -4,10 +4,23 @@ import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const dataPath = resolve(root, "data/style-guides.json");
+const articlesPath = resolve(root, "data/articles.json");
+const programsPath = resolve(root, "data/programs.json");
+const profilesPath = resolve(root, "data/profiles.json");
+const eventsPath = resolve(root, "data/events.json");
+const gearPath = resolve(root, "data/gear.json");
+const socialIntakePath = resolve(root, "data/generated/social-intake-index.json");
 const outDir = resolve(root, "styles");
 const indexPath = resolve(root, "data/generated/style-index.json");
 
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
+const optionalReadJson = async (path, fallback = {}) => {
+  try {
+    return await readJson(path);
+  } catch {
+    return fallback;
+  }
+};
 
 const escapeHtml = (value = "") => String(value)
   .replace(/&/g, "&amp;")
@@ -38,6 +51,135 @@ const renderVideo = (video, className = "video-frame") => {
   return `<div class="${className}">
             <iframe loading="lazy" src="${videoEmbedUrl(video)}" title="${escapeHtml(video.title || "Bachata reference video")}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>`;
+};
+
+const styleTerms = {
+  sensual: ["sensual", "센슈얼", "korke", "judith", "코르케", "주디스", "16", "onda", "wave", "body roll"],
+  dominican: ["dominican", "도미니칸", "rhythm", "리듬", "footwork", "풋워크", "tap", "syncopation", "bachata dance"],
+  modern: ["modern", "모던", "starter", "입문", "basic", "베이직", "fusion", "social", "소셜"],
+  influence: ["influence", "인플루언스", "melvin", "gatica", "emilien", "tehina", "academy", "musicality"],
+  bachazouk: ["bachazouk", "bacha zouk", "바차주크", "zouk", "brazilian zouk", "head movement"]
+};
+
+const compactText = (value) => {
+  if (Array.isArray(value)) return value.map(compactText).join(" ");
+  if (!value || typeof value !== "object") return String(value || "");
+  return Object.values(value).map(compactText).join(" ");
+};
+
+const termsForGuide = (guide) => [
+  guide.id,
+  guide.eyebrow,
+  guide.title,
+  ...(guide.keywords || []),
+  ...(styleTerms[guide.id] || [])
+]
+  .filter(Boolean)
+  .map((term) => String(term).toLowerCase());
+
+const relatedScore = (guide, item) => {
+  const haystack = compactText(item).toLowerCase();
+  return termsForGuide(guide).reduce((score, term) => {
+    if (!term || term.length < 2) return score;
+    if (haystack.includes(term)) return score + (term.length > 8 ? 12 : 8);
+    return score;
+  }, 0);
+};
+
+const makeRelatedItem = ({ label, title, description, url, videoId, sourceUrl, score }) => ({
+  label,
+  title,
+  description,
+  url,
+  videoId: videoId || null,
+  sourceUrl: sourceUrl || "",
+  score
+});
+
+const buildRelatedContent = (guide, context) => {
+  const items = [];
+  const addScored = (item, raw) => {
+    if (!item.url || item.url === pagePath(guide)) return;
+    const score = relatedScore(guide, raw);
+    if (score <= 0) return;
+    items.push({ ...item, score });
+  };
+
+  for (const article of context.articles) {
+    addScored(makeRelatedItem({
+      label: "Article",
+      title: article.title,
+      description: article.dek || article.summary?.[0] || "",
+      url: `/articles/${article.slug}.html`,
+      videoId: article.heroVideo?.id,
+      sourceUrl: article.sourceLinks?.[0]?.url
+    }), article);
+  }
+
+  for (const program of context.programs) {
+    addScored(makeRelatedItem({
+      label: "Program",
+      title: program.title,
+      description: program.dek || program.modules?.[0]?.description || "",
+      url: `/programs/${program.id}.html`,
+      videoId: program.heroVideo?.id,
+      sourceUrl: program.modules?.find((module) => /^https?:\/\//.test(module.url || ""))?.url
+    }), program);
+  }
+
+  for (const profile of context.profiles) {
+    addScored(makeRelatedItem({
+      label: "Profile",
+      title: profile.title,
+      description: profile.subtitle || profile.summary?.[0] || "",
+      url: `/profiles/${profile.id}.html`,
+      videoId: profile.heroVideo?.id,
+      sourceUrl: profile.sourceLinks?.[0]?.url
+    }), profile);
+  }
+
+  for (const event of context.events) {
+    addScored(makeRelatedItem({
+      label: "Event",
+      title: event.title,
+      description: event.summary || event.whyItMatters || "",
+      url: `/events/${event.id}.html`,
+      videoId: event.video?.id,
+      sourceUrl: event.sourceLinks?.[0]?.url
+    }), event);
+  }
+
+  for (const product of context.gear) {
+    addScored(makeRelatedItem({
+      label: "Gear",
+      title: product.koreanName ? `${product.koreanName} / ${product.brand}` : product.brand,
+      description: product.summary || product.positioning || "",
+      url: `/gear/${product.id}.html`,
+      videoId: product.video?.id,
+      sourceUrl: product.links?.[0]?.url
+    }), product);
+  }
+
+  for (const queueItem of context.intakeQueue) {
+    addScored(makeRelatedItem({
+      label: queueItem.publishFormat || "Signal",
+      title: queueItem.title,
+      description: queueItem.beat || queueItem.searchIntent || queueItem.healthNote || "",
+      url: queueItem.relatedUrl || queueItem.target || queueItem.sourceUrl,
+      videoId: queueItem.videoId,
+      sourceUrl: queueItem.sourceUrl
+    }), queueItem);
+  }
+
+  const deduped = new Map();
+  for (const item of items) {
+    const existing = deduped.get(item.url);
+    if (!existing || item.score > existing.score) deduped.set(item.url, item);
+  }
+
+  return [...deduped.values()]
+    .sort((a, b) => b.score - a.score || a.label.localeCompare(b.label, "ko"))
+    .slice(0, 8);
 };
 
 const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
@@ -279,6 +421,28 @@ const renderGuide = (guide, allGuides) => {
               </article>`).join("\n              ")}
             </div>
           </section>` : "";
+  const relatedContent = guide.relatedContent?.length ? `<section>
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">Content Graph</span>
+                <h2>이 스타일로 이어지는 발행물</h2>
+              </div>
+              <p>기사, 프로그램, 프로필, 행사, 장비, 소셜 인테이크 큐를 같은 키워드로 묶었습니다. 스타일을 클릭한 뒤 다음에 볼 콘텐츠가 끊기지 않도록 매일 갱신됩니다.</p>
+            </div>
+            <div class="content-grid">
+              ${guide.relatedContent.map((item) => `<article class="content-card">
+                <div>
+                  <span class="tag">${escapeHtml(item.label)} · score ${escapeHtml(item.score)}</span>
+                  <h3>${escapeHtml(item.title)}</h3>
+                  <p>${escapeHtml(item.description || "관련 출처와 영상 신호를 묶은 다음 발행 후보입니다.")}</p>
+                </div>
+                <div class="link-row">
+                  <a href="${escapeHtml(item.url)}">콘텐츠 보기</a>
+                  ${item.sourceUrl && /^https?:\/\//.test(item.sourceUrl) ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">출처</a>` : ""}
+                </div>
+              </article>`).join("\n              ")}
+            </div>
+          </section>` : "";
   const fundamentals = guide.fundamentals?.length ? `<section class="section-card">
             <span class="tag">${escapeHtml(guide.fundamentalsLabel || "Fundamentals")}</span>
             <h2>${escapeHtml(guide.fundamentalsTitle || "핵심 개념")}</h2>
@@ -329,6 +493,7 @@ const renderGuide = (guide, allGuides) => {
             <div class="watch-grid">${watchlist}</div>
           </section>
 ${contentDrops}
+${relatedContent}
 ${fundamentals}
           ${sections}
         </article>
@@ -362,28 +527,59 @@ ${fundamentals}
 };
 
 const main = async () => {
-  const data = await readJson(dataPath);
+  const [data, articlesData, programsData, profilesData, eventsData, gearData, intakeData] = await Promise.all([
+    readJson(dataPath),
+    optionalReadJson(articlesPath, { articles: [] }),
+    optionalReadJson(programsPath, { programs: [] }),
+    optionalReadJson(profilesPath, { profiles: [] }),
+    optionalReadJson(eventsPath, { radar: [] }),
+    optionalReadJson(gearPath, { products: [] }),
+    optionalReadJson(socialIntakePath, { queue: [] })
+  ]);
+  const context = {
+    articles: articlesData.articles || [],
+    programs: programsData.programs || [],
+    profiles: profilesData.profiles || [],
+    events: eventsData.radar || [],
+    gear: gearData.products || [],
+    intakeQueue: intakeData.queue || []
+  };
+  const enrichedData = {
+    ...data,
+    guides: data.guides.map((guide) => ({
+      ...guide,
+      relatedContent: buildRelatedContent(guide, context)
+    }))
+  };
+
   await mkdir(outDir, { recursive: true });
   await mkdir(dirname(indexPath), { recursive: true });
 
-  await writeFile(resolve(outDir, "index.html"), renderIndex(data), "utf8");
-  for (const guide of data.guides) {
-    await writeFile(resolve(outDir, `${guide.id}.html`), renderGuide(guide, data.guides), "utf8");
+  await writeFile(resolve(outDir, "index.html"), renderIndex(enrichedData), "utf8");
+  for (const guide of enrichedData.guides) {
+    await writeFile(resolve(outDir, `${guide.id}.html`), renderGuide(guide, enrichedData.guides), "utf8");
   }
 
   await writeFile(indexPath, `${JSON.stringify({
     generatedAt: new Date().toISOString(),
-    updatedAt: data.updatedAt,
-    guides: data.guides.map((guide) => ({
+    updatedAt: enrichedData.updatedAt,
+    guides: enrichedData.guides.map((guide) => ({
       id: guide.id,
       title: guide.title,
       url: pagePath(guide),
       keywords: guide.keywords,
-      heroVideo: guide.heroVideo?.id || null
+      heroVideo: guide.heroVideo?.id || null,
+      relatedContent: guide.relatedContent.map((item) => ({
+        label: item.label,
+        title: item.title,
+        url: item.url,
+        score: item.score,
+        videoId: item.videoId
+      }))
     }))
   }, null, 2)}\n`, "utf8");
 
-  console.log(`Wrote ${data.guides.length + 1} style guide pages`);
+  console.log(`Wrote ${enrichedData.guides.length + 1} style guide pages`);
 };
 
 main().catch((error) => {

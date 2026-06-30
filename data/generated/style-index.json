@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T11:19:16.011Z",
+  "generatedAt": "2026-06-30T11:24:45.074Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -13,7 +13,65 @@
         "Bachata Sensual",
         "바차타 웨이브"
       ],
-      "heroVideo": "B7Wv3cqHrSU"
+      "heroVideo": "B7Wv3cqHrSU",
+      "relatedContent": [
+        {
+          "label": "Article",
+          "title": "코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것",
+          "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html",
+          "score": 144,
+          "videoId": "B7Wv3cqHrSU"
+        },
+        {
+          "label": "Program",
+          "title": "센슈얼 바차타 16 펀더멘털",
+          "url": "/programs/sensual-fundamentals.html",
+          "score": 124,
+          "videoId": "B7Wv3cqHrSU"
+        },
+        {
+          "label": "Profile",
+          "title": "Korke & Judith",
+          "url": "/profiles/korke-judith.html",
+          "score": 80,
+          "videoId": "B7Wv3cqHrSU"
+        },
+        {
+          "label": "일간 브리프",
+          "title": "#bachatasensual - 센슈얼 바차타 흐름",
+          "url": "/briefs/",
+          "score": 32,
+          "videoId": null
+        },
+        {
+          "label": "학습 프로그램",
+          "title": "Andi & Silvia | Bachata | Just As I Am - Prince Royce Ft SpiffTv and Chris Brown [ Australia 2026 ]",
+          "url": "/programs/",
+          "score": 28,
+          "videoId": "FzOWJRxp9r0"
+        },
+        {
+          "label": "Event",
+          "title": "K-Sensual Summer 10th Anniversary",
+          "url": "/events/k-sensual-summer-2026.html",
+          "score": 28,
+          "videoId": "zQXNPwMqpdw"
+        },
+        {
+          "label": "Profile",
+          "title": "에버라틴",
+          "url": "/profiles/everlatin.html",
+          "score": 28,
+          "videoId": "BWzJvto5gD4"
+        },
+        {
+          "label": "Profile",
+          "title": "Gero & Migle",
+          "url": "/profiles/gero-migle.html",
+          "score": 24,
+          "videoId": "j4CmXKDCMzI"
+        }
+      ]
     },
     {
       "id": "dominican",
@@ -26,7 +84,65 @@
         "바차타 리듬",
         "바차타 음악"
       ],
-      "heroVideo": "xmvDKN5cwT0"
+      "heroVideo": "xmvDKN5cwT0",
+      "relatedContent": [
+        {
+          "label": "Program",
+          "title": "도미니칸 바차타 리듬과 풋워크",
+          "url": "/programs/dominican-rhythm.html",
+          "score": 132,
+          "videoId": "xmvDKN5cwT0"
+        },
+        {
+          "label": "Article",
+          "title": "도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다",
+          "url": "/articles/dominican-bachata-rhythm-footwork-guide.html",
+          "score": 124,
+          "videoId": "xmvDKN5cwT0"
+        },
+        {
+          "label": "Program",
+          "title": "바차타 입문 20분 루틴",
+          "url": "/programs/bachata-starter.html",
+          "score": 56,
+          "videoId": "OcGcZ0IY6s0"
+        },
+        {
+          "label": "Article",
+          "title": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
+          "url": "/articles/bachazouk-guide.html",
+          "score": 48,
+          "videoId": "Qng3Wdmt3WE"
+        },
+        {
+          "label": "Article",
+          "title": "바차타 댄스화, 브랜드보다 먼저 봐야 할 기준",
+          "url": "/articles/bachata-dance-shoes-korea.html",
+          "score": 24,
+          "videoId": "FtcPRwVIdNk"
+        },
+        {
+          "label": "학습 프로그램",
+          "title": "A1 · 센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조",
+          "url": "/programs/sensual-fundamentals.html",
+          "score": 16,
+          "videoId": "B7Wv3cqHrSU"
+        },
+        {
+          "label": "학습 프로그램",
+          "title": "Fuego Dance Shoes Review | Are They Worth It?",
+          "url": "/programs/",
+          "score": 12,
+          "videoId": "FtcPRwVIdNk"
+        },
+        {
+          "label": "Gear",
+          "title": "펄스 / Pulse Dance Shoes",
+          "url": "/gear/pulse.html",
+          "score": 8,
+          "videoId": "G03ElXib6dI"
+        }
+      ]
     },
     {
       "id": "modern",
@@ -39,7 +155,65 @@
         "바차타 기본스텝",
         "바차타 파트너워크"
       ],
-      "heroVideo": "xhrdh-uFkog"
+      "heroVideo": "xhrdh-uFkog",
+      "relatedContent": [
+        {
+          "label": "Program",
+          "title": "바차타 입문 20분 루틴",
+          "url": "/programs/bachata-starter.html",
+          "score": 96,
+          "videoId": "OcGcZ0IY6s0"
+        },
+        {
+          "label": "Article",
+          "title": "도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다",
+          "url": "/articles/dominican-bachata-rhythm-footwork-guide.html",
+          "score": 32,
+          "videoId": "xmvDKN5cwT0"
+        },
+        {
+          "label": "Article",
+          "title": "코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것",
+          "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html",
+          "score": 24,
+          "videoId": "B7Wv3cqHrSU"
+        },
+        {
+          "label": "Article",
+          "title": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
+          "url": "/articles/bachazouk-guide.html",
+          "score": 24,
+          "videoId": "Qng3Wdmt3WE"
+        },
+        {
+          "label": "학습 프로그램",
+          "title": "바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304",
+          "url": "/programs/",
+          "score": 16,
+          "videoId": "gDtOwUqeWKw"
+        },
+        {
+          "label": "Article",
+          "title": "Bachata Influence는 무엇이 다른가",
+          "url": "/articles/bachata-influence-melvin-gatica.html",
+          "score": 16,
+          "videoId": "sUy5L7x5pyE"
+        },
+        {
+          "label": "Event",
+          "title": "Seoul Bachata Festival Vol.4",
+          "url": "/events/seoul-bachata-festival-vol4-2026.html",
+          "score": 16,
+          "videoId": "jpCY0QqZqWE"
+        },
+        {
+          "label": "Gear",
+          "title": "푸에고 / Fuego",
+          "url": "/gear/fuego.html",
+          "score": 16,
+          "videoId": "FtcPRwVIdNk"
+        }
+      ]
     },
     {
       "id": "influence",
@@ -52,7 +226,65 @@
         "Influence Academy",
         "바차타 인플루언스"
       ],
-      "heroVideo": "sUy5L7x5pyE"
+      "heroVideo": "sUy5L7x5pyE",
+      "relatedContent": [
+        {
+          "label": "Article",
+          "title": "Bachata Influence는 무엇이 다른가",
+          "url": "/articles/bachata-influence-melvin-gatica.html",
+          "score": 144,
+          "videoId": "sUy5L7x5pyE"
+        },
+        {
+          "label": "Program",
+          "title": "Bachata Influence 읽는 법",
+          "url": "/programs/influence-method.html",
+          "score": 144,
+          "videoId": "sUy5L7x5pyE"
+        },
+        {
+          "label": "학습 프로그램",
+          "title": "Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland",
+          "url": "/programs/",
+          "score": 124,
+          "videoId": "sUy5L7x5pyE"
+        },
+        {
+          "label": "Profile",
+          "title": "Melvin & Gatica",
+          "url": "/profiles/melvin-gatica.html",
+          "score": 108,
+          "videoId": "sUy5L7x5pyE"
+        },
+        {
+          "label": "Profile",
+          "title": "Emilien & Tehina",
+          "url": "/profiles/emilien-tehina.html",
+          "score": 76,
+          "videoId": "FNv7eOMg-_k"
+        },
+        {
+          "label": "Event",
+          "title": "Gangnam Latin Festival 2026 - Bachata Influence",
+          "url": "/events/gangnam-latin-festival-2026.html",
+          "score": 72,
+          "videoId": "sUy5L7x5pyE"
+        },
+        {
+          "label": "Profile",
+          "title": "Gray & Loren",
+          "url": "/profiles/gray-loren.html",
+          "score": 68,
+          "videoId": "nrJM-arshvE"
+        },
+        {
+          "label": "일간 브리프",
+          "title": "#bachatainfluence - Bachata Influence 계열",
+          "url": "/briefs/",
+          "score": 48,
+          "videoId": null
+        }
+      ]
     },
     {
       "id": "bachazouk",
@@ -65,7 +297,30 @@
         "Brazilian Zouk",
         "bachata zouk"
       ],
-      "heroVideo": "Qng3Wdmt3WE"
+      "heroVideo": "Qng3Wdmt3WE",
+      "relatedContent": [
+        {
+          "label": "Article",
+          "title": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
+          "url": "/articles/bachazouk-guide.html",
+          "score": 120,
+          "videoId": "Qng3Wdmt3WE"
+        },
+        {
+          "label": "Program",
+          "title": "Bachazouk 안전과 음악성",
+          "url": "/programs/bachazouk-safety.html",
+          "score": 120,
+          "videoId": "Qng3Wdmt3WE"
+        },
+        {
+          "label": "학습 프로그램",
+          "title": "BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival",
+          "url": "/programs/",
+          "score": 104,
+          "videoId": "Qng3Wdmt3WE"
+        }
+      ]
     }
   ]
 }

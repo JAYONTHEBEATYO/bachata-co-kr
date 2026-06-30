@@ -32,9 +32,6 @@ jobs:
       - name: Build article library
         run: node tools/build-articles.mjs
 
-      - name: Build style guides
-        run: node tools/build-style-guides.mjs
-
       - name: Build programs
         run: node tools/build-programs.mjs
 
@@ -56,14 +53,17 @@ jobs:
       - name: Build social radar
         run: node tools/build-social-radar.mjs
 
-      - name: Build social intake
-        run: node tools/build-social-intake.mjs
-
       - name: Build gear guide
         run: node tools/build-gear.mjs
 
       - name: Audit source health
         run: node tools/audit-sources.mjs
+
+      - name: Build social intake
+        run: node tools/build-social-intake.mjs
+
+      - name: Build style guides
+        run: node tools/build-style-guides.mjs
 
       - name: Build daily brief
         run: node tools/build-daily-brief.mjs
