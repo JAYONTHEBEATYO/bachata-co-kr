@@ -1,0 +1,66 @@
+{
+  "updatedAt": "2026-06-30",
+  "title": "한국 바차타씬 맵",
+  "dek": "서울과 한국의 바차타 팀, 동호회, 장소, 내한 행사, 소셜 아카이브를 영상과 출처 중심으로 묶는 웹매거진 허브입니다.",
+  "heroVideo": {
+    "id": "jpCY0QqZqWE",
+    "title": "Seoul Bachata Festival social archive"
+  },
+  "principles": [
+    "팀·장소·동호회 소개는 홍보 문구가 아니라 초보자가 실제로 어디서 무엇을 볼 수 있는지 중심으로 씁니다.",
+    "인스타그램은 계정과 공개 링크를 추적하는 신호로만 쓰고, 사진과 캡션은 허가 없이 복제하지 않습니다.",
+    "영상이 남은 자료는 출처 표기와 함께 우선 노출하고, 행사 일정은 공식 페이지나 주최자 공지를 다시 확인합니다.",
+    "한국 바차타, 서울 바차타, 바차타 소셜, 바차타 동호회, 바차타 내한 키워드를 자연스러운 한국어 문맥으로 쌓습니다."
+  ],
+  "lenses": [
+    {
+      "id": "teams",
+      "label": "팀·동호회",
+      "title": "한국에서 실제로 만날 수 있는 팀과 동호회",
+      "description": "Gray & Loren, Cluny & Journey, 에버라틴, 라틴씨엘로처럼 국내 검색과 영상 신호가 있는 팀을 우선 묶습니다.",
+      "profileCategories": ["korea-scene"],
+      "boardCategories": ["venues"],
+      "keywords": ["한국 바차타", "동호회", "라틴씨엘로", "에버라틴", "Gray Loren", "Cluny Journey"]
+    },
+    {
+      "id": "venues",
+      "label": "장소",
+      "title": "소셜을 상상할 수 있는 장소 노트",
+      "description": "홍대 보니따와 강남권 라틴바처럼 영상, 계정, 커뮤니티 제보로 분위기를 확인할 수 있는 장소를 정리합니다.",
+      "profileCategories": ["venues"],
+      "boardCategories": ["venues"],
+      "keywords": ["홍대 보니따", "강남 라틴바", "서울 바차타", "바차타 소셜", "장소"]
+    },
+    {
+      "id": "events",
+      "label": "행사·내한",
+      "title": "월별 내한과 페스티벌 레이더",
+      "description": "K-Sensual, Seoul Bachata Festival, Gangnam Latin Festival, 최근 내한 아카이브를 한 흐름으로 보여줍니다.",
+      "eventStatuses": ["confirmed", "archive"],
+      "boardCategories": ["events"],
+      "keywords": ["내한", "페스티벌", "워크숍", "K-Sensual", "Seoul Bachata Festival", "Gangnam Latin Festival"]
+    },
+    {
+      "id": "community",
+      "label": "커뮤니티",
+      "title": "구인·양도·제보까지 이어지는 운영 보드",
+      "description": "중고거래, 티켓 양도, 구인구직, 장소 제보를 웹진의 운영 기능으로 연결합니다.",
+      "boardCategories": ["market", "jobs", "events", "venues"],
+      "keywords": ["중고", "양도", "구인구직", "제보", "커뮤니티"]
+    }
+  ],
+  "sourcePolicy": [
+    {
+      "label": "Instagram Watch",
+      "body": "국내 팀과 장소는 인스타그램에 먼저 공지되는 경우가 많으므로 계정과 해시태그를 watchlist로 추적합니다."
+    },
+    {
+      "label": "Video First",
+      "body": "유튜브에 남은 소셜·공연·워크숍 영상은 분위기와 실제 움직임을 보여주므로 허브 카드의 우선 근거로 둡니다."
+    },
+    {
+      "label": "Submission Loop",
+      "body": "정기 소셜, 클래스, 구인, 양도 글은 제보 템플릿으로 받고 편집자가 검수한 뒤 커뮤니티 보드로 보냅니다."
+    }
+  ]
+}

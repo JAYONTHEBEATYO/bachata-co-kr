@@ -41,6 +41,7 @@
 - https://bachata.co.kr/briefs/2026-06-30.html
 - https://bachata.co.kr/radar/
 - https://bachata.co.kr/intake/
+- https://bachata.co.kr/korea-scene/
 - https://bachata.co.kr/programs/
 - https://bachata.co.kr/desk/
 - https://bachata.co.kr/submit/
@@ -101,6 +102,7 @@
 - https://bachata.co.kr/data/generated/event-index.json
 - https://bachata.co.kr/data/generated/social-radar-index.json
 - https://bachata.co.kr/data/generated/social-intake-index.json
+- https://bachata.co.kr/data/generated/korea-scene-index.json
 - https://bachata.co.kr/data/generated/gear-index.json
 - https://bachata.co.kr/data/generated/source-health.json
 - https://bachata.co.kr/data/generated/home-index.json

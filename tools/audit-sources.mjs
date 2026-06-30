@@ -10,6 +10,7 @@ const dataFiles = [
   "data/sources.json",
   "data/social-radar.json",
   "data/social-intake.json",
+  "data/korea-scene.json",
   "data/editorial-desk.json",
   "data/programs.json",
   "data/style-guides.json",

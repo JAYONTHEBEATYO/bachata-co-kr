@@ -15,6 +15,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `data/events.json`: editor-managed monthly event and visiting artist radar data
 - `data/social-radar.json`: editor-managed Instagram, hashtag, and official source watchlist
 - `data/social-intake.json`: editor-managed rules for turning social/search signals into publishable queues
+- `data/korea-scene.json`: editor-managed Korea scene hub lenses for teams, venues, events, and community
 - `data/programs.json`: editor-managed video-first learning program library
 - `data/editorial-desk.json`: editor-managed story queue and publishing series plan
 - `data/gear.json`: editor-managed dance shoes and gear comparison data
@@ -30,6 +31,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `tools/build-events.mjs`: builds `/events/` and `data/generated/event-index.json`
 - `tools/build-social-radar.mjs`: builds `/radar/` and `data/generated/social-radar-index.json`
 - `tools/build-social-intake.mjs`: builds `/intake/` and `data/generated/social-intake-index.json`
+- `tools/build-korea-scene.mjs`: builds `/korea-scene/` and `data/generated/korea-scene-index.json`
 - `tools/build-programs.mjs`: builds `/programs/` and `data/generated/program-index.json`
 - `tools/build-editorial-desk.mjs`: builds `/desk/` and `data/generated/editorial-desk-index.json`
 - `tools/build-gear.mjs`: builds `/gear/` and `data/generated/gear-index.json`
@@ -39,6 +41,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `data/generated/source-health.json`: generated source, link, and video health report
 - `data/generated/home-index.json`: generated homepage rail model for the current daily brief
 - `data/generated/social-intake-index.json`: generated publish queue from social, search, and editorial signals
+- `data/generated/korea-scene-index.json`: generated Korea scene map from profiles, events, board, and intake signals
 - `briefs/`: generated daily brief pages
 - `articles/`: generated evergreen article pages
 - `styles/`: generated style guide pages
@@ -48,6 +51,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `events/`: generated monthly visiting artist and festival radar pages
 - `radar/`: generated Instagram and source watchlist pages
 - `intake/`: generated social signal to publishing queue pages
+- `korea-scene/`: generated Korea bachata scene map pages
 - `programs/`: generated video-first learning path pages
 - `desk/`: generated editorial queue and publishing desk pages
 - `gear/`: generated dance shoes and gear comparison pages

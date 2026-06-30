@@ -1,0 +1,175 @@
+{
+  "generatedAt": "2026-06-30T11:36:23.341Z",
+  "updatedAt": "2026-06-30",
+  "title": "한국 바차타씬 맵",
+  "url": "/korea-scene/",
+  "summary": {
+    "profiles": 5,
+    "events": 4,
+    "board": 9,
+    "signals": 13,
+    "brokenLinks": 0
+  },
+  "lenses": [
+    {
+      "id": "teams",
+      "label": "팀·동호회",
+      "title": "한국에서 실제로 만날 수 있는 팀과 동호회",
+      "url": "/korea-scene/#teams",
+      "cards": [
+        {
+          "label": "Profile",
+          "title": "Gray & Loren",
+          "url": "/profiles/gray-loren.html",
+          "sourceUrl": "https://www.youtube.com/watch?v=nrJM-arshvE",
+          "videoId": "nrJM-arshvE",
+          "health": "ok"
+        },
+        {
+          "label": "Profile",
+          "title": "Cluny & Journey",
+          "url": "/profiles/cluny-journey.html",
+          "sourceUrl": "https://www.youtube.com/watch?v=CypEYpiRzCo",
+          "videoId": "CypEYpiRzCo",
+          "health": "ok"
+        },
+        {
+          "label": "Profile",
+          "title": "에버라틴",
+          "url": "/profiles/everlatin.html",
+          "sourceUrl": "https://everlatin.com/",
+          "videoId": "BWzJvto5gD4",
+          "health": "ok"
+        },
+        {
+          "label": "Profile",
+          "title": "라틴씨엘로",
+          "url": "/profiles/latin-cielo.html",
+          "sourceUrl": "https://www.instagram.com/latin_cielo/",
+          "videoId": "hk4oF_T82-E",
+          "health": "watch"
+        },
+        {
+          "label": "Board",
+          "title": "에버라틴 동호회·클래스 노트",
+          "url": "/community/venues.html",
+          "sourceUrl": "https://everlatin.com/",
+          "videoId": "",
+          "health": "ok"
+        }
+      ]
+    },
+    {
+      "id": "venues",
+      "label": "장소",
+      "title": "소셜을 상상할 수 있는 장소 노트",
+      "url": "/korea-scene/#venues",
+      "cards": [
+        {
+          "label": "Venue",
+          "title": "홍대 보니따",
+          "url": "/profiles/bonita-seoul.html",
+          "sourceUrl": "https://www.instagram.com/jessica_latinclub_bonita/",
+          "videoId": "gDtOwUqeWKw",
+          "health": "watch"
+        },
+        {
+          "label": "Board",
+          "title": "홍대 보니따 소셜 아카이브",
+          "url": "/community/venues.html",
+          "sourceUrl": "https://www.instagram.com/jessica_latinclub_bonita/",
+          "videoId": "",
+          "health": "watch"
+        }
+      ]
+    },
+    {
+      "id": "events",
+      "label": "행사·내한",
+      "title": "월별 내한과 페스티벌 레이더",
+      "url": "/korea-scene/#events",
+      "cards": [
+        {
+          "label": "Board",
+          "title": "월별 내한 댄서 캘린더",
+          "url": "/community/events.html",
+          "sourceUrl": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%82%B4%ED%95%9C%20%EB%8C%84%EC%84%9C%20%EC%A0%9C%EB%B3%B4",
+          "videoId": "",
+          "health": "ok"
+        },
+        {
+          "label": "Archive",
+          "title": "Emilian y Tehina 한국 워크숍·데모 아카이브",
+          "url": "/events/emilian-tehina-korea-archive-2026.html",
+          "sourceUrl": "https://www.youtube.com/watch?v=zQjucjzuW3I",
+          "videoId": "zQjucjzuW3I",
+          "health": "ok"
+        },
+        {
+          "label": "Event",
+          "title": "K-Sensual Summer 10th Anniversary",
+          "url": "/events/k-sensual-summer-2026.html",
+          "sourceUrl": "https://bachamap.com/festivals/south-korea/k-sensual",
+          "videoId": "zQXNPwMqpdw",
+          "health": "ok"
+        },
+        {
+          "label": "Event",
+          "title": "Seoul Bachata Festival Vol.4",
+          "url": "/events/seoul-bachata-festival-vol4-2026.html",
+          "sourceUrl": "https://mlatinhub.com/post/1410008",
+          "videoId": "jpCY0QqZqWE",
+          "health": "ok"
+        },
+        {
+          "label": "Event",
+          "title": "Gangnam Latin Festival 2026 - Bachata Influence",
+          "url": "/events/gangnam-latin-festival-2026.html",
+          "sourceUrl": "https://godancefestival.com/event/gangnam-latin-festival/",
+          "videoId": "sUy5L7x5pyE",
+          "health": "ok"
+        }
+      ]
+    },
+    {
+      "id": "community",
+      "label": "커뮤니티",
+      "title": "구인·양도·제보까지 이어지는 운영 보드",
+      "url": "/korea-scene/#community",
+      "cards": [
+        {
+          "label": "Board",
+          "title": "월별 내한 댄서 캘린더",
+          "url": "/community/events.html",
+          "sourceUrl": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%82%B4%ED%95%9C%20%EB%8C%84%EC%84%9C%20%EC%A0%9C%EB%B3%B4",
+          "videoId": "",
+          "health": "ok"
+        },
+        {
+          "label": "Board",
+          "title": "워크숍·파티 티켓 양도",
+          "url": "/community/market.html",
+          "sourceUrl": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%ED%8B%B0%EC%BC%93%20%EC%96%91%EB%8F%84%20%EB%93%B1%EB%A1%9D&body=%ED%96%89%EC%82%AC%EB%AA%85%3A%0A%EB%82%A0%EC%A7%9C%3A%0A%EC%9B%90%EA%B0%80%3A%0A%EC%96%91%EB%8F%84%EA%B0%80%3A%0A%EC%A3%BC%EC%B5%9C%EC%B8%A1%20%EC%96%91%EB%8F%84%20%EA%B0%80%EB%8A%A5%20%EC%97%AC%EB%B6%80%3A",
+          "videoId": "",
+          "health": "ok"
+        },
+        {
+          "label": "Board",
+          "title": "강사·DJ·운영 스태프 구인",
+          "url": "/community/jobs.html",
+          "sourceUrl": "mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%9D%BC%ED%8B%B4%EB%8C%84%EC%8A%A4%20%EA%B5%AC%EC%9D%B8%20%EB%93%B1%EB%A1%9D",
+          "videoId": "",
+          "health": "ok"
+        },
+        {
+          "label": "Board",
+          "title": "홍대 보니따 소셜 아카이브",
+          "url": "/community/venues.html",
+          "sourceUrl": "https://www.instagram.com/jessica_latinclub_bonita/",
+          "videoId": "",
+          "health": "watch"
+        }
+      ]
+    }
+  ]
+}

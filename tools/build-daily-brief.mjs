@@ -17,6 +17,7 @@ const gearDir = resolve(root, "gear");
 const eventsDir = resolve(root, "events");
 const radarDir = resolve(root, "radar");
 const intakeDir = resolve(root, "intake");
+const koreaSceneDir = resolve(root, "korea-scene");
 const articleIndexPath = resolve(root, "data/generated/article-index.json");
 const boardIndexPath = resolve(root, "data/generated/board-index.json");
 const styleIndexPath = resolve(root, "data/generated/style-index.json");
@@ -28,6 +29,7 @@ const gearIndexPath = resolve(root, "data/generated/gear-index.json");
 const eventIndexPath = resolve(root, "data/generated/event-index.json");
 const socialRadarIndexPath = resolve(root, "data/generated/social-radar-index.json");
 const socialIntakeIndexPath = resolve(root, "data/generated/social-intake-index.json");
+const koreaSceneIndexPath = resolve(root, "data/generated/korea-scene-index.json");
 const sourceHealthIndexPath = resolve(root, "data/generated/source-health.json");
 const sitemapPath = resolve(root, "sitemap.xml");
 
@@ -666,6 +668,32 @@ const updateSitemap = async (dateText) => {
     <priority>${page.priority}</priority>
   </url>`).join("\n");
 
+  let koreaScenePages = [];
+  try {
+    const koreaSceneIndex = await readJson(koreaSceneIndexPath);
+    koreaScenePages = [{ url: "/korea-scene/", updatedAt: koreaSceneIndex.updatedAt || dateText, priority: "0.9", changefreq: "daily" }];
+  } catch {
+    try {
+      koreaScenePages = (await readdir(koreaSceneDir))
+        .filter((name) => name.endsWith(".html"))
+        .map((name) => ({
+          url: name === "index.html" ? "/korea-scene/" : `/korea-scene/${name}`,
+          updatedAt: dateText,
+          priority: name === "index.html" ? "0.9" : "0.72",
+          changefreq: "daily"
+        }));
+    } catch {
+      koreaScenePages = [];
+    }
+  }
+
+  const koreaSceneUrls = koreaScenePages.map((page) => `  <url>
+    <loc>https://bachata.co.kr${page.url}</loc>
+    <lastmod>${page.updatedAt || dateText}</lastmod>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+  </url>`).join("\n");
+
   let healthLastmod = dateText;
   try {
     const sourceHealth = await readJson(sourceHealthIndexPath);
@@ -704,6 +732,7 @@ ${profileUrls}
 ${eventUrls}
 ${radarUrls}
 ${intakeUrls}
+${koreaSceneUrls}
 ${gearUrls}
 ${healthUrls}
   <url>
