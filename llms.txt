@@ -56,6 +56,11 @@
 - https://bachata.co.kr/community/market.html
 - https://bachata.co.kr/community/jobs.html
 - https://bachata.co.kr/community/venues.html
+- https://bachata.co.kr/gear/
+- https://bachata.co.kr/gear/fuego.html
+- https://bachata.co.kr/gear/pana-mio.html
+- https://bachata.co.kr/gear/on1.html
+- https://bachata.co.kr/gear/pulse.html
 - https://bachata.co.kr/data/sources.json
 - https://bachata.co.kr/data/generated/scene-signals.json
 - https://bachata.co.kr/data/generated/latest-brief.json
@@ -63,6 +68,7 @@
 - https://bachata.co.kr/data/generated/profile-index.json
 - https://bachata.co.kr/data/generated/article-index.json
 - https://bachata.co.kr/data/generated/board-index.json
+- https://bachata.co.kr/data/generated/gear-index.json
 
 ## 자동화
-`data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다. `tools/build-daily-brief.mjs`는 그 후보를 `briefs/YYYY-MM-DD.html` 일간 브리프와 `data/generated/latest-brief.json`으로 발행합니다. `data/style-guides.json`과 `tools/build-style-guides.mjs`는 스타일 허브를 `/styles/`와 `data/generated/style-index.json`으로 발행합니다. `data/profiles.json`과 `tools/build-profiles.mjs`는 인물·팀·장소 프로필을 `/profiles/`와 `data/generated/profile-index.json`으로 발행합니다. `data/articles.json`과 `tools/build-articles.mjs`는 evergreen 기사를 `/articles/`와 `data/generated/article-index.json`으로 발행합니다. `data/board.json`과 `tools/build-board.mjs`는 커뮤니티 보드를 `/community/`와 `data/generated/board-index.json`으로 발행합니다.
+`data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다. `tools/build-daily-brief.mjs`는 그 후보를 `briefs/YYYY-MM-DD.html` 일간 브리프와 `data/generated/latest-brief.json`으로 발행합니다. `data/style-guides.json`과 `tools/build-style-guides.mjs`는 스타일 허브를 `/styles/`와 `data/generated/style-index.json`으로 발행합니다. `data/profiles.json`과 `tools/build-profiles.mjs`는 인물·팀·장소 프로필을 `/profiles/`와 `data/generated/profile-index.json`으로 발행합니다. `data/articles.json`과 `tools/build-articles.mjs`는 evergreen 기사를 `/articles/`와 `data/generated/article-index.json`으로 발행합니다. `data/board.json`과 `tools/build-board.mjs`는 커뮤니티 보드를 `/community/`와 `data/generated/board-index.json`으로 발행합니다. `data/gear.json`과 `tools/build-gear.mjs`는 바차타 댄스화와 라틴댄스 스니커 비교 허브를 `/gear/`와 `data/generated/gear-index.json`으로 발행합니다.

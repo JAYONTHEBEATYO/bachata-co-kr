@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>바차타 댄스화와 라틴댄스 스니커 비교 | Bachata Korea</title>
+    <meta name="description" content="Fuego, Pana Mio, On1, Pulse 같은 댄스 스니커를 브랜드 인기순이 아니라 회전감, 접지, 쿠션, 바닥 적응, 사이즈 리스크, 한국 구매 난이도로 비교하는 바차타 코리아 기어 허브입니다.">
+    <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
+    <link rel="canonical" href="https://bachata.co.kr/gear/">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0d0c09;
+        --ink: #fff7e8;
+        --muted: rgba(255, 247, 232, 0.68);
+        --line: rgba(255, 247, 232, 0.14);
+        --panel: rgba(255, 247, 232, 0.06);
+        --paper: #f4efe6;
+        --paper-ink: #1a1510;
+        --gold: #e2ad58;
+        --wine: #9f2649;
+        --teal: #4ca390;
+        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); }
+      a { color: inherit; text-decoration: none; }
+      .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 0 max(18px, calc((100vw - 1180px) / 2)); border-bottom: 1px solid var(--line); background: rgba(13, 12, 9, 0.92); backdrop-filter: blur(18px); }
+      .brand strong { display: block; font-size: 20px; line-height: 1; }
+      .brand span { display: block; margin-top: 5px; color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+      .nav-links { display: flex; gap: 20px; color: var(--muted); font-size: 14px; font-weight: 850; }
+      .hero { padding: clamp(58px, 9vw, 118px) max(18px, calc((100vw - 1180px) / 2)) 48px; background: var(--paper); color: var(--paper-ink); }
+      .hero-grid { display: grid; grid-template-columns: minmax(0, 0.76fr) minmax(320px, 0.46fr); gap: clamp(22px, 5vw, 56px); align-items: end; }
+      .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.13em; text-transform: uppercase; }
+      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; word-break: keep-all; }
+      h1 { max-width: 920px; margin: 14px 0 18px; font-size: clamp(46px, 8vw, 96px); line-height: 0.95; overflow-wrap: anywhere; }
+      .hero p { max-width: 790px; color: rgba(26, 21, 16, 0.72); font-size: clamp(17px, 2vw, 22px); line-height: 1.72; }
+      .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050505; }
+      .hero .video-frame { border-color: rgba(26, 21, 16, 0.18); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22); }
+      .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .quick-nav, .link-row, .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
+      .quick-nav { margin-top: 26px; }
+      .quick-nav a, .link-row a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid currentColor; border-radius: 999px; font-size: 13px; font-weight: 900; }
+      main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: clamp(42px, 7vw, 76px) 0 90px; }
+      .section { margin-top: clamp(42px, 7vw, 76px); }
+      .section:first-child { margin-top: 0; }
+      .section-head { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.36fr); gap: 24px; align-items: end; margin-bottom: 22px; }
+      .section-head h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.02; }
+      .section-head p, .principle p, .product-card p, .product-main p, .side-box p, .note p { color: var(--muted); line-height: 1.72; }
+      .principle-grid, .product-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+      .principle, .product-card, .score-card, .side-box, .note { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .principle { padding: 22px; }
+      .principle h3 { margin: 10px 0 10px; font-size: 26px; line-height: 1.08; }
+      .product-card { display: grid; gap: 16px; align-content: space-between; min-height: 360px; padding: 20px; }
+      .product-card h2 { margin: 8px 0 10px; font-size: 34px; line-height: 1.02; }
+      .tag-row span { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; color: rgba(255, 247, 232, 0.72); font-size: 12px; font-weight: 900; }
+      .compare { width: 100%; border-collapse: collapse; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; }
+      .compare th, .compare td { padding: 14px; border-bottom: 1px solid var(--line); vertical-align: top; text-align: left; line-height: 1.6; }
+      .compare th { width: 140px; color: var(--gold); font-size: 13px; }
+      .compare td { color: rgba(255, 247, 232, 0.76); }
+      .product-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 22px; align-items: start; }
+      .product-main, .side-stack { display: grid; gap: 16px; }
+      .summary, .score-card, .note { padding: clamp(20px, 4vw, 30px); }
+      .summary { background: rgba(226, 173, 88, 0.08); border: 1px solid rgba(226, 173, 88, 0.24); border-radius: 8px; }
+      .score-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+      .score-card strong { display: block; margin-bottom: 8px; color: var(--gold); font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; }
+      .score-card p { margin: 0; color: rgba(255, 247, 232, 0.76); }
+      .note h2, .side-box h2 { margin: 8px 0 12px; font-size: 28px; line-height: 1.08; }
+      .note ul, .side-box ul, .checklist { display: grid; gap: 8px; margin: 14px 0 0; padding-left: 20px; color: rgba(255, 247, 232, 0.76); line-height: 1.65; }
+      .side-stack { position: sticky; top: 96px; }
+      .side-box { padding: 22px; }
+      .paper-cta { padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: var(--paper); color: var(--paper-ink); }
+      .paper-cta h2 { margin: 8px 0 12px; font-size: clamp(30px, 5vw, 56px); line-height: 1.04; }
+      .paper-cta p { max-width: 760px; color: rgba(26, 21, 16, 0.72); line-height: 1.72; }
+      @media (max-width: 1020px) {
+        .hero-grid, .section-head, .product-layout { grid-template-columns: 1fr; }
+        .principle-grid, .product-grid, .score-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .side-stack { position: static; }
+      }
+      @media (max-width: 700px) {
+        .nav-links { display: none; }
+        h1 { font-size: clamp(42px, 13vw, 66px); }
+        .principle-grid, .product-grid, .score-grid { grid-template-columns: 1fr; }
+        .summary, .score-card, .note, .side-box { padding: 20px; }
+        .compare { display: block; overflow-x: auto; }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://bachata.co.kr/gear/",
+      "name": "바차타 댄스화와 라틴댄스 스니커 비교",
+      "description": "Fuego, Pana Mio, On1, Pulse 같은 댄스 스니커를 브랜드 인기순이 아니라 회전감, 접지, 쿠션, 바닥 적응, 사이즈 리스크, 한국 구매 난이도로 비교하는 바차타 코리아 기어 허브입니다.",
+      "inLanguage": "ko-KR",
+      "isPartOf": {
+            "@id": "https://bachata.co.kr/#website"
+      },
+      "hasPart": [
+            {
+                  "@type": "WebPage",
+                  "@id": "https://bachata.co.kr/gear/fuego.html",
+                  "name": "Fuego 바차타 댄스화 비교"
+            },
+            {
+                  "@type": "WebPage",
+                  "@id": "https://bachata.co.kr/gear/pana-mio.html",
+                  "name": "Pana Mio 바차타 댄스화 비교"
+            },
+            {
+                  "@type": "WebPage",
+                  "@id": "https://bachata.co.kr/gear/on1.html",
+                  "name": "On1 Dance Shoes 바차타 댄스화 비교"
+            },
+            {
+                  "@type": "WebPage",
+                  "@id": "https://bachata.co.kr/gear/pulse.html",
+                  "name": "Pulse Dance Shoes 바차타 댄스화 비교"
+            }
+      ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
+      <nav class="nav-links" aria-label="기어 허브 이동">
+        <a href="/">홈</a>
+        <a href="/styles/">스타일</a>
+        <a href="/profiles/">인물·팀</a>
+        <a href="/articles/">기사</a>
+        <a href="/community/">커뮤니티</a>
+        <a href="/briefs/">브리프</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow">Gear Guide</span>
+          <h1>바차타 댄스화, 브랜드보다 플로어 감각</h1>
+          <p>Fuego, Pana Mio, On1, Pulse 같은 댄스 스니커를 브랜드 인기순이 아니라 회전감, 접지, 쿠션, 바닥 적응, 사이즈 리스크, 한국 구매 난이도로 비교하는 바차타 코리아 기어 허브입니다.</p>
+          <div class="quick-nav">
+            <a href="/gear/fuego.html">Fuego</a><a href="/gear/pana-mio.html">Pana Mio</a><a href="/gear/on1.html">On1 Dance Shoes</a><a href="/gear/pulse.html">Pulse Dance Shoes</a>
+          </div>
+        </div>
+        <div class="video-frame">
+            <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/FtcPRwVIdNk" title="Fuego Dance Shoes Review | Are They Worth It?" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+      </div>
+    </section>
+    <main>
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Buying Lens</span>
+            <h2>한국 바차테로가 먼저 봐야 할 기준</h2>
+          </div>
+          <p>공식 사이트 문구와 커뮤니티 후기를 같은 테이블에 넣되, 추천 순위처럼 보이지 않게 기준을 분리합니다. 신발은 사람의 발과 바닥을 동시에 타기 때문입니다.</p>
+        </div>
+        <div class="principle-grid">
+          <article class="principle">
+            <span class="tag">Spin</span>
+            <h3>잘 도는 신발보다 예측 가능한 신발</h3>
+            <p>바차타에서는 회전이 전부가 아닙니다. 피벗 순간에는 돌아가고, 체중을 받는 순간에는 멈춰야 합니다. 그래서 바닥과 신발의 조합을 먼저 봐야 합니다.</p>
+          </article>
+<article class="principle">
+            <span class="tag">Floor</span>
+            <h3>클럽, 스튜디오, 야외 바닥은 서로 다릅니다</h3>
+            <p>마룻바닥, 타일, 콘크리트, 카페형 플로어는 마찰이 다릅니다. 한 브랜드가 모든 장소에서 같은 느낌을 주지는 않기 때문에 바닥 적응성을 따로 기록합니다.</p>
+          </article>
+<article class="principle">
+            <span class="tag">Korea</span>
+            <h3>한국 구매자는 배송과 반품까지 비교해야 합니다</h3>
+            <p>해외 직구형 브랜드는 사이즈 실패 비용이 큽니다. 공식 설명보다 실제 발볼, 반품 조건, 중고 재판매 가능성, 소셜에서의 사용 후기를 같이 보는 편이 안전합니다.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Brand Notes</span>
+            <h2>Fuego, Pana Mio, On1, Pulse 비교 노트</h2>
+          </div>
+          <p>각 페이지는 공식 링크, 관련 유튜브, 한국 소비자 체크포인트를 묶습니다. 가격과 재고는 변동이 커서 고정값보다 원본 링크 확인을 우선합니다.</p>
+        </div>
+        <div class="product-grid">
+          <article class="product-card">
+          <div>
+            <span class="tag">Dance Sneaker</span>
+            <h2>Fuego</h2>
+            <p>바차타 소셜에서 가장 자주 언급되는 댄스 스니커 후보군</p>
+          </div>
+          <div>
+            <div class="tag-row"><span>Fuego dance shoes</span><span>Fuego bachata</span><span>FlowTec</span></div>
+            <div class="link-row" style="margin-top:14px"><a href="/gear/fuego.html">비교 노트 보기</a></div>
+          </div>
+        </article>
+<article class="product-card">
+          <div>
+            <span class="tag">European Dance Sneaker</span>
+            <h2>Pana Mio</h2>
+            <p>색상과 로우탑 선택지가 많은 유럽형 댄스 스니커</p>
+          </div>
+          <div>
+            <div class="tag-row"><span>Pana Mio</span><span>Pana Mio dance sneakers</span><span>파나미오</span></div>
+            <div class="link-row" style="margin-top:14px"><a href="/gear/pana-mio.html">비교 노트 보기</a></div>
+          </div>
+        </article>
+<article class="product-card">
+          <div>
+            <span class="tag">Social Signal</span>
+            <h2>On1 Dance Shoes</h2>
+            <p>인스타와 페스티벌 노출 기반으로 관찰 중인 댄스화 후보</p>
+          </div>
+          <div>
+            <div class="tag-row"><span>On1 dance shoes</span><span>온원 슈즈</span><span>바차타 댄스화</span></div>
+            <div class="link-row" style="margin-top:14px"><a href="/gear/on1.html">비교 노트 보기</a></div>
+          </div>
+        </article>
+<article class="product-card">
+          <div>
+            <span class="tag">Performance Sneaker</span>
+            <h2>Pulse Dance Shoes</h2>
+            <p>spin zones, heel-to-toe taper, microfibre build를 내세우는 퍼포먼스형 댄스 스니커</p>
+          </div>
+          <div>
+            <div class="tag-row"><span>Pulse dance shoes</span><span>Pulse dance sneakers</span><span>바차타 신발</span></div>
+            <div class="link-row" style="margin-top:14px"><a href="/gear/pulse.html">비교 노트 보기</a></div>
+          </div>
+        </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Comparison</span>
+            <h2>회전감, 접지, 쿠션, 바닥, 리스크</h2>
+          </div>
+          <p>브랜드 홍보 문구를 그대로 복제하지 않고, 바차타 소셜에서 실제로 문제가 되는 기준으로 다시 나눕니다.</p>
+        </div>
+        <table class="compare">
+          <tbody>
+          <tr>
+            <th>회전감</th>
+            <td><strong>Fuego</strong><br>피벗 포인트 중심의 회전 보조가 핵심 메시지입니다.</td><td><strong>Pana Mio</strong><br>제품명과 홍보 영상은 댄스 스니커 포지션을 강조합니다.</td><td><strong>On1 Dance Shoes</strong><br>홍보 영상은 회전 보조를 강조하지만 장기 후기는 추가 수집이 필요합니다.</td><td><strong>Pulse Dance Shoes</strong><br>공식 사이트는 spin zones로 정밀한 턴과 전환을 강조합니다.</td>
+          </tr>
+<tr>
+            <th>접지/제동</th>
+            <td><strong>Fuego</strong><br>FlowTec 아웃솔이 slip and grip 균형을 목표로 합니다.</td><td><strong>Pana Mio</strong><br>공식 상세 기능 문구는 제한적이라 실제 바닥 후기가 중요합니다.</td><td><strong>On1 Dance Shoes</strong><br>바닥별 접지 데이터가 부족해 소셜 현장 피드백을 우선합니다.</td><td><strong>Pulse Dance Shoes</strong><br>댄스 엔지니어드 솔을 내세우지만 플로어별 속도 차이는 직접 확인해야 합니다.</td>
+          </tr>
+<tr>
+            <th>쿠션/피로도</th>
+            <td><strong>Fuego</strong><br>공식 설명은 쿠션 인솔과 일상 착용성을 강조합니다.</td><td><strong>Pana Mio</strong><br>스니커형 착화감 기대는 있으나 발볼과 인솔 후기를 별도 수집해야 합니다.</td><td><strong>On1 Dance Shoes</strong><br>착화감, 발볼, 장시간 소셜 피로도는 제보 기반으로 보완해야 합니다.</td><td><strong>Pulse Dance Shoes</strong><br>경량 마이크로파이버와 피로도 감소 메시지가 강합니다.</td>
+          </tr>
+<tr>
+            <th>바닥 적응</th>
+            <td><strong>Fuego</strong><br>콘크리트, 하드우드, 카펫, 마리 등 다양한 표면 대응을 주장합니다.</td><td><strong>Pana Mio</strong><br>실내 소셜 중심 사용 후기를 우선 확인하는 편이 안전합니다.</td><td><strong>On1 Dance Shoes</strong><br>스튜디오와 클럽 플로어를 나눠 실제 사용 후기를 모아야 합니다.</td><td><strong>Pulse Dance Shoes</strong><br>댄스 플로어 전반을 겨냥하지만 소셜 현장별 후기가 필요합니다.</td>
+          </tr>
+<tr>
+            <th>구매 리스크</th>
+            <td><strong>Fuego</strong><br>해외 직구 사이즈, 내구성, 실제 바닥별 차이를 후기와 함께 확인해야 합니다.</td><td><strong>Pana Mio</strong><br>유로 가격, 해외 배송, 사이즈 교환 비용을 같이 봐야 합니다.</td><td><strong>On1 Dance Shoes</strong><br>공식 구매 채널, 사이즈 교환, 배송 조건 확인 전에는 추천 강도를 낮게 둡니다.</td><td><strong>Pulse Dance Shoes</strong><br>온라인 구매형 브랜드라 핏과 반품 경험을 반드시 분리해 봐야 합니다.</td>
+          </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section paper-cta">
+        <span class="tag">Market Desk</span>
+        <h2>중고·양도 보드와 연결되는 구매 체크리스트</h2>
+        <p>기어 허브는 구매 추천 페이지가 아니라 바차타 커뮤니티의 거래 안전장치입니다. 새 제품, 중고, 양도, 협찬 영상까지 같은 기준으로 읽을 수 있게 만듭니다.</p>
+        <ul class="checklist">
+          <li>내가 주로 가는 장소의 바닥이 빠른지, 느린지 먼저 확인합니다.</li><li>소셜에서 많이 도는 사람은 회전감보다 멈춤 안정성을 같이 봅니다.</li><li>입문자는 첫 신발부터 비싼 직구를 하기보다 국내 중고, 시착, 반품 가능성을 우선 확인합니다.</li><li>중고 거래에서는 착용 횟수, 바닥 마모, 세탁 여부, 냄새, 하자 사진을 요구합니다.</li><li>영상 리뷰는 스폰서 여부, 할인 코드, 사용 기간, 실제 춤 장르를 같이 확인합니다.</li>
+        </ul>
+        <div class="link-row" style="margin-top:18px"><a href="/articles/bachata-dance-shoes-korea.html">댄스화 기사</a><a href="/community/market.html">중고·양도 보드</a><a href="/briefs/">일간 브리프</a></div>
+      </section>
+    </main>
+  </body>
+</html>

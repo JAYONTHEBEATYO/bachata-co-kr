@@ -1473,6 +1473,15 @@
             "url": "https://bachata.co.kr/community/"
           },
           {
+            "@type": "CollectionPage",
+            "@id": "https://bachata.co.kr/gear/",
+            "name": "바차타 댄스화와 라틴댄스 스니커 비교",
+            "description": "Fuego, Pana Mio, On1, Pulse 같은 바차타 댄스화와 라틴댄스 스니커를 회전감, 쿠션, 바닥, 사이즈 리스크 기준으로 비교하는 기어 허브.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/gear/"
+          },
+          {
             "@type": "Dataset",
             "@id": "https://bachata.co.kr/data/generated/latest-brief.json",
             "name": "Bachata Korea Latest Brief Pointer",
@@ -1516,6 +1525,15 @@
             "inLanguage": "ko-KR",
             "isPartOf": {"@id": "https://bachata.co.kr/#website"},
             "url": "https://bachata.co.kr/data/generated/board-index.json"
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://bachata.co.kr/data/generated/gear-index.json",
+            "name": "Bachata Korea Gear Index",
+            "description": "바차타 댄스화와 라틴댄스 스니커 비교 페이지의 브랜드, URL, 대표 영상, 출처 링크를 담은 JSON.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/data/generated/gear-index.json"
           },
           {
             "@type": "VideoObject",
@@ -1628,6 +1646,7 @@
           <a href="/profiles/">인물·팀</a>
           <a href="#trend-desk">트렌드</a>
           <a href="/articles/">기사</a>
+          <a href="/gear/">상품</a>
           <a href="#magazine">웹진</a>
           <a href="#scene">소셜</a>
           <a href="/community/">커뮤니티</a>
@@ -2103,6 +2122,8 @@
                   <li>한국어 콘텐츠는 “왜 많이 보이는가”와 “무릎·바닥·회전감”을 분리해 봐야 합니다.</li>
                 </ul>
                 <div class="source-links">
+                  <a href="/gear/">기어 허브</a>
+                  <a href="/gear/fuego.html">비교 노트</a>
                   <a href="/articles/bachata-dance-shoes-korea.html">댄스화 기사</a>
                   <a href="https://fuegodance.com/collections/bachata" target="_blank" rel="noreferrer">Fuego Bachata</a>
                   <a href="https://www.youtube.com/watch?v=FtcPRwVIdNk" target="_blank" rel="noreferrer">Review Video</a>
@@ -2111,10 +2132,12 @@
               <article class="market-note">
                 <strong>Pana Mio</strong>
                 <ul>
-                  <li>검색 신호상 Pana Mio는 스니커형 댄스화 추천 목록과 인스타 홍보에서 자주 등장합니다.</li>
-                  <li>가죽, 경량감, 피벗 포인트 같은 소재·기능 정보를 검증해 비교표로 확장합니다.</li>
+                  <li>공식 스토어에서 로우탑, 가죽, BE YOU 라인과 액세서리 제품군이 확인됩니다.</li>
+                  <li>한국 콘텐츠에서는 룩, 발볼, 배송·반품, 실제 플로어 후기를 분리해 비교합니다.</li>
                 </ul>
                 <div class="source-links">
+                  <a href="/gear/pana-mio.html">비교 노트</a>
+                  <a href="https://www.panamiodance.com/" target="_blank" rel="noreferrer">Pana Mio Official</a>
                   <a href="https://www.instagram.com/panamiodance/" target="_blank" rel="noreferrer">Pana Mio Instagram</a>
                 </div>
               </article>
@@ -2125,6 +2148,7 @@
                   <li>한국 소비자에게는 배송, 사이즈, 반품, 실제 바닥별 회전감을 따로 확인해야 합니다.</li>
                 </ul>
                 <div class="source-links">
+                  <a href="/gear/on1.html">비교 노트</a>
                   <a href="https://www.instagram.com/on1danceshoes/" target="_blank" rel="noreferrer">On1 Instagram</a>
                 </div>
               </article>
@@ -2135,6 +2159,7 @@
                   <li>리뷰성 콘텐츠에서는 공식 장점과 커뮤니티 피드백을 분리해 장단점으로 정리합니다.</li>
                 </ul>
                 <div class="source-links">
+                  <a href="/gear/pulse.html">비교 노트</a>
                   <a href="https://www.pulsedanceshoes.com/" target="_blank" rel="noreferrer">Pulse Official</a>
                 </div>
               </article>
@@ -2360,6 +2385,8 @@
                 <a href="https://developers.google.com/youtube/v3" target="_blank" rel="noreferrer">YouTube Data API</a>
                 <a href="https://www.goandance.com/en/event/9613/bachata-influence-academy-2026-level-1" target="_blank" rel="noreferrer">Influence Academy 2026</a>
                 <a href="https://bygatica.com/" target="_blank" rel="noreferrer">byGatica</a>
+                <a href="/gear/">Gear Hub</a>
+                <a href="/data/generated/gear-index.json">Gear Index</a>
               </div>
             </article>
           </div>
@@ -2368,7 +2395,7 @@
             <article class="automation-note">
               <span class="tag">Now Wired</span>
               <h3>매일 후보 데이터를 만드는 파일 구조</h3>
-              <p>현재 repo에는 `data/sources.json`, `data/style-guides.json`, `data/profiles.json`, `data/board.json`, `tools/collect-scene-signals.mjs`, `tools/build-style-guides.mjs`, `tools/build-profiles.mjs`, `tools/build-board.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`, 스타일 허브, 프로필 허브, 커뮤니티 보드 페이지를 갱신하는 구조입니다.</p>
+              <p>현재 repo에는 `data/sources.json`, `data/style-guides.json`, `data/profiles.json`, `data/board.json`, `data/gear.json`, `tools/collect-scene-signals.mjs`, `tools/build-style-guides.mjs`, `tools/build-profiles.mjs`, `tools/build-board.mjs`, `tools/build-gear.mjs`, `.github/workflows/content-discovery.yml`가 들어갔습니다. GitHub Actions가 매일 오전 한국 시간대에 후보를 모으고 `data/generated/scene-signals.json`, 스타일 허브, 프로필 허브, 커뮤니티 보드, 기어 허브 페이지를 갱신하는 구조입니다.</p>
               <ul class="signal-list">
                 <li><strong>Seed</strong><span>편집자가 믿을 수 있는 공식/영상 출처를 먼저 넣습니다.</span></li>
                 <li><strong>Validate</strong><span>YouTube oEmbed와 embed HEAD를 확인해 죽은 영상은 후보에서 제외합니다.</span></li>
