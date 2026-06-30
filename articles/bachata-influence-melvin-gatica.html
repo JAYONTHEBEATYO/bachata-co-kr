@@ -47,6 +47,11 @@
       .section ul { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: rgba(255, 247, 232, 0.74); line-height: 1.65; }
       .video-frame { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #030303; }
       .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .watch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .watch-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .watch-card-body { padding: 18px; }
+      .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .watch-card p { margin: 0; color: var(--muted); line-height: 1.65; }
       .side { position: sticky; top: 96px; display: grid; gap: 14px; }
       .side-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
       .source-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
@@ -57,7 +62,7 @@
       .article-card p { color: var(--muted); line-height: 1.68; }
       @media (max-width: 880px) {
         .nav-links { display: none; }
-        .article-grid, .article-list { grid-template-columns: 1fr; }
+        .article-grid, .article-list, .watch-grid { grid-template-columns: 1fr; }
         .side { position: static; }
         h1 { font-size: clamp(42px, 13vw, 64px); }
       }
@@ -77,12 +82,14 @@
             "@id": "https://bachata.co.kr/#website"
       },
       "mainEntityOfPage": "https://bachata.co.kr/articles/bachata-influence-melvin-gatica.html",
-      "video": {
-            "@type": "VideoObject",
-            "name": "Bachata Influence Tutorial | Melvin & Gatica",
-            "embedUrl": "https://www.youtube-nocookie.com/embed/sUy5L7x5pyE",
-            "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE"
-      }
+      "video": [
+            {
+                  "@type": "VideoObject",
+                  "name": "Bachata Influence Tutorial | Melvin & Gatica",
+                  "embedUrl": "https://www.youtube-nocookie.com/embed/sUy5L7x5pyE",
+                  "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE"
+            }
+      ]
 }
     </script>
   </head>
@@ -115,6 +122,7 @@
             <p>Influence 계열은 동작을 많이 넣는 방향보다 음악 안의 대비, 호흡, 멈춤, 프레임의 질감을 강조하는 흐름으로 보는 편이 정확합니다.</p>
               <p>한국 독자에게는 센슈얼 바차타의 한 갈래로만 소개하기보다, 어떤 상황에서 소셜에 적용 가능한지와 어떤 부분은 공연·워크숍 문법으로 남겨야 하는지를 나눠 설명해야 합니다.</p>
           </section>
+
           <section class="section">
             <h2>핵심은 바디무브가 아니라 문장감</h2>
             <p>Bachata Influence를 볼 때 처음 눈에 들어오는 것은 큰 웨이브, 감정 표현, 무대성입니다. 하지만 실제로 콘텐츠화할 때 중요한 것은 동작의 크기가 아니라 음악 문장을 어떻게 읽는지입니다. 시작, 정지, 재개, 악센트의 위치가 명확해야 소셜에서 과하지 않게 살아납니다.</p>
@@ -141,7 +149,7 @@
           </div>
           <div class="side-card">
             <span class="tag">Related</span>
-            <div class="source-links"><a href="/articles/bachazouk-guide.html">Bachazouk를 센슈얼 변형으로만 보면 놓치는 것</a><a href="/articles/bachata-dance-shoes-korea.html">바차타 댄스화, 브랜드보다 먼저 봐야 할 기준</a></div>
+            <div class="source-links"><a href="/articles/bachata-sensual-16-fundamentals-korke-judith.html">코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것</a><a href="/articles/dominican-bachata-rhythm-footwork-guide.html">도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다</a><a href="/articles/bachazouk-guide.html">Bachazouk를 센슈얼 변형으로만 보면 놓치는 것</a></div>
           </div>
         </aside>
       </div>

@@ -41,6 +41,9 @@ jobs:
       - name: Build community board
         run: node tools/build-board.mjs
 
+      - name: Build event radar
+        run: node tools/build-events.mjs
+
       - name: Build gear guide
         run: node tools/build-gear.mjs
 
@@ -53,7 +56,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/generated/scene-signals.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/profile-index.json data/generated/board-index.json data/generated/gear-index.json articles styles profiles briefs community gear sitemap.xml
+          git add data/generated/scene-signals.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/profile-index.json data/generated/board-index.json data/generated/event-index.json data/generated/gear-index.json articles styles profiles briefs community events gear sitemap.xml
           if git diff --cached --quiet; then
             echo "No discovery changes to commit"
           else

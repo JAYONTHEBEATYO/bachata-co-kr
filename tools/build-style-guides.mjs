@@ -101,6 +101,16 @@ const styles = `    <style>
       .watch-card { padding: 0; overflow: hidden; background: var(--panel-strong); }
       .watch-card-body { padding: 18px; }
       .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .content-card { display: grid; align-content: space-between; min-height: 260px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
+      .content-card h3 { margin: 8px 0 10px; font-size: 26px; line-height: 1.08; }
+      .content-card p { color: var(--muted); line-height: 1.72; }
+      .content-card a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(226, 173, 88, 0.38); border-radius: 999px; color: var(--gold); font-size: 13px; font-weight: 900; }
+      .fundamental-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+      .fundamental-card { padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.045); }
+      .fundamental-card strong { display: block; font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; font-size: 20px; line-height: 1.05; }
+      .fundamental-card em { display: block; margin: 6px 0 10px; color: var(--gold); font-size: 12px; font-style: normal; font-weight: 950; text-transform: uppercase; }
+      .fundamental-card span { display: block; color: var(--muted); font-size: 14px; line-height: 1.6; }
       .side-stack { position: sticky; top: 96px; }
       .side-box h2 { margin: 8px 0 12px; font-size: 28px; line-height: 1.08; }
       .tag-row span { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; color: rgba(255, 247, 232, 0.72); font-size: 12px; font-weight: 900; }
@@ -115,7 +125,7 @@ const styles = `    <style>
       @media (max-width: 700px) {
         .nav-links { display: none; }
         h1 { font-size: clamp(42px, 13vw, 66px); }
-        .guide-grid, .watch-grid { grid-template-columns: 1fr; }
+        .guide-grid, .watch-grid, .content-grid, .fundamental-grid { grid-template-columns: 1fr; }
         .summary, .section-card, .side-box { padding: 20px; }
       }
     </style>`;
@@ -250,6 +260,37 @@ const renderGuide = (guide, allGuides) => {
             <p>${escapeHtml(item.note)}</p>
           </div>
         </article>`).join("\n");
+  const contentDrops = guide.contentDrops?.length ? `<section>
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">Published</span>
+                <h2>이 스타일로 발행된 콘텐츠</h2>
+              </div>
+              <p>허브에서 바로 읽을 수 있는 심화 기사와 커뮤니티/행사 페이지입니다. 새 영상이 검증되면 이 블록에 계속 붙습니다.</p>
+            </div>
+            <div class="content-grid">
+              ${guide.contentDrops.map((item) => `<article class="content-card">
+                <div>
+                  <span class="tag">${escapeHtml(item.label)}</span>
+                  <h3>${escapeHtml(item.title)}</h3>
+                  <p>${escapeHtml(item.description)}</p>
+                </div>
+                <a href="${escapeHtml(item.url)}">${escapeHtml(item.cta || "읽기")}</a>
+              </article>`).join("\n              ")}
+            </div>
+          </section>` : "";
+  const fundamentals = guide.fundamentals?.length ? `<section class="section-card">
+            <span class="tag">${escapeHtml(guide.fundamentalsLabel || "Fundamentals")}</span>
+            <h2>${escapeHtml(guide.fundamentalsTitle || "핵심 개념")}</h2>
+            ${guide.fundamentalsIntro ? `<p>${escapeHtml(guide.fundamentalsIntro)}</p>` : ""}
+            <div class="fundamental-grid">
+              ${guide.fundamentals.map((item) => `<div class="fundamental-card">
+                <strong>${escapeHtml(item.name)}</strong>
+                <em>${escapeHtml(item.translation)}</em>
+                <span>${escapeHtml(item.description)}</span>
+              </div>`).join("\n              ")}
+            </div>
+          </section>` : "";
   const sections = guide.sections.map((section) => `<section class="section-card">
             <span class="tag">Guide</span>
             <h2>${escapeHtml(section.heading)}</h2>
@@ -287,6 +328,8 @@ const renderGuide = (guide, allGuides) => {
             </div>
             <div class="watch-grid">${watchlist}</div>
           </section>
+${contentDrops}
+${fundamentals}
           ${sections}
         </article>
         <aside class="side-stack" aria-label="관련 링크와 출처">

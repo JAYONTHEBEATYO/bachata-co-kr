@@ -49,6 +49,7 @@
         }
       ],
       "related": [
+        { "label": "16 펀더멘탈 심화 기사", "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html" },
         { "label": "Bachata Influence 기사", "url": "/articles/bachata-influence-melvin-gatica.html" },
         { "label": "Bachazouk 기사", "url": "/articles/bachazouk-guide.html" },
         { "label": "홈 센슈얼 섹션", "url": "/#dossier-sensual" }
@@ -57,6 +58,43 @@
         { "label": "Bachata Sensual Official", "url": "https://bachatasensual.com/" },
         { "label": "Reddit 16 Fundamentals", "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/" },
         { "label": "YouTube Reference", "url": "https://www.youtube.com/watch?v=B7Wv3cqHrSU" }
+      ],
+      "contentDrops": [
+        {
+          "label": "Longform",
+          "title": "코르케·주디스 16 펀더멘탈 한국어 해설",
+          "description": "공식 설명, 레딧 타임스탬프, 공개 튜토리얼을 교차해서 이름·의도·안전 기준을 한 번에 읽는 심화 기사.",
+          "url": "/articles/bachata-sensual-16-fundamentals-korke-judith.html",
+          "cta": "16개 해설 읽기"
+        },
+        {
+          "label": "Context",
+          "title": "Bachata Influence와 Bachazouk까지 이어지는 흐름",
+          "description": "센슈얼을 고립된 장르가 아니라 현대 바차타의 방법론, 퓨전, 소셜 적용성 안에서 비교해 보는 연계 기사.",
+          "url": "/articles/bachata-influence-melvin-gatica.html",
+          "cta": "연결 흐름 보기"
+        }
+      ],
+      "fundamentalsLabel": "16 Fundamentals",
+      "fundamentalsTitle": "코르케·주디스 계열 16 펀더멘탈",
+      "fundamentalsIntro": "아래 명칭은 공개 영상과 커뮤니티 타임스탬프를 기준으로 한국어 학습자가 수업에서 단어를 놓치지 않도록 재정리한 것입니다. 강사·스쿨마다 범주와 실행 방식은 달라질 수 있습니다.",
+      "fundamentals": [
+        { "name": "Onda", "translation": "Wave / Body roll", "description": "상체와 골반이 순서대로 지나가는 파동. 허리를 꺾는 동작이 아니라 호흡과 체중 이동으로 만드는 흐름입니다." },
+        { "name": "Onda Lateral", "translation": "Side wave", "description": "앞뒤가 아니라 좌우로 보내는 파동. 갈비뼈와 골반을 분리하되 팔로워의 축을 흔들지 않는 것이 핵심입니다." },
+        { "name": "Caida", "translation": "Dip", "description": "떨어지는 모양처럼 보이지만 실제로는 지지와 동의가 먼저인 하강 표현입니다." },
+        { "name": "Bolero", "translation": "Bolero texture", "description": "닫힌 연결에서 음악의 감정선을 살리는 질감. 큰 장식보다 거리와 프레임의 섬세함을 봅니다." },
+        { "name": "Completo", "translation": "360 turn", "description": "프레임을 유지한 채 완성되는 회전. 팔로워를 돌리는 힘보다 축을 안내하는 길이 중요합니다." },
+        { "name": "Paséala", "translation": "Make her walk", "description": "팔로워가 자신의 걸음으로 지나가도록 길을 여는 리드. 걷는 품질이 패턴보다 먼저입니다." },
+        { "name": "Rompo Delante", "translation": "Break forward", "description": "앞 방향 에너지를 끊고 전환하는 테크닉. 몸통과 골반 타이밍이 흐트러지기 쉬운 구간입니다." },
+        { "name": "Pinza", "translation": "Block and roll", "description": "에너지를 잠깐 잡아 회전이나 롤로 바꾸는 연결. 막는 힘이 아니라 방향 전환의 신호에 가깝습니다." },
+        { "name": "Culito", "translation": "Small hip roll", "description": "작은 골반 원. 접촉이 있더라도 압박이 아니라 타이밍과 방향의 합의가 중요합니다." },
+        { "name": "Contra Cadera", "translation": "Hip reversal", "description": "골반 흐름을 반대로 보내는 감각. 허리를 꺾지 않고 중심을 바꾸는 연습이 필요합니다." },
+        { "name": "Lanzamiento de la Cadera", "translation": "Big hip roll", "description": "큰 골반 롤. 접촉 없이도 가능하며 긴 음악 문장에 맞을 때 가장 자연스럽습니다." },
+        { "name": "Lateral", "translation": "Figure 8", "description": "무한대처럼 보이는 좌우 흐름. 발보다 몸통의 방향 전환과 축 회복을 먼저 봅니다." },
+        { "name": "Cabeza", "translation": "Head roll", "description": "목을 꺾는 기술이 아니라 등과 흉추의 흐름 끝에 머리가 따라오는 표현입니다." },
+        { "name": "Golpes", "translation": "Staccato", "description": "부드러운 파동 사이에 들어가는 짧은 악센트. 멈춤이 정확해야 음악성이 살아납니다." },
+        { "name": "Media", "translation": "Half turn", "description": "절반 회전 안에서 축과 시야를 정리하는 기초. 빠른 패턴보다 마무리 품질이 중요합니다." },
+        { "name": "Impulso", "translation": "Sideway push", "description": "옆 방향 에너지를 보내는 리드. 밀어내는 힘이 아니라 시작 신호로 읽어야 안전합니다." }
       ]
     },
     {
@@ -105,6 +143,7 @@
         }
       ],
       "related": [
+        { "label": "도미니칸 리듬 심화 기사", "url": "/articles/dominican-bachata-rhythm-footwork-guide.html" },
         { "label": "홈 도미니칸 섹션", "url": "/#dossier-dominican" },
         { "label": "소셜·행사 보드", "url": "/community/events.html" },
         { "label": "오늘 브리프", "url": "/briefs/" }
@@ -113,6 +152,33 @@
         { "label": "UNESCO Bachata", "url": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514" },
         { "label": "Bachata Dance Reference", "url": "https://en.wikipedia.org/wiki/Bachata_(dance)" },
         { "label": "YouTube Tutorial", "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0" }
+      ],
+      "contentDrops": [
+        {
+          "label": "Longform",
+          "title": "도미니칸 바차타 리듬과 풋워크 입문",
+          "description": "UNESCO 기록, 도미니카 대사관 소개, CUNY 영상 자료, 공개 튜토리얼을 바탕으로 음악을 발로 읽는 법을 정리했습니다.",
+          "url": "/articles/dominican-bachata-rhythm-footwork-guide.html",
+          "cta": "리듬 기사 읽기"
+        },
+        {
+          "label": "Community",
+          "title": "한국 소셜·행사에서 도미니칸 신호 찾기",
+          "description": "행사 레이더와 커뮤니티 보드에서 워크숍, 소셜, 내한 신호를 추적해 실제 배울 수 있는 기회를 이어 붙입니다.",
+          "url": "/events/",
+          "cta": "행사 레이더 보기"
+        }
+      ],
+      "fundamentalsLabel": "Rhythm Map",
+      "fundamentalsTitle": "도미니칸을 읽는 6개 리듬 단서",
+      "fundamentalsIntro": "도미니칸은 발을 빠르게 움직이는 기술이 아니라 음악의 악센트와 문장을 발이 대답하는 방식입니다. 아래 카드는 입문자가 영상과 소셜에서 먼저 체크할 기준입니다.",
+      "fundamentals": [
+        { "name": "Derecho", "translation": "Straight pulse", "description": "기본 박자의 안정감. 발이 많아지기 전에 체중 이동과 탭의 질감을 일정하게 만듭니다." },
+        { "name": "Mambo", "translation": "Dense guitar phrase", "description": "기타와 귀라가 촘촘해지는 구간. 작은 싱코페이션이 자연스럽게 들어갈 수 있습니다." },
+        { "name": "Majao", "translation": "Grounded groove", "description": "더 눌러 듣는 구간. 발목과 무릎의 탄성이 살아야 파트너와 가까운 거리에서도 편합니다." },
+        { "name": "Tap", "translation": "Folded beat", "description": "쉬는 박자가 아니라 리듬을 접는 순간. 체중을 싣지 않고 다음 문장으로 넘어갑니다." },
+        { "name": "Syncopation", "translation": "Between beats", "description": "박자 사이에 들어가는 발. 빠른 발보다 정확한 귀와 작은 움직임이 먼저입니다." },
+        { "name": "Call and response", "translation": "Music conversation", "description": "보컬, 기타, 봉고가 주고받는 문장에 발이 대답합니다. 샤인은 음악과 대화할 때만 빛납니다." }
       ]
     },
     {

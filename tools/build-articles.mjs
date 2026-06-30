@@ -81,6 +81,11 @@ const styles = `    <style>
       .section ul { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: rgba(255, 247, 232, 0.74); line-height: 1.65; }
       .video-frame { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #030303; }
       .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .watch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .watch-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .watch-card-body { padding: 18px; }
+      .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .watch-card p { margin: 0; color: var(--muted); line-height: 1.65; }
       .side { position: sticky; top: 96px; display: grid; gap: 14px; }
       .side-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
       .source-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
@@ -91,7 +96,7 @@ const styles = `    <style>
       .article-card p { color: var(--muted); line-height: 1.68; }
       @media (max-width: 880px) {
         .nav-links { display: none; }
-        .article-grid, .article-list { grid-template-columns: 1fr; }
+        .article-grid, .article-list, .watch-grid { grid-template-columns: 1fr; }
         .side { position: static; }
         h1 { font-size: clamp(42px, 13vw, 64px); }
       }
@@ -119,6 +124,23 @@ const renderSection = (section) => {
           </section>`;
 };
 
+const renderWatchlist = (items = []) => {
+  if (!items.length) return "";
+  return `          <section class="section">
+            <h2>함께 볼 영상</h2>
+            <div class="watch-grid">
+              ${items.map((item) => `<article class="watch-card">
+                ${renderVideo({ id: item.videoId, title: item.title })}
+                <div class="watch-card-body">
+                  <span class="tag">${escapeHtml(item.label)}</span>
+                  <h3>${escapeHtml(item.title)}</h3>
+                  <p>${escapeHtml(item.note)}</p>
+                </div>
+              </article>`).join("\n              ")}
+            </div>
+          </section>`;
+};
+
 const renderArticlePage = (article, allArticles) => {
   const related = allArticles
     .filter((item) => item.slug !== article.slug)
@@ -128,6 +150,10 @@ const renderArticlePage = (article, allArticles) => {
   const keywords = article.keywords.map((keyword) => `<span>${escapeHtml(keyword)}</span>`).join("");
   const summary = article.summary.map((text) => `<p>${escapeHtml(text)}</p>`).join("\n              ");
   const sections = article.sections.map(renderSection).join("\n");
+  const videos = [article.heroVideo, ...(article.watchlist || []).map((item) => ({
+    id: item.videoId,
+    title: item.title
+  }))].filter((video) => video?.id);
   const videoUrl = article.heroVideo?.id ? `https://www.youtube.com/watch?v=${article.heroVideo.id}` : undefined;
 
   const jsonLd = {
@@ -142,13 +168,13 @@ const renderArticlePage = (article, allArticles) => {
     "keywords": article.keywords.join(", "),
     "isPartOf": { "@id": "https://bachata.co.kr/#website" },
     "mainEntityOfPage": articleUrl(article),
-    ...(videoUrl ? {
-      "video": {
+    ...(videos.length ? {
+      "video": videos.map((video) => ({
         "@type": "VideoObject",
-        "name": article.heroVideo.title,
-        "embedUrl": `https://www.youtube-nocookie.com/embed/${article.heroVideo.id}`,
-        "url": videoUrl
-      }
+        "name": video.title,
+        "embedUrl": `https://www.youtube-nocookie.com/embed/${video.id}`,
+        "url": `https://www.youtube.com/watch?v=${video.id}`
+      }))
     } : {})
   };
 
@@ -179,6 +205,7 @@ ${nav}
           <section class="summary">
             ${summary}
           </section>
+${renderWatchlist(article.watchlist)}
 ${sections}
         </article>
         <aside class="side" aria-label="기사 출처와 관련 기사">

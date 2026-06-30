@@ -18,14 +18,14 @@
 - 매일 자동 생성되는 바차타 씬 브리프: `/briefs/`, `/briefs/YYYY-MM-DD.html`
 - 스타일 허브: `/styles/`, 센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk 학습 페이지
 - 인물·팀·장소 프로필 허브: `/profiles/`, 글로벌 댄서, 한국 팀, 장소, 동호회 프로필
-- 개별 기사 라이브러리: `/articles/`, Bachata Influence, Bachazouk, 바차타 댄스화 기사
+- 개별 기사 라이브러리: `/articles/`, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타 리듬, Bachata Influence, Bachazouk, 바차타 댄스화 기사
 - 커뮤니티 보드: `/community/`, 소셜·행사, 양도·중고, 구인구직, 장소·팀 디렉터리
 - 바차타 입문자 가이드
 - 서울 바차타 소셜, 클래스, 워크숍, 페스티벌
 - 한국 바차타 커뮤니티, 홍보, 구인, 제휴
 
 ## 핵심 키워드
-바차타, bachata, Bachata Influence, Bachazouk, Melvin Gatica, 센슈얼 바차타, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타, 모던 바차타, Bachata Fusion, 바차타 코리아, 한국 바차타, 서울 바차타, 바차타 소셜, 바차타 클래스, 바차타 강습, 바차타 음악, 바차타 입문, bachata Korea, bachata Seoul.
+바차타, bachata, Bachata Influence, Bachazouk, Melvin Gatica, Korke Judith, 코르케 주디스, 센슈얼 바차타, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타, 도미니칸 바차타 풋워크, 모던 바차타, Bachata Fusion, 바차타 코리아, 한국 바차타, 서울 바차타, 바차타 소셜, 바차타 클래스, 바차타 강습, 바차타 음악, 바차타 입문, bachata Korea, bachata Seoul.
 
 ## 사이트 성격
 검색결과와 커뮤니티에 흩어진 정보를 단순 복제하지 않고, 공개적으로 확인 가능한 장르 정보와 한국 바차타씬의 제보를 바탕으로 원문 콘텐츠를 편집합니다.
@@ -49,6 +49,8 @@
 - https://bachata.co.kr/profiles/latin-cielo.html
 - https://bachata.co.kr/articles/
 - https://bachata.co.kr/articles/bachata-influence-melvin-gatica.html
+- https://bachata.co.kr/articles/bachata-sensual-16-fundamentals-korke-judith.html
+- https://bachata.co.kr/articles/dominican-bachata-rhythm-footwork-guide.html
 - https://bachata.co.kr/articles/bachazouk-guide.html
 - https://bachata.co.kr/articles/bachata-dance-shoes-korea.html
 - https://bachata.co.kr/community/
@@ -56,6 +58,11 @@
 - https://bachata.co.kr/community/market.html
 - https://bachata.co.kr/community/jobs.html
 - https://bachata.co.kr/community/venues.html
+- https://bachata.co.kr/events/
+- https://bachata.co.kr/events/emilian-tehina-korea-archive-2026.html
+- https://bachata.co.kr/events/k-sensual-summer-2026.html
+- https://bachata.co.kr/events/seoul-bachata-festival-vol4-2026.html
+- https://bachata.co.kr/events/gangnam-latin-festival-2026.html
 - https://bachata.co.kr/gear/
 - https://bachata.co.kr/gear/fuego.html
 - https://bachata.co.kr/gear/pana-mio.html
@@ -68,7 +75,8 @@
 - https://bachata.co.kr/data/generated/profile-index.json
 - https://bachata.co.kr/data/generated/article-index.json
 - https://bachata.co.kr/data/generated/board-index.json
+- https://bachata.co.kr/data/generated/event-index.json
 - https://bachata.co.kr/data/generated/gear-index.json
 
 ## 자동화
-`data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다. `tools/build-daily-brief.mjs`는 그 후보를 `briefs/YYYY-MM-DD.html` 일간 브리프와 `data/generated/latest-brief.json`으로 발행합니다. `data/style-guides.json`과 `tools/build-style-guides.mjs`는 스타일 허브를 `/styles/`와 `data/generated/style-index.json`으로 발행합니다. `data/profiles.json`과 `tools/build-profiles.mjs`는 인물·팀·장소 프로필을 `/profiles/`와 `data/generated/profile-index.json`으로 발행합니다. `data/articles.json`과 `tools/build-articles.mjs`는 evergreen 기사를 `/articles/`와 `data/generated/article-index.json`으로 발행합니다. `data/board.json`과 `tools/build-board.mjs`는 커뮤니티 보드를 `/community/`와 `data/generated/board-index.json`으로 발행합니다. `data/gear.json`과 `tools/build-gear.mjs`는 바차타 댄스화와 라틴댄스 스니커 비교 허브를 `/gear/`와 `data/generated/gear-index.json`으로 발행합니다.
+`data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다. `tools/build-daily-brief.mjs`는 그 후보를 `briefs/YYYY-MM-DD.html` 일간 브리프와 `data/generated/latest-brief.json`으로 발행합니다. `data/style-guides.json`과 `tools/build-style-guides.mjs`는 스타일 허브를 `/styles/`와 `data/generated/style-index.json`으로 발행합니다. `data/profiles.json`과 `tools/build-profiles.mjs`는 인물·팀·장소 프로필을 `/profiles/`와 `data/generated/profile-index.json`으로 발행합니다. `data/articles.json`과 `tools/build-articles.mjs`는 evergreen 기사를 `/articles/`와 `data/generated/article-index.json`으로 발행합니다. `data/board.json`과 `tools/build-board.mjs`는 커뮤니티 보드를 `/community/`와 `data/generated/board-index.json`으로 발행합니다. `data/events.json`과 `tools/build-events.mjs`는 월별 내한·행사 레이더를 `/events/`와 `data/generated/event-index.json`으로 발행합니다. `data/gear.json`과 `tools/build-gear.mjs`는 바차타 댄스화와 라틴댄스 스니커 비교 허브를 `/gear/`와 `data/generated/gear-index.json`으로 발행합니다.

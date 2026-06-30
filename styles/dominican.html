@@ -61,6 +61,16 @@
       .watch-card { padding: 0; overflow: hidden; background: var(--panel-strong); }
       .watch-card-body { padding: 18px; }
       .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .content-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .content-card { display: grid; align-content: space-between; min-height: 260px; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
+      .content-card h3 { margin: 8px 0 10px; font-size: 26px; line-height: 1.08; }
+      .content-card p { color: var(--muted); line-height: 1.72; }
+      .content-card a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid rgba(226, 173, 88, 0.38); border-radius: 999px; color: var(--gold); font-size: 13px; font-weight: 900; }
+      .fundamental-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 18px; }
+      .fundamental-card { padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.045); }
+      .fundamental-card strong { display: block; font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; font-size: 20px; line-height: 1.05; }
+      .fundamental-card em { display: block; margin: 6px 0 10px; color: var(--gold); font-size: 12px; font-style: normal; font-weight: 950; text-transform: uppercase; }
+      .fundamental-card span { display: block; color: var(--muted); font-size: 14px; line-height: 1.6; }
       .side-stack { position: sticky; top: 96px; }
       .side-box h2 { margin: 8px 0 12px; font-size: 28px; line-height: 1.08; }
       .tag-row span { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; color: rgba(255, 247, 232, 0.72); font-size: 12px; font-weight: 900; }
@@ -75,7 +85,7 @@
       @media (max-width: 700px) {
         .nav-links { display: none; }
         h1 { font-size: clamp(42px, 13vw, 66px); }
-        .guide-grid, .watch-grid { grid-template-columns: 1fr; }
+        .guide-grid, .watch-grid, .content-grid, .fundamental-grid { grid-template-columns: 1fr; }
         .summary, .section-card, .side-box { padding: 20px; }
       }
     </style>
@@ -164,6 +174,70 @@
           </div>
         </article></div>
           </section>
+<section>
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">Published</span>
+                <h2>이 스타일로 발행된 콘텐츠</h2>
+              </div>
+              <p>허브에서 바로 읽을 수 있는 심화 기사와 커뮤니티/행사 페이지입니다. 새 영상이 검증되면 이 블록에 계속 붙습니다.</p>
+            </div>
+            <div class="content-grid">
+              <article class="content-card">
+                <div>
+                  <span class="tag">Longform</span>
+                  <h3>도미니칸 바차타 리듬과 풋워크 입문</h3>
+                  <p>UNESCO 기록, 도미니카 대사관 소개, CUNY 영상 자료, 공개 튜토리얼을 바탕으로 음악을 발로 읽는 법을 정리했습니다.</p>
+                </div>
+                <a href="/articles/dominican-bachata-rhythm-footwork-guide.html">리듬 기사 읽기</a>
+              </article>
+              <article class="content-card">
+                <div>
+                  <span class="tag">Community</span>
+                  <h3>한국 소셜·행사에서 도미니칸 신호 찾기</h3>
+                  <p>행사 레이더와 커뮤니티 보드에서 워크숍, 소셜, 내한 신호를 추적해 실제 배울 수 있는 기회를 이어 붙입니다.</p>
+                </div>
+                <a href="/events/">행사 레이더 보기</a>
+              </article>
+            </div>
+          </section>
+<section class="section-card">
+            <span class="tag">Rhythm Map</span>
+            <h2>도미니칸을 읽는 6개 리듬 단서</h2>
+            <p>도미니칸은 발을 빠르게 움직이는 기술이 아니라 음악의 악센트와 문장을 발이 대답하는 방식입니다. 아래 카드는 입문자가 영상과 소셜에서 먼저 체크할 기준입니다.</p>
+            <div class="fundamental-grid">
+              <div class="fundamental-card">
+                <strong>Derecho</strong>
+                <em>Straight pulse</em>
+                <span>기본 박자의 안정감. 발이 많아지기 전에 체중 이동과 탭의 질감을 일정하게 만듭니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Mambo</strong>
+                <em>Dense guitar phrase</em>
+                <span>기타와 귀라가 촘촘해지는 구간. 작은 싱코페이션이 자연스럽게 들어갈 수 있습니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Majao</strong>
+                <em>Grounded groove</em>
+                <span>더 눌러 듣는 구간. 발목과 무릎의 탄성이 살아야 파트너와 가까운 거리에서도 편합니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Tap</strong>
+                <em>Folded beat</em>
+                <span>쉬는 박자가 아니라 리듬을 접는 순간. 체중을 싣지 않고 다음 문장으로 넘어갑니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Syncopation</strong>
+                <em>Between beats</em>
+                <span>박자 사이에 들어가는 발. 빠른 발보다 정확한 귀와 작은 움직임이 먼저입니다.</span>
+              </div>
+              <div class="fundamental-card">
+                <strong>Call and response</strong>
+                <em>Music conversation</em>
+                <span>보컬, 기타, 봉고가 주고받는 문장에 발이 대답합니다. 샤인은 음악과 대화할 때만 빛납니다.</span>
+              </div>
+            </div>
+          </section>
           <section class="section-card">
             <span class="tag">Guide</span>
             <h2>발이 많아지기 전에 귀가 먼저 열려야 합니다</h2>
@@ -187,7 +261,7 @@
           <section class="side-box">
             <span class="tag">Related</span>
             <h2>이어 보기</h2>
-            <div class="link-row"><a href="/#dossier-dominican">홈 도미니칸 섹션</a><a href="/community/events.html">소셜·행사 보드</a><a href="/briefs/">오늘 브리프</a></div>
+            <div class="link-row"><a href="/articles/dominican-bachata-rhythm-footwork-guide.html">도미니칸 리듬 심화 기사</a><a href="/#dossier-dominican">홈 도미니칸 섹션</a><a href="/community/events.html">소셜·행사 보드</a><a href="/briefs/">오늘 브리프</a></div>
           </section>
           <section class="side-box">
             <span class="tag">Sources</span>

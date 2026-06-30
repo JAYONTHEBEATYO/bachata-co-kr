@@ -47,6 +47,11 @@
       .section ul { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: rgba(255, 247, 232, 0.74); line-height: 1.65; }
       .video-frame { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #030303; }
       .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .watch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .watch-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .watch-card-body { padding: 18px; }
+      .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .watch-card p { margin: 0; color: var(--muted); line-height: 1.65; }
       .side { position: sticky; top: 96px; display: grid; gap: 14px; }
       .side-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
       .source-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
@@ -57,7 +62,7 @@
       .article-card p { color: var(--muted); line-height: 1.68; }
       @media (max-width: 880px) {
         .nav-links { display: none; }
-        .article-grid, .article-list { grid-template-columns: 1fr; }
+        .article-grid, .article-list, .watch-grid { grid-template-columns: 1fr; }
         .side { position: static; }
         h1 { font-size: clamp(42px, 13vw, 64px); }
       }
@@ -77,6 +82,14 @@
             {
                   "@id": "https://bachata.co.kr/articles/bachata-influence-melvin-gatica.html",
                   "name": "Bachata Influence는 무엇이 다른가"
+            },
+            {
+                  "@id": "https://bachata.co.kr/articles/bachata-sensual-16-fundamentals-korke-judith.html",
+                  "name": "코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것"
+            },
+            {
+                  "@id": "https://bachata.co.kr/articles/dominican-bachata-rhythm-footwork-guide.html",
+                  "name": "도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다"
             },
             {
                   "@id": "https://bachata.co.kr/articles/bachazouk-guide.html",
@@ -114,6 +127,22 @@
             <p>Melvin &amp; Gatica 계열의 흐름을 기술 이름이 아니라 음악성, 프레임, 감정선, 교육 시스템으로 읽는 한국어 입문 노트.</p>
           </div>
           <a href="/articles/bachata-influence-melvin-gatica.html">기사 읽기</a>
+        </article>
+<article class="article-card">
+          <div>
+            <span class="tag">Sensual Bachata</span>
+            <h2>코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것</h2>
+            <p>Korke y Judith 계열에서 자주 언급되는 센슈얼 바차타 16개 펀더멘탈을 안전, 프레임, 축, 음악성 기준으로 다시 정리한 한국어 롱폼.</p>
+          </div>
+          <a href="/articles/bachata-sensual-16-fundamentals-korke-judith.html">기사 읽기</a>
+        </article>
+<article class="article-card">
+          <div>
+            <span class="tag">Dominican Bachata</span>
+            <h2>도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다</h2>
+            <p>UNESCO와 도미니카 문화 자료, 공개 풋워크 튜토리얼을 바탕으로 도미니칸 바차타의 음악성, 탭, 싱코페이션, 소셜 적용법을 정리했습니다.</p>
+          </div>
+          <a href="/articles/dominican-bachata-rhythm-footwork-guide.html">기사 읽기</a>
         </article>
 <article class="article-card">
           <div>

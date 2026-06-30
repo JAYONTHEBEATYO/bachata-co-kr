@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다 | 바차타 코리아</title>
+    <meta name="description" content="UNESCO와 도미니카 문화 자료, 공개 풋워크 튜토리얼을 바탕으로 도미니칸 바차타의 음악성, 탭, 싱코페이션, 소셜 적용법을 정리했습니다.">
+    <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
+    <link rel="canonical" href="https://bachata.co.kr/articles/dominican-bachata-rhythm-footwork-guide.html">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/variable/woff2/SUIT-Variable.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fonts-archive/Paperlogy/subsets/Paperlogy-dynamic-subset.css">
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #0b0a08;
+        --panel: #17130f;
+        --ink: #fff7e8;
+        --muted: rgba(255, 247, 232, 0.68);
+        --line: rgba(255, 247, 232, 0.14);
+        --gold: #e2ad58;
+        --wine: #9d2447;
+        font-family: "SUIT Variable", SUIT, Pretendard, "Noto Sans KR", system-ui, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { margin: 0; background: var(--bg); color: var(--ink); }
+      a { color: inherit; text-decoration: none; }
+      .nav { position: sticky; top: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 0 max(18px, calc((100vw - 1180px) / 2)); border-bottom: 1px solid var(--line); background: rgba(11, 10, 8, 0.92); backdrop-filter: blur(18px); }
+      .brand strong { display: block; font-size: 20px; }
+      .brand span { color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+      .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; font-weight: 850; }
+      .hero { padding: clamp(68px, 10vw, 126px) max(18px, calc((100vw - 1180px) / 2)) 56px; background: #f3ede3; color: #17120b; }
+      .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.12em; text-transform: uppercase; }
+      h1, h2, h3 { font-family: Paperlogy, "SUIT Variable", SUIT, sans-serif; letter-spacing: 0; }
+      h1 { max-width: 980px; margin: 14px 0 20px; font-size: clamp(46px, 8vw, 96px); line-height: 0.97; word-break: keep-all; overflow-wrap: anywhere; }
+      .hero p { max-width: 760px; color: rgba(23, 18, 11, 0.72); font-size: clamp(17px, 2vw, 21px); line-height: 1.7; }
+      .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+      .meta span { display: inline-flex; align-items: center; min-height: 34px; padding: 0 12px; border: 1px solid rgba(23, 18, 11, 0.14); border-radius: 999px; font-size: 13px; font-weight: 900; }
+      main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: 54px 0 90px; }
+      .article-grid { display: grid; grid-template-columns: minmax(0, 0.76fr) minmax(300px, 0.24fr); gap: 24px; align-items: start; }
+      .prose { display: grid; gap: 30px; }
+      .summary { display: grid; gap: 12px; padding: clamp(22px, 4vw, 34px); border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
+      .summary p, .section p, .side p { color: var(--muted); line-height: 1.82; font-size: 17px; }
+      .section { padding-top: 30px; border-top: 1px solid var(--line); }
+      .section h2 { margin: 0 0 16px; font-size: clamp(30px, 4vw, 50px); line-height: 1.06; }
+      .section ul { display: grid; gap: 10px; margin: 18px 0 0; padding-left: 20px; color: rgba(255, 247, 232, 0.74); line-height: 1.65; }
+      .video-frame { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; background: #030303; }
+      .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+      .watch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .watch-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .watch-card-body { padding: 18px; }
+      .watch-card h3 { margin: 8px 0 10px; font-size: 24px; line-height: 1.08; }
+      .watch-card p { margin: 0; color: var(--muted); line-height: 1.65; }
+      .side { position: sticky; top: 96px; display: grid; gap: 14px; }
+      .side-card { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
+      .source-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+      .source-links a, .article-card a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 10px; border: 1px solid rgba(226, 173, 88, 0.36); border-radius: 999px; color: var(--gold); font-size: 12px; font-weight: 900; }
+      .article-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 26px; }
+      .article-card { min-height: 300px; display: grid; align-content: space-between; gap: 16px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
+      .article-card h2 { margin: 10px 0 0; font-size: 30px; line-height: 1.08; }
+      .article-card p { color: var(--muted); line-height: 1.68; }
+      @media (max-width: 880px) {
+        .nav-links { display: none; }
+        .article-grid, .article-list, .watch-grid { grid-template-columns: 1fr; }
+        .side { position: static; }
+        h1 { font-size: clamp(42px, 13vw, 64px); }
+      }
+    </style>
+    <script type="application/ld+json">
+      {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "@id": "https://bachata.co.kr/articles/dominican-bachata-rhythm-footwork-guide.html",
+      "headline": "도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다",
+      "description": "UNESCO와 도미니카 문화 자료, 공개 풋워크 튜토리얼을 바탕으로 도미니칸 바차타의 음악성, 탭, 싱코페이션, 소셜 적용법을 정리했습니다.",
+      "datePublished": "2026-06-30T00:00:00+09:00",
+      "dateModified": "2026-06-30T00:00:00+09:00",
+      "inLanguage": "ko-KR",
+      "keywords": "도미니칸 바차타, Dominican Bachata, 바차타 풋워크, 바차타 리듬, bachata footwork, bachata syncopation",
+      "isPartOf": {
+            "@id": "https://bachata.co.kr/#website"
+      },
+      "mainEntityOfPage": "https://bachata.co.kr/articles/dominican-bachata-rhythm-footwork-guide.html",
+      "video": [
+            {
+                  "@type": "VideoObject",
+                  "name": "Dominican Bachata Footwork - Beginner Basics",
+                  "embedUrl": "https://www.youtube-nocookie.com/embed/xmvDKN5cwT0",
+                  "url": "https://www.youtube.com/watch?v=xmvDKN5cwT0"
+            },
+            {
+                  "@type": "VideoObject",
+                  "name": "Dominican Bachata Basic Footwork",
+                  "embedUrl": "https://www.youtube-nocookie.com/embed/csvyhfrLv74",
+                  "url": "https://www.youtube.com/watch?v=csvyhfrLv74"
+            },
+            {
+                  "@type": "VideoObject",
+                  "name": "Chaves y Silvia Bachata Basic Workshop",
+                  "embedUrl": "https://www.youtube-nocookie.com/embed/OcGcZ0IY6s0",
+                  "url": "https://www.youtube.com/watch?v=OcGcZ0IY6s0"
+            }
+      ]
+}
+    </script>
+  </head>
+  <body>
+    <header class="nav">
+      <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
+      <nav class="nav-links" aria-label="기사 이동">
+        <a href="/">홈</a>
+        <a href="/articles/">기사</a>
+        <a href="/briefs/">브리프</a>
+        <a href="/#publishing-os">발행 시스템</a>
+      </nav>
+    </header>
+    <section class="hero">
+      <span class="eyebrow">Dominican Bachata</span>
+      <h1>도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다</h1>
+      <p>UNESCO와 도미니카 문화 자료, 공개 풋워크 튜토리얼을 바탕으로 도미니칸 바차타의 음악성, 탭, 싱코페이션, 소셜 적용법을 정리했습니다.</p>
+      <div class="meta">
+        <span>2026년 6월 30일 업데이트</span>
+        <span>도미니칸 바차타</span><span>Dominican Bachata</span><span>바차타 풋워크</span><span>바차타 리듬</span><span>bachata footwork</span><span>bachata syncopation</span>
+      </div>
+    </section>
+    <main>
+      <div class="article-grid">
+        <article class="prose">
+          <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xmvDKN5cwT0" title="Dominican Bachata Footwork - Beginner Basics" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+          <section class="summary">
+            <p>도미니칸 바차타를 ‘발을 많이 쓰는 스타일’로만 소개하면 핵심을 놓칩니다. 발놀림은 기타, 봉고, 귀라, 보컬 문장에 몸이 대답한 결과입니다.</p>
+              <p>UNESCO는 도미니카 바차타를 음악과 춤이 함께 움직이는 문화적 표현으로 다룹니다. 한국어 콘텐츠도 화려한 샤인보다 음악의 악센트, 탭의 질감, 파트너와 가까운 거리에서의 탄성을 먼저 설명해야 합니다.</p>
+          </section>
+          <section class="section">
+            <h2>함께 볼 영상</h2>
+            <div class="watch-grid">
+              <article class="watch-card">
+                <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/csvyhfrLv74" title="Dominican Bachata Basic Footwork" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+                <div class="watch-card-body">
+                  <span class="tag">Follow Along</span>
+                  <h3>Dominican Bachata Basic Footwork</h3>
+                  <p>설명보다 반복 훈련이 필요할 때 붙여두기 좋은 기본 풋워크 영상입니다.</p>
+                </div>
+              </article>
+              <article class="watch-card">
+                <div class="video-frame">
+              <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/OcGcZ0IY6s0" title="Chaves y Silvia Bachata Basic Workshop" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+                <div class="watch-card-body">
+                  <span class="tag">Korean Basic</span>
+                  <h3>Chaves y Silvia Bachata Basic Workshop</h3>
+                  <p>한국어권 입문자가 베이직, 골반, 리듬의 연결을 비교해 보기 좋은 공개 워크숍입니다.</p>
+                </div>
+              </article>
+            </div>
+          </section>
+          <section class="section">
+            <h2>기타가 촘촘해질 때 발은 작아져야 합니다</h2>
+            <p>도미니칸 바차타의 매력은 빠른 발 자체가 아니라 악기가 만드는 작은 문장에 있습니다. 기타 리프가 촘촘해질 때 발은 더 커지기보다 더 작고 정확해져야 합니다. 그래야 파트너와 가까운 거리에서도 음악이 보입니다.</p>
+              <p>입문자는 먼저 기본 박자를 안정시키고, 탭에서 체중을 싣지 않는 연습을 해야 합니다. 탭은 쉬는 박자가 아니라 리듬을 접고 다음 문장으로 넘어가는 순간입니다.</p>
+            <ul><li>1-2-3-탭과 5-6-7-탭을 일정하게 유지합니다.</li><li>탭은 발을 찍는 장식이 아니라 다음 움직임을 준비하는 호흡입니다.</li><li>기타가 빨라질수록 발은 작고 낮게 유지합니다.</li></ul>
+          </section>
+          <section class="section">
+            <h2>싱코페이션은 빠른 발이 아니라 정확한 귀에서 시작합니다</h2>
+            <p>싱코페이션은 박자 사이를 채우는 기술입니다. 손과 상체가 흔들릴 정도로 발을 많이 넣으면 음악성이 아니라 불안정함으로 보일 수 있습니다.</p>
+              <p>좋은 도미니칸 풋워크는 파트너에게 부담을 주지 않습니다. 무릎과 발목의 탄성이 살아 있고, 발 장식이 상대의 축과 공간을 침범하지 않을 때 소셜에서도 자연스럽습니다.</p>
+            <ul><li>먼저 음악 없이 작은 체중 이동을 반복합니다.</li><li>그다음 같은 박자에 방향만 바꿉니다.</li><li>마지막으로 기타 리프나 봉고 악센트에 작은 발을 넣습니다.</li></ul>
+          </section>
+          <section class="section">
+            <h2>음악사와 문화 맥락을 함께 읽어야 합니다</h2>
+            <p>도미니카 대사관의 문화 소개는 바차타를 기타 중심의 음악, 사랑과 상실을 노래하는 장르, 그리고 한때 ‘amargue’로도 불렸던 정서로 설명합니다. iASO Records의 역사 자료도 바차타가 도미니카 사회 안에서 긴 시간에 걸쳐 대중화된 과정을 보여줍니다.</p>
+              <p>따라서 도미니칸 바차타를 한국 사이트에서 다룰 때는 ‘옛날 스타일’로 납작하게 만들면 안 됩니다. 음악의 뿌리, 악기 구성, 사회적 맥락, 오늘의 소셜에서 어떻게 안전하게 적용할지까지 함께 편집해야 합니다.</p>
+            <ul><li>음악: 기타, 봉고, 귀라, 보컬 문장을 분리해서 듣습니다.</li><li>문화: 도미니카 바차타의 역사와 정서를 단순 장식으로 소비하지 않습니다.</li><li>소셜: 파트너와 가까운 거리에서 작고 정확하게 움직입니다.</li></ul>
+          </section>
+          <section class="section">
+            <h2>한국 입문자용 20분 연습 루틴</h2>
+            <p>첫 5분은 제자리에서 기본 박자와 탭만 연습합니다. 다음 5분은 같은 박자를 유지한 채 앞뒤와 좌우 방향 전환을 넣습니다. 그다음 5분은 음악을 틀고 기타가 촘촘해지는 구간에만 작은 싱코페이션을 넣습니다.</p>
+              <p>마지막 5분은 파트너워크처럼 거리와 프레임을 상상하며 움직임을 줄입니다. 도미니칸은 혼자 연습할 수 있지만, 소셜에서는 상대가 편해야 완성됩니다.</p>
+            <ul><li>0-5분: 기본 박자와 탭</li><li>5-10분: 방향 전환</li><li>10-15분: 작은 싱코페이션</li><li>15-20분: 소셜 거리와 프레임</li></ul>
+          </section>
+        </article>
+        <aside class="side" aria-label="기사 출처와 관련 기사">
+          <div class="side-card">
+            <span class="tag">Sources</span>
+            <p>공식/공개 출처를 바탕으로 한국어 독자에게 맞게 재편집했습니다.</p>
+            <div class="source-links"><a href="https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514" target="_blank" rel="noreferrer">UNESCO Music and dance of Dominican Bachata</a><a href="https://www.dominicanembassy.in/blogcult2021/bachata" target="_blank" rel="noreferrer">Dominican Embassy Bachata Introduction</a><a href="https://www.iasorecords.com/music/history-of-bachata-the-guitar-music-of-the-dominican-republic" target="_blank" rel="noreferrer">iASO Records Bachata History</a><a href="https://www.youtube.com/watch?v=xmvDKN5cwT0" target="_blank" rel="noreferrer">Beginner Footwork Video</a><a href="https://www.youtube.com/watch?v=csvyhfrLv74" target="_blank" rel="noreferrer">Follow Along Video</a></div>
+          </div>
+          <div class="side-card">
+            <span class="tag">Related</span>
+            <div class="source-links"><a href="/articles/bachata-influence-melvin-gatica.html">Bachata Influence는 무엇이 다른가</a><a href="/articles/bachata-sensual-16-fundamentals-korke-judith.html">코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것</a><a href="/articles/bachazouk-guide.html">Bachazouk를 센슈얼 변형으로만 보면 놓치는 것</a></div>
+          </div>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
