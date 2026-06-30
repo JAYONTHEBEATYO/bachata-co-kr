@@ -28,14 +28,17 @@ jobs:
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
         run: node tools/collect-scene-signals.mjs
 
-      - name: Commit generated discovery data
+      - name: Build daily brief
+        run: node tools/build-daily-brief.mjs
+
+      - name: Commit generated discovery data and brief
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/generated/scene-signals.json
+          git add data/generated/scene-signals.json data/generated/latest-brief.json briefs sitemap.xml
           if git diff --cached --quiet; then
             echo "No discovery changes to commit"
           else
-            git commit -m "Update bachata scene discovery data"
+            git commit -m "Update bachata scene brief"
             git push
           fi

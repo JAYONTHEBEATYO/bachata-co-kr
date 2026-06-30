@@ -1362,7 +1362,8 @@
               {"@type":"ListItem","position":10,"name":"Bachazouk와 Brazilian Zouk 융합 흐름"},
               {"@type":"ListItem","position":11,"name":"Gero & Migle, Luis & Andrea, Andi & Silvia 글로벌 댄서 노트"},
               {"@type":"ListItem","position":12,"name":"홍대 보니따, 에버라틴, 그레이 로렌 한국 바차타 씬"},
-              {"@type":"ListItem","position":13,"name":"바차타 댄스화와 라틴댄스 상품 비교"}
+              {"@type":"ListItem","position":13,"name":"바차타 댄스화와 라틴댄스 상품 비교"},
+              {"@type":"ListItem","position":14,"name":"매일 자동 생성되는 바차타 씬 브리프"}
             ]
           },
           {
@@ -1424,6 +1425,24 @@
             "inLanguage": "ko-KR",
             "isPartOf": {"@id": "https://bachata.co.kr/#website"},
             "url": "https://bachata.co.kr/data/generated/scene-signals.json"
+          },
+          {
+            "@type": "CollectionPage",
+            "@id": "https://bachata.co.kr/briefs/",
+            "name": "바차타 씬 브리프",
+            "description": "Bachata Influence, Bachazouk, 글로벌 댄서, 한국 소셜, 바차타 댄스화 신호를 모아 정리하는 바차타 코리아 일간 브리프 목록.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/briefs/"
+          },
+          {
+            "@type": "Dataset",
+            "@id": "https://bachata.co.kr/data/generated/latest-brief.json",
+            "name": "Bachata Korea Latest Brief Pointer",
+            "description": "가장 최근 자동 생성 바차타 씬 브리프의 URL과 후보 수를 담은 JSON.",
+            "inLanguage": "ko-KR",
+            "isPartOf": {"@id": "https://bachata.co.kr/#website"},
+            "url": "https://bachata.co.kr/data/generated/latest-brief.json"
           },
           {
             "@type": "VideoObject",
@@ -1537,6 +1556,7 @@
           <a href="#magazine">웹진</a>
           <a href="#scene">소셜</a>
           <a href="#community">커뮤니티</a>
+          <a href="/briefs/">브리프</a>
           <a href="#publishing-os">발행</a>
         </div>
         <a class="cta" href="#submit">소식 제보</a>
@@ -1560,7 +1580,8 @@
             <h1 id="hero-title">한국 바차타씬을 영상으로 먼저 봅니다</h1>
             <p class="hero-copy">바차타 입문, 센슈얼 펀더멘탈, 도미니칸 리듬, 바차타 인플루언스, 내한 소식, 서울 소셜과 클래스까지. bachata.co.kr은 흩어진 라틴댄스 정보를 매일 큐레이션하는 한국어 웹매거진으로 갑니다.</p>
             <div class="hero-actions">
-              <a class="button primary" href="#style-dossiers">오늘의 콘텐츠</a>
+              <a class="button primary" href="/briefs/">오늘 브리프</a>
+              <a class="button" href="#style-dossiers">콘텐츠 라이브러리</a>
               <a class="button" href="#publishing-os">발행 시스템</a>
               <a class="button" href="http://test.bachata.co.kr/">바차타 심리테스트</a>
             </div>
@@ -2280,6 +2301,8 @@
               <div class="source-links">
                 <a href="/data/sources.json">Source Map</a>
                 <a href="/data/generated/scene-signals.json">Generated Signals</a>
+                <a href="/data/generated/latest-brief.json">Latest Brief JSON</a>
+                <a href="/briefs/">Daily Brief</a>
                 <a href="https://developers.facebook.com/blog/post/2024/09/04/update-on-instagram-basic-display-api/" target="_blank" rel="noreferrer">Instagram API Update</a>
               </div>
             </article>
