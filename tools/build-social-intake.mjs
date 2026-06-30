@@ -83,11 +83,58 @@ const scoreItem = (item, config, health) => {
   return Math.max(0, Math.round(base + channelWeight + relatedBoost + embedBoost + healthPenalty));
 };
 
+const classifyStage = (item) => {
+  if (item.healthStatus === "broken") {
+    return {
+      id: "blocked",
+      label: "보류",
+      nextStep: "링크나 영상이 복구되기 전까지 공개 발행에서 제외합니다."
+    };
+  }
+
+  if (item.relatedUrl && (item.videoId || item.type === "editorial-queue" || item.type === "youtube")) {
+    return {
+      id: "ready",
+      label: "오늘 발행",
+      nextStep: "영상과 내부 연결이 있으므로 브리프나 관련 허브에 바로 올릴 수 있습니다."
+    };
+  }
+
+  if (item.relatedUrl) {
+    return {
+      id: "review",
+      label: "원문 검수",
+      nextStep: "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다."
+    };
+  }
+
+  if (item.videoId) {
+    return {
+      id: "review",
+      label: "영상 검수",
+      nextStep: "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다."
+    };
+  }
+
+  return {
+    id: "watch",
+    label: "관찰",
+    nextStep: "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다."
+  };
+};
+
 const normalizeItem = (raw, config, healthIndex, sourceLabel) => {
   const formatId = inferFormatId(raw, config);
   const health = healthFor(raw, healthIndex);
   const score = scoreItem(raw, config, health);
   const videoId = raw.videoId || getYoutubeId(raw.sourceUrl || raw.embedUrl || "");
+  const healthStatus = health?.status || (raw.sourceUrl?.includes("instagram.com") ? "watch" : "untracked");
+  const stage = classifyStage({
+    ...raw,
+    formatId,
+    videoId,
+    healthStatus
+  });
   return {
     id: raw.id || `${raw.type || "source"}-${slug(raw.title || raw.handle || raw.sourceUrl || raw.relatedUrl || sourceLabel)}`,
     title: raw.title || raw.name || raw.handle || raw.tag || "Untitled signal",
@@ -105,8 +152,11 @@ const normalizeItem = (raw, config, healthIndex, sourceLabel) => {
     beat: raw.beat || "",
     status: raw.status || "",
     searchIntent: raw.searchIntent || "",
-    healthStatus: health?.status || (raw.sourceUrl?.includes("instagram.com") ? "watch" : "untracked"),
+    healthStatus,
     healthNote: health?.note || "",
+    stageId: stage.id,
+    stageLabel: stage.label,
+    nextStep: raw.nextStep || stage.nextStep,
     score
   };
 };
@@ -172,14 +222,27 @@ const dedupeQueue = (items) => {
   return [...map.values()].sort((a, b) => b.score - a.score || a.title.localeCompare(b.title, "ko"));
 };
 
-const summarize = (queue, radar, sourceHealth) => ({
-  totalQueue: queue.length,
-  watchlistAccounts: (radar.watchlists || []).reduce((sum, item) => sum + (item.accounts || []).length, 0),
-  hashtags: (radar.hashtags || []).length,
-  publishReady: queue.filter((item) => item.relatedUrl && item.healthStatus !== "broken").length,
-  videos: queue.filter((item) => item.videoId).length,
-  brokenLinks: sourceHealth.summary?.broken || 0
-});
+const stageCounts = (queue) => queue.reduce((counts, item) => {
+  counts[item.stageId] = (counts[item.stageId] || 0) + 1;
+  return counts;
+}, {});
+
+const summarize = (queue, radar, sourceHealth) => {
+  const stages = stageCounts(queue);
+  return {
+    totalQueue: queue.length,
+    watchlistAccounts: (radar.watchlists || []).reduce((sum, item) => sum + (item.accounts || []).length, 0),
+    hashtags: (radar.hashtags || []).length,
+    publishReady: queue.filter((item) => item.relatedUrl && item.healthStatus !== "broken").length,
+    readyNow: stages.ready || 0,
+    needsReview: stages.review || 0,
+    watchOnly: stages.watch || 0,
+    blocked: stages.blocked || 0,
+    videos: queue.filter((item) => item.videoId).length,
+    brokenLinks: sourceHealth.summary?.broken || 0,
+    stages
+  };
+};
 
 const renderFormat = (format, counts) => `<article class="format-card">
           <span class="tag">${escapeHtml(format.cadence)}</span>
@@ -191,13 +254,26 @@ const renderFormat = (format, counts) => `<article class="format-card">
           </div>
         </article>`;
 
+const renderAutomationCard = ([id, item]) => `<article class="automation-card">
+          <span class="tag">${escapeHtml(item.status || id)}</span>
+          <h3>${escapeHtml(item.label || id)}</h3>
+          <p>${escapeHtml(item.note || "")}</p>
+          ${item.env ? `<p class="env-pill">${escapeHtml(item.env)}</p>` : ""}
+        </article>`;
+
+const renderStageCard = ({ label, count, body }) => `<article class="stage-card">
+          <strong>${escapeHtml(count)}</strong>
+          <h3>${escapeHtml(label)}</h3>
+          <p>${escapeHtml(body)}</p>
+        </article>`;
+
 const renderQueueItem = (item, formats) => {
   const format = formats.get(item.formatId);
   const embed = item.embedUrl
     ? `<div class="video-frame"><iframe loading="lazy" src="${escapeHtml(item.embedUrl)}" title="${escapeHtml(item.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>`
     : "";
   const links = [
-    item.sourceUrl ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">원본</a>` : "",
+    item.sourceUrl ? `<a href="${escapeHtml(item.sourceUrl)}" target="_blank" rel="noreferrer">원본 보기</a>` : "",
     item.relatedUrl ? `<a href="${escapeHtml(item.relatedUrl)}">관련 페이지</a>` : "",
     format?.target ? `<a href="${escapeHtml(format.target)}">${escapeHtml(format.label)}</a>` : ""
   ].filter(Boolean).join("");
@@ -208,11 +284,13 @@ const renderQueueItem = (item, formats) => {
             <div class="meta-row">
               <span>${escapeHtml(item.type)}</span>
               <span>${escapeHtml(format?.label || item.formatId)}</span>
+              <span>${escapeHtml(item.stageLabel)}</span>
               <span class="health-${escapeHtml(item.healthStatus)}">${escapeHtml(item.healthStatus)}</span>
               <span>score ${escapeHtml(item.score)}</span>
             </div>
             <h3>${escapeHtml(item.title)}</h3>
             <p>${escapeHtml(item.beat || item.searchIntent || item.healthNote || "편집자가 원본과 관련 페이지를 확인해 발행 포맷을 결정합니다.")}</p>
+            <p class="next-step">${escapeHtml(item.nextStep)}</p>
             <div class="link-row">${links}</div>
           </div>
         </article>`;
@@ -226,7 +304,7 @@ const renderPolicy = (policy) => `<article class="policy-card">
           <a href="${escapeHtml(policy.sourceUrl)}" target="_blank" rel="noreferrer">공식/참고 문서</a>
         </article>`;
 
-const renderPage = ({ config, queue, summary, sourceHealth }) => {
+const renderPage = ({ config, queue, summary, sourceHealth, automation }) => {
   const formats = formatById(config);
   const formatCounts = queue.reduce((counts, item) => {
     counts[item.formatId] = (counts[item.formatId] || 0) + 1;
@@ -291,17 +369,19 @@ const renderPage = ({ config, queue, summary, sourceHealth }) => {
       .hero-note strong { display: block; margin-bottom: 10px; font-size: 20px; }
       main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: clamp(42px, 7vw, 76px) 0 90px; }
       .summary-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
-      .summary-card, .format-card, .queue-card, .policy-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .summary-card, .format-card, .queue-card, .policy-card, .automation-card, .stage-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
       .summary-card { padding: 18px; }
       .summary-card strong { display: block; margin-top: 8px; font-family: Paperlogy, Pretendard, sans-serif; font-size: clamp(28px, 4vw, 46px); line-height: 1; }
       .section { margin-top: clamp(46px, 7vw, 80px); }
       .section-head { margin-bottom: 22px; }
       .section-head h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 66px); line-height: 1.02; }
       p { word-break: keep-all; overflow-wrap: anywhere; }
-      .section-head p, .format-card p, .queue-card p, .policy-card p { color: var(--muted); line-height: 1.72; }
-      .format-grid, .policy-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-      .format-card, .policy-card { padding: 20px; }
-      .format-card h3, .policy-card h3 { margin: 10px 0; font-size: 24px; line-height: 1.12; }
+      .section-head p, .format-card p, .queue-card p, .policy-card p, .automation-card p, .stage-card p { color: var(--muted); line-height: 1.72; }
+      .format-grid, .policy-grid, .automation-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .stage-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+      .format-card, .policy-card, .automation-card, .stage-card { padding: 20px; }
+      .format-card h3, .policy-card h3, .automation-card h3, .stage-card h3 { margin: 10px 0; font-size: 24px; line-height: 1.12; }
+      .stage-card strong { display: block; font-family: Paperlogy, Pretendard, sans-serif; font-size: clamp(34px, 5vw, 58px); line-height: 0.96; color: var(--gold); }
       .pill-row, .meta-row, .link-row { display: flex; flex-wrap: wrap; gap: 8px; }
       .pill-row span, .meta-row span, .link-row a { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; color: rgba(255, 248, 237, 0.78); font-size: 12px; font-weight: 900; }
       .queue-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
@@ -310,6 +390,8 @@ const renderPage = ({ config, queue, summary, sourceHealth }) => {
       .video-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
       .queue-body { padding: 20px; }
       .queue-body h3 { margin: 12px 0 10px; font-size: clamp(22px, 3vw, 32px); line-height: 1.08; overflow-wrap: anywhere; }
+      .next-step { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--line); color: rgba(255, 248, 237, 0.86) !important; }
+      .env-pill { display: inline-flex; width: fit-content; min-height: 30px; align-items: center; padding: 0 10px; border: 1px solid rgba(255, 248, 237, 0.16); border-radius: 999px; color: rgba(255, 248, 237, 0.8) !important; font-size: 12px; font-weight: 900; }
       .health-ok { color: var(--green) !important; }
       .health-watch, .health-untracked { color: var(--gold) !important; }
       .health-warn, .health-broken { color: #ff8aa3 !important; }
@@ -320,12 +402,12 @@ const renderPage = ({ config, queue, summary, sourceHealth }) => {
       @media (max-width: 1020px) {
         .hero-grid, .section-head { grid-template-columns: 1fr; }
         .summary-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-        .format-grid, .policy-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        .format-grid, .policy-grid, .automation-grid, .stage-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       }
       @media (max-width: 760px) {
         .nav-links { display: none; }
         h1 { font-size: clamp(42px, 13vw, 66px); }
-        .summary-grid, .format-grid, .queue-grid, .policy-grid { grid-template-columns: 1fr; }
+        .summary-grid, .format-grid, .queue-grid, .policy-grid, .automation-grid, .stage-grid { grid-template-columns: 1fr; }
       }
     </style>
     <script type="application/ld+json">
@@ -352,18 +434,49 @@ const renderPage = ({ config, queue, summary, sourceHealth }) => {
         <aside class="hero-note">
           <strong>편집 원칙</strong>
           <p>${escapeHtml(config.principles[0])}</p>
-          <p>Source health 기준 broken link ${escapeHtml(summary.brokenLinks)}개, publish-ready 후보 ${escapeHtml(summary.publishReady)}개입니다.</p>
+          <p>출처 점검 기준 깨진 링크 ${escapeHtml(summary.brokenLinks)}개, 내부 페이지와 연결된 발행 후보 ${escapeHtml(summary.publishReady)}개입니다.</p>
         </aside>
       </div>
     </section>
     <main>
       <section class="summary-grid" aria-label="소셜 인테이크 요약">
         <article class="summary-card"><span class="tag">Queue</span><strong>${escapeHtml(summary.totalQueue)}</strong></article>
-        <article class="summary-card"><span class="tag">Accounts</span><strong>${escapeHtml(summary.watchlistAccounts)}</strong></article>
-        <article class="summary-card"><span class="tag">Hashtags</span><strong>${escapeHtml(summary.hashtags)}</strong></article>
-        <article class="summary-card"><span class="tag">Ready</span><strong>${escapeHtml(summary.publishReady)}</strong></article>
+        <article class="summary-card"><span class="tag">Today</span><strong>${escapeHtml(summary.readyNow)}</strong></article>
+        <article class="summary-card"><span class="tag">Review</span><strong>${escapeHtml(summary.needsReview)}</strong></article>
+        <article class="summary-card"><span class="tag">Watch</span><strong>${escapeHtml(summary.watchOnly)}</strong></article>
         <article class="summary-card"><span class="tag">Videos</span><strong>${escapeHtml(summary.videos)}</strong></article>
         <article class="summary-card"><span class="tag">Broken</span><strong>${escapeHtml(summary.brokenLinks)}</strong></article>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Collection Stack</span>
+            <h2>인스타에서 시작해 사이트 발행까지</h2>
+          </div>
+          <p>Graph API, hashtag watch, oEmbed, YouTube, Naver, 편집 watchlist를 역할별로 나눠 씁니다. 자동화는 후보를 만들고, 사이트에는 출처 확인이 끝난 맥락만 발행합니다.</p>
+        </div>
+        <div class="automation-grid">
+          ${Object.entries(automation || {}).map(renderAutomationCard).join("\n          ")}
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Publishing Stages</span>
+            <h2>큐를 그냥 쌓지 않고 발행 단계로 나눕니다</h2>
+          </div>
+          <p>유튜브가 살아 있고 내부 페이지와 연결된 후보는 바로 브리프에 올립니다. 인스타 기반 신호는 계정, 일정, 장소, 공지 원문을 확인한 뒤 기사나 프로필로 넘깁니다.</p>
+        </div>
+        <div class="stage-grid">
+          ${[
+            { label: "오늘 발행", count: summary.readyNow, body: "영상과 내부 연결이 있어 바로 브리프나 허브에 넣을 수 있는 후보입니다." },
+            { label: "원문 검수", count: summary.needsReview, body: "인스타 공지, 계정명, 일정, 장소를 편집자가 확인해야 하는 후보입니다." },
+            { label: "관찰", count: summary.watchOnly, body: "반복 신호가 쌓이는지 더 보며 주간 브리프로 넘길 후보입니다." },
+            { label: "보류", count: summary.blocked, body: "링크 상태가 깨졌거나 공개 발행 근거가 부족해 제외한 후보입니다." }
+          ].map(renderStageCard).join("\n          ")}
+        </div>
       </section>
 
       <section class="section">
@@ -426,6 +539,7 @@ const main = async () => {
   const summary = summarize(queue, radar, sourceHealth);
   const formats = formatById(config);
   const generatedAt = new Date().toISOString();
+  const automation = config.automation || radar.automation || {};
 
   const index = {
     generatedAt,
@@ -433,6 +547,8 @@ const main = async () => {
     title: config.title,
     url: "/intake/",
     summary,
+    automation,
+    stageCounts: summary.stages,
     publishFormats: (config.publishFormats || []).map((format) => ({
       id: format.id,
       label: format.label,
@@ -451,7 +567,7 @@ const main = async () => {
   await mkdir(dirname(outputPath), { recursive: true });
   await mkdir(outDir, { recursive: true });
   await writeFile(outputPath, `${JSON.stringify(index, null, 2)}\n`, "utf8");
-  await writeFile(resolve(outDir, "index.html"), renderPage({ config, queue, summary, sourceHealth }), "utf8");
+  await writeFile(resolve(outDir, "index.html"), renderPage({ config, queue, summary, sourceHealth, automation }), "utf8");
   console.log(`Wrote ${outputPath}`);
   console.log(`Wrote ${resolve(outDir, "index.html")}`);
 };

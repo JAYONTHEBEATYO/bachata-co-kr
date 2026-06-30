@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T11:44:04.587Z",
+  "generatedAt": "2026-06-30T12:18:20.049Z",
   "updatedAt": "2026-06-30",
   "title": "바차타 소셜 인테이크",
   "url": "/intake/",
@@ -8,8 +8,40 @@
     "watchlistAccounts": 11,
     "hashtags": 7,
     "publishReady": 12,
+    "readyNow": 1,
+    "needsReview": 22,
+    "watchOnly": 7,
+    "blocked": 0,
     "videos": 12,
-    "brokenLinks": 0
+    "brokenLinks": 0,
+    "stages": {
+      "ready": 1,
+      "review": 22,
+      "watch": 7
+    }
+  },
+  "automation": {
+    "graphApi": {
+      "label": "Instagram Graph API",
+      "status": "token-ready",
+      "env": "INSTAGRAM_GRAPH_TOKEN",
+      "note": "토큰이 있으면 professional account 기반 hashtag search, mentions, owned media 신호를 매일 수집합니다. 30개 hashtag / 7일 제한을 고려해 추적 태그를 작게 유지합니다."
+    },
+    "oembed": {
+      "label": "Instagram oEmbed",
+      "status": "embed-only",
+      "note": "공개 게시물 URL을 확보한 뒤 웹페이지 임베드 용도로만 사용합니다. 검색·대량 수집 용도가 아니므로 브리프 후보 복제에는 쓰지 않습니다."
+    },
+    "fallback": {
+      "label": "Editorial Watchlist",
+      "status": "active",
+      "note": "Graph API 권한이 없거나 외부 계정 데이터 접근이 제한될 때는 핸들·해시태그·공식 링크를 레이더로 노출하고 편집자가 원문을 확인합니다."
+    }
+  },
+  "stageCounts": {
+    "ready": 1,
+    "review": 22,
+    "watch": 7
   },
   "publishFormats": [
     {
@@ -82,6 +114,9 @@
       "searchIntent": "센슈얼 바차타, Bachata Sensual 16 fundamentals, 코르케 주디스",
       "healthStatus": "ok",
       "healthNote": "local file exists",
+      "stageId": "ready",
+      "stageLabel": "오늘 발행",
+      "nextStep": "영상과 내부 연결이 있으므로 브리프나 관련 허브에 바로 올릴 수 있습니다.",
       "score": 160,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -105,6 +140,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 124,
       "publishFormat": "행사·내한",
       "target": "/events/"
@@ -128,6 +166,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 124,
       "publishFormat": "행사·내한",
       "target": "/events/"
@@ -151,6 +192,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 124,
       "publishFormat": "행사·내한",
       "target": "/events/"
@@ -174,6 +218,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 120,
       "publishFormat": "인물·팀·장소 프로필",
       "target": "/profiles/"
@@ -197,6 +244,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 120,
       "publishFormat": "인물·팀·장소 프로필",
       "target": "/profiles/"
@@ -220,6 +270,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 120,
       "publishFormat": "인물·팀·장소 프로필",
       "target": "/profiles/"
@@ -243,6 +296,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 120,
       "publishFormat": "인물·팀·장소 프로필",
       "target": "/profiles/"
@@ -266,6 +322,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 116,
       "publishFormat": "인물·팀·장소 프로필",
       "target": "/profiles/"
@@ -289,6 +348,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 116,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -312,6 +374,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 102,
       "publishFormat": "댄스화·기어",
       "target": "/gear/"
@@ -335,6 +400,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "Instagram public pages can be access-limited; verify through Graph API or manual review",
+      "stageId": "review",
+      "stageLabel": "원문 검수",
+      "nextStep": "인스타 원문, 일정, 장소, 계정명을 확인한 뒤 기사/프로필/행사 카드로 확장합니다.",
       "score": 102,
       "publishFormat": "댄스화·기어",
       "target": "/gear/"
@@ -364,6 +432,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 94,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -393,6 +464,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 94,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -422,6 +496,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 94,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -450,6 +527,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 89,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -478,6 +558,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 89,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -503,6 +586,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "",
+      "stageId": "watch",
+      "stageLabel": "관찰",
+      "nextStep": "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다.",
       "score": 80,
       "publishFormat": "일간 브리프",
       "target": "/briefs/"
@@ -528,6 +614,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "",
+      "stageId": "watch",
+      "stageLabel": "관찰",
+      "nextStep": "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다.",
       "score": 80,
       "publishFormat": "일간 브리프",
       "target": "/briefs/"
@@ -553,6 +642,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "",
+      "stageId": "watch",
+      "stageLabel": "관찰",
+      "nextStep": "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다.",
       "score": 80,
       "publishFormat": "일간 브리프",
       "target": "/briefs/"
@@ -578,6 +670,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "",
+      "stageId": "watch",
+      "stageLabel": "관찰",
+      "nextStep": "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다.",
       "score": 80,
       "publishFormat": "일간 브리프",
       "target": "/briefs/"
@@ -606,6 +701,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 79,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -634,6 +732,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 79,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -663,6 +764,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 79,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -691,6 +795,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 69,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -719,6 +826,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 69,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -747,6 +857,9 @@
       "searchIntent": "",
       "healthStatus": "ok",
       "healthNote": "YouTube oEmbed ok",
+      "stageId": "review",
+      "stageLabel": "영상 검수",
+      "nextStep": "영상은 살아 있으므로 한국어 해설과 연결할 내부 페이지를 정합니다.",
       "score": 69,
       "publishFormat": "학습 프로그램",
       "target": "/programs/"
@@ -772,6 +885,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "",
+      "stageId": "watch",
+      "stageLabel": "관찰",
+      "nextStep": "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다.",
       "score": 68,
       "publishFormat": "일간 브리프",
       "target": "/briefs/"
@@ -797,6 +913,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "",
+      "stageId": "watch",
+      "stageLabel": "관찰",
+      "nextStep": "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다.",
       "score": 68,
       "publishFormat": "일간 브리프",
       "target": "/briefs/"
@@ -822,6 +941,9 @@
       "searchIntent": "",
       "healthStatus": "watch",
       "healthNote": "",
+      "stageId": "watch",
+      "stageLabel": "관찰",
+      "nextStep": "반복 신호가 쌓이면 브리프 후보로 올리고, 단발 신호면 watchlist에 남깁니다.",
       "score": 68,
       "publishFormat": "일간 브리프",
       "target": "/briefs/"
