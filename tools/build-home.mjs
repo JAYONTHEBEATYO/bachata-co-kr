@@ -10,6 +10,7 @@ const articlesPath = resolve(root, "data/generated/article-index.json");
 const eventsPath = resolve(root, "data/generated/event-index.json");
 const latestBriefPath = resolve(root, "data/generated/latest-brief.json");
 const sourceHealthPath = resolve(root, "data/generated/source-health.json");
+const sceneSignalsPath = resolve(root, "data/generated/scene-signals.json");
 const outputPath = resolve(root, "data/generated/home-index.json");
 
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
@@ -23,6 +24,12 @@ const escapeHtml = (value = "") => String(value)
 const findProgram = (programs, id) => programs.find((item) => item.id === id);
 const findArticle = (articles, slug) => articles.find((item) => item.slug === slug || item.url?.endsWith(`/${slug}.html`));
 const youtubeThumb = (videoId) => videoId ? `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg` : "";
+const videoEmbedUrl = (videoId) => `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
+
+const shorten = (value = "", max = 76) => {
+  const text = String(value).replace(/\s+/g, " ").trim();
+  return text.length > max ? `${text.slice(0, max - 1)}…` : text;
+};
 
 const nextEvent = (events, today) => {
   const upcoming = events
@@ -87,6 +94,55 @@ const renderCard = (card) => `<a class="rail-card${card.featured ? " featured" :
             <em>${escapeHtml(card.meta)}</em>
           </a>`;
 
+const selectHeroVideo = (sceneSignals) => {
+  const topicPriority = new Map([
+    ["korea-scene", 18],
+    ["bachata-influence", 14],
+    ["bachazouk", 10],
+    ["global-dancers", 8],
+    ["gear-market", 2]
+  ]);
+
+  const candidates = (sceneSignals?.topics || [])
+    .filter((topic) => topic.id !== "editorial-desk")
+    .flatMap((topic) => (topic.candidates || [])
+      .map((candidate) => {
+        const videoId = candidate.videoId || candidate.id;
+        return {
+          id: videoId,
+          title: candidate.title || "Bachata video",
+          sourceUrl: candidate.sourceUrl || `https://www.youtube.com/watch?v=${videoId}`,
+          topicId: topic.id,
+          topicLabel: topic.label,
+          score: (candidate.score || 0) + (topicPriority.get(topic.id) || 0),
+          hasEmbed: Boolean(candidate.embedUrl && /^[A-Za-z0-9_-]{11}$/.test(videoId || ""))
+        };
+      })
+      .filter((candidate) => candidate.hasEmbed))
+    .sort((a, b) => b.score - a.score);
+
+  return candidates[0] || {
+    id: "sUy5L7x5pyE",
+    title: "Bachata Influence Tutorial | Melvin & Gatica",
+    sourceUrl: "https://www.youtube.com/watch?v=sUy5L7x5pyE",
+    topicId: "bachata-influence",
+    topicLabel: "Bachata Influence",
+    score: 0
+  };
+};
+
+const renderHeroVideo = (heroVideo) => `<!-- hero-video:start -->
+          <div class="hero-media">
+            <div class="hero-media-frame">
+              <iframe loading="eager" src="${escapeHtml(videoEmbedUrl(heroVideo.id))}" title="${escapeHtml(heroVideo.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="hero-media-caption">
+              <span>오늘의 영상 · ${escapeHtml(heroVideo.topicLabel)}</span>
+              <a href="${escapeHtml(heroVideo.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(shorten(heroVideo.title))}</a>
+            </div>
+          </div>
+          <!-- hero-video:end -->`;
+
 const renderShelf = (config, cards, latestBrief, sourceHealth) => {
   const broken = sourceHealth?.summary?.broken || 0;
   const healthText = sourceHealth?.summary ? (broken ? `출처 ${broken}개 검수 중` : "출처 점검 완료") : "출처 확인 중";
@@ -108,13 +164,14 @@ const renderShelf = (config, cards, latestBrief, sourceHealth) => {
 };
 
 const main = async () => {
-  const [config, programIndex, articleIndex, eventIndex, latestBrief, sourceHealth] = await Promise.all([
+  const [config, programIndex, articleIndex, eventIndex, latestBrief, sourceHealth, sceneSignals] = await Promise.all([
     readJson(dataPath),
     readJson(programsPath),
     readJson(articlesPath),
     readJson(eventsPath),
     readJson(latestBriefPath),
-    readJson(sourceHealthPath)
+    readJson(sourceHealthPath),
+    readJson(sceneSignalsPath)
   ]);
 
   const today = latestBrief.generationDate || new Date().toISOString().slice(0, 10);
@@ -127,10 +184,16 @@ const main = async () => {
     today
   };
   const cards = config.cards.map((card) => resolveCard(card, context));
+  const heroVideo = selectHeroVideo(sceneSignals);
   const shelf = renderShelf(config, cards, latestBrief, sourceHealth);
   const html = await readFile(indexPath, "utf8");
-  const nextHtml = html.replace(/<!-- home-rail:start -->[\s\S]*?<!-- home-rail:end -->/, shelf);
-  if (nextHtml === html && !html.includes("<!-- home-rail:start -->")) {
+  const withHero = html.replace(/<!-- hero-video:start -->[\s\S]*?<!-- hero-video:end -->/, renderHeroVideo(heroVideo));
+  if (withHero === html && !html.includes("<!-- hero-video:start -->")) {
+    throw new Error("hero video markers not found in index.html");
+  }
+
+  const nextHtml = withHero.replace(/<!-- home-rail:start -->[\s\S]*?<!-- home-rail:end -->/, shelf);
+  if (nextHtml === withHero && !withHero.includes("<!-- home-rail:start -->")) {
     throw new Error("home rail markers not found in index.html");
   }
 
@@ -145,6 +208,13 @@ const main = async () => {
       generationDate: latestBrief.generationDate
     },
     sourceHealth: sourceHealth.summary,
+    heroVideo: {
+      title: heroVideo.title,
+      topic: heroVideo.topicLabel,
+      sourceUrl: heroVideo.sourceUrl,
+      videoId: heroVideo.id,
+      score: heroVideo.score
+    },
     cards: cards.map((card) => ({
       label: card.label,
       title: card.title,

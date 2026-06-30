@@ -211,13 +211,20 @@
 
       .hero-media-caption {
         display: flex;
+        align-items: center;
         justify-content: space-between;
+        flex-wrap: wrap;
         gap: 14px;
         padding: 14px 16px;
         border-top: 1px solid rgba(255, 255, 255, 0.12);
         color: rgba(255, 249, 239, 0.76);
         font-size: 13px;
         font-weight: 800;
+      }
+
+      .hero-media-caption a {
+        color: var(--ink);
+        overflow-wrap: anywhere;
       }
 
       .hero-panel {
@@ -1412,6 +1419,7 @@
         }
 
         .hero-media-caption span,
+        .hero-media-caption a,
         .hero-copy {
           overflow-wrap: anywhere;
         }
@@ -1823,15 +1831,17 @@
     <main id="main">
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-inner">
+          <!-- hero-video:start -->
           <div class="hero-media">
             <div class="hero-media-frame">
-              <iframe loading="eager" src="https://www.youtube-nocookie.com/embed/sUy5L7x5pyE" title="Bachata Influence Tutorial by Melvin and Gatica" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe loading="eager" src="https://www.youtube-nocookie.com/embed/nrJM-arshvE" title="바차타소셜 | 그레이 &amp; 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="hero-media-caption">
-              <span>오늘의 영상</span>
-              <span>Melvin & Gatica · Bachata Influence</span>
+              <span>오늘의 영상 · Korea Scene</span>
+              <a href="https://www.youtube.com/watch?v=nrJM-arshvE" target="_blank" rel="noreferrer">바차타소셜 | 그레이 &amp; 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24</a>
             </div>
           </div>
+          <!-- hero-video:end -->
           <div class="hero-panel">
             <p class="eyebrow">Bachata Korea Magazine</p>
             <h1 id="hero-title">한국 바차타씬을 영상으로 먼저 봅니다</h1>

@@ -130,6 +130,17 @@ const verifySocialIntake = async () => {
   return summary;
 };
 
+const verifyHomeHero = async () => {
+  const home = await readText("index.html");
+  const homeIndex = await readJson("data/generated/home-index.json");
+  const hero = homeIndex.heroVideo || {};
+  assert(hero.videoId, "Home index is missing a hero video", homeIndex);
+  assert(/^[A-Za-z0-9_-]{11}$/.test(hero.videoId), "Home hero videoId does not look like a YouTube video id", hero);
+  assert(home.includes(`youtube-nocookie.com/embed/${hero.videoId}`), "Homepage does not render the generated hero video", hero);
+  assert(home.includes("<!-- hero-video:start -->") && home.includes("<!-- hero-video:end -->"), "Homepage hero markers are missing");
+  return hero;
+};
+
 const verifyIndexesAndSitemap = async () => {
   const sitemap = await readText("sitemap.xml");
   const articleIndex = await readJson("data/generated/article-index.json");
@@ -170,17 +181,19 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, indexCounts, scannedFiles] = await Promise.all([
+  const [sourceHealth, socialIntake, indexCounts, scannedFiles, homeHero] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
     verifyIndexesAndSitemap(),
-    verifyMojibake()
+    verifyMojibake(),
+    verifyHomeHero()
   ]);
 
   const report = {
     ok: true,
     scannedFiles,
     indexCounts,
+    homeHero,
     sourceHealth,
     socialIntake
   };
