@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T15:20:37.055Z",
+  "generatedAt": "2026-06-30T15:40:10.907Z",
   "updatedAt": "2026-07-01",
   "latestBrief": {
     "url": "/briefs/2026-07-01.html",
@@ -58,6 +58,36 @@
       "metric": "open"
     }
   ],
+  "editorialDeck": {
+    "title": "영상에서 시작해 스타일, 사람, 한국씬으로 이어지는 홈",
+    "itemCount": 4,
+    "items": [
+      {
+        "label": "Watch",
+        "title": "오늘 볼 영상",
+        "url": "/briefs/",
+        "meta": "daily brief"
+      },
+      {
+        "label": "Learn",
+        "title": "스타일별 코어 콘텐츠",
+        "url": "/styles/",
+        "meta": "5 style hubs"
+      },
+      {
+        "label": "Follow",
+        "title": "댄서와 팀 아카이브",
+        "url": "/profiles/",
+        "meta": "16 profiles"
+      },
+      {
+        "label": "Scene",
+        "title": "한국 바차타 레이더",
+        "url": "/korea-scene/",
+        "meta": "Korea map"
+      }
+    ]
+  },
   "cards": [
     {
       "label": "Core",

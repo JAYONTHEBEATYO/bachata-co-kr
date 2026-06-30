@@ -566,6 +566,94 @@
         color: rgba(255, 249, 239, 0.58);
       }
 
+      .editorial-deck {
+        padding: 54px 0 66px;
+        background: #f4efe7;
+        color: #17120b;
+        border-bottom: 1px solid rgba(23, 18, 11, 0.1);
+      }
+
+      .deck-inner {
+        width: min(1180px, calc(100% - 36px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 0.82fr) minmax(460px, 1.18fr);
+        gap: clamp(24px, 4vw, 52px);
+        align-items: end;
+      }
+
+      .deck-head h2 {
+        max-width: 680px;
+        font-size: clamp(34px, 5vw, 68px);
+        line-height: 1.02;
+        letter-spacing: 0;
+        word-break: keep-all;
+      }
+
+      .deck-head p:last-child {
+        max-width: 610px;
+        margin-top: 18px;
+        color: rgba(23, 18, 11, 0.68);
+        font-size: 17px;
+        line-height: 1.76;
+      }
+
+      .deck-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .deck-card {
+        min-height: 212px;
+        display: grid;
+        align-content: space-between;
+        padding: 18px;
+        border: 1px solid rgba(23, 18, 11, 0.13);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.62);
+        transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+      }
+
+      .deck-card:hover,
+      .deck-card:focus-visible {
+        transform: translateY(-2px);
+        border-color: rgba(143, 36, 60, 0.36);
+        background: #fff9ef;
+        outline: none;
+      }
+
+      .deck-card span,
+      .deck-card em {
+        color: var(--wine);
+        font-size: 11px;
+        font-style: normal;
+        font-weight: 950;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .deck-card strong {
+        display: block;
+        margin-top: 14px;
+        font-family: var(--font-display);
+        font-size: clamp(24px, 3vw, 34px);
+        line-height: 1.06;
+        letter-spacing: 0;
+        word-break: keep-all;
+      }
+
+      .deck-card p {
+        margin-top: 12px;
+        color: rgba(23, 18, 11, 0.66);
+        line-height: 1.62;
+      }
+
+      .deck-card em {
+        margin-top: 22px;
+        color: rgba(23, 18, 11, 0.48);
+      }
+
       section {
         scroll-margin-top: 86px;
       }
@@ -1495,6 +1583,14 @@
           grid-template-columns: 1fr;
         }
 
+        .deck-inner {
+          grid-template-columns: 1fr;
+        }
+
+        .deck-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
         .shelf-head {
           display: grid;
         }
@@ -1530,6 +1626,7 @@
         .wrap,
         .nav,
         .hero-inner,
+        .deck-inner,
         .footer-grid {
           width: min(100% - 28px, 1180px);
         }
@@ -1590,6 +1687,7 @@
 
         .hero-meta,
         .fundamentals,
+        .deck-grid,
         .topic-wall,
         .signal-list li,
         .search-map {
@@ -1915,7 +2013,7 @@
           <div class="hero-panel">
             <p class="eyebrow">Bachata Korea Watchlist</p>
             <h1 id="hero-title">바차타, 먼저 보고 깊게 읽기</h1>
-            <p class="hero-copy">오늘 볼 영상 하나에서 시작해 센슈얼·도미니칸·Influence·한국 소셜까지 맥락을 이어갑니다. 공개 영상과 확인 가능한 링크만 남기고, 문장은 직접 씁니다.</p>
+            <p class="hero-copy">오늘 볼 영상 하나에서 시작해 센슈얼·도미니칸·Influence·한국 소셜까지 맥락을 이어갑니다. 바차타를 처음 검색한 사람도, 이미 소셜을 다니는 사람도 바로 다음 콘텐츠로 넘어갈 수 있게 정리합니다.</p>
             <div class="hero-actions">
               <a class="button primary" href="/briefs/">오늘 볼 영상</a>
               <a class="button" href="/styles/">스타일별 보기</a>
@@ -2030,6 +2128,44 @@
         </div>
       </section>
       <!-- home-rail:end -->
+
+      <!-- editorial-deck:start -->
+      <section class="editorial-deck" aria-labelledby="editorial-deck-title">
+        <div class="deck-inner">
+          <div class="deck-head">
+            <p class="eyebrow">Editorial Deck</p>
+            <h2 id="editorial-deck-title">영상에서 시작해 스타일, 사람, 한국씬으로 이어지는 홈</h2>
+            <p>바차타 코리아의 첫 화면은 긴 설명보다 바로 볼 수 있는 영상과 읽을 경로를 먼저 보여줍니다. 오늘의 브리프, 센슈얼·도미니칸 코어 가이드, 글로벌 댄서, 한국 소셜 소식을 한 화면에서 고를 수 있게 정리합니다.</p>
+          </div>
+          <div class="deck-grid">
+            <a class="deck-card" href="/briefs/">
+          <span>Watch</span>
+          <strong>오늘 볼 영상</strong>
+          <p>검증된 YouTube 임베드와 최신 브리프를 먼저 보고, 관련 기사와 프로필로 이어갑니다.</p>
+          <em>daily brief</em>
+        </a>
+            <a class="deck-card" href="/styles/">
+          <span>Learn</span>
+          <strong>스타일별 코어 콘텐츠</strong>
+          <p>센슈얼 16 펀더멘털, 도미니칸 리듬, Bachata Influence, Bachazouk를 한 번에 탐색합니다.</p>
+          <em>5 style hubs</em>
+        </a>
+            <a class="deck-card" href="/profiles/">
+          <span>Follow</span>
+          <strong>댄서와 팀 아카이브</strong>
+          <p>Melvin &amp; Gatica, Korke &amp; Judith, Emilien &amp; Tehina, Gray &amp; Loren 같은 이름을 관찰 포인트로 묶습니다.</p>
+          <em>16 profiles</em>
+        </a>
+            <a class="deck-card" href="/korea-scene/">
+          <span>Scene</span>
+          <strong>한국 바차타 레이더</strong>
+          <p>행사, 내한, 동호회, 장소, 양도·구인 제보까지 한국 독자가 바로 쓸 수 있는 소식으로 정리합니다.</p>
+          <em>Korea map</em>
+        </a>
+          </div>
+        </div>
+      </section>
+      <!-- editorial-deck:end -->
 
       <div class="ticker" aria-hidden="true">
         <div class="ticker-track">

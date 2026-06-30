@@ -3,6 +3,41 @@
   "eyebrow": "Watch Next",
   "title": "다음으로 볼 콘텐츠",
   "intro": "영상 하나를 고르면 바로 읽을거리와 한국씬 맥락으로 이어집니다.",
+  "editorialDeck": {
+    "eyebrow": "Editorial Deck",
+    "title": "영상에서 시작해 스타일, 사람, 한국씬으로 이어지는 홈",
+    "intro": "바차타 코리아의 첫 화면은 긴 설명보다 바로 볼 수 있는 영상과 읽을 경로를 먼저 보여줍니다. 오늘의 브리프, 센슈얼·도미니칸 코어 가이드, 글로벌 댄서, 한국 소셜 소식을 한 화면에서 고를 수 있게 정리합니다.",
+    "items": [
+      {
+        "label": "Watch",
+        "title": "오늘 볼 영상",
+        "description": "검증된 YouTube 임베드와 최신 브리프를 먼저 보고, 관련 기사와 프로필로 이어갑니다.",
+        "href": "/briefs/",
+        "meta": "daily brief"
+      },
+      {
+        "label": "Learn",
+        "title": "스타일별 코어 콘텐츠",
+        "description": "센슈얼 16 펀더멘털, 도미니칸 리듬, Bachata Influence, Bachazouk를 한 번에 탐색합니다.",
+        "href": "/styles/",
+        "meta": "5 style hubs"
+      },
+      {
+        "label": "Follow",
+        "title": "댄서와 팀 아카이브",
+        "description": "Melvin & Gatica, Korke & Judith, Emilien & Tehina, Gray & Loren 같은 이름을 관찰 포인트로 묶습니다.",
+        "href": "/profiles/",
+        "meta": "16 profiles"
+      },
+      {
+        "label": "Scene",
+        "title": "한국 바차타 레이더",
+        "description": "행사, 내한, 동호회, 장소, 양도·구인 제보까지 한국 독자가 바로 쓸 수 있는 소식으로 정리합니다.",
+        "href": "/korea-scene/",
+        "meta": "Korea map"
+      }
+    ]
+  },
   "channels": [
     {
       "label": "Styles",

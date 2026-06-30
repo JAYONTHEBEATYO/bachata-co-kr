@@ -177,10 +177,15 @@ const verifyHomeHero = async () => {
   assert(home.includes(`youtube-nocookie.com/embed/${hero.videoId}`), "Homepage does not render the generated hero video", hero);
   assert(home.includes("<!-- hero-video:start -->") && home.includes("<!-- hero-video:end -->"), "Homepage hero markers are missing");
   assert(home.includes("<!-- home-channels:start -->") && home.includes("<!-- home-channels:end -->"), "Homepage channel markers are missing");
+  assert(home.includes("<!-- editorial-deck:start -->") && home.includes("<!-- editorial-deck:end -->"), "Homepage editorial deck markers are missing");
   const channels = homeIndex.channels || [];
   assert(channels.length >= 6, "Homepage should expose the main content channels", { channels: channels.length });
   const missingChannels = channels.filter((channel) => !channel.url || !home.includes(`href="${channel.url}"`));
   assert(missingChannels.length === 0, "Homepage channel links are not rendered", { missingChannels });
+  const deck = homeIndex.editorialDeck || {};
+  assert((deck.itemCount || 0) >= 4, "Homepage editorial deck should expose at least four entry points", deck);
+  const missingDeckLinks = (deck.items || []).filter((item) => !item.url || !home.includes(`href="${item.url}"`));
+  assert(missingDeckLinks.length === 0, "Homepage editorial deck links are not rendered", { missingDeckLinks });
   const iframeCount = (home.match(/<iframe\b/g) || []).length;
   const loaderCount = (home.match(/class="video-loader"/g) || []).length;
   assert(iframeCount === 1, "Homepage should load only the hero iframe before interaction", { iframeCount });
@@ -188,6 +193,7 @@ const verifyHomeHero = async () => {
   return {
     ...hero,
     channelCount: channels.length,
+    editorialDeckItems: deck.itemCount,
     iframeCount,
     loaderCount
   };

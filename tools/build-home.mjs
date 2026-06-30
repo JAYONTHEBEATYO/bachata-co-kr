@@ -116,6 +116,35 @@ const renderChannels = (config) => `<!-- home-channels:start -->
       </section>
       <!-- home-channels:end -->`;
 
+const renderDeckItem = (item) => `<a class="deck-card" href="${escapeHtml(item.href)}">
+          <span>${escapeHtml(item.label)}</span>
+          <strong>${escapeHtml(item.title)}</strong>
+          <p>${escapeHtml(item.description)}</p>
+          <em>${escapeHtml(item.meta)}</em>
+        </a>`;
+
+const renderEditorialDeck = (config) => {
+  const deck = config.editorialDeck;
+  if (!deck?.items?.length) {
+    return "";
+  }
+
+  return `<!-- editorial-deck:start -->
+      <section class="editorial-deck" aria-labelledby="editorial-deck-title">
+        <div class="deck-inner">
+          <div class="deck-head">
+            <p class="eyebrow">${escapeHtml(deck.eyebrow)}</p>
+            <h2 id="editorial-deck-title">${escapeHtml(deck.title)}</h2>
+            <p>${escapeHtml(deck.intro)}</p>
+          </div>
+          <div class="deck-grid">
+            ${deck.items.map(renderDeckItem).join("\n            ")}
+          </div>
+        </div>
+      </section>
+      <!-- editorial-deck:end -->`;
+};
+
 const selectHeroVideo = (sceneSignals) => {
   const topicPriority = new Map([
     ["korea-scene", 18],
@@ -207,6 +236,7 @@ const main = async () => {
   const heroVideo = selectHeroVideo(sceneSignals);
   const channels = renderChannels(config);
   const shelf = renderShelf(config, cards, latestBrief);
+  const editorialDeck = renderEditorialDeck(config);
   const html = await readFile(indexPath, "utf8");
   const withHero = html.replace(/<!-- hero-video:start -->[\s\S]*?<!-- hero-video:end -->/, renderHeroVideo(heroVideo));
   if (withHero === html && !html.includes("<!-- hero-video:start -->")) {
@@ -225,7 +255,14 @@ const main = async () => {
     throw new Error("home rail markers not found in index.html");
   }
 
-  await writeFile(indexPath, nextHtml, "utf8");
+  const withEditorialDeck = nextHtml.includes("<!-- editorial-deck:start -->")
+    ? nextHtml.replace(/<!-- editorial-deck:start -->[\s\S]*?<!-- editorial-deck:end -->/, editorialDeck)
+    : nextHtml.replace(/(<!-- home-rail:end -->)/, `$1\n\n      ${editorialDeck}`);
+  if (editorialDeck && withEditorialDeck === nextHtml && !nextHtml.includes("<!-- editorial-deck:start -->")) {
+    throw new Error("editorial deck insertion point not found in index.html");
+  }
+
+  await writeFile(indexPath, withEditorialDeck, "utf8");
   await mkdir(dirname(outputPath), { recursive: true });
   await writeFile(outputPath, `${JSON.stringify({
     generatedAt: new Date().toISOString(),
@@ -249,6 +286,16 @@ const main = async () => {
       url: channel.href,
       metric: channel.metric
     })),
+    editorialDeck: config.editorialDeck ? {
+      title: config.editorialDeck.title,
+      itemCount: config.editorialDeck.items?.length || 0,
+      items: (config.editorialDeck.items || []).map((item) => ({
+        label: item.label,
+        title: item.title,
+        url: item.href,
+        meta: item.meta
+      }))
+    } : null,
     cards: cards.map((card) => ({
       label: card.label,
       title: card.title,
