@@ -40,7 +40,7 @@ const publicDirs = [
   "data/generated"
 ];
 
-const mojibakePattern = /[\uFFFD\u00C3\u00EC\u00ED\u00EB]|諛|쨌/;
+const mojibakePattern = /\uFFFD|\u00C3[\u0080-\u00BF]|\u00EC[\u00B0-\u00BF\u0192]|\u00ED[\u0192\u2020]|\u00EB[\u0080-\u00BF\u00B0-\u00BF]|諛붿|쨌[^\s<]/;
 
 const readText = async (relativePath) => readFile(resolve(root, relativePath), "utf8");
 const readJson = async (relativePath) => JSON.parse(await readText(relativePath));

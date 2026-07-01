@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-06-30T22:52:27.711Z",
+  "generatedAt": "2026-07-01T00:50:09.761Z",
   "updatedAt": "2026-07-01",
   "latestBrief": {
     "url": "/briefs/2026-07-01.html",
-    "candidateCount": 39,
+    "candidateCount": 50,
     "generationDate": "2026-07-01"
   },
   "sourceHealth": {
-    "total": 170,
-    "ok": 149,
+    "total": 232,
+    "ok": 211,
     "watch": 21,
     "warn": 0,
     "broken": 0
@@ -37,7 +37,7 @@
       "label": "댄서·팀",
       "title": "댄서와 팀",
       "url": "/profiles/",
-      "metric": "프로필 16개"
+      "metric": "프로필 39개"
     },
     {
       "label": "국내 소식",
@@ -78,7 +78,7 @@
         "label": "사람",
         "title": "댄서와 팀",
         "url": "/profiles/",
-        "meta": "프로필 16개"
+        "meta": "프로필 39개"
       },
       {
         "label": "국내 소식",
@@ -90,7 +90,7 @@
   },
   "cards": [
     {
-      "label": "Core",
+      "label": "핵심",
       "title": "센슈얼 16 펀더멘털",
       "url": "/programs/sensual-fundamentals.html",
       "meta": "4개 영상 · 16개 노트",
@@ -98,7 +98,7 @@
       "featured": true
     },
     {
-      "label": "Rhythm",
+      "label": "리듬",
       "title": "도미니칸 풋워크",
       "url": "/programs/dominican-rhythm.html",
       "meta": "입문 루트",
@@ -106,7 +106,7 @@
       "featured": false
     },
     {
-      "label": "Trend",
+      "label": "흐름",
       "title": "Bachata Influence",
       "url": "/articles/bachata-influence-melvin-gatica.html",
       "meta": "트렌드 기사",
@@ -114,7 +114,7 @@
       "featured": false
     },
     {
-      "label": "Scene",
+      "label": "국내",
       "title": "이번 달 한국 바차타",
       "url": "/events/k-sensual-summer-2026.html",
       "meta": "2026-07-09 · 제주",

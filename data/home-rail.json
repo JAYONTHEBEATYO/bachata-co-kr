@@ -1,6 +1,6 @@
 {
   "updatedAt": "2026-07-01",
-  "eyebrow": "Watch Next",
+  "eyebrow": "다음 볼거리",
   "title": "다음으로 볼 콘텐츠",
   "intro": "영상 하나를 고르면 바로 읽을거리와 국내 소식으로 이어집니다.",
   "editorialDeck": {
@@ -25,9 +25,9 @@
       {
         "label": "사람",
         "title": "댄서와 팀",
-        "description": "Melvin & Gatica, Korke & Judith, Emilien & Tehina, Gray & Loren의 대표 영상과 국내 연결 맥락을 함께 봅니다.",
+        "description": "Daniel & Desiree, Victor & Alba 같은 해외 레퍼런스부터 에단 & 로렌, 소라 & 달콩, 원궁 & 요니 같은 국내 수업·공연 기록까지 함께 봅니다.",
         "href": "/profiles/",
-        "meta": "프로필 16개"
+        "meta": "프로필 39개"
       },
       {
         "label": "국내 소식",
@@ -56,9 +56,9 @@
     {
       "label": "댄서·팀",
       "title": "댄서와 팀",
-      "description": "Melvin & Gatica, Korke & Judith부터 국내 팀까지 대표 영상과 읽을거리를 함께 묶었습니다.",
+      "description": "해외 댄서, 최근 내한 페어, 국내 강사·팀·장소를 공개 영상과 출처 링크 기준으로 정리했습니다.",
       "href": "/profiles/",
-      "metric": "프로필 16개"
+      "metric": "프로필 39개"
     },
     {
       "label": "국내 소식",
@@ -86,7 +86,7 @@
     {
       "kind": "program",
       "id": "sensual-fundamentals",
-      "label": "Core",
+      "label": "핵심",
       "title": "센슈얼 16 펀더멘털",
       "description": "Korke & Judith 기준 영상을 보며 웨이브, 축, 리드의 언어를 차분히 정리합니다.",
       "meta": "4개 영상 · 16개 노트",
@@ -95,7 +95,7 @@
     {
       "kind": "program",
       "id": "dominican-rhythm",
-      "label": "Rhythm",
+      "label": "리듬",
       "title": "도미니칸 풋워크",
       "description": "발을 많이 쓰기보다 기타와 봉고의 작은 악센트에 어떻게 답할지 봅니다.",
       "meta": "입문 루트"
@@ -103,7 +103,7 @@
     {
       "kind": "article",
       "slug": "bachata-influence-melvin-gatica",
-      "label": "Trend",
+      "label": "흐름",
       "title": "Bachata Influence",
       "videoId": "sUy5L7x5pyE",
       "description": "Melvin Gatica 계열이 왜 지금 한국 바차타 현장에서도 자주 언급되는지 읽습니다.",
@@ -111,7 +111,7 @@
     },
     {
       "kind": "next-event",
-      "label": "Scene",
+      "label": "국내",
       "title": "이번 달 한국 바차타",
       "description": "내한, 워크숍, 소셜, 팀 소식을 영상과 공식 출처 중심으로 묶었습니다.",
       "meta": "월간 소식"

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-30T22:52:27.572Z",
+  "generatedAt": "2026-07-01T00:46:30.578Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -30,46 +30,46 @@
           "videoId": "B7Wv3cqHrSU"
         },
         {
-          "label": "Profile",
+          "label": "프로필",
           "title": "Korke & Judith",
           "url": "/profiles/korke-judith.html",
           "score": 80,
           "videoId": "B7Wv3cqHrSU"
         },
         {
-          "label": "Profile",
-          "title": "Cristian & Gabriella",
-          "url": "/profiles/cristian-gabriella.html",
-          "score": 36,
-          "videoId": "CZEB8wdVXOc"
-        },
-        {
-          "label": "일간 브리핑",
-          "title": "#bachatasensual - 센슈얼 바차타 흐름",
-          "url": "/briefs/",
-          "score": 32,
-          "videoId": null
-        },
-        {
           "label": "학습 프로그램",
-          "title": "Andi & Silvia | Bachata | Just As I Am - Prince Royce Ft SpiffTv and Chris Brown [ Australia 2026 ]",
+          "title": "10 Basic Sensual moves in Bachata | Bachata Sensual for Beginners | by Marius&Elena",
           "url": "/programs/",
-          "score": 28,
-          "videoId": "FzOWJRxp9r0"
+          "score": 56,
+          "videoId": "CE0qLjDnzWY"
         },
         {
-          "label": "Event",
-          "title": "K-Sensual Summer 10th Anniversary",
-          "url": "/events/k-sensual-summer-2026.html",
-          "score": 28,
-          "videoId": "zQXNPwMqpdw"
+          "label": "프로필",
+          "title": "Daniel & Desiree",
+          "url": "/profiles/daniel-desiree.html",
+          "score": 44,
+          "videoId": "q-vygpVHufM"
         },
         {
-          "label": "Profile",
-          "title": "에버라틴",
-          "url": "/profiles/everlatin.html",
-          "score": 28,
-          "videoId": "BWzJvto5gD4"
+          "label": "프로필",
+          "title": "Cornel & Rithika",
+          "url": "/profiles/cornel-rithika.html",
+          "score": 44,
+          "videoId": "zyw3XBxxnoU"
+        },
+        {
+          "label": "프로필",
+          "title": "Azael & Sindi",
+          "url": "/profiles/azael-sindi.html",
+          "score": 44,
+          "videoId": "gOEQDCHyVPw"
+        },
+        {
+          "label": "프로필",
+          "title": "Pablo & Raquel",
+          "url": "/profiles/pablo-raquel.html",
+          "score": 44,
+          "videoId": "etPQUzdH3PA"
         }
       ]
     },
@@ -101,6 +101,20 @@
           "videoId": "xmvDKN5cwT0"
         },
         {
+          "label": "프로필",
+          "title": "고니",
+          "url": "/profiles/goni.html",
+          "score": 72,
+          "videoId": "f7xAkIXFFes"
+        },
+        {
+          "label": "프로필",
+          "title": "Ronald & Alba",
+          "url": "/profiles/ronald-alba.html",
+          "score": 56,
+          "videoId": "p_pU5sSRSPA"
+        },
+        {
           "label": "Article",
           "title": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것",
           "url": "/articles/bachazouk-guide.html",
@@ -115,32 +129,18 @@
           "videoId": "OcGcZ0IY6s0"
         },
         {
-          "label": "Article",
-          "title": "바차타 댄스화, 브랜드보다 먼저 봐야 할 기준",
-          "url": "/articles/bachata-dance-shoes-korea.html",
-          "score": 24,
-          "videoId": "FtcPRwVIdNk"
+          "label": "프로필",
+          "title": "Ataca & La Alemana",
+          "url": "/profiles/ataca-la-alemana.html",
+          "score": 40,
+          "videoId": "eRQB32FvGYk"
         },
         {
-          "label": "댄스화·기어",
-          "title": "B1 · 파나미오·푸에고·On1·Pulse, 한국 바차타 댄스화 선택 기준",
-          "url": "/gear/",
-          "score": 16,
-          "videoId": "FtcPRwVIdNk"
-        },
-        {
-          "label": "인물·팀·장소 프로필",
-          "title": "A2 · 한국 바차타 팀·동호회·장소를 실제 입문 동선으로 정리",
-          "url": "/profiles/",
-          "score": 16,
-          "videoId": "nrJM-arshvE"
-        },
-        {
-          "label": "학습 프로그램",
-          "title": "A1 · 센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조",
-          "url": "/programs/sensual-fundamentals.html",
-          "score": 16,
-          "videoId": "B7Wv3cqHrSU"
+          "label": "프로필",
+          "title": "소라 & 달콩",
+          "url": "/profiles/sora-dalkong.html",
+          "score": 40,
+          "videoId": "6h3Io0i6H_M"
         }
       ]
     },
@@ -166,18 +166,25 @@
           "videoId": "OcGcZ0IY6s0"
         },
         {
+          "label": "프로필",
+          "title": "Ataca & La Alemana",
+          "url": "/profiles/ataca-la-alemana.html",
+          "score": 60,
+          "videoId": "eRQB32FvGYk"
+        },
+        {
+          "label": "프로필",
+          "title": "Klau & Ros",
+          "url": "/profiles/klau-ros.html",
+          "score": 32,
+          "videoId": "9YqwDG2_MqI"
+        },
+        {
           "label": "Article",
           "title": "도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다",
           "url": "/articles/dominican-bachata-rhythm-footwork-guide.html",
           "score": 32,
           "videoId": "xmvDKN5cwT0"
-        },
-        {
-          "label": "Profile",
-          "title": "Klau & Ros",
-          "url": "/profiles/klau-ros.html",
-          "score": 32,
-          "videoId": "9YqwDG2_MqI"
         },
         {
           "label": "Article",
@@ -195,24 +202,17 @@
         },
         {
           "label": "Article",
-          "title": "한국 바차타 Influence 계열은 어디서 볼 수 있을까",
+          "title": "한국 바차타 댄서와 팀은 어디서 볼 수 있을까",
           "url": "/articles/korea-bachata-influence-scene-map.html",
           "score": 24,
           "videoId": "nrJM-arshvE"
         },
         {
-          "label": "학습 프로그램",
-          "title": "바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304",
-          "url": "/programs/",
+          "label": "프로필",
+          "title": "Gray & Loren",
+          "url": "/profiles/gray-loren.html",
           "score": 16,
-          "videoId": "gDtOwUqeWKw"
-        },
-        {
-          "label": "Article",
-          "title": "Bachata Influence는 무엇이 다른가",
-          "url": "/articles/bachata-influence-melvin-gatica.html",
-          "score": 16,
-          "videoId": "sUy5L7x5pyE"
+          "videoId": "nrJM-arshvE"
         }
       ]
     },
@@ -259,14 +259,14 @@
           "videoId": "sUy5L7x5pyE"
         },
         {
-          "label": "Profile",
+          "label": "프로필",
           "title": "Emilio & Serap",
           "url": "/profiles/emilio-serap.html",
           "score": 112,
           "videoId": "h4hZt9akWWc"
         },
         {
-          "label": "Profile",
+          "label": "프로필",
           "title": "Melvin & Gatica",
           "url": "/profiles/melvin-gatica.html",
           "score": 108,
@@ -280,7 +280,7 @@
           "videoId": "zQjucjzuW3I"
         },
         {
-          "label": "Profile",
+          "label": "프로필",
           "title": "Emilien & Tehina",
           "url": "/profiles/emilien-tehina.html",
           "score": 76,
@@ -321,6 +321,20 @@
           "url": "/programs/",
           "score": 104,
           "videoId": "Qng3Wdmt3WE"
+        },
+        {
+          "label": "프로필",
+          "title": "저스틴 & 스칼렛",
+          "url": "/profiles/justin-scarlett.html",
+          "score": 96,
+          "videoId": "WKmmGUsij1U"
+        },
+        {
+          "label": "프로필",
+          "title": "소라 & 달콩",
+          "url": "/profiles/sora-dalkong.html",
+          "score": 16,
+          "videoId": "6h3Io0i6H_M"
         }
       ]
     }

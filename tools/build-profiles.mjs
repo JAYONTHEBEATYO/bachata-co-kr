@@ -181,9 +181,9 @@ const renderIndex = (data) => {
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">People & Scene Profiles</span>
+          <span class="eyebrow">댄서와 팀 프로필</span>
           <h1>바차타 댄서·팀·장소 프로필</h1>
-          <p>Melvin & Gatica, Emilien & Tehina, Gero & Migle, Luis & Andrea, Andi & Silvia부터 Gray & Loren, Cluny & Journey, 보니따, 에버라틴, 라틴씨엘로까지. 공개 영상과 공식 링크를 기준으로 소개합니다.</p>
+          <p>국내외 바차타 댄서, 팀, 장소를 공개 영상과 공식 링크 기준으로 정리합니다. 해외 레퍼런스와 최근 국내 수업·공연 기록을 함께 살피며, 이름만 나열하지 않고 각 팀에서 무엇을 보면 좋은지까지 설명합니다.</p>
           <div class="quick-nav">
             ${data.categories.map((category) => `<a href="#${escapeHtml(category.id)}">${escapeHtml(category.title)}</a>`).join("")}
           </div>
@@ -195,7 +195,7 @@ const renderIndex = (data) => {
       <section>
         <div class="section-head">
           <div>
-            <span class="eyebrow">Directory</span>
+            <span class="eyebrow">프로필 목록</span>
             <h2>영상과 공개 링크로 정리한 프로필</h2>
           </div>
           <p>홍보문을 복제하지 않고 영상·공식 링크·인스타그램 계정을 확인한 뒤 한국 독자가 볼 포인트를 붙입니다.</p>
@@ -279,7 +279,7 @@ const renderProfile = (data, profile) => {
         </article>
         <aside class="side-stack" aria-label="프로필 출처와 관련 링크">
           <section class="side-box">
-            <span class="tag">Profile</span>
+            <span class="tag">프로필</span>
             <h2>${escapeHtml(profile.location)}</h2>
             <span class="status">${escapeHtml(statusLabel(profile.status))}</span>
             <div class="tag-row" style="margin-top:14px">${profile.tags.map((tag) => `<span>${escapeHtml(tag)}</span>`).join("")}</div>

@@ -172,7 +172,7 @@ const buildRelatedContent = (guide, context) => {
 
   for (const profile of context.profiles) {
     addScored(makeRelatedItem({
-      label: "Profile",
+      label: "프로필",
       title: profile.title,
       description: profile.subtitle || profile.summary?.[0] || "",
       url: `/profiles/${profile.id}.html`,

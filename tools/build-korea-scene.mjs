@@ -39,8 +39,8 @@ const renderVideo = (video, title = "Korea bachata scene video") => {
 };
 
 const renderHeroPoster = (video = {}) => `<a class="hero-poster" href="${escapeHtml(videoWatchUrl(video))}" target="_blank" rel="noreferrer" aria-label="${escapeHtml(video.title || "한국 바차타 현장 영상 보기")}">
-          <span>Watch Scene Video</span>
-          <strong>${escapeHtml(video.title || "Korea Bachata Scene")}</strong>
+          <span>영상으로 보기</span>
+          <strong>${escapeHtml(video.title || "한국 바차타 영상")}</strong>
         </a>`;
 
 const isExternal = (url = "") => /^https?:\/\//.test(url);
@@ -81,14 +81,14 @@ const statusLabel = (status = "") => ({
 
 const profileToCard = (profile, health) => ({
   id: profile.id,
-  label: profile.category === "venues" ? "Venue" : "Profile",
+  label: profile.category === "venues" ? "장소" : "프로필",
   title: profile.title,
   description: profile.subtitle || profile.summary?.[0] || "",
   url: `/profiles/${profile.id}.html`,
   sourceUrl: profile.sourceLinks?.[0]?.url || "",
   videoId: profile.heroVideo?.id || "",
   tags: profile.tags || [],
-  location: profile.location || "Korea",
+  location: profile.location || "한국",
   health: statusFor({
     sourceUrl: profile.sourceLinks?.[0]?.url,
     videoId: profile.heroVideo?.id
@@ -97,14 +97,14 @@ const profileToCard = (profile, health) => ({
 
 const boardToCard = (entry, health) => ({
   id: entry.id,
-  label: "Board",
+  label: "게시판",
   title: entry.title,
   description: entry.description || entry.summary || "제보와 운영 보드로 이어지는 한국 바차타 커뮤니티 항목입니다.",
   url: `/community/${entry.category}.html`,
   sourceUrl: entry.sourceLinks?.[0]?.url || "",
   videoId: "",
   tags: entry.tags || [],
-  location: entry.location || "Korea",
+  location: entry.location || "한국",
   health: statusFor({ sourceUrl: entry.sourceLinks?.[0]?.url }, health)
 });
 
@@ -342,7 +342,7 @@ const renderPage = ({ config, lenses, summary, sourceHealth }) => {
         <div>
           <span class="eyebrow">국내 소식</span>
           <h1>${escapeHtml(config.title)}</h1>
-          <p>${escapeHtml(config.dek)} 흩어진 팀·장소·동호회·페스티벌 정보를 한 화면에 모아 한국 바차타 입문자가 바로 길을 찾게 합니다.</p>
+          <p>${escapeHtml(config.dek)} 흩어진 팀·장소·동호회·페스티벌 정보를 한 화면에 모아, 처음 찾는 사람도 어디서 배우고 어디로 가면 좋을지 한눈에 볼 수 있게 정리합니다.</p>
           <div class="quick-nav">
             ${lenses.map((lens) => `<a href="#${escapeHtml(lens.id)}">${escapeHtml(lens.label)}</a>`).join("")}
             <a href="/submit/">제보하기</a>

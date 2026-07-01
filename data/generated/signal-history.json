@@ -1,15 +1,15 @@
 {
-  "generatedAt": "2026-06-30T22:51:31.651Z",
+  "generatedAt": "2026-07-01T00:45:27.131Z",
   "generationDate": "2026-07-01",
   "summary": {
-    "totalSignals": 39,
+    "totalSignals": 50,
     "novelty": {
       "new": 0,
-      "returning": 0,
+      "returning": 11,
       "recurring": 39
     },
     "formats": {
-      "learning": 26,
+      "learning": 37,
       "gear": 2,
       "event": 3,
       "profile": 8
@@ -25,7 +25,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=fnv7eomg-_k": {
       "key": "youtube:https://www.youtube.com/watch?v=fnv7eomg-_k",
@@ -36,7 +36,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=lgrdzkvg2r8": {
       "key": "youtube:https://www.youtube.com/watch?v=lgrdzkvg2r8",
@@ -47,7 +47,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=h4hzt9akwwc": {
       "key": "youtube:https://www.youtube.com/watch?v=h4hzt9akwwc",
@@ -58,7 +58,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=2lygaotsk1y": {
       "key": "youtube:https://www.youtube.com/watch?v=2lygaotsk1y",
@@ -69,7 +69,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=qng3wdmt3we": {
       "key": "youtube:https://www.youtube.com/watch?v=qng3wdmt3we",
@@ -80,7 +80,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=5mx_xhwsil0": {
       "key": "youtube:https://www.youtube.com/watch?v=5mx_xhwsil0",
@@ -91,7 +91,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=j4cmxkdcmzi": {
       "key": "youtube:https://www.youtube.com/watch?v=j4cmxkdcmzi",
@@ -102,7 +102,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=l1vzrcpebuw": {
       "key": "youtube:https://www.youtube.com/watch?v=l1vzrcpebuw",
@@ -113,7 +113,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=fzowjrxp9r0": {
       "key": "youtube:https://www.youtube.com/watch?v=fzowjrxp9r0",
@@ -124,7 +124,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=czeb8wdvxoc": {
       "key": "youtube:https://www.youtube.com/watch?v=czeb8wdvxoc",
@@ -135,7 +135,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=9yqwdg2_mqi": {
       "key": "youtube:https://www.youtube.com/watch?v=9yqwdg2_mqi",
@@ -146,7 +146,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=fcat14yr0j4": {
       "key": "youtube:https://www.youtube.com/watch?v=fcat14yr0j4",
@@ -157,7 +157,73 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
+    },
+    "youtube:https://www.youtube.com/watch?v=q-vygpvhufm": {
+      "key": "youtube:https://www.youtube.com/watch?v=q-vygpvhufm",
+      "title": "Daniel y Desiree [LA NOCHE PERFECTA] @ Miami Bachata Paradise 2023 🌴",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=q-vygpVHufM",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
+    },
+    "youtube:https://www.youtube.com/watch?v=erqb32fvgyk": {
+      "key": "youtube:https://www.youtube.com/watch?v=erqb32fvgyk",
+      "title": "Xtreme Te Extrano ~ Original version © Ataca y Alemana",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=eRQB32FvGYk",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
+    },
+    "youtube:https://www.youtube.com/watch?v=upvnnia3uwu": {
+      "key": "youtube:https://www.youtube.com/watch?v=upvnnia3uwu",
+      "title": "Marco & Sara - Bachata Demo 📍Bachata Weekend Singapore 2024 | Sobredosis - Romeo Santos ft. Ozuna",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=UPvNNIa3UwU",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
+    },
+    "youtube:https://www.youtube.com/watch?v=zyw3xbxxnou": {
+      "key": "youtube:https://www.youtube.com/watch?v=zyw3xbxxnou",
+      "title": "Cornel & Rithika | Bachata Sensual ConRi Style | Te Espero - Prince Royce",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=zyw3XBxxnoU",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
+    },
+    "youtube:https://www.youtube.com/watch?v=ce0qljdnzwy": {
+      "key": "youtube:https://www.youtube.com/watch?v=ce0qljdnzwy",
+      "title": "10 Basic Sensual moves in Bachata | Bachata Sensual for Beginners | by Marius&Elena",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=CE0qLjDnzWY",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
+    },
+    "youtube:https://www.youtube.com/watch?v=av2yxlmibd0": {
+      "key": "youtube:https://www.youtube.com/watch?v=av2yxlmibd0",
+      "title": "빅터 & 알바 데모 소셜 바차타 Victor y Alba Bachata Demo Social - 강턴 2026.06.16",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=AV2YXlMIBd0",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
     },
     "youtube:https://www.youtube.com/watch?v=nrjm-arshve": {
       "key": "youtube:https://www.youtube.com/watch?v=nrjm-arshve",
@@ -168,7 +234,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=w_ucz9jkrfe": {
       "key": "youtube:https://www.youtube.com/watch?v=w_ucz9jkrfe",
@@ -179,7 +245,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=gdtowuqewkw": {
       "key": "youtube:https://www.youtube.com/watch?v=gdtowuqewkw",
@@ -190,7 +256,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=0yytf9nktfq": {
       "key": "youtube:https://www.youtube.com/watch?v=0yytf9nktfq",
@@ -201,7 +267,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=yi0i7phbi08": {
       "key": "youtube:https://www.youtube.com/watch?v=yi0i7phbi08",
@@ -212,7 +278,51 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
+    },
+    "youtube:https://www.youtube.com/watch?v=q9uzvv6afu8": {
+      "key": "youtube:https://www.youtube.com/watch?v=q9uzvv6afu8",
+      "title": "바차타 | 에로스 에단 & 로렌 바차타  한곡반 시즌11  bachata - 라틴 2026.06.13",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=Q9Uzvv6afU8",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
+    },
+    "youtube:https://www.youtube.com/watch?v=wkmmgusij1u": {
+      "key": "youtube:https://www.youtube.com/watch?v=wkmmgusij1u",
+      "title": "바차타공연 |  디모멘토 저스틴 By 스칼렛 Bachata  - 홍대클럽 보니따 2026.04.08",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=WKmmGUsij1U",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
+    },
+    "youtube:https://www.youtube.com/watch?v=pq7g9qihqyi": {
+      "key": "youtube:https://www.youtube.com/watch?v=pq7g9qihqyi",
+      "title": "바차타공연 | 바차타 한곡반 by 로건 & 비케이 Bachata - 보니따 2026.03.20",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=pQ7G9qiHQyI",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
+    },
+    "youtube:https://www.youtube.com/watch?v=l69gt8dj0gq": {
+      "key": "youtube:https://www.youtube.com/watch?v=l69gt8dj0gq",
+      "title": "바차타공연 | 그루포 에센시아 코리아  by 크리스 & 민, B틴 Marco y sara essencia 공연 Bachata - 라틴 2026.06.27",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=l69gt8dJ0gQ",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
     },
     "youtube:https://www.youtube.com/watch?v=xdbudsks-ds": {
       "key": "youtube:https://www.youtube.com/watch?v=xdbudsks-ds",
@@ -223,7 +333,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "youtube:https://www.youtube.com/watch?v=4bwmf3jnile": {
       "key": "youtube:https://www.youtube.com/watch?v=4bwmf3jnile",
@@ -234,7 +344,18 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
+    },
+    "youtube:https://www.youtube.com/watch?v=6h3io0i6h_m": {
+      "key": "youtube:https://www.youtube.com/watch?v=6h3io0i6h_m",
+      "title": "LATIN CIELO PRO 라틴씨엘로 프로 by 소라(Sora) y 달콩(Dalkong) Bachata Sensual Korea - 라틴 2026.06.06",
+      "type": "youtube",
+      "sourceUrl": "https://www.youtube.com/watch?v=6h3Io0i6H_M",
+      "relatedUrl": "",
+      "publishFormatId": "learning",
+      "firstSeenAt": "2026-07-01",
+      "lastSeenAt": "2026-07-01",
+      "seenCount": 2
     },
     "youtube:https://www.youtube.com/watch?v=ftcprwvidnk": {
       "key": "youtube:https://www.youtube.com/watch?v=ftcprwvidnk",
@@ -245,7 +366,7 @@
       "publishFormatId": "gear",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/ksensual_official/": {
       "key": "instagram-watch:https://www.instagram.com/ksensual_official/",
@@ -256,7 +377,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/seoulbachatafestival/": {
       "key": "instagram-watch:https://www.instagram.com/seoulbachatafestival/",
@@ -267,7 +388,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/gangnamlatinfestival/": {
       "key": "instagram-watch:https://www.instagram.com/gangnamlatinfestival/",
@@ -278,7 +399,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/latin_cielo/": {
       "key": "instagram-watch:https://www.instagram.com/latin_cielo/",
@@ -289,7 +410,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/clublatin_everlatin/": {
       "key": "instagram-watch:https://www.instagram.com/clublatin_everlatin/",
@@ -300,7 +421,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/jessica_latinclub_bonita/": {
       "key": "instagram-watch:https://www.instagram.com/jessica_latinclub_bonita/",
@@ -311,7 +432,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/lauren_bachatista/reels/": {
       "key": "instagram-watch:https://www.instagram.com/lauren_bachatista/reels/",
@@ -322,7 +443,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/lastdance_people/": {
       "key": "instagram-watch:https://www.instagram.com/lastdance_people/",
@@ -333,7 +454,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/melvin_gatica_bachata/": {
       "key": "instagram-watch:https://www.instagram.com/melvin_gatica_bachata/",
@@ -344,7 +465,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/bachata.influence/": {
       "key": "instagram-watch:https://www.instagram.com/bachata.influence/",
@@ -355,7 +476,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/emilio_serap_bachata/": {
       "key": "instagram-watch:https://www.instagram.com/emilio_serap_bachata/",
@@ -366,7 +487,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "instagram-watch:https://www.instagram.com/andiysilviabs/": {
       "key": "instagram-watch:https://www.instagram.com/andiysilviabs/",
@@ -377,7 +498,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "editorial-queue:/programs/sensual-fundamentals.html": {
       "key": "editorial-queue:/programs/sensual-fundamentals.html",
@@ -388,7 +509,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "editorial-queue:/programs/dominican-rhythm.html": {
       "key": "editorial-queue:/programs/dominican-rhythm.html",
@@ -399,7 +520,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "editorial-queue:/programs/influence-method.html": {
       "key": "editorial-queue:/programs/influence-method.html",
@@ -410,7 +531,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "editorial-queue:/profiles/": {
       "key": "editorial-queue:/profiles/",
@@ -421,7 +542,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "editorial-queue:/programs/bachazouk-safety.html": {
       "key": "editorial-queue:/programs/bachazouk-safety.html",
@@ -432,7 +553,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     },
     "editorial-queue:/gear/": {
       "key": "editorial-queue:/gear/",
@@ -443,7 +564,7 @@
       "publishFormatId": "gear",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-01",
-      "seenCount": 6
+      "seenCount": 8
     }
   }
 }

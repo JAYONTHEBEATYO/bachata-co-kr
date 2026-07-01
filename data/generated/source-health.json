@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-06-30T22:52:27.340Z",
+  "generatedAt": "2026-07-01T00:46:30.354Z",
   "generationDate": "2026-07-01",
   "summary": {
-    "total": 170,
-    "ok": 149,
+    "total": 232,
+    "ok": 211,
     "watch": 21,
     "warn": 0,
     "broken": 0
@@ -599,6 +599,20 @@
     },
     {
       "type": "external",
+      "url": "https://bchata.vercel.app/",
+      "label": "https://bchata.vercel.app/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.15"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
       "url": "https://bygatica.com/",
       "label": "https://bygatica.com/",
       "sources": [
@@ -635,6 +649,348 @@
         {
           "file": "data/articles.json",
           "path": "articles.5.sourceLinks.3.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/",
+      "label": "https://danceinfo.net/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.13"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.7.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/122",
+      "label": "https://danceinfo.net/lessons/122",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.18"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.27.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/136",
+      "label": "https://danceinfo.net/lessons/136",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.27"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.33.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/139",
+      "label": "https://danceinfo.net/lessons/139",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.19"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.27.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/145",
+      "label": "https://danceinfo.net/lessons/145",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.30"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.21.sourceLinks.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.36.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/152",
+      "label": "https://danceinfo.net/lessons/152",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.24"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.31.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/197",
+      "label": "https://danceinfo.net/lessons/197",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.26"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.32.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/204",
+      "label": "https://danceinfo.net/lessons/204",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.31"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.38.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/205",
+      "label": "https://danceinfo.net/lessons/205",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.29"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.21.sourceLinks.2.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.35.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/211",
+      "label": "https://danceinfo.net/lessons/211",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.25"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.32.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/216",
+      "label": "https://danceinfo.net/lessons/216",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.23"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.30.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/220",
+      "label": "https://danceinfo.net/lessons/220",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.30.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/224",
+      "label": "https://danceinfo.net/lessons/224",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.22"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.29.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/227",
+      "label": "https://danceinfo.net/lessons/227",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.21"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.29.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/228",
+      "label": "https://danceinfo.net/lessons/228",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.20"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.28.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/85",
+      "label": "https://danceinfo.net/lessons/85",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.17"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.26.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/86",
+      "label": "https://danceinfo.net/lessons/86",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.16"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.26.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/lessons/90",
+      "label": "https://danceinfo.net/lessons/90",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.28"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.34.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://danceinfo.net/sitemap.xml",
+      "label": "https://danceinfo.net/sitemap.xml",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.14"
         }
       ],
       "status": "ok",
@@ -881,8 +1237,16 @@
           "path": "topics.2.sources.13"
         },
         {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.18"
+        },
+        {
           "file": "data/profiles.json",
           "path": "profiles.9.sourceLinks.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.18.sourceLinks.0.url"
         },
         {
           "file": "data/articles.json",
@@ -1935,6 +2299,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.15.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.21.related.0.url"
         }
       ],
       "status": "ok",
@@ -1973,6 +2341,86 @@
         {
           "file": "data/submissions.json",
           "path": "templates.5.targetBoard"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/profiles/#global-dancers",
+      "label": "/profiles/#global-dancers",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.16.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.19.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.22.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.23.related.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/profiles/#korea-scene",
+      "label": "/profiles/#korea-scene",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.26.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.28.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.30.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.31.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.32.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.33.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.34.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.35.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.36.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.37.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.38.related.1.url"
         }
       ],
       "status": "ok",
@@ -2159,6 +2607,24 @@
         {
           "file": "data/social-radar.json",
           "path": "watchlists.1.accounts.0.relatedUrl"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.27.related.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/profiles/marco-sara.html",
+      "label": "/profiles/marco-sara.html",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.34.related.0.url"
         }
       ],
       "status": "ok",
@@ -2199,6 +2665,28 @@
         {
           "file": "data/social-radar.json",
           "path": "watchlists.2.accounts.6.relatedUrl"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.18.related.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "local file exists"
+    },
+    {
+      "type": "internal",
+      "url": "/profiles/victor-alba.html",
+      "label": "/profiles/victor-alba.html",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.35.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.36.related.0.url"
         }
       ],
       "status": "ok",
@@ -2217,6 +2705,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.9.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.20.related.1.url"
         }
       ],
       "status": "ok",
@@ -2401,6 +2893,10 @@
         {
           "file": "data/programs.json",
           "path": "programs.4.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.33.related.0.url"
         }
       ],
       "status": "ok",
@@ -2431,6 +2927,30 @@
         {
           "file": "data/style-guides.json",
           "path": "guides.2.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.17.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.22.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.27.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.29.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.30.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.38.related.0.url"
         }
       ],
       "status": "ok",
@@ -2491,6 +3011,10 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.8.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.17.related.0.url"
         }
       ],
       "status": "ok",
@@ -2573,11 +3097,107 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.9.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.16.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.18.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.19.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.20.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.21.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.23.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.24.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.25.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.26.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.28.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.29.related.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.31.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.32.related.1.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.37.related.1.url"
         }
       ],
       "status": "ok",
       "httpStatus": 200,
       "note": "local file exists"
+    },
+    {
+      "type": "youtube",
+      "videoId": "-39NjttCnLM",
+      "url": "https://www.youtube.com/watch?v=-39NjttCnLM",
+      "label": "https://www.youtube.com/watch?v=-39NjttCnLM",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.37"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.31.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.31.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 공연 류텐션 시즌2 by 어텐션,류지  Bachata - 라틴 2026.06.17",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "-fu1HDAXJaU",
+      "url": "https://www.youtube.com/watch?v=-fu1HDAXJaU",
+      "label": "https://www.youtube.com/watch?v=-fu1HDAXJaU",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.33.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Momento Perfecto (by. 저스틴 & 스칼렛)",
+      "note": "YouTube 영상 확인 완료"
     },
     {
       "type": "youtube",
@@ -2613,6 +3233,30 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Dani & Ember  BACHATA Social INFLUENCE 데니 &  엠버(라스트댄스) 바차타  - 보니따 2026.04.08",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "1CN-Ya3yP7Y",
+      "url": "https://www.youtube.com/watch?v=1CN-Ya3yP7Y",
+      "label": "https://www.youtube.com/watch?v=1CN-Ya3yP7Y",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.42"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.36.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.36.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "잭앤질 결선 3위 | 대우 y 드림 Bachata ( ft : Salvaje - JR) - 라틴 2025.02.02",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -2689,6 +3333,38 @@
     },
     {
       "type": "youtube",
+      "videoId": "6h3Io0i6H_M",
+      "url": "https://www.youtube.com/watch?v=6h3Io0i6H_M",
+      "label": "https://www.youtube.com/watch?v=6h3Io0i6H_M",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.33"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.27.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.27.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.watchlist.5.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.9.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "LATIN CIELO PRO 라틴씨엘로 프로 by 소라(Sora) y 달콩(Dalkong) Bachata Sensual Korea - 라틴 2026.06.06",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
       "videoId": "8SGd3za49B8",
       "url": "https://www.youtube.com/watch?v=8SGd3za49B8",
       "label": "Tap, Tap, Triple Step",
@@ -2705,6 +3381,46 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Bachata Footwork Tutorial - Tap, Tap, Triple Step - Bachata Dance Academy",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "8wrZPS8TdOA",
+      "url": "https://www.youtube.com/watch?v=8wrZPS8TdOA",
+      "label": "https://www.youtube.com/watch?v=8wrZPS8TdOA",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.43"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.37.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.37.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "인텐소 한곡반  by 원준 & 꽃라라In tensoBachata  - 라틴 2026.06.27",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "9QJN5y436xc",
+      "url": "https://www.youtube.com/watch?v=9QJN5y436xc",
+      "label": "https://www.youtube.com/watch?v=9QJN5y436xc",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.17.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Ataca y La Alemana Bachata: Tengo Una Necesidad - Grupo Extra",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -2737,6 +3453,38 @@
     },
     {
       "type": "youtube",
+      "videoId": "alvkU_1D6n0",
+      "url": "https://www.youtube.com/watch?v=alvkU_1D6n0",
+      "label": "https://www.youtube.com/watch?v=alvkU_1D6n0",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.34.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타공연 | 그루포 에센시아 코리아  by 크리스 & 민, A틴 Marco y sara essencia 공연 Bachata - 라틴 2026.06.27",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "AN4CvMGMfyU",
+      "url": "https://www.youtube.com/watch?v=AN4CvMGMfyU",
+      "label": "https://www.youtube.com/watch?v=AN4CvMGMfyU",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.24.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "SEÑORITA SENSUAL DANCE BY KIKE Y NAHIR  Love Bachata FRANCE  (Señorita DJ Tronky)",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
       "videoId": "ARGUYLPTD24",
       "url": "https://www.youtube.com/watch?v=ARGUYLPTD24",
       "label": "Hammerlock Pattern for Improver Moderna",
@@ -2753,6 +3501,46 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Learn Bachata, Tutorial 14: Hammerlock pattern (improver moderna)",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "AV2YXlMIBd0",
+      "url": "https://www.youtube.com/watch?v=AV2YXlMIBd0",
+      "label": "https://www.youtube.com/watch?v=AV2YXlMIBd0",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.22"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.21.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.21.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "빅터 & 알바 데모 소셜 바차타 Victor y Alba Bachata Demo Social - 강턴 2026.06.16",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "ayfHSGV6IA8",
+      "url": "https://www.youtube.com/watch?v=ayfHSGV6IA8",
+      "label": "https://www.youtube.com/watch?v=ayfHSGV6IA8",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.18.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Mickey Then X Jr - Por Que Te Niegas  / Marco y Sara BACHATA STYLE ARGENTINA SENSUAL EXPERIENCE 2023",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -2829,6 +3617,30 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "도미닉(에버라틴) & 우정(everlatin) 바차타 센슈얼, Sensual Bachata Social at 클럽 라살사 La Salsa",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "CE0qLjDnzWY",
+      "url": "https://www.youtube.com/watch?v=CE0qLjDnzWY",
+      "label": "https://www.youtube.com/watch?v=CE0qLjDnzWY",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.21"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.20.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.20.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "10 Basic Sensual moves in Bachata | Bachata Sensual for Beginners | by Marius&Elena",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -2937,6 +3749,134 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Underhanded - Easy Bachata Turn Pattern for Beginners (Demo)",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "ECsLwLZWX-0",
+      "url": "https://www.youtube.com/watch?v=ECsLwLZWX-0",
+      "label": "https://www.youtube.com/watch?v=ECsLwLZWX-0",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.28.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 소셜 | 와플(술꼬라손) y 세라 Waffle y Sarah Bachata Social - 라틴 2025.08.30",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "EiKr2963izw",
+      "url": "https://www.youtube.com/watch?v=EiKr2963izw",
+      "label": "https://www.youtube.com/watch?v=EiKr2963izw",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.36"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.30.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.30.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "센바리코 화요반 흑사탕 & 세라 바차타 공연  Bachata  - 라틴 2025.12.27",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "eRQB32FvGYk",
+      "url": "https://www.youtube.com/watch?v=eRQB32FvGYk",
+      "label": "https://www.youtube.com/watch?v=eRQB32FvGYk",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.17"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.17.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.17.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Xtreme Te Extrano ~ Original version © Ataca y Alemana",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "ETm-fpI7Wuc",
+      "url": "https://www.youtube.com/watch?v=ETm-fpI7Wuc",
+      "label": "https://www.youtube.com/watch?v=ETm-fpI7Wuc",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.36.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 엔수에뇨 by 대우 & 드림 A팀 Bachata - 라틴 2026.02.12",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "etPQUzdH3PA",
+      "url": "https://www.youtube.com/watch?v=etPQUzdH3PA",
+      "label": "https://www.youtube.com/watch?v=etPQUzdH3PA",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.26"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.25.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.25.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Pablo y Raquel - Dos de mi - JR & Mic / bachata workshop bailando en Madrid Esencia Festival 2024",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "f7xAkIXFFes",
+      "url": "https://www.youtube.com/watch?v=f7xAkIXFFes",
+      "label": "https://www.youtube.com/watch?v=f7xAkIXFFes",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.44"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.38.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.38.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "GoniyBella Bacahata Footwork 🎵 Mayinbito - Cerremos Ese Capítulo , 고니 & 벨라 바차타 풋웍",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -3161,6 +4101,46 @@
     },
     {
       "type": "youtube",
+      "videoId": "gl2o-65kTN8",
+      "url": "https://www.youtube.com/watch?v=gl2o-65kTN8",
+      "label": "https://www.youtube.com/watch?v=gl2o-65kTN8",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.22.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Ronald y Alba [El amor que perdimos - Prince Royce] @ Congreso Bachata Spain 2022",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "gOEQDCHyVPw",
+      "url": "https://www.youtube.com/watch?v=gOEQDCHyVPw",
+      "label": "https://www.youtube.com/watch?v=gOEQDCHyVPw",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.24"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.23.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.23.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Azael & Sindi bachata demo  @BtoBDanceFestivalofficial   29 sept - 1 oct 2023",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
       "videoId": "h4hZt9akWWc",
       "url": "https://www.youtube.com/watch?v=h4hZt9akWWc",
       "label": "https://www.youtube.com/watch?v=h4hZt9akWWc",
@@ -3189,6 +4169,22 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Emilio & Serap @ Let's dance together at Gang TURN 2026-05-19",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "hCMAFEkyibc",
+      "url": "https://www.youtube.com/watch?v=hCMAFEkyibc",
+      "label": "https://www.youtube.com/watch?v=hCMAFEkyibc",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.19.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Cornel and Rithika | Bachata Sensual | Conor Maynard | Elastic Heart | DJ Tronky Remix",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -3245,6 +4241,54 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "🔥 Bachata Sensual : Top 6 Mistakes and How to Fix Them 💃🕺🏻",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "hQ8irmphYPA",
+      "url": "https://www.youtube.com/watch?v=hQ8irmphYPA",
+      "label": "https://www.youtube.com/watch?v=hQ8irmphYPA",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.35"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.29.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.29.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.watchlist.6.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.10.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타뮤비 | Wongoong Y Yoni  원궁 y 요니 센슈얼랩 Bachata Music, Ft : Prince Royce - Otra Vez",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "IU_YKTcoCks",
+      "url": "https://www.youtube.com/watch?v=IU_YKTcoCks",
+      "label": "https://www.youtube.com/watch?v=IU_YKTcoCks",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.23.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "AZAEL & SINDI [Bachata Sensual] - BCN Dance Life Bachata Congress 2021",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -3369,6 +4413,30 @@
     },
     {
       "type": "youtube",
+      "videoId": "l69gt8dJ0gQ",
+      "url": "https://www.youtube.com/watch?v=l69gt8dJ0gQ",
+      "label": "https://www.youtube.com/watch?v=l69gt8dJ0gQ",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.40"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.34.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.34.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타공연 | 그루포 에센시아 코리아  by 크리스 & 민, B틴 Marco y sara essencia 공연 Bachata - 라틴 2026.06.27",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
       "videoId": "lGRDZkVG2r8",
       "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
       "label": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
@@ -3401,6 +4469,22 @@
     },
     {
       "type": "youtube",
+      "videoId": "ME1N6uHwN9w",
+      "url": "https://www.youtube.com/watch?v=ME1N6uHwN9w",
+      "label": "https://www.youtube.com/watch?v=ME1N6uHwN9w",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.25.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Pablo & Raquel / bachata sensual 2017",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
       "videoId": "mLIT9UaZ_4w",
       "url": "https://www.youtube.com/watch?v=mLIT9UaZ_4w",
       "label": "Onda, Wave, Body Roll with Korke y Judith",
@@ -3429,6 +4513,22 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "Beginner / Intermediate Bachata Waves Tutorial 🔊 Onda + Wave + Body Roll (with Korke y Judith)",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "N2qYIqkl8qk",
+      "url": "https://www.youtube.com/watch?v=N2qYIqkl8qk",
+      "label": "https://www.youtube.com/watch?v=N2qYIqkl8qk",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.31.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 공연 류텐션 시즌2 by 어텐션,류지  Bachata - 라틴 2026.06.27",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -3521,6 +4621,46 @@
     },
     {
       "type": "youtube",
+      "videoId": "ogzxiPx3Isc",
+      "url": "https://www.youtube.com/watch?v=ogzxiPx3Isc",
+      "label": "https://www.youtube.com/watch?v=ogzxiPx3Isc",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.16.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "DANIEL Y DESIREE LOS ANGELES - Don't Let Me Down ft. Daya (Version Bachata Dj Khalid)",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "p_pU5sSRSPA",
+      "url": "https://www.youtube.com/watch?v=p_pU5sSRSPA",
+      "label": "https://www.youtube.com/watch?v=p_pU5sSRSPA",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.23"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.22.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.22.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Mamacita - Bachata Spain 2026 Ronald y Alba ",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
       "videoId": "PNUNftRM2yo",
       "url": "https://www.youtube.com/watch?v=PNUNftRM2yo",
       "label": "Uniting the Bachata and Brazilian Zouk Communities",
@@ -3545,6 +4685,110 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "BachaZouk - Uniting the Bachata and Brazilian Zouk Communities in July 2022",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "pQ7G9qiHQyI",
+      "url": "https://www.youtube.com/watch?v=pQ7G9qiHQyI",
+      "label": "https://www.youtube.com/watch?v=pQ7G9qiHQyI",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.41"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.35.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.35.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타공연 | 바차타 한곡반 by 로건 & 비케이 Bachata - 보니따 2026.03.20",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "PrKlmz-msFc",
+      "url": "https://www.youtube.com/watch?v=PrKlmz-msFc",
+      "label": "https://www.youtube.com/watch?v=PrKlmz-msFc",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.38"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.32.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.32.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 공연  | 스카 & 쥬벨 바차타 한곡반  시즌 4 Bachata - 라틴 2026.04.09",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "q-vygpVHufM",
+      "url": "https://www.youtube.com/watch?v=q-vygpVHufM",
+      "label": "https://www.youtube.com/watch?v=q-vygpVHufM",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.16"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.16.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.16.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Daniel y Desiree [LA NOCHE PERFECTA] @ Miami Bachata Paradise 2023 🌴",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "Q9Uzvv6afU8",
+      "url": "https://www.youtube.com/watch?v=Q9Uzvv6afU8",
+      "label": "https://www.youtube.com/watch?v=Q9Uzvv6afU8",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.32"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.26.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.26.sourceLinks.2.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.watchlist.4.videoId"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.7.sourceLinks.8.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 | 에로스 에단 & 로렌 바차타  한곡반 시즌11  bachata - 라틴 2026.06.13",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -3609,6 +4853,22 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "Rm0J03fvdgY",
+      "url": "https://www.youtube.com/watch?v=Rm0J03fvdgY",
+      "label": "https://www.youtube.com/watch?v=Rm0J03fvdgY",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.37.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "하이앵글 | 인텐소 한곡반  by 원준 & 꽃라라In tensoBachata  - 라틴 2026.06.17",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -3733,6 +4993,70 @@
     },
     {
       "type": "youtube",
+      "videoId": "U5myy31Ujaw",
+      "url": "https://www.youtube.com/watch?v=U5myy31Ujaw",
+      "label": "https://www.youtube.com/watch?v=U5myy31Ujaw",
+      "sources": [
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.20.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Sensual Bachata 50 Combos (part 1) : Thank you for 50k SUBS ! Marius&Elena",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "unymOUHdAU8",
+      "url": "https://www.youtube.com/watch?v=unymOUHdAU8",
+      "label": "https://www.youtube.com/watch?v=unymOUHdAU8",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.25"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.24.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.24.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Kike y Nahir - Love Me - Sensual Dance - ADAM Festival 2024",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "UPvNNIa3UwU",
+      "url": "https://www.youtube.com/watch?v=UPvNNIa3UwU",
+      "label": "https://www.youtube.com/watch?v=UPvNNIa3UwU",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.19"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.18.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.18.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Marco & Sara - Bachata Demo 📍Bachata Weekend Singapore 2024 | Sobredosis - Romeo Santos ft. Ozuna",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
       "videoId": "vaiSaxgn-cU",
       "url": "https://www.youtube.com/watch?v=vaiSaxgn-cU",
       "label": "Dominican Bachata Footwork & Partnerwork",
@@ -3793,6 +5117,30 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "WKmmGUsij1U",
+      "url": "https://www.youtube.com/watch?v=WKmmGUsij1U",
+      "label": "https://www.youtube.com/watch?v=WKmmGUsij1U",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.39"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.33.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.33.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타공연 |  디모멘토 저스틴 By 스칼렛 Bachata  - 홍대클럽 보니따 2026.04.08",
       "note": "YouTube 영상 확인 완료"
     },
     {
@@ -4001,6 +5349,54 @@
       "status": "ok",
       "httpStatus": 200,
       "title": "파즈 Paz y 다니엘 Daniel 바차타 공연 bachata @ 제주 라틴컬처페스티벌 JLCF Jeju Latin Culture Festival 2022-06-25",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "ZvyiwLuNPj4",
+      "url": "https://www.youtube.com/watch?v=ZvyiwLuNPj4",
+      "label": "https://www.youtube.com/watch?v=ZvyiwLuNPj4",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.34"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.28.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.28.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "바차타 | 와플 & 세라 바차타 한곡반 시즌 1 Waffle y Sarah Bachata Season 1 - 라틴 2026.02.26",
+      "note": "YouTube 영상 확인 완료"
+    },
+    {
+      "type": "youtube",
+      "videoId": "zyw3XBxxnoU",
+      "url": "https://www.youtube.com/watch?v=zyw3XBxxnoU",
+      "label": "https://www.youtube.com/watch?v=zyw3XBxxnoU",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.20"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.19.heroVideo.id"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.19.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "title": "Cornel & Rithika | Bachata Sensual ConRi Style | Te Espero - Prince Royce",
       "note": "YouTube 영상 확인 완료"
     }
   ]
