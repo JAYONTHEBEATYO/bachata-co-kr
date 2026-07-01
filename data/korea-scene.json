@@ -1,7 +1,7 @@
 {
   "updatedAt": "2026-07-01",
   "title": "서울·전국 바차타 소셜·동호회·장소",
-  "dek": "홍대 보니따, 에버라틴, 라틴씨엘로, 라스트댄스 등 국내 바차타 팀·동호회·장소와 내한 행사를 공개 영상과 공식 링크 기준으로 정리합니다.",
+  "dek": "홍대 보니따, 에버라틴, 라틴씨엘로, 라스트댄스 등 국내 바차타 팀·동호회·장소와 내한 행사, 비수도권 라틴댄스 파티 달력을 공개 영상과 공식 링크 기준으로 정리합니다.",
   "heroVideo": {
     "id": "jpCY0QqZqWE",
     "title": "Seoul Bachata Festival social archive"
@@ -66,7 +66,7 @@
       "id": "events",
       "label": "행사·내한",
       "title": "월별 내한과 페스티벌 일정",
-      "description": "K-Sensual, Seoul Bachata Festival, Gangnam Latin Festival, 최근 내한 기록을 월별로 볼 수 있게 정리합니다.",
+      "description": "K-Sensual, Seoul Bachata Festival, Gangnam Latin Festival, 최근 내한 기록과 심슨 비수도권 라틴댄스 파티 달력을 월별로 볼 수 있게 정리합니다.",
       "eventStatuses": [
         "confirmed",
         "archive"
@@ -80,7 +80,11 @@
         "워크숍",
         "K-Sensual",
         "Seoul Bachata Festival",
-        "Gangnam Latin Festival"
+        "Gangnam Latin Festival",
+        "비수도권 라틴댄스 파티",
+        "대구 바차타",
+        "부산 바차타",
+        "제주 라틴댄스"
       ]
     },
     {

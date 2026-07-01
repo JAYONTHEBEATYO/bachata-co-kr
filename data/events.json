@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-06-30",
+  "updatedAt": "2026-07-01",
   "title": "한국 바차타 월별 행사·내한 일정",
   "dek": "공식 행사 페이지, 인스타그램 공지, 유튜브 기록 영상을 확인해 한국 바차타 소셜, 워크숍, 페스티벌, 내한 일정을 월별로 정리했습니다.",
   "method": [
@@ -172,6 +172,36 @@
         "서울",
         "내한"
       ]
+    },
+    {
+      "id": "regional-latin-party-calendar-2026",
+      "title": "심슨 비수도권 라틴댄스 파티 달력",
+      "month": "2026-07",
+      "dateLabel": "2026년 6월 13일-12월 20일 공개 달력",
+      "startDate": "2026-06-13",
+      "endDate": "2026-12-20",
+      "city": "비수도권",
+      "venue": "대구·부산·제주·광주 등",
+      "status": "watch",
+      "category": "Regional Party Calendar",
+      "summary": "심슨 라틴댄스 파티 달력은 대구, 부산, 제주, 광주 등 비수도권 라틴댄스 파티 일정을 한 화면에서 확인할 수 있는 공개 캘린더입니다. 확인 시점 기준 83건 중 바차타가 직접 언급된 항목은 23건입니다.",
+      "whyItMatters": "기존 국내 일정은 서울과 대형 페스티벌 중심으로 보이기 쉬웠습니다. 이 달력은 대구 바바루·부산 맘보클럽·제주권 파티처럼 지역 소셜 흐름을 확인하는 보조 출처로 활용할 수 있습니다.",
+      "checkBeforeBooking": "공개 캘린더는 일정 취합용이므로 방문 전에는 각 파티 주최자 공지에서 날짜, 장소, 입장료, 워크숍 진행 여부를 다시 확인해야 합니다.",
+      "sourceLinks": [
+        {
+          "label": "비수도권 라틴댄스 파티 달력",
+          "url": "https://simspson-latinsch.netlify.app/"
+        }
+      ],
+      "tags": [
+        "비수도권",
+        "라틴댄스 파티",
+        "대구",
+        "부산",
+        "제주",
+        "광주",
+        "바차타 소셜"
+      ]
     }
   ],
   "watchSources": [
@@ -194,6 +224,10 @@
     {
       "label": "K-Sensual Instagram",
       "url": "https://www.instagram.com/ksensual_official/"
+    },
+    {
+      "label": "심슨 비수도권 라틴댄스 파티 달력",
+      "url": "https://simspson-latinsch.netlify.app/"
     }
   ]
 }

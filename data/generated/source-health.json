@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-01T00:46:30.354Z",
+  "generatedAt": "2026-07-01T02:03:42.162Z",
   "generationDate": "2026-07-01",
   "summary": {
-    "total": 232,
-    "ok": 211,
+    "total": 234,
+    "ok": 213,
     "watch": 21,
     "warn": 0,
     "broken": 0
@@ -1297,6 +1297,42 @@
         {
           "file": "data/events.json",
           "path": "radar.2.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://script.google.com/macros/s/AKfycbwv81gUSx0jJ1g2c7j2XDRn44ZRjCLoZnjyEmNGYNORl1bmtNlftHy1MytF_OHw4xBp/exec",
+      "label": "https://script.google.com/macros/s/AKfycbwv81gUSx0jJ1g2c7j2XDRn44ZRjCLoZnjyEmNGYNORl1bmtNlftHy1MytF_OHw4xBp/exec",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.46"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://simspson-latinsch.netlify.app/",
+      "label": "https://simspson-latinsch.netlify.app/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.45"
+        },
+        {
+          "file": "data/events.json",
+          "path": "radar.4.sourceLinks.0.url"
+        },
+        {
+          "file": "data/events.json",
+          "path": "watchSources.5.url"
         }
       ],
       "status": "ok",

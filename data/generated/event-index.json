@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-07-01T00:45:39.360Z",
-  "updatedAt": "2026-06-30",
+  "generatedAt": "2026-07-01T02:02:42.301Z",
+  "updatedAt": "2026-07-01",
   "title": "한국 바차타 월별 행사·내한 일정",
   "url": "/events/",
   "events": [
@@ -95,6 +95,29 @@
         "Melvin & Gatica",
         "서울",
         "내한"
+      ]
+    },
+    {
+      "id": "regional-latin-party-calendar-2026",
+      "title": "심슨 비수도권 라틴댄스 파티 달력",
+      "month": "2026-07",
+      "url": "/events/regional-latin-party-calendar-2026.html",
+      "startDate": "2026-06-13",
+      "endDate": "2026-12-20",
+      "city": "비수도권",
+      "status": "watch",
+      "videoId": null,
+      "sourceUrls": [
+        "https://simspson-latinsch.netlify.app/"
+      ],
+      "tags": [
+        "비수도권",
+        "라틴댄스 파티",
+        "대구",
+        "부산",
+        "제주",
+        "광주",
+        "바차타 소셜"
       ]
     }
   ]
