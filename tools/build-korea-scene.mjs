@@ -25,10 +25,30 @@ const videoEmbedUrl = (video = {}) => video?.id
   ? `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.id)}`
   : "";
 
+const youtubeThumb = (videoId) => videoId
+  ? `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`
+  : "";
+
+const videoWatchUrl = (video = {}) => video?.id
+  ? `https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}`
+  : "";
+
 const renderVideo = (video, title = "바차타 참고 영상") => {
   if (!video?.id) return "";
   return `<div class="video-frame">
             <iframe loading="lazy" src="${videoEmbedUrl(video)}" title="${escapeHtml(video.title || title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>`;
+};
+
+const renderVideoLoader = (video, title = "바차타 참고 영상") => {
+  if (!video?.id) return "";
+  const videoTitle = escapeHtml(video.title || title);
+  return `<div class="video-loader" data-embed="${escapeHtml(videoEmbedUrl(video))}" data-title="${videoTitle}">
+            <button type="button" data-video-button aria-label="${videoTitle} 영상 열기">
+              <img loading="lazy" src="${escapeHtml(youtubeThumb(video.id))}" alt="">
+              <span>Play</span>
+            </button>
+            <a class="youtube-link" href="${escapeHtml(videoWatchUrl(video))}" target="_blank" rel="noreferrer">YouTube</a>
           </div>`;
 };
 
@@ -117,7 +137,7 @@ const renderLinks = (card) => {
 };
 
 const renderCard = (card) => `<article class="scene-card">
-          ${renderVideo(card.video, card.title)}
+          ${renderVideoLoader(card.video, card.title)}
           <div class="scene-card-body">
             <span class="tag">${escapeHtml(card.label)}</span>
             <h3>${escapeHtml(card.title)}</h3>
@@ -127,7 +147,7 @@ const renderCard = (card) => `<article class="scene-card">
           </div>
         </article>`;
 
-const renderLens = (lens) => `<section class="section" id="${escapeHtml(lens.id)}">
+const renderLens = (lens, options = {}) => `<section class="section${options.lead ? " scene-lead" : ""}" id="${escapeHtml(lens.id)}">
         <div class="section-head">
           <div>
             <span class="eyebrow">${escapeHtml(lens.label)}</span>
@@ -250,17 +270,17 @@ const renderPage = ({ config, lenses, summary }) => {
             <a href="/submit/">제보하기</a>
           </div>
         </div>
-        ${renderVideo(heroVideo, heroVideo.title)}
+        ${renderVideoLoader(heroVideo, heroVideo.title)}
       </div>
     </section>
     <main>
+      ${lenses.map((lens, index) => renderLens(lens, { lead: index === 0 })).join("\n      ")}
       <section class="summary-grid" aria-label="국내 바차타 요약">
         <article class="summary-card"><span>팀·댄서</span><strong>${summary.teams}</strong></article>
         <article class="summary-card"><span>행사</span><strong>${summary.events}</strong></article>
         <article class="summary-card"><span>커뮤니티 항목</span><strong>${summary.board}</strong></article>
         <article class="summary-card"><span>장소·팀 제보</span><strong>${summary.localItems}</strong></article>
       </section>
-      ${lenses.map(renderLens).join("\n      ")}
       <section class="section">
         <div class="section-head">
           <div>

@@ -14,6 +14,7 @@ const requiredFiles = [
   "data/generated/style-index.json",
   "data/generated/profile-index.json",
   "data/generated/program-index.json",
+  "data/generated/korea-scene-index.json",
   "data/generated/board-index.json",
   "data/generated/social-radar-index.json",
   "data/generated/social-intake-index.json",
@@ -307,6 +308,35 @@ const verifyProgramVideoLoading = async () => {
   };
 };
 
+const verifyKoreaScene = async () => {
+  const index = await readJson("data/generated/korea-scene-index.json");
+  const html = await readText("korea-scene/index.html");
+  const iframeCount = (html.match(/<iframe\b/g) || []).length;
+  const loaderCount = (html.match(/class="video-loader"/g) || []).length;
+  const sceneCardCount = (html.match(/class="scene-card"/g) || []).length;
+  const leadIndex = html.indexOf('class="section scene-lead"');
+  const summaryIndex = html.indexOf('class="summary-grid"');
+
+  assert((index.lenses || []).length >= 4, "Korea scene index should expose the main local lenses", {
+    lenses: index.lenses?.length || 0
+  });
+  assert(sceneCardCount >= 8, "Korea scene page should render enough feed cards", { sceneCardCount });
+  assert(iframeCount === 0, "Korea scene page should not eager-load video iframes", { iframeCount });
+  assert(loaderCount >= 8, "Korea scene videos should render as click-to-load thumbnails", { loaderCount });
+  assert(html.includes("data-video-button"), "Korea scene page is missing click-to-load video controls");
+  assert(leadIndex >= 0 && summaryIndex >= 0 && leadIndex < summaryIndex, "Korea scene feed should appear before summary counters", {
+    leadIndex,
+    summaryIndex
+  });
+
+  return {
+    lenses: index.lenses?.length || 0,
+    sceneCardCount,
+    iframeCount,
+    loaderCount
+  };
+};
+
 const verifyCommunityBoard = async () => {
   const board = await readJson("data/generated/board-index.json");
   const communityHome = await readText("community/index.html");
@@ -449,7 +479,7 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, communityBoard, koreanCopy, visibleCopy, uiConsistency, publicSitemap, styleReferenceIndex, knowledgeIndex] = await Promise.all([
+  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, koreaScene, communityBoard, koreanCopy, visibleCopy, uiConsistency, publicSitemap, styleReferenceIndex, knowledgeIndex] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
     verifySocialRadar(),
@@ -460,6 +490,7 @@ const main = async () => {
     verifyStyleVideoLoading(),
     verifyArticleVideoLoading(),
     verifyProgramVideoLoading(),
+    verifyKoreaScene(),
     verifyCommunityBoard(),
     verifyKoreanCopy(),
     verifyVisibleCopy(),
@@ -479,6 +510,7 @@ const main = async () => {
     styleVideos,
     articleVideos,
     programVideos,
+    koreaScene,
     communityBoard,
     koreanCopy,
     visibleCopy,
