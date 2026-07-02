@@ -209,8 +209,12 @@ const verifyStyleVideoLoading = async () => {
   const styleIndex = await readJson("data/generated/style-index.json");
   const styleHome = await readText("styles/index.html");
   const styleHomeIframeCount = (styleHome.match(/<iframe\b/g) || []).length;
-  assert(styleHomeIframeCount === 1, "Style index should load only its hero iframe", {
+  const styleHomeLoaderCount = (styleHome.match(/class="video-loader"/g) || []).length;
+  assert(styleHomeIframeCount === 0, "Style index should not eager-load video iframes", {
     iframeCount: styleHomeIframeCount
+  });
+  assert(styleHomeLoaderCount >= 1, "Style index should render its hero video as a click-to-load thumbnail", {
+    loaderCount: styleHomeLoaderCount
   });
 
   const pages = [];

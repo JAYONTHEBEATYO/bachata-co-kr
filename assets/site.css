@@ -341,6 +341,50 @@ body.site-shell .hero-media-caption a {
   color: #fff !important;
 }
 
+body.site-shell .hero:has(> .hero-grid) {
+  padding: 42px 0 34px !important;
+}
+
+body.site-shell .hero > .hero-grid {
+  width: min(var(--bk-width), calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px) !important;
+  gap: 26px !important;
+  align-items: center !important;
+}
+
+body.site-shell .hero > .hero-grid h1 {
+  font-size: clamp(38px, 5vw, 64px) !important;
+}
+
+body.site-shell .hero > .hero-grid p {
+  max-width: 720px !important;
+  font-size: clamp(15px, 1.4vw, 18px) !important;
+  line-height: 1.72 !important;
+}
+
+body.site-shell .hero > .hero-grid .quick-nav {
+  margin-top: 18px !important;
+}
+
+body.site-shell .method-card {
+  padding: 18px !important;
+  border-color: var(--bk-line) !important;
+  background: var(--bk-raised) !important;
+}
+
+body.site-shell .method-card ul {
+  display: grid !important;
+  gap: 7px !important;
+  margin: 10px 0 0 !important;
+  padding-left: 16px !important;
+}
+
+body.site-shell .method-card li {
+  font-size: 14px !important;
+  line-height: 1.58 !important;
+}
+
 body.site-shell .channel-strip,
 body.site-shell .home-shelf,
 body.site-shell .section,
@@ -646,10 +690,35 @@ body.site-shell .category-card,
 body.site-shell .event-card,
 body.site-shell .profile-card,
 body.site-shell .guide-card,
+body.site-shell .program-card,
 body.site-shell .article-card,
 body.site-shell .entry,
 body.site-shell .list-item {
   padding: 18px !important;
+}
+
+body.site-shell .program-card,
+body.site-shell .guide-card,
+body.site-shell .profile-card,
+body.site-shell .event-card {
+  min-height: 0 !important;
+  gap: 14px !important;
+}
+
+body.site-shell .program-card h2,
+body.site-shell .guide-card h2,
+body.site-shell .profile-card h2,
+body.site-shell .event-card h3 {
+  font-size: clamp(23px, 2.5vw, 32px) !important;
+  line-height: 1.12 !important;
+}
+
+body.site-shell .program-card p,
+body.site-shell .guide-card p,
+body.site-shell .profile-card p,
+body.site-shell .event-card p {
+  font-size: 14px !important;
+  line-height: 1.62 !important;
 }
 
 body.site-shell .scene-card {
@@ -1172,6 +1241,84 @@ body.site-shell [data-internal-only="true"] {
     font-size: clamp(24px, 7vw, 34px) !important;
   }
 
+  body.site-shell .hero:has(> .hero-grid) {
+    padding: 22px 0 18px !important;
+  }
+
+  body.site-shell .hero > .hero-grid {
+    width: min(100% - 24px, var(--bk-width)) !important;
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  body.site-shell .hero > .hero-grid h1 {
+    font-size: clamp(30px, 8.6vw, 40px) !important;
+    line-height: 1.08 !important;
+  }
+
+  body.site-shell .hero > .hero-grid p {
+    margin-bottom: 0 !important;
+    font-size: 15px !important;
+    line-height: 1.65 !important;
+  }
+
+  body.site-shell .hero > .hero-grid .quick-nav {
+    margin-top: 12px !important;
+    gap: 6px !important;
+  }
+
+  body.site-shell .hero > .hero-grid .quick-nav a {
+    min-height: 30px !important;
+    padding: 0 10px !important;
+    font-size: 12px !important;
+  }
+
+  body.site-shell .hero > .hero-grid .method-card {
+    display: none !important;
+  }
+
+  body.site-shell .hero > .hero-grid > .video-frame,
+  body.site-shell .hero > .hero-grid > .video-loader {
+    display: none !important;
+  }
+
+  body.site-shell .section-head {
+    gap: 8px !important;
+    margin-bottom: 12px !important;
+  }
+
+  body.site-shell .section-head h2 {
+    font-size: 24px !important;
+    line-height: 1.15 !important;
+  }
+
+  body.site-shell .section-head p {
+    font-size: 13px !important;
+    line-height: 1.55 !important;
+  }
+
+  body.site-shell .program-card,
+  body.site-shell .guide-card,
+  body.site-shell .profile-card,
+  body.site-shell .event-card {
+    padding: 15px !important;
+    gap: 10px !important;
+  }
+
+  body.site-shell .program-card h2,
+  body.site-shell .guide-card h2,
+  body.site-shell .profile-card h2,
+  body.site-shell .event-card h3 {
+    margin-top: 8px !important;
+    font-size: 23px !important;
+  }
+
+  body.site-shell .program-card .video-frame,
+  body.site-shell .program-card .video-loader,
+  body.site-shell .content-card .content-thumb {
+    max-height: 170px !important;
+  }
+
   body.site-shell .hero-inner {
     padding: 30px 0 !important;
   }
@@ -1257,8 +1404,8 @@ body.site-shell [data-internal-only="true"] {
 
   body.site-shell .section,
   body.site-shell main > section {
-    padding-top: 34px !important;
-    padding-bottom: 34px !important;
+    padding-top: 22px !important;
+    padding-bottom: 28px !important;
   }
 }
 

@@ -410,7 +410,7 @@ const renderIndex = (data) => {
             ${data.guides.map((guide) => `<a href="${pagePath(guide)}">${escapeHtml(guide.eyebrow)}</a>`).join("")}
           </div>
         </div>
-        ${renderVideo(data.guides[0].heroVideo)}
+        ${renderVideoLoader(data.guides[0].heroVideo)}
       </div>
     </section>
     <main>

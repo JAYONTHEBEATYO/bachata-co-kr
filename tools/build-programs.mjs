@@ -215,7 +215,7 @@ const renderProgramCard = (program) => `<article class="program-card">
             </div>
           </div>
           <div>
-            ${renderVideo(program.heroVideo)}
+            ${renderVideoLoader(program.heroVideo)}
             <div class="link-row" style="margin-top:14px"><a href="${pagePath(program)}">프로그램 보기</a></div>
           </div>
         </article>`;
