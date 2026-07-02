@@ -1438,7 +1438,18 @@ body.site-shell [data-internal-only="true"] {
   }
 
   body.site-shell .hero-inner {
-    padding: 30px 0 !important;
+    gap: 16px !important;
+    padding: 22px 0 18px !important;
+  }
+
+  body.site-shell .hero-copy {
+    margin-top: 12px !important;
+    font-size: 15px !important;
+    line-height: 1.62 !important;
+  }
+
+  body.site-shell .hero-actions {
+    margin-top: 16px !important;
   }
 
   body.site-shell .hero-actions {
@@ -1449,6 +1460,49 @@ body.site-shell [data-internal-only="true"] {
   body.site-shell .hero-actions .button {
     min-width: 0 !important;
     padding: 0 8px !important;
+  }
+
+  body.site-shell .hero-media-frame {
+    max-height: 178px !important;
+  }
+
+  body.site-shell .hero-media-caption {
+    display: none !important;
+  }
+
+  body.site-shell .channel-strip {
+    padding: 10px 0 !important;
+  }
+
+  body.site-shell .channel-row {
+    width: min(100% - 24px, var(--bk-width)) !important;
+    max-width: var(--bk-width) !important;
+    display: grid !important;
+    grid-auto-flow: row !important;
+    grid-auto-columns: unset !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  body.site-shell .channel-link {
+    min-height: 94px !important;
+    padding: 12px !important;
+  }
+
+  body.site-shell .channel-link strong {
+    margin-top: 5px !important;
+    font-size: 15px !important;
+  }
+
+  body.site-shell .channel-link p {
+    display: none !important;
+  }
+
+  body.site-shell .channel-link em {
+    margin-top: 8px !important;
+    font-size: 11px !important;
   }
 
   body.site-shell .content-rail,
@@ -1540,12 +1594,19 @@ body.site-shell [data-internal-only="true"] {
   }
 
   body.site-shell .channel-row {
-    grid-auto-columns: minmax(168px, 72vw) !important;
-    padding-left: 12px !important;
-    padding-right: 12px !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    grid-auto-flow: row !important;
+    grid-auto-columns: unset !important;
+    overflow: visible !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   body.site-shell .hero-actions {
     grid-template-columns: 1fr !important;
+  }
+
+  body.site-shell .hero-media-frame {
+    max-height: 150px !important;
   }
 }
