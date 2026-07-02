@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-02T04:42:51.194Z",
+  "generatedAt": "2026-07-02T04:52:20.053Z",
   "updatedAt": "2026-06-30",
   "title": "바차타 코리아 제보 센터",
   "url": "/submit/",
@@ -54,7 +54,7 @@
       "label": "댄서·강사 프로필",
       "headline": "한국·글로벌 댄서, 강사, DJ 프로필",
       "targetBoard": "/profiles/",
-      "priority": "editorial review",
+      "priority": "출처 확인 후 반영",
       "fieldCount": 8
     }
   ]

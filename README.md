@@ -23,6 +23,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `data/knowledge-notes.json`: editor-managed writing rules, owner feedback, and future article notes
 - `tools/collect-scene-signals.mjs`: validates YouTube embeds, prepares candidate signals, and updates signal history
 - `tools/audit-sources.mjs`: audits internal links, external source URLs, and YouTube oEmbed health
+- `tools/audit-visible-copy.mjs`: audits visible page text so internal workflow terms do not leak into public pages
 - `tools/build-home.mjs`: builds the homepage watch-next rail and `data/generated/home-index.json`
 - `tools/build-articles.mjs`: builds `/articles/` and `data/generated/article-index.json`
 - `tools/build-style-guides.mjs`: builds `/styles/` and `data/generated/style-index.json`

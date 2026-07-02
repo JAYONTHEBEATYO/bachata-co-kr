@@ -145,7 +145,7 @@
       "headline": "한국·글로벌 댄서, 강사, DJ 프로필",
       "description": "한국 인스트럭터와 글로벌 댄서의 공식 링크, 영상, 스타일 키워드를 모아 프로필과 기사로 정리합니다.",
       "targetBoard": "/profiles/",
-      "priority": "editorial review",
+      "priority": "출처 확인 후 반영",
       "fields": [
         "이름 또는 팀명",
         "활동 지역",

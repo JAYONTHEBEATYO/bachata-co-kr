@@ -25,6 +25,7 @@ const allowedFiles = new Set([
   "AGENTS.md",
   "README.md",
   "tools/audit-korean-copy.mjs",
+  "tools/audit-visible-copy.mjs",
   "tools/verify-build.mjs",
   "tools/collect-scene-signals.mjs",
   "data/generated/source-health.json",

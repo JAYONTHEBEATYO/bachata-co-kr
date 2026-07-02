@@ -33,6 +33,13 @@ const renderVideo = (video) => {
             </div>`;
 };
 
+const fileLabel = (file = "") => ({
+  "data/sources.json": "공식 링크 목록",
+  "data/social-radar.json": "소셜 소식 목록",
+  "data/generated/scene-signals.json": "매일 확인한 공개 소식",
+  "data/editorial-desk.json": "편집 계획"
+}[file] || "운영 자료");
+
 const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -254,7 +261,7 @@ ${nav}
             <span class="tag">운영 기준</span>
             <h2>글을 만들 때 확인하는 기준</h2>
             <dl>
-              ${data.automation.map((item) => `<div><dt>${escapeHtml(item.file)}</dt><dd>${escapeHtml(item.role)}</dd></div>`).join("")}
+              ${data.automation.map((item) => `<div><dt>${escapeHtml(fileLabel(item.file))}</dt><dd>${escapeHtml(item.role)}</dd></div>`).join("")}
             </dl>
           </article>
         </div>

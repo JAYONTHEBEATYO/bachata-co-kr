@@ -189,6 +189,17 @@ const validateItem = async (item) => {
 };
 
 const statusRank = { broken: 0, warn: 1, watch: 2, ok: 3 };
+const statusLabel = (status = "") => ({
+  ok: "정상",
+  watch: "확인 필요",
+  warn: "주의",
+  broken: "깨진 링크"
+}[status] || status);
+const typeLabel = (type = "") => ({
+  external: "외부 링크",
+  internal: "사이트 내부",
+  youtube: "YouTube 영상"
+}[type] || type);
 
 const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -261,15 +272,15 @@ const styles = `    <style>
 
 const renderResultCard = (item) => {
   const visibleTitle = item.title || item.label || item.url || item.videoId;
-  const sourceSummary = item.sources.slice(0, 3).map((source) => `${source.file}${source.path ? `:${source.path}` : ""}`).join(", ");
+  const sourceSummary = `사이트 데이터 ${item.sources.length}곳에서 사용하는 링크입니다.`;
   const metaItems = [
     item.httpStatus ? `<span>HTTP ${escapeHtml(item.httpStatus)}</span>` : "",
     item.videoId ? `<span>YouTube ${escapeHtml(item.videoId)}</span>` : "",
-    `<span>${item.sources.length} references</span>`
+    `<span>${item.sources.length}곳에서 사용</span>`
   ].filter(Boolean).join("");
-  const sourceLink = item.url ? `<div class="link-row"><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">source</a></div>` : "";
+  const sourceLink = item.url ? `<div class="link-row"><a href="${escapeHtml(item.url)}" target="_blank" rel="noreferrer">원본 열기</a></div>` : "";
   return `<article class="result-card">
-          <span class="tag status-${escapeHtml(item.status)}">${escapeHtml(item.status)} · ${escapeHtml(item.type)}</span>
+          <span class="tag status-${escapeHtml(item.status)}">${escapeHtml(statusLabel(item.status))} · ${escapeHtml(typeLabel(item.type))}</span>
           <h3>${escapeHtml(visibleTitle)}</h3>
           <p>${escapeHtml(item.note || "")}</p>
           <div class="meta-row">${metaItems}</div>

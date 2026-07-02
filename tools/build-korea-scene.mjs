@@ -51,6 +51,24 @@ const compactText = (value) => {
   return Object.values(value).map(compactText).join(" ");
 };
 
+const visibleTag = (tag = "") => ({
+  "artist": "댄서",
+  "club": "동호회",
+  "community": "커뮤니티",
+  "editorial-queue": "기획 노트",
+  "event": "행사",
+  "instagram-watch": "인스타그램",
+  "korea": "한국",
+  "learning": "배우기",
+  "profile": "프로필",
+  "ready": "바로 확인",
+  "review": "추가 확인",
+  "team": "팀",
+  "venue": "장소",
+  "watch": "확인 중",
+  "youtube": "YouTube"
+}[String(tag).toLowerCase()] || tag);
+
 const matchesKeywords = (item, keywords = []) => {
   const haystack = compactText(item).toLowerCase();
   return keywords.some((keyword) => haystack.includes(String(keyword).toLowerCase()));
@@ -132,7 +150,7 @@ const intakeToCard = (item, health) => ({
   url: item.relatedUrl || item.target || "/community/",
   sourceUrl: item.sourceUrl || "",
   videoId: item.videoId || "",
-  tags: [item.type, item.role, item.watchlist].filter(Boolean),
+  tags: [item.type, item.role, item.watchlist].map(visibleTag).filter(Boolean),
   location: "한국 바차타 소식",
   health: item.healthStatus || statusFor(item, health)
 });
@@ -191,7 +209,7 @@ const renderCard = (card) => {
   const sourceLink = card.sourceUrl
     ? `<a href="${escapeHtml(card.sourceUrl)}"${isExternal(card.sourceUrl) ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>출처</a>`
     : "";
-  const tags = card.tags.slice(0, 4).map((tag) => `<span>${escapeHtml(tag)}</span>`).join("");
+  const tags = card.tags.slice(0, 4).map((tag) => `<span>${escapeHtml(visibleTag(tag))}</span>`).join("");
   const video = card.videoId ? renderVideo({ id: card.videoId, title: card.title }) : "";
   return `<article class="scene-card">
           ${video ? `${video}

@@ -153,7 +153,7 @@ const renderPage = (data) => {
           <dl>
             <div><dt>Email</dt><dd>${escapeHtml(data.contact.email)}</dd></div>
             <div><dt>Instagram</dt><dd>${escapeHtml(data.contact.instagramHandle)}</dd></div>
-            <div><dt>Review</dt><dd>출처, 날짜, 가격, 영상 유효성을 확인한 뒤 커뮤니티 보드와 편집 데스크에 반영합니다.</dd></div>
+            <div><dt>확인 절차</dt><dd>출처, 날짜, 가격, 영상 유효성을 확인한 뒤 커뮤니티 게시판과 관련 글에 반영합니다.</dd></div>
           </dl>
         </aside>
       </div>
@@ -204,7 +204,7 @@ const renderPage = (data) => {
             </section>
           </section>
           <aside class="preview-card">
-            <span class="tag">Preview</span>
+            <span class="tag">미리보기</span>
             <h2>전송 문안</h2>
             <p id="template-description"></p>
             <div class="preview-box" id="submission-preview"></div>
@@ -219,7 +219,7 @@ const renderPage = (data) => {
       <section class="section">
         <div class="rule-grid">
           <article class="rule-card">
-            <span class="tag">Review Rules</span>
+            <span class="tag">확인 기준</span>
             <h2>확인 기준</h2>
             <ul>${data.rules.map((rule) => `<li>${escapeHtml(rule)}</li>`).join("")}</ul>
           </article>

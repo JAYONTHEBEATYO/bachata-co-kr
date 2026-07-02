@@ -256,7 +256,7 @@
     },
     {
       "id": "q-korea-teams",
-      "status": "source watch",
+      "status": "출처 확인 중",
       "priority": "A2",
       "beat": "korea",
       "title": "한국 바차타 팀·동호회·장소를 실제 입문 동선으로 정리",
@@ -356,17 +356,17 @@
   ],
   "automation": [
     {
-      "label": "Source registry",
+      "label": "출처 목록",
       "file": "data/sources.json",
       "role": "공식 사이트, YouTube, 인스타 계정, 브랜드 페이지의 seed를 관리합니다."
     },
     {
-      "label": "Social radar",
+      "label": "소셜 소식",
       "file": "data/social-radar.json",
       "role": "한국팀, 행사, 브랜드, 해시태그를 확인하고 일간 브리핑에 연결합니다."
     },
     {
-      "label": "Scene news",
+      "label": "현장 소식",
       "file": "data/generated/scene-signals.json",
       "role": "공개 소식과 편집자가 고른 출처를 매일 갱신합니다."
     },

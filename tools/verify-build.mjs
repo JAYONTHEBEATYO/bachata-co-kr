@@ -357,6 +357,15 @@ const verifyKoreanCopy = async () => {
   return JSON.parse(stdout);
 };
 
+const verifyVisibleCopy = async () => {
+  const { stdout } = await execFileAsync("node", ["tools/audit-visible-copy.mjs"], {
+    cwd: root,
+    windowsHide: true,
+    maxBuffer: 1024 * 1024 * 5
+  });
+  return JSON.parse(stdout);
+};
+
 const verifyKnowledgeIndex = async () => {
   const knowledge = await readJson("data/generated/knowledge-index.json");
   const summary = knowledge.summary || {};
@@ -407,7 +416,7 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, communityBoard, koreanCopy, knowledgeIndex] = await Promise.all([
+  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, communityBoard, koreanCopy, visibleCopy, knowledgeIndex] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
     verifySocialRadar(),
@@ -420,6 +429,7 @@ const main = async () => {
     verifyProgramVideoLoading(),
     verifyCommunityBoard(),
     verifyKoreanCopy(),
+    verifyVisibleCopy(),
     verifyKnowledgeIndex()
   ]);
 
@@ -435,6 +445,7 @@ const main = async () => {
     programVideos,
     communityBoard,
     koreanCopy,
+    visibleCopy,
     knowledgeIndex,
     signalHistory,
     socialIntake
