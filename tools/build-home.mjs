@@ -91,7 +91,7 @@ const resolveCard = (card, context) => {
 const renderCard = (card) => `<a class="rail-card${card.featured ? " featured" : ""}" href="${escapeHtml(card.href)}">
             ${card.videoId ? `<figure class="rail-thumb">
               <img loading="lazy" src="${escapeHtml(youtubeThumb(card.videoId))}" alt="" aria-hidden="true">
-              <span>Watch</span>
+              <span>영상</span>
             </figure>` : ""}
             <div class="rail-card-copy">
               <span>${escapeHtml(card.label)}</span>
@@ -109,7 +109,7 @@ const renderChannel = (channel) => `<a class="channel-link" href="${escapeHtml(c
         </a>`;
 
 const renderChannels = (config) => `<!-- home-channels:start -->
-      <section class="channel-strip" aria-label="바차타 코리아 콘텐츠 채널">
+      <section class="channel-strip" aria-label="빠른 이동">
         <div class="channel-row">
           ${(config.channels || []).map(renderChannel).join("\n          ")}
         </div>
@@ -188,25 +188,47 @@ const renderHeroVideo = (heroVideo) => `<!-- hero-video:start -->
               <iframe loading="eager" src="${escapeHtml(videoEmbedUrl(heroVideo.id))}" title="${escapeHtml(heroVideo.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="hero-media-caption">
-              <span>오늘의 영상 · ${escapeHtml(heroVideo.topicLabel)}</span>
+              <span>추천 영상 · ${escapeHtml(heroVideo.topicLabel)}</span>
               <a href="${escapeHtml(heroVideo.sourceUrl)}" target="_blank" rel="noreferrer">${escapeHtml(shorten(heroVideo.title))}</a>
             </div>
           </div>
           <!-- hero-video:end -->`;
 
-const renderShelf = (config, cards, latestBrief) => {
+const renderShelf = (config, cards, latestBrief, sourceHealth = {}) => {
   const briefUrl = latestBrief.url || "/briefs/";
+  const summary = sourceHealth.summary || sourceHealth || {};
   return `<!-- home-rail:start -->
       <section class="home-shelf" aria-labelledby="watch-next-title">
-        <div class="shelf-head">
-          <div>
-            <p class="eyebrow">${escapeHtml(config.eyebrow)}</p>
-            <h2 id="watch-next-title">${escapeHtml(config.title)}</h2>
+        <div class="shelf-layout">
+          <div class="feed-column">
+            <div class="shelf-head">
+              <div>
+                <p class="eyebrow">${escapeHtml(config.eyebrow)}</p>
+                <h2 id="watch-next-title">${escapeHtml(config.title)}</h2>
+              </div>
+              <p>${escapeHtml(config.intro)} <a href="${escapeHtml(briefUrl)}">오늘 업데이트</a> · <a href="/events/">행사 일정</a></p>
+            </div>
+            <div class="content-rail">
+              ${cards.map(renderCard).join("\n              ")}
+            </div>
           </div>
-          <p>${escapeHtml(config.intro)} <a href="${escapeHtml(briefUrl)}">오늘 브리핑</a> · <a href="/radar/">소셜 소식</a></p>
-        </div>
-        <div class="content-rail">
-          ${cards.map(renderCard).join("\n          ")}
+          <aside class="home-sidebar" aria-label="사이트 운영 정보">
+            <a class="ad-slot" href="/submit/">
+              <span>파트너 배너</span>
+              <strong>바차타 행사·클래스·팀 소식을 보내주세요</strong>
+              <em>제보하면 출처 확인 후 일정과 기사에 반영합니다.</em>
+            </a>
+            <div class="side-box">
+              <span>오늘의 정리</span>
+              <strong>${escapeHtml(latestBrief.candidateCount || 0)}개 소식 확인</strong>
+              <p>공개 영상, 행사 페이지, 공식 링크를 기준으로 읽을 만한 내용을 추립니다.</p>
+            </div>
+            <div class="side-box compact">
+              <span>출처 상태</span>
+              <strong>${escapeHtml(summary.ok || 0)} / ${escapeHtml(summary.total || 0)} 정상</strong>
+              <p>깨진 링크는 공개 전에 제외하고, 확인이 더 필요한 링크는 따로 표시합니다.</p>
+            </div>
+          </aside>
         </div>
       </section>
       <!-- home-rail:end -->`;
@@ -235,7 +257,7 @@ const main = async () => {
   const cards = config.cards.map((card) => resolveCard(card, context));
   const heroVideo = selectHeroVideo(sceneSignals);
   const channels = renderChannels(config);
-  const shelf = renderShelf(config, cards, latestBrief);
+  const shelf = renderShelf(config, cards, latestBrief, sourceHealth);
   const editorialDeck = renderEditorialDeck(config);
   const html = await readFile(indexPath, "utf8");
   const withHero = html.replace(/<!-- hero-video:start -->[\s\S]*?<!-- hero-video:end -->/, renderHeroVideo(heroVideo));

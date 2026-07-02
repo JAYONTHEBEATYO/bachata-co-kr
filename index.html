@@ -1713,6 +1713,823 @@
           min-height: 420px;
         }
       }
+
+      /*
+        Clean feed reset for bachata.co.kr.
+        The site should read like a daily guide, not a dark landing page.
+      */
+      :root {
+        color-scheme: light;
+        --page: #f4f6fa;
+        --surface: #ffffff;
+        --surface-soft: #f8fafc;
+        --text: #111827;
+        --subtle: #5f6b7a;
+        --quiet: #8a94a6;
+        --line-light: #e3e8ef;
+        --accent-blue: #1769ff;
+        --accent-soft: #eef4ff;
+        --accent-red: #e23b4a;
+        background: var(--page);
+        color: var(--text);
+      }
+
+      body {
+        background: var(--page);
+        color: var(--text);
+        font-size: 15px;
+        line-height: 1.58;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        border-bottom: 1px solid var(--line-light);
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(14px);
+      }
+
+      .nav {
+        width: min(1120px, calc(100% - 32px));
+        min-height: 56px;
+        gap: 12px;
+      }
+
+      .brand {
+        flex: 0 0 auto;
+        gap: 0;
+      }
+
+      .brand strong {
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.1;
+      }
+
+      .brand span {
+        color: var(--accent-blue);
+        font-size: 11px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .nav-links {
+        flex: 1 1 auto;
+        display: flex;
+        gap: 2px;
+        overflow-x: auto;
+        color: var(--subtle);
+        font-size: 14px;
+        scrollbar-width: none;
+      }
+
+      .nav-links::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-links a {
+        min-height: 36px;
+        display: inline-flex;
+        align-items: center;
+        padding: 0 10px;
+        border-radius: 6px;
+        color: #364152;
+      }
+
+      .nav-links a:hover,
+      .nav-links a:focus-visible {
+        background: var(--accent-soft);
+        color: var(--accent-blue);
+      }
+
+      .cta {
+        min-height: 36px;
+        padding: 0 13px;
+        border: 1px solid var(--accent-blue);
+        border-radius: 6px;
+        background: var(--accent-blue);
+        color: #ffffff;
+        font-size: 14px;
+      }
+
+      .hero {
+        background: var(--surface);
+        color: var(--text);
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .hero-inner {
+        width: min(1120px, calc(100% - 32px));
+        min-height: auto;
+        grid-template-columns: minmax(0, 1fr) minmax(340px, 0.72fr);
+        gap: 18px;
+        align-items: center;
+        padding: 26px 0 24px;
+      }
+
+      .hero-panel {
+        order: -1;
+        align-content: center;
+      }
+
+      .eyebrow {
+        margin-bottom: 10px;
+        color: var(--accent-blue);
+        font-size: 12px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      h1 {
+        max-width: 660px;
+        color: var(--text);
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.12;
+        font-weight: 950;
+      }
+
+      h2,
+      h3 {
+        color: var(--text);
+      }
+
+      .hero-copy {
+        max-width: 620px;
+        margin-top: 12px;
+        color: var(--subtle);
+        font-size: 16px;
+        line-height: 1.68;
+      }
+
+      .hero-actions {
+        margin-top: 18px;
+        gap: 8px;
+      }
+
+      .button {
+        min-height: 40px;
+        padding: 0 13px;
+        border: 1px solid var(--line-light);
+        border-radius: 6px;
+        background: var(--surface);
+        color: #273142;
+        font-size: 14px;
+        font-weight: 850;
+      }
+
+      .button.primary,
+      .hero .button.primary {
+        border-color: var(--accent-blue);
+        background: var(--accent-blue);
+        color: #ffffff;
+      }
+
+      .hero .button {
+        border-color: var(--line-light);
+        background: var(--surface-soft);
+        color: #273142;
+      }
+
+      .button:hover,
+      .button:focus-visible,
+      .cta:hover,
+      .cta:focus-visible {
+        transform: none;
+      }
+
+      .hero-media {
+        overflow: hidden;
+        border: 1px solid var(--line-light);
+        border-radius: 8px;
+        background: #0b1020;
+        box-shadow: none;
+      }
+
+      .hero-media-caption {
+        gap: 8px;
+        padding: 11px 12px;
+        border-top: 1px solid #202a40;
+        background: #111827;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 12px;
+      }
+
+      .hero-media-caption a {
+        color: #ffffff;
+      }
+
+      .ticker {
+        background: var(--surface);
+        border-color: var(--line-light);
+      }
+
+      .ticker-track {
+        width: min(1120px, calc(100% - 32px));
+        padding: 10px 0;
+        color: #4b5565;
+        font-size: 13px;
+      }
+
+      .ticker span {
+        color: var(--accent-blue);
+      }
+
+      .channel-strip {
+        padding: 14px 0;
+        background: var(--page);
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .channel-row {
+        width: min(1120px, calc(100% - 32px));
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .channel-link {
+        min-height: 116px;
+        padding: 13px;
+        border: 1px solid var(--line-light);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .channel-link span,
+      .channel-link em {
+        color: var(--accent-blue);
+        font-size: 11px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .channel-link strong {
+        margin-top: 9px;
+        color: var(--text);
+        font-size: 16px;
+        line-height: 1.24;
+      }
+
+      .channel-link p {
+        margin-top: 7px;
+        color: var(--subtle);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .channel-link em {
+        margin-top: 12px;
+        color: var(--quiet);
+      }
+
+      .home-shelf {
+        padding: 18px 0 26px;
+        background: var(--page);
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .shelf-layout {
+        width: min(1120px, calc(100% - 32px));
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 300px;
+        gap: 16px;
+        align-items: start;
+      }
+
+      .shelf-layout > *,
+      .feed-column,
+      .content-rail,
+      .rail-card,
+      .home-sidebar {
+        min-width: 0;
+      }
+
+      .shelf-head {
+        width: auto;
+        margin: 0 0 10px;
+        padding: 0 0 10px;
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .shelf-head h2 {
+        font-size: 22px;
+        line-height: 1.24;
+      }
+
+      .shelf-head p {
+        max-width: 420px;
+        color: var(--subtle);
+        font-size: 14px;
+        line-height: 1.56;
+      }
+
+      .shelf-head a {
+        color: var(--accent-blue);
+        font-weight: 900;
+      }
+
+      .content-rail {
+        width: auto;
+        margin: 0;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-flow: row;
+        grid-auto-columns: auto;
+        gap: 8px;
+      }
+
+      .rail-card,
+      .rail-card.featured {
+        min-height: 112px;
+        display: grid;
+        grid-template-columns: 132px minmax(0, 1fr) auto;
+        grid-template-rows: auto;
+        align-items: center;
+        border: 1px solid var(--line-light);
+        border-radius: 8px;
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      .rail-card.featured {
+        border-color: rgba(23, 105, 255, 0.32);
+      }
+
+      .rail-thumb {
+        width: 132px;
+        height: 100%;
+        min-height: 112px;
+        aspect-ratio: auto;
+        border: 0;
+        border-right: 1px solid var(--line-light);
+      }
+
+      .rail-thumb img {
+        filter: none;
+      }
+
+      .rail-thumb span {
+        min-height: 24px;
+        left: 8px;
+        bottom: 8px;
+        border-radius: 4px;
+        background: rgba(17, 24, 39, 0.82);
+        font-size: 11px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .rail-card-copy {
+        padding: 12px 14px;
+      }
+
+      .rail-card span,
+      .rail-card.featured .rail-card-copy > span {
+        color: var(--accent-blue);
+        font-size: 12px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .rail-card strong {
+        margin-top: 5px;
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.25;
+      }
+
+      .rail-card p,
+      .rail-card.featured p {
+        margin-top: 6px;
+        color: var(--subtle);
+        font-size: 13px;
+        line-height: 1.48;
+      }
+
+      .rail-card em,
+      .rail-card.featured em {
+        padding: 0 14px;
+        color: var(--quiet);
+        font-size: 12px;
+        white-space: nowrap;
+      }
+
+      .home-sidebar {
+        display: grid;
+        gap: 10px;
+      }
+
+      .ad-slot,
+      .side-box {
+        display: grid;
+        gap: 8px;
+        padding: 15px;
+        border: 1px solid var(--line-light);
+        border-radius: 8px;
+        background: var(--surface);
+      }
+
+      .ad-slot {
+        min-height: 184px;
+        align-content: space-between;
+        background: linear-gradient(135deg, #ffffff 0%, #eef4ff 100%);
+      }
+
+      .ad-slot span,
+      .side-box span {
+        color: var(--accent-blue);
+        font-size: 12px;
+        font-weight: 950;
+      }
+
+      .ad-slot strong,
+      .side-box strong {
+        color: var(--text);
+        font-size: 18px;
+        line-height: 1.28;
+      }
+
+      .ad-slot em,
+      .side-box p {
+        color: var(--subtle);
+        font-size: 13px;
+        font-style: normal;
+        line-height: 1.5;
+      }
+
+      .side-box.compact {
+        min-height: 132px;
+      }
+
+      .editorial-deck {
+        padding: 22px 0 28px;
+        background: var(--surface);
+        color: var(--text);
+        border-bottom: 1px solid var(--line-light);
+      }
+
+      .deck-inner {
+        width: min(1120px, calc(100% - 32px));
+        grid-template-columns: 280px minmax(0, 1fr);
+        gap: 16px;
+        align-items: start;
+      }
+
+      .deck-head h2 {
+        font-size: 22px;
+        line-height: 1.26;
+      }
+
+      .deck-head p:last-child {
+        margin-top: 10px;
+        color: var(--subtle);
+        font-size: 14px;
+        line-height: 1.58;
+      }
+
+      .deck-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .deck-card {
+        min-height: 148px;
+        padding: 14px;
+        border: 1px solid var(--line-light);
+        border-radius: 8px;
+        background: var(--surface-soft);
+      }
+
+      .deck-card:hover,
+      .deck-card:focus-visible {
+        transform: none;
+        border-color: rgba(23, 105, 255, 0.34);
+        background: #ffffff;
+      }
+
+      .deck-card span,
+      .deck-card em {
+        color: var(--accent-blue);
+        font-size: 11px;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .deck-card strong {
+        margin-top: 8px;
+        color: var(--text);
+        font-size: 16px;
+        line-height: 1.28;
+      }
+
+      .deck-card p {
+        margin-top: 8px;
+        color: var(--subtle);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .deck-card em {
+        margin-top: 12px;
+        color: var(--quiet);
+      }
+
+      section {
+        scroll-margin-top: 68px;
+      }
+
+      .section,
+      .section.alt {
+        padding: 56px 0;
+        background: var(--page);
+        color: var(--text);
+      }
+
+      .wrap {
+        width: min(1120px, calc(100% - 32px));
+      }
+
+      .section-head {
+        grid-template-columns: minmax(0, 0.9fr) minmax(280px, 0.5fr);
+        gap: 24px;
+        margin-bottom: 22px;
+      }
+
+      .section-head h2 {
+        font-size: clamp(26px, 3.6vw, 42px);
+        line-height: 1.18;
+      }
+
+      .section-head p,
+      .card p,
+      .rich p,
+      .list p,
+      .essay-card p,
+      .video-meta p,
+      .source-note p,
+      .trend-copy p,
+      .trend-card p,
+      .market-note p,
+      .automation-note p,
+      details p,
+      .footer p {
+        color: var(--subtle);
+      }
+
+      .card,
+      .essay,
+      .dossier,
+      .essay-card,
+      .video-card,
+      .source-note,
+      .fundamental,
+      .topic-card,
+      .trend-copy,
+      .trend-card,
+      .market-note,
+      .automation-note,
+      .directory article,
+      .keyword,
+      details,
+      .form,
+      .ops-card,
+      .notice,
+      .list-item {
+        border-color: var(--line-light);
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      .card h3,
+      .essay h3,
+      .essay-card h4,
+      .video-card h4,
+      .source-note h4,
+      .trend-copy h3,
+      .trend-card h3,
+      .market-note h3,
+      .automation-note h3,
+      .notice h3 {
+        font-size: clamp(21px, 2.4vw, 32px);
+        line-height: 1.22;
+      }
+
+      .tag,
+      .pill {
+        border-radius: 4px;
+        background: var(--accent-soft);
+        color: var(--accent-blue);
+      }
+
+      .style-card .number,
+      .style-card .read-more,
+      .date,
+      .directory strong,
+      .market-note strong,
+      .fundamental strong,
+      .topic-card strong,
+      .keyword strong,
+      .principle-list span,
+      .pipeline li::before,
+      .source-links a {
+        color: var(--accent-blue);
+      }
+
+      .quote,
+      .dossier-title {
+        background: var(--accent-soft);
+        color: var(--text);
+      }
+
+      .quote p,
+      .dossier-title p {
+        color: var(--subtle);
+      }
+
+      .dossier-head,
+      .video-frame,
+      .trend-card .video-frame,
+      .trend-lead .video-frame {
+        border-color: var(--line-light);
+      }
+
+      .fundamental span,
+      .topic-card span,
+      .keyword span,
+      .pipeline li,
+      .principle-list li,
+      .market-note ul,
+      .signal-list li,
+      .trend-tags span {
+        color: var(--subtle);
+        border-color: var(--line-light);
+      }
+
+      .form input,
+      .form textarea {
+        border-color: var(--line-light);
+        background: #ffffff;
+        color: var(--text);
+      }
+
+      .footer {
+        background: #ffffff;
+        border-top: 1px solid var(--line-light);
+      }
+
+      .footer-grid {
+        width: min(1120px, calc(100% - 32px));
+      }
+
+      .sources a {
+        color: var(--accent-blue);
+      }
+
+      @media (max-width: 980px) {
+        .nav-links {
+          display: flex;
+        }
+
+        .hero-inner,
+        .shelf-layout,
+        .deck-inner,
+        .section-head {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-panel {
+          order: -1;
+        }
+
+        .channel-row {
+          width: 100%;
+          display: grid;
+          grid-auto-flow: column;
+          grid-auto-columns: minmax(180px, 28vw);
+          grid-template-columns: none;
+          overflow-x: auto;
+          padding: 0 16px 4px;
+        }
+
+        .content-rail {
+          width: auto;
+          display: grid;
+          max-width: 100%;
+          grid-template-columns: minmax(0, 1fr);
+          grid-auto-flow: row;
+          grid-auto-columns: auto;
+          overflow: visible;
+          padding: 0;
+        }
+
+        .deck-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 620px) {
+        .wrap,
+        .nav,
+        .hero-inner,
+        .deck-inner,
+        .footer-grid,
+        .shelf-layout {
+          width: min(100% - 24px, 1120px);
+        }
+
+        .nav {
+          min-height: 54px;
+          gap: 8px;
+        }
+
+        .brand strong {
+          font-size: 16px;
+        }
+
+        .brand span {
+          display: none;
+        }
+
+        .nav .cta {
+          display: none;
+        }
+
+        .nav-links a {
+          padding: 0 9px;
+          font-size: 13px;
+        }
+
+        h1 {
+          font-size: 31px;
+          line-height: 1.16;
+        }
+
+        .hero-inner {
+          padding: 20px 0;
+        }
+
+        .hero-copy {
+          font-size: 15px;
+        }
+
+        .hero .hero-actions {
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .hero .hero-actions .button {
+          min-height: 38px;
+          font-size: 13px;
+        }
+
+        .channel-row {
+          grid-auto-columns: minmax(164px, 74vw);
+          padding: 0 12px 4px;
+        }
+
+        .rail-card,
+        .rail-card.featured {
+          width: 100%;
+          grid-template-columns: 94px minmax(0, 1fr);
+          min-height: 106px;
+        }
+
+        .rail-thumb {
+          width: 94px;
+          min-height: 106px;
+        }
+
+        .rail-card-copy {
+          padding: 11px 12px 6px;
+        }
+
+        .rail-card strong {
+          font-size: 16px;
+        }
+
+        .rail-card p {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+        }
+
+        .rail-card em,
+        .rail-card.featured em {
+          grid-column: 2;
+          padding: 0 12px 10px;
+          white-space: normal;
+        }
+
+        .deck-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .section {
+          padding: 44px 0;
+        }
+      }
     </style>
     <script type="application/ld+json">
       {
@@ -1982,16 +2799,16 @@
           <span>Bachata Korea</span>
         </a>
         <div class="nav-links" aria-label="섹션 이동">
-          <a href="/programs/">프로그램</a>
+          <a href="/programs/">입문</a>
           <a href="/styles/">스타일</a>
-          <a href="/profiles/">아티스트</a>
-          <a href="/korea-scene/">국내 소식</a>
+          <a href="/profiles/">댄서</a>
+          <a href="/korea-scene/">국내</a>
           <a href="/events/">행사</a>
-          <a href="/articles/">기사</a>
+          <a href="/articles/">글</a>
           <a href="/community/">커뮤니티</a>
-          <a href="/briefs/">브리핑</a>
+          <a href="/briefs/">업데이트</a>
         </div>
-        <a class="cta" href="/submit/">제보하기</a>
+        <a class="cta" href="/submit/">소식 제보</a>
       </nav>
     </header>
 
@@ -2004,62 +2821,62 @@
               <iframe loading="eager" src="https://www.youtube-nocookie.com/embed/nrJM-arshvE" title="바차타소셜 | 그레이 &amp; 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
             <div class="hero-media-caption">
-              <span>오늘의 영상 · 국내 소식</span>
+              <span>추천 영상 · 국내 소식</span>
               <a href="https://www.youtube.com/watch?v=nrJM-arshvE" target="_blank" rel="noreferrer">바차타소셜 | 그레이 &amp; 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24</a>
             </div>
           </div>
           <!-- hero-video:end -->
           <div class="hero-panel">
-            <p class="eyebrow">Seoul Bachata Guide</p>
-            <h1 id="hero-title">서울 바차타 소셜·클래스·행사와 입문 가이드</h1>
-            <p class="hero-copy">처음 배우는 사람은 기본 리듬과 매너부터, 소셜을 다니는 사람은 서울·제주 행사와 국내 팀 소식을 바로 확인할 수 있습니다.</p>
+            <p class="eyebrow">Bachata Korea</p>
+            <h1 id="hero-title">한국 바차타를 찾을 때 먼저 보는 사이트</h1>
+            <p class="hero-copy">바차타 입문, 센슈얼·도미니칸 스타일, 서울과 전국 소셜, 워크숍, 내한 소식, 댄서와 팀 정보를 한국어로 정리합니다.</p>
             <div class="hero-actions">
-              <a class="button primary" href="/briefs/">오늘 볼 영상</a>
-              <a class="button" href="/styles/">스타일별 보기</a>
-              <a class="button" href="/korea-scene/">국내 소식 보기</a>
-              <a class="button" href="/events/">행사·소식</a>
+              <a class="button primary" href="/briefs/">오늘 업데이트</a>
+              <a class="button" href="/styles/">스타일 비교</a>
+              <a class="button" href="/events/">행사 일정</a>
+              <a class="button" href="/profiles/">댄서·팀</a>
             </div>
           </div>
         </div>
       </section>
 
       <!-- home-channels:start -->
-      <section class="channel-strip" aria-label="바차타 코리아 콘텐츠 채널">
+      <section class="channel-strip" aria-label="빠른 이동">
         <div class="channel-row">
           <a class="channel-link" href="/styles/">
           <span>스타일</span>
-          <strong>스타일별로 보기</strong>
-          <p>센슈얼, 도미니칸, 모던, Bachazouk, Influence를 한 번에 이동합니다.</p>
+          <strong>스타일별 가이드</strong>
+          <p>센슈얼, 도미니칸, 모던, Bachazouk, Influence의 차이를 빠르게 비교합니다.</p>
           <em>가이드 5개</em>
         </a>
           <a class="channel-link" href="/programs/">
-          <span>영상 루틴</span>
-          <strong>영상 루틴</strong>
-          <p>영상 하나를 보고 바로 읽을 수 있는 입문·리듬·안전 루트입니다.</p>
+          <span>입문</span>
+          <strong>입문 루트</strong>
+          <p>처음 배우는 사람이 기본 리듬, 연결, 매너를 순서대로 볼 수 있게 정리했습니다.</p>
           <em>루트 6개</em>
         </a>
           <a class="channel-link" href="/profiles/">
           <span>댄서·팀</span>
           <strong>댄서와 팀</strong>
-          <p>해외 댄서, 최근 내한 페어, 국내 강사·팀·장소를 공개 영상과 출처 링크 기준으로 정리했습니다.</p>
+          <p>해외 댄서와 국내 팀·강사·장소를 영상과 공식 링크 중심으로 확인합니다.</p>
           <em>프로필 39개</em>
         </a>
           <a class="channel-link" href="/korea-scene/">
           <span>국내 소식</span>
           <strong>한국 바차타 소식</strong>
-          <p>서울, 홍대, 강남, 동호회, 내한 소식을 바로 확인합니다.</p>
-          <em>국내 지도</em>
+          <p>서울, 홍대, 강남, 제주, 동호회, 내한 소식을 한곳에서 봅니다.</p>
+          <em>국내 소식</em>
         </a>
           <a class="channel-link" href="/gear/">
           <span>댄스화</span>
           <strong>댄스화와 장비</strong>
-          <p>Fuego, Pana Mio, On1, Pulse를 한국 구매자 기준으로 비교합니다.</p>
+          <p>Fuego, Pana Mio, On1, Pulse 같은 댄스화와 장비를 구매 전 관점에서 봅니다.</p>
           <em>브랜드 4개</em>
         </a>
           <a class="channel-link" href="/submit/">
           <span>제보</span>
           <strong>소식 보내기</strong>
-          <p>행사, 양도, 구인, 대관, 팀 소개를 바로 보낼 수 있습니다.</p>
+          <p>행사, 양도, 구인, 대관, 팀 소개를 사이트에 보낼 수 있습니다.</p>
           <em>상시 접수</em>
         </a>
         </div>
@@ -2068,62 +2885,83 @@
 
       <!-- home-rail:start -->
       <section class="home-shelf" aria-labelledby="watch-next-title">
-        <div class="shelf-head">
-          <div>
-            <p class="eyebrow">다음 볼거리</p>
-            <h2 id="watch-next-title">다음으로 볼 콘텐츠</h2>
-          </div>
-          <p>영상 하나를 고르면 바로 읽을거리와 국내 소식으로 이어집니다. <a href="/briefs/2026-07-01.html">오늘 브리핑</a> · <a href="/radar/">소셜 소식</a></p>
-        </div>
-        <div class="content-rail">
-          <a class="rail-card featured" href="/programs/sensual-fundamentals.html">
+        <div class="shelf-layout">
+          <div class="feed-column">
+            <div class="shelf-head">
+              <div>
+                <p class="eyebrow">추천 읽을거리</p>
+                <h2 id="watch-next-title">처음 배우기, 스타일 비교, 행사 확인</h2>
+              </div>
+              <p>지금 필요한 글과 영상을 먼저 골라보세요. <a href="/briefs/2026-07-02.html">오늘 업데이트</a> · <a href="/events/">행사 일정</a></p>
+            </div>
+            <div class="content-rail">
+              <a class="rail-card featured" href="/programs/sensual-fundamentals.html">
             <figure class="rail-thumb">
               <img loading="lazy" src="https://i.ytimg.com/vi/B7Wv3cqHrSU/hqdefault.jpg" alt="" aria-hidden="true">
-              <span>Watch</span>
+              <span>영상</span>
             </figure>
             <div class="rail-card-copy">
-              <span>핵심</span>
+              <span>센슈얼</span>
               <strong>센슈얼 16 펀더멘털</strong>
-              <p>Korke &amp; Judith 기준 영상을 보며 웨이브, 축, 리드의 언어를 차분히 정리합니다.</p>
+              <p>Korke &amp; Judith 계열 영상을 보며 웨이브, 축, 프레임을 안전하게 이해합니다.</p>
             </div>
             <em>4개 영상 · 16개 노트</em>
           </a>
-          <a class="rail-card" href="/programs/dominican-rhythm.html">
+              <a class="rail-card" href="/programs/dominican-rhythm.html">
             <figure class="rail-thumb">
               <img loading="lazy" src="https://i.ytimg.com/vi/xmvDKN5cwT0/hqdefault.jpg" alt="" aria-hidden="true">
-              <span>Watch</span>
+              <span>영상</span>
             </figure>
             <div class="rail-card-copy">
-              <span>리듬</span>
+              <span>도미니칸</span>
               <strong>도미니칸 풋워크</strong>
-              <p>발을 많이 쓰기보다 기타와 봉고의 작은 악센트에 어떻게 답할지 봅니다.</p>
+              <p>발을 많이 쓰는 춤으로만 보지 않고, 기타와 봉고의 악센트를 어떻게 듣는지 설명합니다.</p>
             </div>
             <em>입문 루트</em>
           </a>
-          <a class="rail-card" href="/articles/bachata-influence-melvin-gatica.html">
+              <a class="rail-card" href="/articles/bachata-influence-melvin-gatica.html">
             <figure class="rail-thumb">
               <img loading="lazy" src="https://i.ytimg.com/vi/sUy5L7x5pyE/hqdefault.jpg" alt="" aria-hidden="true">
-              <span>Watch</span>
+              <span>영상</span>
             </figure>
             <div class="rail-card-copy">
-              <span>흐름</span>
+              <span>트렌드</span>
               <strong>Bachata Influence</strong>
-              <p>Melvin Gatica 계열이 왜 지금 한국 바차타 현장에서도 자주 언급되는지 읽습니다.</p>
+              <p>Melvin &amp; Gatica 계열을 음악성, 프레임, 수업 방식 관점에서 읽습니다.</p>
             </div>
             <em>트렌드 기사</em>
           </a>
-          <a class="rail-card" href="/events/k-sensual-summer-2026.html">
+              <a class="rail-card" href="/events/k-sensual-summer-2026.html">
             <figure class="rail-thumb">
               <img loading="lazy" src="https://i.ytimg.com/vi/zQXNPwMqpdw/hqdefault.jpg" alt="" aria-hidden="true">
-              <span>Watch</span>
+              <span>영상</span>
             </figure>
             <div class="rail-card-copy">
-              <span>국내</span>
+              <span>행사</span>
               <strong>이번 달 한국 바차타</strong>
-              <p>내한, 워크숍, 소셜, 팀 소식을 영상과 공식 출처 중심으로 묶었습니다.</p>
+              <p>내한, 워크숍, 소셜, 팀 소식을 일정과 출처 중심으로 확인합니다.</p>
             </div>
             <em>2026-07-09 · 제주</em>
           </a>
+            </div>
+          </div>
+          <aside class="home-sidebar" aria-label="사이트 운영 정보">
+            <a class="ad-slot" href="/submit/">
+              <span>파트너 배너</span>
+              <strong>바차타 행사·클래스·팀 소식을 보내주세요</strong>
+              <em>제보하면 출처 확인 후 일정과 기사에 반영합니다.</em>
+            </a>
+            <div class="side-box">
+              <span>오늘의 정리</span>
+              <strong>50개 소식 확인</strong>
+              <p>공개 영상, 행사 페이지, 공식 링크를 기준으로 읽을 만한 내용을 추립니다.</p>
+            </div>
+            <div class="side-box compact">
+              <span>출처 상태</span>
+              <strong>213 / 234 정상</strong>
+              <p>깨진 링크는 공개 전에 제외하고, 확인이 더 필요한 링크는 따로 표시합니다.</p>
+            </div>
+          </aside>
         </div>
       </section>
       <!-- home-rail:end -->
@@ -2132,34 +2970,34 @@
       <section class="editorial-deck" aria-labelledby="editorial-deck-title">
         <div class="deck-inner">
           <div class="deck-head">
-            <p class="eyebrow">추천 콘텐츠</p>
-            <h2 id="editorial-deck-title">영상에서 시작해 스타일, 사람, 국내 소식으로 이어지는 홈</h2>
-            <p>첫 화면에서는 바로 볼 수 있는 영상과 다음에 읽을 경로를 먼저 보여줍니다. 센슈얼·도미니칸 가이드, 글로벌 댄서, 한국 소셜 소식을 한 화면에서 고를 수 있게 정리합니다.</p>
+            <p class="eyebrow">주요 섹션</p>
+            <h2 id="editorial-deck-title">바차타를 찾는 사람이 자주 보는 네 가지</h2>
+            <p>입문자는 기본기와 매너를, 소셜을 다니는 사람은 행사와 팀 정보를, 더 깊게 보고 싶은 사람은 스타일별 가이드와 댄서 프로필을 볼 수 있습니다.</p>
           </div>
           <div class="deck-grid">
             <a class="deck-card" href="/briefs/">
           <span>영상</span>
-          <strong>오늘 볼 영상</strong>
-          <p>재생 가능한 YouTube 영상과 최신 소식을 먼저 보고, 관련 기사와 프로필로 이어갑니다.</p>
-          <em>오늘 브리핑</em>
+          <strong>오늘 볼 만한 영상</strong>
+          <p>공개된 YouTube 영상 중 바로 볼 수 있는 자료를 골라 관련 글과 함께 묶었습니다.</p>
+          <em>오늘 업데이트</em>
         </a>
             <a class="deck-card" href="/styles/">
           <span>배우기</span>
-          <strong>스타일별 코어 콘텐츠</strong>
-          <p>센슈얼 16 펀더멘털, 도미니칸 리듬, Bachata Influence, Bachazouk를 한 번에 탐색합니다.</p>
+          <strong>스타일별 가이드</strong>
+          <p>센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk를 한국어로 비교해 읽을 수 있습니다.</p>
           <em>스타일 5개</em>
         </a>
             <a class="deck-card" href="/profiles/">
           <span>사람</span>
           <strong>댄서와 팀</strong>
-          <p>Daniel &amp; Desiree, Victor &amp; Alba 같은 해외 레퍼런스부터 에단 &amp; 로렌, 소라 &amp; 달콩, 원궁 &amp; 요니 같은 국내 수업·공연 기록까지 함께 봅니다.</p>
+          <p>해외 유명 댄서와 한국에서 볼 수 있는 팀·강사·장소를 영상과 공식 링크 기준으로 정리했습니다.</p>
           <em>프로필 39개</em>
         </a>
             <a class="deck-card" href="/korea-scene/">
           <span>국내 소식</span>
           <strong>한국 바차타 소식</strong>
-          <p>행사, 내한, 동호회, 장소, 양도·구인 제보까지 한국 독자가 바로 쓸 수 있는 소식으로 정리합니다.</p>
-          <em>국내 지도</em>
+          <p>소셜, 워크숍, 내한, 동호회, 장소 정보를 한국 독자가 바로 확인할 수 있게 정리합니다.</p>
+          <em>국내 소식</em>
         </a>
           </div>
         </div>

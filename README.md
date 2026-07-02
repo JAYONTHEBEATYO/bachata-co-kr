@@ -20,6 +20,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `data/editorial-desk.json`: editor-managed story queue and publishing series plan
 - `data/gear.json`: editor-managed dance shoes and gear comparison data
 - `data/home-rail.json`: editor-managed homepage watch-next rail slots
+- `data/knowledge-notes.json`: editor-managed writing rules, owner feedback, and future article notes
 - `tools/collect-scene-signals.mjs`: validates YouTube embeds, prepares candidate signals, and updates signal history
 - `tools/audit-sources.mjs`: audits internal links, external source URLs, and YouTube oEmbed health
 - `tools/build-home.mjs`: builds the homepage watch-next rail and `data/generated/home-index.json`
@@ -36,12 +37,16 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `tools/build-editorial-desk.mjs`: builds `/desk/` and `data/generated/editorial-desk-index.json`
 - `tools/build-gear.mjs`: builds `/gear/` and `data/generated/gear-index.json`
 - `tools/build-daily-brief.mjs`: turns generated signals into static daily brief pages
+- `tools/build-knowledge-base.mjs`: builds the local retrieval index at `data/generated/knowledge-index.json`
+- `tools/search-knowledge.mjs`: searches the generated knowledge index for editing and article drafting
+- `tools/serve-static.mjs`: serves the static site locally for visual QA
 - `tools/verify-build.mjs`: fails the daily workflow if generated pages have missing files, sitemap gaps, mojibake-like text, broken internal links, broken YouTube embeds, or an empty intake queue
 - `.github/workflows/content-discovery.yml`: scheduled GitHub Actions workflow
 - `data/generated/scene-signals.json`: generated candidate queue for editorial review
 - `data/generated/signal-history.json`: generated memory of seen signals, novelty state, first-seen dates, and recurring counts
 - `data/generated/source-health.json`: generated source, link, and video health report
 - `data/generated/home-index.json`: generated homepage rail model for the current daily brief
+- `data/generated/knowledge-index.json`: generated retrieval index for site content, writing rules, and future RAG/API use
 - `data/generated/social-intake-index.json`: generated publish queue from social, search, and editorial signals
 - `data/generated/korea-scene-index.json`: generated Korea scene map from profiles, events, board, and intake signals
 - `briefs/`: generated daily brief pages
@@ -58,6 +63,7 @@ The site is static, but the repo includes a daily discovery pipeline:
 - `desk/`: generated editorial queue and publishing desk pages
 - `gear/`: generated dance shoes and gear comparison pages
 - `health/`: generated public source health dashboard
+- `docs/content-rag.md`: current content RAG and archive workflow notes
 
 ## Daily Automation Settings
 

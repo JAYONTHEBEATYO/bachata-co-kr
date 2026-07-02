@@ -20,6 +20,7 @@ const requiredFiles = [
   "data/generated/signal-history.json",
   "data/generated/source-health.json",
   "data/generated/home-index.json",
+  "data/generated/knowledge-index.json",
   "data/generated/latest-brief.json"
 ];
 
@@ -356,6 +357,16 @@ const verifyKoreanCopy = async () => {
   return JSON.parse(stdout);
 };
 
+const verifyKnowledgeIndex = async () => {
+  const knowledge = await readJson("data/generated/knowledge-index.json");
+  const summary = knowledge.summary || {};
+  assert((summary.documents || 0) >= 30, "Knowledge index has too few documents", summary);
+  assert((summary.chunks || 0) >= 30, "Knowledge index has too few chunks", summary);
+  assert((knowledge.writingRules || []).length >= 1, "Knowledge index is missing writing rules", knowledge.writingRules || []);
+  assert((knowledge.chunks || []).some((chunk) => /한국어|글쓰기|운영/.test(`${chunk.title} ${chunk.text}`)), "Knowledge index does not include Korean writing guidance");
+  return summary;
+};
+
 const verifyIndexesAndSitemap = async () => {
   const sitemap = await readText("sitemap.xml");
   const articleIndex = await readJson("data/generated/article-index.json");
@@ -396,7 +407,7 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, communityBoard, koreanCopy] = await Promise.all([
+  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, communityBoard, koreanCopy, knowledgeIndex] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
     verifySocialRadar(),
@@ -408,7 +419,8 @@ const main = async () => {
     verifyArticleVideoLoading(),
     verifyProgramVideoLoading(),
     verifyCommunityBoard(),
-    verifyKoreanCopy()
+    verifyKoreanCopy(),
+    verifyKnowledgeIndex()
   ]);
 
   const report = {
@@ -423,6 +435,7 @@ const main = async () => {
     programVideos,
     communityBoard,
     koreanCopy,
+    knowledgeIndex,
     signalHistory,
     socialIntake
   };

@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-01T02:03:42.493Z",
-  "updatedAt": "2026-07-01",
+  "generatedAt": "2026-07-02T04:43:56.942Z",
+  "updatedAt": "2026-07-02",
   "latestBrief": {
-    "url": "/briefs/2026-07-01.html",
+    "url": "/briefs/2026-07-02.html",
     "candidateCount": 50,
-    "generationDate": "2026-07-01"
+    "generationDate": "2026-07-02"
   },
   "sourceHealth": {
     "total": 234,
@@ -23,13 +23,13 @@
   "channels": [
     {
       "label": "스타일",
-      "title": "스타일별로 보기",
+      "title": "스타일별 가이드",
       "url": "/styles/",
       "metric": "가이드 5개"
     },
     {
-      "label": "영상 루틴",
-      "title": "영상 루틴",
+      "label": "입문",
+      "title": "입문 루트",
       "url": "/programs/",
       "metric": "루트 6개"
     },
@@ -43,7 +43,7 @@
       "label": "국내 소식",
       "title": "한국 바차타 소식",
       "url": "/korea-scene/",
-      "metric": "국내 지도"
+      "metric": "국내 소식"
     },
     {
       "label": "댄스화",
@@ -59,18 +59,18 @@
     }
   ],
   "editorialDeck": {
-    "title": "영상에서 시작해 스타일, 사람, 국내 소식으로 이어지는 홈",
+    "title": "바차타를 찾는 사람이 자주 보는 네 가지",
     "itemCount": 4,
     "items": [
       {
         "label": "영상",
-        "title": "오늘 볼 영상",
+        "title": "오늘 볼 만한 영상",
         "url": "/briefs/",
-        "meta": "오늘 브리핑"
+        "meta": "오늘 업데이트"
       },
       {
         "label": "배우기",
-        "title": "스타일별 코어 콘텐츠",
+        "title": "스타일별 가이드",
         "url": "/styles/",
         "meta": "스타일 5개"
       },
@@ -84,13 +84,13 @@
         "label": "국내 소식",
         "title": "한국 바차타 소식",
         "url": "/korea-scene/",
-        "meta": "국내 지도"
+        "meta": "국내 소식"
       }
     ]
   },
   "cards": [
     {
-      "label": "핵심",
+      "label": "센슈얼",
       "title": "센슈얼 16 펀더멘털",
       "url": "/programs/sensual-fundamentals.html",
       "meta": "4개 영상 · 16개 노트",
@@ -98,7 +98,7 @@
       "featured": true
     },
     {
-      "label": "리듬",
+      "label": "도미니칸",
       "title": "도미니칸 풋워크",
       "url": "/programs/dominican-rhythm.html",
       "meta": "입문 루트",
@@ -106,7 +106,7 @@
       "featured": false
     },
     {
-      "label": "흐름",
+      "label": "트렌드",
       "title": "Bachata Influence",
       "url": "/articles/bachata-influence-melvin-gatica.html",
       "meta": "트렌드 기사",
@@ -114,7 +114,7 @@
       "featured": false
     },
     {
-      "label": "국내",
+      "label": "행사",
       "title": "이번 달 한국 바차타",
       "url": "/events/k-sensual-summer-2026.html",
       "meta": "2026-07-09 · 제주",

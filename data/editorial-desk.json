@@ -371,7 +371,7 @@
       "role": "공개 소식과 편집자가 고른 출처를 매일 갱신합니다."
     },
     {
-      "label": "Editorial desk",
+      "label": "편집 계획",
       "file": "data/editorial-desk.json",
       "role": "새 소식을 어떤 기사, 프로그램, 프로필, 커뮤니티 기능으로 공개할지 공개 목록으로 관리합니다."
     }
