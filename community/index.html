@@ -5,134 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="referrer" content="strict-origin-when-cross-origin">
     <title>바차타 커뮤니티 | 소셜·워크숍·양도·구인 제보</title>
-    <meta name="description" content="한국 바차타 소셜, 워크숍, 티켓 양도, 댄스화 중고, 구인구직, 장소와 팀 홍보를 제보와 공개 링크 기준으로 정리합니다.">
+    <meta name="description" content="한국 바차타 소셜 후기, 워크숍 일정, 양도양수, 익명 질문, 구인구직, 홍보 제보를 공개 링크 기준으로 정리합니다.">
     <meta name="robots" content="index,follow,max-video-preview:-1,max-snippet:-1,max-image-preview:large">
     <link rel="canonical" href="https://bachata.co.kr/community/">
     <link rel="preconnect" href="https://cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/wanted-sans@1.0.3/fonts/webfonts/variable/complete/WantedSansVariable.css">
-    <style>
-      :root {
-        color-scheme: light;
-        --ink: #191512;
-        --paper: #f4efe6;
-        --paper-soft: #fffaf0;
-        --cream: #fff7e8;
-        --muted: rgba(25, 21, 18, 0.66);
-        --line: rgba(25, 21, 18, 0.13);
-        --gold: #d89f46;
-        --wine: #9d2447;
-        --green: #1b6f61;
-        font-family: "Pretendard Variable", Pretendard, "Wanted Sans Variable", "Wanted Sans", "Noto Sans KR", system-ui, sans-serif;
-      }
-      * { box-sizing: border-box; }
-      body { margin: 0; background: var(--paper); color: var(--ink); }
-      a { color: inherit; text-decoration: none; }
-      .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 0 max(18px, calc((100vw - 1180px) / 2)); border-bottom: 1px solid rgba(255, 247, 232, 0.14); background: rgba(13, 12, 11, 0.92); color: var(--cream); backdrop-filter: blur(18px); }
-      .brand strong { display: block; font-size: 20px; line-height: 1; }
-      .brand span { display: block; margin-top: 5px; color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0; text-transform: uppercase; }
-      .nav-links { display: flex; align-items: center; gap: 20px; color: rgba(255, 247, 232, 0.72); font-size: 14px; font-weight: 850; }
-      .hero { padding: clamp(70px, 10vw, 132px) max(18px, calc((100vw - 1180px) / 2)) clamp(34px, 6vw, 70px); background: #11100e; color: var(--cream); }
-      .hero-grid { display: grid; grid-template-columns: minmax(0, 0.86fr) minmax(280px, 0.36fr); gap: clamp(24px, 5vw, 64px); align-items: end; }
-      .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0; text-transform: uppercase; }
-      .hero .eyebrow, .hero .tag { color: var(--gold); }
-      h1, h2, h3 { font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; letter-spacing: 0; word-break: keep-all; }
-      h1 { max-width: 960px; margin: 16px 0 18px; font-size: clamp(48px, 8vw, 104px); line-height: 0.94; overflow-wrap: anywhere; }
-      .hero p { max-width: 800px; margin: 0; color: rgba(255, 247, 232, 0.72); font-size: clamp(17px, 2vw, 22px); line-height: 1.72; }
-      .hero-note { padding: 22px; border: 1px solid rgba(255, 247, 232, 0.16); border-radius: 8px; background: rgba(255, 247, 232, 0.06); }
-      .hero-note strong { display: block; margin-bottom: 10px; color: var(--gold); font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-size: 24px; }
-      .quick-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
-      .quick-nav a, .button { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 13px; border: 1px solid currentColor; border-radius: 999px; font-size: 13px; font-weight: 900; }
-      main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: clamp(42px, 7vw, 76px) 0 90px; }
-      .section-head { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.36fr); gap: 24px; align-items: end; margin-bottom: 24px; }
-      .section-head h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.02; }
-      .section-head p, .entry p, .category-card p, .side-note p { color: var(--muted); line-height: 1.72; }
-      .category-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-      .category-card { display: grid; min-height: 245px; align-content: space-between; gap: 18px; padding: 22px; border: 1px solid var(--line); border-radius: 8px; background: var(--paper-soft); }
-      .category-card h3 { margin: 8px 0 0; font-size: 26px; line-height: 1.08; }
-      .category-card .count { color: var(--green); font-size: 13px; font-weight: 950; }
-      .board-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 24px; align-items: start; }
-      .entry-list { display: grid; gap: 14px; }
-      .entry { display: grid; grid-template-columns: minmax(0, 1fr) minmax(230px, 0.34fr); gap: 18px; padding: clamp(20px, 4vw, 30px); border: 1px solid var(--line); border-radius: 8px; background: var(--paper-soft); }
-      .entry h2 { margin: 10px 0 12px; font-size: clamp(28px, 4vw, 44px); line-height: 1.06; }
-      .entry-meta { display: flex; flex-wrap: wrap; gap: 8px; }
-      .entry-meta span, .pill { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid rgba(25, 21, 18, 0.14); border-radius: 999px; color: rgba(25, 21, 18, 0.72); font-size: 12px; font-weight: 900; }
-      .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
-      .tag-list span { background: rgba(216, 159, 70, 0.16); border-color: rgba(216, 159, 70, 0.25); color: #73501f; }
-      .entry-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
-      .entry-links a { display: inline-flex; align-items: center; min-height: 34px; padding: 0 11px; border: 1px solid rgba(25, 21, 18, 0.2); border-radius: 999px; font-size: 12px; font-weight: 950; }
-      .mini-list { display: grid; gap: 7px; margin: 12px 0 0; padding-left: 18px; color: var(--muted); font-size: 14px; line-height: 1.5; }
-      .mini-list li::marker { color: var(--gold); }
-      .video-loader { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #070707; }
-      .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
-      .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
-      .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 7, 7, 0.08), rgba(7, 7, 7, 0.58)); }
-      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(13, 12, 11, 0.76); color: var(--cream); font-size: 12px; font-weight: 950; letter-spacing: 0; text-transform: uppercase; }
-      .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
-      .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
-      .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-      .youtube-link { position: absolute; right: 12px; bottom: 12px; z-index: 2; display: inline-flex; align-items: center; min-height: 32px; padding: 0 10px; border: 1px solid rgba(255, 247, 232, 0.32); border-radius: 999px; background: rgba(13, 12, 11, 0.68); color: var(--cream); font-size: 12px; font-weight: 900; }
-      .video-loader[data-loaded="true"] .youtube-link { display: none; }
-      .entry-side { display: grid; gap: 12px; align-content: start; }
-      .entry-side > article { padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 250, 240, 0.74); }
-      .side-note { position: sticky; top: 96px; display: grid; gap: 14px; }
-      .side-note article { padding: 20px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255, 250, 240, 0.72); }
-      .submission { margin-top: 32px; padding: clamp(22px, 4vw, 34px); border-radius: 8px; background: #191512; color: var(--cream); }
-      .submission h2 { margin: 8px 0 12px; font-size: clamp(30px, 5vw, 56px); line-height: 1.04; }
-      .submission p { max-width: 760px; color: rgba(255, 247, 232, 0.72); line-height: 1.72; }
-      .submission .entry-links a { border-color: rgba(255, 247, 232, 0.24); color: var(--cream); }
-      @media (max-width: 980px) {
-        .hero-grid, .section-head, .board-layout, .entry { grid-template-columns: 1fr; }
-        .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-        .side-note { position: static; }
-      }
-      @media (max-width: 700px) {
-        .nav-links { display: none; }
-        h1 { font-size: clamp(42px, 13vw, 66px); }
-        .category-grid { grid-template-columns: 1fr; }
-        .entry { padding: 20px; }
-      }
-    </style>
-    <script type="application/ld+json">
-      {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "@id": "https://bachata.co.kr/community/",
-      "name": "바차타 코리아 커뮤니티",
-      "description": "한국 바차타 소셜, 워크숍, 양도양수, 구인구직, 홍보 제보를 공개 링크 기준으로 정리합니다.",
-      "inLanguage": "ko-KR",
-      "isPartOf": {
-            "@id": "https://bachata.co.kr/#website"
-      },
-      "hasPart": [
-            {
-                  "@type": "CollectionPage",
-                  "@id": "https://bachata.co.kr/community/free.html",
-                  "name": "자유롭게 남기는 바차타 이야기"
-            },
-            {
-                  "@type": "CollectionPage",
-                  "@id": "https://bachata.co.kr/community/transfer.html",
-                  "name": "티켓·패스·댄스화 양도"
-            },
-            {
-                  "@type": "CollectionPage",
-                  "@id": "https://bachata.co.kr/community/anonymous.html",
-                  "name": "익명으로 묻는 초보 질문"
-            },
-            {
-                  "@type": "CollectionPage",
-                  "@id": "https://bachata.co.kr/community/jobs.html",
-                  "name": "강사·DJ·스태프 구인구직"
-            },
-            {
-                  "@type": "CollectionPage",
-                  "@id": "https://bachata.co.kr/community/promo.html",
-                  "name": "행사·수업·팀 홍보"
-            }
-      ]
-}
-    </script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","@id":"https://bachata.co.kr/community/","name":"바차타 코리아 커뮤니티","description":"한국 바차타 소셜, 워크숍, 양도, 구인구직, 홍보 제보를 공개 링크 기준으로 정리하는 커뮤니티 피드.","inLanguage":"ko-KR","isPartOf":{"@id":"https://bachata.co.kr/#website"}}</script>
       <link rel="stylesheet" href="/assets/site.css">
     <script defer src="/assets/site.js"></script>
   </head>
@@ -147,121 +26,366 @@
         </details>
       </nav>
     </header>
-<section class="hero">
-      <div class="hero-grid">
+<main class="community-main">
+      <section class="community-hero">
         <div>
-          <span class="eyebrow">커뮤니티 제보</span>
-          <h1>한국 바차타 소식과 제보</h1>
-          <p>소셜 후기, 워크숍 일정, 티켓 양도, 댄스화 중고, 강사·DJ 구인, 장소·팀 홍보를 제보와 공개 링크를 바탕으로 정리합니다. 확인된 항목은 기사와 일정으로 이어집니다.</p>
-          <div class="quick-nav">
-            <a href="/community/free.html">자유게시판</a><a href="/community/transfer.html">양도양수</a><a href="/community/anonymous.html">익명게시판</a><a href="/community/jobs.html">구인구직</a><a href="/community/promo.html">홍보/제휴</a>
-          </div>
-        </div>
-        <aside class="hero-note">
-          <strong>제보는 정리해서 공개합니다</strong>
-          <p>원문을 그대로 붙이지 않습니다. 날짜, 장소, 가격, 공식 링크처럼 독자가 바로 확인해야 할 정보만 남깁니다.</p>
-        </aside>
+          <span class="eyebrow">커뮤니티</span>
+          <h1>한국 바차타 커뮤니티 피드</h1>
+          <p>소셜 후기, 워크숍 일정, 티켓 양도, 구인구직, 팀 홍보를 한 화면에서 훑어보는 피드입니다. 지금은 로그인 게시판보다 확인된 제보를 읽기 쉬운 글로 정리하는 데 집중합니다.</p>
+          <div class="quick-nav community-tabs">
+        <a href="/community/" aria-current="page">전체</a>
+        <a href="/community/free.html">자유게시판</a><a href="/community/transfer.html">양도양수</a><a href="/community/anonymous.html">익명게시판</a><a href="/community/jobs.html">구인구직</a><a href="/community/promo.html">홍보/제휴</a>
       </div>
-    </section>
-    <main>
-      <section>
-        <div class="section-head">
-          <div>
-            <span class="eyebrow">카테고리</span>
-            <h2>커뮤니티 메뉴</h2>
-          </div>
-          <p>지금은 로그인 게시판보다 매거진형 제보 큐레이션을 우선합니다. 받은 내용은 확인 후 읽기 쉬운 공지나 기사로 다듬습니다.</p>
         </div>
-        <div class="category-grid">
-          <article class="category-card">
-          <div>
-            <span class="tag">자유게시판</span>
-            <h3>자유게시판</h3>
-            <p>소셜 후기, 연습 메모, 음악 추천, 첫 방문 경험처럼 가볍게 나눌 수 있는 이야기를 모읍니다.</p>
-            <ul class="mini-list"><li>제목</li><li>다녀온 장소나 수업</li><li>좋았던 점과 아쉬운 점</li><li>공개 가능 범위</li></ul>
-          </div>
-          <div>
-            <span class="count">1개 항목</span>
-            <div class="entry-links"><a href="/community/free.html">자세히 보기</a></div>
-          </div>
-        </article>
-<article class="category-card">
-          <div>
-            <span class="tag">양도양수</span>
-            <h3>양도양수</h3>
-            <p>파티 티켓, 워크숍 패스, 댄스화, 의상 등 라틴댄스 관련 양도 정보를 날짜와 상태 중심으로 정리합니다.</p>
-            <ul class="mini-list"><li>품목</li><li>희망 가격</li><li>사용 여부</li><li>거래 가능 지역</li></ul>
-          </div>
-          <div>
-            <span class="count">2개 항목</span>
-            <div class="entry-links"><a href="/community/transfer.html">자세히 보기</a></div>
-          </div>
-        </article>
-<article class="category-card">
-          <div>
-            <span class="tag">익명게시판</span>
-            <h3>익명게시판</h3>
-            <p>처음 소셜에 갈 때 헷갈리는 매너, 복장, 레벨, 파트너워크 질문을 익명으로 정리합니다.</p>
-            <ul class="mini-list"><li>궁금한 점</li><li>현재 경험</li><li>익명 처리 범위</li><li>답변 받고 싶은 방식</li></ul>
-          </div>
-          <div>
-            <span class="count">1개 항목</span>
-            <div class="entry-links"><a href="/community/anonymous.html">자세히 보기</a></div>
-          </div>
-        </article>
-<article class="category-card">
-          <div>
-            <span class="tag">구인구직</span>
-            <h3>구인구직</h3>
-            <p>강사, 어시스턴트, DJ, 촬영자, 행사 스태프, 장소 협업 등 바차타 현장의 일거리를 모읍니다.</p>
-            <ul class="mini-list"><li>역할</li><li>일정과 장소</li><li>보수 조건</li><li>지원 방법</li></ul>
-          </div>
-          <div>
-            <span class="count">2개 항목</span>
-            <div class="entry-links"><a href="/community/jobs.html">자세히 보기</a></div>
-          </div>
-        </article>
-<article class="category-card">
-          <div>
-            <span class="tag">홍보/제휴</span>
-            <h3>홍보/제휴</h3>
-            <p>소셜, 워크숍, 클래스, 팀 모집, 장소 오픈, 브랜드 협업 소식을 매거진 톤으로 정리합니다.</p>
-            <ul class="mini-list"><li>행사/팀/브랜드명</li><li>공식 링크</li><li>핵심 일정</li><li>초보 참여 가능 여부</li></ul>
-          </div>
-          <div>
-            <span class="count">5개 항목</span>
-            <div class="entry-links"><a href="/community/promo.html">자세히 보기</a></div>
-          </div>
-        </article>
-        </div>
+        <aside class="community-submit-card">
+          <strong>제보는 확인해서 올립니다</strong>
+          <p>원문을 그대로 붙이지 않고, 날짜·장소·가격·공식 링크처럼 독자가 바로 확인할 정보만 남깁니다.</p>
+          <a href="/submit/">소식 제보</a>
+        </aside>
       </section>
-      <section class="submission">
-        <span class="tag">제보하기</span>
-        <h2>홍보·구인·양도·팀 소개를 보내주세요</h2>
-        <p>제목, 날짜, 장소, 가격, 공식 링크, 이미지나 영상 링크, 연락처를 함께 보내면 더 빨리 정리할 수 있습니다.</p>
-        <div class="entry-links">
-          <a href="/submit/">제보 센터</a>
-          <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%20%EC%A0%9C%EB%B3%B4">메일로 제보</a>
-          <a href="https://www.instagram.com/zumjersy/" target="_blank" rel="noreferrer">인스타그램 DM</a>
+      <section class="community-layout">
+        <div class="community-content">
+          <div class="forum-grid">
+            <a class="forum-card" href="/community/free.html">
+        <span>자유게시판</span>
+        <strong>자유롭게 남기는 바차타 이야기</strong>
+        <p>소셜 후기, 연습 메모, 음악 추천, 첫 방문 경험처럼 가볍게 나눌 수 있는 이야기를 모읍니다.</p>
+        <em>1개 항목</em>
+      </a>
+            <a class="forum-card" href="/community/transfer.html">
+        <span>양도양수</span>
+        <strong>티켓·패스·댄스화 양도</strong>
+        <p>파티 티켓, 워크숍 패스, 댄스화, 의상 등 라틴댄스 관련 양도 정보를 날짜와 상태 중심으로 정리합니다.</p>
+        <em>2개 항목</em>
+      </a>
+            <a class="forum-card" href="/community/anonymous.html">
+        <span>익명게시판</span>
+        <strong>익명으로 묻는 초보 질문</strong>
+        <p>처음 소셜에 갈 때 헷갈리는 매너, 복장, 레벨, 파트너워크 질문을 익명으로 정리합니다.</p>
+        <em>1개 항목</em>
+      </a>
+            <a class="forum-card" href="/community/jobs.html">
+        <span>구인구직</span>
+        <strong>강사·DJ·스태프 구인구직</strong>
+        <p>강사, 어시스턴트, DJ, 촬영자, 행사 스태프, 장소 협업 등 바차타 현장의 일거리를 모읍니다.</p>
+        <em>2개 항목</em>
+      </a>
+            <a class="forum-card" href="/community/promo.html">
+        <span>홍보/제휴</span>
+        <strong>행사·수업·팀 홍보</strong>
+        <p>소셜, 워크숍, 클래스, 팀 모집, 장소 오픈, 브랜드 협업 소식을 매거진 톤으로 정리합니다.</p>
+        <em>5개 항목</em>
+      </a>
+          </div>
+          <div class="section-head compact">
+            <div>
+              <span class="eyebrow">전체 피드</span>
+              <h2>지금 올라온 항목</h2>
+            </div>
+            <p>Reddit의 스레드처럼 빠르게 훑고, Quora처럼 필요한 맥락을 바로 볼 수 있게 제목·요약·확인 링크를 한 줄 흐름으로 정리합니다.</p>
+          </div>
+          <section class="thread-feed">
+            <article class="thread-card" id="events-monthly-visiting-dancers">
+        <div class="thread-score">
+          <strong>홍보/제휴</strong>
+          <span>연재 준비</span>
         </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>전국</span>
+            <span>매월 업데이트</span>
+            <span>일정 제보</span>
+          </div>
+          <h3><a href="/community/promo.html#events-monthly-visiting-dancers">이번 달 내한 댄서와 워크숍</a></h3>
+          <p>해외 아티스트 내한, 부트캠프, 페스티벌 게스트, DJ 파티를 한 달 단위로 모읍니다. 공식 포스터, 예매 링크, 영상 자료가 확인된 건부터 공개합니다.</p>
+          <div class="thread-tags"><span>내한</span><span>워크숍</span><span>페스티벌</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%82%B4%ED%95%9C%20%EC%9D%BC%EC%A0%95%20%EC%A0%9C%EB%B3%B4">일정 제보 메일</a>
+            <a href="/community/promo.html#events-monthly-visiting-dancers">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>공식 공지 링크</li><li>일정과 장소</li><li>가격 또는 예매 링크</li><li>라인업 정보</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card" id="transfer-ticket-pass-market">
+        <div class="thread-score">
+          <strong>양도양수</strong>
+          <span>제보 접수 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>전국</span>
+            <span>상시 제보</span>
+            <span>양도 글 제보</span>
+          </div>
+          <h3><a href="/community/transfer.html#transfer-ticket-pass-market">파티 티켓과 워크숍 패스 양도</a></h3>
+          <p>갑자기 일정이 바뀐 파티 티켓, 워크숍 패스, 페스티벌 패스를 날짜와 양도 조건 중심으로 정리합니다.</p>
+          <div class="thread-tags"><span>티켓</span><span>워크숍</span><span>페스티벌 패스</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EC%96%91%EB%8F%84%EC%96%91%EC%88%98%20%EC%A0%9C%EB%B3%B4">양도 제보 메일</a>
+            <a href="/community/transfer.html#transfer-ticket-pass-market">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>행사명과 날짜</li><li>정가와 양도 가격</li><li>양도 가능 여부 확인 링크</li><li>연락 방법</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card" id="transfer-dance-shoes-market">
+        <div class="thread-score">
+          <strong>양도양수</strong>
+          <span>제보 접수 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>전국</span>
+            <span>상시 제보</span>
+            <span>매물 제보</span>
+          </div>
+          <h3><a href="/community/transfer.html#transfer-dance-shoes-market">바차타 댄스화 중고 매물</a></h3>
+          <p>Fuego, Pana Mio, On1, Pulse 등 댄스화 중고 매물을 사이즈, 착용 횟수, 바닥 상태, 거래 지역 중심으로 정리합니다.</p>
+          <div class="thread-tags"><span>댄스화</span><span>중고</span><span>사이즈</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%8C%84%EC%8A%A4%ED%99%94%20%EC%A0%9C%EB%B3%B4">댄스화 제보 메일</a>
+            <a href="/community/transfer.html#transfer-dance-shoes-market">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>브랜드와 모델명</li><li>사이즈</li><li>착용 횟수와 바닥 상태</li><li>사진 또는 판매 링크</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card" id="jobs-event-staff-dj">
+        <div class="thread-score">
+          <strong>구인구직</strong>
+          <span>제보 접수 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>전국</span>
+            <span>상시 제보</span>
+            <span>구인 글 제보</span>
+          </div>
+          <h3><a href="/community/jobs.html#jobs-event-staff-dj">파티 운영 스태프와 DJ 구인</a></h3>
+          <p>소셜 파티 접수, 플로어 운영, 촬영, DJ, 통역, 게스트 케어처럼 행사 운영에 필요한 역할을 정리합니다.</p>
+          <div class="thread-tags"><span>DJ</span><span>스태프</span><span>행사 운영</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EA%B5%AC%EC%9D%B8%EA%B5%AC%EC%A7%81%20%EC%A0%9C%EB%B3%B4">구인 제보 메일</a>
+            <a href="/community/jobs.html#jobs-event-staff-dj">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>역할과 업무 범위</li><li>일정과 장소</li><li>보수 조건</li><li>지원 방법과 마감일</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card" id="jobs-class-assistant">
+        <div class="thread-score">
+          <strong>구인구직</strong>
+          <span>제보 접수 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>서울·수도권</span>
+            <span>상시 제보</span>
+            <span>모집 글 제보</span>
+          </div>
+          <h3><a href="/community/jobs.html#jobs-class-assistant">클래스 어시스턴트·연습 파트너 모집</a></h3>
+          <p>정규 수업 어시스턴트, 연습 파트너, 영상 촬영 보조처럼 클래스 운영에 필요한 사람을 찾는 글을 모읍니다.</p>
+          <div class="thread-tags"><span>클래스</span><span>어시스턴트</span><span>연습 파트너</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%ED%81%B4%EB%9E%98%EC%8A%A4%20%EB%AA%A8%EC%A7%91%20%EC%A0%9C%EB%B3%B4">모집 제보 메일</a>
+            <a href="/community/jobs.html#jobs-class-assistant">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>필요한 역할</li><li>요구 레벨</li><li>연습 또는 근무 시간</li><li>보상 방식</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card has-video" id="promo-bonita-social-map">
+        <div class="thread-score">
+          <strong>홍보/제휴</strong>
+          <span>정보 보강 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>서울 홍대</span>
+            <span>정보 보강 중</span>
+            <span>장소 정보 제보</span>
+          </div>
+          <h3><a href="/community/promo.html#promo-bonita-social-map">홍대 보니따 소셜 기록</a></h3>
+          <p>홍대 보니따에서 촬영된 공개 소셜 영상을 바탕으로 음악 분위기, 촬영 환경, 초보자가 확인하면 좋은 포인트를 정리합니다.</p>
+          <div class="thread-tags"><span>보니따</span><span>홍대</span><span>소셜</span></div>
+          <div class="thread-actions">
+            <a href="https://www.youtube.com/watch?v=gDtOwUqeWKw" target="_blank" rel="noreferrer">보니따 영상</a><a href="https://www.instagram.com/bonitaseoul/" target="_blank" rel="noreferrer">보니따 인스타그램</a>
+            <a href="/community/promo.html#promo-bonita-social-map">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+          <div class="video-loader thread-video" data-embed="https://www.youtube-nocookie.com/embed/gDtOwUqeWKw" data-title="홍대 보니따 소셜 기록 참고 영상">
+          <button type="button" data-video-button aria-label="홍대 보니따 소셜 기록 참고 영상 열기">
+            <img loading="lazy" src="https://i.ytimg.com/vi/gDtOwUqeWKw/hqdefault.jpg" alt="">
+            <span>영상</span>
+          </button>
+          <a class="youtube-link" href="https://www.youtube.com/watch?v=gDtOwUqeWKw" target="_blank" rel="noreferrer">YouTube</a>
+        </div>
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>정기 소셜 요일</li><li>초보 참여 가능 여부</li><li>음악 비율</li><li>촬영 분위기</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card" id="promo-everlatin-lesson">
+        <div class="thread-score">
+          <strong>홍보/제휴</strong>
+          <span>정보 보강 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>서울</span>
+            <span>정보 보강 중</span>
+            <span>수업 정보 제보</span>
+          </div>
+          <h3><a href="/community/promo.html#promo-everlatin-lesson">에버라틴 동호회·강습 안내</a></h3>
+          <p>서울에서 라틴댄스를 시작하려는 사람이 자주 찾는 동호회·강습 정보를 수업 일정과 초보자 접근성 중심으로 정리합니다.</p>
+          <div class="thread-tags"><span>에버라틴</span><span>동호회</span><span>초보자</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EC%97%90%EB%B2%84%EB%9D%BC%ED%8B%B4%20%EC%A0%9C%EB%B3%B4">에버라틴 제보</a>
+            <a href="/community/promo.html#promo-everlatin-lesson">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>정규 수업 일정</li><li>초보반 운영 여부</li><li>공식 링크</li><li>문의 방법</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card" id="promo-lastdance-party">
+        <div class="thread-score">
+          <strong>홍보/제휴</strong>
+          <span>정보 보강 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>서울</span>
+            <span>정보 보강 중</span>
+            <span>파티 정보 제보</span>
+          </div>
+          <h3><a href="/community/promo.html#promo-lastdance-party">라스트댄스 파티와 레벨업 모임</a></h3>
+          <p>2030 살사·바차타 동호회 흐름과 레벨업 파티 소식을 날짜, 장소, 참여 조건 중심으로 정리합니다.</p>
+          <div class="thread-tags"><span>라스트댄스</span><span>동호회</span><span>파티</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EB%9D%BC%EC%8A%A4%ED%8A%B8%EB%8C%84%EC%8A%A4%20%EC%A0%9C%EB%B3%B4">라스트댄스 제보</a>
+            <a href="/community/promo.html#promo-lastdance-party">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>일정과 장소</li><li>참여 대상</li><li>공식 링크</li><li>사진·영상 공개 가능 여부</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card has-video" id="promo-latincielo-team">
+        <div class="thread-score">
+          <strong>홍보/제휴</strong>
+          <span>정보 보강 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>서울</span>
+            <span>정보 보강 중</span>
+            <span>팀 정보 제보</span>
+          </div>
+          <h3><a href="/community/promo.html#promo-latincielo-team">라틴씨엘로 수업과 공연팀</a></h3>
+          <p>라틴씨엘로의 수업, 공연팀, 데모 영상 흐름을 초보자가 확인하기 쉬운 기준으로 정리합니다.</p>
+          <div class="thread-tags"><span>라틴씨엘로</span><span>수업</span><span>공연팀</span></div>
+          <div class="thread-actions">
+            <a href="https://www.youtube.com/watch?v=6h3Io0i6H_M" target="_blank" rel="noreferrer">라틴씨엘로 영상</a><a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%ED%8C%80%20%EC%86%8C%EA%B0%9C%20%EC%A0%9C%EB%B3%B4">팀 소개 제보</a>
+            <a href="/community/promo.html#promo-latincielo-team">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+          <div class="video-loader thread-video" data-embed="https://www.youtube-nocookie.com/embed/6h3Io0i6H_M" data-title="라틴씨엘로 수업과 공연팀 참고 영상">
+          <button type="button" data-video-button aria-label="라틴씨엘로 수업과 공연팀 참고 영상 열기">
+            <img loading="lazy" src="https://i.ytimg.com/vi/6h3Io0i6H_M/hqdefault.jpg" alt="">
+            <span>영상</span>
+          </button>
+          <a class="youtube-link" href="https://www.youtube.com/watch?v=6h3Io0i6H_M" target="_blank" rel="noreferrer">YouTube</a>
+        </div>
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>정규 수업 일정</li><li>공연팀 모집 여부</li><li>공개 가능한 사진·영상</li><li>문의 링크</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card" id="free-first-social-review">
+        <div class="thread-score">
+          <strong>자유게시판</strong>
+          <span>제보 접수 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>서울</span>
+            <span>상시 제보</span>
+            <span>후기 보내기</span>
+          </div>
+          <h3><a href="/community/free.html#free-first-social-review">첫 소셜에 다녀온 사람들의 후기</a></h3>
+          <p>처음 소셜에 간 날의 분위기, 음악 비율, 초보자가 편했던 순간을 모아 초보자용 기사로 정리합니다.</p>
+          <div class="thread-tags"><span>첫 소셜</span><span>후기</span><span>초보자</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EC%86%8C%EC%85%9C%20%ED%9B%84%EA%B8%B0">후기 메일</a>
+            <a href="/community/free.html#free-first-social-review">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>방문한 장소</li><li>방문한 날짜</li><li>좋았던 점과 어려웠던 점</li><li>공개 가능 범위</li></ul></div>
+        </aside>
+      </article>
+            <article class="thread-card" id="anonymous-beginner-question">
+        <div class="thread-score">
+          <strong>익명게시판</strong>
+          <span>제보 접수 중</span>
+        </div>
+        <div class="thread-main">
+          <div class="thread-meta">
+            <span>전국</span>
+            <span>상시 제보</span>
+            <span>익명 질문 보내기</span>
+          </div>
+          <h3><a href="/community/anonymous.html#anonymous-beginner-question">처음 소셜에 갈 때 제일 많이 묻는 질문</a></h3>
+          <p>복장, 신청 매너, 레벨 차이, 거절 표현처럼 초보자가 말로 꺼내기 어려운 질문을 익명으로 모읍니다.</p>
+          <div class="thread-tags"><span>초보 질문</span><span>익명</span><span>소셜 매너</span></div>
+          <div class="thread-actions">
+            <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EC%9D%B5%EB%AA%85%20%EC%A7%88%EB%AC%B8">익명 질문 메일</a>
+            <a href="/community/anonymous.html#anonymous-beginner-question">자세히 보기</a>
+          </div>
+        </div>
+        <aside class="thread-side">
+
+          <div class="thread-check"><strong>등록 전 확인할 것</strong><ul class="mini-list"><li>궁금한 상황</li><li>현재 경험 정도</li><li>익명 처리 요청</li><li>답변 받고 싶은 방식</li></ul></div>
+        </aside>
+      </article>
+          </section>
+        </div>
+        <aside class="forum-sidebar">
+      <article>
+        <span class="eyebrow">운영 기준</span>
+        <p>개인정보, 무단 이미지, 출처 없는 홍보문은 공개하지 않습니다. 날짜, 장소, 가격, 공식 링크처럼 독자가 바로 확인할 정보만 남깁니다.</p>
+      </article>
+      <article>
+        <span class="eyebrow">제보하기</span>
+        <p>행사, 양도, 구인, 팀 홍보는 원문 링크와 확인 가능한 정보를 함께 보내주세요.</p>
+        <div class="thread-actions">
+          <a href="/submit/">제보 센터</a>
+          <a href="mailto:hello@bachata.co.kr?subject=%5Bbachata.co.kr%5D%20%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%20%EC%A0%9C%EB%B3%B4">메일</a>
+          <a href="https://www.instagram.com/zumjersy/" target="_blank" rel="noreferrer">DM</a>
+        </div>
+      </article>
+      <article>
+        <span class="eyebrow">게시판</span>
+        <nav class="forum-side-nav">
+          <a href="/community/" aria-current="page">전체 피드</a>
+          <a href="/community/free.html">자유게시판</a><a href="/community/transfer.html">양도양수</a><a href="/community/anonymous.html">익명게시판</a><a href="/community/jobs.html">구인구직</a><a href="/community/promo.html">홍보/제휴</a>
+        </nav>
+      </article>
+    </aside>
       </section>
     </main>
-    <script>
-      document.addEventListener("click", (event) => {
-        const button = event.target.closest("[data-video-button]");
-        if (!button) return;
-        const loader = button.closest(".video-loader");
-        if (!loader || loader.dataset.loaded === "true") return;
-        const iframe = document.createElement("iframe");
-        iframe.loading = "lazy";
-        iframe.src = loader.dataset.embed;
-        iframe.title = loader.dataset.title || "Bachata community video";
-        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        iframe.allowFullscreen = true;
-        loader.dataset.loaded = "true";
-        loader.textContent = "";
-        loader.appendChild(iframe);
-      });
-    </script>
   </body>
 </html>
