@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-07-02T07:43:54.791Z",
-  "updatedAt": "2026-06-30",
-  "title": "바차타 코리아 프로그램",
+  "generatedAt": "2026-07-02T08:58:59.407Z",
+  "updatedAt": "2026-07-02",
+  "title": "바차타 초보자 가이드",
   "url": "/programs/",
   "programs": [
     {
@@ -11,7 +11,7 @@
       "level": "Beginner",
       "duration": "20분 x 4",
       "style": "Modern / Social",
-      "videoId": "OcGcZ0IY6s0",
+      "videoId": "xhrdh-uFkog",
       "keywords": [
         "바차타 입문",
         "바차타 기본스텝",
@@ -39,7 +39,7 @@
       "title": "도미니칸 바차타 리듬과 풋워크",
       "url": "/programs/dominican-rhythm.html",
       "level": "Beginner / Intermediate",
-      "duration": "20분 x 4",
+      "duration": "20분 x 5",
       "style": "Dominican Bachata",
       "videoId": "xmvDKN5cwT0",
       "keywords": [
@@ -54,7 +54,7 @@
       "title": "Bachata Influence 읽는 법",
       "url": "/programs/influence-method.html",
       "level": "Intermediate",
-      "duration": "20분 x 5",
+      "duration": "20분 x 4",
       "style": "Bachata Influence",
       "videoId": "sUy5L7x5pyE",
       "keywords": [
@@ -84,7 +84,7 @@
       "title": "한국 바차타 소셜 보기",
       "url": "/programs/korea-social-intelligence.html",
       "level": "All Levels",
-      "duration": "20분 x 5",
+      "duration": "20분 x 4",
       "style": "국내 소식",
       "videoId": "jpCY0QqZqWE",
       "keywords": [

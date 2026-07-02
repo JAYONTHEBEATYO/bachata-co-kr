@@ -57,6 +57,18 @@ const assert = (condition, message, details = {}) => {
   }
 };
 
+const stripHtml = (html = "") => html
+  .replace(/<script[\s\S]*?<\/script>/gi, " ")
+  .replace(/<style[\s\S]*?<\/style>/gi, " ")
+  .replace(/<[^>]+>/g, " ")
+  .replace(/&nbsp;/g, " ")
+  .replace(/&amp;/g, "&")
+  .replace(/&lt;/g, "<")
+  .replace(/&gt;/g, ">")
+  .replace(/&quot;/g, "\"")
+  .replace(/\s+/g, " ")
+  .trim();
+
 const walkFiles = async (relativeDir) => {
   const start = resolve(root, relativeDir);
   const files = [];
@@ -285,10 +297,30 @@ const verifyProgramVideoLoading = async () => {
     const html = await readText(page);
     const iframeCount = (html.match(/<iframe\b/g) || []).length;
     const loaderCount = (html.match(/class="video-loader"/g) || []).length;
-    assert(iframeCount === 1, "Program should load only the hero iframe before interaction", {
+    const videoModuleCount = (program.modules || []).filter((module) => /^video$/i.test(module.type || "") && /youtu\.?be|youtube\.com/.test(module.url || "")).length;
+    const expectedIframeCount = 1 + videoModuleCount;
+    assert(iframeCount === expectedIframeCount, "Program should eager-load hero and video-module embeds", {
       id: program.id,
-      iframeCount
+      iframeCount,
+      expectedIframeCount
     });
+    assert(!/한국어권 초보자|바로 보기 좋은|모듈 열기/.test(html), "Program page still contains awkward old module copy", {
+      id: program.id
+    });
+    const moduleCards = [...html.matchAll(/<article class="module-card[\s\S]*?<\/article>/g)].map((match) => match[0]);
+    assert(moduleCards.length === (program.modules || []).length, "Program page should render one article card per module", {
+      id: program.id,
+      moduleCards: moduleCards.length,
+      modules: (program.modules || []).length
+    });
+    for (const [index, moduleCard] of moduleCards.entries()) {
+      const bodyLength = stripHtml(moduleCard).length;
+      assert(bodyLength >= 500, "Program module body should read like an article, not a short card", {
+        id: program.id,
+        module: program.modules[index]?.title,
+        bodyLength
+      });
+    }
     if ((program.watchlist || []).length) {
       assert(loaderCount >= program.watchlist.length, "Program watchlist videos should render as click-to-load thumbnails", {
         id: program.id,

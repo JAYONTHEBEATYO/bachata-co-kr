@@ -20,12 +20,47 @@ const pageUrl = (program) => `https://bachata.co.kr${pagePath(program)}`;
 
 const videoEmbedUrl = (video = {}) => {
   const start = video.start ? `?start=${encodeURIComponent(video.start)}` : "";
-  return `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.id)}${start}`;
+  return `https://www.youtube.com/embed/${encodeURIComponent(video.id)}${start}`;
 };
 
 const videoWatchUrl = (video = {}) => {
   const start = video.start ? `&t=${encodeURIComponent(video.start)}s` : "";
   return `https://www.youtube.com/watch?v=${encodeURIComponent(video.id)}${start}`;
+};
+
+const parseStartSeconds = (value) => {
+  if (!value) return undefined;
+  const text = String(value).trim();
+  if (/^\d+$/.test(text)) return Number(text);
+  const match = text.match(/(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?/);
+  if (!match) return undefined;
+  const seconds = (Number(match[1] || 0) * 3600) + (Number(match[2] || 0) * 60) + Number(match[3] || 0);
+  return seconds || undefined;
+};
+
+const videoFromUrl = (url, title) => {
+  if (!url) return null;
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace(/^www\./, "");
+    if (host === "youtu.be") {
+      const id = parsed.pathname.replace(/^\//, "");
+      return id ? { id, start: parseStartSeconds(parsed.searchParams.get("t")), title } : null;
+    }
+    if (host === "youtube.com" || host === "m.youtube.com") {
+      const id = parsed.searchParams.get("v");
+      return id ? { id, start: parseStartSeconds(parsed.searchParams.get("t")), title } : null;
+    }
+  } catch {
+    return null;
+  }
+  return null;
+};
+
+const moduleVideo = (module) => {
+  if (module.video?.id) return module.video;
+  if (/^video$/i.test(module.type || "")) return videoFromUrl(module.url, module.title);
+  return null;
 };
 
 const renderVideo = (video, className = "video-frame") => {
@@ -55,6 +90,30 @@ const renderLinks = (links = []) => links.map((link) => {
   const external = /^https?:\/\//.test(link.url);
   return `<a href="${escapeHtml(link.url)}"${external ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>${escapeHtml(link.label)}</a>`;
 }).join("");
+
+const renderParagraphs = (paragraphs = [], fallback = "") => {
+  const body = paragraphs.length ? paragraphs : [fallback].filter(Boolean);
+  return body.map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join("\n");
+};
+
+const modulePracticePrompt = (program, module) => {
+  const type = String(module.type || "").toLowerCase();
+  if (type === "video") {
+    return `영상을 본 뒤에는 바로 다음 동작으로 넘어가지 말고, 같은 구간을 한 번 더 돌려보며 ${program.style}에서 가장 중요한 박자와 거리감을 확인해보세요. 눈으로 이해한 동작을 몸으로 옮길 때는 속도를 절반으로 줄이고, 한 곡 전체가 아니라 30초 정도의 짧은 구간만 반복하는 편이 좋습니다.`;
+  }
+  if (type === "article" || type === "source") {
+    return `글을 읽은 뒤에는 마음에 남는 문장 하나를 실제 영상과 다시 연결해보세요. 개념을 많이 아는 것보다 지금 내 춤에서 바로 고칠 수 있는 기준 하나를 가져가는 편이 오래 남습니다. 이 모듈은 정보를 모으는 단계가 아니라, 다음 소셜이나 연습에서 무엇을 덜어낼지 정하는 단계로 읽으면 좋습니다.`;
+  }
+  if (type === "style") {
+    return `세부장르 가이드는 정답표처럼 외우기보다 비교표처럼 읽는 편이 좋습니다. 같은 음악을 모던, 센슈얼, 도미니칸, Bachazouk가 어떻게 다르게 해석하는지 보면서 내 몸에 맞는 속도와 범위를 찾으세요. 처음에는 멋진 동작보다 안전하게 반복할 수 있는 작은 감각 하나를 남기는 것이 충분합니다.`;
+  }
+  if (type === "profile") {
+    return `프로필을 읽을 때는 이름을 저장하는 데서 끝내지 말고, 그 댄서나 팀이 어떤 음악을 자주 쓰고 어떤 방식으로 파트너와 연결하는지 같이 보세요. 인물 정보는 영상으로 다시 확인될 때 가장 쓸모가 커집니다. 좋아 보이는 장면 하나를 고른 뒤, 그 장면이 소셜에서도 가능한 크기인지까지 생각해보면 더 정확하게 배울 수 있습니다.`;
+  }
+  return `이 모듈은 읽고 끝내기보다 실제 행동으로 이어질 때 의미가 생깁니다. 일정, 장소, 커뮤니티 글, 영상 링크를 확인한 뒤 지금 나에게 필요한 다음 한 가지를 정해보세요. 수업을 찾아볼지, 소셜을 한 번 방문할지, 관련 영상을 더 볼지 결정하면 흩어진 정보가 하나의 동선으로 바뀝니다.`;
+};
+
+const moduleActionLabel = (module) => moduleVideo(module) ? "YouTube에서 크게 보기" : "관련 페이지 보기";
 
 const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -129,9 +188,13 @@ const styles = `    <style>
       .program-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 22px; align-items: start; }
       .module-stack, .side-stack { display: grid; gap: 14px; }
       .module-card, .side-card { padding: clamp(20px, 4vw, 28px); border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
-      .module-card { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 18px; align-items: start; }
+      .module-card { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: 20px; align-items: start; }
       .module-number { display: inline-grid; place-items: center; width: 52px; height: 52px; border: 1px solid rgba(226, 173, 88, 0.42); border-radius: 50%; color: var(--gold); font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-weight: 900; }
       .module-card h2 { margin: 6px 0 10px; font-size: clamp(26px, 4vw, 38px); line-height: 1.06; }
+      .module-copy { display: grid; gap: 12px; margin-top: 16px; }
+      .module-copy p { margin: 0; font-size: 16px; line-height: 1.84; }
+      .module-video { margin-top: 18px; }
+      .module-video .video-frame { border-color: rgba(255, 247, 232, 0.2); }
       .module-card a { display: inline-flex; margin-top: 12px; color: var(--gold); font-weight: 900; }
       .watch-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
       .watch-card { overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: var(--panel-strong); }
@@ -160,11 +223,11 @@ const nav = `    <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
       <nav class="nav-links" aria-label="프로그램 이동">
         <a href="/">홈</a>
-        <a href="/programs/">프로그램</a>
-        <a href="/styles/">스타일</a>
+        <a href="/programs/">초보자 가이드</a>
+        <a href="/styles/">세부장르</a>
         <a href="/articles/">기사</a>
-        <a href="/radar/">소셜 소식</a>
-        <a href="/briefs/">브리핑</a>
+        <a href="/korea-scene/">국내 소식</a>
+        <a href="/briefs/">최신소식</a>
       </nav>
     </header>`;
 
@@ -236,7 +299,7 @@ const renderIndex = (data) => {
       <div class="hero-grid">
         <div>
           <span class="eyebrow">영상 루틴</span>
-          <h1>영상으로 시작하는 바차타 학습 경로</h1>
+          <h1>바차타, 영상 하나로 끝내지 않기</h1>
           <p>${escapeHtml(data.dek)}</p>
           <div class="quick-nav">
             ${data.programs.map((program) => `<a href="${pagePath(program)}">${escapeHtml(program.title)}</a>`).join("")}
@@ -253,9 +316,9 @@ const renderIndex = (data) => {
         <div class="section-head">
           <div>
             <span class="eyebrow">학습 경로</span>
-            <h2>VOD처럼 고른 뒤, 웹진처럼 깊게 읽습니다</h2>
+            <h2>짧게 보고, 길게 읽고, 바로 연습합니다</h2>
           </div>
-          <p>구독형 강의 플랫폼은 아니지만 첫 화면은 영상 중심으로, 다음 단계는 기사·가이드·프로필·소식으로 이어지게 구성했습니다.</p>
+          <p>각 프로그램은 영상, 칼럼 본문, 관련 가이드, 프로필을 한 흐름으로 묶었습니다. 영상만 던져두지 않고 왜 봐야 하는지, 무엇을 조심해야 하는지, 다음에는 어디로 넘어가야 하는지까지 읽히게 구성합니다.</p>
         </div>
         <div class="program-grid">
           ${data.programs.map(renderProgramCard).join("\n")}
@@ -263,11 +326,11 @@ const renderIndex = (data) => {
       </section>
       <section class="section paper-cta">
         <span class="tag">연결해서 보기</span>
-        <h2>기본 가이드와 새 소식을 분리합니다</h2>
-        <p>센슈얼 16가지 기본기, 도미니칸 리듬, Bachazouk 안전 기준은 오래 보는 프로그램으로 두고, 내한·소셜·상품·팀 소식은 별도 소식 페이지에서 갱신합니다.</p>
+        <h2>기본기는 오래 보고, 소식은 빠르게 따라갑니다</h2>
+        <p>센슈얼 16개 펀더멘털, 도미니칸 리듬, Bachazouk 안전 기준처럼 오래 남는 가이드는 천천히 읽을 수 있게 두고, 국내 소셜과 행사 소식은 최신소식과 커뮤니티에서 이어집니다.</p>
         <div class="link-row">
-          <a href="/radar/">소셜 소식</a>
-          <a href="/briefs/">오늘 브리핑</a>
+          <a href="/korea-scene/">국내 소식</a>
+          <a href="/briefs/">최신소식</a>
           <a href="/events/">행사 일정</a>
         </div>
       </section>
@@ -319,20 +382,28 @@ const renderProgram = (program, data) => {
     .map((item) => `<a href="${pagePath(item)}">${escapeHtml(item.title)}</a>`)
     .join("");
 
-  const modules = program.modules.map((module, index) => `<article class="module-card">
+  const modules = program.modules.map((module, index) => {
+    const video = moduleVideo(module);
+    const external = /^https?:\/\//.test(module.url);
+    return `<article class="module-card${video ? " module-card-video" : ""}">
             <span class="module-number">${String(index + 1).padStart(2, "0")}</span>
             <div>
               <span class="tag">${escapeHtml(module.type)}</span>
               <h2>${escapeHtml(module.title)}</h2>
               <p>${escapeHtml(module.description)}</p>
-              <a href="${escapeHtml(module.url)}"${/^https?:\/\//.test(module.url) ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>모듈 열기</a>
+              <div class="module-copy">
+                ${renderParagraphs(module.body, module.description)}
+                <p>${escapeHtml(modulePracticePrompt(program, module))}</p>
+              </div>${video ? `\n              <div class="module-video">${renderVideo(video)}</div>` : ""}
+              <a href="${escapeHtml(module.url)}"${external ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>${moduleActionLabel(module)}</a>
             </div>
-          </article>`).join("\n");
+          </article>`;
+  }).join("\n");
 
   const watchlist = program.watchlist?.length ? `<section class="side-card">
             <span class="tag">추천 영상</span>
             <h2>함께 볼 영상</h2>
-            <p>대표 영상은 바로 보이고, 보조 영상은 썸네일을 누를 때만 불러와 페이지를 가볍게 유지합니다.</p>
+            <p>본문에서 다룬 감각을 다른 영상으로 한 번 더 확인합니다. 보조 영상은 썸네일을 누를 때만 불러와 페이지를 가볍게 유지합니다.</p>
             <div class="watch-grid">
               ${program.watchlist.map((item) => `<article class="watch-card">
                 ${renderVideoLoader({ id: item.videoId, start: item.start, title: item.title })}
@@ -358,7 +429,7 @@ const renderProgram = (program, data) => {
           <h1>${escapeHtml(program.title)}</h1>
           <p>${escapeHtml(program.dek)}</p>
           <div class="quick-nav">
-            <a href="/programs/">전체 프로그램</a>
+            <a href="/programs/">전체 가이드</a>
             ${otherPrograms}
           </div>
         </div>
@@ -373,13 +444,13 @@ const renderProgram = (program, data) => {
         </article>
         <aside class="side-stack" aria-label="프로그램 정보">
           <section class="side-card">
-            <span class="tag">Program Info</span>
+            <span class="tag">가이드 정보</span>
             <h2>${escapeHtml(program.style)}</h2>
             <div class="meta-row">
               <span>${escapeHtml(program.level)}</span>
               <span>${escapeHtml(program.duration)}</span>
             </div>
-            <p>이 프로그램은 영상, 기사, 스타일 가이드, 소식을 한 경로로 묶은 학습 루틴입니다.</p>
+            <p>이 가이드는 영상, 기사, 세부장르 해설, 관련 소식을 한 흐름으로 묶은 학습 루틴입니다.</p>
           </section>
           <section class="side-card">
             <span class="tag">Keywords</span>

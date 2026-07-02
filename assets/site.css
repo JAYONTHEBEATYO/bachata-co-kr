@@ -721,6 +721,71 @@ body.site-shell .event-card p {
   line-height: 1.62 !important;
 }
 
+body.site-shell .module-stack {
+  display: grid !important;
+  gap: 14px !important;
+}
+
+body.site-shell .module-card {
+  display: grid !important;
+  grid-template-columns: 62px minmax(0, 1fr) !important;
+  gap: 18px !important;
+  padding: clamp(20px, 3.5vw, 28px) !important;
+  border: 1px solid var(--bk-line) !important;
+  border-radius: var(--bk-radius) !important;
+  background: var(--bk-paper) !important;
+  box-shadow: none !important;
+}
+
+body.site-shell .module-number {
+  width: 48px !important;
+  height: 48px !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  border: 1px solid #eedfc8 !important;
+  border-radius: 999px !important;
+  color: var(--bk-gold) !important;
+  font-weight: 900 !important;
+}
+
+body.site-shell .module-card h2 {
+  margin: 8px 0 10px !important;
+  font-size: clamp(28px, 3.2vw, 42px) !important;
+  line-height: 1.1 !important;
+}
+
+body.site-shell .module-card > div > p {
+  margin-bottom: 0 !important;
+  font-size: 16px !important;
+  line-height: 1.74 !important;
+}
+
+body.site-shell .module-copy {
+  display: grid !important;
+  gap: 13px !important;
+  margin-top: 18px !important;
+}
+
+body.site-shell .module-copy p {
+  margin: 0 !important;
+  color: #3c4652 !important;
+  font-size: 16px !important;
+  line-height: 1.86 !important;
+}
+
+body.site-shell .module-video {
+  margin-top: 20px !important;
+}
+
+body.site-shell .module-video .video-frame {
+  border-color: var(--bk-line-strong) !important;
+  background: #05070a !important;
+}
+
+body.site-shell .module-card > div > a {
+  margin-top: 16px !important;
+}
+
 body.site-shell .scene-card {
   overflow: hidden !important;
   padding: 0 !important;
@@ -1435,6 +1500,32 @@ body.site-shell [data-internal-only="true"] {
   body.site-shell .program-card .video-loader,
   body.site-shell .content-card .content-thumb {
     max-height: 170px !important;
+  }
+
+  body.site-shell .module-card {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 18px !important;
+  }
+
+  body.site-shell .module-number {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  body.site-shell .module-card h2 {
+    font-size: clamp(27px, 8.2vw, 36px) !important;
+    line-height: 1.08 !important;
+  }
+
+  body.site-shell .module-card > div > p,
+  body.site-shell .module-copy p {
+    font-size: 15px !important;
+    line-height: 1.78 !important;
+  }
+
+  body.site-shell .module-video {
+    margin-top: 16px !important;
   }
 
   body.site-shell .hero-inner {
