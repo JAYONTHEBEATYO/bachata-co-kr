@@ -86,17 +86,12 @@ export const ensureRobots = (html, value) => {
 
 export const replaceHeader = (html, activePath) => {
   const header = renderSiteHeader({ activePath });
-  const patterns = [
-    /    <header class="bk-site-header">[\s\S]*?<\/header>/,
-    /    <header class="site-header">[\s\S]*?<\/header>/,
-    /    <header class="nav">[\s\S]*?<\/header>/
-  ];
+  const withoutHeaders = html
+    .replace(/\s*<header\s+class="bk-site-header">[\s\S]*?<\/header>\s*/g, "\n")
+    .replace(/\s*<header\s+class="site-header"[\s\S]*?<\/header>\s*/g, "\n")
+    .replace(/\s*<header\s+class="nav"[\s\S]*?<\/header>\s*/g, "\n");
 
-  for (const pattern of patterns) {
-    if (pattern.test(html)) return html.replace(pattern, header);
-  }
-
-  return html.replace(/<body\b[^>]*>/i, (match) => `${match}\n${header}`);
+  return withoutHeaders.replace(/<body\b[^>]*>/i, (match) => `${match}\n${header}`);
 };
 
 export const normalizePublicText = (html) => {
@@ -137,6 +132,7 @@ export const normalizePublicText = (html) => {
     [/세부장르을/g, "세부장르를"],
     [/세부장르과/g, "세부장르와"],
     [/댄서 소개은/g, "댄서 소개는"],
+    [/댄서 소개을/g, "댄서와 팀을"],
     [/바차타씬/g, "바차타 현장"],
     [/소셜 씬/g, "소셜 현장"],
     [/한국 씬/g, "한국 바차타 현장"]
