@@ -77,6 +77,17 @@ jobs:
       - name: Build homepage rail
         run: node tools/build-home.mjs
 
+      - name: Apply shared site shell
+        run: node tools/apply-site-shell.mjs
+
+      - name: Build style RAG archive
+        run: |
+          node tools/style-rag/init-style-db.mjs
+          node tools/style-rag/ingest-style-references.mjs
+          node tools/style-rag/import-site-copy.mjs
+          node tools/style-rag/audit-copy-style.mjs
+          node tools/style-rag/export-style-json.mjs
+
       - name: Build knowledge index
         run: node tools/build-knowledge-base.mjs
 
@@ -89,7 +100,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/generated/scene-signals.json data/generated/signal-history.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/program-index.json data/generated/editorial-desk-index.json data/generated/profile-index.json data/generated/board-index.json data/generated/submission-index.json data/generated/event-index.json data/generated/social-radar-index.json data/generated/social-intake-index.json data/generated/korea-scene-index.json data/generated/gear-index.json data/generated/source-health.json data/generated/home-index.json data/generated/knowledge-index.json articles styles programs desk profiles briefs community submit events radar intake korea-scene gear health index.html sitemap.xml
+          git add data/generated/scene-signals.json data/generated/signal-history.json data/generated/latest-brief.json data/generated/article-index.json data/generated/style-index.json data/generated/program-index.json data/generated/editorial-desk-index.json data/generated/profile-index.json data/generated/board-index.json data/generated/submission-index.json data/generated/event-index.json data/generated/social-radar-index.json data/generated/social-intake-index.json data/generated/korea-scene-index.json data/generated/gear-index.json data/generated/source-health.json data/generated/home-index.json data/generated/style-reference-index.json data/generated/copy-style-audit.json data/generated/knowledge-index.json articles styles programs desk profiles briefs community submit events radar intake korea-scene gear health index.html sitemap.xml
           if git diff --cached --quiet; then
             echo "No discovery changes to commit"
           else

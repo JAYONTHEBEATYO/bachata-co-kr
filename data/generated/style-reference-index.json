@@ -1,0 +1,170 @@
+{
+  "generatedAt": "2026-07-02T06:20:29.704Z",
+  "policy": {
+    "storesFullExternalArticleBodies": false,
+    "note": "외부 매거진은 제목 구조, 레이아웃, 문단 리듬, CTA 방식 같은 관찰값만 저장합니다."
+  },
+  "summary": {
+    "references": 7,
+    "rules": 6
+  },
+  "references": [
+    {
+      "id": "coinness-live-feed",
+      "outlet": "Coinness",
+      "url": "https://coinness.com/",
+      "section": "live-feed",
+      "title": "CoinNess - Fast and accurate crypto news at your fingertips",
+      "fetchStatus": "ok",
+      "fetchedAt": "2026-07-02T06:01:50.870Z",
+      "headlineShape": "대표 제목 「Live Feed」처럼 대상과 관점을 함께 둔다.",
+      "ledeStrategy": "첫 문장에서 사건·주체·수치를 바로 제시",
+      "paragraphCadence": "한 카드에 한 이슈, 2-4문장 중심",
+      "sentenceRhythm": "짧고 건조하지만 목록 이동이 빠른 리듬",
+      "vocabularyNotes": "과장보다 정확성, 카테고리와 시간 정보 우선",
+      "layoutNotes": "좌측 피드, 반복 카드, 광고/커뮤니티 진입점 분리",
+      "ctaPattern": "더보기와 상세 링크를 작게 배치",
+      "sampleCount": 1
+    },
+    {
+      "id": "design-plus-archive",
+      "outlet": "Design+",
+      "url": "https://design.co.kr/article/",
+      "section": "design-archive",
+      "title": "Article | Design＋",
+      "fetchStatus": "ok",
+      "fetchedAt": "2026-07-02T06:01:50.870Z",
+      "headlineShape": "대표 제목 「Article」, 「건강식 브랜드의 스테레오타입을 재구성한 카페, DDNB」, 「오키 사토가 만든 가장 넨도다운 순간들」처럼 대상과 관점을 함께 둔다.",
+      "ledeStrategy": "대상이 가진 의미와 지금성을 먼저 설명",
+      "paragraphCadence": "분석 대상 문단 5개, 평균 120자. 짧은 문단 4개와 긴 문단 1개를 섞는다.",
+      "sentenceRhythm": "차분하고 밀도 있는 전문 매거진 톤",
+      "vocabularyNotes": "아카이브, 문법, 시선, 프로젝트, 맥락",
+      "layoutNotes": "카테고리와 날짜가 선명한 기사 인덱스",
+      "ctaPattern": "동일 카테고리 기사와 전시/프로젝트 링크",
+      "sampleCount": 12
+    },
+    {
+      "id": "gq-korea-feature",
+      "outlet": "GQ Korea",
+      "url": "https://www.gqkorea.co.kr/",
+      "section": "feature",
+      "title": "지큐 코리아 (GQ Korea)",
+      "fetchStatus": "ok",
+      "fetchedAt": "2026-07-02T06:01:50.870Z",
+      "headlineShape": "대표 제목 「이현욱 &#8220;어떤 상황에서든 재미를 찾고, 느끼길 바라는 」, 「이현욱 &#8220;어떤 상황에서든 재미를 찾고, 느끼길 바라는 」, 「BEST」처럼 대상과 관점을 함께 둔다.",
+      "ledeStrategy": "장면, 인용, 감각어로 독자가 머릿속에 이미지를 만들게 함",
+      "paragraphCadence": "분석 대상 문단 22개, 평균 31자. 짧은 문단 22개와 긴 문단 0개를 섞는다.",
+      "sentenceRhythm": "단정한 문장 안에 취향의 어휘를 섞음",
+      "vocabularyNotes": "세련됨, 태도, 장면, 취향, 지금성",
+      "layoutNotes": "큰 이미지와 굵은 제목, 카테고리 명확화",
+      "ctaPattern": "관련 기사와 인물 흐름으로 자연스럽게 이동",
+      "sampleCount": 22
+    },
+    {
+      "id": "longblack-note",
+      "outlet": "LongBlack",
+      "url": "https://longblack.co/",
+      "section": "longform-note",
+      "title": "롱블랙 LongBlack",
+      "fetchStatus": "ok",
+      "fetchedAt": "2026-07-02T06:01:50.870Z",
+      "headlineShape": "대표 제목 「롱블랙에서 만나는 뉴스픽스」, 「상반기를 지나온 당신에게」, 「요즘 무슨 유튜브 보세요?」처럼 대상과 관점을 함께 둔다.",
+      "ledeStrategy": "왜 지금 읽어야 하는지 먼저 열고, 맥락을 순서대로 쌓음",
+      "paragraphCadence": "분석 대상 문단 40개, 평균 59자. 짧은 문단 38개와 긴 문단 1개를 섞는다.",
+      "sentenceRhythm": "친절하지만 가볍지 않은 설명형",
+      "vocabularyNotes": "루틴, 해상도, 관점, 맥락, 사례",
+      "layoutNotes": "노트형 목차와 추천 흐름",
+      "ctaPattern": "다음 노트, 관련 관심사, 읽기 루틴으로 연결",
+      "sampleCount": 40
+    },
+    {
+      "id": "the-edit-review",
+      "outlet": "The Edit",
+      "url": "https://the-edit.co.kr/",
+      "section": "review",
+      "title": "디에디트 &#045; 사는 재미가 없으면, 사는 재미라도",
+      "fetchStatus": "ok",
+      "fetchedAt": "2026-07-02T06:01:50.870Z",
+      "headlineShape": "대표 제목 「진또배기만 모았습니다, 콩국수 맛집 12」, 「M5 맥북 에어 리뷰: 꼭 프로 사야 하나요?」, 「지금이 가장 맛있다, 여름 디저트 베린 6」처럼 대상과 관점을 함께 둔다.",
+      "ledeStrategy": "개인 경험을 앞에 두고 정보로 확장",
+      "paragraphCadence": "분석 대상 문단 12개, 평균 32자. 짧은 문단 12개와 긴 문단 0개를 섞는다.",
+      "sentenceRhythm": "친근하지만 문장 끝을 정리하는 리듬",
+      "vocabularyNotes": "직접 써봄, 충분함, 취향, 생활감, 가격감",
+      "layoutNotes": "리뷰 카드, 카테고리, 추천 리스트",
+      "ctaPattern": "제품/장소/관련 글로 이어지는 자연스러운 링크",
+      "sampleCount": 12
+    },
+    {
+      "id": "eyesmag-news",
+      "outlet": "eyesmag",
+      "url": "https://www.eyesmag.com/",
+      "section": "fashion-lifestyle-news",
+      "title": "아이즈매거진 | eyesmag",
+      "fetchStatus": "ok",
+      "fetchedAt": "2026-07-02T06:01:50.870Z",
+      "headlineShape": "대표 제목 「최신 기사」처럼 대상과 관점을 함께 둔다.",
+      "ledeStrategy": "무엇이 새로 나왔는지, 왜 화제인지 빠르게 요약",
+      "paragraphCadence": "분석 대상 문단 5개, 평균 82자. 짧은 문단 4개와 긴 문단 1개를 섞는다.",
+      "sentenceRhythm": "속도감 있는 현재형 문장",
+      "vocabularyNotes": "드롭, 공개, 협업, 컬렉션, 라이프스타일",
+      "layoutNotes": "이미지 중심 카드와 카테고리 필터",
+      "ctaPattern": "원문/상세 보기, 관련 키워드 이동",
+      "sampleCount": 5
+    },
+    {
+      "id": "yozm-it-structure",
+      "outlet": "요즘IT",
+      "url": "https://yozm.wishket.com/magazine/",
+      "section": "analysis",
+      "title": "요즘 사람들의 IT 매거진, 요즘IT",
+      "fetchStatus": "ok",
+      "fetchedAt": "2026-07-02T06:01:50.870Z",
+      "headlineShape": "문제 상황과 배운 점을 제목에 같이 둠",
+      "ledeStrategy": "독자가 겪는 문제를 먼저 말하고 해결 흐름을 제시",
+      "paragraphCadence": "소제목, 리스트, 사례, 정리 순서가 명확",
+      "sentenceRhythm": "실무자의 말투에 가까운 설명형",
+      "vocabularyNotes": "전략, 실험, 파이프라인, 단계, 체크리스트",
+      "layoutNotes": "긴 글도 목차와 이미지 캡션으로 길을 잃지 않게 함",
+      "ctaPattern": "관련 실무 글과 다음 학습으로 연결",
+      "sampleCount": 1
+    }
+  ],
+  "rules": [
+    {
+      "id": "no-internal-ops",
+      "label": "공개 문장에 RAG, queue, Graph API, oEmbed, source health 같은 운영 용어를 노출하지 않는다.",
+      "ruleText": "공개 문장에 RAG, queue, Graph API, oEmbed, source health 같은 운영 용어를 노출하지 않는다.",
+      "severity": "blocking"
+    },
+    {
+      "id": "reader-first",
+      "label": "독자가 첫 문단만 읽어도 무엇을 얻는지 알아야 한다.",
+      "ruleText": "독자가 첫 문단만 읽어도 무엇을 얻는지 알아야 한다.",
+      "severity": "blocking"
+    },
+    {
+      "id": "source-boundary",
+      "label": "외부 기사와 커뮤니티 글은 복사하지 않고 링크, 짧은 인용, 관찰값, 자체 문장으로만 재구성한다.",
+      "ruleText": "외부 기사와 커뮤니티 글은 복사하지 않고 링크, 짧은 인용, 관찰값, 자체 문장으로만 재구성한다.",
+      "severity": "blocking"
+    },
+    {
+      "id": "bachata-keywords",
+      "label": "바차타, bachata, 센슈얼, 도미니칸, 소셜, 워크숍, 페스티벌, 댄서 같은 핵심어를 자연스럽게 포함한다.",
+      "ruleText": "바차타, bachata, 센슈얼, 도미니칸, 소셜, 워크숍, 페스티벌, 댄서 같은 핵심어를 자연스럽게 포함한다.",
+      "severity": "warning"
+    },
+    {
+      "id": "magazine-headline",
+      "label": "제목은 키워드를 넣되 검색 문장처럼 쓰지 말고 장면, 질문, 인물, 스타일 중 하나를 앞세운다.",
+      "ruleText": "제목은 키워드를 넣되 검색 문장처럼 쓰지 말고 장면, 질문, 인물, 스타일 중 하나를 앞세운다.",
+      "severity": "warning"
+    },
+    {
+      "id": "paragraph-rhythm",
+      "label": "문단은 2-5문장 중심으로 자르고, 설명문과 관찰문을 번갈아 배치한다.",
+      "ruleText": "문단은 2-5문장 중심으로 자르고, 설명문과 관찰문을 번갈아 배치한다.",
+      "severity": "warning"
+    }
+  ]
+}

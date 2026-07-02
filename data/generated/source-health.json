@@ -1,14 +1,44 @@
 {
-  "generatedAt": "2026-07-02T04:53:12.263Z",
+  "generatedAt": "2026-07-02T06:01:22.807Z",
   "generationDate": "2026-07-02",
   "summary": {
-    "total": 234,
-    "ok": 213,
+    "total": 238,
+    "ok": 216,
     "watch": 21,
-    "warn": 0,
+    "warn": 1,
     "broken": 0
   },
   "results": [
+    {
+      "type": "external",
+      "url": "https://bachatasensual.com/",
+      "label": "https://bachatasensual.com/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.6"
+        },
+        {
+          "file": "data/programs.json",
+          "path": "programs.1.sourceLinks.0.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.3.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.0.url"
+        }
+      ],
+      "status": "warn",
+      "httpStatus": null,
+      "note": "external check timed out or failed: The operation was aborted due to timeout"
+    },
     {
       "type": "external",
       "url": "https://www.instagram.com/__the3d__/",
@@ -543,6 +573,34 @@
     },
     {
       "type": "external",
+      "url": "https://bachatagenevafestival.com/",
+      "label": "https://bachatagenevafestival.com/",
+      "sources": [
+        {
+          "file": "data/events.json",
+          "path": "radar.5.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://bachatagenevafestival.com/tickets",
+      "label": "https://bachatagenevafestival.com/tickets",
+      "sources": [
+        {
+          "file": "data/events.json",
+          "path": "radar.5.sourceLinks.1.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
       "url": "https://bachatainfluenceacademy.com/",
       "label": "https://bachatainfluenceacademy.com/",
       "sources": [
@@ -561,36 +619,6 @@
         {
           "file": "data/articles.json",
           "path": "articles.5.sourceLinks.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "외부 링크 확인 완료"
-    },
-    {
-      "type": "external",
-      "url": "https://bachatasensual.com/",
-      "label": "https://bachatasensual.com/",
-      "sources": [
-        {
-          "file": "data/sources.json",
-          "path": "topics.2.sources.6"
-        },
-        {
-          "file": "data/programs.json",
-          "path": "programs.1.sourceLinks.0.url"
-        },
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.0.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.3.sourceLinks.0.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.0.url"
         }
       ],
       "status": "ok",
@@ -1359,6 +1387,20 @@
     },
     {
       "type": "external",
+      "url": "https://www.bachataweek.com/",
+      "label": "https://www.bachataweek.com/",
+      "sources": [
+        {
+          "file": "data/events.json",
+          "path": "radar.6.sourceLinks.0.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
       "url": "https://www.bachazouk.com/",
       "label": "https://www.bachazouk.com/",
       "sources": [
@@ -1481,6 +1523,20 @@
         {
           "file": "data/profiles.json",
           "path": "profiles.7.sourceLinks.2.url"
+        }
+      ],
+      "status": "ok",
+      "httpStatus": 200,
+      "note": "외부 링크 확인 완료"
+    },
+    {
+      "type": "external",
+      "url": "https://www.goandance.com/en/event/8081/bachata-geneva-festival-2026-the-festival-of-nations",
+      "label": "https://www.goandance.com/en/event/8081/bachata-geneva-festival-2026-the-festival-of-nations",
+      "sources": [
+        {
+          "file": "data/events.json",
+          "path": "radar.5.sourceLinks.2.url"
         }
       ],
       "status": "ok",
@@ -3628,6 +3684,10 @@
         {
           "file": "data/articles.json",
           "path": "articles.1.sourceLinks.2.url"
+        },
+        {
+          "file": "data/events.json",
+          "path": "radar.5.video.id"
         }
       ],
       "status": "ok",
@@ -5132,6 +5192,10 @@
         {
           "file": "data/style-guides.json",
           "path": "guides.0.sourceLinks.4.url"
+        },
+        {
+          "file": "data/events.json",
+          "path": "radar.6.video.id"
         }
       ],
       "status": "ok",

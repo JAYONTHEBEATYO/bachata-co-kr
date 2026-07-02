@@ -1,206 +1,184 @@
 {
-  "generatedAt": "2026-07-02T04:52:20.003Z",
-  "updatedAt": "2026-06-30",
+  "generatedAt": "2026-07-02T06:17:39.848Z",
+  "updatedAt": "2026-07-02",
   "categories": [
     {
-      "id": "events",
-      "label": "소셜·행사",
-      "title": "바차타 소셜·워크숍·내한 일정",
-      "url": "/community/events.html",
-      "entryCount": 2,
-      "submitLabel": "행사 등록",
+      "id": "free",
+      "label": "자유게시판",
+      "title": "자유롭게 남기는 바차타 이야기",
+      "url": "/community/free.html",
+      "entryCount": 1,
+      "submitLabel": "글 제보",
       "submissionFields": [
-        "행사명",
-        "날짜와 시간",
-        "장소",
-        "예매·공지 링크",
-        "인스타 계정",
-        "대표 영상"
+        "제목",
+        "다녀온 장소나 수업",
+        "좋았던 점과 아쉬운 점",
+        "공개 가능 범위"
       ]
     },
     {
-      "id": "market",
-      "label": "양도·중고",
-      "title": "바차타 양도·중고 마켓",
-      "url": "/community/market.html",
+      "id": "transfer",
+      "label": "양도양수",
+      "title": "티켓·패스·댄스화 양도",
+      "url": "/community/transfer.html",
       "entryCount": 2,
-      "submitLabel": "거래 글 등록",
+      "submitLabel": "양도 글 제보",
       "submissionFields": [
-        "품목 또는 티켓명",
-        "원가와 양도가",
-        "거래 가능 지역",
-        "상태 사진",
-        "주최 측 양도 가능 여부",
-        "연락 방식"
+        "품목",
+        "희망 가격",
+        "사용 여부",
+        "거래 가능 지역"
+      ]
+    },
+    {
+      "id": "anonymous",
+      "label": "익명게시판",
+      "title": "익명으로 묻는 초보 질문",
+      "url": "/community/anonymous.html",
+      "entryCount": 1,
+      "submitLabel": "익명 질문 보내기",
+      "submissionFields": [
+        "궁금한 점",
+        "현재 경험",
+        "익명 처리 범위",
+        "답변 받고 싶은 방식"
       ]
     },
     {
       "id": "jobs",
       "label": "구인구직",
-      "title": "라틴댄스 구인구직",
+      "title": "강사·DJ·스태프 구인구직",
       "url": "/community/jobs.html",
       "entryCount": 2,
-      "submitLabel": "구인·제휴 등록",
+      "submitLabel": "구인 글 제보",
       "submissionFields": [
         "역할",
-        "페이 또는 조건",
-        "날짜와 시간",
-        "장소",
-        "업무 범위",
+        "일정과 장소",
+        "보수 조건",
         "지원 방법"
       ]
     },
     {
-      "id": "venues",
-      "label": "장소·팀",
-      "title": "한국 바차타 장소·팀 디렉터리",
-      "url": "/community/venues.html",
-      "entryCount": 3,
-      "submitLabel": "장소·팀 소개",
+      "id": "promo",
+      "label": "홍보/제휴",
+      "title": "행사·수업·팀 홍보",
+      "url": "/community/promo.html",
+      "entryCount": 5,
+      "submitLabel": "홍보 글 제보",
       "submissionFields": [
-        "팀·장소명",
-        "운영 지역",
-        "정기 일정",
-        "초보자 동선",
-        "인스타·웹 링크",
-        "대표 영상"
+        "행사/팀/브랜드명",
+        "공식 링크",
+        "핵심 일정",
+        "초보 참여 가능 여부"
       ]
     }
   ],
   "entries": [
     {
       "id": "events-monthly-visiting-dancers",
-      "category": "events",
-      "title": "월별 내한 댄서 캘린더",
-      "url": "/community/events.html#events-monthly-visiting-dancers",
+      "category": "promo",
+      "title": "이번 달 내한 댄서와 워크숍",
+      "url": "/community/promo.html#events-monthly-visiting-dancers",
       "status": "editorial-series",
       "tags": [
         "내한",
         "워크숍",
-        "페스티벌",
-        "캘린더"
+        "페스티벌"
       ],
       "requirements": [
-        "공식 포스터 또는 주최 계정",
-        "아티스트 이름과 날짜",
-        "예매·문의 링크",
-        "임베드 가능한 대표 영상"
+        "공식 공지 링크",
+        "일정과 장소",
+        "가격 또는 예매 링크",
+        "라인업 정보"
       ],
       "hasVideo": false
     },
     {
-      "id": "events-weekly-socials",
-      "category": "events",
-      "title": "주간 서울 바차타 소셜 일정",
-      "url": "/community/events.html#events-weekly-socials",
-      "status": "collecting",
-      "tags": [
-        "서울 바차타",
-        "소셜",
-        "초보",
-        "음악비율"
-      ],
-      "requirements": [
-        "요일과 시작 시간",
-        "장소와 입장료",
-        "바차타 음악 비율",
-        "초보 참여 가능 여부"
-      ],
-      "hasVideo": false
-    },
-    {
-      "id": "market-ticket-transfer",
-      "category": "market",
-      "title": "워크숍·파티 티켓 양도",
-      "url": "/community/market.html#market-ticket-transfer",
+      "id": "transfer-ticket-pass-market",
+      "category": "transfer",
+      "title": "파티 티켓과 워크숍 패스 양도",
+      "url": "/community/transfer.html#transfer-ticket-pass-market",
       "status": "submission-ready",
       "tags": [
-        "티켓양도",
+        "티켓",
         "워크숍",
-        "페스티벌",
-        "안전거래"
+        "페스티벌 패스"
       ],
       "requirements": [
         "행사명과 날짜",
-        "원가와 양도가",
-        "주최 측 양도 가능 여부",
-        "거래 완료 후 내림 요청 방식"
+        "정가와 양도 가격",
+        "양도 가능 여부 확인 링크",
+        "연락 방법"
       ],
       "hasVideo": false
     },
     {
-      "id": "market-dance-shoes",
-      "category": "market",
-      "title": "댄스화·의상 중고 거래",
-      "url": "/community/market.html#market-dance-shoes",
+      "id": "transfer-dance-shoes-market",
+      "category": "transfer",
+      "title": "바차타 댄스화 중고 매물",
+      "url": "/community/transfer.html#transfer-dance-shoes-market",
       "status": "submission-ready",
       "tags": [
         "댄스화",
         "중고",
-        "Fuego",
-        "Pana Mio",
-        "Pulse"
+        "사이즈"
       ],
       "requirements": [
-        "브랜드와 사이즈",
-        "착용 횟수와 사용 플로어",
-        "하자 사진",
-        "가격과 거래 지역"
+        "브랜드와 모델명",
+        "사이즈",
+        "착용 횟수와 바닥 상태",
+        "사진 또는 판매 링크"
       ],
       "hasVideo": false
     },
     {
-      "id": "jobs-instructor-dj-staff",
+      "id": "jobs-event-staff-dj",
       "category": "jobs",
-      "title": "강사·DJ·운영 스태프 구인",
-      "url": "/community/jobs.html#jobs-instructor-dj-staff",
+      "title": "파티 운영 스태프와 DJ 구인",
+      "url": "/community/jobs.html#jobs-event-staff-dj",
       "status": "submission-ready",
       "tags": [
-        "구인",
-        "강사",
         "DJ",
-        "촬영",
-        "운영"
+        "스태프",
+        "행사 운영"
       ],
       "requirements": [
         "역할과 업무 범위",
-        "페이 또는 정산 방식",
-        "근무 시간과 장소",
-        "지원 방법"
+        "일정과 장소",
+        "보수 조건",
+        "지원 방법과 마감일"
       ],
       "hasVideo": false
     },
     {
-      "id": "jobs-space-partnership",
+      "id": "jobs-class-assistant",
       "category": "jobs",
-      "title": "스튜디오 대관·협찬·제휴",
-      "url": "/community/jobs.html#jobs-space-partnership",
+      "title": "클래스 어시스턴트·연습 파트너 모집",
+      "url": "/community/jobs.html#jobs-class-assistant",
       "status": "submission-ready",
       "tags": [
-        "대관",
-        "협찬",
-        "제휴",
-        "촬영"
+        "클래스",
+        "어시스턴트",
+        "연습 파트너"
       ],
       "requirements": [
-        "공간 사진",
-        "수용 인원",
-        "바닥과 음향 정보",
-        "대관료 또는 제휴 조건"
+        "필요한 역할",
+        "요구 레벨",
+        "연습 또는 근무 시간",
+        "보상 방식"
       ],
       "hasVideo": false
     },
     {
-      "id": "venues-bonita-seoul",
-      "category": "venues",
+      "id": "promo-bonita-social-map",
+      "category": "promo",
       "title": "홍대 보니따 소셜 기록",
-      "url": "/community/venues.html#venues-bonita-seoul",
-      "status": "research-queue",
+      "url": "/community/promo.html#promo-bonita-social-map",
+      "status": "collecting",
       "tags": [
-        "홍대",
         "보니따",
-        "소셜",
-        "장소"
+        "홍대",
+        "소셜"
       ],
       "requirements": [
         "정기 소셜 요일",
@@ -211,42 +189,97 @@
       "hasVideo": true
     },
     {
-      "id": "venues-everlatin-club",
-      "category": "venues",
+      "id": "promo-everlatin-lesson",
+      "category": "promo",
       "title": "에버라틴 동호회·강습 안내",
-      "url": "/community/venues.html#venues-everlatin-club",
-      "status": "research-queue",
+      "url": "/community/promo.html#promo-everlatin-lesson",
+      "status": "collecting",
       "tags": [
         "에버라틴",
         "동호회",
-        "클래스",
-        "2030"
+        "초보자"
       ],
       "requirements": [
-        "정기 클래스 구조",
-        "초보자 시작 방법",
-        "소셜 연결 방식",
-        "공개 영상 또는 웹 링크"
+        "정규 수업 일정",
+        "초보반 운영 여부",
+        "공식 링크",
+        "문의 방법"
       ],
       "hasVideo": false
     },
     {
-      "id": "venues-latincielo",
-      "category": "venues",
-      "title": "라틴씨엘로 팀·수업 소개",
-      "url": "/community/venues.html#venues-latincielo",
-      "status": "research-queue",
+      "id": "promo-lastdance-party",
+      "category": "promo",
+      "title": "라스트댄스 파티와 레벨업 모임",
+      "url": "/community/promo.html#promo-lastdance-party",
+      "status": "collecting",
       "tags": [
-        "라틴씨엘로",
-        "팀소개",
-        "클래스",
-        "한국 바차타"
+        "라스트댄스",
+        "동호회",
+        "파티"
       ],
       "requirements": [
-        "수업 또는 팀 소개",
-        "정기 일정",
+        "일정과 장소",
+        "참여 대상",
+        "공식 링크",
+        "사진·영상 공개 가능 여부"
+      ],
+      "hasVideo": false
+    },
+    {
+      "id": "promo-latincielo-team",
+      "category": "promo",
+      "title": "라틴씨엘로 수업과 공연팀",
+      "url": "/community/promo.html#promo-latincielo-team",
+      "status": "collecting",
+      "tags": [
+        "라틴씨엘로",
+        "수업",
+        "공연팀"
+      ],
+      "requirements": [
+        "정규 수업 일정",
+        "공연팀 모집 여부",
         "공개 가능한 사진·영상",
-        "인스타 또는 문의 링크"
+        "문의 링크"
+      ],
+      "hasVideo": true
+    },
+    {
+      "id": "free-first-social-review",
+      "category": "free",
+      "title": "첫 소셜에 다녀온 사람들의 후기",
+      "url": "/community/free.html#free-first-social-review",
+      "status": "submission-ready",
+      "tags": [
+        "첫 소셜",
+        "후기",
+        "초보자"
+      ],
+      "requirements": [
+        "방문한 장소",
+        "방문한 날짜",
+        "좋았던 점과 어려웠던 점",
+        "공개 가능 범위"
+      ],
+      "hasVideo": false
+    },
+    {
+      "id": "anonymous-beginner-question",
+      "category": "anonymous",
+      "title": "처음 소셜에 갈 때 제일 많이 묻는 질문",
+      "url": "/community/anonymous.html#anonymous-beginner-question",
+      "status": "submission-ready",
+      "tags": [
+        "초보 질문",
+        "익명",
+        "소셜 매너"
+      ],
+      "requirements": [
+        "궁금한 상황",
+        "현재 경험 정도",
+        "익명 처리 요청",
+        "답변 받고 싶은 방식"
       ],
       "hasVideo": false
     }

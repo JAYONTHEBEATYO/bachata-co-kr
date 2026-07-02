@@ -343,6 +343,53 @@ const renderBriefIndex = async (signals) => {
 `;
 };
 
+const buildLatestBriefModel = (signals) => {
+  const dateText = signals.generationDate;
+  const topics = signals.topics || [];
+  const candidateCount = topics.reduce((sum, topic) => sum + topic.candidateCount, 0);
+  const topTopics = topics.slice(0, 4).map((topic) => ({
+    id: topic.id,
+    title: publicTopicLabel(topic.label, topic.id),
+    summary: topicNotes[topic.id]?.dek || "오늘 확인한 바차타 소식을 매거진형 기사로 이어갈 수 있는 주제입니다.",
+    candidates: (topic.candidates || []).slice(0, 3).map((candidate) => ({
+      title: candidate.title,
+      url: candidate.sourceUrl,
+      videoId: candidate.videoId || candidate.id || null,
+      publishFormat: candidate.publishFormat || publicTypeLabel(candidate.type),
+      evidenceLevel: candidate.evidenceLevel || "public-link"
+    }))
+  }));
+
+  const evidenceLinks = topics
+    .flatMap((topic) => topic.candidates || [])
+    .filter((candidate) => candidate.sourceUrl)
+    .slice(0, 12)
+    .map((candidate) => ({
+      title: candidate.title,
+      url: candidate.sourceUrl,
+      type: candidate.type || "public-source"
+    }));
+
+  return {
+    generatedAt: new Date().toISOString(),
+    generationDate: dateText,
+    url: `/briefs/${dateText}.html`,
+    headline: `${formatDateKo(dateText)} 바차타 최신소식`,
+    dek: "오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니다.",
+    topicCount: topics.length,
+    candidateCount,
+    sections: topTopics,
+    evidenceLinks,
+    targetPages: [
+      { label: "최신소식", url: `/briefs/${dateText}.html` },
+      { label: "세부장르 살펴보기", url: "/styles/" },
+      { label: "국내 소식", url: "/korea-scene/" },
+      { label: "페스티벌 정보", url: "/events/" },
+      { label: "해외 페스티벌 정보", url: "/events/overseas.html" }
+    ]
+  };
+};
+
 const updateSitemap = async (dateText) => {
   let briefFiles = [];
   try {
@@ -613,6 +660,12 @@ const updateSitemap = async (dateText) => {
     const eventIndex = await readJson(eventIndexPath);
     eventPages = [
       { url: "/events/", updatedAt: eventIndex.updatedAt || dateText, priority: "0.86", changefreq: "daily" },
+      ...(eventIndex.overseasUrl ? [{
+        url: eventIndex.overseasUrl,
+        updatedAt: eventIndex.updatedAt || dateText,
+        priority: "0.82",
+        changefreq: "weekly"
+      }] : []),
       ...(eventIndex.events || []).map((event) => ({
         url: event.url,
         updatedAt: eventIndex.updatedAt || dateText,
@@ -786,13 +839,7 @@ const main = async () => {
   await mkdir(briefsDir, { recursive: true });
   await writeFile(briefPath, renderBriefHtml(signals), "utf8");
   await writeFile(resolve(briefsDir, "index.html"), await renderBriefIndex(signals), "utf8");
-  await writeFile(latestPath, `${JSON.stringify({
-    generatedAt: new Date().toISOString(),
-    generationDate: dateText,
-    url: `/briefs/${dateText}.html`,
-    topicCount: signals.topics.length,
-    candidateCount: signals.topics.reduce((sum, topic) => sum + topic.candidateCount, 0)
-  }, null, 2)}\n`, "utf8");
+  await writeFile(latestPath, `${JSON.stringify(buildLatestBriefModel(signals), null, 2)}\n`, "utf8");
   await updateSitemap(dateText);
 
   console.log(`Wrote ${briefPath}`);

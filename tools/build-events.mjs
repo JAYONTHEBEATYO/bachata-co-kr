@@ -31,7 +31,7 @@ const statusLabels = {
 const statusDescriptions = {
   confirmed: "공식 행사/티켓/디렉터리 링크가 확인된 일정입니다.",
   watch: "인스타그램과 검색 결과에서 보이지만 날짜·장소·가격을 더 확인해야 합니다.",
-  archive: "지난 워크숍·소셜 영상 기록입니다. 예매 정보가 아니라 씬 흐름을 읽는 자료입니다."
+  archive: "지난 워크숍·소셜 영상 기록입니다. 예매 정보가 아니라 현장 흐름을 읽는 자료입니다."
 };
 
 const videoEmbedUrl = (video = {}) => `https://www.youtube-nocookie.com/embed/${encodeURIComponent(video.id)}`;
@@ -54,6 +54,12 @@ const groupByMonth = (events) => events.reduce((groups, event) => {
   groups.get(event.month).push(event);
   return groups;
 }, new Map());
+
+const filterByScope = (events, scope) => events.filter((event) => (
+  scope === "overseas"
+    ? event.regionScope === "overseas"
+    : event.regionScope !== "overseas"
+));
 
 const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -193,28 +199,37 @@ const renderEventCard = (event) => {
         </article>`;
 };
 
-const renderIndex = (data) => {
-  const grouped = groupByMonth(data.radar);
+const renderIndex = (data, options = {}) => {
+  const scope = options.scope || "domestic";
+  const events = filterByScope(data.radar, scope);
+  const grouped = groupByMonth(events);
   const months = [...grouped.keys()].sort();
+  const isOverseas = scope === "overseas";
+  const canonical = isOverseas ? "https://bachata.co.kr/events/overseas.html" : "https://bachata.co.kr/events/";
+  const pageTitle = isOverseas ? "해외 바차타 페스티벌 정보" : "한국 바차타 페스티벌 정보";
+  const pageDek = isOverseas
+    ? "스페인, 스위스, 미국 등 해외 바차타 페스티벌을 공식 링크와 일정 중심으로 정리합니다. 한국에서 여행형 페스티벌을 고를 때 날짜, 장소, 패스 범위를 먼저 확인할 수 있습니다."
+    : data.dek;
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "@id": "https://bachata.co.kr/events/",
-    "name": data.title,
-    "description": data.dek,
+    "@id": canonical,
+    "name": pageTitle,
+    "description": pageDek,
     "inLanguage": "ko-KR",
     "isPartOf": { "@id": "https://bachata.co.kr/#website" },
-    "hasPart": data.radar.map((event) => ({ "@id": pageUrl(event), "name": event.title }))
+    "hasPart": events.map((event) => ({ "@id": pageUrl(event), "name": event.title }))
   };
 
   const body = `    <section class="hero">
       <div class="hero-grid">
         <div>
-          <span class="eyebrow">행사 일정</span>
-          <h1>월별 내한·페스티벌 일정</h1>
-          <p>${escapeHtml(data.dek)}</p>
+          <span class="eyebrow">${isOverseas ? "해외 페스티벌" : "페스티벌 정보"}</span>
+          <h1>${escapeHtml(pageTitle)}</h1>
+          <p>${escapeHtml(pageDek)}</p>
           <div class="quick-nav">
             ${months.map((month) => `<a href="#month-${escapeHtml(month)}">${escapeHtml(monthLabel(month))}</a>`).join("")}
+            <a href="${isOverseas ? "/events/" : "/events/overseas.html"}">${isOverseas ? "국내 일정 보기" : "해외 페스티벌 보기"}</a>
           </div>
         </div>
         <aside class="method-card">
@@ -227,10 +242,10 @@ const renderIndex = (data) => {
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">한국 바차타 일정</span>
-            <h2>확인된 일정과 최근 영상</h2>
+            <span class="eyebrow">${isOverseas ? "해외 일정" : "한국 바차타 일정"}</span>
+            <h2>${isOverseas ? "여행 전에 먼저 볼 해외 페스티벌" : "확인된 일정과 최근 영상"}</h2>
           </div>
-          <p>행사 페이지, 인스타 공지, 유튜브 기록을 한 화면에서 보고 개별 일정 상세로 들어갑니다. 날짜가 다른 소스는 그대로 표시하고 재확인 포인트를 남깁니다.</p>
+          <p>${isOverseas ? "해외 행사는 항공권과 숙박이 함께 움직이므로 날짜, 장소, 패스 종류, 환불 조건을 원본 링크로 다시 확인해야 합니다." : "행사 페이지, 인스타 공지, 유튜브 기록을 한 화면에서 보고 개별 일정 상세로 들어갑니다. 날짜가 다른 소스는 그대로 표시하고 재확인 포인트를 남깁니다."}</p>
         </div>
         <div class="month-stack">
           ${months.map((month) => `<section class="month-band" id="month-${escapeHtml(month)}">
@@ -248,9 +263,9 @@ const renderIndex = (data) => {
     </main>`;
 
   return layout({
-    title: `${data.title} | Bachata Korea`,
-    description: data.dek,
-    canonical: "https://bachata.co.kr/events/",
+    title: `${pageTitle} | Bachata Korea`,
+    description: pageDek,
+    canonical,
     jsonLd,
     body
   });
@@ -355,7 +370,8 @@ const main = async () => {
   await mkdir(outDir, { recursive: true });
   await mkdir(dirname(indexPath), { recursive: true });
 
-  await writeFile(resolve(outDir, "index.html"), renderIndex(data), "utf8");
+  await writeFile(resolve(outDir, "index.html"), renderIndex(data, { scope: "domestic" }), "utf8");
+  await writeFile(resolve(outDir, "overseas.html"), renderIndex(data, { scope: "overseas" }), "utf8");
   await Promise.all(data.radar.map((event) => writeFile(resolve(outDir, `${event.id}.html`), renderEvent(event, data), "utf8")));
 
   const index = {
@@ -363,11 +379,13 @@ const main = async () => {
     updatedAt: data.updatedAt,
     title: data.title,
     url: "/events/",
+    overseasUrl: "/events/overseas.html",
     events: data.radar.map((event) => ({
       id: event.id,
       title: event.title,
       month: event.month,
       url: pagePath(event),
+      regionScope: event.regionScope || "domestic",
       startDate: event.startDate,
       endDate: event.endDate,
       city: event.city,

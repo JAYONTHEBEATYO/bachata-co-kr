@@ -21,7 +21,9 @@ const requiredFiles = [
   "data/generated/source-health.json",
   "data/generated/home-index.json",
   "data/generated/knowledge-index.json",
-  "data/generated/latest-brief.json"
+  "data/generated/latest-brief.json",
+  "data/generated/style-reference-index.json",
+  "data/generated/copy-style-audit.json"
 ];
 
 const publicDirs = [
@@ -304,7 +306,7 @@ const verifyProgramVideoLoading = async () => {
 const verifyCommunityBoard = async () => {
   const board = await readJson("data/generated/board-index.json");
   const communityHome = await readText("community/index.html");
-  const expectedCategories = ["events", "market", "jobs", "venues"];
+  const expectedCategories = ["free", "transfer", "anonymous", "jobs", "promo"];
   const categoryIds = (board.categories || []).map((category) => category.id);
   const missingCategories = expectedCategories.filter((id) => !categoryIds.includes(id));
   assert(missingCategories.length === 0, "Community board is missing required categories", {
@@ -333,11 +335,8 @@ const verifyCommunityBoard = async () => {
       category: category.id,
       iframeCount
     });
-    if (category.id === "venues") {
-      assert(loaderCount >= 1, "Venues community page should expose video as a click-to-load thumbnail", {
-        loaderCount
-      });
-      assert(html.includes("data-video-button"), "Venues community page is missing click-to-load video controls");
+    if (category.id === "promo" && loaderCount > 0) {
+      assert(html.includes("data-video-button"), "Promo community page video controls are missing");
     }
   }
 
@@ -364,6 +363,36 @@ const verifyVisibleCopy = async () => {
     maxBuffer: 1024 * 1024 * 5
   });
   return JSON.parse(stdout);
+};
+
+const verifyUiConsistency = async () => {
+  const { stdout } = await execFileAsync("node", ["tools/audit-ui-consistency.mjs"], {
+    cwd: root,
+    windowsHide: true,
+    maxBuffer: 1024 * 1024 * 5
+  });
+  return JSON.parse(stdout);
+};
+
+const verifyPublicSitemap = async () => {
+  const { stdout } = await execFileAsync("node", ["tools/audit-public-sitemap.mjs"], {
+    cwd: root,
+    windowsHide: true,
+    maxBuffer: 1024 * 1024 * 5
+  });
+  return JSON.parse(stdout);
+};
+
+const verifyStyleReferenceIndex = async () => {
+  const style = await readJson("data/generated/style-reference-index.json");
+  const copy = await readJson("data/generated/copy-style-audit.json");
+  assert(style.policy?.storesFullExternalArticleBodies === false, "Style RAG must not store full external article bodies", style.policy || {});
+  assert((style.summary?.references || 0) >= 6, "Style reference index has too few references", style.summary || {});
+  assert(copy.ok, "Copy style audit has blocking findings", copy.summary || {});
+  return {
+    references: style.summary.references,
+    copyAudit: copy.summary
+  };
 };
 
 const verifyKnowledgeIndex = async () => {
@@ -416,7 +445,7 @@ const verifyIndexesAndSitemap = async () => {
 
 const main = async () => {
   await verifyRequiredFiles();
-  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, communityBoard, koreanCopy, visibleCopy, knowledgeIndex] = await Promise.all([
+  const [sourceHealth, socialIntake, socialRadar, signalHistory, indexCounts, scannedFiles, homeHero, styleVideos, articleVideos, programVideos, communityBoard, koreanCopy, visibleCopy, uiConsistency, publicSitemap, styleReferenceIndex, knowledgeIndex] = await Promise.all([
     verifySourceHealth(),
     verifySocialIntake(),
     verifySocialRadar(),
@@ -430,6 +459,9 @@ const main = async () => {
     verifyCommunityBoard(),
     verifyKoreanCopy(),
     verifyVisibleCopy(),
+    verifyUiConsistency(),
+    verifyPublicSitemap(),
+    verifyStyleReferenceIndex(),
     verifyKnowledgeIndex()
   ]);
 
@@ -446,6 +478,9 @@ const main = async () => {
     communityBoard,
     koreanCopy,
     visibleCopy,
+    uiConsistency,
+    publicSitemap,
+    styleReferenceIndex,
     knowledgeIndex,
     signalHistory,
     socialIntake

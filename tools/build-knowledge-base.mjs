@@ -15,11 +15,20 @@ const sources = [
   { path: "data/board.json", type: "community", collectionKey: "entries", urlPrefix: "/community/", slugKey: "id" },
   { path: "data/gear.json", type: "gear", collectionKey: "products", urlPrefix: "/gear/", slugKey: "id" },
   { path: "data/home-rail.json", type: "home", collectionKey: null, urlPrefix: "/", slugKey: "updatedAt" },
-  { path: "data/editorial-desk.json", type: "editorial-plan", collectionKey: null, urlPrefix: "/editorial-desk/", slugKey: "updatedAt" },
-  { path: "data/knowledge-notes.json", type: "knowledge-note", collectionKey: "notes", urlPrefix: "/docs/content-rag.html", slugKey: "id" }
+  { path: "data/editorial-desk.json", type: "editorial-plan", collectionKey: null, urlPrefix: "/desk/", slugKey: "updatedAt", visibility: "internal" },
+  { path: "data/knowledge-notes.json", type: "knowledge-note", collectionKey: "notes", urlPrefix: "/docs/content-rag.html", slugKey: "id", visibility: "internal" },
+  { path: "data/generated/style-reference-index.json", type: "style-reference", collectionKey: "references", urlPrefix: "/data/generated/style-reference-index.json#", slugKey: "id", copyOwner: "external-style-observation", evidenceLevel: "style-analysis", optional: true },
+  { path: "data/generated/copy-style-audit.json", type: "copy-style-audit", collectionKey: "findings", urlPrefix: "/data/generated/copy-style-audit.json#", slugKey: "id", visibility: "internal", optional: true }
 ];
 
 const readJson = async (relativePath) => JSON.parse(await readFile(resolve(root, relativePath), "utf8"));
+const optionalReadJson = async (relativePath) => {
+  try {
+    return await readJson(relativePath);
+  } catch {
+    return null;
+  }
+};
 
 const normalize = (value = "") => String(value)
   .replace(/\s+/g, " ")
@@ -75,6 +84,7 @@ const slugOf = (item, key, fallback) => normalize(item[key] || item.slug || item
 const urlOf = (item, source, slug) => {
   if (item.url) return item.url;
   if (source.urlPrefix === "/") return "/";
+  if (source.urlPrefix.includes("#")) return `${source.urlPrefix}${slug}`;
   if (source.urlPrefix.endsWith(".html")) return source.urlPrefix;
   return `${source.urlPrefix}${slug}.html`;
 };
@@ -108,7 +118,7 @@ const chunkText = (text, size = 850, overlap = 120) => {
   return chunks;
 };
 
-const buildDocument = (item, source, index) => {
+const buildDocument = (item, source, index, jsonPath) => {
   const slug = slugOf(item, source.slugKey, `${source.type}-${index + 1}`);
   const title = titleOf(item, `${source.type} ${index + 1}`);
   const strings = unique(extractStrings(item));
@@ -119,6 +129,12 @@ const buildDocument = (item, source, index) => {
   return {
     id: `${source.type}:${slug}`,
     type: source.type,
+    sourceType: source.type,
+    sourcePath: source.path,
+    jsonPath,
+    visibility: source.visibility || "public",
+    copyOwner: source.copyOwner || "site",
+    evidenceLevel: item.evidenceLevel || source.evidenceLevel || "owned",
     title,
     slug,
     url: urlOf(item, source, slug),
@@ -138,10 +154,12 @@ const main = async () => {
   const documents = [];
 
   for (const source of sources) {
-    const data = await readJson(source.path);
+    const data = source.optional ? await optionalReadJson(source.path) : await readJson(source.path);
+    if (!data) continue;
     const items = source.collectionKey ? (data[source.collectionKey] || []) : [data];
     items.forEach((item, index) => {
-      const doc = buildDocument(item, source, index);
+      const jsonPath = source.collectionKey ? `$.${source.collectionKey}[${index}]` : "$";
+      const doc = buildDocument(item, source, index, jsonPath);
       if (doc.text.length >= 40) documents.push(doc);
     });
   }
@@ -150,6 +168,12 @@ const main = async () => {
     id: `${doc.id}#${index + 1}`,
     documentId: doc.id,
     type: doc.type,
+    sourceType: doc.sourceType,
+    sourcePath: doc.sourcePath,
+    jsonPath: doc.jsonPath,
+    visibility: doc.visibility,
+    copyOwner: doc.copyOwner,
+    evidenceLevel: doc.evidenceLevel,
     title: doc.title,
     url: doc.url,
     chunkIndex: index,
@@ -178,6 +202,12 @@ const main = async () => {
     documents: documents.map((doc) => ({
       id: doc.id,
       type: doc.type,
+      sourceType: doc.sourceType,
+      sourcePath: doc.sourcePath,
+      jsonPath: doc.jsonPath,
+      visibility: doc.visibility,
+      copyOwner: doc.copyOwner,
+      evidenceLevel: doc.evidenceLevel,
       title: doc.title,
       slug: doc.slug,
       url: doc.url,

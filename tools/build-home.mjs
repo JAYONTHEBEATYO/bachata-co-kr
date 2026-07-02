@@ -212,21 +212,16 @@ const renderShelf = (config, cards, latestBrief, sourceHealth = {}) => {
               ${cards.map(renderCard).join("\n              ")}
             </div>
           </div>
-          <aside class="home-sidebar" aria-label="사이트 운영 정보">
+          <aside class="home-sidebar" aria-label="바차타 소식 제보와 추천 읽을거리">
             <a class="ad-slot" href="/submit/">
-              <span>파트너 배너</span>
+              <span>소식 보내기</span>
               <strong>바차타 행사·클래스·팀 소식을 보내주세요</strong>
-              <em>제보하면 출처 확인 후 일정과 기사에 반영합니다.</em>
+              <em>제보는 일정, 최신소식, 매거진 기사로 자연스럽게 녹여 반영합니다.</em>
             </a>
             <div class="side-box">
-              <span>오늘의 정리</span>
-              <strong>${escapeHtml(latestBrief.candidateCount || 0)}개 소식 확인</strong>
-              <p>공개 영상, 행사 페이지, 공식 링크를 기준으로 읽을 만한 내용을 추립니다.</p>
-            </div>
-            <div class="side-box compact">
-              <span>출처 상태</span>
-              <strong>${escapeHtml(summary.ok || 0)} / ${escapeHtml(summary.total || 0)} 정상</strong>
-              <p>깨진 링크는 공개 전에 제외하고, 확인이 더 필요한 링크는 따로 표시합니다.</p>
+              <span>오늘의 바차타</span>
+              <strong>${escapeHtml(latestBrief.headline || `${latestBrief.candidateCount || 0}개 소식에서 고른 읽을거리`)}</strong>
+              <p>${escapeHtml(latestBrief.dek || "공개 영상, 행사 페이지, 공식 링크를 바탕으로 읽을 만한 이야기를 추립니다.")}</p>
             </div>
           </aside>
         </div>

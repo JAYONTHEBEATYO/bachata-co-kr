@@ -45,17 +45,17 @@
       .section:first-child { margin-top: 0; }
       .section-head { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.36fr); gap: 24px; align-items: end; margin-bottom: 22px; }
       .section-head h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.02; }
-      .section-head p, .queue-card p, .series-card p, .rhythm-card p, .policy-card li, .automation-card p { color: var(--muted); line-height: 1.72; }
+      .section-head p, .목록-card p, .series-card p, .rhythm-card p, .policy-card li, .automation-card p { color: var(--muted); line-height: 1.72; }
       .quick-nav, .link-row, .tag-row { display: flex; flex-wrap: wrap; gap: 8px; }
       .quick-nav { margin-top: 26px; }
       .quick-nav a, .link-row a { display: inline-flex; align-items: center; min-height: 36px; padding: 0 12px; border: 1px solid currentColor; border-radius: 999px; font-size: 13px; font-weight: 900; }
       .rhythm-grid { display: grid; gap: 12px; }
       .rhythm-card { padding: 20px; border: 1px solid rgba(26, 21, 16, 0.14); border-radius: 8px; background: rgba(26, 21, 16, 0.05); }
       .rhythm-card strong { display: block; margin: 6px 0; font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-size: 22px; line-height: 1.08; }
-      .queue-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-      .queue-card, .series-card, .policy-card, .automation-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
-      .queue-card { display: grid; gap: 18px; padding: clamp(20px, 3vw, 28px); }
-      .queue-card h2 { margin: 10px 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.04; }
+      .목록-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .목록-card, .series-card, .policy-card, .automation-card { border: 1px solid var(--line); border-radius: 8px; background: var(--panel); }
+      .목록-card { display: grid; gap: 18px; padding: clamp(20px, 3vw, 28px); }
+      .목록-card h2 { margin: 10px 0; font-size: clamp(28px, 4vw, 42px); line-height: 1.04; }
       .meta-row { display: flex; flex-wrap: wrap; gap: 8px; }
       .meta-row span, .tag-row span { display: inline-flex; align-items: center; min-height: 30px; padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; color: rgba(255, 247, 232, 0.76); font-size: 12px; font-weight: 900; }
       .video-frame { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; background: #050505; }
@@ -80,8 +80,8 @@
       @media (max-width: 760px) {
         .nav-links { display: none; }
         h1 { font-size: clamp(42px, 13vw, 66px); }
-        .queue-grid, .series-grid { grid-template-columns: 1fr; }
-        .queue-card, .series-card, .policy-card, .automation-card, .rhythm-card { padding: 20px; }
+        .목록-grid, .series-grid { grid-template-columns: 1fr; }
+        .목록-card, .series-card, .policy-card, .automation-card, .rhythm-card { padding: 20px; }
       }
     </style>
     <script type="application/ld+json">
@@ -124,7 +124,7 @@
             },
             {
                   "@type": "CreativeWork",
-                  "name": "한국 바차타 팀·동호회·장소를 실제 입문 동선으로 정리",
+                  "name": "한국 바차타 팀·동호회·장소를 실제 초보자 가이드 동선으로 정리",
                   "description": "클루니·져니, 그레이·로렌, 라틴씨엘로, 에버라틴, 보니따 등 검색자가 바로 방문 경로를 이해하게 만듭니다.",
                   "keywords": "한국 바차타, 서울 바차타, 바차타 동호회, 라틴씨엘로, 에버라틴, 보니따"
             },
@@ -143,17 +143,18 @@
       ]
 }
     </script>
+      <link rel="stylesheet" href="/assets/site.css">
+    <script defer src="/assets/site.js"></script>
   </head>
-  <body>
-    <header class="nav">
-      <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
-      <nav class="nav-links" aria-label="편집 데스크 이동">
-        <a href="/">홈</a>
-        <a href="/desk/">편집실</a>
-        <a href="/programs/">프로그램</a>
-        <a href="/styles/">스타일</a>
-        <a href="/radar/">소셜 소식</a>
-        <a href="/briefs/">브리핑</a>
+  <body class="site-shell">
+    <header class="bk-site-header">
+      <a class="bk-brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea Magazine</span></a>
+      <nav class="bk-nav" aria-label="주요 메뉴">
+        <a href="/briefs/">최신소식</a><a href="/programs/">초보자 가이드</a><a href="/styles/">세부장르 살펴보기</a><a href="/profiles/">댄서 소개</a><a href="/korea-scene/">국내 소식</a><a href="/events/">페스티벌 정보</a><a href="/events/overseas.html">해외 페스티벌 정보</a>
+        <details>
+          <summary>커뮤니티</summary>
+          <div class="bk-menu"><a href="/community/free.html">자유게시판</a><a href="/community/transfer.html">양도양수</a><a href="/community/anonymous.html">익명게시판</a><a href="/community/jobs.html">구인구직</a><a href="/community/promo.html">홍보/제휴</a></div>
+        </details>
       </nav>
     </header>
     <section class="hero">
@@ -170,11 +171,11 @@
           <article class="rhythm-card">
             <span class="tag">매일 오전</span>
             <strong>Daily scan</strong>
-            <p>일간 브리핑 준비</p>
+            <p>일간 최신소식 준비</p>
           </article><article class="rhythm-card">
             <span class="tag">주 2회</span>
             <strong>Weekly edit</strong>
-            <p>기사, 스타일 가이드, 프로그램, 행사 일정으로 정리</p>
+            <p>기사, 세부장르 가이드, 프로그램, 행사 일정으로 정리</p>
           </article><article class="rhythm-card">
             <span class="tag">월 1회</span>
             <strong>Evergreen refresh</strong>
@@ -187,13 +188,13 @@
       <section class="section">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Next Stories</span>
+            <span class="eyebrow">다음 글</span>
             <h2>영상과 출처가 있는 준비 중인 주제</h2>
           </div>
           <p>준비 중인 주제를 모아두었습니다. 각 주제는 영상과 출처를 확인한 뒤 기사, 프로그램, 프로필, 커뮤니티 안내로 이어집니다.</p>
         </div>
-        <div class="queue-grid">
-          <article class="queue-card" id="q-sensual-16">
+        <div class="목록-grid">
+          <article class="목록-card" id="q-sensual-16">
           <div>
             <span class="tag">core</span>
             <h2>센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조</h2>
@@ -208,13 +209,13 @@
               <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/B7Wv3cqHrSU?start=99" title="Bachata Sensual fundamentals reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           <div>
-            <div class="link-row"><a href="/programs/sensual-fundamentals.html">센슈얼 프로그램</a><a href="/styles/sensual.html">센슈얼 스타일 가이드</a><a href="/profiles/korke-judith.html">코르케·주디스 프로필</a></div>
+            <div class="link-row"><a href="/programs/sensual-fundamentals.html">센슈얼 프로그램</a><a href="/styles/sensual.html">센슈얼 세부장르 가이드</a><a href="/profiles/korke-judith.html">코르케·주디스 프로필</a></div>
             <div class="tag-row" style="margin-top:12px">
               <span>Bachata Sensual 공식 자료</span><span>관련 강의 영상</span><span>커뮤니티 질문에서 반복되는 안전 이슈</span><span>한국 초보자 검색어</span>
             </div>
           </div>
         </article>
-<article class="queue-card" id="q-dominican-rhythm">
+<article class="목록-card" id="q-dominican-rhythm">
           <div>
             <span class="tag">core</span>
             <h2>도미니칸 바차타는 풋워크보다 리듬 듣기부터</h2>
@@ -229,13 +230,13 @@
               <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/xmvDKN5cwT0" title="Dominican bachata rhythm and footwork reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           <div>
-            <div class="link-row"><a href="/programs/dominican-rhythm.html">도미니칸 프로그램</a><a href="/styles/dominican.html">도미니칸 스타일 가이드</a><a href="/articles/dominican-bachata-rhythm-footwork-guide.html">리듬 기사</a></div>
+            <div class="link-row"><a href="/programs/dominican-rhythm.html">도미니칸 프로그램</a><a href="/styles/dominican.html">도미니칸 세부장르 가이드</a><a href="/articles/dominican-bachata-rhythm-footwork-guide.html">리듬 기사</a></div>
             <div class="tag-row" style="margin-top:12px">
               <span>도미니칸 풋워크 영상</span><span>리듬 용어 교차 확인</span><span>초급 수업에서 설명 가능한 언어</span><span>임베드 가능한 영상</span>
             </div>
           </div>
         </article>
-<article class="queue-card" id="q-influence-members">
+<article class="목록-card" id="q-influence-members">
           <div>
             <span class="tag">trend</span>
             <h2>Bachata Influence는 왜 요즘 바차타 문법처럼 보이나</h2>
@@ -252,14 +253,14 @@
           <div>
             <div class="link-row"><a href="/programs/influence-method.html">Influence 프로그램</a><a href="/profiles/melvin-gatica.html">Melvin &amp; Gatica</a><a href="/profiles/emilien-tehina.html">Emilien &amp; Tehina</a></div>
             <div class="tag-row" style="margin-top:12px">
-              <span>공식 아카데미 페이지</span><span>댄서 공식 사이트·인스타</span><span>YouTube 클래스 영상</span><span>한국 씬에서 쓰이는 용어</span>
+              <span>공식 아카데미 페이지</span><span>댄서 공식 사이트·인스타</span><span>YouTube 클래스 영상</span><span>한국 바차타 현장에서 쓰이는 용어</span>
             </div>
           </div>
         </article>
-<article class="queue-card" id="q-korea-teams">
+<article class="목록-card" id="q-korea-teams">
           <div>
             <span class="tag">korea</span>
-            <h2>한국 바차타 팀·동호회·장소를 실제 입문 동선으로 정리</h2>
+            <h2>한국 바차타 팀·동호회·장소를 실제 초보자 가이드 동선으로 정리</h2>
             <p>클루니·져니, 그레이·로렌, 라틴씨엘로, 에버라틴, 보니따 등 검색자가 바로 방문 경로를 이해하게 만듭니다.</p>
             <div class="meta-row">
               <span>A2</span>
@@ -271,13 +272,13 @@
               <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/nrJM-arshvE" title="Korea bachata scene reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           <div>
-            <div class="link-row"><a href="/profiles/">프로필</a><a href="/community/">커뮤니티 보드</a><a href="/radar/">소셜 소식</a></div>
+            <div class="link-row"><a href="/profiles/">프로필</a><a href="/community/">커뮤니티 보드</a><a href="/소식/">소셜 소식</a></div>
             <div class="tag-row" style="margin-top:12px">
               <span>팀·동호회 공식 계정</span><span>장소 운영 공지</span><span>행사 포스터 원문 링크</span><span>초보자 접근성</span>
             </div>
           </div>
         </article>
-<article class="queue-card" id="q-bachazouk-safety">
+<article class="목록-card" id="q-bachazouk-safety">
           <div>
             <span class="tag">style</span>
             <h2>바차주크를 센슈얼 변형으로만 보면 놓치는 안전 기준</h2>
@@ -292,13 +293,13 @@
               <iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/Qng3Wdmt3WE" title="Bachazouk reference" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             </div>
           <div>
-            <div class="link-row"><a href="/programs/bachazouk-safety.html">Bachazouk 프로그램</a><a href="/articles/bachazouk-guide.html">Bachazouk 기사</a><a href="/styles/sensual.html">센슈얼 스타일</a></div>
+            <div class="link-row"><a href="/programs/bachazouk-safety.html">Bachazouk 프로그램</a><a href="/articles/bachazouk-guide.html">Bachazouk 기사</a><a href="/styles/sensual.html">센슈얼 세부장르</a></div>
             <div class="tag-row" style="margin-top:12px">
               <span>Bachazouk 공식 설명</span><span>Brazilian Zouk 기본 용어</span><span>안전 가이드</span><span>음악성 예시 영상</span>
             </div>
           </div>
         </article>
-<article class="queue-card" id="q-gear-shoes">
+<article class="목록-card" id="q-gear-shoes">
           <div>
             <span class="tag">market</span>
             <h2>파나미오·푸에고·On1·Pulse, 한국 바차타 댄스화 선택 기준</h2>
@@ -327,7 +328,7 @@
             <span class="eyebrow">Magazine Series</span>
             <h2>반복해서 다룰 수 있는 시리즈</h2>
           </div>
-          <p>코어 개념은 오래 읽히는 evergreen으로 두고, 한국 씬·내한·상품·커뮤니티는 주기적으로 갱신하는 방식으로 분리합니다.</p>
+          <p>코어 개념은 오래 읽히는 evergreen으로 두고, 한국 바차타 현장·내한·상품·커뮤니티는 주기적으로 갱신하는 방식으로 분리합니다.</p>
         </div>
         <div class="series-grid">
           <article class="series-card" id="sensual-core">
@@ -371,7 +372,7 @@
             </div>
           </div>
           <div>
-            <ul><li>멜빈·가티카 입문</li><li>에밀리앙·테히나 스타일 노트</li><li>한국팀이 가져올 수 있는 트레이닝 방식</li></ul>
+            <ul><li>멜빈·가티카 초보자 가이드</li><li>에밀리앙·테히나 세부장르 노트</li><li>한국팀이 가져올 수 있는 트레이닝 방식</li></ul>
             <div class="link-row" style="margin-top:14px"><a href="/programs/influence-method.html">관련 글 보기</a></div>
           </div>
         </article>
@@ -379,7 +380,7 @@
           <div>
             <span class="tag">국내 소식</span>
             <h3>한국 팀·동호회·장소 지도</h3>
-            <p>클루니·져니, 그레이·로렌, 라틴씨엘로, 에버라틴, 보니따, 강남 라틴바 같은 한국 씬의 실제 접점을 프로필과 가이드로 정리합니다.</p>
+            <p>클루니·져니, 그레이·로렌, 라틴씨엘로, 에버라틴, 보니따, 강남 라틴바 같은 한국 바차타 현장의 실제 접점을 프로필과 가이드로 정리합니다.</p>
             <div class="meta-row">
               <span>A</span>
               <span>community series</span>
@@ -425,7 +426,7 @@
       <section class="section">
         <div class="policy-grid">
           <article class="policy-card">
-            <span class="tag">Source Rules</span>
+            <span class="tag">확인 기준</span>
             <h2>무단 복제가 아니라 출처 기반 편집</h2>
             <ul><li>원문 캡션과 사진을 그대로 복제하지 않고 링크, 핸들, 영상 임베드, 직접 쓴 요약만 남깁니다.</li><li>YouTube 영상은 임베드 가능한 공개 링크만 사용합니다.</li><li>인스타그램은 공개 링크와 공식 계정을 우선하고, 무단 스크래핑을 운영 기본값으로 두지 않습니다.</li><li>한국 바차타 검색 맥락, 초보자 유용성, 영상 신뢰도, 행사 시의성을 따로 확인합니다.</li><li>최종 페이지는 출처와 문맥을 확인한 편집 콘텐츠로 다듬습니다.</li></ul>
           </article>
@@ -433,18 +434,18 @@
             <span class="tag">운영 기준</span>
             <h2>글을 만들 때 확인하는 기준</h2>
             <dl>
-              <div><dt>공식 링크 목록</dt><dd>공식 사이트, YouTube, 인스타 계정, 브랜드 페이지의 seed를 관리합니다.</dd></div><div><dt>소셜 소식 목록</dt><dd>한국팀, 행사, 브랜드, 해시태그를 확인하고 일간 브리핑에 연결합니다.</dd></div><div><dt>매일 확인한 공개 소식</dt><dd>공개 소식과 편집자가 고른 출처를 매일 갱신합니다.</dd></div><div><dt>편집 계획</dt><dd>새 소식을 어떤 기사, 프로그램, 프로필, 커뮤니티 기능으로 공개할지 공개 목록으로 관리합니다.</dd></div>
+              <div><dt>공식 링크 목록</dt><dd>공식 사이트, YouTube, 인스타 계정, 브랜드 페이지의 seed를 관리합니다.</dd></div><div><dt>소셜 소식 목록</dt><dd>한국팀, 행사, 브랜드, 해시태그를 확인하고 일간 최신소식에 연결합니다.</dd></div><div><dt>매일 확인한 공개 소식</dt><dd>공개 소식과 편집자가 고른 출처를 매일 갱신합니다.</dd></div><div><dt>편집 계획</dt><dd>새 소식을 어떤 기사, 프로그램, 프로필, 커뮤니티 기능으로 공개할지 공개 목록으로 관리합니다.</dd></div>
             </dl>
           </article>
         </div>
       </section>
       <section class="section paper-cta">
         <span class="tag">Next Publishing Loop</span>
-        <h2>브리핑은 매일, 깊은 기획은 시리즈로 쌓습니다</h2>
-        <p>오늘 확인한 소식은 짧게 전하고, 오래 볼 주제는 스타일 가이드·프로그램·프로필·기사·커뮤니티 안내로 정리합니다. 빠른 소식과 기본 가이드를 분리해 처음 온 사람도 필요한 정보를 찾기 쉽게 만듭니다.</p>
+        <h2>최신소식은 매일, 깊은 기획은 시리즈로 쌓습니다</h2>
+        <p>오늘 확인한 소식은 짧게 전하고, 오래 볼 주제는 세부장르 가이드·프로그램·프로필·기사·커뮤니티 안내로 정리합니다. 빠른 소식과 기본 가이드를 분리해 처음 온 사람도 필요한 정보를 찾기 쉽게 만듭니다.</p>
         <div class="link-row">
-          <a href="/briefs/">오늘 브리핑</a>
-          <a href="/radar/">소셜 소식</a>
+          <a href="/briefs/">오늘 최신소식</a>
+          <a href="/소식/">소셜 소식</a>
           <a href="/programs/">학습 프로그램</a>
           <a href="/community/">커뮤니티 보드</a>
         </div>

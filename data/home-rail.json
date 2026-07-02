@@ -1,85 +1,85 @@
 {
   "updatedAt": "2026-07-02",
-  "eyebrow": "추천 읽을거리",
-  "title": "처음 배우기, 스타일 비교, 행사 확인",
-  "intro": "지금 필요한 글과 영상을 먼저 골라보세요.",
+  "eyebrow": "오늘 읽을 바차타",
+  "title": "바차타, 어디까지 알고 있니?",
+  "intro": "영상 하나로 끝내지 않고, 춤의 맥락과 국내 소식을 함께 읽을 수 있게 정리했습니다.",
   "editorialDeck": {
-    "eyebrow": "주요 섹션",
-    "title": "바차타를 찾는 사람이 자주 보는 네 가지",
-    "intro": "입문자는 기본기와 매너를, 소셜을 다니는 사람은 행사와 팀 정보를, 더 깊게 보고 싶은 사람은 스타일별 가이드와 댄서 프로필을 볼 수 있습니다.",
+    "eyebrow": "매거진 큐레이션",
+    "title": "지금 한국 바차타 현장에서 먼저 볼 것들",
+    "intro": "영상, 수업, 팀 소식, 페스티벌, 장비 정보를 한 화면에서 이어 읽을 수 있게 엮었습니다.",
     "items": [
       {
-        "label": "영상",
-        "title": "오늘 볼 만한 영상",
-        "description": "공개된 YouTube 영상 중 바로 볼 수 있는 자료를 골라 관련 글과 함께 묶었습니다.",
+        "label": "최신소식",
+        "title": "오늘 올라온 흐름",
+        "description": "새 영상과 공개 링크를 모아, 기사로 확장할 만한 흐름을 먼저 보여줍니다.",
         "href": "/briefs/",
-        "meta": "오늘 업데이트"
+        "meta": "매일 업데이트"
       },
       {
-        "label": "배우기",
-        "title": "스타일별 가이드",
-        "description": "센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk를 한국어로 비교해 읽을 수 있습니다.",
+        "label": "세부장르",
+        "title": "센슈얼부터 도미니칸까지",
+        "description": "장르 이름보다 리듬, 연결, 신체 사용의 차이를 먼저 읽습니다.",
         "href": "/styles/",
-        "meta": "스타일 5개"
+        "meta": "가이드 5편"
       },
       {
-        "label": "사람",
-        "title": "댄서와 팀",
-        "description": "해외 유명 댄서와 한국에서 볼 수 있는 팀·강사·장소를 영상과 공식 링크 기준으로 정리했습니다.",
+        "label": "댄서 소개",
+        "title": "국내외 댄서와 팀",
+        "description": "공개 영상과 공식 링크를 기준으로 누구를 먼저 보면 좋은지 정리합니다.",
         "href": "/profiles/",
-        "meta": "프로필 39개"
+        "meta": "프로필 확장 중"
       },
       {
         "label": "국내 소식",
-        "title": "한국 바차타 소식",
-        "description": "소셜, 워크숍, 내한, 동호회, 장소 정보를 한국 독자가 바로 확인할 수 있게 정리합니다.",
+        "title": "서울과 전국의 소셜 현장",
+        "description": "팀, 장소, 클래스, 파티 소식을 한 번에 따라갈 수 있게 묶었습니다.",
         "href": "/korea-scene/",
-        "meta": "국내 소식"
+        "meta": "국내 중심"
       }
     ]
   },
   "channels": [
     {
-      "label": "스타일",
-      "title": "스타일별 가이드",
-      "description": "센슈얼, 도미니칸, 모던, Bachazouk, Influence의 차이를 빠르게 비교합니다.",
-      "href": "/styles/",
-      "metric": "가이드 5개"
+      "label": "최신소식",
+      "title": "오늘의 바차타 흐름",
+      "description": "새 영상, 행사, 커뮤니티 소식을 짧고 촘촘하게 정리합니다.",
+      "href": "/briefs/",
+      "metric": "매일 업데이트"
     },
     {
-      "label": "입문",
-      "title": "입문 루트",
-      "description": "처음 배우는 사람이 기본 리듬, 연결, 매너를 순서대로 볼 수 있게 정리했습니다.",
+      "label": "초보자 가이드",
+      "title": "처음 배우는 순서",
+      "description": "기본 스텝, 리듬, 프레임, 소셜 매너를 한 번에 봅니다.",
       "href": "/programs/",
-      "metric": "루트 6개"
+      "metric": "루틴 6개"
     },
     {
-      "label": "댄서·팀",
-      "title": "댄서와 팀",
-      "description": "해외 댄서와 국내 팀·강사·장소를 영상과 공식 링크 중심으로 확인합니다.",
+      "label": "세부장르",
+      "title": "장르별 감각 읽기",
+      "description": "센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk를 비교합니다.",
+      "href": "/styles/",
+      "metric": "가이드 5편"
+    },
+    {
+      "label": "댄서 소개",
+      "title": "누구를 먼저 볼까",
+      "description": "국내외 댄서와 팀을 공개 영상과 공식 링크로 확인합니다.",
       "href": "/profiles/",
-      "metric": "프로필 39개"
+      "metric": "계속 확장"
     },
     {
       "label": "국내 소식",
-      "title": "한국 바차타 소식",
-      "description": "서울, 홍대, 강남, 제주, 동호회, 내한 소식을 한곳에서 봅니다.",
+      "title": "한국 바차타 현장",
+      "description": "서울과 전국의 팀, 장소, 클래스, 소셜을 따라갑니다.",
       "href": "/korea-scene/",
-      "metric": "국내 소식"
+      "metric": "국내 중심"
     },
     {
-      "label": "댄스화",
-      "title": "댄스화와 장비",
-      "description": "Fuego, Pana Mio, On1, Pulse 같은 댄스화와 장비를 구매 전 관점에서 봅니다.",
-      "href": "/gear/",
-      "metric": "브랜드 4개"
-    },
-    {
-      "label": "제보",
+      "label": "제보하기",
       "title": "소식 보내기",
-      "description": "행사, 양도, 구인, 대관, 팀 소개를 사이트에 보낼 수 있습니다.",
+      "description": "행사, 워크숍, 구인구직, 홍보 소식을 보내주세요.",
       "href": "/submit/",
-      "metric": "상시 접수"
+      "metric": "메일 접수"
     }
   ],
   "cards": [
@@ -88,33 +88,33 @@
       "id": "sensual-fundamentals",
       "label": "센슈얼",
       "title": "센슈얼 16 펀더멘털",
-      "description": "Korke & Judith 계열 영상을 보며 웨이브, 축, 프레임을 안전하게 이해합니다.",
-      "meta": "4개 영상 · 16개 노트",
+      "description": "Korke & Judith 계열의 핵심 개념을 안전과 음악성 기준으로 읽습니다.",
+      "meta": "영상 4개 · 개념 16개",
       "featured": true
     },
     {
       "kind": "program",
       "id": "dominican-rhythm",
       "label": "도미니칸",
-      "title": "도미니칸 풋워크",
-      "description": "발을 많이 쓰는 춤으로만 보지 않고, 기타와 봉고의 악센트를 어떻게 듣는지 설명합니다.",
-      "meta": "입문 루트"
+      "title": "리듬과 풋워크의 기준",
+      "description": "발놀림보다 먼저 들어야 할 기타, 봉고, 귀라의 악센트를 봅니다.",
+      "meta": "리듬 가이드"
     },
     {
       "kind": "article",
       "slug": "bachata-influence-melvin-gatica",
-      "label": "트렌드",
+      "label": "Influence",
       "title": "Bachata Influence",
       "videoId": "sUy5L7x5pyE",
-      "description": "Melvin & Gatica 계열을 음악성, 프레임, 수업 방식 관점에서 읽습니다.",
-      "meta": "트렌드 기사"
+      "description": "Melvin & Gatica 이후의 흐름을 장르보다 메소드로 이해합니다.",
+      "meta": "해외 흐름"
     },
     {
       "kind": "next-event",
-      "label": "행사",
-      "title": "이번 달 한국 바차타",
-      "description": "내한, 워크숍, 소셜, 팀 소식을 일정과 출처 중심으로 확인합니다.",
-      "meta": "월간 소식"
+      "label": "페스티벌",
+      "title": "다음에 볼 행사",
+      "description": "일정, 장소, 티켓, 영상 기록을 함께 보고 움직일 수 있게 정리합니다.",
+      "meta": "일정 확인"
     }
   ]
 }

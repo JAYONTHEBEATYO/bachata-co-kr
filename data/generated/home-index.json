@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-02T04:53:12.704Z",
+  "generatedAt": "2026-07-02T06:17:40.034Z",
   "updatedAt": "2026-07-02",
   "latestBrief": {
     "url": "/briefs/2026-07-02.html",
@@ -7,10 +7,10 @@
     "generationDate": "2026-07-02"
   },
   "sourceHealth": {
-    "total": 234,
-    "ok": 213,
+    "total": 238,
+    "ok": 216,
     "watch": 21,
-    "warn": 0,
+    "warn": 1,
     "broken": 0
   },
   "heroVideo": {
@@ -22,69 +22,69 @@
   },
   "channels": [
     {
-      "label": "스타일",
-      "title": "스타일별 가이드",
-      "url": "/styles/",
-      "metric": "가이드 5개"
+      "label": "최신소식",
+      "title": "오늘의 바차타 흐름",
+      "url": "/briefs/",
+      "metric": "매일 업데이트"
     },
     {
-      "label": "입문",
-      "title": "입문 루트",
+      "label": "초보자 가이드",
+      "title": "처음 배우는 순서",
       "url": "/programs/",
-      "metric": "루트 6개"
+      "metric": "루틴 6개"
     },
     {
-      "label": "댄서·팀",
-      "title": "댄서와 팀",
+      "label": "세부장르",
+      "title": "장르별 감각 읽기",
+      "url": "/styles/",
+      "metric": "가이드 5편"
+    },
+    {
+      "label": "댄서 소개",
+      "title": "누구를 먼저 볼까",
       "url": "/profiles/",
-      "metric": "프로필 39개"
+      "metric": "계속 확장"
     },
     {
       "label": "국내 소식",
-      "title": "한국 바차타 소식",
+      "title": "한국 바차타 현장",
       "url": "/korea-scene/",
-      "metric": "국내 소식"
+      "metric": "국내 중심"
     },
     {
-      "label": "댄스화",
-      "title": "댄스화와 장비",
-      "url": "/gear/",
-      "metric": "브랜드 4개"
-    },
-    {
-      "label": "제보",
+      "label": "제보하기",
       "title": "소식 보내기",
       "url": "/submit/",
-      "metric": "상시 접수"
+      "metric": "메일 접수"
     }
   ],
   "editorialDeck": {
-    "title": "바차타를 찾는 사람이 자주 보는 네 가지",
+    "title": "지금 한국 바차타 현장에서 먼저 볼 것들",
     "itemCount": 4,
     "items": [
       {
-        "label": "영상",
-        "title": "오늘 볼 만한 영상",
+        "label": "최신소식",
+        "title": "오늘 올라온 흐름",
         "url": "/briefs/",
-        "meta": "오늘 업데이트"
+        "meta": "매일 업데이트"
       },
       {
-        "label": "배우기",
-        "title": "스타일별 가이드",
+        "label": "세부장르",
+        "title": "센슈얼부터 도미니칸까지",
         "url": "/styles/",
-        "meta": "스타일 5개"
+        "meta": "가이드 5편"
       },
       {
-        "label": "사람",
-        "title": "댄서와 팀",
+        "label": "댄서 소개",
+        "title": "국내외 댄서와 팀",
         "url": "/profiles/",
-        "meta": "프로필 39개"
+        "meta": "프로필 확장 중"
       },
       {
         "label": "국내 소식",
-        "title": "한국 바차타 소식",
+        "title": "서울과 전국의 소셜 현장",
         "url": "/korea-scene/",
-        "meta": "국내 소식"
+        "meta": "국내 중심"
       }
     ]
   },
@@ -93,29 +93,29 @@
       "label": "센슈얼",
       "title": "센슈얼 16 펀더멘털",
       "url": "/programs/sensual-fundamentals.html",
-      "meta": "4개 영상 · 16개 노트",
+      "meta": "영상 4개 · 개념 16개",
       "videoId": "B7Wv3cqHrSU",
       "featured": true
     },
     {
       "label": "도미니칸",
-      "title": "도미니칸 풋워크",
+      "title": "리듬과 풋워크의 기준",
       "url": "/programs/dominican-rhythm.html",
-      "meta": "입문 루트",
+      "meta": "리듬 가이드",
       "videoId": "xmvDKN5cwT0",
       "featured": false
     },
     {
-      "label": "트렌드",
+      "label": "Influence",
       "title": "Bachata Influence",
       "url": "/articles/bachata-influence-melvin-gatica.html",
-      "meta": "트렌드 기사",
+      "meta": "해외 흐름",
       "videoId": "sUy5L7x5pyE",
       "featured": false
     },
     {
-      "label": "행사",
-      "title": "이번 달 한국 바차타",
+      "label": "페스티벌",
+      "title": "다음에 볼 행사",
       "url": "/events/k-sensual-summer-2026.html",
       "meta": "2026-07-09 · 제주",
       "videoId": "zQXNPwMqpdw",

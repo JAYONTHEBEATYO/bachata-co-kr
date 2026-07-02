@@ -19,28 +19,32 @@ const slugPath = (categoryId) => categoryId === "index" ? "/community/" : `/comm
 const absoluteUrl = (path) => `https://bachata.co.kr${path}`;
 
 const statusLabels = {
-  "editorial-series": "연재",
-  "collecting": "정보 확인 중",
-  "submission-ready": "제보 접수",
+  "editorial-series": "연재 준비",
+  collecting: "정보 보강 중",
+  "submission-ready": "제보 접수 중",
   "research-queue": "취재 대기"
 };
 
 const categoryIntro = {
-  events: {
-    eyebrow: "행사 일정",
-    note: "정기 소셜, 워크숍, 내한, 페스티벌을 한 번에 찾을 수 있도록 일정형 콘텐츠로 확장합니다."
+  free: {
+    eyebrow: "자유게시판",
+    note: "가볍게 쓴 후기라도 날짜, 장소, 음악 분위기가 있으면 다음 사람에게 꽤 좋은 길잡이가 됩니다."
   },
-  market: {
-    eyebrow: "양도·중고",
-    note: "티켓 양도와 댄스화 중고는 가격·상태·주최측 양도 가능 여부를 같이 보존하는 방식으로 운영합니다."
+  transfer: {
+    eyebrow: "양도양수",
+    note: "가격, 일정, 양도 가능 여부가 분명한 글만 공개합니다. 거래는 당사자 책임으로 진행됩니다."
+  },
+  anonymous: {
+    eyebrow: "익명게시판",
+    note: "개인정보를 걷어내고 질문의 핵심만 남깁니다. 초보자가 말하기 어려운 질문일수록 더 또렷하게 다룹니다."
   },
   jobs: {
-    eyebrow: "구인·협업",
-    note: "강사, DJ, 운영 스태프, 촬영자, 공간 제휴처럼 한국 라틴댄스 씬에 필요한 실무 연결을 모읍니다."
+    eyebrow: "구인구직",
+    note: "역할, 보수, 일정, 지원 방법이 분명한 글만 다룹니다. 좋은 현장은 조건이 먼저 선명해야 합니다."
   },
-  venues: {
-    eyebrow: "국내 장소·팀",
-    note: "초보자가 실제로 갈 수 있는 장소와 팀을 영상, 주소, 분위기, 음악 비율 중심으로 정리합니다."
+  promo: {
+    eyebrow: "홍보/제휴",
+    note: "홍보 문구를 그대로 붙이지 않고, 독자가 바로 확인해야 할 일정과 링크 중심으로 다시 정리합니다."
   }
 };
 
@@ -59,13 +63,12 @@ const extractYouTubeId = (url = "") => {
 
 const videoEmbedUrl = (videoId) => `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
 const videoWatchUrl = (videoId) => `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
-const youtubeThumb = (videoId) => videoId
-  ? `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`
-  : "";
+const youtubeThumb = (videoId) => `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;
 
-const renderLinks = (links = []) => links.map((link) => (
-  `<a href="${escapeHtml(link.url)}"${link.url.startsWith("http") ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>${escapeHtml(link.label)}</a>`
-)).join("");
+const renderLinks = (links = []) => links.map((link) => {
+  const external = /^https?:\/\//.test(link.url);
+  return `<a href="${escapeHtml(link.url)}"${external ? " target=\"_blank\" rel=\"noreferrer\"" : ""}>${escapeHtml(link.label)}</a>`;
+}).join("");
 
 const renderMiniList = (items = []) => {
   if (!items.length) return "";
@@ -76,9 +79,9 @@ const renderVideoFromLinks = (entry) => {
   const source = (entry.sourceLinks || []).find((link) => extractYouTubeId(link.url));
   const id = source ? extractYouTubeId(source.url) : "";
   if (!id) return "";
-  const title = `${entry.title} reference video`;
+  const title = `${entry.title} 참고 영상`;
   return `<div class="video-loader" data-embed="${escapeHtml(videoEmbedUrl(id))}" data-title="${escapeHtml(title)}">
-            <button type="button" data-video-button aria-label="${escapeHtml(title)} 영상 열기">
+            <button type="button" data-video-button aria-label="${escapeHtml(title)} 열기">
               <img loading="lazy" src="${escapeHtml(youtubeThumb(id))}" alt="">
               <span>Play</span>
             </button>
@@ -99,11 +102,10 @@ const head = ({ title, description, canonical }) => `    <meta charset="utf-8">
 
 const styles = `    <style>
       :root {
-        color-scheme: light dark;
+        color-scheme: light;
         --ink: #191512;
         --paper: #f4efe6;
         --paper-soft: #fffaf0;
-        --charcoal: #0d0c0b;
         --cream: #fff7e8;
         --muted: rgba(25, 21, 18, 0.66);
         --line: rgba(25, 21, 18, 0.13);
@@ -113,16 +115,15 @@ const styles = `    <style>
         font-family: "Pretendard Variable", Pretendard, "Wanted Sans Variable", "Wanted Sans", "Noto Sans KR", system-ui, sans-serif;
       }
       * { box-sizing: border-box; }
-      html { scroll-behavior: smooth; }
       body { margin: 0; background: var(--paper); color: var(--ink); }
       a { color: inherit; text-decoration: none; }
       .nav { position: sticky; top: 0; z-index: 10; display: flex; justify-content: space-between; align-items: center; min-height: 72px; padding: 0 max(18px, calc((100vw - 1180px) / 2)); border-bottom: 1px solid rgba(255, 247, 232, 0.14); background: rgba(13, 12, 11, 0.92); color: var(--cream); backdrop-filter: blur(18px); }
       .brand strong { display: block; font-size: 20px; line-height: 1; }
-      .brand span { display: block; margin-top: 5px; color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0.08em; text-transform: uppercase; }
+      .brand span { display: block; margin-top: 5px; color: var(--gold); font-size: 12px; font-weight: 900; letter-spacing: 0; text-transform: uppercase; }
       .nav-links { display: flex; align-items: center; gap: 20px; color: rgba(255, 247, 232, 0.72); font-size: 14px; font-weight: 850; }
       .hero { padding: clamp(70px, 10vw, 132px) max(18px, calc((100vw - 1180px) / 2)) clamp(34px, 6vw, 70px); background: #11100e; color: var(--cream); }
       .hero-grid { display: grid; grid-template-columns: minmax(0, 0.86fr) minmax(280px, 0.36fr); gap: clamp(24px, 5vw, 64px); align-items: end; }
-      .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0.13em; text-transform: uppercase; }
+      .eyebrow, .tag { color: var(--wine); font-size: 12px; font-weight: 950; letter-spacing: 0; text-transform: uppercase; }
       .hero .eyebrow, .hero .tag { color: var(--gold); }
       h1, h2, h3 { font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; letter-spacing: 0; word-break: keep-all; }
       h1 { max-width: 960px; margin: 16px 0 18px; font-size: clamp(48px, 8vw, 104px); line-height: 0.94; overflow-wrap: anywhere; }
@@ -131,7 +132,6 @@ const styles = `    <style>
       .hero-note strong { display: block; margin-bottom: 10px; color: var(--gold); font-family: "Wanted Sans Variable", "Wanted Sans", "Pretendard Variable", Pretendard, "Noto Sans KR", system-ui, sans-serif; font-size: 24px; }
       .quick-nav { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
       .quick-nav a, .button { display: inline-flex; align-items: center; justify-content: center; min-height: 38px; padding: 0 13px; border: 1px solid currentColor; border-radius: 999px; font-size: 13px; font-weight: 900; }
-      .button.primary { background: var(--ink); border-color: var(--ink); color: var(--cream); }
       main { width: min(1180px, calc(100% - 36px)); margin: 0 auto; padding: clamp(42px, 7vw, 76px) 0 90px; }
       .section-head { display: grid; grid-template-columns: minmax(0, 0.72fr) minmax(280px, 0.36fr); gap: 24px; align-items: end; margin-bottom: 24px; }
       .section-head h2 { margin: 10px 0 0; font-size: clamp(34px, 5vw, 64px); line-height: 1.02; }
@@ -156,7 +156,7 @@ const styles = `    <style>
       .video-loader button { all: unset; position: absolute; inset: 0; display: block; cursor: pointer; }
       .video-loader img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.9) contrast(1.08); transform: scale(1.02); transition: transform 180ms ease; }
       .video-loader button::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 7, 7, 0.08), rgba(7, 7, 7, 0.58)); }
-      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(13, 12, 11, 0.76); color: var(--cream); font-size: 12px; font-weight: 950; letter-spacing: 0.08em; text-transform: uppercase; }
+      .video-loader span { position: absolute; left: 14px; bottom: 12px; z-index: 1; display: inline-flex; align-items: center; min-height: 32px; padding: 0 11px; border-radius: 999px; background: rgba(13, 12, 11, 0.76); color: var(--cream); font-size: 12px; font-weight: 950; letter-spacing: 0; text-transform: uppercase; }
       .video-loader button:hover img, .video-loader button:focus-visible img { transform: scale(1.055); }
       .video-loader button:focus-visible { outline: 2px solid var(--gold); outline-offset: -4px; }
       .video-loader iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
@@ -187,11 +187,11 @@ const nav = `    <header class="nav">
       <a class="brand" href="/"><strong>바차타 코리아</strong><span>Bachata Korea</span></a>
       <nav class="nav-links" aria-label="커뮤니티 이동">
         <a href="/">홈</a>
-        <a href="/articles/">기사</a>
-        <a href="/briefs/">브리핑</a>
+        <a href="/briefs/">최신소식</a>
+        <a href="/styles/">세부장르</a>
+        <a href="/profiles/">댄서 소개</a>
         <a href="/community/">커뮤니티</a>
         <a href="/submit/">제보</a>
-        <a href="http://test.bachata.co.kr/">테스트</a>
       </nav>
     </header>`;
 
@@ -217,7 +217,7 @@ const renderCategoryCard = (category, entries) => {
   const categoryEntries = entries.filter((entry) => entry.category === category.id);
   return `<article class="category-card">
           <div>
-            <span class="tag">${escapeHtml(categoryIntro[category.id]?.eyebrow || "Board")}</span>
+            <span class="tag">${escapeHtml(categoryIntro[category.id]?.eyebrow || "커뮤니티")}</span>
             <h3>${escapeHtml(category.label)}</h3>
             <p>${escapeHtml(category.description)}</p>
             ${renderMiniList(category.submissionFields || [])}
@@ -252,7 +252,7 @@ const renderEntry = (entry) => {
               <div class="entry-links">${links}</div>
             </div>
             <div class="entry-side">
-              ${sideBlocks || `<div class="side-note"><article><span class="tag">등록 전 확인</span><p>영상·이미지·가격·일정 같은 원본 근거를 확인한 뒤 개별 기사나 공지로 확장합니다.</p></article></div>`}
+              ${sideBlocks || `<article><span class="tag">확인 기준</span><p>일정, 가격, 장소, 공식 링크가 확인되면 개별 기사와 공지로 확장합니다.</p></article>`}
             </div>
           </article>`;
 };
@@ -279,14 +279,14 @@ const renderIndexPage = (data) => {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": "https://bachata.co.kr/community/",
-    "name": "바차타 코리아 커뮤니티",
-    "description": "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 제보와 공식 링크 기준으로 정리합니다.",
-    "inLanguage": "ko-KR",
-    "isPartOf": { "@id": "https://bachata.co.kr/#website" },
-    "hasPart": data.categories.map((category) => ({
+    name: "바차타 코리아 커뮤니티",
+    description: "한국 바차타 소셜, 워크숍, 양도양수, 구인구직, 홍보 제보를 공개 링크 기준으로 정리합니다.",
+    inLanguage: "ko-KR",
+    isPartOf: { "@id": "https://bachata.co.kr/#website" },
+    hasPart: data.categories.map((category) => ({
       "@type": "CollectionPage",
       "@id": absoluteUrl(slugPath(category.id)),
-      "name": category.title
+      name: category.title
     }))
   };
 
@@ -295,14 +295,14 @@ const renderIndexPage = (data) => {
         <div>
           <span class="eyebrow">커뮤니티 제보</span>
           <h1>한국 바차타 소식과 제보</h1>
-          <p>소셜·워크숍·내한, 티켓 양도, 댄스화 중고, 강사·DJ 구인, 장소·팀 디렉터리를 제보와 공개 링크를 바탕으로 정리합니다. 확인된 항목은 기사와 캘린더로 이어집니다.</p>
+          <p>소셜 후기, 워크숍 일정, 티켓 양도, 댄스화 중고, 강사·DJ 구인, 장소·팀 홍보를 제보와 공개 링크를 바탕으로 정리합니다. 확인된 항목은 기사와 일정으로 이어집니다.</p>
           <div class="quick-nav">
             ${data.categories.map((category) => `<a href="${slugPath(category.id)}">${escapeHtml(category.label)}</a>`).join("")}
           </div>
         </div>
         <aside class="hero-note">
-          <strong>제보 우선 공개</strong>
-          <p>원본 링크, 날짜, 장소, 가격, 영상을 확인한 뒤 게재합니다. 홍보 문구를 그대로 옮기지 않고 필요한 정보만 읽기 쉽게 요약합니다.</p>
+          <strong>제보는 정리해서 공개합니다</strong>
+          <p>원문을 그대로 붙이지 않습니다. 날짜, 장소, 가격, 공식 링크처럼 독자가 바로 확인해야 할 정보만 남깁니다.</p>
         </aside>
       </div>
     </section>
@@ -311,9 +311,9 @@ const renderIndexPage = (data) => {
         <div class="section-head">
           <div>
             <span class="eyebrow">카테고리</span>
-            <h2>운영 카테고리</h2>
+            <h2>커뮤니티 메뉴</h2>
           </div>
-          <p>바차타 입문자가 실제로 움직일 수 있는 정보와 팀·행사 운영자가 필요한 연결을 같은 구조에 담습니다.</p>
+          <p>지금은 로그인 게시판보다 매거진형 제보 큐레이션을 우선합니다. 받은 내용은 확인 후 읽기 쉬운 공지나 기사로 다듬습니다.</p>
         </div>
         <div class="category-grid">
           ${data.categories.map((category) => renderCategoryCard(category, data.entries)).join("\n")}
@@ -322,7 +322,7 @@ const renderIndexPage = (data) => {
       <section class="submission">
         <span class="tag">제보하기</span>
         <h2>홍보·구인·양도·팀 소개를 보내주세요</h2>
-        <p>제목, 날짜, 장소, 가격, 원본 링크, 이미지/영상 링크, 연락처를 보내면 확인 후 카테고리에 맞춰 정리합니다.</p>
+        <p>제목, 날짜, 장소, 가격, 공식 링크, 이미지나 영상 링크, 연락처를 함께 보내면 더 빨리 정리할 수 있습니다.</p>
         <div class="entry-links">
           <a href="/submit/">제보 센터</a>
           <a href="mailto:${escapeHtml(data.contact.email)}?subject=%5Bbachata.co.kr%5D%20%EC%BB%A4%EB%AE%A4%EB%8B%88%ED%8B%B0%20%EC%A0%9C%EB%B3%B4">메일로 제보</a>
@@ -333,7 +333,7 @@ const renderIndexPage = (data) => {
 
   return layout({
     title: "바차타 커뮤니티 | 소셜·워크숍·양도·구인 제보",
-    description: "한국 바차타 소셜, 워크숍, 양도, 중고, 구인구직, 장소, 팀 정보를 제보와 공식 링크 기준으로 정리합니다.",
+    description: "한국 바차타 소셜, 워크숍, 티켓 양도, 댄스화 중고, 구인구직, 장소와 팀 홍보를 제보와 공개 링크 기준으로 정리합니다.",
     canonical: "https://bachata.co.kr/community/",
     jsonLd,
     body
@@ -342,22 +342,22 @@ const renderIndexPage = (data) => {
 
 const renderCategoryPage = (data, category) => {
   const entries = data.entries.filter((entry) => entry.category === category.id);
-  const intro = categoryIntro[category.id] || { eyebrow: "커뮤니티 게시판", note: category.description };
+  const intro = categoryIntro[category.id] || { eyebrow: "커뮤니티", note: category.description };
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
     "@id": absoluteUrl(slugPath(category.id)),
-    "name": category.title,
-    "description": category.description,
-    "inLanguage": "ko-KR",
-    "isPartOf": { "@id": "https://bachata.co.kr/community/" },
-    "mainEntity": {
+    name: category.title,
+    description: category.description,
+    inLanguage: "ko-KR",
+    isPartOf: { "@id": "https://bachata.co.kr/community/" },
+    mainEntity: {
       "@type": "ItemList",
-      "itemListElement": entries.map((entry, index) => ({
+      itemListElement: entries.map((entry, index) => ({
         "@type": "ListItem",
-        "position": index + 1,
-        "url": `${absoluteUrl(slugPath(category.id))}#${entry.id}`,
-        "name": entry.title
+        position: index + 1,
+        url: `${absoluteUrl(slugPath(category.id))}#${entry.id}`,
+        name: entry.title
       }))
     }
   };
@@ -375,7 +375,7 @@ const renderCategoryPage = (data, category) => {
         </div>
         <aside class="hero-note">
           <strong>${entries.length}개 항목</strong>
-          <p>${escapeHtml(data.updatedAt)} 기준으로 정리한 목록입니다. 확인된 제보와 공개 링크를 계속 반영합니다.</p>
+          <p>${escapeHtml(data.updatedAt)} 기준으로 정리한 목록입니다. 제보가 들어오면 공식 링크와 확인 포인트를 더해 갱신합니다.</p>
         </aside>
       </div>
     </section>
@@ -387,11 +387,11 @@ const renderCategoryPage = (data, category) => {
         <aside class="side-note" aria-label="커뮤니티 운영 기준">
           <article>
             <span class="tag">운영 기준</span>
-            <p>개인 정보, 무단 이미지, 출처 없는 홍보문은 싣지 않습니다. 일정·가격·장소·연락 방식이 확인된 항목부터 공개합니다.</p>
+            <p>개인정보, 무단 이미지, 출처 없는 홍보문은 올리지 않습니다. 일정, 가격, 장소, 연락 방법처럼 확인 가능한 정보부터 공개합니다.</p>
           </article>
           <article>
             <span class="tag">제보하기</span>
-            <p>업데이트가 필요하면 원본 링크와 수정 내용을 함께 보내주세요.</p>
+            <p>수정이 필요한 내용은 원문 링크와 수정 내용을 함께 보내주세요.</p>
             <div class="entry-links">
               <a href="mailto:${escapeHtml(data.contact.email)}?subject=%5Bbachata.co.kr%5D%20${encodeURIComponent(category.label)}%20%EC%A0%9C%EB%B3%B4">제보</a>
               <a href="/submit/">제보 센터</a>

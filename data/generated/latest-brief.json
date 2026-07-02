@@ -1,7 +1,200 @@
 {
-  "generatedAt": "2026-07-02T04:53:12.631Z",
+  "generatedAt": "2026-07-02T06:17:39.966Z",
   "generationDate": "2026-07-02",
   "url": "/briefs/2026-07-02.html",
+  "headline": "2026년 7월 2일 바차타 최신소식",
+  "dek": "오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니다.",
   "topicCount": 7,
-  "candidateCount": 50
+  "candidateCount": 50,
+  "sections": [
+    {
+      "id": "bachata-influence",
+      "title": "Bachata Influence",
+      "summary": "Melvin & Gatica 계열의 흐름은 동작 수보다 감정선, 멈춤, 프레임의 질감을 보는 편이 좋습니다.",
+      "candidates": [
+        {
+          "title": "Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland",
+          "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE",
+          "videoId": "sUy5L7x5pyE",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        },
+        {
+          "title": "Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant Congress 2025 🏰",
+          "url": "https://www.youtube.com/watch?v=FNv7eOMg-_k",
+          "videoId": "FNv7eOMg-_k",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        },
+        {
+          "title": "Bachata Influence: Interview with Melvin & Gatica, Masters of the 'Bachata Influence' Style",
+          "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
+          "videoId": "lGRDZkVG2r8",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        }
+      ]
+    },
+    {
+      "id": "bachazouk",
+      "title": "Bachazouk",
+      "summary": "Bachazouk는 단순한 유행어가 아니라 bachata와 Brazilian Zouk를 동시에 존중해야 하는 별도 문법으로 봅니다.",
+      "candidates": [
+        {
+          "title": "BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival",
+          "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE",
+          "videoId": "Qng3Wdmt3WE",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        },
+        {
+          "title": "Learn Bachata, Tutorial 41:  Bachazouk Pattern 1 (Fusion intermediate)",
+          "url": "https://www.youtube.com/watch?v=5Mx_xhWSiL0",
+          "videoId": "5Mx_xhWSiL0",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        }
+      ]
+    },
+    {
+      "id": "global-dancers",
+      "title": "글로벌 댄서",
+      "summary": "글로벌 페어는 최신 영상만 보는 것보다 반복되는 입구, 출구, 시그니처를 누적해서 읽어야 합니다.",
+      "candidates": [
+        {
+          "title": "Gero & Migle | Bachata | Para Besarte - Lean & Akai",
+          "url": "https://www.youtube.com/watch?v=j4CmXKDCMzI",
+          "videoId": "j4CmXKDCMzI",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        },
+        {
+          "title": "LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿",
+          "url": "https://www.youtube.com/watch?v=L1vzrcpeBuw",
+          "videoId": "L1vzrcpeBuw",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        },
+        {
+          "title": "Andi & Silvia | Bachata | Just As I Am - Prince Royce Ft SpiffTv and Chris Brown [ Australia 2026 ]",
+          "url": "https://www.youtube.com/watch?v=FzOWJRxp9r0",
+          "videoId": "FzOWJRxp9r0",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        }
+      ]
+    },
+    {
+      "id": "korea-scene",
+      "title": "한국 바차타 현장",
+      "summary": "한국 바차타 소식은 인스타그램과 유튜브에 흩어져 있어 장소, 팀, 강사, 동호회를 함께 보는 정리가 필요합니다.",
+      "candidates": [
+        {
+          "title": "바차타소셜 | 그레이 & 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24",
+          "url": "https://www.youtube.com/watch?v=nrJM-arshvE",
+          "videoId": "nrJM-arshvE",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        },
+        {
+          "title": "바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따",
+          "url": "https://www.youtube.com/watch?v=w_uCz9JkRfE",
+          "videoId": "w_uCz9JkRfE",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        },
+        {
+          "title": "바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304",
+          "url": "https://www.youtube.com/watch?v=gDtOwUqeWKw",
+          "videoId": "gDtOwUqeWKw",
+          "publishFormat": "학습 프로그램",
+          "evidenceLevel": "medium"
+        }
+      ]
+    }
+  ],
+  "evidenceLinks": [
+    {
+      "title": "Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland",
+      "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE",
+      "type": "youtube"
+    },
+    {
+      "title": "Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant Congress 2025 🏰",
+      "url": "https://www.youtube.com/watch?v=FNv7eOMg-_k",
+      "type": "youtube"
+    },
+    {
+      "title": "Bachata Influence: Interview with Melvin & Gatica, Masters of the 'Bachata Influence' Style",
+      "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
+      "type": "youtube"
+    },
+    {
+      "title": "Emilio & Serap @ Let's dance together at Gang TURN 2026-05-19",
+      "url": "https://www.youtube.com/watch?v=h4hZt9akWWc",
+      "type": "youtube"
+    },
+    {
+      "title": "Emilio & Serap Bachata Couple give us their take about all their dance floor secrets - Episode 2",
+      "url": "https://www.youtube.com/watch?v=2lygAoTSk1Y",
+      "type": "youtube"
+    },
+    {
+      "title": "BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival",
+      "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE",
+      "type": "youtube"
+    },
+    {
+      "title": "Learn Bachata, Tutorial 41:  Bachazouk Pattern 1 (Fusion intermediate)",
+      "url": "https://www.youtube.com/watch?v=5Mx_xhWSiL0",
+      "type": "youtube"
+    },
+    {
+      "title": "Gero & Migle | Bachata | Para Besarte - Lean & Akai",
+      "url": "https://www.youtube.com/watch?v=j4CmXKDCMzI",
+      "type": "youtube"
+    },
+    {
+      "title": "LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿",
+      "url": "https://www.youtube.com/watch?v=L1vzrcpeBuw",
+      "type": "youtube"
+    },
+    {
+      "title": "Andi & Silvia | Bachata | Just As I Am - Prince Royce Ft SpiffTv and Chris Brown [ Australia 2026 ]",
+      "url": "https://www.youtube.com/watch?v=FzOWJRxp9r0",
+      "type": "youtube"
+    },
+    {
+      "title": "Cristian & Gabriella 💃 Bachata Demo dance 🎵 Bailame - DJ Husky 📍 Bachataking festival 2025",
+      "url": "https://www.youtube.com/watch?v=CZEB8wdVXOc",
+      "type": "youtube"
+    },
+    {
+      "title": "Klau y Ros [EXPLICALE] @ Miami Bachata Paradise 2025 🦩",
+      "url": "https://www.youtube.com/watch?v=9YqwDG2_MqI",
+      "type": "youtube"
+    }
+  ],
+  "targetPages": [
+    {
+      "label": "최신소식",
+      "url": "/briefs/2026-07-02.html"
+    },
+    {
+      "label": "세부장르 살펴보기",
+      "url": "/styles/"
+    },
+    {
+      "label": "국내 소식",
+      "url": "/korea-scene/"
+    },
+    {
+      "label": "페스티벌 정보",
+      "url": "/events/"
+    },
+    {
+      "label": "해외 페스티벌 정보",
+      "url": "/events/overseas.html"
+    }
+  ]
 }

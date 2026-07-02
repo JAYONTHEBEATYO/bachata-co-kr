@@ -356,47 +356,59 @@
   </url>
   <url>
     <loc>https://bachata.co.kr/events/</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.86</priority>
   </url>
   <url>
+    <loc>https://bachata.co.kr/events/overseas.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.82</priority>
+  </url>
+  <url>
     <loc>https://bachata.co.kr/events/emilian-tehina-korea-archive-2026.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.76</priority>
   </url>
   <url>
     <loc>https://bachata.co.kr/events/k-sensual-summer-2026.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.76</priority>
   </url>
   <url>
     <loc>https://bachata.co.kr/events/seoul-bachata-festival-vol4-2026.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.76</priority>
   </url>
   <url>
     <loc>https://bachata.co.kr/events/gangnam-latin-festival-2026.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.76</priority>
   </url>
   <url>
     <loc>https://bachata.co.kr/events/regional-latin-party-calendar-2026.html</loc>
-    <lastmod>2026-07-01</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.76</priority>
   </url>
   <url>
-    <loc>https://bachata.co.kr/radar/</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.82</priority>
+    <loc>https://bachata.co.kr/events/bachata-geneva-festival-2026.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.76</priority>
   </url>
   <url>
+    <loc>https://bachata.co.kr/events/bachata-week-cadiz-2026.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.76</priority>
+  </url>
+<url>
     <loc>https://bachata.co.kr/korea-scene/</loc>
     <lastmod>2026-07-01</lastmod>
     <changefreq>daily</changefreq>
@@ -488,38 +500,38 @@
   </url>
   <url>
     <loc>https://bachata.co.kr/community/</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.82</priority>
   </url>
   <url>
-    <loc>https://bachata.co.kr/community/events.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://bachata.co.kr/community/free.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://bachata.co.kr/community/market.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://bachata.co.kr/community/transfer.html</loc>
+    <lastmod>2026-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.72</priority>
+  </url>
+  <url>
+    <loc>https://bachata.co.kr/community/anonymous.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
     <loc>https://bachata.co.kr/community/jobs.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
   </url>
   <url>
-    <loc>https://bachata.co.kr/community/venues.html</loc>
-    <lastmod>2026-06-30</lastmod>
+    <loc>https://bachata.co.kr/community/promo.html</loc>
+    <lastmod>2026-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.72</priority>
-  </url>
-  <url>
-    <loc>http://test.bachata.co.kr/</loc>
-    <lastmod>2026-06-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
   </url>
 </urlset>
