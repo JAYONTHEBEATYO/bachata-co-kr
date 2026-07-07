@@ -25,6 +25,7 @@ const instagramApiVersion = process.env.INSTAGRAM_GRAPH_API_VERSION || "v21.0";
 const instagramHashtagLimit = Number.parseInt(process.env.INSTAGRAM_HASHTAG_LIMIT || "8", 10);
 const naverClientId = process.env.NAVER_CLIENT_ID || "";
 const naverClientSecret = process.env.NAVER_CLIENT_SECRET || "";
+const kakaoRestApiKey = process.env.KAKAO_REST_API_KEY || "";
 const diagnostics = [];
 
 const readJson = async (path) => JSON.parse(await readFile(path, "utf8"));
@@ -57,7 +58,7 @@ const inferPublishFormat = (candidate = {}, topic = {}, config = {}) => {
 
   if (topic.id === "gear-market") return "gear";
   if (topic.id === "korea-scene" && /event|festival/i.test(`${candidate.role || ""} ${candidate.title || ""}`)) return "event";
-  if (candidate.type?.includes("instagram") || candidate.type?.includes("naver")) return "brief";
+  if (candidate.type?.includes("instagram") || candidate.type?.includes("naver") || candidate.type?.includes("daum") || candidate.type?.includes("kakao")) return "brief";
   if (candidate.embedUrl || candidate.videoId || candidate.type?.includes("youtube")) return "learning";
   return "brief";
 };
@@ -167,6 +168,10 @@ const fetchJson = async (url, options = {}) => {
   return response.json();
 };
 
+const stripHtml = (value = "") => String(value).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim();
+
+const topicQuery = (topic, count = 3) => encodeURIComponent(topic.keywords.slice(0, count).join(" "));
+
 const getYoutubeId = (url) => {
   const match = url.match(/[?&]v=([^&]+)/) || url.match(/youtu\.be\/([^?]+)/);
   return match ? match[1] : null;
@@ -201,7 +206,7 @@ const validateYoutubeVideo = async (url) => {
 const searchYoutube = async (topic) => {
   if (!youtubeKey) return [];
 
-  const query = encodeURIComponent(topic.keywords.slice(0, 4).join(" "));
+  const query = topicQuery(topic, 4);
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=5&order=date&q=${query}&key=${youtubeKey}`;
   const data = await fetchJson(url);
 
@@ -216,10 +221,10 @@ const searchYoutube = async (topic) => {
   }));
 };
 
-const searchNaver = async (topic) => {
+const searchNaverBlog = async (topic) => {
   if (!naverClientId || !naverClientSecret) return [];
 
-  const query = encodeURIComponent(topic.keywords.slice(0, 3).join(" "));
+  const query = topicQuery(topic, 3);
   const url = `https://openapi.naver.com/v1/search/blog.json?display=5&sort=date&query=${query}`;
   const data = await fetchJson(url, {
     headers: {
@@ -230,10 +235,57 @@ const searchNaver = async (topic) => {
 
   return data.items.map((item) => ({
     type: "naver-blog",
-    title: item.title.replace(/<[^>]+>/g, ""),
+    title: stripHtml(item.title),
     sourceUrl: item.link,
+    snippet: stripHtml(item.description),
     publishedAt: item.postdate,
     scoreBoost: 12
+  }));
+};
+
+const searchNaverCafe = async (topic) => {
+  if (!naverClientId || !naverClientSecret) return [];
+
+  const query = topicQuery(topic, 3);
+  const url = `https://openapi.naver.com/v1/search/cafearticle.json?display=5&sort=date&query=${query}`;
+  const data = await fetchJson(url, {
+    headers: {
+      "X-Naver-Client-Id": naverClientId,
+      "X-Naver-Client-Secret": naverClientSecret
+    }
+  });
+
+  return data.items.map((item) => ({
+    type: "naver-cafe",
+    title: stripHtml(item.title),
+    sourceUrl: item.link,
+    snippet: stripHtml(item.description),
+    cafeName: stripHtml(item.cafename),
+    cafeUrl: item.cafeurl,
+    scoreBoost: 17
+  }));
+};
+
+const searchDaumCafe = async (topic) => {
+  if (!kakaoRestApiKey) return [];
+
+  const query = topicQuery(topic, 3);
+  const url = `https://dapi.kakao.com/v2/search/cafe?size=5&sort=recency&query=${query}`;
+  const data = await fetchJson(url, {
+    headers: {
+      Authorization: `KakaoAK ${kakaoRestApiKey}`
+    }
+  });
+
+  return (data.documents || []).map((item) => ({
+    type: "daum-cafe",
+    title: stripHtml(item.title),
+    sourceUrl: item.url,
+    snippet: stripHtml(item.contents),
+    cafeName: stripHtml(item.cafename),
+    thumbnail: item.thumbnail,
+    publishedAt: item.datetime,
+    scoreBoost: 16
   }));
 };
 
@@ -423,15 +475,19 @@ const main = async () => {
       if (video) seededVideos.push(video);
     }
 
-    const [youtubeSearch, naverSearch] = await Promise.all([
+    const [youtubeSearch, naverBlogSearch, naverCafeSearch, daumCafeSearch] = await Promise.all([
       searchYoutube(topic).catch((error) => [{ type: "error", title: `YouTube search failed: ${error.message}`, scoreBoost: 0 }]),
-      searchNaver(topic).catch((error) => [{ type: "error", title: `Naver search failed: ${error.message}`, scoreBoost: 0 }])
+      searchNaverBlog(topic).catch((error) => [{ type: "error", title: `Naver blog search failed: ${error.message}`, scoreBoost: 0 }]),
+      searchNaverCafe(topic).catch((error) => [{ type: "error", title: `Naver cafe search failed: ${error.message}`, scoreBoost: 0 }]),
+      searchDaumCafe(topic).catch((error) => [{ type: "error", title: `Daum cafe search failed: ${error.message}`, scoreBoost: 0 }])
     ]);
 
     const candidates = [
       ...seededVideos,
       ...youtubeSearch,
-      ...naverSearch,
+      ...naverBlogSearch,
+      ...naverCafeSearch,
+      ...daumCafeSearch,
       ...checkInstagramReady()
     ].map((candidate) => ({
       ...candidate,
@@ -469,6 +525,8 @@ const main = async () => {
     mode: {
       youtubeApi: Boolean(youtubeKey),
       naverApi: Boolean(naverClientId && naverClientSecret),
+      naverCafeApi: Boolean(naverClientId && naverClientSecret),
+      kakaoCafeApi: Boolean(kakaoRestApiKey),
       instagramGraph: Boolean(instagramToken),
       instagramHashtagSearch: Boolean(instagramToken && instagramBusinessAccountId),
       instagramApiVersion

@@ -30,6 +30,7 @@ jobs:
           INSTAGRAM_HASHTAG_LIMIT: ${{ vars.INSTAGRAM_HASHTAG_LIMIT || '8' }}
           NAVER_CLIENT_ID: ${{ secrets.NAVER_CLIENT_ID }}
           NAVER_CLIENT_SECRET: ${{ secrets.NAVER_CLIENT_SECRET }}
+          KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
         run: node tools/collect-scene-signals.mjs
 
       - name: Build article library
