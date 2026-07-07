@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-07-02T08:58:59.469Z",
+  "generatedAt": "2026-07-07T03:13:12.374Z",
   "updatedAt": "2026-07-02",
   "latestBrief": {
-    "url": "/briefs/2026-07-02.html",
+    "url": "/briefs/2026-07-07.html",
     "candidateCount": 50,
-    "generationDate": "2026-07-02"
+    "generationDate": "2026-07-07"
   },
   "sourceHealth": {
-    "total": 239,
-    "ok": 217,
+    "total": 237,
+    "ok": 215,
     "watch": 22,
     "warn": 0,
     "broken": 0

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-02T07:43:54.952Z",
+  "generatedAt": "2026-07-07T03:13:10.075Z",
   "updatedAt": "2026-06-30",
   "guides": [
     {
@@ -101,6 +101,13 @@
           "videoId": "xmvDKN5cwT0"
         },
         {
+          "label": "Program",
+          "title": "바차타 입문 20분 루틴",
+          "url": "/programs/bachata-starter.html",
+          "score": 80,
+          "videoId": "xhrdh-uFkog"
+        },
+        {
           "label": "프로필",
           "title": "고니",
           "url": "/profiles/goni.html",
@@ -120,13 +127,6 @@
           "url": "/articles/bachazouk-guide.html",
           "score": 56,
           "videoId": "Qng3Wdmt3WE"
-        },
-        {
-          "label": "Program",
-          "title": "바차타 입문 20분 루틴",
-          "url": "/programs/bachata-starter.html",
-          "score": 56,
-          "videoId": "OcGcZ0IY6s0"
         },
         {
           "label": "프로필",
@@ -163,7 +163,7 @@
           "title": "바차타 입문 20분 루틴",
           "url": "/programs/bachata-starter.html",
           "score": 88,
-          "videoId": "OcGcZ0IY6s0"
+          "videoId": "xhrdh-uFkog"
         },
         {
           "label": "프로필",
@@ -208,11 +208,11 @@
           "videoId": "nrJM-arshvE"
         },
         {
-          "label": "프로필",
-          "title": "Gray & Loren",
-          "url": "/profiles/gray-loren.html",
-          "score": 16,
-          "videoId": "nrJM-arshvE"
+          "label": "Program",
+          "title": "도미니칸 바차타 리듬과 풋워크",
+          "url": "/programs/dominican-rhythm.html",
+          "score": 24,
+          "videoId": "xmvDKN5cwT0"
         }
       ]
     },
@@ -245,17 +245,17 @@
           "videoId": "sUy5L7x5pyE"
         },
         {
-          "label": "Program",
-          "title": "Bachata Influence 읽는 법",
-          "url": "/programs/influence-method.html",
-          "score": 144,
-          "videoId": "sUy5L7x5pyE"
-        },
-        {
           "label": "학습 프로그램",
           "title": "Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland",
           "url": "/programs/",
           "score": 136,
+          "videoId": "sUy5L7x5pyE"
+        },
+        {
+          "label": "Program",
+          "title": "Bachata Influence 읽는 법",
+          "url": "/programs/influence-method.html",
+          "score": 124,
           "videoId": "sUy5L7x5pyE"
         },
         {

@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-07-02T09:00:08.871Z",
-  "generationDate": "2026-07-02",
+  "generatedAt": "2026-07-07T03:13:07.674Z",
+  "generationDate": "2026-07-07",
   "summary": {
-    "total": 238,
-    "ok": 216,
+    "total": 237,
+    "ok": 215,
     "watch": 22,
     "warn": 0,
     "broken": 0
@@ -1185,24 +1185,6 @@
         {
           "file": "data/events.json",
           "path": "radar.1.sourceLinks.1.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "외부 링크 확인 완료"
-    },
-    {
-      "type": "external",
-      "url": "https://gooutdancing.com/pro/korke-judith/",
-      "label": "https://gooutdancing.com/pro/korke-judith/",
-      "sources": [
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.6.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.6.url"
         }
       ],
       "status": "ok",
@@ -2672,7 +2654,15 @@
         },
         {
           "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.6.url"
+        },
+        {
+          "file": "data/style-guides.json",
           "path": "guides.0.contentDrops.3.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.6.url"
         }
       ],
       "status": "ok",

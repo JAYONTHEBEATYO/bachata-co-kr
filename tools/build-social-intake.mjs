@@ -238,6 +238,7 @@ const stageCounts = (queue) => queue.reduce((counts, item) => {
 
 const summarize = (queue, radar, sourceHealth) => {
   const stages = stageCounts(queue);
+  const brokenQueueItems = queue.filter((item) => item.healthStatus === "broken").length;
   return {
     totalQueue: queue.length,
     watchlistAccounts: (radar.watchlists || []).reduce((sum, item) => sum + (item.accounts || []).length, 0),
@@ -248,7 +249,7 @@ const summarize = (queue, radar, sourceHealth) => {
     watchOnly: stages.watch || 0,
     blocked: stages.blocked || 0,
     videos: queue.filter((item) => item.videoId).length,
-    brokenLinks: sourceHealth.summary?.broken || 0,
+    brokenLinks: brokenQueueItems,
     stages
   };
 };
