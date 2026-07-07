@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-07T19:13:20.086Z",
+  "generatedAt": "2026-07-07T19:46:36.317Z",
   "generationDate": "2026-07-08",
   "url": "/briefs/2026-07-08.html",
   "headline": "2026년 7월 8일 바차타 최신소식",
   "dek": "오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니다. 원문은 복사하지 않고 공개 링크와 관찰값만 연결합니다.",
   "topicCount": 7,
-  "candidateCount": 50,
+  "candidateCount": 51,
   "sections": [
     {
       "id": "bachata-influence",
@@ -55,6 +55,13 @@
           "videoId": "5Mx_xhWSiL0",
           "publishFormat": "학습 프로그램",
           "evidenceLevel": "medium"
+        },
+        {
+          "title": "바챠쥬크는 어떤장르?",
+          "url": "https://cafe.daum.net/senbarico1/tGqL/5",
+          "videoId": null,
+          "publishFormat": "일간 브리핑",
+          "evidenceLevel": "watch"
         }
       ]
     },
@@ -198,6 +205,11 @@
       "type": "youtube"
     },
     {
+      "title": "바챠쥬크는 어떤장르?",
+      "url": "https://cafe.daum.net/senbarico1/tGqL/5",
+      "type": "daum-cafe"
+    },
+    {
       "title": "Gero & Migle | Bachata | Para Besarte - Lean & Akai",
       "url": "https://www.youtube.com/watch?v=j4CmXKDCMzI",
       "type": "youtube"
@@ -225,11 +237,6 @@
     {
       "title": "Sara Panero [CARITA] @ Istanbul World Dance Congress 2026 ⚜️🇹🇷",
       "url": "https://www.youtube.com/watch?v=FCAt14yr0j4",
-      "type": "youtube"
-    },
-    {
-      "title": "Daniel y Desiree [LA NOCHE PERFECTA] @ Miami Bachata Paradise 2023 🌴",
-      "url": "https://www.youtube.com/watch?v=q-vygpVHufM",
       "type": "youtube"
     }
   ],
