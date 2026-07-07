@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T03:17:07.863Z",
+  "generatedAt": "2026-07-07T19:12:20.976Z",
   "updatedAt": "2026-06-30",
   "title": "한국 바차타 행사·소셜 소식",
   "url": "/radar/",
@@ -8,6 +8,8 @@
   "mode": {
     "youtubeApi": false,
     "naverApi": false,
+    "naverCafeApi": false,
+    "kakaoCafeApi": false,
     "instagramGraph": false,
     "instagramHashtagSearch": false,
     "instagramApiVersion": "v21.0"

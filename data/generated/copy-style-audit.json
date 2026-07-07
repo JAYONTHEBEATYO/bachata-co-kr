@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-07-07T03:18:06.058Z",
+  "generatedAt": "2026-07-07T19:13:42.371Z",
   "ok": true,
   "summary": {
-    "findings": 226,
+    "findings": 231,
     "blocking": 0,
-    "warnings": 226
+    "warnings": 231
   },
   "findings": [
     {
@@ -13,7 +13,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 댄스화, 브랜드보다 먼저 봐야 할 기준 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 댄스화·마켓 바차타 댄스화, 브랜드보다 먼저 봐야 할 기준 Fuego, Pana Mio, On1, Pulse 같은 브랜",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:26aecb257c856e9b",
@@ -21,7 +21,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "플로어: 나무, 마룻바닥, 스튜디오 매트, 술집 바닥 중 어디서 주로 신는가 춤 세부장르: 도미니칸 풋워크가 많은가, 센슈얼 회전이 많은가 사용 시간: 원데이 클래스용인가, 매주 소셜 3-4시간용인가 구매 리스크: 배송 기간, 관부가세, 교환/반품 비용을 확인했는가 사이트 운영 방식 이 시리즈는 브랜드 홍보문을 번역하는 방식으로 운영하지 않습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:9bf2dc6b493b9d27",
@@ -29,7 +29,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Fuego Technology Fuego Bachata Collection Pulse Official Fuego Review Video Pana Mio Instagram On1 Instagram 관련 글 Bachata Influence는 무엇이 다른가 코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것 도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:65ce5793de080b50",
@@ -37,7 +37,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachata Influence는 무엇이 다른가 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Bachata Influence Bachata Influence는 무엇이 다른가 Melvin & Gatica 계열의 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:f6db990077b0ca13",
@@ -45,7 +45,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "2026년 6월 30일 업데이트 Bachata Influence Melvin Gatica Emilien Tehina Emilio Serap 바차타 인플루언스 센슈얼 바차타 Influence 계열은 동작을 많이 넣는 방향보다 음악 안의 대비, 호흡, 멈춤, 프레임의 질감을 강조하는 흐름으로 보는 편이 정확합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:c6416868a0ddeb5e",
@@ -53,7 +53,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "볼 것: 멈춤 이후 다시 들어가는 타이밍 볼 것: 팔로워가 자기 축으로 서 있는 시간 주의할 것: 큰 표현을 좁은 소셜 플로어에 그대로 옮기지 않기 공식 축과 인증 강사 네트워크 Influence Academy 공식 페이지는 이 세부장르를 연결, 호흡, 음악성, 파워, 의도, 에너지의 여섯 축으로 설명합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:d6cf633a64cd14df",
@@ -61,7 +61,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "볼 것: 공식 키워드가 실제 영상에서 드러나는 위치 볼 것: 인증 강사가 위험한 표현을 어떻게 작게 줄이는지 주의할 것: 릴스의 감정선을 초보자 가이드 수업의 정답처럼 취급하지 않기 한국에서 볼 때 필요한 기준 국내에서는 그레이·로렌 같은 인플루언스 계열 수업/소셜 영상, 클루니와 솔미 같은 공개 소셜 영상, 각 스튜디오의 워크숍 공지를 함께 봐야 흐름이 보입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:fab786fe6ce5f521",
@@ -69,7 +69,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Influence Academy Official Influence Academy 2026 byGatica Melvin & Gatica Instagram Emilio & Serap Instagram YouTube Reference YouTube Interview 관련 글 코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것 도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다 Bachazou",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:0f1cb28e9009bcb7",
@@ -77,7 +77,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachata Influence 댄서 소개 정리: Melvin & Gatica 이후 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Influence Map Bachata Influence 댄서 소개 정리: Mel",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:fbd358260c03d710",
@@ -85,7 +85,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "2026년 6월 30일 업데이트 Bachata Influence Melvin Gatica Gatica Emilien Tehina Emilio Serap Influence Academy 바차타 인플루언스 Bachata Influence는 요즘 센슈얼 바차타 장면에서 자주 언급되지만, 단순히 멋진 플로우나 큰 표현을 따라 하는 세부장르로 보면 금방 얕아집니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:a80cd3faf0d7f01d",
@@ -93,7 +93,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "호흡: 동작 사이의 빈 공간을 어떻게 쓰는가 프레임: 리더가 밀고 당기는 대신 길을 어떻게 여는가 음악성: 보컬, 브레이크, 악센트를 과하게 채우지 않는가 소셜성: 무대용 표현과 플로어용 표현을 구분하는가 Academy와 Pro Team은 메소드의 증거다 go&dance에 올라온 Bachata Influence Academy 2026 페이지는 2026년 7월 20일부터 24일까지 Barcel",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:f0fda708e0f983cb",
@@ -101,7 +101,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Influence Academy Official Bachata Influence Academy 2026 byGatica Gatica Bio Melvin & Gatica video Emilien & Tehina video Emilio & Serap Instagram 관련 글 Bachata Influence는 무엇이 다른가 코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것 도미니칸 바차",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5e1e464ee0746e0c",
@@ -109,7 +109,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Sensual Bachata 코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것 Korke y Ju",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:8c2e98284c5ae9d6",
@@ -117,7 +117,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachata Sensual Official Reddit 16 Fundamentals Thread 16 Fundamentals Video Onda Tutorial Korean Bachata Basic Workshop VDanceClub Judith Cordero Korke & Judith 프로필 Bachata Sensual Academy Top 6 Mistakes Video 관련 글 Bach",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:06470a934f2613b9",
@@ -125,7 +125,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachazouk를 센슈얼 변형으로만 보면 놓치는 것 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Bachazouk Bachazouk를 센슈얼 변형으로만 보면 놓치는 것 Bachata와 Brazilian Zou",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:33474ef3b12b339d",
@@ -133,7 +133,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Zoukchata: 현장에서 섞이는 움직임을 묘사한 이름 BachaZouk: 커뮤니티와 가치 체계를 포함한 이름 핵심 가치: unite, innovate, celebrate 편집 기준: 기술보다 뿌리와 안전 먼저 Dominican Bachata를 지나치지 않는 퓨전 BachaZouk 공식 글에서 중요한 대목은 Dominican Bachata를 다시 공부하고 그 문화적 심장을 올려야 한다는 문",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:8aa4ddfba6742683",
@@ -141,7 +141,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "bachata 음악에서 가능한 움직임인지 확인 Brazilian Zouk 용어는 별도 학습으로 분리 Dominican Bachata의 문화적 위치를 짧게라도 함께 언급 데모용 동작과 소셜용 동작을 나눠 설명 한국 수업에서 먼저 정리해야 할 안전 기준 Bachazouk 영상은 초보자가 보기엔 멋지지만, 목과 허리의 방향 전환이 들어가는 순간 난도가 급격히 올라갑니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:468d04228f281c7f",
@@ -149,7 +149,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "리더: 목을 밀거나 당기는 방식으로 리드하지 않기 팔로워: 축이 사라지면 즉시 작은 동작으로 줄이기 둘 다: 느린 음악에서 먼저 합의된 범위로 연습하기 수업 전 Brazilian Zouk 기본 훈련 경험을 확인하기 콘텐츠 시리즈 방향 Bachazouk는 기술 소개, 안전 가이드, 음악 추천, Brazilian Zouk 초보자 가이드 자료, 국내 워크숍 소식을 분리해 보여주는 편이 좋습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:65ba0c5bb01acbcd",
@@ -157,7 +157,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "BachaZouk Official What is BachaZouk BachaZouk Evolution Interview BachaZouk Community Video Bachazouk Debate Video BachaZouk Demo Video Tutorial Reference 관련 글 Bachata Influence는 무엇이 다른가 코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:95d1714aefde7ed4",
@@ -165,7 +165,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Dominican Bachata 도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이다 UNESCO와 도미니카 문화 자료",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:59d5ea20e3d7046a",
@@ -173,7 +173,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "UNESCO Music and dance of Dominican Bachata Dominican Embassy Bachata Introduction iASO Records Bachata History Beginner Footwork Video Follow Along Video Dominican Basic Steps Video Dominican Partnerwork Video 관련 글 Bach",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5540eb3db1984f69",
@@ -181,7 +181,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "글로벌 바차타 댄서 추천: 초보자가 볼 영상 6팀 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Global Dancers 글로벌 바차타 댄서 추천: 초보자가 볼 영상 6팀 Gero & Migle, Luis & ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:45eb12a9f46ec08d",
@@ -189,7 +189,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "가져올 것: 타이밍, 정리된 방향 전환, 음악의 브레이크 읽기 조심할 것: 큰 목·허리 꺾임, 상대 동의 없는 딥, 플로어 공간을 많이 쓰는 표현 화면 구성: 영상 옆에 안전 메모와 소셜 적용 크기를 같이 붙이기 Cristian & Gabriella, Klau & Ros: 부드러움과 연결을 보는 페어 Cristian & Gabriella는 큰 무대 표현보다 부드러운 연결과 자연스러운 속도 조",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:33d8c580edfdf333",
@@ -197,7 +197,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Gero & Migle Official Luis & Andrea YouTube Andi & Silvia YouTube Cristian & Gabriella YouTube Klau & Ros Instagram Marco y Sara 관련 글 Bachata Influence는 무엇이 다른가 코르케·주디스 16 펀더멘탈, 이름보다 먼저 읽어야 할 것 도미니칸 바차타는 발놀림보다 리듬을 듣는 방식이",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:30048ecdf3b6cdd4",
@@ -205,7 +205,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 코리아 기사 라이브러리 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 기사 라이브러리 바차타 코리아 기사 라이브러리 오늘 최신소식에서 다룬 주제를 더 자세한 기사로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:0ae35fd754870ba6",
@@ -213,7 +213,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "기사 읽기 Influence Map Bachata Influence 댄서 소개 정리: Melvin & Gatica 이후 Bachata Influence를 창시자 영상 하나로 끝내지 않고, Academy, Pro Team, Emilien & Tehina, Emilio & Serap까지 이어 보는 한국어 가이드",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:b6c968c466cc20b7",
@@ -221,7 +221,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "기사 읽기 Global Dancers 글로벌 바차타 댄서 추천: 초보자가 볼 영상 6팀 Gero & Migle, Luis & Andrea, Andi & Silvia, Cristian & Gabriella, Klau & Ros, Sara Panero의 대표 영상을 한국 초보자가 볼 만한 기준으로 정리한 가이드",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:3e9b49cf0d2828b7",
@@ -229,7 +229,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "한국 바차타 댄서 소개는 어디서 볼 수 있을까 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 국내 소식 한국 바차타 댄서 소개는 어디서 볼 수 있을까 Gray & Loren, Cluny & Journey에서 에단",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5f6010d67c068c4d",
@@ -237,7 +237,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "팀: 대표 영상, 수업·공연 정보, 인스타그램 계정 동호회: 연령대, 모임 성격, 공개 영상, 제보 링크 장소: 소셜 요일, 분위기, 초보 접근성, 관련 팀 라스트댄스와 보니따는 커뮤니티 안내의 좋은 사례다 라스트댄스처럼 공개 인스타그램·Threads 계정과 YouTube 영상이 함께 확인되는 동호회는 커뮤니티 안내로 풀기 좋습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:da14dc968cfb2bf9",
@@ -245,7 +245,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Gray & Loren video Cluny & Journey video Latin Cielo Instagram Everlatin Bonita Seoul Instagram Last Dance Instagram Last Dance video danceinfo 바차타 강습 Ethan & Loren video Sora & Dalkong video Wongoong & Yoni video 관련 글 B",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:4f218996ec4a0712",
@@ -253,7 +253,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "2026년 6월 30일 바차타 최신소식 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 오늘의 바차타 최신소식 2026년 6월 30일 바차타 최신소식 오늘 확인한 바차타 영상, 행사, 소셜 포스트, 커뮤니티 흐름을",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:441a0de4ebed548f",
@@ -261,7 +261,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "7개 섹션 영상과 원문 링크 중심 51개 참고 링크 Bachata Influence Bachazouk 글로벌 댄서 한국 바차타 현장 댄스화와 용품 소셜 소식 기획 노트 Bachata Influence Bachata Influence 오늘의 포인트 Melvin & Gatica 계열의 흐름은 동작 수보다 감정선, 멈춤, 프레임의 질감을 보는 편이 좋습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5a3bafebdc1c2202",
@@ -269,7 +269,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "영상 가이드 Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland 원본 확인 영상 가이드 Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant Congress 2025 🏰 원본 확인 영상 가이드 Bachata Influence: Inte",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:16a6d3e839056b72",
@@ -277,7 +277,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "영상 가이드 BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival 원본 확인 영상 가이드 Learn Bachata, Tutorial 41: Bachazouk Pattern 1 (Fusion intermediate) 원본 확인 이어 볼 포인트 헤드무브와 틸트 턴은 어떤 속도와 음악에서 안전한가",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:62d34d35aed70444",
@@ -285,7 +285,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "영상 가이드 Gero & Migle | Bachata | Para Besarte - Lean & Akai 원본 확인 영상 가이드 LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿 원본 확인 영상 가이드 Andi & Silvia | Bachata | Just As I Am - Prince Royce",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:967642da3834ae20",
@@ -293,7 +293,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "24 원본 확인 영상 가이드 바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따 원본 확인 영상 가이드 바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304 원본 확인 이어 볼 포인트 그레이 & 로렌, 클루니, 보니따, 에버라틴 영상은 어떤 초보자 정보를 제공하는가",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:fd3664d887c4d0bb",
@@ -301,7 +301,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "소셜 포스트 K-Sensual Official @ksensual_official 원본 확인 소셜 포스트 Seoul Bachata Festival @seoulbachatafestival 원본 확인 소셜 포스트 Gangnam Latin Festival @gangnamlatinfestival 원본 확인 이어 볼 포인트 오늘 확인한 인스타그램 소식이 행사, 팀 소개, 댄서 프로필, 상품 비교 중 어",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:49627bff7acfa472",
@@ -309,7 +309,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "편집 노트 A1 · 센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조 원본 확인 편집 노트 A1 · 도미니칸 바차타는 풋워크보다 리듬 듣기부터 원본 확인 편집 노트 A2 · Bachata Influence는 왜 요즘 바차타 문법처럼 보이나 원본 확인 이어 볼 포인트 오늘은 센슈얼·도미니칸 같은 코어 콘텐츠를 보강할 차례인가, 국내 소식·행사·상품 같은 시의성 콘텐츠를 발행할 차례인가",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:fd2636da905a0bdd",
@@ -317,7 +317,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "2026년 7월 1일 바차타 최신소식 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 오늘의 바차타 최신소식 2026년 7월 1일 바차타 최신소식 오늘 확인한 바차타 영상, 행사, 소셜 포스트, 커뮤니티 흐름을 한",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:3fca646a2483c706",
@@ -325,7 +325,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "7개 섹션 영상과 원문 링크 중심 50개 참고 링크 Bachata Influence Bachazouk 글로벌 댄서 한국 바차타 현장 댄스화와 용품 소셜 소식 기획 노트 Bachata Influence Bachata Influence 오늘의 포인트 Melvin & Gatica 계열의 흐름은 동작 수보다 감정선, 멈춤, 프레임의 질감을 보는 편이 좋습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:ffdcac352cc2c2ea",
@@ -333,7 +333,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 반복 9회 Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland 원본 확인 학습 프로그램 · 반복 9회 Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant Congress 2025 🏰 원본 확인 학습 프로그램 · 반복",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:c159f8b76af07f4e",
@@ -341,7 +341,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 반복 9회 BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival 원본 확인 학습 프로그램 · 반복 9회 Learn Bachata, Tutorial 41: Bachazouk Pattern 1 (Fusion intermediate) 원본 확인 이어 볼 포인트 헤드무브와 틸트 턴은 어떤 속도와 음악에서 안전한가",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:1264215dd7f097cf",
@@ -349,7 +349,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 반복 9회 Gero & Migle | Bachata | Para Besarte - Lean & Akai 원본 확인 학습 프로그램 · 반복 9회 LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿 원본 확인 학습 프로그램 · 반복 9회 Andi & Silvia | Bachata | ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:6c0379e1398feaf7",
@@ -357,7 +357,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "24 원본 확인 학습 프로그램 · 반복 9회 바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따 원본 확인 학습 프로그램 · 반복 9회 바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304 원본 확인 이어 볼 포인트 그레이 & 로렌, 클루니, 보니따, 에버라틴 영상은 어떤 초보자 정보를 제",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:1b53823ce00ddf07",
@@ -365,7 +365,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "행사·내한 · 반복 9회 K-Sensual Official @ksensual_official 원본 확인 행사·내한 · 반복 9회 Seoul Bachata Festival @seoulbachatafestival 원본 확인 행사·내한 · 반복 9회 Gangnam Latin Festival @gangnamlatinfestival 원본 확인 이어 볼 포인트 오늘 확인한 인스타 흐름이 행사, 팀 소개",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5e4f76d3d61927e6",
@@ -373,7 +373,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 반복 9회 · 근거 충분 A1 · 센슈얼을 누르면 바로 16개 펀더멘털이 보이는 구조 원본 확인 학습 프로그램 · 반복 9회 · 근거 충분 A1 · 도미니칸 바차타는 풋워크보다 리듬 듣기부터 원본 확인 학습 프로그램 · 반복 9회 · 근거 충분 A2 · Bachata Influence는 왜 요즘 바차타 문법처럼 보이나 원본 확인 이어 볼 포인트 오늘은 센슈얼·도미니칸 같은 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:c7200fdfdeee89a1",
@@ -381,7 +381,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "2026년 7월 2일 바차타 최신소식 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 오늘의 바차타 2026년 7월 2일 바차타 최신소식 오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:87373065440661d8",
@@ -389,7 +389,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 12회 관찰 · 공개 링크 Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 12회 관찰 · 공개 링크 Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:c587a5578d2a6cba",
@@ -397,7 +397,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 12회 관찰 · 공개 링크 BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 12회 관찰 · 공개 링크 Learn Bachata, Tutorial 41: Bachazouk Pattern 1 (Fusion intermediate) 이어 읽기: /program",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:8ebe73e919542c9c",
@@ -405,7 +405,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 12회 관찰 · 공개 링크 Gero & Migle | Bachata | Para Besarte - Lean & Akai 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 12회 관찰 · 공개 링크 LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿 이어 읽기: /prog",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:6d08b190444f4f5f",
@@ -413,7 +413,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "24 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 12회 관찰 · 공개 링크 바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 12회 관찰 · 공개 링크 바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304 이어",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:9916d6415348cb12",
@@ -421,7 +421,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "2026년 7월 7일 바차타 최신소식 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 오늘의 바차타 2026년 7월 7일 바차타 최신소식 오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:c6baae957f6f58d0",
@@ -429,7 +429,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 14회 관찰 · 공개 링크 Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 14회 관찰 · 공개 링크 Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:ff85b1f558ef9b8d",
@@ -437,7 +437,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 14회 관찰 · 공개 링크 BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 14회 관찰 · 공개 링크 Learn Bachata, Tutorial 41: Bachazouk Pattern 1 (Fusion intermediate) 이어 읽기: /program",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:d7a9d26de29c1cc7",
@@ -445,7 +445,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "학습 프로그램 · 14회 관찰 · 공개 링크 Gero & Migle | Bachata | Para Besarte - Lean & Akai 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 14회 관찰 · 공개 링크 LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿 이어 읽기: /prog",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:73866645ee540256",
@@ -453,7 +453,47 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "24 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 14회 관찰 · 공개 링크 바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 14회 관찰 · 공개 링크 바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304 이어",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
+    },
+    {
+      "id": "finding:81681735c6953cc7",
+      "sourcePath": "briefs/2026-07-08.html",
+      "severity": "warning",
+      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
+      "excerpt": "2026년 7월 8일 바차타 최신소식 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 오늘의 바차타 2026년 7월 8일 바차타 최신소식 오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니",
+      "createdAt": "2026-07-07T19:13:42.174Z"
+    },
+    {
+      "id": "finding:a86267786b869793",
+      "sourcePath": "briefs/2026-07-08.html",
+      "severity": "warning",
+      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
+      "excerpt": "학습 프로그램 · 16회 관찰 · 공개 링크 Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 16회 관찰 · 공개 링크 Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant",
+      "createdAt": "2026-07-07T19:13:42.174Z"
+    },
+    {
+      "id": "finding:49098c8eb4bc8f76",
+      "sourcePath": "briefs/2026-07-08.html",
+      "severity": "warning",
+      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
+      "excerpt": "학습 프로그램 · 16회 관찰 · 공개 링크 BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 16회 관찰 · 공개 링크 Learn Bachata, Tutorial 41: Bachazouk Pattern 1 (Fusion intermediate) 이어 읽기: /program",
+      "createdAt": "2026-07-07T19:13:42.174Z"
+    },
+    {
+      "id": "finding:a6f3663a119bc7f0",
+      "sourcePath": "briefs/2026-07-08.html",
+      "severity": "warning",
+      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
+      "excerpt": "학습 프로그램 · 16회 관찰 · 공개 링크 Gero & Migle | Bachata | Para Besarte - Lean & Akai 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 16회 관찰 · 공개 링크 LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿 이어 읽기: /prog",
+      "createdAt": "2026-07-07T19:13:42.174Z"
+    },
+    {
+      "id": "finding:c393caaa3d81263b",
+      "sourcePath": "briefs/2026-07-08.html",
+      "severity": "warning",
+      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
+      "excerpt": "24 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 16회 관찰 · 공개 링크 바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따 이어 읽기: /programs/ 원문 확인 학습 프로그램 · 16회 관찰 · 공개 링크 바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304 이어",
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:a900c43a29bd9276",
@@ -461,7 +501,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 최신소식 | 바차타 코리아 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 최신소식 오늘 바차타 현장에서 볼 만한 흐름 오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:d95e68d9380af5d8",
@@ -469,7 +509,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "익명으로 묻는 초보 질문 | 바차타 커뮤니티 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 익명게시판 익명으로 묻는 초보 질문 처음 소셜에 갈 때 헷갈리는 매너, 복장, 레벨, 파트너워크 질문을 익명으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:bbe7929c2f3ed6fc",
@@ -477,7 +517,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 소셜·워크숍·내한 일정 | 바차타 커뮤니티 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 행사 일정 바차타 소셜·워크숍·내한 일정 서울·수도권 바차타 정기 소셜, 오픈강습, 원데이 클래스, 워크숍, 페스티벌, DJ 파티, ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:7c47fbaea33abbc1",
@@ -485,7 +525,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "내한 워크숍 페스티벌 캘린더 제보 메일 인스타 DM 등록 전 확인할 것 공식 포스터 또는 주최 계정 아티스트 이름과 날짜 예매·문의 링크 임베드 가능한 대표 영상 정보 확인 중 주간 서울 바차타 소셜 일정 서울 주간 업데이트 정기 소셜 등록 강남, 홍대, 신촌, 잠실 등에서 열리는 바차타 소셜 일정을 요일별로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:8e6fabf46c03c127",
@@ -493,7 +533,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "자유롭게 남기는 바차타 이야기 | 바차타 커뮤니티 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 자유게시판 자유롭게 남기는 바차타 이야기 소셜 후기, 연습 메모, 음악 추천, 첫 방문 경험처럼 가볍게 나눌 수 있는 이야기를 모읍니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:ce00e0a010acd4c7",
@@ -501,7 +541,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 커뮤니티 | 소셜·워크숍·양도·구인 제보 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 커뮤니티 한국 바차타 커뮤니티 피드 소셜 후기, 워크숍 일정, 티켓 양도, 구인구직, 팀 홍보를 한 화면에서 훑어보는 피드입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:d81cacd20627a12a",
@@ -509,7 +549,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "내한 워크숍 페스티벌 일정 제보 메일 자세히 보기 등록 전 확인할 것 공식 공지 링크 일정과 장소 가격 또는 예매 링크 라인업 정보 양도양수 제보 접수 중 전국 상시 제보 양도 글 제보 파티 티켓과 워크숍 패스 양도 갑자기 일정이 바뀐 파티 티켓, 워크숍 패스, 페스티벌 패스를 날짜와 양도 조건 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:0ef5f6036b59e380",
@@ -517,7 +557,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "티켓 워크숍 페스티벌 패스 양도 제보 메일 자세히 보기 등록 전 확인할 것 행사명과 날짜 정가와 양도 가격 양도 가능 여부 확인 링크 연락 방법 양도양수 제보 접수 중 전국 상시 제보 매물 제보 바차타 댄스화 중고 매물 Fuego, Pana Mio, On1, Pulse 등 댄스화 중고 매물을 사이즈, 착용 횟수, 바닥 상태, 거래 지역 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:f5d80fc031999b1f",
@@ -525,7 +565,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "댄스화 중고 사이즈 댄스화 제보 메일 자세히 보기 등록 전 확인할 것 브랜드와 모델명 사이즈 착용 횟수와 바닥 상태 사진 또는 판매 링크 구인구직 제보 접수 중 전국 상시 제보 구인 글 제보 파티 운영 스태프와 DJ 구인 소셜 파티 접수, 플로어 운영, 촬영, DJ, 통역, 게스트 케어처럼 행사 운영에 필요한 역할을 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:32cb451b73e305d2",
@@ -533,7 +573,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "DJ 스태프 행사 운영 구인 제보 메일 자세히 보기 등록 전 확인할 것 역할과 업무 범위 일정과 장소 보수 조건 지원 방법과 마감일 구인구직 제보 접수 중 서울·수도권 상시 제보 모집 글 제보 클래스 어시스턴트·연습 파트너 모집 정규 수업 어시스턴트, 연습 파트너, 영상 촬영 보조처럼 클래스 운영에 필요한 사람을 찾는 글을 모읍니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:2079d1f42a1eb711",
@@ -541,7 +581,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "클래스 어시스턴트 연습 파트너 모집 제보 메일 자세히 보기 등록 전 확인할 것 필요한 역할 요구 레벨 연습 또는 근무 시간 보상 방식 홍보/제휴 정보 보강 중 서울 홍대 정보 보강 중 장소 정보 제보 홍대 보니따 소셜 기록 홍대 보니따에서 촬영된 공개 소셜 영상을 바탕으로 음악 분위기, 촬영 환경, 초보자가 확인하면 좋은 포인트를 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:8717d18f9d476515",
@@ -549,7 +589,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "보니따 홍대 소셜 보니따 영상 보니따 인스타그램 자세히 보기 영상 YouTube 등록 전 확인할 것 정기 소셜 요일 초보 참여 가능 여부 음악 비율 촬영 분위기 홍보/제휴 정보 보강 중 서울 정보 보강 중 수업 정보 제보 에버라틴 동호회·강습 안내 서울에서 라틴댄스를 시작하려는 사람이 자주 찾는 동호회·강습 정보를 수업 일정과 초보자 접근성 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:aeb2150927d09687",
@@ -557,7 +597,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "에버라틴 동호회 초보자 에버라틴 제보 자세히 보기 등록 전 확인할 것 정규 수업 일정 초보반 운영 여부 공식 링크 문의 방법 홍보/제휴 정보 보강 중 서울 정보 보강 중 파티 정보 제보 라스트댄스 파티와 레벨업 모임 2030 살사·바차타 동호회 흐름과 레벨업 파티 소식을 날짜, 장소, 참여 조건 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:ac72df3a991887f1",
@@ -565,7 +605,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "라틴씨엘로 수업 공연팀 라틴씨엘로 영상 팀 소개 제보 자세히 보기 영상 YouTube 등록 전 확인할 것 정규 수업 일정 공연팀 모집 여부 공개 가능한 사진·영상 문의 링크 자유게시판 제보 접수 중 서울 상시 제보 후기 보내기 첫 소셜에 다녀온 사람들의 후기 처음 소셜에 간 날의 분위기, 음악 비율, 초보자가 편했던 순간을 모아 초보자용 기사로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:ff288ebbcb65d104",
@@ -573,7 +613,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "첫 소셜 후기 초보자 후기 메일 자세히 보기 등록 전 확인할 것 방문한 장소 방문한 날짜 좋았던 점과 어려웠던 점 공개 가능 범위 익명게시판 제보 접수 중 전국 상시 제보 익명 질문 보내기 처음 소셜에 갈 때 제일 많이 묻는 질문 복장, 신청 매너, 레벨 차이, 거절 표현처럼 초보자가 말로 꺼내기 어려운 질문을 익명으로 모읍니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:8818d12158a86b36",
@@ -581,7 +621,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "강사·DJ·스태프 구인구직 | 바차타 커뮤니티 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 구인구직 강사·DJ·스태프 구인구직 강사, 어시스턴트, DJ, 촬영자, 행사 스태프, 장소 협업 등 바차타 현장의 일거리를 모읍니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:40bf04ac9ec8a27d",
@@ -589,7 +629,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "DJ 스태프 행사 운영 구인 제보 메일 등록 전 확인할 것 역할과 업무 범위 일정과 장소 보수 조건 지원 방법과 마감일 구인구직 제보 접수 중 서울·수도권 상시 제보 모집 글 제보 클래스 어시스턴트·연습 파트너 모집 정규 수업 어시스턴트, 연습 파트너, 영상 촬영 보조처럼 클래스 운영에 필요한 사람을 찾는 글을 모읍니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:80d52ac9463b3bea",
@@ -597,7 +637,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 양도·중고 마켓 | 바차타 커뮤니티 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 양도·중고 바차타 양도·중고 마켓 파티 티켓, 워크숍 패스, 댄스화, 의상, 촬영권 등 라틴댄스 관련 양도·중고 정보를 날짜와 상태 중심으로",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:0950f998a549b31d",
@@ -605,7 +645,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "티켓양도 워크숍 페스티벌 안전거래 양도 템플릿 등록 전 확인할 것 행사명과 날짜 원가와 양도가 주최 측 양도 가능 여부 거래 완료 후 내림 요청 방식 제보 접수 댄스화·의상 중고 거래 전국 상시 접수 중고 글 보내기 Fuego, Pana Mio, On1, Pulse 등 댄스화나 라틴댄스 의상을 거래할 때 사이즈, 착용 횟수, 플로어 사용 여부, 하자 사진을 함께 받는 게시판입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:56d21bfc2dc44e26",
@@ -613,7 +653,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "행사·수업·팀 홍보 | 바차타 커뮤니티 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 홍보/제휴 행사·수업·팀 홍보 소셜, 워크숍, 클래스, 팀 모집, 장소 오픈, 브랜드 협업 소식을 매거진 톤으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:3808e3bb48c1329c",
@@ -621,7 +661,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "내한 워크숍 페스티벌 일정 제보 메일 등록 전 확인할 것 공식 공지 링크 일정과 장소 가격 또는 예매 링크 라인업 정보 홍보/제휴 정보 보강 중 서울 홍대 정보 보강 중 장소 정보 제보 홍대 보니따 소셜 기록 홍대 보니따에서 촬영된 공개 소셜 영상을 바탕으로 음악 분위기, 촬영 환경, 초보자가 확인하면 좋은 포인트를 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:f36c4bfde75db3cf",
@@ -629,7 +669,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "보니따 홍대 소셜 보니따 영상 보니따 인스타그램 영상 YouTube 등록 전 확인할 것 정기 소셜 요일 초보 참여 가능 여부 음악 비율 촬영 분위기 홍보/제휴 정보 보강 중 서울 정보 보강 중 수업 정보 제보 에버라틴 동호회·강습 안내 서울에서 라틴댄스를 시작하려는 사람이 자주 찾는 동호회·강습 정보를 수업 일정과 초보자 접근성 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:93cc9354486db59e",
@@ -637,7 +677,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "티켓·패스·댄스화 양도 | 바차타 커뮤니티 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 양도양수 티켓·패스·댄스화 양도 파티 티켓, 워크숍 패스, 댄스화, 의상 등 라틴댄스 관련 양도 정보를 날짜와 상태 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:982c0fa1b114ab5a",
@@ -645,7 +685,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "티켓 워크숍 페스티벌 패스 양도 제보 메일 등록 전 확인할 것 행사명과 날짜 정가와 양도 가격 양도 가능 여부 확인 링크 연락 방법 양도양수 제보 접수 중 전국 상시 제보 매물 제보 바차타 댄스화 중고 매물 Fuego, Pana Mio, On1, Pulse 등 댄스화 중고 매물을 사이즈, 착용 횟수, 바닥 상태, 거래 지역 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:fd42871c0ebb091c",
@@ -653,7 +693,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "한국 바차타 장소·팀 디렉터리 | 바차타 커뮤니티 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 국내 장소·팀 한국 바차타 장소·팀 디렉터리 홍대 보니따, 강남 라틴바, 에버라틴, 라스트댄스, 라틴씨엘로처럼 초보자가 실제로 찾아갈",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:2be2f0e3d0907c41",
@@ -661,7 +701,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "에버라틴 동호회 클래스 2030 Everlatin Instagram 등록 전 확인할 것 정기 클래스 구조 초보자 시작 방법 소셜 연결 방식 공개 영상 또는 웹 링크 취재 대기 라틴씨엘로 팀·수업 소개 서울 취재 대기 팀 소개 제보 라틴씨엘로는 수업, 공연, 팀 활동을 함께 살펴볼 수 있는 국내 바차타 팀입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:361edae9a16469db",
@@ -669,7 +709,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "go&dance에 올라온 Bachata Influence Academy 2026 페이지는 2026년 7월 20일부터 24일까지 Barcelona 인근 Santa Susanna에서 열리는 Level 1 과정을 안내하고, Melvin & Gatica와 Bachata Influence Pro Team이 technique, methodology, musicality, partnerwork, body",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:db889de91955b440",
@@ -677,7 +717,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Onda, Onda Lateral, Caida, Bolero, Completo, Paseala, Rompo Delante, Pinza, Culito, Contra Cadera, Lanzamiento, Lateral, Cabeza, Golpes, Media, Impulso를 하나의 정답표로 고정하지 않고 수업을 이해하기 위한 언어로 봅니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:df853ac6b4e82a5c",
@@ -685,7 +725,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachata Geneva Festival 2026 - The Festival of Nations | 바차타 행사 일정 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 확정 소스 Bachata Geneva Festival 2026 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:bea0979557fa760c",
@@ -693,7 +733,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "행사 정보 일정 요약 2026년 10월 8일-12일 Geneva, Switzerland · Palexpo Congress Center Overseas Festival 참고 링크 원본 링크 Official website Tickets go&dance listing 검색어 검색 키워드 Bachata Geneva Festival Geneva World Cup Finals 해외 페스티벌",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:8190c2ba0210bb93",
@@ -701,7 +741,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachata Week Cádiz 2026 | 바차타 행사 일정 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 확정 소스 Bachata Week Cádiz 2026 스페인 카디스에서 열리는 여름형 바차타 위크입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:f5968a8de29566da",
@@ -709,7 +749,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Emilien & Tehina 한국 워크숍·데모 기록 | 바차타 행사 일정 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 최근 기록 Emilien & Tehina 한국 워크숍·데모 기록 Emilien & Tehina의 한국 워크숍",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:d2727d486b760fa5",
@@ -717,7 +757,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Gangnam Latin Festival 2026 - Bachata Influence | 바차타 행사 일정 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 확정 소스 Gangnam Latin Festival 2026 - Bachat",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:7a136a4fbb72d6f0",
@@ -725,7 +765,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "행사 정보 일정 요약 2026년 12월 11일-13일 서울 · 서울 확정 소스 참고 링크 원본 링크 Go Dance Festival listing Gangnam Latin Festival Instagram Bachata Influence 영상 검색어 검색 키워드 Gangnam Latin Festival Bachata Influence Melvin & Gatica 서울 내한",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:1531bb5830ce6894",
@@ -733,7 +773,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "한국 바차타 페스티벌 정보 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 페스티벌 정보 한국 바차타 페스티벌 정보 국내외 바차타 페스티벌과 워크숍을 공식 링크, 영상, 확인 포인트 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:1ed4fd9ce15dd471",
@@ -741,7 +781,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Emilien & Tehina 바차타 인플루언스 한국 워크숍 기록 일정 상세 공식 링크 2026년 7월 확정 소스 K-Sensual Summer 10th Anniversary 2026년 7월 9일-13일 제주 확정 소스 K-Sensual Summer 10주년 행사는 제주에서 열리는 국내 대형 바차타 페스티벌입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:955e998d6a46c0ad",
@@ -749,7 +789,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "비수도권 라틴댄스 파티 대구 부산 일정 상세 공식 링크 2026년 12월 확정 소스 Gangnam Latin Festival 2026 - Bachata Influence 2026년 12월 11일-13일 서울 확정 소스 Gangnam Latin Festival 2026은 Bachata Influence 흐름을 전면에 둔 서울 행사입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5f70d8710358fa9f",
@@ -757,7 +797,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "K-Sensual Summer 10th Anniversary | 바차타 행사 일정 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 확정 소스 K-Sensual Summer 10th Anniversary K-Sensual Summer",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:924a714d7be18b70",
@@ -765,7 +805,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "행사 정보 일정 요약 2026년 7월 9일-13일 제주 · 제주 확정 소스 참고 링크 원본 링크 BachaMap listing Go Dance Festival listing K-Sensual Instagram 참고 영상 검색어 검색 키워드 K-Sensual 제주 바차타 페스티벌 Jack & Jill Carlos y Paz Klau y Ros",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:a8b6eda68e965822",
@@ -773,7 +813,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "해외 바차타 페스티벌 정보 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 해외 페스티벌 해외 바차타 페스티벌 정보 스페인, 스위스, 미국 등 해외 바차타 페스티벌을 공식 링크와 일정 중심으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:941917d9e55e6cd4",
@@ -781,7 +821,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachata Week Cádiz Spain 여름 페스티벌 해외 페스티벌 일정 상세 공식 링크 2026년 10월 확정 소스 Bachata Geneva Festival 2026 - The Festival of Nations 2026년 10월 8일-12일 Geneva, Switzerland Overseas Festival 스위스 제네바 Palexpo에서 열리는 국제 바차타 페스티벌입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5fac0cfdc101538d",
@@ -789,7 +829,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "심슨 비수도권 라틴댄스 파티 달력 | 바차타 행사 일정 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 추가 확인 중 심슨 비수도권 라틴댄스 파티 달력 심슨 라틴댄스 파티 달력은 대구, 부산, 제주, 광주 등 비수도권 라틴댄스 파티",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:aa8ef9d327797ac2",
@@ -797,7 +837,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "행사 정보 일정 요약 2026년 7월 24일-26일 서울 · 서울 확정 소스 참고 링크 원본 링크 M Latin Hub notice M Latin Hub update Seoul Bachata Festival Instagram 참고 영상 검색어 검색 키워드 서울바차타페스티벌 Seoul Bachata Festival 서울 워크숍 소셜",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:2e31a7e8ca04ebb0",
@@ -805,7 +845,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Fuego 바차타 댄스화 비교 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Dance Sneaker Fuego 바차타 댄스화 비교 Fuego는 FlowTec 아웃솔과 듀얼 피벗 포인트를 전면에 내세우",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:f2224ce44e4f49af",
@@ -813,7 +853,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "참고 링크 원본 링크 Fuego Technology Fuego Bachata Collection 착용 후기 영상 Keywords 관련 검색어 Fuego dance shoes Fuego bachata FlowTec 바차타 댄스화 라틴댄스 스니커 관련 글 같이 볼 페이지 댄스화 기사 중고·양도 보드 일간 최신소식",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:eb8e742300a26fac",
@@ -821,7 +861,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 댄스화와 라틴댄스 스니커 비교 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 댄스화 가이드 바차타 댄스화, 브랜드보다 플로어 감각 Fuego, Pana Mio, On1, Pulse 같은 댄스 스",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:424586fb713554d7",
@@ -829,7 +869,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Dance Sneaker Fuego 바차타 소셜에서 자주 언급되는 댄스 스니커 Fuego dance shoes Fuego bachata FlowTec 비교 노트 보기 European Dance Sneaker Pana Mio 색상과 로우탑 선택지가 많은 유럽형 댄스 스니커 Pana Mio Pana Mio dance sneakers 파나미오 비교 노트 보기 SNS에서 자주 보이는 브랜드 On1 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:acf547a64c7c2efa",
@@ -837,7 +877,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "On1 Dance Shoes 바차타 댄스화 비교 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 SNS에서 자주 보이는 브랜드 On1 Dance Shoes 바차타 댄스화 비교 On1 Dance Shoes",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:4e8ee3058a7922a5",
@@ -845,7 +885,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Best For 이런 사람에게 먼저 맞습니다 새 브랜드와 페스티벌 노출 브랜드를 빠르게 체크하는 독자 소셜에서 많이 보이는 제품을 확인하고 싶은 사람 구매 전 실제 착용자 후기를 기다릴 수 있는 사람 Watch Out 구매 전 따로 확인할 것 공식 웹 정보가 부족한 제품군은 링크와 판매자를 재확인해야 합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:997401e5a3601e3f",
@@ -853,7 +893,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Pana Mio 바차타 댄스화 비교 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 European Dance Sneaker Pana Mio 바차타 댄스화 비교 Pana Mio는 공식 스토어에서 Whit",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:a92fee7fc6291021",
@@ -861,7 +901,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Best For 이런 사람에게 먼저 맞습니다 흰색, 검정, 팬더, 믹스 등 룩 선택지를 중요하게 보는 사람 클래스 후 바로 소셜까지 이어지는 캐주얼 착장을 선호하는 사람 브랜드 감도와 사진발까지 함께 보는 웹매거진 독자 Watch Out 구매 전 따로 확인할 것 제품 수와 컬러는 공식 스토어에서 자주 바뀔 수 있습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:08bc191a0c3cff80",
@@ -869,7 +909,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "참고 링크 원본 링크 Pana Mio Official Pana Mio All Products Pana Mio Instagram Pana Mio Video Keywords 관련 검색어 Pana Mio Pana Mio dance sneakers 파나미오 바차타 스니커 라틴댄스화 관련 글 같이 볼 페이지 댄스화 기사 중고·양도 보드 일간 최신소식",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:3fdf85997c085844",
@@ -877,7 +917,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Pulse Dance Shoes 바차타 댄스화 비교 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Performance Sneaker Pulse Dance Shoes 바차타 댄스화 비교 Pulse는 공",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:d922301fda1c5302",
@@ -885,7 +925,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 코리아 | 서울·전국 바차타 소셜, 클래스, 행사 안내 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 본문으로 이동 추천 영상 · 국내 소식 바차타소셜 | 그레이 & 로렌 Gray y Loren Bachata Social ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:4ab6eb9511c55b1a",
@@ -893,7 +933,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "국내 중심 바차타 bachata Korea 서울 바차타 social dance 바차타 초보자 가이드 beginner guide 바차타 음악 Dominican rhythm 바차타 클래스 workshop 바차타 커뮤니티 magazine What is Bachata 바차타는 음악, 춤, 그리고 사람 사이의 거리입니다 바차타는 도미니카 공화국에서 발전한 음악과 커플댄스 문화입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:67731437454dfced",
@@ -901,7 +941,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Melvin & Gatica Emilien & Tehina Influence Academy 한국 인플루언스 클래스 Influence 기사 Academy Source byGatica Melvin & Gatica Instagram Play Emilien and Tehina Bachata Influence at Prague Bachata Dominant Congress 2025 Influence ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:4dbf04acfc68e7e5",
@@ -909,7 +949,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Play BachaZouk Tutorial by Azael and Marta at Bachata Geneva Festival Bachazouk 바차주크는 유행어가 아니라 별도 문법으로 봐야 합니다 BachaZouk 공식 설명은 Dominican Bachata와 Brazilian Zouk를 존중하면서 연결하는 커뮤니티와 교육 프레임을 강조합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:af2ed1939d4a26cc",
@@ -917,7 +957,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachazouk 기사 BachaZouk What is BachaZouk Play Gero and Migle Bachata Para Besarte Global Pair Gero & Migle: 소셜 친화적인 시그니처 흐름 Gero & Migle 계열 영상은 짧은 컴비네이션 안에서 선명한 입구와 출구를 보여주기 좋아 한국어 패턴 해설 콘텐츠로 확장하기 좋습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:7c950cb64eb6b52f",
@@ -925,7 +965,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Gero & Migle Video Source Play Luis y Andrea Bachata Inspire KHE Manny Rod X DJ Tronky Bachata Inspire Luis & Andrea: 에너지와 무대성을 소셜 언어로 번역하기 Luis & Andrea는 국제 페스티벌과 워크숍 맥락에서 자주 언급되는 센슈얼 페어입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:473ab5d1ee585f42",
@@ -933,7 +973,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "LuisyAndrea Official go&dance Profile Play Andi and Silvia Bachata Just As I Am Australia 2026 Global Pair Andi & Silvia: 최신 영상으로 추적하는 공연형 센슈얼 Andi & Silvia 영상은 무대형 라인과 소셜형 연결 사이의 간극을 설명하기 좋습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:aa3ef36b131ee8a9",
@@ -941,7 +981,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "서울·전국 바차타 소셜·동호회·장소 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 국내 소식 서울·전국 바차타 소셜·동호회·장소 홍대 보니따, 에버라틴, 라틴씨엘로, 라스트댄스 등 국내 바차타 팀·동호",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5364830de6d4e773",
@@ -949,7 +989,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "팀·동호회 장소 행사·내한 커뮤니티 제보하기 Play YouTube 팀·동호회 한국에서 실제로 만날 수 있는 팀과 동호회 Gray & Loren, Cluny & Journey, 라틴씨엘로, 라스트댄스뿐 아니라 에단 & 로렌, 소라 & 달콩, 와플 & 세라, 원궁 & 요니처럼 공개 강습 페이지와 영상으로 확인되는 국내 팀·댄서를 함께 정리했습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:ea594982089326da",
@@ -957,7 +997,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Play YouTube 팀·댄서 Gray & Loren 한국 바차타에서 Influence 계열 감각을 참고하기 좋은 팀 한국 바차타 Gray Loren Influence Korea Social 자세히 보기 YouTube Play YouTube 팀·댄서 Cluny & Journey 한국 소셜·공연 영상으로 참고할 수 있는 국내 페어 클루니 져니 한국 바차타 Social 자세히 보기 YouTub",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:1ae873bb954c5678",
@@ -965,7 +1005,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Play YouTube 장소 홍대 보니따 처음 가기 전에 소셜 분위기를 확인할 수 있는 홍대 장소 홍대 보니따 서울 바차타 소셜 Venue 자세히 보기 Instagram 커뮤니티 홍대 보니따 소셜 기록 홍대 보니따에서 촬영된 공개 소셜 영상을 바탕으로 음악 분위기, 촬영 환경, 초보자가 확인하면 좋은 포인트를 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:cbcc8fc6cda0d3b9",
@@ -973,7 +1013,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "서울 확정 소스 confirmed 자세히 보기 M Latin Hub notice Play YouTube 행사 Gangnam Latin Festival 2026 - Bachata Influence Gangnam Latin Festival 2026은 Bachata Influence 흐름을 전면에 둔 서울 행사입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:87b4dc6380fe949c",
@@ -981,7 +1021,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Andi & Silvia | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Andi & Silvia 최신 공연형 센슈얼 흐름을 추적하기 좋은 페어 전체 프로필 글로벌 센슈얼 가이드 Andi & S",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:e12243060f951f08",
@@ -989,7 +1029,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Andi Silvia Sensual Global Dancers Performance 참고 링크 출처 YouTube Channel Instagram YouTube 관련 글 이어 보기 센슈얼 가이드 Korke & Judith Gero & Migle Luis & Andrea Cristian & Gabriella Klau & Ros",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:121e8b566a288d4b",
@@ -997,7 +1037,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Ataca & La Alemana | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Ataca & La Alemana 모던 바차타와 도미니칸 감각을 함께 떠올리게 만드는 클래식 레퍼런스 전체 프로",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:56979d181b623854",
@@ -1005,7 +1045,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 United States / International 공개 링크 확인 Ataca y La Alemana Modern Bachata Classic Reference Social 참고 링크 출처 YouTube Reference YouTube Demo 관련 글 이어 보기 모던 가이드 도미니칸 가이드 Korke & Judith Gero & Migle Luis & Andrea Andi & Si",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:56b66079dc762cea",
@@ -1013,7 +1053,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Azael & Sindi | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Azael & Sindi 센슈얼 바차타의 라인, 속도 변화, 감정 표현을 함께 보기 좋은 페어 전체 프로필 글로벌 센슈얼",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:65f2794c736da1db",
@@ -1021,7 +1061,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Azael & Sindi Bachata Sensual BCN Dance Life Demo 참고 링크 출처 YouTube Reference YouTube Demo 관련 글 이어 보기 센슈얼 가이드 글로벌 프로필 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristian & Gabriella",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:79c7eea28ca8a20a",
@@ -1029,7 +1069,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "홍대 보니따 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 장소 홍대 보니따 처음 가기 전에 소셜 분위기를 확인할 수 있는 홍대 장소 전체 프로필 장소 장소·팀 보드 홍대 보니따는 공개 소셜 영상과 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:8139f7a872892046",
@@ -1037,7 +1077,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "크리스 & 민이 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 크리스 & 민이 그루포 에센시아 코리아 시즌 수업과 2026년 공연 영상이 확인되는 국내 페어 전체 프로필 한국 Marco &",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:b7d3adc58b5041d7",
@@ -1045,7 +1085,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Korea / Gangnam 공개 링크 확인 크리스 민이 그루포 에센시아 Marco y Sara 참고 링크 출처 danceinfo 시즌10 YouTube Related Video 관련 글 이어 보기 Marco & Sara 한국 프로필 Gray & Loren Cluny & Journey 에버라틴 라틴씨엘로 라스트댄스",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:e0ccfcdcce2e1aa5",
@@ -1053,7 +1093,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Cluny & Journey | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 Cluny & Journey 한국 소셜·공연 영상으로 참고할 수 있는 국내 페어 전체 프로필 한국 장소·팀 보드 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:7e17e61f9beb3b05",
@@ -1061,7 +1101,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Cornel & Rithika | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Cornel & Rithika 부드러운 연결과 선명한 음악 해석을 함께 보여주는 센슈얼 바차타 페어 전체 프로필 글",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:248311f3ef5514a7",
@@ -1069,7 +1109,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Cornel & Rithika ConRi Style Sensual Connection 참고 링크 출처 YouTube Reference YouTube Demo 관련 글 이어 보기 센슈얼 가이드 글로벌 프로필 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristian & Gabriella",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:fe34bb4a6e82ff77",
@@ -1077,7 +1117,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Cristian & Gabriella | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Cristian & Gabriella 부드러운 센슈얼 라인과 소셜 친화적 움직임을 같이 볼 수 있는 스페인 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:16db03d8014cebca",
@@ -1085,7 +1125,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Spain 공개 링크 확인 Cristian Gabriella Bachata Sensual Global Dancers Spain 참고 링크 출처 Instagram YouTube Channel go&dance Profile YouTube 관련 글 이어 보기 센슈얼 가이드 글로벌 프로필 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Kl",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:a30be529ecb9ccf5",
@@ -1093,7 +1133,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "대우 & 드림 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 대우 & 드림 빅터&알바 부트캠프 사전 수업과 잭앤질 영상으로 함께 확인되는 국내 페어 전체 프로필 한국 Victor & Alb",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:b2b3fd89ccb4f38f",
@@ -1101,7 +1141,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Korea / Gangnam 공개 링크 확인 대우 드림 잭앤질 부트캠프 참고 링크 출처 danceinfo 부트캠프 Jack & Jill Video Performance Video 관련 글 이어 보기 Victor & Alba 한국 프로필 Gray & Loren Cluny & Journey 에버라틴 라틴씨엘로 라스트댄스",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:95e5018ee2fd44b0",
@@ -1109,7 +1149,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Daniel & Desiree | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Daniel & Desiree 센슈얼 바차타의 무대감, 속도 조절, 감정선을 함께 보기 좋은 대표 페어 전체 프로필",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:4e73e90f667d4b45",
@@ -1117,7 +1157,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Spain / International 공개 링크 확인 Daniel y Desiree Bachata Sensual Performance Musicality 참고 링크 출처 YouTube Reference YouTube Demo 관련 글 이어 보기 센슈얼 가이드 글로벌 프로필 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristi",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:2393febb629bb279",
@@ -1125,7 +1165,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Emilien & Tehina | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Bachata Influence 계열 Emilien & Tehina Influence 계열을 소셜과 무대 양쪽에서 참고하기 좋은 페어 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:c25ab223e035fae6",
@@ -1133,7 +1173,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Emilio & Serap | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Bachata Influence 계열 Emilio & Serap Melvin & Gatica에게 인증된 Bachata Influence 계",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:e7a9ef3b87ac38a6",
@@ -1141,7 +1181,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "볼 포인트 먼저 확인할 정보 Influence Academy 이후 Certified Teacher 네트워크가 지역 이벤트로 번역되는 방식 멈춤과 재개를 소셜 플로어에서 안전하게 줄이는 법 인스타 릴스에서 보이는 감정선과 실제 수업 언어의 차이 영상 안내 연결한 영상 기준 재생 가능한 공개 YouTube 영상만 연결합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:7964587e3ad1a022",
@@ -1149,7 +1189,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Malta / International 공개 링크 확인 Bachata Influence Emilio Serap Certified Teachers Malta 참고 링크 출처 Instagram Serap Instagram Emilio Instagram YouTube Interview 관련 글 이어 보기 Influence 가이드 Melvin & Gatica Emilien & Tehina M",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:9b55572cae75d08e",
@@ -1157,7 +1197,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "에단 & 로렌 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 에단 & 로렌 EROS 한곡반과 레이디스 클래스로 강남 바차타 강습과 영상 기록을 확인할 수 있는 국내 페어 전체 프로필 한국 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:0b460398bde32429",
@@ -1165,7 +1205,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "에버라틴 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 에버라틴 서울에서 라틴댄스를 시작하려는 2030이 자주 찾는 동호회 전체 프로필 한국 장소·팀 보드 에버라틴은 서울에서 살사와 바차타",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:9da65a65a8999b96",
@@ -1173,7 +1213,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Gero & Migle | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Gero & Migle 감정선과 컨트롤을 같이 보기 좋은 글로벌 페어 전체 프로필 글로벌 센슈얼 가이드 Gero & Mig",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:f857b84c978fb9be",
@@ -1181,7 +1221,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Gero Migle Global Dancers Sensual Performance 참고 링크 출처 Official YouTube 관련 글 이어 보기 센슈얼 가이드 Korke & Judith Luis & Andrea Andi & Silvia Cristian & Gabriella Klau & Ros",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:76f8321b8e1a558f",
@@ -1189,7 +1229,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "고니 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 고니 풋워크 릴스반과 도미니칸 바차타 풋워크 영상으로 확인되는 국내 댄서 전체 프로필 한국 도미니칸 가이드 한국 프로필 고니는 BACHA",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:d12dd9d324b4c077",
@@ -1197,7 +1237,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Gray & Loren | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 Gray & Loren 한국 바차타에서 Influence 계열 감각을 참고하기 좋은 팀 전체 프로필 한국 Influen",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:ff339cc073d0c3db",
@@ -1205,7 +1245,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "흑사탕 & 세라 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 흑사탕 & 세라 센바리코 한곡반과 강남 수업 영상으로 확인되는 국내 바차타 페어 전체 프로필 한국 한국 프로필 도미니칸 가이드",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:46cbe13680216f9a",
@@ -1213,7 +1253,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 댄서 소개·장소 프로필 | 영상·공식 링크 정리 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 댄서 소개 프로필 바차타 댄서 소개·장소 프로필 국내외 바차타 댄서, 팀, 장소를 공개 영상과 공식 링크 기준으로 정리합니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:940150ce58c4958c",
@@ -1221,7 +1261,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachata Influence 계열 글로벌 바차타 댄서 한국 바차타 팀·동호회 한국 바차타 장소 인플루언스 Melvin & Gatica Bachata Influence의 중심으로 읽는 팀 공개 링크 확인 Bachata Influence Melvin Gatica Method Musicality 프로필 보기 인플루언스 Emilien & Tehina Influence 계열을 소셜과 무대 양쪽에서",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:7dfaedf59692a7f4",
@@ -1229,7 +1269,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "저스틴 & 스칼렛 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 저스틴 & 스칼렛 Team Perfecto Bachazouk 공연팀과 바차타 영상으로 확인되는 국내 페어 전체 프로필 한국 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:e29a79c1be20e413",
@@ -1237,7 +1277,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Korea / Gangnam 공개 링크 확인 저스틴 스칼렛 Team Perfecto Bachazouk 참고 링크 출처 danceinfo 공연팀 YouTube Team Video 관련 글 이어 보기 Bachazouk 가이드 한국 프로필 Gray & Loren Cluny & Journey 에버라틴 라틴씨엘로 라스트댄스",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:267796f8304656db",
@@ -1245,7 +1285,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Kike & Nahir | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Kike & Nahir 센슈얼 댄스의 감정선과 파트너 간 거리 조절을 관찰하기 좋은 페어 전체 프로필 글로벌 센슈얼 가이드",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:bc0bf4890ac5d388",
@@ -1253,7 +1293,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Kike y Nahir Sensual Dance Bachata Expression 참고 링크 출처 YouTube Reference YouTube Demo 관련 글 이어 보기 센슈얼 가이드 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristian & Gabriella",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:baa9cda4396eab1e",
@@ -1261,7 +1301,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Klau & Ros | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Klau & Ros Endless Bachata 흐름으로 몸의 인식, 연결, 음악성을 강조하는 신세대 페어 전체 프로필 글로벌",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:170dcbc0b129d120",
@@ -1269,7 +1309,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Madrid / International 공개 링크 확인 Klau Ros Endless Bachata New Generation Musicality 참고 링크 출처 Instagram YouTube Channel go&dance Profile YouTube 관련 글 이어 보기 모던 가이드 센슈얼 가이드 Korke & Judith Gero & Migle Luis & Andrea Andi ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:0edee4d2af7e54ad",
@@ -1277,7 +1317,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Korke & Judith | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Korke & Judith 센슈얼 바차타의 기본 언어를 만든 기준점 전체 프로필 글로벌 센슈얼 가이드 Korke & J",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:1aee41f39f74ea5f",
@@ -1285,7 +1325,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Spain 공개 링크 확인 Korke Judith Bachata Sensual 16 Fundamentals Sensual 참고 링크 출처 Bachata Sensual Official Reddit 16 Fundamentals YouTube 관련 글 이어 보기 센슈얼 가이드 Gero & Migle Luis & Andrea Andi & Silvia Cristian & Gabriella Kl",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:da7df3a6eec5ea48",
@@ -1293,7 +1333,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "라스트댄스 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 라스트댄스 2030 살사·바차타 동호회와 레벨업 파티를 함께 볼 수 있는 커뮤니티 전체 프로필 한국 국내 소식 한국 소셜 소식 라스",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:ee74eb914b8519d0",
@@ -1301,7 +1341,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Korea / Hongdae 공개 링크 확인 라스트댄스 Last Dance 한국 바차타 2030 동호회 홍대 보니따 참고 링크 출처 Instagram Threads Bachata Influence Social Video Level-up Party Video 3rd Anniversary Reel 관련 글 이어 보기 국내 소식 한국 소셜 소식 홍대 보니따 Bachata Influence ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:946c4e1b2cf9b24c",
@@ -1309,7 +1349,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "라틴씨엘로 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 라틴씨엘로 수업과 공연, 팀 활동을 함께 확인할 수 있는 국내 바차타 팀 전체 프로필 한국 장소·팀 보드 라틴씨엘로는 수업, 공연,",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:e38aeef15c7920d8",
@@ -1317,7 +1357,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "로건 & BK | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 로건 & BK 빅터&알바 부트캠프 사전 강습과 한곡반 영상으로 확인되는 국내 페어 전체 프로필 한국 Victor & Alba 한",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:b9afb14cadb8749d",
@@ -1325,7 +1365,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Luis & Andrea | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Luis & Andrea 국제 페스티벌 맥락에서 자주 언급되는 센슈얼 페어 전체 프로필 글로벌 센슈얼 가이드 Luis &",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:4e281fb9db29afb9",
@@ -1333,7 +1373,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Luis Andrea Global Dancers Sensual Workshop 참고 링크 출처 YouTube Channel go&dance Profile YouTube 관련 글 이어 보기 센슈얼 가이드 Korke & Judith Gero & Migle Andi & Silvia Cristian & Gabriella Klau & Ros",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:c6ccb8b54a61a648",
@@ -1341,7 +1381,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Marco & Sara | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Marco & Sara 바차타 세부장르, 레이디 세부장르, 커플워크를 모두 읽기 좋은 국제 페어 전체 프로필 글로벌 Sar",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:075071e7916e3130",
@@ -1349,7 +1389,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Marco y Sara Bachata Style Lady Style Workshop 참고 링크 출처 Official YouTube Demo YouTube Workshop 관련 글 이어 보기 Sara Panero 센슈얼 가이드 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristian & ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:1fe96157d037964a",
@@ -1357,7 +1397,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Marius & Elena | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Marius & Elena 소셜에서 쓸 수 있는 콤보와 센슈얼 기본기를 영상으로 많이 남긴 교육형 페어 전체 프로필 글",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:b67826ac8231e86f",
@@ -1365,7 +1405,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Marius & Elena Tutorial Sensual Combos 참고 링크 출처 Basic Moves Video Combos Video 관련 글 이어 보기 센슈얼 가이드 프로그램 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristian & Gabriella",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:fb565baa478b23ff",
@@ -1373,7 +1413,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Melvin & Gatica | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Bachata Influence 계열 Melvin & Gatica Bachata Influence의 중심으로 읽는 팀 전체 프로필 인플루",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:2739cfe4aec67624",
@@ -1381,7 +1421,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Bachata Influence Melvin Gatica Method Musicality 참고 링크 출처 Influence Academy 2026 byGatica Instagram YouTube 관련 글 이어 보기 Influence 가이드 Influence 기사 Emilien & Tehina Emilio & Serap",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:407d469883586f71",
@@ -1389,7 +1429,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Pablo & Raquel | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Pablo & Raquel 센슈얼 워크숍과 데모 영상으로 원리와 표현을 함께 참고할 수 있는 페어 전체 프로필 글로벌 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:1d115a0a52867e9e",
@@ -1397,7 +1437,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Pablo y Raquel Bachata Sensual Workshop Demo 참고 링크 출처 YouTube Workshop YouTube Demo 관련 글 이어 보기 센슈얼 가이드 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristian & Gabriella",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:2960ee6dd06f015a",
@@ -1405,7 +1445,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Ronald & Alba | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Ronald & Alba 풋워크, 에너지, 도미니칸 감각을 함께 참고하기 좋은 글로벌 페어 전체 프로필 글로벌 도미니칸 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:19825e9c187527ef",
@@ -1413,7 +1453,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Ronald y Alba Dominican Footwork Performance 참고 링크 출처 YouTube Reference YouTube Demo 관련 글 이어 보기 도미니칸 가이드 글로벌 프로필 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristian & Gabriella",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:f7a0d5bb49215bbb",
@@ -1421,7 +1461,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "류지 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 류지 화차타 백화점 클래스와 류텐션 영상으로 최근 강남 활동을 확인할 수 있는 댄서 전체 프로필 한국 한국 프로필 센슈얼 가이드 류지는 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:d7d800e277a164b4",
@@ -1429,7 +1469,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Sara Panero | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Sara Panero 바차타 레이디 세부장르와 무대 표현을 깊게 보기 좋은 아티스트 전체 프로필 글로벌 센슈얼 가이드 프로그",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:203a7f5527421d7a",
@@ -1437,7 +1477,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 International 공개 링크 확인 Sara Panero Lady Style Marco y Sara Body Movement 참고 링크 출처 Instagram Marco y Sara YouTube 관련 글 이어 보기 센슈얼 가이드 프로그램 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia Cristian & Gabriella",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:a8c3ab313449bae6",
@@ -1445,7 +1485,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "스카 & 쥬벨 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 스카 & 쥬벨 원리반, 릴스반, 한곡반을 함께 운영하는 강남 바차타 페어 전체 프로필 한국 한국 프로필 센슈얼 가이드 스카 & ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5147cf13f53c4c6e",
@@ -1453,7 +1493,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "소라 & 달콩 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 소라 & 달콩 라틴씨엘로의 도미니칸, 베이직, 해외 데모 따라잡기 수업 기록이 확인되는 페어 전체 프로필 한국 라틴씨엘로 도미니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:4a480466965b62d5",
@@ -1461,7 +1501,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Victor & Alba | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 글로벌 바차타 댄서 Victor & Alba 2026년 한국 부트캠프와 공연 영상으로 활동을 확인할 수 있는 최근 내한 팀 전체 프로필 글로",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5278d972100e4d20",
@@ -1469,7 +1509,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "프로필 Spain / Korea Visit 공개 링크 확인 Victor y Alba Korea Visit Bootcamp Sensual 참고 링크 출처 Korea Demo Video danceinfo 강남 부트캠프 danceinfo 홍대 부트캠프 관련 글 이어 보기 국내 소식 센슈얼 가이드 Korke & Judith Gero & Migle Luis & Andrea Andi & Silvia C",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:9b3307512712fcb0",
@@ -1477,7 +1517,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "와플 & 세라 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 와플 & 세라 소셜 원리와 한곡반 영상으로 국내 바차타 수업 흐름을 확인할 수 있는 페어 전체 프로필 한국 한국 프로필 센슈얼 ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:6fc8e7db936f30c1",
@@ -1485,7 +1525,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "원궁 & 요니 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 원궁 & 요니 센슈얼랩, 도스앤우노, 도미니칸 트레이닝까지 함께 확인되는 국내 페어 전체 프로필 한국 센슈얼 가이드 도미니칸 가",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:368bf222083732b9",
@@ -1493,7 +1533,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "원준 & 꽃라라 | 바차타 프로필 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 한국 바차타 팀·동호회 원준 & 꽃라라 인텐소 한곡반 영상으로 2026년 국내 바차타 발표 흐름을 확인할 수 있는 페어 전체 프로필 한국 한국 프로필",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:71721a9ff5cd250a",
@@ -1501,7 +1541,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 초보자 가이드 20분 루틴 | 바차타 프로그램 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Starter Path 바차타 초보자 가이드 20분 루틴 베이직, 골반, 리듬, 첫 소셜까지",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:001400fe5cfa4b50",
@@ -1509,7 +1549,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachazouk 안전과 음악성 | 바차타 프로그램 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Fusion Safety Bachazouk 안전과 음악성 Bachata와 Brazilian Zouk가 만나는 지점을 자극적인 변형보",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:630b0918a86f0d27",
@@ -1517,7 +1557,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "도미니칸 바차타 리듬과 풋워크 | 바차타 프로그램 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Rhythm Path 도미니칸 바차타 리듬과 풋워크 발을 많이 움직이기 전에 기타, 봉고, 기라를 듣는 법부터 익히는 리듬 가이드입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:e1f9cd3e0c368a35",
@@ -1525,7 +1565,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Keywords 관련 검색어 도미니칸 바차타 바차타 풋워크 bachata footwork bachata syncopation 관련 글 같이 보기 도미니칸 가이드 페스티벌 정보 최신소식 참고 링크 출처 UNESCO Dominican Bachata Dominican Embassy Bachata iASO Bachata History Dominican Footwork Video",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:792463dc983c3461",
@@ -1533,7 +1573,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "바차타 초보자 가이드 | Bachata Korea 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 영상 루틴 바차타, 영상 하나로 끝내지 않기 바차타를 처음 만난 사람도 영상 하나만 보고 끝나지 않도록, 베이직·리듬·소셜·세부장르를",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:dd9158df936148db",
@@ -1541,7 +1581,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Beginner / Intermediate 20분 x 5 Dominican Bachata Play YouTube 프로그램 보기 Influence Method Bachata Influence 읽는 법 Melvin & Gatica, Emilien & Tehina 계열 영상을 동작보다 음악성, 프레임, 교육 언어 기준으로 봅니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:735d14e4418d0d3a",
@@ -1549,7 +1589,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "All Levels 20분 x 4 국내 소식 Play YouTube 프로그램 보기 연결해서 보기 기본기는 오래 보고, 소식은 빠르게 따라갑니다 센슈얼 16개 펀더멘털, 도미니칸 리듬, Bachazouk 안전 기준처럼 오래 남는 가이드는 천천히 읽을 수 있게 두고, 국내 소셜과 행사 소식은 최신소식과 커뮤니티에서 이어집니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:c6f20ce3de7df1a7",
@@ -1557,7 +1597,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "Bachata Influence 읽는 법 | 바차타 프로그램 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Influence Method Bachata Influence 읽는 법 Melvin & Gatica, Emilien & T",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     },
     {
       "id": "finding:5c3e24493a3bddd8",
@@ -1565,47 +1605,7 @@
       "severity": "warning",
       "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
       "excerpt": "한국 바차타 소셜 보기 | 바차타 프로그램 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 국내 소식 한국 바차타 소셜 보기 서울과 전국의 팀, 장소, 페스티벌, 커뮤니티 소식을 영상과 공개 링크로 따라가는 국내 바차타 가이드입니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
-    },
-    {
-      "id": "finding:5ef42c99f5510e3d",
-      "sourcePath": "programs/sensual-fundamentals.html",
-      "severity": "warning",
-      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
-      "excerpt": "센슈얼 바차타 16 펀더멘털 | 바차타 프로그램 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Sensual Core 센슈얼 바차타 16 펀더멘털 Korke & Judith 계열의 16개 기본 개념을 이름 외우기가 아니라 안전, ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
-    },
-    {
-      "id": "finding:c5d26199d52b94ff",
-      "sourcePath": "programs/sensual-fundamentals.html",
-      "severity": "warning",
-      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
-      "excerpt": "Keywords 관련 검색어 센슈얼 바차타 코르케 주디스 Korke Judith Bachata Sensual 16 fundamentals 관련 글 같이 보기 센슈얼 가이드 최신소식 댄서 소개 참고 링크 출처 Bachata Sensual Official Reddit 16 Fundamentals Thread 16 Fundamentals Video Bachata Sensual Academy",
-      "createdAt": "2026-07-07T03:18:05.871Z"
-    },
-    {
-      "id": "finding:03b6a33a3ca9b5e0",
-      "sourcePath": "styles/bachazouk.html",
-      "severity": "warning",
-      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
-      "excerpt": "Bachazouk 가이드 | 바차타 세부장르 가이드 바차타 코리아 Bachata Korea Magazine 최신소식 초보자 가이드 세부장르 살펴보기 댄서 소개 국내 소식 페스티벌 정보 해외 페스티벌 정보 커뮤니티 자유게시판 양도양수 익명게시판 구인구직 홍보/제휴 Bachazouk Bachazouk 가이드 Bachata와 Brazilian Zouk가 만나는 지점을 유행어가 아니라 안전, 축, ",
-      "createdAt": "2026-07-07T03:18:05.871Z"
-    },
-    {
-      "id": "finding:6fac2d34bf5696b4",
-      "sourcePath": "styles/bachazouk.html",
-      "severity": "warning",
-      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
-      "excerpt": "콘텐츠 보기 출처 영상 포함 학습 프로그램 BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival YouTube 영상 확인 완료 콘텐츠 보기 출처 영상 포함 프로필 저스틴 & 스칼렛 Team Perfecto Bachazouk 공연팀과 바차타 영상으로 확인되는 국내 페어 콘텐츠 보기 출처 영상 포함 프로필 소라 & 달콩 라틴씨엘로의 도미니칸",
-      "createdAt": "2026-07-07T03:18:05.871Z"
-    },
-    {
-      "id": "finding:63bed475b884eb6b",
-      "sourcePath": "styles/bachazouk.html",
-      "severity": "warning",
-      "message": "문장이 너무 깁니다. 매거진 문체로 읽히게 둘로 나누세요.",
-      "excerpt": "Bachata와 Brazilian Zouk를 각각의 문화로 읽기 Zoukchata와 BachaZouk의 이름 차이 이해 기술보다 커뮤니티 정체성 먼저 보기 퓨전이 뿌리를 지우지 않도록 설명하기 Guide 헤드무브를 콘텐츠의 중심으로 소비하지 않기 Bachazouk 영상은 목, 등, 골반의 방향 전환이 크고 아름답게 보일 수 있습니",
-      "createdAt": "2026-07-07T03:18:05.871Z"
+      "createdAt": "2026-07-07T19:13:42.174Z"
     }
   ]
 }

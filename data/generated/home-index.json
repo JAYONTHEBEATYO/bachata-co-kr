@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-07-07T03:18:00.311Z",
+  "generatedAt": "2026-07-07T19:13:20.150Z",
   "updatedAt": "2026-07-02",
   "latestBrief": {
-    "url": "/briefs/2026-07-07.html",
+    "url": "/briefs/2026-07-08.html",
     "candidateCount": 50,
-    "generationDate": "2026-07-07"
+    "generationDate": "2026-07-08"
   },
   "sourceHealth": {
     "total": 237,
-    "ok": 214,
+    "ok": 209,
     "watch": 23,
-    "warn": 0,
-    "broken": 0
+    "warn": 1,
+    "broken": 4
   },
   "heroVideo": {
     "title": "바차타소셜 | 그레이 & 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24",

@@ -1,14 +1,100 @@
 {
-  "generatedAt": "2026-07-07T03:17:59.991Z",
-  "generationDate": "2026-07-07",
+  "generatedAt": "2026-07-07T19:13:19.822Z",
+  "generationDate": "2026-07-08",
   "summary": {
     "total": 237,
-    "ok": 214,
+    "ok": 209,
     "watch": 23,
-    "warn": 0,
-    "broken": 0
+    "warn": 1,
+    "broken": 4
   },
   "results": [
+    {
+      "type": "external",
+      "url": "https://bachatasensual.com/",
+      "label": "https://bachatasensual.com/",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.2.sources.6"
+        },
+        {
+          "file": "data/programs.json",
+          "path": "programs.1.sourceLinks.0.url"
+        },
+        {
+          "file": "data/style-guides.json",
+          "path": "guides.0.sourceLinks.0.url"
+        },
+        {
+          "file": "data/profiles.json",
+          "path": "profiles.3.sourceLinks.0.url"
+        },
+        {
+          "file": "data/articles.json",
+          "path": "articles.1.sourceLinks.0.url"
+        }
+      ],
+      "status": "broken",
+      "httpStatus": 415,
+      "note": "외부 링크 추가 확인 필요"
+    },
+    {
+      "type": "external",
+      "url": "https://godancefestival.com/event/gangnam-latin-festival/",
+      "label": "https://godancefestival.com/event/gangnam-latin-festival/",
+      "sources": [
+        {
+          "file": "data/events.json",
+          "path": "radar.3.sourceLinks.0.url"
+        }
+      ],
+      "status": "broken",
+      "httpStatus": 415,
+      "note": "외부 링크 추가 확인 필요"
+    },
+    {
+      "type": "external",
+      "url": "https://godancefestival.com/event/k-sensual-summer-edition/",
+      "label": "https://godancefestival.com/event/k-sensual-summer-edition/",
+      "sources": [
+        {
+          "file": "data/events.json",
+          "path": "radar.1.sourceLinks.1.url"
+        }
+      ],
+      "status": "broken",
+      "httpStatus": 415,
+      "note": "외부 링크 추가 확인 필요"
+    },
+    {
+      "type": "external",
+      "url": "https://latindancecalendar.com/festivals/location/south-korea/style/bachata/",
+      "label": "https://latindancecalendar.com/festivals/location/south-korea/style/bachata/",
+      "sources": [
+        {
+          "file": "data/social-radar.json",
+          "path": "watchlists.0.sourceLinks.1.url"
+        }
+      ],
+      "status": "broken",
+      "httpStatus": 415,
+      "note": "외부 링크 추가 확인 필요"
+    },
+    {
+      "type": "external",
+      "url": "https://script.google.com/macros/s/AKfycbwv81gUSx0jJ1g2c7j2XDRn44ZRjCLoZnjyEmNGYNORl1bmtNlftHy1MytF_OHw4xBp/exec",
+      "label": "https://script.google.com/macros/s/AKfycbwv81gUSx0jJ1g2c7j2XDRn44ZRjCLoZnjyEmNGYNORl1bmtNlftHy1MytF_OHw4xBp/exec",
+      "sources": [
+        {
+          "file": "data/sources.json",
+          "path": "topics.3.sources.46"
+        }
+      ],
+      "status": "warn",
+      "httpStatus": null,
+      "note": "external check timed out or failed: The operation was aborted due to timeout"
+    },
     {
       "type": "external",
       "url": "https://www.instagram.com/__the3d__/",
@@ -617,36 +703,6 @@
     },
     {
       "type": "external",
-      "url": "https://bachatasensual.com/",
-      "label": "https://bachatasensual.com/",
-      "sources": [
-        {
-          "file": "data/sources.json",
-          "path": "topics.2.sources.6"
-        },
-        {
-          "file": "data/programs.json",
-          "path": "programs.1.sourceLinks.0.url"
-        },
-        {
-          "file": "data/style-guides.json",
-          "path": "guides.0.sourceLinks.0.url"
-        },
-        {
-          "file": "data/profiles.json",
-          "path": "profiles.3.sourceLinks.0.url"
-        },
-        {
-          "file": "data/articles.json",
-          "path": "articles.1.sourceLinks.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "외부 링크 확인 완료"
-    },
-    {
-      "type": "external",
       "url": "https://bchata.vercel.app/",
       "label": "https://bchata.vercel.app/",
       "sources": [
@@ -1195,34 +1251,6 @@
     },
     {
       "type": "external",
-      "url": "https://godancefestival.com/event/gangnam-latin-festival/",
-      "label": "https://godancefestival.com/event/gangnam-latin-festival/",
-      "sources": [
-        {
-          "file": "data/events.json",
-          "path": "radar.3.sourceLinks.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "외부 링크 확인 완료"
-    },
-    {
-      "type": "external",
-      "url": "https://godancefestival.com/event/k-sensual-summer-edition/",
-      "label": "https://godancefestival.com/event/k-sensual-summer-edition/",
-      "sources": [
-        {
-          "file": "data/events.json",
-          "path": "radar.1.sourceLinks.1.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "외부 링크 확인 완료"
-    },
-    {
-      "type": "external",
       "url": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514",
       "label": "https://ich.unesco.org/en/RL/music-and-dance-of-dominican-bachata-01514",
       "sources": [
@@ -1237,20 +1265,6 @@
         {
           "file": "data/articles.json",
           "path": "articles.2.sourceLinks.0.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "외부 링크 확인 완료"
-    },
-    {
-      "type": "external",
-      "url": "https://latindancecalendar.com/festivals/location/south-korea/style/bachata/",
-      "label": "https://latindancecalendar.com/festivals/location/south-korea/style/bachata/",
-      "sources": [
-        {
-          "file": "data/social-radar.json",
-          "path": "watchlists.0.sourceLinks.1.url"
         }
       ],
       "status": "ok",
@@ -1323,20 +1337,6 @@
         {
           "file": "data/events.json",
           "path": "radar.2.sourceLinks.1.url"
-        }
-      ],
-      "status": "ok",
-      "httpStatus": 200,
-      "note": "외부 링크 확인 완료"
-    },
-    {
-      "type": "external",
-      "url": "https://script.google.com/macros/s/AKfycbwv81gUSx0jJ1g2c7j2XDRn44ZRjCLoZnjyEmNGYNORl1bmtNlftHy1MytF_OHw4xBp/exec",
-      "label": "https://script.google.com/macros/s/AKfycbwv81gUSx0jJ1g2c7j2XDRn44ZRjCLoZnjyEmNGYNORl1bmtNlftHy1MytF_OHw4xBp/exec",
-      "sources": [
-        {
-          "file": "data/sources.json",
-          "path": "topics.3.sources.46"
         }
       ],
       "status": "ok",
