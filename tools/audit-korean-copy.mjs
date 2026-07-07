@@ -1,5 +1,5 @@
 import { readFile, readdir } from "node:fs/promises";
-import { dirname, extname, resolve } from "node:path";
+import { dirname, extname, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
@@ -67,7 +67,7 @@ const walk = async (relativeDir) => {
   for (const entry of entries) {
     if (entry.name === ".git") continue;
     const absolutePath = resolve(absoluteDir, entry.name);
-    const relativePath = absolutePath.replace(`${root}\\`, "").replaceAll("\\", "/");
+    const relativePath = relative(root, absolutePath).replaceAll("\\", "/");
     if (entry.isDirectory()) {
       if (relativeDir === "." && !scanDirs.includes(entry.name)) continue;
       files.push(...await walk(relativePath));
