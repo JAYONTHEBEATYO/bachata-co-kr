@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-07T19:45:31.611Z",
+  "generatedAt": "2026-07-07T21:37:45.165Z",
   "generationDate": "2026-07-08",
   "summary": {
     "totalSignals": 51,
     "novelty": {
-      "new": 1,
-      "returning": 0,
+      "new": 0,
+      "returning": 1,
       "recurring": 50
     },
     "formats": {
@@ -26,7 +26,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=fnv7eomg-_k": {
       "key": "youtube:https://www.youtube.com/watch?v=fnv7eomg-_k",
@@ -37,7 +37,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=lgrdzkvg2r8": {
       "key": "youtube:https://www.youtube.com/watch?v=lgrdzkvg2r8",
@@ -48,7 +48,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=h4hzt9akwwc": {
       "key": "youtube:https://www.youtube.com/watch?v=h4hzt9akwwc",
@@ -59,7 +59,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=2lygaotsk1y": {
       "key": "youtube:https://www.youtube.com/watch?v=2lygaotsk1y",
@@ -70,7 +70,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=qng3wdmt3we": {
       "key": "youtube:https://www.youtube.com/watch?v=qng3wdmt3we",
@@ -81,7 +81,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=5mx_xhwsil0": {
       "key": "youtube:https://www.youtube.com/watch?v=5mx_xhwsil0",
@@ -92,7 +92,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "daum-cafe:https://cafe.daum.net/senbarico1/tgql/5": {
       "key": "daum-cafe:https://cafe.daum.net/senbarico1/tgql/5",
@@ -103,7 +103,7 @@
       "publishFormatId": "brief",
       "firstSeenAt": "2026-07-08",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 1
+      "seenCount": 2
     },
     "youtube:https://www.youtube.com/watch?v=j4cmxkdcmzi": {
       "key": "youtube:https://www.youtube.com/watch?v=j4cmxkdcmzi",
@@ -114,7 +114,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=l1vzrcpebuw": {
       "key": "youtube:https://www.youtube.com/watch?v=l1vzrcpebuw",
@@ -125,7 +125,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=fzowjrxp9r0": {
       "key": "youtube:https://www.youtube.com/watch?v=fzowjrxp9r0",
@@ -136,7 +136,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=czeb8wdvxoc": {
       "key": "youtube:https://www.youtube.com/watch?v=czeb8wdvxoc",
@@ -147,7 +147,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=9yqwdg2_mqi": {
       "key": "youtube:https://www.youtube.com/watch?v=9yqwdg2_mqi",
@@ -158,7 +158,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=fcat14yr0j4": {
       "key": "youtube:https://www.youtube.com/watch?v=fcat14yr0j4",
@@ -169,7 +169,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=q-vygpvhufm": {
       "key": "youtube:https://www.youtube.com/watch?v=q-vygpvhufm",
@@ -180,7 +180,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=erqb32fvgyk": {
       "key": "youtube:https://www.youtube.com/watch?v=erqb32fvgyk",
@@ -191,7 +191,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=upvnnia3uwu": {
       "key": "youtube:https://www.youtube.com/watch?v=upvnnia3uwu",
@@ -202,7 +202,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=zyw3xbxxnou": {
       "key": "youtube:https://www.youtube.com/watch?v=zyw3xbxxnou",
@@ -213,7 +213,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=ce0qljdnzwy": {
       "key": "youtube:https://www.youtube.com/watch?v=ce0qljdnzwy",
@@ -224,7 +224,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=av2yxlmibd0": {
       "key": "youtube:https://www.youtube.com/watch?v=av2yxlmibd0",
@@ -235,7 +235,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=nrjm-arshve": {
       "key": "youtube:https://www.youtube.com/watch?v=nrjm-arshve",
@@ -246,7 +246,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=w_ucz9jkrfe": {
       "key": "youtube:https://www.youtube.com/watch?v=w_ucz9jkrfe",
@@ -257,7 +257,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=gdtowuqewkw": {
       "key": "youtube:https://www.youtube.com/watch?v=gdtowuqewkw",
@@ -268,7 +268,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=0yytf9nktfq": {
       "key": "youtube:https://www.youtube.com/watch?v=0yytf9nktfq",
@@ -279,7 +279,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=yi0i7phbi08": {
       "key": "youtube:https://www.youtube.com/watch?v=yi0i7phbi08",
@@ -290,7 +290,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=q9uzvv6afu8": {
       "key": "youtube:https://www.youtube.com/watch?v=q9uzvv6afu8",
@@ -301,7 +301,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=wkmmgusij1u": {
       "key": "youtube:https://www.youtube.com/watch?v=wkmmgusij1u",
@@ -312,7 +312,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=pq7g9qihqyi": {
       "key": "youtube:https://www.youtube.com/watch?v=pq7g9qihqyi",
@@ -323,7 +323,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=l69gt8dj0gq": {
       "key": "youtube:https://www.youtube.com/watch?v=l69gt8dj0gq",
@@ -334,7 +334,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=xdbudsks-ds": {
       "key": "youtube:https://www.youtube.com/watch?v=xdbudsks-ds",
@@ -345,7 +345,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=4bwmf3jnile": {
       "key": "youtube:https://www.youtube.com/watch?v=4bwmf3jnile",
@@ -356,7 +356,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "youtube:https://www.youtube.com/watch?v=6h3io0i6h_m": {
       "key": "youtube:https://www.youtube.com/watch?v=6h3io0i6h_m",
@@ -367,7 +367,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 11
+      "seenCount": 12
     },
     "youtube:https://www.youtube.com/watch?v=ftcprwvidnk": {
       "key": "youtube:https://www.youtube.com/watch?v=ftcprwvidnk",
@@ -378,7 +378,7 @@
       "publishFormatId": "gear",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/ksensual_official/": {
       "key": "instagram-watch:https://www.instagram.com/ksensual_official/",
@@ -389,7 +389,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/seoulbachatafestival/": {
       "key": "instagram-watch:https://www.instagram.com/seoulbachatafestival/",
@@ -400,7 +400,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/gangnamlatinfestival/": {
       "key": "instagram-watch:https://www.instagram.com/gangnamlatinfestival/",
@@ -411,7 +411,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/latin_cielo/": {
       "key": "instagram-watch:https://www.instagram.com/latin_cielo/",
@@ -422,7 +422,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/clublatin_everlatin/": {
       "key": "instagram-watch:https://www.instagram.com/clublatin_everlatin/",
@@ -433,7 +433,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/jessica_latinclub_bonita/": {
       "key": "instagram-watch:https://www.instagram.com/jessica_latinclub_bonita/",
@@ -444,7 +444,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/lauren_bachatista/reels/": {
       "key": "instagram-watch:https://www.instagram.com/lauren_bachatista/reels/",
@@ -455,7 +455,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/lastdance_people/": {
       "key": "instagram-watch:https://www.instagram.com/lastdance_people/",
@@ -466,7 +466,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/melvin_gatica_bachata/": {
       "key": "instagram-watch:https://www.instagram.com/melvin_gatica_bachata/",
@@ -477,7 +477,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/bachata.influence/": {
       "key": "instagram-watch:https://www.instagram.com/bachata.influence/",
@@ -488,7 +488,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/emilio_serap_bachata/": {
       "key": "instagram-watch:https://www.instagram.com/emilio_serap_bachata/",
@@ -499,7 +499,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "instagram-watch:https://www.instagram.com/andiysilviabs/": {
       "key": "instagram-watch:https://www.instagram.com/andiysilviabs/",
@@ -510,7 +510,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "editorial-queue:/programs/sensual-fundamentals.html": {
       "key": "editorial-queue:/programs/sensual-fundamentals.html",
@@ -521,7 +521,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "editorial-queue:/programs/dominican-rhythm.html": {
       "key": "editorial-queue:/programs/dominican-rhythm.html",
@@ -532,7 +532,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "editorial-queue:/programs/influence-method.html": {
       "key": "editorial-queue:/programs/influence-method.html",
@@ -543,7 +543,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "editorial-queue:/profiles/": {
       "key": "editorial-queue:/profiles/",
@@ -554,7 +554,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "editorial-queue:/programs/bachazouk-safety.html": {
       "key": "editorial-queue:/programs/bachazouk-safety.html",
@@ -565,7 +565,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     },
     "editorial-queue:/gear/": {
       "key": "editorial-queue:/gear/",
@@ -576,7 +576,7 @@
       "publishFormatId": "gear",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 17
+      "seenCount": 18
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T19:46:46.442Z",
+  "generatedAt": "2026-07-07T21:39:11.497Z",
   "policy": {
     "storesFullExternalArticleBodies": false,
     "note": "외부 매거진은 제목 구조, 레이아웃, 문단 리듬, CTA 방식 같은 관찰값만 저장합니다."
@@ -16,7 +16,7 @@
       "section": "live-feed",
       "title": "CoinNess - Fast and accurate crypto news at your fingertips",
       "fetchStatus": "ok",
-      "fetchedAt": "2026-07-07T19:46:36.634Z",
+      "fetchedAt": "2026-07-07T21:38:53.629Z",
       "headlineShape": "대표 제목 「Live Feed」처럼 대상과 관점을 함께 둔다.",
       "ledeStrategy": "첫 문장에서 사건·주체·수치를 바로 제시",
       "paragraphCadence": "한 카드에 한 이슈, 2-4문장 중심",
@@ -33,7 +33,7 @@
       "section": "design-archive",
       "title": "Article | Design＋",
       "fetchStatus": "ok",
-      "fetchedAt": "2026-07-07T19:46:36.634Z",
+      "fetchedAt": "2026-07-07T21:38:53.629Z",
       "headlineShape": "대표 제목 「Article」, 「기후위기 시대 도시들을 위한 새로운 아이디어」, 「[적응적 재사용 ④] 적응적 재사용, 어디까지 왔나?」처럼 대상과 관점을 함께 둔다.",
       "ledeStrategy": "대상이 가진 의미와 지금성을 먼저 설명",
       "paragraphCadence": "분석 대상 문단 5개, 평균 120자. 짧은 문단 4개와 긴 문단 1개를 섞는다.",
@@ -50,15 +50,15 @@
       "section": "feature",
       "title": "지큐 코리아 (GQ Korea)",
       "fetchStatus": "ok",
-      "fetchedAt": "2026-07-07T19:46:36.634Z",
+      "fetchedAt": "2026-07-07T21:38:53.629Z",
       "headlineShape": "대표 제목 「두르고 메고 묶는다. 너와 나의 부드러운 연결고리」, 「두르고 메고 묶는다. 너와 나의 부드러운 연결고리」, 「BEST」처럼 대상과 관점을 함께 둔다.",
       "ledeStrategy": "장면, 인용, 감각어로 독자가 머릿속에 이미지를 만들게 함",
-      "paragraphCadence": "분석 대상 문단 18개, 평균 33자. 짧은 문단 18개와 긴 문단 0개를 섞는다.",
+      "paragraphCadence": "분석 대상 문단 17개, 평균 34자. 짧은 문단 17개와 긴 문단 0개를 섞는다.",
       "sentenceRhythm": "단정한 문장 안에 취향의 어휘를 섞음",
       "vocabularyNotes": "세련됨, 태도, 장면, 취향, 지금성",
       "layoutNotes": "큰 이미지와 굵은 제목, 카테고리 명확화",
       "ctaPattern": "관련 기사와 인물 흐름으로 자연스럽게 이동",
-      "sampleCount": 18
+      "sampleCount": 17
     },
     {
       "id": "longblack-note",
@@ -67,7 +67,7 @@
       "section": "longform-note",
       "title": "롱블랙 LongBlack",
       "fetchStatus": "ok",
-      "fetchedAt": "2026-07-07T19:46:36.634Z",
+      "fetchedAt": "2026-07-07T21:38:53.629Z",
       "headlineShape": "대표 제목 「롱블랙에서 만나는 뉴스픽스」, 「느슨한 연결이 만드는 힘」, 「한국 문학이 그리는 우리의 삶」처럼 대상과 관점을 함께 둔다.",
       "ledeStrategy": "왜 지금 읽어야 하는지 먼저 열고, 맥락을 순서대로 쌓음",
       "paragraphCadence": "분석 대상 문단 40개, 평균 61자. 짧은 문단 38개와 긴 문단 1개를 섞는다.",
@@ -84,7 +84,7 @@
       "section": "review",
       "title": "디에디트 &#045; 사는 재미가 없으면, 사는 재미라도",
       "fetchStatus": "ok",
-      "fetchedAt": "2026-07-07T19:46:36.634Z",
+      "fetchedAt": "2026-07-07T21:38:53.629Z",
       "headlineShape": "대표 제목 「[새로나왔] 7월 1주차 신상 리스트」, 「[새로나왔] 6월 5주차 신상 리스트」, 「잘 나가는 브랜드는 왜 찻집을 열까?」처럼 대상과 관점을 함께 둔다.",
       "ledeStrategy": "개인 경험을 앞에 두고 정보로 확장",
       "paragraphCadence": "분석 대상 문단 12개, 평균 30자. 짧은 문단 12개와 긴 문단 0개를 섞는다.",
@@ -101,7 +101,7 @@
       "section": "fashion-lifestyle-news",
       "title": "아이즈매거진 | eyesmag",
       "fetchStatus": "ok",
-      "fetchedAt": "2026-07-07T19:46:36.634Z",
+      "fetchedAt": "2026-07-07T21:38:53.629Z",
       "headlineShape": "대표 제목 「최신 기사」처럼 대상과 관점을 함께 둔다.",
       "ledeStrategy": "무엇이 새로 나왔는지, 왜 화제인지 빠르게 요약",
       "paragraphCadence": "분석 대상 문단 5개, 평균 82자. 짧은 문단 4개와 긴 문단 1개를 섞는다.",
@@ -116,9 +116,9 @@
       "outlet": "요즘IT",
       "url": "https://yozm.wishket.com/magazine/",
       "section": "analysis",
-      "title": "요즘 사람들의 IT 매거진, 요즘IT",
-      "fetchStatus": "ok",
-      "fetchedAt": "2026-07-07T19:46:36.634Z",
+      "title": "질문을 구조화해 답하는 실무형 매거진",
+      "fetchStatus": "fallback",
+      "fetchedAt": "2026-07-07T21:38:53.629Z",
       "headlineShape": "문제 상황과 배운 점을 제목에 같이 둠",
       "ledeStrategy": "독자가 겪는 문제를 먼저 말하고 해결 흐름을 제시",
       "paragraphCadence": "소제목, 리스트, 사례, 정리 순서가 명확",
@@ -126,7 +126,7 @@
       "vocabularyNotes": "전략, 실험, 파이프라인, 단계, 체크리스트",
       "layoutNotes": "긴 글도 목차와 이미지 캡션으로 길을 잃지 않게 함",
       "ctaPattern": "관련 실무 글과 다음 학습으로 연결",
-      "sampleCount": 1
+      "sampleCount": 0
     }
   ],
   "rules": [
