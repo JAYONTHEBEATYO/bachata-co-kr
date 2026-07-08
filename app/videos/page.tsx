@@ -17,7 +17,7 @@ export default async function VideosPage() {
       <section className="page-head">
         <span className="eyebrow">Video Threads</span>
         <h1>영상부터 보고 이야기하기</h1>
-        <p>바차타는 말보다 영상이 빠를 때가 많습니다. 재생 가능한 영상과 함께, 무엇을 보면 좋은지 같이 정리합니다.</p>
+        <p>바차타는 말보다 영상이 빠를 때가 많습니다. 바로 재생되는 영상 옆에, 어디를 보면 좋은지도 함께 짚어둡니다.</p>
       </section>
       <section className="thread-list wide">
         {threads.map((thread) => <ThreadCard key={thread.id} thread={thread} />)}

@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "바차타 행사",
-  description: "국내 바차타 페스티벌, 해외페스티벌, 워크숍과 소셜 일정을 카드로 확인합니다.",
+  description: "국내 바차타 페스티벌과 해외페스티벌, 워크숍·소셜 일정을 놓치지 않게 모았습니다.",
   alternates: { canonical: absoluteUrl("/events") }
 };
 

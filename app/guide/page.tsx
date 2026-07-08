@@ -5,7 +5,7 @@ import { VideoEmbed } from "@/components/VideoEmbed";
 
 export const metadata: Metadata = {
   title: "초보자 가이드",
-  description: "바차타 베이직, 센슈얼과 도미니칸 차이, 소셜 매너를 처음 배우는 사람 기준으로 정리합니다.",
+  description: "바차타 베이직, 센슈얼과 도미니칸 차이, 소셜 매너를 처음 배우는 사람이 바로 써먹을 순서로 안내합니다.",
   alternates: { canonical: absoluteUrl("/guide") }
 };
 

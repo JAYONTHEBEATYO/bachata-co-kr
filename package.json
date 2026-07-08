@@ -9,6 +9,7 @@
     "start": "next start",
     "typecheck": "tsc --noEmit",
     "audit:copy": "node scripts/audit-public-copy.mjs",
+    "legacy:redirects": "node scripts/write-legacy-redirects.mjs",
     "verify": "npm run audit:copy && npm run typecheck && npm run build",
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",

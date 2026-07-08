@@ -32,14 +32,14 @@ export const communities: Community[] = [
   {
     slug: "dancers",
     name: "댄서",
-    description: "국내외 댄서, 팀, 크루, 강사 이야기를 정리합니다.",
+    description: "국내외 댄서, 팀, 크루, 강사의 무대와 수업 이야기를 만납니다.",
     memberCount: 530,
     color: "#f5a524"
   },
   {
     slug: "guide",
     name: "가이드",
-    description: "바차타 베이직과 장르별 핵심을 차근차근 정리합니다.",
+    description: "바차타 베이직과 장르별 핵심을 차근차근 따라갑니다.",
     memberCount: 680,
     color: "#0c8f70"
   }
@@ -61,8 +61,8 @@ export const threads: Thread[] = [
     upvotes: 231,
     downvotes: 17,
     commentCount: 38,
-    videoId: "RaIjKG_ENIU",
-    sourceLinks: [{ label: "참고 영상", url: "https://www.youtube.com/watch?v=RaIjKG_ENIU" }],
+    videoId: "xhrdh-uFkog",
+    sourceLinks: [{ label: "Bachata Dance Academy 베이직", url: "https://www.youtube.com/watch?v=xhrdh-uFkog" }],
     tags: ["바차타 베이직", "입문", "bachata basic"],
     pinned: true
   },
@@ -160,8 +160,11 @@ export const threads: Thread[] = [
     upvotes: 128,
     downvotes: 10,
     commentCount: 16,
-    videoId: "B7Wv3cqHrSU",
-    sourceLinks: [{ label: "Bachata Geneva Festival", url: "https://bachatagenevafestival.com/" }],
+    videoId: "KwCdb36gUtY",
+    sourceLinks: [
+      { label: "Bachata Geneva Festival", url: "https://bachatagenevafestival.com/" },
+      { label: "Social World Cup 영상", url: "https://www.youtube.com/watch?v=KwCdb36gUtY" }
+    ],
     tags: ["해외페스티벌", "여행", "Geneva"]
   },
   {
@@ -197,8 +200,8 @@ export const threads: Thread[] = [
     upvotes: 101,
     downvotes: 8,
     commentCount: 12,
-    videoId: "vs3YqyTyOIo",
-    sourceLinks: [{ label: "Korke y Judith 참고 영상", url: "https://www.youtube.com/watch?v=vs3YqyTyOIo" }],
+    videoId: "B7Wv3cqHrSU",
+    sourceLinks: [{ label: "Korke y Judith 16 fundamentals", url: "https://www.youtube.com/watch?v=B7Wv3cqHrSU" }],
     tags: ["Korke Judith", "센슈얼", "안전"]
   }
 ];
@@ -273,7 +276,7 @@ export const events: EventCard[] = [
     city: "Geneva, Switzerland",
     venue: "Palexpo Congress Center",
     excerpt: "해외 라인업과 Bachata Social World Cup 흐름을 함께 볼 수 있는 유럽권 대형 행사입니다.",
-    posterUrl: "https://i.ytimg.com/vi/B7Wv3cqHrSU/hqdefault.jpg",
+    posterUrl: "https://i.ytimg.com/vi/KwCdb36gUtY/hqdefault.jpg",
     sourceUrl: "https://bachatagenevafestival.com/",
     tags: ["해외", "Geneva", "World Cup"]
   }

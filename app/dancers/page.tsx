@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "댄서",
-  description: "국내외 바차타 댄서와 팀을 영상, 스타일, 한국 씬과의 연결로 정리합니다.",
+  description: "국내외 바차타 댄서와 팀을 영상, 스타일, 한국 씬에서 눈여겨볼 포인트로 소개합니다.",
   alternates: { canonical: absoluteUrl("/dancers") }
 };
 

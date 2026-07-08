@@ -1,6 +1,14 @@
 User-Agent: *
 Allow: /
 Disallow: /admin
+Disallow: /data/
+Disallow: /docs/
+Disallow: /scripts/
+Disallow: /tools/
+Disallow: /node_modules/
+Disallow: /package-lock.json
+Disallow: /README.md
+Disallow: /AGENTS.md
 
 Host: https://bachata.co.kr
 Sitemap: https://bachata.co.kr/sitemap.xml

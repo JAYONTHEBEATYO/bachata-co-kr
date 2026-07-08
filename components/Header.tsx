@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Bell, Flame, Home, PenSquare, Search, Sparkles, UserCircle } from "lucide-react";
+import { Bell, Flame, Home, PenSquare, Sparkles, UserCircle } from "lucide-react";
+import { SiteSearch } from "./SiteSearch";
 
 const nav = [
   { href: "/", label: "인기" },
@@ -24,10 +25,7 @@ export function Header() {
         <nav className="top-nav" aria-label="주요 메뉴">
           {nav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
         </nav>
-        <form className="search" role="search">
-          <Search size={18} />
-          <input type="search" placeholder="바차타, 센슈얼, 페스티벌 검색" aria-label="검색" />
-        </form>
+        <SiteSearch />
         <div className="header-actions">
           <Link className="write-button" href="/write"><PenSquare size={18} /> 글쓰기</Link>
           <button type="button" aria-label="알림"><Bell size={19} /></button>
