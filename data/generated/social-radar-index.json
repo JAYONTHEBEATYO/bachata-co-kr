@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-07-07T21:37:52.599Z",
+  "generatedAt": "2026-07-08T07:35:06.271Z",
   "updatedAt": "2026-06-30",
   "title": "한국 바차타 행사·소셜 소식",
   "url": "/radar/",
@@ -7,8 +7,8 @@
   "hashtagCount": 7,
   "mode": {
     "youtubeApi": false,
-    "naverApi": false,
-    "naverCafeApi": false,
+    "naverApi": true,
+    "naverCafeApi": true,
     "kakaoCafeApi": true,
     "instagramGraph": false,
     "instagramHashtagSearch": false,
@@ -37,8 +37,8 @@
     },
     "naver": {
       "label": "네이버 검색 확인",
-      "status": "credential-needed",
-      "note": "네이버 API 자격 증명이 없을 때는 공식 링크와 편집자가 확인한 목록 중심으로 공개합니다."
+      "status": "search-ready",
+      "note": "네이버 검색에서 반복적으로 보이는 소식을 최신 브리핑에 더합니다."
     }
   },
   "watchlists": [

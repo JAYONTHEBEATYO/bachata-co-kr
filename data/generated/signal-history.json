@@ -1,17 +1,17 @@
 {
-  "generatedAt": "2026-07-07T21:37:45.165Z",
+  "generatedAt": "2026-07-08T07:34:56.110Z",
   "generationDate": "2026-07-08",
   "summary": {
-    "totalSignals": 51,
+    "totalSignals": 70,
     "novelty": {
-      "new": 0,
+      "new": 19,
       "returning": 1,
       "recurring": 50
     },
     "formats": {
       "learning": 37,
-      "brief": 1,
-      "gear": 2,
+      "brief": 10,
+      "gear": 12,
       "event": 3,
       "profile": 8
     }
@@ -26,7 +26,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=fnv7eomg-_k": {
       "key": "youtube:https://www.youtube.com/watch?v=fnv7eomg-_k",
@@ -37,7 +37,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=lgrdzkvg2r8": {
       "key": "youtube:https://www.youtube.com/watch?v=lgrdzkvg2r8",
@@ -48,7 +48,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=h4hzt9akwwc": {
       "key": "youtube:https://www.youtube.com/watch?v=h4hzt9akwwc",
@@ -59,7 +59,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=2lygaotsk1y": {
       "key": "youtube:https://www.youtube.com/watch?v=2lygaotsk1y",
@@ -70,7 +70,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=qng3wdmt3we": {
       "key": "youtube:https://www.youtube.com/watch?v=qng3wdmt3we",
@@ -81,7 +81,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=5mx_xhwsil0": {
       "key": "youtube:https://www.youtube.com/watch?v=5mx_xhwsil0",
@@ -92,7 +92,106 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
+    },
+    "naver-cafe:http://cafe.naver.com/bbzouk/107": {
+      "key": "naver-cafe:http://cafe.naver.com/bbzouk/107",
+      "title": "10/10-12 Marck y Melyssa Weekender by zoukseoul",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/bbzouk/107",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:https://blog.naver.com/paran_dance/223696258259": {
+      "key": "naver-blog:https://blog.naver.com/paran_dance/223696258259",
+      "title": "2025년 1월 Kzouk 강습 모집] 강남, 홍대 브라질리언주크...",
+      "type": "naver-blog",
+      "sourceUrl": "https://blog.naver.com/paran_dance/223696258259",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:https://blog.naver.com/paran_dance/223481533481": {
+      "key": "naver-blog:https://blog.naver.com/paran_dance/223481533481",
+      "title": "Kzouk 가문의 경사로 무료 소셜 쏩니다. 6/18(월)강남, 6/19...",
+      "type": "naver-blog",
+      "sourceUrl": "https://blog.naver.com/paran_dance/223481533481",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:https://blog.naver.com/paran_dance/223481434220": {
+      "key": "naver-blog:https://blog.naver.com/paran_dance/223481434220",
+      "title": "Kzouk강습] 7월 강습 모집. 강남7/8(월)개강, 홍대 7/9(화)개강",
+      "type": "naver-blog",
+      "sourceUrl": "https://blog.naver.com/paran_dance/223481434220",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:https://blog.naver.com/paran_dance/223376325806": {
+      "key": "naver-blog:https://blog.naver.com/paran_dance/223376325806",
+      "title": "Kzouk 개강 안내] 강남_3/19(월), 홍대_3/25(화) 개강합니다....",
+      "type": "naver-blog",
+      "sourceUrl": "https://blog.naver.com/paran_dance/223376325806",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-cafe:http://cafe.naver.com/bbzouk/106": {
+      "key": "naver-cafe:http://cafe.naver.com/bbzouk/106",
+      "title": "8/1-3 라우타로y아리아나 워크샵",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/bbzouk/106",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-cafe:http://cafe.naver.com/bbzouk/101": {
+      "key": "naver-cafe:http://cafe.naver.com/bbzouk/101",
+      "title": "Brazilian Zouk Tips by Arthur Santos",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/bbzouk/101",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-cafe:http://cafe.naver.com/bbzouk/85": {
+      "key": "naver-cafe:http://cafe.naver.com/bbzouk/85",
+      "title": "4레벨 수료식 영상입니다",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/bbzouk/85",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-cafe:http://cafe.naver.com/pohangdancelove/1467": {
+      "key": "naver-cafe:http://cafe.naver.com/pohangdancelove/1467",
+      "title": "1월 16일(목) 사보르 정모 공지",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/pohangdancelove/1467",
+      "relatedUrl": "",
+      "publishFormatId": "brief",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
     },
     "daum-cafe:https://cafe.daum.net/senbarico1/tgql/5": {
       "key": "daum-cafe:https://cafe.daum.net/senbarico1/tgql/5",
@@ -103,7 +202,7 @@
       "publishFormatId": "brief",
       "firstSeenAt": "2026-07-08",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 2
+      "seenCount": 3
     },
     "youtube:https://www.youtube.com/watch?v=j4cmxkdcmzi": {
       "key": "youtube:https://www.youtube.com/watch?v=j4cmxkdcmzi",
@@ -114,7 +213,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=l1vzrcpebuw": {
       "key": "youtube:https://www.youtube.com/watch?v=l1vzrcpebuw",
@@ -125,7 +224,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=fzowjrxp9r0": {
       "key": "youtube:https://www.youtube.com/watch?v=fzowjrxp9r0",
@@ -136,7 +235,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=czeb8wdvxoc": {
       "key": "youtube:https://www.youtube.com/watch?v=czeb8wdvxoc",
@@ -147,7 +246,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=9yqwdg2_mqi": {
       "key": "youtube:https://www.youtube.com/watch?v=9yqwdg2_mqi",
@@ -158,7 +257,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=fcat14yr0j4": {
       "key": "youtube:https://www.youtube.com/watch?v=fcat14yr0j4",
@@ -169,7 +268,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=q-vygpvhufm": {
       "key": "youtube:https://www.youtube.com/watch?v=q-vygpvhufm",
@@ -180,7 +279,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=erqb32fvgyk": {
       "key": "youtube:https://www.youtube.com/watch?v=erqb32fvgyk",
@@ -191,7 +290,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=upvnnia3uwu": {
       "key": "youtube:https://www.youtube.com/watch?v=upvnnia3uwu",
@@ -202,7 +301,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=zyw3xbxxnou": {
       "key": "youtube:https://www.youtube.com/watch?v=zyw3xbxxnou",
@@ -213,7 +312,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=ce0qljdnzwy": {
       "key": "youtube:https://www.youtube.com/watch?v=ce0qljdnzwy",
@@ -224,7 +323,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=av2yxlmibd0": {
       "key": "youtube:https://www.youtube.com/watch?v=av2yxlmibd0",
@@ -235,7 +334,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=nrjm-arshve": {
       "key": "youtube:https://www.youtube.com/watch?v=nrjm-arshve",
@@ -246,7 +345,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=w_ucz9jkrfe": {
       "key": "youtube:https://www.youtube.com/watch?v=w_ucz9jkrfe",
@@ -257,7 +356,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=gdtowuqewkw": {
       "key": "youtube:https://www.youtube.com/watch?v=gdtowuqewkw",
@@ -268,7 +367,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=0yytf9nktfq": {
       "key": "youtube:https://www.youtube.com/watch?v=0yytf9nktfq",
@@ -279,7 +378,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=yi0i7phbi08": {
       "key": "youtube:https://www.youtube.com/watch?v=yi0i7phbi08",
@@ -290,7 +389,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=q9uzvv6afu8": {
       "key": "youtube:https://www.youtube.com/watch?v=q9uzvv6afu8",
@@ -301,7 +400,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=wkmmgusij1u": {
       "key": "youtube:https://www.youtube.com/watch?v=wkmmgusij1u",
@@ -312,7 +411,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=pq7g9qihqyi": {
       "key": "youtube:https://www.youtube.com/watch?v=pq7g9qihqyi",
@@ -323,7 +422,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=l69gt8dj0gq": {
       "key": "youtube:https://www.youtube.com/watch?v=l69gt8dj0gq",
@@ -334,7 +433,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=xdbudsks-ds": {
       "key": "youtube:https://www.youtube.com/watch?v=xdbudsks-ds",
@@ -345,7 +444,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=4bwmf3jnile": {
       "key": "youtube:https://www.youtube.com/watch?v=4bwmf3jnile",
@@ -356,7 +455,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "youtube:https://www.youtube.com/watch?v=6h3io0i6h_m": {
       "key": "youtube:https://www.youtube.com/watch?v=6h3io0i6h_m",
@@ -367,7 +466,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 12
+      "seenCount": 13
     },
     "youtube:https://www.youtube.com/watch?v=ftcprwvidnk": {
       "key": "youtube:https://www.youtube.com/watch?v=ftcprwvidnk",
@@ -378,7 +477,117 @@
       "publishFormatId": "gear",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
+    },
+    "naver-cafe:http://cafe.naver.com/bluesalive/2327": {
+      "key": "naver-cafe:http://cafe.naver.com/bluesalive/2327",
+      "title": "풀맨 選定 Jazz, Classic 舞蹈音樂 鑑賞音盤 No.5",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/bluesalive/2327",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-cafe:http://cafe.naver.com/musicworld24/156": {
+      "key": "naver-cafe:http://cafe.naver.com/musicworld24/156",
+      "title": "이브알지가 뽑은 유로댄스 베스트 1000",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/musicworld24/156",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-cafe:http://cafe.naver.com/bluesalive/2049": {
+      "key": "naver-cafe:http://cafe.naver.com/bluesalive/2049",
+      "title": "17-05 Euro Pop (80s 컴필) (Ful`s Touch ☆)",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/bluesalive/2049",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-cafe:http://cafe.naver.com/gndancesports/5": {
+      "key": "naver-cafe:http://cafe.naver.com/gndancesports/5",
+      "title": "Dance Sports Trainer For The Music...",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/gndancesports/5",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-cafe:http://cafe.naver.com/popsstory/4385": {
+      "key": "naver-cafe:http://cafe.naver.com/popsstory/4385",
+      "title": "[이브알지가 뽑은 유로댄스 베스트 1000]",
+      "type": "naver-cafe",
+      "sourceUrl": "http://cafe.naver.com/popsstory/4385",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:https://blog.naver.com/wedori/224306269305": {
+      "key": "naver-blog:https://blog.naver.com/wedori/224306269305",
+      "title": "살사&amp;바차타 댄스화 미쳤다!! 내돈내산!! 라틴댄스화 가성비 갑!!",
+      "type": "naver-blog",
+      "sourceUrl": "https://blog.naver.com/wedori/224306269305",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:https://blog.naver.com/honest2989/223189520936": {
+      "key": "naver-blog:https://blog.naver.com/honest2989/223189520936",
+      "title": "SAIFAM PUBLISHING GROUP 2 (SAI-1201~2450)",
+      "type": "naver-blog",
+      "sourceUrl": "https://blog.naver.com/honest2989/223189520936",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:http://caraycaray.blogspot.com/2019/03/ay-caray-did-i-say-that.html": {
+      "key": "naver-blog:http://caraycaray.blogspot.com/2019/03/ay-caray-did-i-say-that.html",
+      "title": "Caray, Caray!: Ay, Caray! Did I Say That?",
+      "type": "naver-blog",
+      "sourceUrl": "http://caraycaray.blogspot.com/2019/03/ay-caray-did-i-say-that.html",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:https://blog.naver.com/bluesalive/221359491123": {
+      "key": "naver-blog:https://blog.naver.com/bluesalive/221359491123",
+      "title": "풀맨 選定 Jazz Mood`s Classic 舞蹈音樂 鑑賞音盤 No.5 (355)",
+      "type": "naver-blog",
+      "sourceUrl": "https://blog.naver.com/bluesalive/221359491123",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
+    },
+    "naver-blog:https://blog.naver.com/rover0/221339153225": {
+      "key": "naver-blog:https://blog.naver.com/rover0/221339153225",
+      "title": "J",
+      "type": "naver-blog",
+      "sourceUrl": "https://blog.naver.com/rover0/221339153225",
+      "relatedUrl": "",
+      "publishFormatId": "gear",
+      "firstSeenAt": "2026-07-08",
+      "lastSeenAt": "2026-07-08",
+      "seenCount": 1
     },
     "instagram-watch:https://www.instagram.com/ksensual_official/": {
       "key": "instagram-watch:https://www.instagram.com/ksensual_official/",
@@ -389,7 +598,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/seoulbachatafestival/": {
       "key": "instagram-watch:https://www.instagram.com/seoulbachatafestival/",
@@ -400,7 +609,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/gangnamlatinfestival/": {
       "key": "instagram-watch:https://www.instagram.com/gangnamlatinfestival/",
@@ -411,7 +620,7 @@
       "publishFormatId": "event",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/latin_cielo/": {
       "key": "instagram-watch:https://www.instagram.com/latin_cielo/",
@@ -422,7 +631,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/clublatin_everlatin/": {
       "key": "instagram-watch:https://www.instagram.com/clublatin_everlatin/",
@@ -433,7 +642,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/jessica_latinclub_bonita/": {
       "key": "instagram-watch:https://www.instagram.com/jessica_latinclub_bonita/",
@@ -444,7 +653,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/lauren_bachatista/reels/": {
       "key": "instagram-watch:https://www.instagram.com/lauren_bachatista/reels/",
@@ -455,7 +664,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/lastdance_people/": {
       "key": "instagram-watch:https://www.instagram.com/lastdance_people/",
@@ -466,7 +675,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/melvin_gatica_bachata/": {
       "key": "instagram-watch:https://www.instagram.com/melvin_gatica_bachata/",
@@ -477,7 +686,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/bachata.influence/": {
       "key": "instagram-watch:https://www.instagram.com/bachata.influence/",
@@ -488,7 +697,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/emilio_serap_bachata/": {
       "key": "instagram-watch:https://www.instagram.com/emilio_serap_bachata/",
@@ -499,7 +708,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "instagram-watch:https://www.instagram.com/andiysilviabs/": {
       "key": "instagram-watch:https://www.instagram.com/andiysilviabs/",
@@ -510,7 +719,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "editorial-queue:/programs/sensual-fundamentals.html": {
       "key": "editorial-queue:/programs/sensual-fundamentals.html",
@@ -521,7 +730,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "editorial-queue:/programs/dominican-rhythm.html": {
       "key": "editorial-queue:/programs/dominican-rhythm.html",
@@ -532,7 +741,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "editorial-queue:/programs/influence-method.html": {
       "key": "editorial-queue:/programs/influence-method.html",
@@ -543,7 +752,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "editorial-queue:/profiles/": {
       "key": "editorial-queue:/profiles/",
@@ -554,7 +763,7 @@
       "publishFormatId": "profile",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "editorial-queue:/programs/bachazouk-safety.html": {
       "key": "editorial-queue:/programs/bachazouk-safety.html",
@@ -565,7 +774,7 @@
       "publishFormatId": "learning",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     },
     "editorial-queue:/gear/": {
       "key": "editorial-queue:/gear/",
@@ -576,7 +785,7 @@
       "publishFormatId": "gear",
       "firstSeenAt": "2026-07-01",
       "lastSeenAt": "2026-07-08",
-      "seenCount": 18
+      "seenCount": 19
     }
   }
 }

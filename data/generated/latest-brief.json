@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-07-07T21:38:53.333Z",
+  "generatedAt": "2026-07-08T07:36:04.478Z",
   "generationDate": "2026-07-08",
   "url": "/briefs/2026-07-08.html",
   "headline": "2026년 7월 8일 바차타 최신소식",
   "dek": "오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니다. 원문은 복사하지 않고 공개 링크와 관찰값만 연결합니다.",
   "topicCount": 7,
-  "candidateCount": 51,
+  "candidateCount": 70,
   "sections": [
     {
       "id": "bachata-influence",
@@ -57,8 +57,8 @@
           "evidenceLevel": "medium"
         },
         {
-          "title": "바챠쥬크는 어떤장르?",
-          "url": "https://cafe.daum.net/senbarico1/tGqL/5",
+          "title": "10/10-12 Marck y Melyssa Weekender by zoukseoul",
+          "url": "http://cafe.naver.com/bbzouk/107",
           "videoId": null,
           "publishFormat": "일간 브리핑",
           "evidenceLevel": "watch"
@@ -135,6 +135,20 @@
           "videoId": "FtcPRwVIdNk",
           "publishFormat": "댄스화·기어",
           "evidenceLevel": "medium"
+        },
+        {
+          "title": "풀맨 選定 Jazz, Classic 舞蹈音樂 鑑賞音盤 No.5",
+          "url": "http://cafe.naver.com/bluesalive/2327",
+          "videoId": null,
+          "publishFormat": "댄스화·기어",
+          "evidenceLevel": "watch"
+        },
+        {
+          "title": "이브알지가 뽑은 유로댄스 베스트 1000",
+          "url": "http://cafe.naver.com/musicworld24/156",
+          "videoId": null,
+          "publishFormat": "댄스화·기어",
+          "evidenceLevel": "watch"
         }
       ]
     },
@@ -205,39 +219,39 @@
       "type": "youtube"
     },
     {
-      "title": "바챠쥬크는 어떤장르?",
-      "url": "https://cafe.daum.net/senbarico1/tGqL/5",
-      "type": "daum-cafe"
+      "title": "10/10-12 Marck y Melyssa Weekender by zoukseoul",
+      "url": "http://cafe.naver.com/bbzouk/107",
+      "type": "naver-cafe"
     },
     {
-      "title": "Gero & Migle | Bachata | Para Besarte - Lean & Akai",
-      "url": "https://www.youtube.com/watch?v=j4CmXKDCMzI",
-      "type": "youtube"
+      "title": "2025년 1월 Kzouk 강습 모집] 강남, 홍대 브라질리언주크...",
+      "url": "https://blog.naver.com/paran_dance/223696258259",
+      "type": "naver-blog"
     },
     {
-      "title": "LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿",
-      "url": "https://www.youtube.com/watch?v=L1vzrcpeBuw",
-      "type": "youtube"
+      "title": "Kzouk 가문의 경사로 무료 소셜 쏩니다. 6/18(월)강남, 6/19...",
+      "url": "https://blog.naver.com/paran_dance/223481533481",
+      "type": "naver-blog"
     },
     {
-      "title": "Andi & Silvia | Bachata | Just As I Am - Prince Royce Ft SpiffTv and Chris Brown [ Australia 2026 ]",
-      "url": "https://www.youtube.com/watch?v=FzOWJRxp9r0",
-      "type": "youtube"
+      "title": "Kzouk강습] 7월 강습 모집. 강남7/8(월)개강, 홍대 7/9(화)개강",
+      "url": "https://blog.naver.com/paran_dance/223481434220",
+      "type": "naver-blog"
     },
     {
-      "title": "Cristian & Gabriella 💃 Bachata Demo dance 🎵 Bailame - DJ Husky 📍 Bachataking festival 2025",
-      "url": "https://www.youtube.com/watch?v=CZEB8wdVXOc",
-      "type": "youtube"
+      "title": "Kzouk 개강 안내] 강남_3/19(월), 홍대_3/25(화) 개강합니다....",
+      "url": "https://blog.naver.com/paran_dance/223376325806",
+      "type": "naver-blog"
     },
     {
-      "title": "Klau y Ros [EXPLICALE] @ Miami Bachata Paradise 2025 🦩",
-      "url": "https://www.youtube.com/watch?v=9YqwDG2_MqI",
-      "type": "youtube"
+      "title": "8/1-3 라우타로y아리아나 워크샵",
+      "url": "http://cafe.naver.com/bbzouk/106",
+      "type": "naver-cafe"
     },
     {
-      "title": "Sara Panero [CARITA] @ Istanbul World Dance Congress 2026 ⚜️🇹🇷",
-      "url": "https://www.youtube.com/watch?v=FCAt14yr0j4",
-      "type": "youtube"
+      "title": "Brazilian Zouk Tips by Arthur Santos",
+      "url": "http://cafe.naver.com/bbzouk/101",
+      "type": "naver-cafe"
     }
   ],
   "targetPages": [
