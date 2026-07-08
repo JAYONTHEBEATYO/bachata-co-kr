@@ -25,8 +25,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
           <p>센슈얼? 도미니칸? 국내 바차타 소식과 해외 페스티벌, 댄서와 커뮤니티 소식까지 😍 바차타 코리아에서 만나요 😁👍</p>
         </div>
         <div className="hero-card">
-          <strong>오늘의 미션</strong>
-          <p>흩어진 바차타 영상과 행사 정보를 쓰레드로 모으고, 좋은 글은 추천으로 오래 살려둡니다.</p>
+          <strong>오늘 뭐 볼까?</strong>
+          <p>처음 보는 베이직 영상부터 이번 주 소셜, 페스티벌 소식까지. 바차타가 궁금할 때 바로 넘겨볼 수 있게 골라두었습니다.</p>
         </div>
       </section>
       <div className="content-layout">

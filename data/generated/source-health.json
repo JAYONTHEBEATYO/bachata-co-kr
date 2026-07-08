@@ -465,24 +465,6 @@
     },
     {
       "type": "external",
-      "url": "https://www.instagram.com/zumjersy/",
-      "label": "https://www.instagram.com/zumjersy/",
-      "sources": [
-        {
-          "file": "data/board.json",
-          "path": "contact.instagram"
-        },
-        {
-          "file": "data/submissions.json",
-          "path": "contact.instagram"
-        }
-      ],
-      "status": "watch",
-      "httpStatus": null,
-      "note": "Instagram 공개 페이지는 접근 제한이 있을 수 있어 원문을 직접 확인해야 합니다."
-    },
-    {
-      "type": "external",
       "url": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
       "label": "https://www.reddit.com/r/Bachata/comments/12qxmr4/16_bachata_sensual_fundamental_techniques_by/",
       "sources": [

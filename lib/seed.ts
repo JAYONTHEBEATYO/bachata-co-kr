@@ -75,7 +75,7 @@ export const threads: Thread[] = [
     communitySlug: "video",
     communityName: "영상",
     flair: "Bachata Influence",
-    author: "zumjersy",
+    author: "Bachata Korea",
     createdAt: "2026-07-08T07:45:00+09:00",
     score: 188,
     upvotes: 205,
