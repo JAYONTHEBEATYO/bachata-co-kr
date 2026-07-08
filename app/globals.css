@@ -328,6 +328,11 @@ p {
   overflow: hidden;
 }
 
+.is-filtered-out,
+[hidden].is-filtered-out {
+  display: none !important;
+}
+
 .thread-card:hover {
   border-color: var(--line-strong);
   box-shadow: 0 10px 24px rgba(16, 19, 24, 0.06);
