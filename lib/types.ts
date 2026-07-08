@@ -38,6 +38,7 @@ export type Thread = {
 export type Comment = {
   id: string;
   threadId: string;
+  parentId?: string | null;
   author: string;
   body: string;
   score: number;

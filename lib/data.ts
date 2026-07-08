@@ -1,4 +1,4 @@
-import { comments, communities, dancers, draftSignals, events, threads } from "./seed";
+import { communities, dancers, draftSignals, events, threads } from "./seed";
 import { supabase } from "./supabase";
 import type { Comment, Community, DancerCard, DraftSignal, EventCard, SortMode, Thread } from "./types";
 
@@ -86,7 +86,7 @@ export const getThreadComments = async (threadId: string): Promise<Comment[]> =>
     }
   }
 
-  return comments.filter((comment) => comment.threadId === threadId);
+  return [];
 };
 
 export const getEvents = async (): Promise<EventCard[]> => events;

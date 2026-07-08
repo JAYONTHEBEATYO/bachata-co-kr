@@ -13,6 +13,13 @@
   "observability": {
     "enabled": true
   },
+  "d1_databases": [
+    {
+      "binding": "COMMENTS_DB",
+      "database_name": "bachata-comments",
+      "database_id": "a83c4782-914d-4c7c-9aaa-fe25271b59a5"
+    }
+  ],
   "vars": {
     "NEXT_PUBLIC_SITE_URL": "https://bachata.co.kr"
   }

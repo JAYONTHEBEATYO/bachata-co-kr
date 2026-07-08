@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CommentTree } from "@/components/CommentTree";
+import { LiveComments } from "@/components/LiveComments";
 import { Sidebar } from "@/components/Sidebar";
 import { ThreadCard } from "@/components/ThreadCard";
 import { VideoEmbed } from "@/components/VideoEmbed";
@@ -81,7 +81,7 @@ export default async function ThreadPage({ params }: PageProps) {
               </div>
             </div>
           </section>
-          <CommentTree comments={threadComments} />
+          <LiveComments threadId={thread.id} initialComments={threadComments} />
           <section className="related">
             <h2>관련 쓰레드</h2>
             {related.map((item) => <ThreadCard key={item.id} thread={item} compact />)}

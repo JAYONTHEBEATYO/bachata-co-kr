@@ -35,7 +35,7 @@ export function ThreadCard({ thread, compact = false, headingLevel = 2 }: Thread
           {thread.tags.map((tag) => <span key={tag}>#{tag}</span>)}
         </div>
         <div className="thread-actions">
-          <Link href={href}><MessageCircle size={16} /> 댓글 {thread.commentCount}</Link>
+          <Link href={href}><MessageCircle size={16} /> 댓글</Link>
           <button type="button"><Share2 size={16} /> 공유</button>
           {thread.sourceLinks.slice(0, 2).map((link) => (
             <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
