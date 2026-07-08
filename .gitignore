@@ -4,3 +4,10 @@ data/.private/
 *.sqlite-wal
 node_modules/
 artifacts/
+.next/
+.open-next/
+.wrangler/
+out/
+.vercel/
+*.tsbuildinfo
+.codex-*.log

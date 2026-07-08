@@ -1,0 +1,32 @@
+import type { MetadataRoute } from "next";
+import { getCommunities, getThreads } from "@/lib/data";
+import { siteUrl } from "@/lib/format";
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [threads, communities] = await Promise.all([getThreads("hot"), getCommunities()]);
+  const now = new Date();
+
+  const baseRoutes: MetadataRoute.Sitemap = [
+    "", "videos", "events", "guide", "dancers", "write"
+  ].map((path) => ({
+    url: `${siteUrl}/${path}`.replace(/\/$/, "/"),
+    lastModified: now,
+    changeFrequency: "daily" as const,
+    priority: path ? 0.8 : 1
+  }));
+
+  return baseRoutes.concat(
+    communities.map((community) => ({
+      url: `${siteUrl}/c/${community.slug}`,
+      lastModified: now,
+      changeFrequency: "daily" as const,
+      priority: 0.78
+    })),
+    threads.map((thread) => ({
+      url: `${siteUrl}/t/${thread.id}/${thread.slug}`,
+      lastModified: new Date(thread.createdAt),
+      changeFrequency: "weekly" as const,
+      priority: 0.86
+    })),
+  );
+}

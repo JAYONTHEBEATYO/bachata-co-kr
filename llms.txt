@@ -1,113 +1,20 @@
 # 바차타 코리아
 
-바차타 코리아는 한국 바차타씬을 소개하고 연결하는 한국어 웹매거진 및 커뮤니티 허브입니다.
+바차타 코리아는 한국어 바차타 커뮤니티입니다. 바차타 영상, 소셜, 페스티벌, 댄서, 입문 질문을 쓰레드 구조로 정리합니다.
 
-## 주요 주제
-- 바차타 뜻과 유래
-- bachata 음악과 도미니카 바차타 문화
-- 도미니칸 바차타, 모던 바차타, 센슈얼 바차타 스타일 비교
-- 센슈얼 바차타 16 펀더멘탈: Onda, Onda Lateral, Caida, Bolero, Completo, Paseala, Rompo Delante, Pinza, Culito, Contra Cadera, Lanzamiento, Lateral, Cabeza, Golpes, Media, Impulso
-- 도미니칸 바차타 리듬, 풋워크, 싱코페이션, 기타 리프 읽기
-- 모던 바차타와 Bachata Fusion 스타일의 구조
-- Bachata Influence: Melvin & Gatica, Emilien & Tehina, Influence Academy, 영상 기반 스타일 큐레이션
-- Bachazouk: Dominican Bachata와 Brazilian Zouk의 융합 흐름, 안전한 헤드무브·축·프레임 기준
-- 글로벌 바차타 댄서: Gero & Migle, Luis & Andrea, Andi & Silvia, Korke & Judith 등 영상 기반 인물 노트
-- 한국 바차타 씬: 그레이 & 로렌, 클루니, 홍대 보니따, 에버라틴, 국내 동호회와 소셜 영상 아카이브
-- 바차타 댄스화와 상품: Fuego, Pana Mio, On1, Pulse 등 비교 콘텐츠
-- Instagram, YouTube, Naver, Google, 제보 폼 기반의 라틴댄스 소식 수집 및 검수 발행 시스템
-- 매일 자동 생성되는 바차타 씬 브리프: `/briefs/`, `/briefs/YYYY-MM-DD.html`
-- 소셜 레이더: `/radar/`, 인스타그램 핸들, 해시태그, 공식 행사·팀·상품 소스 추적
-- 영상 기반 학습 프로그램: `/programs/`, 입문, 센슈얼 16 펀더멘털, 도미니칸 리듬, Bachata Influence, Bachazouk, 한국 소셜 학습 경로
-- 편집 데스크: `/desk/`, 발행 대기열, 시리즈 기획, 출처 검증 원칙, 자동화 파일 지도
-- 스타일 허브: `/styles/`, 센슈얼, 도미니칸, 모던, Bachata Influence, Bachazouk 학습 페이지
-- 인물·팀·장소 프로필 허브: `/profiles/`, 글로벌 댄서, 한국 팀, 장소, 동호회 프로필
-- 개별 기사 라이브러리: `/articles/`, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타 리듬, Bachata Influence, Bachazouk, 바차타 댄스화 기사
-- 커뮤니티 보드: `/community/`, 소셜·행사, 양도·중고, 구인구직, 장소·팀 디렉터리
-- 소스 헬스: `/health/`, 내부 링크, 외부 출처, YouTube oEmbed 상태 리포트
-- 바차타 입문자 가이드
-- 서울 바차타 소셜, 클래스, 워크숍, 페스티벌
-- 한국 바차타 커뮤니티, 홍보, 구인, 제휴
+## 주요 페이지
+- 홈: https://bachata.co.kr/
+- 영상: https://bachata.co.kr/videos
+- 행사: https://bachata.co.kr/events
+- 초보자 가이드: https://bachata.co.kr/guide
+- 댄서: https://bachata.co.kr/dancers
 
-## 핵심 키워드
-바차타, bachata, Bachata Influence, Bachazouk, Melvin Gatica, Korke Judith, 코르케 주디스, 센슈얼 바차타, 센슈얼 바차타 16 펀더멘탈, 도미니칸 바차타, 도미니칸 바차타 풋워크, 모던 바차타, Bachata Fusion, 바차타 코리아, 한국 바차타, 서울 바차타, 바차타 소셜, 바차타 클래스, 바차타 강습, 바차타 음악, 바차타 입문, 바차타 인스타, 바차타 행사, bachata Korea, bachata Seoul.
-
-## 사이트 성격
-검색결과와 커뮤니티에 흩어진 정보를 단순 복제하지 않고, 공개적으로 확인 가능한 장르 정보와 한국 바차타씬의 제보를 바탕으로 원문 콘텐츠를 편집합니다.
-
-## 대표 URL
-- https://bachata.co.kr/
-- http://test.bachata.co.kr/
-- https://bachata.co.kr/briefs/
-- https://bachata.co.kr/briefs/2026-06-30.html
-- https://bachata.co.kr/radar/
-- https://bachata.co.kr/intake/
-- https://bachata.co.kr/korea-scene/
-- https://bachata.co.kr/programs/
-- https://bachata.co.kr/desk/
-- https://bachata.co.kr/submit/
-- https://bachata.co.kr/health/
-- https://bachata.co.kr/programs/bachata-starter.html
-- https://bachata.co.kr/programs/sensual-fundamentals.html
-- https://bachata.co.kr/programs/dominican-rhythm.html
-- https://bachata.co.kr/programs/influence-method.html
-- https://bachata.co.kr/programs/bachazouk-safety.html
-- https://bachata.co.kr/programs/korea-social-intelligence.html
-- https://bachata.co.kr/styles/
-- https://bachata.co.kr/styles/sensual.html
-- https://bachata.co.kr/styles/dominican.html
-- https://bachata.co.kr/styles/modern.html
-- https://bachata.co.kr/styles/influence.html
-- https://bachata.co.kr/styles/bachazouk.html
-- https://bachata.co.kr/profiles/
-- https://bachata.co.kr/profiles/melvin-gatica.html
-- https://bachata.co.kr/profiles/gero-migle.html
-- https://bachata.co.kr/profiles/gray-loren.html
-- https://bachata.co.kr/profiles/bonita-seoul.html
-- https://bachata.co.kr/profiles/latin-cielo.html
-- https://bachata.co.kr/articles/
-- https://bachata.co.kr/articles/bachata-influence-melvin-gatica.html
-- https://bachata.co.kr/articles/bachata-sensual-16-fundamentals-korke-judith.html
-- https://bachata.co.kr/articles/dominican-bachata-rhythm-footwork-guide.html
-- https://bachata.co.kr/articles/bachazouk-guide.html
-- https://bachata.co.kr/articles/bachata-dance-shoes-korea.html
-- https://bachata.co.kr/community/
-- https://bachata.co.kr/community/events.html
-- https://bachata.co.kr/community/market.html
-- https://bachata.co.kr/community/jobs.html
-- https://bachata.co.kr/community/venues.html
-- https://bachata.co.kr/events/
-- https://bachata.co.kr/events/emilian-tehina-korea-archive-2026.html
-- https://bachata.co.kr/events/k-sensual-summer-2026.html
-- https://bachata.co.kr/events/seoul-bachata-festival-vol4-2026.html
-- https://bachata.co.kr/events/gangnam-latin-festival-2026.html
-- https://bachata.co.kr/gear/
-- https://bachata.co.kr/gear/fuego.html
-- https://bachata.co.kr/gear/pana-mio.html
-- https://bachata.co.kr/gear/on1.html
-- https://bachata.co.kr/gear/pulse.html
-- https://bachata.co.kr/data/sources.json
-- https://bachata.co.kr/data/social-radar.json
-- https://bachata.co.kr/data/programs.json
-- https://bachata.co.kr/data/editorial-desk.json
-- https://bachata.co.kr/data/submissions.json
-- https://bachata.co.kr/data/generated/scene-signals.json
-- https://bachata.co.kr/data/generated/latest-brief.json
-- https://bachata.co.kr/data/generated/style-index.json
-- https://bachata.co.kr/data/generated/program-index.json
-- https://bachata.co.kr/data/generated/editorial-desk-index.json
-- https://bachata.co.kr/data/generated/submission-index.json
-- https://bachata.co.kr/data/generated/profile-index.json
-- https://bachata.co.kr/data/generated/article-index.json
-- https://bachata.co.kr/data/generated/board-index.json
-- https://bachata.co.kr/data/generated/event-index.json
-- https://bachata.co.kr/data/generated/social-radar-index.json
-- https://bachata.co.kr/data/generated/social-intake-index.json
-- https://bachata.co.kr/data/generated/korea-scene-index.json
-- https://bachata.co.kr/data/generated/gear-index.json
-- https://bachata.co.kr/data/generated/source-health.json
-- https://bachata.co.kr/data/generated/home-index.json
-
-## 자동화
-`data/sources.json`은 편집자가 관리하는 신뢰 출처 지도입니다. `data/social-radar.json`은 인스타그램 핸들, hashtag, 행사·팀·상품 공식 소스를 관리하는 편집 레이더입니다. `tools/collect-scene-signals.mjs`와 GitHub Actions `content-discovery.yml`은 YouTube 영상 유효성, Naver/Instagram/YouTube API 신호, Social Radar 후보, 한국성 점수를 모아 `data/generated/scene-signals.json`을 갱신하도록 설계되어 있습니다. `tools/build-daily-brief.mjs`는 그 후보를 `briefs/YYYY-MM-DD.html` 일간 브리프와 `data/generated/latest-brief.json`으로 발행합니다. `data/programs.json`과 `tools/build-programs.mjs`는 영상 기반 학습 프로그램을 `/programs/`와 `data/generated/program-index.json`으로 발행합니다. `data/editorial-desk.json`과 `tools/build-editorial-desk.mjs`는 발행 대기열과 시리즈 기획을 `/desk/`와 `data/generated/editorial-desk-index.json`으로 발행합니다. `data/style-guides.json`과 `tools/build-style-guides.mjs`는 스타일 허브를 `/styles/`와 `data/generated/style-index.json`으로 발행합니다. `data/profiles.json`과 `tools/build-profiles.mjs`는 인물·팀·장소 프로필을 `/profiles/`와 `data/generated/profile-index.json`으로 발행합니다. `data/articles.json`과 `tools/build-articles.mjs`는 evergreen 기사를 `/articles/`와 `data/generated/article-index.json`으로 발행합니다. `data/board.json`과 `tools/build-board.mjs`는 커뮤니티 보드를 `/community/`와 `data/generated/board-index.json`으로 발행합니다. `data/events.json`과 `tools/build-events.mjs`는 월별 내한·행사 레이더를 `/events/`와 `data/generated/event-index.json`으로 발행합니다. `data/social-radar.json`과 `tools/build-social-radar.mjs`는 소셜 레이더를 `/radar/`와 `data/generated/social-radar-index.json`으로 발행합니다. `data/gear.json`과 `tools/build-gear.mjs`는 바차타 댄스화와 라틴댄스 스니커 비교 허브를 `/gear/`와 `data/generated/gear-index.json`으로 발행합니다.
-`tools/audit-sources.mjs`는 내부 페이지, 외부 출처, YouTube oEmbed 응답을 점검해 `/health/`와 `data/generated/source-health.json`을 발행합니다.
-`data/home-rail.json`과 `tools/build-home.mjs`는 매일 브리프, 프로그램, 기사, 행사 인덱스를 조합해 홈 첫 화면의 Watch Next 레일과 `data/generated/home-index.json`을 갱신합니다.
+## 최근 쓰레드
+- 바차타 베이직 먼저 파악하기: https://bachata.co.kr/t/1001/bachata-basic-first-watch
+- 센슈얼? 도미니칸? 처음엔 이렇게 구분하면 됩니다: https://bachata.co.kr/t/1004/sensual-vs-dominican-bachata
+- Bachata Influence, 테크닉보다 중요하게 생각하는 포인트!: https://bachata.co.kr/t/1002/bachata-influence-melvin-gatica-points
+- 국내 바차타 소셜 영상, 어디부터 보면 좋을까?: https://bachata.co.kr/t/1003/korea-social-video-watch-points
+- 이번 달 국내 바차타 페스티벌과 워크숍 체크: https://bachata.co.kr/t/1005/festival-calendar-july-2026
+- 처음 소셜 갈 때, 춤보다 먼저 챙기면 좋은 것: https://bachata.co.kr/t/1007/first-social-etiquette
+- 해외 바차타 페스티벌, 비행기 끊기 전에 볼 것: https://bachata.co.kr/t/1006/overseas-festival-before-booking
+- Korke & Judith 16 fundamentals, 정답표가 아니라 지도처럼 보기: https://bachata.co.kr/t/1008/korke-judith-16-fundamentals

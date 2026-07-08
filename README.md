@@ -1,5 +1,56 @@
 # bachata.co.kr
 
+## Current App Direction
+
+`bachata.co.kr` is now moving from a static magazine build to a Reddit-style bachata community app.
+
+- Runtime: Next.js App Router on Cloudflare Workers via OpenNext
+- Data layer: Supabase schema in `supabase/migrations/0001_reddit_community_schema.sql`
+- Fallback data: local seed data in `lib/seed.ts`
+- Main UX: Hot/New/Top/Rising thread feed, playable YouTube embeds, comments, score rail, events, dancer cards, mobile bottom navigation
+- Public copy rule: reader-facing pages must not expose internal workflow terms or crawler-style language
+
+Local commands:
+
+```powershell
+npm install
+npm run dev
+npm run verify
+npm run verify:cloudflare
+```
+
+Cloudflare commands:
+
+```powershell
+npm run cf:build
+npm run cf:preview
+npm run cf:deploy
+```
+
+Cloudflare deployment files:
+
+- `open-next.config.ts`: OpenNext Cloudflare adapter config
+- `wrangler.jsonc`: Worker name, compatibility flags, static assets, public variables
+- `.dev.vars.example`: local secret template for Supabase keys
+
+Supabase setup:
+
+```powershell
+# Apply the migration in Supabase SQL editor or Supabase CLI.
+# Then run supabase/seed.sql for initial communities and threads.
+```
+
+Required deployment variables when Supabase is enabled:
+
+```text
+NEXT_PUBLIC_SITE_URL=https://bachata.co.kr
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+SUPABASE_SERVICE_ROLE_KEY=
+```
+
+Set these in Cloudflare Workers dashboard as variables/secrets before enabling live community writes. The app works without them by using `lib/seed.ts` fallback data.
+
 Korean bachata web magazine and community hub for `bachata.co.kr`.
 
 ## Content Discovery
