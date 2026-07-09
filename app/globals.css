@@ -65,13 +65,21 @@ iframe {
   z-index: 50;
   min-height: 58px;
   display: grid;
-  grid-template-columns: minmax(178px, auto) auto minmax(260px, 1fr) auto;
+  grid-template-columns: minmax(220px, auto) auto minmax(260px, 1fr) auto;
   gap: 12px;
   align-items: center;
   padding: 8px max(16px, calc((100vw - var(--width)) / 2));
   border-bottom: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.96);
   backdrop-filter: blur(18px);
+}
+
+.brand-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
 }
 
 .brand {
@@ -146,6 +154,69 @@ iframe {
 .header-actions button:hover,
 .write-button:hover {
   background: #edf1f5;
+}
+
+.header-menu {
+  position: relative;
+}
+
+.header-menu summary {
+  list-style: none;
+}
+
+.header-menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.icon-menu-button {
+  width: 38px;
+  height: 38px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--ink);
+}
+
+.icon-menu-button:hover {
+  background: #edf1f5;
+}
+
+.menu-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 90;
+  width: 220px;
+  display: grid;
+  gap: 4px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(16, 19, 24, 0.16);
+  padding: 8px;
+}
+
+.more-menu .menu-panel {
+  right: 0;
+  left: auto;
+}
+
+.menu-panel a {
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 10px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 850;
+  padding: 0 10px;
+}
+
+.menu-panel a:hover {
+  background: #f2f5f7;
 }
 
 .search {
@@ -319,9 +390,7 @@ p {
 }
 
 .thread-card {
-  display: grid;
-  grid-template-columns: 68px minmax(0, 1fr);
-  gap: 0;
+  display: block;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper);
@@ -343,24 +412,27 @@ p {
 }
 
 .vote-rail {
-  display: grid;
-  align-content: start;
-  justify-items: center;
+  display: inline-flex;
+  align-items: center;
   gap: 3px;
-  padding: 12px 6px;
-  border-right: 1px solid var(--line);
-  background: var(--raised);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f7f9fb;
+  padding: 3px;
 }
 
 .vote-rail button {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   border: 0;
-  border-radius: 8px;
+  border-radius: 999px;
   background: transparent;
   color: var(--faint);
+  font-size: 12px;
+  font-weight: 950;
+  padding: 0 9px;
 }
 
 .vote-rail button:hover {
@@ -370,14 +442,18 @@ p {
 
 .vote-rail strong {
   color: var(--ink);
-  font-size: 15px;
+  font-size: 13px;
   font-weight: 950;
+  min-width: 22px;
+  text-align: center;
 }
 
-.vote-rail span {
+.vote-rail em {
   color: var(--faint);
+  font-style: normal;
   font-size: 11px;
   font-weight: 800;
+  padding-right: 7px;
 }
 
 .thread-body {
@@ -444,7 +520,8 @@ p {
 }
 
 .thread-actions a,
-.thread-actions button,
+.thread-actions > button,
+.thread-action-pill,
 .primary-link,
 .source-links a,
 .source-links span {
@@ -461,16 +538,29 @@ p {
   font-weight: 850;
 }
 
-.thread-actions button {
+.thread-actions > button {
   cursor: pointer;
 }
 
 .thread-actions a:hover,
-.thread-actions button:hover,
+.thread-actions > button:hover,
 .primary-link:hover,
 .source-links a:hover {
   border-color: var(--line-strong);
   color: var(--ink);
+}
+
+.live-thread-stack {
+  display: grid;
+  gap: 10px;
+}
+
+.live-thread-card {
+  border-color: rgba(50, 103, 214, 0.24);
+}
+
+.live-thread-card .thread-body p {
+  white-space: pre-wrap;
 }
 
 .video-card {
@@ -963,6 +1053,39 @@ p {
   padding: clamp(18px, 3vw, 28px);
 }
 
+.composer-note,
+.issued-identity {
+  display: grid;
+  gap: 7px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--raised);
+  padding: 14px;
+}
+
+.composer-note strong,
+.issued-identity strong {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.composer-note p,
+.issued-identity p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.issued-identity {
+  border-color: rgba(12, 143, 112, 0.28);
+  background: #f3fbf8;
+}
+
+.issued-identity span {
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 900;
+}
+
 .composer label {
   display: grid;
   gap: 7px;
@@ -1046,7 +1169,7 @@ p {
 
 @media (max-width: 1120px) {
   .site-header {
-    grid-template-columns: minmax(178px, auto) minmax(0, 1fr) auto;
+    grid-template-columns: minmax(220px, auto) minmax(0, 1fr) auto;
   }
 
   .top-nav {
@@ -1081,6 +1204,15 @@ p {
     padding: 9px 12px;
   }
 
+  .brand {
+    min-width: 0;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
   .brand strong {
     font-size: 17px;
   }
@@ -1088,10 +1220,6 @@ p {
   .search {
     grid-column: 1 / -1;
     order: 3;
-  }
-
-  .header-actions button {
-    display: none;
   }
 
   .write-button {
@@ -1126,17 +1254,13 @@ p {
     display: none;
   }
 
-  .thread-card {
-    grid-template-columns: 48px minmax(0, 1fr);
-  }
-
   .vote-rail {
-    padding: 10px 4px;
+    max-width: 100%;
   }
 
   .vote-rail button {
-    width: 28px;
-    height: 28px;
+    min-height: 29px;
+    padding: 0 8px;
   }
 
   .thread-body {

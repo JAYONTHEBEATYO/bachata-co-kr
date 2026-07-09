@@ -16,7 +16,6 @@ export function ThreadCard({ thread, compact = false, headingLevel = 2 }: Thread
 
   return (
     <article className={thread.pinned ? "thread-card pinned" : "thread-card"}>
-      <VoteRail score={thread.score} downvotes={thread.downvotes} />
       <div className="thread-body">
         <div className="thread-meta">
           <Link href={`/c/${thread.communitySlug}`}>r/{thread.communityName}</Link>
@@ -35,6 +34,7 @@ export function ThreadCard({ thread, compact = false, headingLevel = 2 }: Thread
           {thread.tags.map((tag) => <span key={tag}>#{tag}</span>)}
         </div>
         <div className="thread-actions">
+          <VoteRail score={thread.score} downvotes={thread.downvotes} />
           <Link href={href}><MessageCircle size={16} /> 댓글</Link>
           <button type="button"><Share2 size={16} /> 공유</button>
           {thread.sourceLinks.slice(0, 2).map((link) => (

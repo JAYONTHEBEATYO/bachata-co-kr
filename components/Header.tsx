@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Bell, Flame, Home, PenSquare, Sparkles, UserCircle } from "lucide-react";
+import { Flame, Home, LogIn, Menu, MoreVertical, PenSquare, Sparkles, UserPlus } from "lucide-react";
 import { SiteSearch } from "./SiteSearch";
 
 const nav = [
@@ -15,21 +15,40 @@ export function Header() {
   return (
     <>
       <header className="site-header">
-        <Link className="brand" href="/">
-          <span className="brand-mark">B</span>
-          <span>
-            <strong>바차타 코리아</strong>
-            <em>Bachata Korea</em>
-          </span>
-        </Link>
+        <div className="brand-wrap">
+          <details className="header-menu">
+            <summary className="icon-menu-button" aria-label="메뉴 열기">
+              <Menu size={22} />
+            </summary>
+            <div className="menu-panel">
+              {nav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
+              <Link href="/write">비회원 글쓰기</Link>
+            </div>
+          </details>
+          <Link className="brand" href="/">
+            <span className="brand-mark">B</span>
+            <span>
+              <strong>바차타 코리아</strong>
+              <em>Bachata Korea</em>
+            </span>
+          </Link>
+        </div>
         <nav className="top-nav" aria-label="주요 메뉴">
           {nav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
         </nav>
         <SiteSearch />
         <div className="header-actions">
           <Link className="write-button" href="/write"><PenSquare size={18} /> 글쓰기</Link>
-          <button type="button" aria-label="알림"><Bell size={19} /></button>
-          <button type="button" aria-label="로그인"><UserCircle size={22} /></button>
+          <details className="header-menu more-menu">
+            <summary className="icon-menu-button" aria-label="더보기">
+              <MoreVertical size={22} />
+            </summary>
+            <div className="menu-panel">
+              <Link href="/write"><PenSquare size={17} /> 비회원 글쓰기</Link>
+              <Link href="/"><LogIn size={17} /> 로그인</Link>
+              <Link href="/"><UserPlus size={17} /> 회원가입</Link>
+            </div>
+          </details>
         </div>
       </header>
       <nav className="bottom-nav" aria-label="모바일 메뉴">

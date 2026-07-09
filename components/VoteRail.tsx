@@ -7,15 +7,17 @@ type VoteRailProps = {
 
 export function VoteRail({ score, downvotes = 0 }: VoteRailProps) {
   return (
-    <aside className="vote-rail" aria-label="추천 점수">
+    <div className="vote-rail" aria-label="추천과 비추천">
       <button type="button" aria-label="추천">
         <ArrowBigUp size={24} />
+        <span>Like</span>
       </button>
       <strong>{score}</strong>
       <button type="button" aria-label="비추천">
         <ArrowBigDown size={24} />
+        <span>Dislike</span>
       </button>
-      <span>{downvotes}</span>
-    </aside>
+      {downvotes ? <em>{downvotes}</em> : null}
+    </div>
   );
 }

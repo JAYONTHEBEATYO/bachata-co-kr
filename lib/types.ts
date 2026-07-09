@@ -35,6 +35,19 @@ export type Thread = {
   pinned?: boolean;
 };
 
+export type GuestThread = {
+  id: string;
+  title: string;
+  body: string;
+  category: string;
+  linkUrl?: string | null;
+  guestId: string;
+  ipPrefix: string;
+  score: number;
+  downvotes: number;
+  createdAt: string;
+};
+
 export type Comment = {
   id: string;
   threadId: string;
