@@ -232,16 +232,16 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
           <div className="comment-form-foot">
             <span>{body.trim().length}/1000</span>
             <div className="comment-form-buttons">
+              <button type="submit" className="comment-submit" disabled={pending}>
+                <Send size={17} />
+                {pending ? "등록 중" : "댓글 등록"}
+              </button>
               <button type="button" className="comment-cancel" onClick={() => {
                 setBody("");
                 setReplyTo(null);
                 setExpanded(false);
               }}>
                 취소
-              </button>
-              <button type="submit" disabled={pending}>
-                <Send size={16} />
-                {pending ? "등록 중" : "댓글 등록"}
               </button>
             </div>
           </div>

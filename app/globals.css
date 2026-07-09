@@ -1065,6 +1065,7 @@ p {
   border-radius: var(--radius);
   background: var(--raised);
   padding: 12px;
+  overflow: visible;
 }
 
 .comment-form.is-compact {
@@ -1123,12 +1124,15 @@ p {
   grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
   gap: 10px;
+  padding-top: 2px;
 }
 
 .comment-form-buttons {
-  display: inline-flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: minmax(180px, 1fr) 82px;
+  align-items: stretch;
   gap: 8px;
+  min-width: min(100%, 340px);
 }
 
 .comment-form-foot span {
@@ -1153,15 +1157,23 @@ p {
 }
 
 .comment-form-foot button {
-  min-width: 154px;
-  min-height: 46px;
+  min-width: 0;
+  min-height: 50px;
   background: var(--accent);
   box-shadow: 0 10px 22px rgba(255, 90, 61, 0.22);
-  font-size: 15px;
+  font-size: 16px;
+}
+
+.comment-form-foot .comment-submit {
+  width: 100%;
+  border: 1px solid rgba(232, 71, 45, 0.22);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+  color: #fff;
+  box-shadow: 0 12px 26px rgba(255, 90, 61, 0.3);
 }
 
 .comment-form-foot .comment-cancel {
-  min-width: 76px;
+  min-width: 0;
   background: #f1f4f7;
   color: var(--muted);
   box-shadow: none;
@@ -1986,7 +1998,19 @@ p {
   .comment-form-buttons {
     width: 100%;
     display: grid;
-    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-columns: 1fr;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .comment-form-foot .comment-submit {
+    min-height: 56px;
+    font-size: 17px;
+  }
+
+  .comment-form-foot .comment-cancel {
+    min-height: 42px;
+    order: 2;
   }
 
   .comment-form-foot button {
