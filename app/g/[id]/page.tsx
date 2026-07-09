@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import { GuestThreadDetail } from "@/components/GuestThreadDetail";
 import { absoluteUrl } from "@/lib/format";
 import { articleShareMetadata, buildShareDescription, DEFAULT_SHARE_IMAGE } from "@/lib/share-meta";
+import { extractThreadMedia } from "@/lib/thread-media";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -27,6 +28,7 @@ type GuestThreadMetaRow = {
   id: string;
   title: string;
   body: string;
+  linkUrl: string | null;
 };
 
 type CommentMetaRow = {
@@ -50,24 +52,28 @@ const getThreadForMetadata = async (id: string) => {
   const db = await getDb();
   if (!db) return null;
 
-  const thread = await db.prepare(
-    `select id, title, body
-    from guest_threads
-    where status = 'published' and id = ?
-    limit 1`
-  ).bind(safeId).first<GuestThreadMetaRow>();
+  try {
+    const thread = await db.prepare(
+      `select id, title, body, link_url as linkUrl
+      from guest_threads
+      where status = 'published' and id = ?
+      limit 1`
+    ).bind(safeId).first<GuestThreadMetaRow>();
 
-  if (!thread) return null;
+    if (!thread) return null;
 
-  const comment = await db.prepare(
-    `select body
-    from comments
-    where thread_id = ? and status = 'published'
-    order by score desc, created_at asc
-    limit 1`
-  ).bind(safeId).first<CommentMetaRow>();
+    const comment = await db.prepare(
+      `select body
+      from comments
+      where thread_id = ? and status = 'published'
+      order by score desc, created_at asc
+      limit 1`
+    ).bind(safeId).first<CommentMetaRow>();
 
-  return { thread, comment };
+    return { thread, comment };
+  } catch {
+    return null;
+  }
 };
 
 export const dynamic = "force-dynamic";
@@ -93,12 +99,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     body: data.thread.body,
     bestComment: data.comment?.body || null
   }) || fallbackDescription;
+  const parsed = extractThreadMedia(data.thread.body, data.thread.linkUrl);
+  const previewImage = parsed.media.find((item) => item.type === "image")?.url || DEFAULT_SHARE_IMAGE;
 
   return articleShareMetadata({
     title: data.thread.title,
     description,
     url,
-    imageUrl: DEFAULT_SHARE_IMAGE,
+    imageUrl: previewImage,
     imageAlt: data.thread.title
   });
 }

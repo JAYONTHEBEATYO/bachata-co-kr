@@ -12,7 +12,7 @@ export default function LoginPage() {
   return (
     <main className="app-shell narrow">
       <section className="page-head">
-        <span className="eyebrow">Login</span>
+        <span className="eyebrow">로그인</span>
         <h1>로그인</h1>
         <p>비회원으로도 글과 댓글을 남길 수 있습니다. 계정으로 이어가고 싶다면 Google 로그인을 사용하세요.</p>
       </section>

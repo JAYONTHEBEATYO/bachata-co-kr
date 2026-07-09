@@ -66,7 +66,7 @@ export default async function TopicFeedPage({ params }: PageProps) {
       <section className="feed-column">
         <FeedTabs activeHref={page.activeHref} />
         <section className="page-head compact-head">
-          <span className="eyebrow">Topic Feed</span>
+          <span className="eyebrow">주제 피드</span>
           <h1>{page.title}</h1>
           <p>{page.description}</p>
           <div className="topic-chip-row">

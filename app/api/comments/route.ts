@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
+import { ensureCommunityTables } from "@/lib/community-schema";
 import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
 
@@ -139,6 +140,7 @@ export async function OPTIONS(request: NextRequest) {
 export async function GET(request: NextRequest) {
   const db = await getCommentsDb();
   if (!db) return respond(request, 503, { error: "댓글 저장소가 아직 연결되지 않았습니다." });
+  await ensureCommunityTables(db);
 
   const threadId = normalizeThreadId(request.nextUrl.searchParams.get("threadId"));
   if (!threadId) return respond(request, 400, { error: "쓰레드 정보가 올바르지 않습니다." });
@@ -165,6 +167,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const db = await getCommentsDb();
   if (!db) return respond(request, 503, { error: "댓글 저장소가 아직 연결되지 않았습니다." });
+  await ensureCommunityTables(db);
 
   let payload: Record<string, unknown>;
   try {
@@ -228,6 +231,7 @@ export async function POST(request: NextRequest) {
 export async function PATCH(request: NextRequest) {
   const db = await getCommentsDb();
   if (!db) return respond(request, 503, { error: "댓글 저장소가 아직 연결되지 않았습니다." });
+  await ensureCommunityTables(db);
 
   let payload: Record<string, unknown>;
   try {
@@ -240,18 +244,6 @@ export async function PATCH(request: NextRequest) {
   const direction = payload.direction === "up" ? 1 : payload.direction === "down" ? -1 : 0;
   if (!commentId) return respond(request, 400, { error: "댓글 정보가 올바르지 않습니다." });
   if (!direction) return respond(request, 400, { error: "추천 방향이 올바르지 않습니다." });
-
-  await db.prepare(
-    `create table if not exists comment_votes (
-      comment_id text not null,
-      ip_hash text not null,
-      direction integer not null check(direction in (-1, 1)),
-      created_at text not null default (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
-      updated_at text not null default (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
-      primary key (comment_id, ip_hash)
-    )`
-  ).run();
-  await db.prepare("create index if not exists comment_votes_comment_idx on comment_votes(comment_id)").run();
 
   const hash = await ipHash(request);
   const existing = await db.prepare(

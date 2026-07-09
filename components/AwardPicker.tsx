@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Award } from "lucide-react";
+import { communityApiUrl } from "@/lib/community-api";
 
 type AwardPickerProps = {
   threadId: string;
@@ -19,14 +20,7 @@ const awards = [
   { type: "manners", emoji: "🤝", label: "매너굿" }
 ];
 
-const apiOrigin = () => {
-  if (typeof window === "undefined") return "";
-  const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".workers.dev")) return "";
-  return "https://bachata-co-kr.bachata-korea.workers.dev";
-};
-
-const awardsApiUrl = () => `${apiOrigin()}/api/awards`;
+const awardsApiUrl = () => communityApiUrl("/api/awards");
 
 const guestId = () => {
   if (typeof window === "undefined") return "guest";

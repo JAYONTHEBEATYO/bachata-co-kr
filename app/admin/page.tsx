@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import { CheckCircle2, FilePenLine, ShieldCheck } from "lucide-react";
 import { getDraftSignals } from "@/lib/data";
 
@@ -8,12 +9,14 @@ export const metadata: Metadata = {
 };
 
 export default async function AdminPage() {
+  if (process.env.ENABLE_ADMIN_PAGES !== "true") notFound();
+
   const drafts = await getDraftSignals();
 
   return (
     <main className="app-shell">
       <section className="page-head">
-        <span className="eyebrow">Admin</span>
+        <span className="eyebrow">운영</span>
         <h1>운영 콘솔</h1>
         <p>수집된 공개 신호를 바로 공개하지 않고, 사람이 읽을 수 있는 쓰레드 초안으로 다듬는 공간입니다.</p>
       </section>

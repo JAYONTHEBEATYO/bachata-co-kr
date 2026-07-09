@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { ArrowBigDown, ArrowBigUp } from "lucide-react";
+import { communityApiUrl } from "@/lib/community-api";
 
 type VoteTargetType = "thread" | "guestThread";
 
@@ -12,14 +13,7 @@ type VoteRailProps = {
   downvotes?: number;
 };
 
-const apiOrigin = () => {
-  if (typeof window === "undefined") return "";
-  const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".workers.dev")) return "";
-  return "https://bachata-co-kr.bachata-korea.workers.dev";
-};
-
-const votesApiUrl = () => `${apiOrigin()}/api/votes/`;
+const votesApiUrl = () => communityApiUrl("/api/votes/");
 
 export function VoteRail({ targetId, targetType = "thread", score, downvotes = 0 }: VoteRailProps) {
   const [currentScore, setCurrentScore] = useState(score);

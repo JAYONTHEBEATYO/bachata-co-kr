@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { CalendarDays, ChevronRight, Users } from "lucide-react";
+import { CalendarDays, ChevronRight, Compass } from "lucide-react";
 import type { Community, EventCard, Thread } from "@/lib/types";
 
 type SidebarProps = {
@@ -12,13 +12,13 @@ export function Sidebar({ communities, events, trending }: SidebarProps) {
   return (
     <aside className="right-rail">
       <section className="rail-panel">
-        <div className="rail-title"><Users size={18} /> 커뮤니티</div>
+        <div className="rail-title"><Compass size={18} /> 주제 바로가기</div>
         <div className="community-list">
           {communities.map((community) => (
             <Link key={community.slug} href={`/c/${community.slug}`}>
               <span style={{ backgroundColor: community.color }} />
               <strong>r/{community.name}</strong>
-              <em>{community.memberCount.toLocaleString()}명</em>
+              <em>{community.description}</em>
             </Link>
           ))}
         </div>

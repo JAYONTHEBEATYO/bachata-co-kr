@@ -5,7 +5,7 @@ create table if not exists guest_threads (
   category text not null default 'questions',
   link_url text,
   guest_id text not null,
-  ip_prefix text not null default '비공개',
+  ip_prefix text not null default '0.0.*.*',
   ip_hash text,
   edit_key_hash text not null,
   status text not null default 'published' check (status in ('published', 'hidden', 'removed')),

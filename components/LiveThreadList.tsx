@@ -2,8 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { communityApiUrl, publicUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
+import { extractThreadMedia } from "@/lib/thread-media";
 import { ThreadActionBar } from "./ThreadActionBar";
+import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
 
 type LiveThread = {
   id: string;
@@ -41,26 +44,15 @@ const labels: Record<string, string> = {
   ama: "무물보"
 };
 
-const apiOrigin = () => {
-  if (typeof window === "undefined") return "";
-  const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".workers.dev")) return "";
-  return "https://bachata-co-kr.bachata-korea.workers.dev";
-};
-
 const threadsApiUrl = (category?: string, sort?: string) => {
   const params = new URLSearchParams();
   if (category) params.set("category", category);
   if (sort) params.set("sort", sort);
   const query = params.toString();
-  return `${apiOrigin()}/api/threads/${query ? `?${query}` : ""}`;
+  return communityApiUrl(`/api/threads/${query ? `?${query}` : ""}`);
 };
 const threadPath = (id: string) => `/guest/?id=${encodeURIComponent(id)}`;
-const threadSharePath = (id: string) => {
-  const path = `/g/${encodeURIComponent(id)}`;
-  const origin = apiOrigin();
-  return origin ? `${origin}${path}` : path;
-};
+const threadSharePath = (id: string) => publicUrl(`/g/${encodeURIComponent(id)}`);
 
 export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveThreadListProps) {
   const [threads, setThreads] = useState<LiveThread[]>([]);
@@ -91,7 +83,18 @@ export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveT
   return (
     <section className="live-thread-stack" aria-label="비회원 새 글">
       {threads.map((thread) => (
-        <article key={thread.id} className="thread-card live-thread-card" id={`guest-${thread.id}`}>
+        <LiveThreadCard key={thread.id} thread={thread} />
+      ))}
+    </section>
+  );
+}
+
+function LiveThreadCard({ thread }: { thread: LiveThread }) {
+  const parsed = extractThreadMedia(thread.body, thread.linkUrl);
+  const bodyText = parsed.text || thread.body;
+
+  return (
+    <article className="thread-card live-thread-card" id={`guest-${thread.id}`}>
           <div className="thread-body">
             <div className="thread-meta">
               <span>r/{labels[thread.category] || "자유"}</span>
@@ -101,7 +104,8 @@ export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveT
               <span className="flair">비회원</span>
             </div>
             <h2><Link href={threadPath(thread.id)}>{thread.title}</Link></h2>
-            <p>{thread.body}</p>
+            <p>{bodyText}</p>
+            <ThreadMediaAttachments media={parsed.media} compact />
             <div className="tag-row">
               {(thread.tags || []).map((tag) => <span key={tag}>#{tag}</span>)}
             </div>
@@ -113,7 +117,7 @@ export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveT
               commentHref={`${threadPath(thread.id)}#comments-title`}
               sharePath={threadSharePath(thread.id)}
               shareTitle={thread.title}
-              shareText={thread.body.slice(0, 100)}
+              shareText={bodyText.slice(0, 100)}
               sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
               showAward={false}
             />
@@ -124,7 +128,5 @@ export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveT
             ) : null}
           </div>
         </article>
-      ))}
-    </section>
   );
 }

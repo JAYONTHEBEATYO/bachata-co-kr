@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { ArrowBigDown, ArrowBigUp, MessageCircle, Send, Search } from "lucide-react";
+import { communityApiUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
 import type { Comment } from "@/lib/types";
@@ -18,14 +19,7 @@ type ApiComment = Comment & {
 type CommentSort = "best" | "new" | "old";
 type CommentVote = "up" | "down";
 
-const commentsApiOrigin = () => {
-  if (typeof window === "undefined") return "";
-  const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".workers.dev")) return "";
-  return "https://bachata-co-kr.bachata-korea.workers.dev";
-};
-
-const commentsApiUrl = () => `${commentsApiOrigin()}/api/comments/`;
+const commentsApiUrl = () => communityApiUrl("/api/comments/");
 
 const dateValue = (value: string) => new Date(value).getTime() || 0;
 

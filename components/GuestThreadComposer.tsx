@@ -19,6 +19,7 @@ import {
   Video
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
+import { communityApiUrl } from "@/lib/community-api";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
 
 type CreatedThread = {
@@ -108,15 +109,8 @@ const validPostTypes = new Set<PostType>(postTypes.map((type) => type.value));
 const validTopics = new Set(topics.map((topic) => topic.value));
 const draftKey = "bachata.threadDraft.v1";
 
-const apiOrigin = () => {
-  if (typeof window === "undefined") return "";
-  const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".workers.dev")) return "";
-  return "https://bachata-co-kr.bachata-korea.workers.dev";
-};
-
-const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
-const uploadsApiUrl = () => `${apiOrigin()}/api/uploads/`;
+const threadsApiUrl = () => communityApiUrl("/api/threads/");
+const uploadsApiUrl = () => communityApiUrl("/api/uploads/");
 
 type UploadedMedia = {
   url: string;
@@ -548,7 +542,7 @@ export function GuestThreadComposer() {
           <strong>글이 올라갔습니다</strong>
           <span>작성자: {created.guestId}</span>
           <span>표시 IP: {created.ipPrefix}</span>
-          <p>닉네임은 이 브라우저 세션에 유지됩니다. 작성할 때 정한 임시비밀번호는 수정이나 삭제가 필요할 때 쓰입니다.</p>
+          <p>닉네임은 이 브라우저 세션에 유지됩니다. 임시비밀번호는 이후 글 관리 기능이 열릴 때 본인 확인용으로 사용할 예정입니다.</p>
         </div>
       ) : null}
     </form>

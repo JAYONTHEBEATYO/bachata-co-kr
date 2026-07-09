@@ -4,9 +4,12 @@ import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ExternalLink } from "lucide-react";
+import { communityApiUrl, publicUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
+import { extractThreadMedia } from "@/lib/thread-media";
 import { LiveComments } from "./LiveComments";
 import { ThreadActionBar } from "./ThreadActionBar";
+import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
 
 type GuestThread = {
   id: string;
@@ -38,19 +41,8 @@ const labels: Record<string, string> = {
   ama: "무물보"
 };
 
-const apiOrigin = () => {
-  if (typeof window === "undefined") return "";
-  const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".workers.dev")) return "";
-  return "https://bachata-co-kr.bachata-korea.workers.dev";
-};
-
-const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
-const threadSharePath = (id: string) => {
-  const path = `/g/${encodeURIComponent(id)}`;
-  const origin = apiOrigin();
-  return origin ? `${origin}${path}` : path;
-};
+const threadsApiUrl = () => communityApiUrl("/api/threads/");
+const threadSharePath = (id: string) => publicUrl(`/g/${encodeURIComponent(id)}`);
 
 export function GuestThreadDetail({ threadId }: { threadId?: string }) {
   const searchParams = useSearchParams();
@@ -103,7 +95,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
     return (
       <main className="app-shell narrow">
         <section className="page-head">
-          <span className="eyebrow">Guest Thread</span>
+          <span className="eyebrow">비회원 글</span>
           <h1>열 글을 찾지 못했습니다</h1>
           <p>홈 피드에서 보고 싶은 글을 눌러 들어오면 댓글과 공유를 바로 이어갈 수 있습니다.</p>
           <Link className="primary-link" href="/">피드로 돌아가기</Link>
@@ -116,7 +108,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
     return (
       <main className="app-shell narrow">
         <section className="page-head">
-          <span className="eyebrow">Guest Thread</span>
+          <span className="eyebrow">비회원 글</span>
           <h1>{status}</h1>
           <p>잠시 후 다시 열어보거나 홈 피드에서 글이 남아 있는지 확인해주세요.</p>
           <Link className="primary-link" href="/">피드로 돌아가기</Link>
@@ -124,6 +116,9 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
       </main>
     );
   }
+
+  const parsed = extractThreadMedia(thread.body, thread.linkUrl);
+  const bodyText = parsed.text || thread.body;
 
   return (
     <main className="app-shell narrow">
@@ -137,7 +132,8 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
             <span className="flair">비회원</span>
           </div>
           <h1>{thread.title}</h1>
-          <p>{thread.body}</p>
+          <p>{bodyText}</p>
+          <ThreadMediaAttachments media={parsed.media} />
           <div className="tag-row">
             {(thread.tags || []).map((tag) => <span key={tag}>#{tag}</span>)}
           </div>
@@ -149,7 +145,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
             commentHref="#comments-title"
             sharePath={sharePath}
             shareTitle={thread.title}
-            shareText={thread.body.slice(0, 140)}
+            shareText={bodyText.slice(0, 140)}
             sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
             threadId={thread.id}
           />

@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
+import { ensureCommunityTables } from "@/lib/community-schema";
 import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
 
@@ -226,6 +227,7 @@ export async function OPTIONS(request: NextRequest) {
 export async function GET(request: NextRequest) {
   const db = await getDb();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+  await ensureCommunityTables(db);
 
   const id = normalizeId(request.nextUrl.searchParams.get("id"));
   if (id) {
@@ -303,6 +305,7 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const db = await getDb();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+  await ensureCommunityTables(db);
 
   let payload: Record<string, unknown>;
   try {

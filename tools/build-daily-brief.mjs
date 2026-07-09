@@ -211,7 +211,7 @@ const buildLatestBriefModel = (signals) => {
     generationDate: dateText,
     url: `/briefs/${dateText}.html`,
     headline: `${formatDateKo(dateText)} 바차타 최신소식`,
-    dek: "오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니다. 원문은 복사하지 않고 공개 링크와 관찰값만 연결합니다.",
+    dek: "새로 올라온 영상, 행사, 커뮤니티 이야기를 오늘 읽기 좋은 흐름으로 골랐습니다.",
     topicCount: topics.length,
     candidateCount,
     sections,
