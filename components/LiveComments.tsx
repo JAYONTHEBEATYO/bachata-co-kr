@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { ArrowBigUp, MessageCircle, Send } from "lucide-react";
 import { formatRelativeDate } from "@/lib/format";
+import { randomKoreanNickname } from "@/lib/nicknames";
 import type { Comment } from "@/lib/types";
 
 type LiveCommentsProps = {
@@ -22,13 +23,6 @@ const commentsApiOrigin = () => {
 };
 
 const commentsApiUrl = () => `${commentsApiOrigin()}/api/comments/`;
-
-const randomNickname = () => {
-  const alphabet = "abcdefghjkmnpqrstuvwxyz23456789";
-  const values = new Uint8Array(5);
-  crypto.getRandomValues(values);
-  return `anon_${[...values].map((value) => alphabet[value % alphabet.length]).join("")}`;
-};
 
 const buildTree = (comments: ApiComment[]): Comment[] => {
   const byId = new Map<string, Comment>();
@@ -65,7 +59,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   const commentTree = useMemo(() => buildTree(comments), [comments]);
 
   useEffect(() => {
-    setAuthorName(randomNickname());
+    setAuthorName(randomKoreanNickname());
   }, []);
 
   useEffect(() => {

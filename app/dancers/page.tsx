@@ -21,19 +21,20 @@ export default async function DancersPage() {
       </section>
       <section className="dancer-grid">
         {dancers.map((dancer) => (
-          <article key={dancer.id} className="dancer-card">
-            <Link href={`/dancers/${dancer.id}`} aria-label={`${dancer.name} 상세 보기`}>
+          <Link key={dancer.id} href={`/dancers/${dancer.id}`} className="dancer-card dancer-card-link" aria-label={`${dancer.name} 상세 쓰레드 보기`}>
+            <article>
               <img className="dancer-thumb" src={youtubeThumb(dancer.videoId)} alt={`${dancer.name} 대표 영상 썸네일`} />
-            </Link>
-            <div>
-              <span className="flair">{dancer.role}</span>
-              <h2><Link href={`/dancers/${dancer.id}`}>{dancer.name}</Link></h2>
-              <p>{dancer.excerpt}</p>
-              <div className="tag-row">
-                {dancer.tags.map((tag) => <span key={tag}>#{tag}</span>)}
+              <div>
+                <span className="flair">{dancer.role}</span>
+                <h2>{dancer.name}</h2>
+                <p>{dancer.excerpt}</p>
+                <div className="tag-row">
+                  {dancer.tags.map((tag) => <span key={tag}>#{tag}</span>)}
+                </div>
+                <span className="primary-link">댄서 쓰레드 보기</span>
               </div>
-            </div>
-          </article>
+            </article>
+          </Link>
         ))}
       </section>
     </main>

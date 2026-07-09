@@ -295,17 +295,113 @@ export const dancers: DancerCard[] = [
     id: "emilien-tehina",
     name: "Emilien & Tehina",
     role: "Influence, Sensual",
-    excerpt: "전환과 기다림이 선명해서, Bachata Influence 계열을 소셜에서 어떻게 풀어내는지 보기 좋습니다.",
-    videoId: "zQjucjzuW3I",
-    tags: ["Influence", "Workshop", "Korea"]
+    excerpt: "정지와 진행의 대비가 선명한 페어입니다. 큰 동작보다 언제 기다리고 언제 다시 이어가는지 보기에 좋습니다.",
+    videoId: "FNv7eOMg-_k",
+    tags: ["Influence", "Connection", "Workshop"]
+  },
+  {
+    id: "korke-judith",
+    name: "Korke & Judith",
+    role: "Bachata Sensual",
+    excerpt: "센슈얼 바차타를 이야기할 때 빠질 수 없는 기준점입니다. 16개 펀더멘털은 기술표보다 안전한 연결의 지도처럼 보면 좋습니다.",
+    videoId: "B7Wv3cqHrSU",
+    tags: ["Sensual", "Fundamentals", "Safety"]
+  },
+  {
+    id: "gero-migle",
+    name: "Gero & Migle",
+    role: "Global Dancers",
+    excerpt: "감정선과 컨트롤을 함께 보기 좋은 페어입니다. 큰 모양보다 시작 전 준비와 프레임 유지가 먼저 보입니다.",
+    videoId: "j4CmXKDCMzI",
+    tags: ["Sensual", "Performance", "Control"]
+  },
+  {
+    id: "luis-andrea",
+    name: "Luis & Andrea",
+    role: "Global Dancers",
+    excerpt: "국제 페스티벌 맥락에서 자주 언급되는 페어입니다. 타이밍, 방향 전환, 표현의 강약을 나눠 보기 좋습니다.",
+    videoId: "L1vzrcpeBuw",
+    tags: ["Sensual", "Workshop", "Festival"]
+  },
+  {
+    id: "cristian-gabriella",
+    name: "Cristian & Gabriella",
+    role: "Bachata Sensual",
+    excerpt: "부드러운 연결과 소셜 친화적인 라인을 같이 볼 수 있는 페어입니다. 느린 곡에서 거리와 속도를 다루는 방식이 눈에 들어옵니다.",
+    videoId: "CZEB8wdVXOc",
+    tags: ["Sensual", "Spain", "Connection"]
+  },
+  {
+    id: "sara-panero",
+    name: "Sara Panero",
+    role: "Lady Style",
+    excerpt: "레이디 스타일과 바디무브먼트를 독립적인 학습 주제로 보기 좋은 아티스트입니다. 손끝, 시선, 라인이 음악 안에서 어떻게 정리되는지 볼 수 있습니다.",
+    videoId: "FCAt14yr0j4",
+    tags: ["Lady Style", "Body Movement", "Stage"]
   },
   {
     id: "gray-loren",
     name: "Gray & Loren",
     role: "Korea Social",
-    excerpt: "국내 소셜 영상에서 박자, 거리, 리드 흐름을 확인하기 좋은 페어로 자주 언급됩니다.",
-    videoId: "gDtOwUqeWKw",
+    excerpt: "한국 바차타에서 Influence 계열 감각을 읽을 때 먼저 확인할 만한 팀입니다. 공개 소셜 영상으로 프레임과 음악성을 살펴볼 수 있습니다.",
+    videoId: "nrJM-arshvE",
     tags: ["Korea", "Social", "Video"]
+  },
+  {
+    id: "cluny-journey",
+    name: "Cluny & Journey",
+    role: "Korea Social",
+    excerpt: "한국 소셜과 공연 영상으로 흐름을 확인할 수 있는 국내 페어입니다. 무대용 표현과 소셜용 움직임을 나눠 보기 좋습니다.",
+    videoId: "CypEYpiRzCo",
+    tags: ["Korea", "Social", "Performance"]
+  },
+  {
+    id: "sora-dalkong",
+    name: "소라 & 달콩",
+    role: "Dominican, Korea",
+    excerpt: "라틴씨엘로의 도미니칸, 베이직, 해외 데모 따라잡기 수업 기록이 확인되는 페어입니다. 발과 리듬을 같이 보는 입구로 좋습니다.",
+    videoId: "6h3Io0i6H_M",
+    tags: ["Korea", "Dominican", "Latin Cielo"]
+  },
+  {
+    id: "waffle-sera",
+    name: "와플 & 세라",
+    role: "Korea Social",
+    excerpt: "소셜 원리와 한곡반 영상으로 국내 수업 흐름을 확인할 수 있는 페어입니다. 안무보다 연결을 어떻게 설명하는지 볼 만합니다.",
+    videoId: "ZvyiwLuNPj4",
+    tags: ["Korea", "Social", "Class"]
+  },
+  {
+    id: "victor-alba",
+    name: "Victor & Alba",
+    role: "Korea Visit",
+    excerpt: "한국 부트캠프와 공연 영상으로 활동을 확인할 수 있는 최근 내한 팀입니다. 국내 워크숍 흐름과 연결해서 보기 좋습니다.",
+    videoId: "AV2YXlMIBd0",
+    tags: ["Korea Visit", "Bootcamp", "Sensual"]
+  },
+  {
+    id: "ryuji",
+    name: "류지",
+    role: "Korea",
+    excerpt: "화차타 백화점 클래스와 류텐션 영상으로 최근 강남 활동을 확인할 수 있는 댄서입니다. 레벨별 수업과 발표 흐름을 같이 볼 수 있습니다.",
+    videoId: "-39NjttCnLM",
+    tags: ["Korea", "Gangnam", "Class"]
+  },
+  {
+    id: "ska-jubell",
+    name: "스카 & 쥬벨",
+    role: "Korea",
+    excerpt: "원리반, 릴스반, 한곡반을 함께 운영하는 강남 바차타 페어입니다. 기본기 수업과 발표 영상이 어떻게 이어지는지 보기 좋습니다.",
+    videoId: "PrKlmz-msFc",
+    tags: ["Korea", "Class", "One Song"]
+  },
+  {
+    id: "goni",
+    name: "고니",
+    role: "Dominican, Korea",
+    excerpt: "풋워크 릴스반과 도미니칸 바차타 풋워크 영상으로 확인되는 국내 댄서입니다. 센슈얼만 보던 사람에게 리듬 중심의 입구가 됩니다.",
+    videoId: "f7xAkIXFFes",
+    tags: ["Korea", "Footwork", "Dominican"]
   }
 ];
 

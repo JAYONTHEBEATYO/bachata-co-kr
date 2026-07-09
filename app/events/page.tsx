@@ -37,9 +37,12 @@ export default async function EventsPage() {
               <div className="tag-row">
                 {event.tags.map((tag) => <span key={tag}>#{tag}</span>)}
               </div>
-              <a className="primary-link" href={event.sourceUrl} target="_blank" rel="noreferrer">
-                공식 링크 <ExternalLink size={16} />
-              </a>
+              <div className="card-actions">
+                <Link className="primary-link" href={`/events/${event.id}`}>상세 쓰레드</Link>
+                <a className="thread-action-pill" href={event.sourceUrl} target="_blank" rel="noreferrer">
+                  공식 링크 <ExternalLink size={16} />
+                </a>
+              </div>
             </div>
           </article>
         ))}

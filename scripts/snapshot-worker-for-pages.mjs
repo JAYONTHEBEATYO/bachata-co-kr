@@ -11,6 +11,15 @@ const fetchText = async (pathname) => {
   return response.text();
 };
 
+const latestSitemap = async () => {
+  const localBody = path.join(root, ".next", "server", "app", "sitemap.xml.body");
+  try {
+    return await readFile(localBody, "utf8");
+  } catch {
+    return fetchText("/sitemap.xml");
+  }
+};
+
 const writeRoute = async (pathname, body) => {
   const target =
     pathname === "/"
@@ -34,7 +43,7 @@ const localHtmlFor = async (pathname) => {
   }
 };
 
-const sitemap = await fetchText("/sitemap.xml");
+const sitemap = await latestSitemap();
 const sitemapPaths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
   .map((match) => match[1])
   .map((url) => new URL(url).pathname)

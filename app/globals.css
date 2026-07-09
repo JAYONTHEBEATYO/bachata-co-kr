@@ -520,6 +520,17 @@ p {
   align-items: center;
 }
 
+.comment-count-link {
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 850;
+}
+
 .thread-actions a,
 .thread-actions > button,
 .thread-action-pill,
@@ -562,6 +573,10 @@ p {
 
 .live-thread-card .thread-body p {
   white-space: pre-wrap;
+}
+
+.live-thread-card h2 a {
+  color: inherit;
 }
 
 .video-card {
@@ -836,9 +851,9 @@ p {
 }
 
 .comment-form-foot {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   align-items: center;
-  justify-content: space-between;
   gap: 10px;
 }
 
@@ -861,6 +876,14 @@ p {
   cursor: pointer;
   font-weight: 950;
   padding: 10px 14px;
+}
+
+.comment-form-foot button {
+  min-width: 154px;
+  min-height: 46px;
+  background: var(--accent);
+  box-shadow: 0 10px 22px rgba(255, 90, 61, 0.22);
+  font-size: 15px;
 }
 
 .comment-form-foot button:disabled {
@@ -999,6 +1022,25 @@ p {
   overflow: hidden;
 }
 
+.dancer-card-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.dancer-card-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-soft);
+}
+
+.dancer-card-link article {
+  height: 100%;
+  display: grid;
+  align-content: start;
+}
+
 .event-card img,
 .dancer-thumb {
   width: 100%;
@@ -1009,8 +1051,21 @@ p {
 }
 
 .event-card > div,
-.dancer-card > div {
+.dancer-card > div,
+.dancer-card article > div {
   padding: 16px;
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.card-actions .primary-link,
+.card-actions .thread-action-pill {
+  margin-top: 0;
 }
 
 .event-meta {
@@ -1019,6 +1074,16 @@ p {
   color: var(--muted);
   font-size: 13px;
   font-weight: 850;
+}
+
+.event-story {
+  display: grid;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.event-story p {
+  margin: 0;
 }
 
 .event-meta span {
@@ -1296,6 +1361,18 @@ p {
 
   .thread-body p {
     font-size: 14px;
+  }
+
+  .thread-actions {
+    gap: 7px;
+  }
+
+  .comment-form-foot {
+    grid-template-columns: 1fr;
+  }
+
+  .comment-form-foot button {
+    width: 100%;
   }
 
     .right-rail,

@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
+import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
 
 type D1Rows<T> = {
   results?: T[];
@@ -121,18 +122,11 @@ const displayIpPrefix = (ip: string) => {
   return "비공개";
 };
 
-const randomGuestName = () => {
-  const alphabet = "abcdefghjkmnpqrstuvwxyz23456789";
-  const bytes = new Uint8Array(5);
-  crypto.getRandomValues(bytes);
-  return `anon_${[...bytes].map((byte) => alphabet[byte % alphabet.length]).join("")}`;
-};
-
 const rowToComment = (row: CommentRow) => ({
   id: row.id,
   threadId: row.threadId,
   parentId: row.parentId,
-  author: row.author,
+  author: displayGuestNickname(row.author, row.id),
   ipPrefix: row.ipPrefix,
   body: row.body,
   score: Number(row.score || 0),
@@ -188,7 +182,7 @@ export async function POST(request: NextRequest) {
 
   const threadId = normalizeThreadId(payload.threadId);
   const parentId = normalizeParentId(payload.parentId);
-  const authorName = normalizeName(payload.authorName) || randomGuestName();
+  const authorName = normalizeName(payload.authorName) || randomKoreanNickname();
   const authorPassword = typeof payload.authorPassword === "string" ? payload.authorPassword.trim() : "";
   const body = normalizeBody(payload.body);
 

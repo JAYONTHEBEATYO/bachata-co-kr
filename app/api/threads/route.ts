@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
+import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
 
 type D1Rows<T> = {
   results?: T[];
@@ -26,6 +27,7 @@ type GuestThreadRow = {
   ipPrefix: string;
   score: number;
   downvotes: number;
+  commentCount?: number;
   createdAt: string;
 };
 
@@ -92,6 +94,11 @@ const normalizeCategory = (value: unknown) => {
   return categories.has(category) ? category : "questions";
 };
 
+const normalizeId = (value: unknown) => {
+  const text = typeof value === "string" ? value.trim() : "";
+  return /^[a-zA-Z0-9_-]{1,80}$/.test(text) ? text : "";
+};
+
 const normalizeLink = (value: unknown) => {
   const text = typeof value === "string" ? value.trim() : "";
   if (!text) return null;
@@ -120,11 +127,43 @@ const sha256Hex = async (value: string) => {
   return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
 };
 
-const randomGuestName = () => {
-  const alphabet = "abcdefghjkmnpqrstuvwxyz23456789";
-  const bytes = new Uint8Array(5);
-  crypto.getRandomValues(bytes);
-  return `anon_${[...bytes].map((byte) => alphabet[byte % alphabet.length]).join("")}`;
+const tagMap: Array<[RegExp, string]> = [
+  [/센슈얼|sensual/i, "센슈얼"],
+  [/도미니칸|dominican/i, "도미니칸"],
+  [/베이직|기초|초보|입문|basic|beginner/i, "입문"],
+  [/소셜|파티|social/i, "소셜"],
+  [/페스티벌|행사|워크숍|festival|workshop/i, "행사"],
+  [/영상|유튜브|youtube|youtu\.be/i, "영상"],
+  [/댄서|강사|멜빈|가티카|코르케|주디스|로렌|그레이|dancer/i, "댄서"],
+  [/서울|강남|홍대/i, "서울"],
+  [/부산/i, "부산"],
+  [/대구/i, "대구"],
+  [/제주/i, "제주"],
+  [/후기|리뷰|느낌/i, "후기"],
+  [/양도|티켓|패스/i, "양도"],
+  [/구인|모집|스태프|dj/i, "모집"]
+];
+
+const categoryTags: Record<string, string> = {
+  questions: "질문",
+  video: "영상",
+  events: "행사",
+  dancers: "댄서",
+  guide: "가이드"
+};
+
+const inferTags = (thread: Pick<GuestThreadRow, "title" | "body" | "category" | "linkUrl">) => {
+  const text = `${thread.title} ${thread.body} ${thread.linkUrl || ""}`;
+  const tags = new Set<string>();
+  tags.add(categoryTags[thread.category] || "자유");
+
+  for (const [pattern, tag] of tagMap) {
+    if (pattern.test(text)) tags.add(tag);
+    if (tags.size >= 5) break;
+  }
+
+  tags.add("비회원");
+  return [...tags].slice(0, 5);
 };
 
 const rowToThread = (row: GuestThreadRow) => ({
@@ -133,10 +172,12 @@ const rowToThread = (row: GuestThreadRow) => ({
   body: row.body,
   category: row.category,
   linkUrl: row.linkUrl,
-  guestId: row.guestId,
+  guestId: displayGuestNickname(row.guestId, row.id),
   ipPrefix: row.ipPrefix,
   score: Number(row.score || 0),
   downvotes: Number(row.downvotes || 0),
+  commentCount: Number(row.commentCount || 0),
+  tags: inferTags(row),
   createdAt: row.createdAt
 });
 
@@ -150,23 +191,67 @@ export async function GET(request: NextRequest) {
   const db = await getDb();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
 
+  const id = normalizeId(request.nextUrl.searchParams.get("id"));
+  if (id) {
+    const row = await db.prepare(
+      `select
+        g.id,
+        g.title,
+        g.body,
+        g.category,
+        g.link_url as linkUrl,
+        g.guest_id as guestId,
+        g.ip_prefix as ipPrefix,
+        g.score,
+        g.downvotes,
+        g.created_at as createdAt,
+        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      from guest_threads g
+      where g.status = 'published' and g.id = ?
+      limit 1`
+    ).bind(id).first<GuestThreadRow>();
+
+    if (!row) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
+    return respond(request, 200, { thread: rowToThread(row) });
+  }
+
   const category = request.nextUrl.searchParams.get("category");
   const categoryFilter = category && categories.has(category) ? category : null;
   const rows = categoryFilter
     ? await db.prepare(
-      `select id, title, body, category, link_url as linkUrl, guest_id as guestId, ip_prefix as ipPrefix,
-        score, downvotes, created_at as createdAt
-      from guest_threads
-      where status = 'published' and category = ?
-      order by created_at desc
+      `select
+        g.id,
+        g.title,
+        g.body,
+        g.category,
+        g.link_url as linkUrl,
+        g.guest_id as guestId,
+        g.ip_prefix as ipPrefix,
+        g.score,
+        g.downvotes,
+        g.created_at as createdAt,
+        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      from guest_threads g
+      where g.status = 'published' and g.category = ?
+      order by g.created_at desc
       limit 40`
     ).bind(categoryFilter).all<GuestThreadRow>()
     : await db.prepare(
-      `select id, title, body, category, link_url as linkUrl, guest_id as guestId, ip_prefix as ipPrefix,
-        score, downvotes, created_at as createdAt
-      from guest_threads
-      where status = 'published'
-      order by created_at desc
+      `select
+        g.id,
+        g.title,
+        g.body,
+        g.category,
+        g.link_url as linkUrl,
+        g.guest_id as guestId,
+        g.ip_prefix as ipPrefix,
+        g.score,
+        g.downvotes,
+        g.created_at as createdAt,
+        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      from guest_threads g
+      where g.status = 'published'
+      order by g.created_at desc
       limit 40`
     ).all<GuestThreadRow>();
 
@@ -192,7 +277,7 @@ export async function POST(request: NextRequest) {
   const body = normalizeText(payload.body, 4000);
   const category = normalizeCategory(payload.category);
   const linkUrl = normalizeLink(payload.linkUrl);
-  const authorName = normalizeName(payload.authorName) || randomGuestName();
+  const authorName = normalizeName(payload.authorName) || randomKoreanNickname();
   const authorPassword = typeof payload.authorPassword === "string" ? payload.authorPassword.trim() : "";
 
   if (title.length < 4) return respond(request, 400, { error: "제목을 네 글자 이상 적어주세요." });
@@ -233,6 +318,8 @@ export async function POST(request: NextRequest) {
       ipPrefix,
       score: 0,
       downvotes: 0,
+      commentCount: 0,
+      tags: inferTags({ title, body, category, linkUrl }),
       createdAt: now
     }
   });

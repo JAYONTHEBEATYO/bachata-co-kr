@@ -45,6 +45,8 @@ export type GuestThread = {
   ipPrefix: string;
   score: number;
   downvotes: number;
+  commentCount: number;
+  tags: string[];
   createdAt: string;
 };
 

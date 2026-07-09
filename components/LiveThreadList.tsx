@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ExternalLink } from "lucide-react";
+import Link from "next/link";
 import { formatRelativeDate } from "@/lib/format";
-import { VoteRail } from "./VoteRail";
+import { ThreadActionBar } from "./ThreadActionBar";
 
 type LiveThread = {
   id: string;
@@ -15,6 +15,8 @@ type LiveThread = {
   ipPrefix: string;
   score: number;
   downvotes: number;
+  commentCount: number;
+  tags: string[];
   createdAt: string;
 };
 
@@ -62,7 +64,7 @@ export function LiveThreadList() {
   return (
     <section className="live-thread-stack" aria-label="비회원 새 글">
       {threads.map((thread) => (
-        <article key={thread.id} className="thread-card live-thread-card">
+        <article key={thread.id} className="thread-card live-thread-card" id={`guest-${thread.id}`}>
           <div className="thread-body">
             <div className="thread-meta">
               <span>r/{labels[thread.category] || "자유"}</span>
@@ -71,14 +73,26 @@ export function LiveThreadList() {
               <span>{formatRelativeDate(thread.createdAt)}</span>
               <span className="flair">비회원</span>
             </div>
-            <h2>{thread.title}</h2>
+            <h2><Link href={`/guest/?id=${encodeURIComponent(thread.id)}`}>{thread.title}</Link></h2>
             <p>{thread.body}</p>
-            <div className="thread-actions">
-              <VoteRail score={thread.score} downvotes={thread.downvotes} />
-              {thread.linkUrl ? (
-                <a href={thread.linkUrl} target="_blank" rel="noreferrer"><ExternalLink size={16} /> 링크</a>
-              ) : null}
+            <div className="tag-row">
+              {(thread.tags || []).map((tag) => <span key={tag}>#{tag}</span>)}
             </div>
+            <ThreadActionBar
+              score={thread.score}
+              downvotes={thread.downvotes}
+              commentHref={`/guest/?id=${encodeURIComponent(thread.id)}#comments-title`}
+              sharePath={`/guest/?id=${encodeURIComponent(thread.id)}`}
+              shareTitle={thread.title}
+              shareText={thread.body.slice(0, 100)}
+              sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
+              showAward={false}
+            />
+            {thread.commentCount ? (
+              <Link className="comment-count-link" href={`/guest/?id=${encodeURIComponent(thread.id)}#comments-title`}>
+                댓글 {thread.commentCount}개 보기
+              </Link>
+            ) : null}
           </div>
         </article>
       ))}

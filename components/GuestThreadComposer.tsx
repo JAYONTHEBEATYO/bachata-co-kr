@@ -2,6 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { Link2, Send } from "lucide-react";
+import { randomKoreanNickname } from "@/lib/nicknames";
 
 type CreatedThread = {
   id: string;
@@ -19,13 +20,6 @@ const apiOrigin = () => {
 
 const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
 
-const randomNickname = () => {
-  const alphabet = "abcdefghjkmnpqrstuvwxyz23456789";
-  const values = new Uint8Array(5);
-  crypto.getRandomValues(values);
-  return `anon_${[...values].map((value) => alphabet[value % alphabet.length]).join("")}`;
-};
-
 export function GuestThreadComposer() {
   const [title, setTitle] = useState("");
   const [authorName, setAuthorName] = useState("");
@@ -39,7 +33,7 @@ export function GuestThreadComposer() {
   const [created, setCreated] = useState<CreatedThread | null>(null);
 
   useEffect(() => {
-    setAuthorName(randomNickname());
+    setAuthorName(randomKoreanNickname());
   }, []);
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
