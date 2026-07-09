@@ -46,6 +46,11 @@ const apiOrigin = () => {
 };
 
 const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
+const threadSharePath = (id: string) => {
+  const path = `/g/${encodeURIComponent(id)}`;
+  const origin = apiOrigin();
+  return origin ? `${origin}${path}` : path;
+};
 
 export function GuestThreadDetail({ threadId }: { threadId?: string }) {
   const searchParams = useSearchParams();
@@ -59,6 +64,11 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
       return `/g/${encodeURIComponent(id)}`;
     }
     return `/guest/?id=${encodeURIComponent(id)}`;
+  }, [id]);
+
+  const sharePath = useMemo(() => {
+    if (!id) return "/guest";
+    return threadSharePath(id);
   }, [id]);
 
   useEffect(() => {
@@ -135,7 +145,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
             score={thread.score}
             downvotes={thread.downvotes}
             commentHref="#comments-title"
-            sharePath={detailPath}
+            sharePath={sharePath}
             shareTitle={thread.title}
             shareText={thread.body.slice(0, 140)}
             sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}

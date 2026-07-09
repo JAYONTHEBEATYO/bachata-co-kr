@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Suspense } from "react";
 import { GuestThreadDetail } from "@/components/GuestThreadDetail";
 import { absoluteUrl } from "@/lib/format";
+import { articleShareMetadata, buildShareDescription, DEFAULT_SHARE_IMAGE } from "@/lib/share-meta";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -77,50 +78,29 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const url = absoluteUrl(`/g/${id}`);
   const fallbackTitle = "바차타 코리아 쓰레드";
   const fallbackDescription = "바차타 질문, 후기, 영상, 행사 이야기를 댓글로 이어갑니다.";
-  const imageUrl = absoluteUrl("/assets/bachata-seoul-hero.png");
 
   if (!data) {
-    return {
+    return articleShareMetadata({
       title: fallbackTitle,
       description: fallbackDescription,
-      alternates: { canonical: url },
-      openGraph: {
-        title: fallbackTitle,
-        description: fallbackDescription,
-        url,
-        type: "article",
-        images: [{ url: imageUrl, width: 1200, height: 630, alt: fallbackTitle }]
-      },
-      twitter: {
-        card: "summary_large_image",
-        title: fallbackTitle,
-        description: fallbackDescription,
-        images: [imageUrl]
-      }
-    };
+      url,
+      imageUrl: DEFAULT_SHARE_IMAGE,
+      imageAlt: fallbackTitle
+    });
   }
 
-  const commentLead = data.comment?.body ? ` 베댓: ${data.comment.body.slice(0, 72)}` : "";
-  const description = `${data.thread.body.slice(0, 110)}${commentLead}`.trim() || fallbackDescription;
+  const description = buildShareDescription({
+    body: data.thread.body,
+    bestComment: data.comment?.body || null
+  }) || fallbackDescription;
 
-  return {
+  return articleShareMetadata({
     title: data.thread.title,
     description,
-    alternates: { canonical: url },
-    openGraph: {
-      title: data.thread.title,
-      description,
-      url,
-      type: "article",
-      images: [{ url: imageUrl, width: 1200, height: 630, alt: data.thread.title }]
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: data.thread.title,
-      description,
-      images: [imageUrl]
-    }
-  };
+    url,
+    imageUrl: DEFAULT_SHARE_IMAGE,
+    imageAlt: data.thread.title
+  });
 }
 
 export default async function GuestThreadSharePage({ params }: PageProps) {

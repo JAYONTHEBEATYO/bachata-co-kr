@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/Header";
 import { absoluteUrl } from "@/lib/format";
+import { DEFAULT_SHARE_IMAGE } from "@/lib/share-meta";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -17,12 +18,14 @@ export const metadata: Metadata = {
     url: absoluteUrl("/"),
     siteName: "바차타 코리아",
     locale: "ko_KR",
-    type: "website"
+    type: "website",
+    images: [{ url: DEFAULT_SHARE_IMAGE, width: 1200, height: 630, alt: "바차타 코리아" }]
   },
   twitter: {
     card: "summary_large_image",
     title: "바차타 코리아",
-    description: "바차타 영상과 소식을 쓰레드로 모아보는 한국 바차타 커뮤니티."
+    description: "바차타 영상과 소식을 쓰레드로 모아보는 한국 바차타 커뮤니티.",
+    images: [DEFAULT_SHARE_IMAGE]
   }
 };
 

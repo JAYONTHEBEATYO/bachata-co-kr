@@ -44,6 +44,11 @@ const apiOrigin = () => {
 
 const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
 const threadPath = (id: string) => `/guest/?id=${encodeURIComponent(id)}`;
+const threadSharePath = (id: string) => {
+  const path = `/g/${encodeURIComponent(id)}`;
+  const origin = apiOrigin();
+  return origin ? `${origin}${path}` : path;
+};
 
 export function LiveThreadList() {
   const [threads, setThreads] = useState<LiveThread[]>([]);
@@ -90,7 +95,7 @@ export function LiveThreadList() {
               score={thread.score}
               downvotes={thread.downvotes}
               commentHref={`${threadPath(thread.id)}#comments-title`}
-              sharePath={threadPath(thread.id)}
+              sharePath={threadSharePath(thread.id)}
               shareTitle={thread.title}
               shareText={thread.body.slice(0, 100)}
               sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}

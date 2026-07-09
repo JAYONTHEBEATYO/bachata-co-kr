@@ -6,7 +6,8 @@ import { ThreadActionBar } from "@/components/ThreadActionBar";
 import { ThreadCard } from "@/components/ThreadCard";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { getCommunities, getEvents, getRelatedThreads, getThread, getThreadComments, getThreads } from "@/lib/data";
-import { absoluteUrl, youtubeThumb } from "@/lib/format";
+import { absoluteUrl } from "@/lib/format";
+import { articleShareMetadata, buildShareDescription, threadShareImage } from "@/lib/share-meta";
 
 type PageProps = {
   params: Promise<{ id: string; slug: string }>;
@@ -21,27 +22,16 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id, slug } = await params;
   const thread = await getThread(id, slug);
   if (!thread) return {};
-  const imageUrl = thread.imageUrl || (thread.videoId ? youtubeThumb(thread.videoId) : youtubeThumb("xhrdh-uFkog"));
-  const description = `${thread.excerpt} 댓글과 반응은 바차타 코리아에서 이어집니다.`;
+  const url = absoluteUrl(`/t/${thread.id}/${thread.slug}`);
+  const description = buildShareDescription({ excerpt: thread.excerpt, body: thread.body });
 
-  return {
+  return articleShareMetadata({
     title: thread.title,
     description,
-    alternates: { canonical: absoluteUrl(`/t/${thread.id}/${thread.slug}`) },
-    openGraph: {
-      title: thread.title,
-      description,
-      type: "article",
-      url: absoluteUrl(`/t/${thread.id}/${thread.slug}`),
-      images: [{ url: imageUrl, width: 480, height: 360, alt: thread.title }]
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: thread.title,
-      description,
-      images: [imageUrl]
-    }
-  };
+    url,
+    imageUrl: threadShareImage(thread),
+    imageAlt: thread.title
+  });
 }
 
 export default async function ThreadPage({ params }: PageProps) {
