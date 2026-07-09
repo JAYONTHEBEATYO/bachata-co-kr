@@ -4,9 +4,17 @@ import path from "node:path";
 const sourceOrigin = (process.env.SNAPSHOT_SOURCE || "https://bachata-co-kr.bachata-korea.workers.dev").replace(/\/$/, "");
 const siteOrigin = (process.env.NEXT_PUBLIC_SITE_URL || "https://bachata.co.kr").replace(/\/$/, "");
 const root = process.cwd();
+const snapshotVersion = Date.now().toString();
 
 const fetchText = async (pathname) => {
-  const response = await fetch(`${sourceOrigin}${pathname}`);
+  const url = new URL(pathname, sourceOrigin);
+  url.searchParams.set("_snapshot", snapshotVersion);
+  const response = await fetch(url, {
+    headers: {
+      "cache-control": "no-cache",
+      pragma: "no-cache"
+    }
+  });
   if (!response.ok) throw new Error(`${response.status} ${pathname}`);
   return response.text();
 };

@@ -29,10 +29,11 @@ export function ThreadActionBar({
   threadId
 }: ThreadActionBarProps) {
   const shareUrl = sharePath.startsWith("http") ? sharePath : absoluteUrl(sharePath);
+  const hasVotes = score !== 0 || downvotes > 0;
 
   return (
     <div className="thread-actions">
-      <VoteRail score={score} downvotes={downvotes} />
+      {hasVotes ? <VoteRail score={score} downvotes={downvotes} /> : null}
       {showAward && threadId ? <AwardPicker threadId={threadId} /> : null}
       {commentHref ? <a href={commentHref}><MessageCircle size={16} /> 댓글</a> : null}
       <ShareButton url={shareUrl} title={shareTitle} text={shareText} />

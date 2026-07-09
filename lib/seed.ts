@@ -57,10 +57,10 @@ export const threads: Thread[] = [
     flair: "입문",
     author: "Bachata Korea",
     createdAt: "2026-07-08T08:10:00+09:00",
-    score: 214,
-    upvotes: 231,
-    downvotes: 17,
-    commentCount: 38,
+    score: 0,
+    upvotes: 0,
+    downvotes: 0,
+    commentCount: 0,
     videoId: "xhrdh-uFkog",
     sourceLinks: [{ label: "Bachata Dance Academy 베이직", url: "https://www.youtube.com/watch?v=xhrdh-uFkog" }],
     tags: ["바차타 베이직", "입문", "bachata basic"],
@@ -77,10 +77,10 @@ export const threads: Thread[] = [
     flair: "Bachata Influence",
     author: "Bachata Korea",
     createdAt: "2026-07-08T07:45:00+09:00",
-    score: 188,
-    upvotes: 205,
-    downvotes: 17,
-    commentCount: 27,
+    score: 0,
+    upvotes: 0,
+    downvotes: 0,
+    commentCount: 0,
     videoId: "sUy5L7x5pyE",
     sourceLinks: [{ label: "Melvin & Gatica 영상", url: "https://www.youtube.com/watch?v=sUy5L7x5pyE" }],
     tags: ["Bachata Influence", "Melvin Gatica", "센슈얼 바차타"]
@@ -96,10 +96,10 @@ export const threads: Thread[] = [
     flair: "국내 소셜",
     author: "Bachata Korea",
     createdAt: "2026-07-08T06:35:00+09:00",
-    score: 171,
-    upvotes: 190,
-    downvotes: 19,
-    commentCount: 21,
+    score: 0,
+    upvotes: 0,
+    downvotes: 0,
+    commentCount: 0,
     videoId: "gDtOwUqeWKw",
     sourceLinks: [{ label: "국내 소셜 참고 영상", url: "https://www.youtube.com/watch?v=gDtOwUqeWKw" }],
     tags: ["국내 바차타", "소셜", "서울"]
@@ -115,10 +115,10 @@ export const threads: Thread[] = [
     flair: "장르",
     author: "latincielo",
     createdAt: "2026-07-07T23:20:00+09:00",
-    score: 156,
-    upvotes: 169,
-    downvotes: 13,
-    commentCount: 44,
+    score: 0,
+    upvotes: 0,
+    downvotes: 0,
+    commentCount: 0,
     videoId: "vs3YqyTyOIo",
     sourceLinks: [{ label: "센슈얼 참고 영상", url: "https://www.youtube.com/watch?v=vs3YqyTyOIo" }],
     tags: ["센슈얼 바차타", "도미니칸 바차타", "입문"]
@@ -134,10 +134,10 @@ export const threads: Thread[] = [
     flair: "페스티벌",
     author: "Bachata Korea",
     createdAt: "2026-07-07T21:15:00+09:00",
-    score: 143,
-    upvotes: 151,
-    downvotes: 8,
-    commentCount: 19,
+    score: 0,
+    upvotes: 0,
+    downvotes: 0,
+    commentCount: 0,
     videoId: "zQXNPwMqpdw",
     sourceLinks: [
       { label: "K-Sensual Instagram", url: "https://www.instagram.com/ksensual_official/" },
@@ -156,10 +156,10 @@ export const threads: Thread[] = [
     flair: "해외페스티벌",
     author: "Bachata Korea",
     createdAt: "2026-07-07T18:00:00+09:00",
-    score: 118,
-    upvotes: 128,
-    downvotes: 10,
-    commentCount: 16,
+    score: 0,
+    upvotes: 0,
+    downvotes: 0,
+    commentCount: 0,
     videoId: "KwCdb36gUtY",
     sourceLinks: [
       { label: "Bachata Geneva Festival", url: "https://bachatagenevafestival.com/" },
@@ -178,10 +178,10 @@ export const threads: Thread[] = [
     flair: "소셜매너",
     author: "sera",
     createdAt: "2026-07-07T13:20:00+09:00",
-    score: 101,
-    upvotes: 109,
-    downvotes: 8,
-    commentCount: 31,
+    score: 0,
+    upvotes: 0,
+    downvotes: 0,
+    commentCount: 0,
     sourceLinks: [],
     tags: ["소셜", "매너", "초보자"]
   },
@@ -196,52 +196,17 @@ export const threads: Thread[] = [
     flair: "센슈얼",
     author: "Bachata Korea",
     createdAt: "2026-07-06T22:50:00+09:00",
-    score: 93,
-    upvotes: 101,
-    downvotes: 8,
-    commentCount: 12,
+    score: 0,
+    upvotes: 0,
+    downvotes: 0,
+    commentCount: 0,
     videoId: "B7Wv3cqHrSU",
     sourceLinks: [{ label: "Korke y Judith 16 fundamentals", url: "https://www.youtube.com/watch?v=B7Wv3cqHrSU" }],
     tags: ["Korke Judith", "센슈얼", "안전"]
   }
 ];
 
-export const comments: Comment[] = [
-  {
-    id: "c1",
-    threadId: "1001",
-    author: "firstbasic",
-    body: "베이직을 발만 보다가 골반이랑 체중 이동을 같이 보니까 갑자기 이해가 되네요.",
-    score: 42,
-    createdAt: "2026-07-08T08:24:00+09:00",
-    replies: [
-      {
-        id: "c1-1",
-        threadId: "1001",
-        author: "Bachata Korea",
-        body: "처음엔 발, 골반, 음악을 따로 보는 게 맞습니다. 한 번에 다 보려고 하면 오히려 놓치는 게 많아요.",
-        score: 19,
-        createdAt: "2026-07-08T08:31:00+09:00"
-      }
-    ]
-  },
-  {
-    id: "c2",
-    threadId: "1002",
-    author: "sensualreader",
-    body: "프레임이랑 멈춤을 보라는 말이 좋네요. 영상 다시 보니까 손이 아니라 몸 전체가 기다리는 느낌이 보입니다.",
-    score: 35,
-    createdAt: "2026-07-08T08:02:00+09:00"
-  },
-  {
-    id: "c3",
-    threadId: "1005",
-    author: "festivalgoer",
-    body: "패스 종류 헷갈리는 건 진짜 공감입니다. 소셜만 되는 패스인지 워크숍 포함인지 항상 다시 봐야 해요.",
-    score: 28,
-    createdAt: "2026-07-07T22:01:00+09:00"
-  }
-];
+export const comments: Comment[] = [];
 
 export const events: EventCard[] = [
   {
