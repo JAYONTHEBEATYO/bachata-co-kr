@@ -1070,6 +1070,12 @@ p {
   padding: clamp(18px, 3vw, 28px);
 }
 
+.composer-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
 .composer-note,
 .issued-identity {
   display: grid;
@@ -1292,12 +1298,13 @@ p {
     font-size: 14px;
   }
 
-  .right-rail,
-  .event-grid,
-  .dancer-grid,
-  .admin-grid {
-    grid-template-columns: 1fr;
-  }
+    .right-rail,
+    .event-grid,
+    .dancer-grid,
+    .composer-grid,
+    .admin-grid {
+      grid-template-columns: 1fr;
+    }
 
   .guide-card {
     grid-template-columns: 1fr;

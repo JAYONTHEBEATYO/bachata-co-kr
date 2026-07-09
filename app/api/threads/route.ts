@@ -29,6 +29,10 @@ type GuestThreadRow = {
   createdAt: string;
 };
 
+type CountRow = {
+  count: number;
+};
+
 const categories = new Set(["questions", "video", "events", "dancers", "guide"]);
 
 const allowedOrigins = new Set([
@@ -65,6 +69,62 @@ const getDb = async (): Promise<D1DatabaseBinding | null> => {
   } catch {
     return null;
   }
+};
+
+const normalizeText = (value: unknown, max: number) => {
+  const text = typeof value === "string" ? value : "";
+  return text
+    .replace(/\r\n/g, "\n")
+    .replace(/<[^>]*>/g, "")
+    .replace(/[^\S\n]+/g, " ")
+    .replace(/\n{4,}/g, "\n\n\n")
+    .trim()
+    .slice(0, max);
+};
+
+const normalizeName = (value: unknown) => {
+  const text = typeof value === "string" ? value : "";
+  return text.replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim().slice(0, 32);
+};
+
+const normalizeCategory = (value: unknown) => {
+  const category = typeof value === "string" ? value : "questions";
+  return categories.has(category) ? category : "questions";
+};
+
+const normalizeLink = (value: unknown) => {
+  const text = typeof value === "string" ? value.trim() : "";
+  if (!text) return null;
+  try {
+    const url = new URL(text);
+    if (!["http:", "https:"].includes(url.protocol)) return null;
+    return url.toString().slice(0, 500);
+  } catch {
+    return null;
+  }
+};
+
+const getIp = (request: NextRequest) =>
+  request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
+
+const displayIpPrefix = (ip: string) => {
+  const ipv4 = ip.match(/^(\d{1,3})\.(\d{1,3})\./);
+  if (ipv4) return `${ipv4[1]}.${ipv4[2]}.*.*`;
+  const ipv6 = ip.split(":").filter(Boolean);
+  if (ipv6.length >= 2) return `${ipv6[0]}:${ipv6[1]}:*`;
+  return "비공개";
+};
+
+const sha256Hex = async (value: string) => {
+  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
+  return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
+};
+
+const randomGuestName = () => {
+  const alphabet = "abcdefghjkmnpqrstuvwxyz23456789";
+  const bytes = new Uint8Array(5);
+  crypto.getRandomValues(bytes);
+  return `anon_${[...bytes].map((byte) => alphabet[byte % alphabet.length]).join("")}`;
 };
 
 const rowToThread = (row: GuestThreadRow) => ({
@@ -114,5 +174,66 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  return respond(request, 403, { error: "게시글 작성은 회원 로그인 연동 후 활성화됩니다. 비회원은 댓글로 참여해주세요." });
+  const db = await getDb();
+  if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+
+  let payload: Record<string, unknown>;
+  try {
+    payload = await request.json();
+  } catch {
+    return respond(request, 400, { error: "글 내용을 읽을 수 없습니다." });
+  }
+
+  if (payload.website) {
+    return respond(request, 200, { ok: true });
+  }
+
+  const title = normalizeText(payload.title, 120);
+  const body = normalizeText(payload.body, 4000);
+  const category = normalizeCategory(payload.category);
+  const linkUrl = normalizeLink(payload.linkUrl);
+  const authorName = normalizeName(payload.authorName) || randomGuestName();
+  const authorPassword = typeof payload.authorPassword === "string" ? payload.authorPassword.trim() : "";
+
+  if (title.length < 4) return respond(request, 400, { error: "제목을 네 글자 이상 적어주세요." });
+  if (body.length < 2) return respond(request, 400, { error: "본문을 두 글자 이상 적어주세요." });
+  if (!/^\d{4}$/.test(authorPassword)) return respond(request, 400, { error: "임시비밀번호 4자리를 숫자로 입력해주세요." });
+
+  const ip = getIp(request);
+  const day = new Date().toISOString().slice(0, 10);
+  const ipHash = (await sha256Hex(`${ip}|${day}|bachata-threads-v1`)).slice(0, 40);
+  const since = new Date(Date.now() - 10 * 60_000).toISOString();
+  const recent = await db.prepare(
+    "select count(*) as count from guest_threads where ip_hash = ? and created_at >= ?"
+  ).bind(ipHash, since).first<CountRow>();
+
+  if (Number(recent?.count || 0) >= 5) {
+    return respond(request, 429, { error: "글을 너무 빠르게 올리고 있습니다. 잠시 후 다시 시도해주세요." });
+  }
+
+  const id = crypto.randomUUID();
+  const now = new Date().toISOString();
+  const ipPrefix = displayIpPrefix(ip);
+  const editKeyHash = await sha256Hex(`${id}|${authorPassword}|bachata-thread-key-v1`);
+
+  await db.prepare(
+    `insert into guest_threads
+      (id, title, body, category, link_url, guest_id, ip_prefix, ip_hash, edit_key_hash, score, downvotes, created_at, updated_at)
+    values (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?)`
+  ).bind(id, title, body, category, linkUrl, authorName, ipPrefix, ipHash, editKeyHash, now, now).run();
+
+  return respond(request, 201, {
+    thread: {
+      id,
+      title,
+      body,
+      category,
+      linkUrl,
+      guestId: authorName,
+      ipPrefix,
+      score: 0,
+      downvotes: 0,
+      createdAt: now
+    }
+  });
 }
