@@ -5,15 +5,9 @@ import { Sidebar } from "@/components/Sidebar";
 import { ThreadCard } from "@/components/ThreadCard";
 import { TopicExplore } from "@/components/TopicExplore";
 import { getCommunities, getEvents, getThreads } from "@/lib/data";
-import type { SortMode } from "@/lib/types";
-
-const isSortMode = (value: unknown): value is SortMode => ["hot", "new", "top", "rising"].includes(String(value));
-
-export default async function HomePage({ searchParams }: { searchParams: Promise<{ sort?: string }> }) {
-  const params = await searchParams;
-  const sort: SortMode = isSortMode(params.sort) ? params.sort : "hot";
+export default async function HomePage() {
   const [feed, communities, eventList, trending] = await Promise.all([
-    getThreads(sort),
+    getThreads("hot"),
     getCommunities(),
     getEvents(),
     getThreads("hot")
@@ -23,7 +17,7 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
     <main className="app-shell">
       <div className="content-layout">
         <section className="feed-column">
-          <FeedTabs active={sort} />
+          <FeedTabs />
           <BestContentRail threads={trending} />
           <TopicExplore />
           <LiveThreadList />

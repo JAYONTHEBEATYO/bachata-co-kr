@@ -82,7 +82,7 @@ export function TopicExplore() {
   };
 
   return (
-    <section className="topic-explore" aria-labelledby="topic-explore-title">
+    <section className="topic-explore" id="topic-explore" aria-labelledby="topic-explore-title">
       <div className="section-head">
         <div>
           <span className="eyebrow">주제 탐색</span>

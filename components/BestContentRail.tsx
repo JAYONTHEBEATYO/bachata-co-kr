@@ -20,7 +20,7 @@ export function BestContentRail({ threads }: BestContentRailProps) {
     .slice(0, 3);
 
   return (
-    <section className="best-rail" aria-labelledby="best-rail-title">
+    <section className="best-rail" id="best-rail" aria-labelledby="best-rail-title">
       <div className="section-head">
         <div>
           <span className="eyebrow">토픽 베스트</span>

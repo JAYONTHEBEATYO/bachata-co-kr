@@ -7,7 +7,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const baseRoutes: MetadataRoute.Sitemap = [
-    "", "videos", "events", "guide", "dancers", "write", "guest"
+    "", "videos", "events", "guide", "dancers", "write", "guest", "profile"
   ].map((path) => ({
     url: `${siteUrl}/${path}`.replace(/\/$/, "/"),
     lastModified: now,

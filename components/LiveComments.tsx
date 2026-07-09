@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { ArrowBigUp, MessageCircle, Send } from "lucide-react";
+import { ArrowBigUp, MessageCircle, Send, Search } from "lucide-react";
 import { formatRelativeDate } from "@/lib/format";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
 import type { Comment } from "@/lib/types";
@@ -15,6 +15,8 @@ type ApiComment = Comment & {
   parentId?: string | null;
 };
 
+type CommentSort = "best" | "new" | "old";
+
 const commentsApiOrigin = () => {
   if (typeof window === "undefined") return "";
   const host = window.location.hostname;
@@ -23,6 +25,15 @@ const commentsApiOrigin = () => {
 };
 
 const commentsApiUrl = () => `${commentsApiOrigin()}/api/comments/`;
+
+const dateValue = (value: string) => new Date(value).getTime() || 0;
+
+const sortComments = (comments: ApiComment[], sort: CommentSort) =>
+  comments.slice().sort((a, b) => {
+    if (sort === "new") return dateValue(b.createdAt) - dateValue(a.createdAt);
+    if (sort === "old") return dateValue(a.createdAt) - dateValue(b.createdAt);
+    return b.score - a.score || dateValue(b.createdAt) - dateValue(a.createdAt);
+  });
 
 const buildTree = (comments: ApiComment[]): Comment[] => {
   const byId = new Map<string, Comment>();
@@ -52,11 +63,22 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   const [body, setBody] = useState("");
   const [website, setWebsite] = useState("");
   const [replyTo, setReplyTo] = useState<ApiComment | null>(null);
+  const [sort, setSort] = useState<CommentSort>("best");
+  const [search, setSearch] = useState("");
+  const [expanded, setExpanded] = useState(false);
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
 
-  const commentTree = useMemo(() => buildTree(comments), [comments]);
+  const visibleComments = useMemo(() => {
+    const keyword = search.trim().toLowerCase();
+    const filtered = keyword
+      ? comments.filter((comment) => `${comment.author} ${comment.body}`.toLowerCase().includes(keyword))
+      : comments;
+    return sortComments(filtered, sort);
+  }, [comments, search, sort]);
+
+  const commentTree = useMemo(() => buildTree(visibleComments), [visibleComments]);
 
   useEffect(() => {
     const session = getGuestSession();
@@ -126,12 +148,21 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
       setBody("");
       setWebsite("");
       setReplyTo(null);
+      setExpanded(false);
       setStatus("댓글이 등록됐습니다.");
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "댓글을 저장하지 못했습니다.");
     } finally {
       setPending(false);
     }
+  };
+
+  const openReply = (target: Comment) => {
+    setReplyTo(target as ApiComment);
+    setExpanded(true);
+    window.requestAnimationFrame(() => {
+      document.querySelector<HTMLTextAreaElement>(".comment-form textarea")?.focus();
+    });
   };
 
   return (
@@ -144,32 +175,38 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
         <span>{comments.length}개</span>
       </div>
 
-      <form className="comment-form" onSubmit={submit}>
+      <form className={`comment-form ${expanded || body ? "is-expanded" : "is-compact"}`} onSubmit={submit}>
         {replyTo ? (
           <div className="reply-target">
             <span>{replyTo.author}님에게 답글 쓰는 중</span>
             <button type="button" onClick={() => setReplyTo(null)}>취소</button>
           </div>
         ) : null}
-        <input
-          type="text"
-          value={authorName}
-          onChange={(event) => setAuthorName(event.target.value)}
-          placeholder="닉네임"
-          maxLength={32}
-          autoComplete="nickname"
-        />
-        <input
-          type="password"
-          inputMode="numeric"
-          pattern="[0-9]{4}"
-          value={authorPassword}
-          onChange={(event) => setAuthorPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
-          placeholder="임시비밀번호 4자리"
-          maxLength={4}
-          autoComplete="new-password"
-          required
-        />
+
+        {expanded || body ? (
+          <div className="comment-identity-row">
+            <input
+              type="text"
+              value={authorName}
+              onChange={(event) => setAuthorName(event.target.value)}
+              placeholder="닉네임"
+              maxLength={32}
+              autoComplete="nickname"
+            />
+            <input
+              type="password"
+              inputMode="numeric"
+              pattern="[0-9]{4}"
+              value={authorPassword}
+              onChange={(event) => setAuthorPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
+              placeholder="임시비밀번호 4자리"
+              maxLength={4}
+              autoComplete="new-password"
+              required
+            />
+          </div>
+        ) : null}
+
         <label className="comment-hp">
           웹사이트
           <input
@@ -180,28 +217,57 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
             autoComplete="off"
           />
         </label>
+
         <textarea
           value={body}
+          onFocus={() => setExpanded(true)}
           onChange={(event) => setBody(event.target.value)}
-          placeholder="질문, 후기, 추가 정보 뭐든 편하게 남겨보세요."
+          placeholder={expanded ? "질문, 후기, 추가 정보 뭐든 편하게 남겨보세요." : "대화에 참여해보세요"}
           maxLength={1000}
-          rows={5}
+          rows={expanded || body ? 5 : 1}
           required
         />
-        <div className="comment-form-foot">
-          <span>{body.trim().length}/1000</span>
-          <button type="submit" disabled={pending}>
-            <Send size={16} />
-            {pending ? "등록 중" : "댓글 등록"}
-          </button>
-        </div>
+
+        {expanded || body ? (
+          <div className="comment-form-foot">
+            <span>{body.trim().length}/1000</span>
+            <div className="comment-form-buttons">
+              <button type="button" className="comment-cancel" onClick={() => {
+                setBody("");
+                setReplyTo(null);
+                setExpanded(false);
+              }}>
+                취소
+              </button>
+              <button type="submit" disabled={pending}>
+                <Send size={16} />
+                {pending ? "등록 중" : "댓글 등록"}
+              </button>
+            </div>
+          </div>
+        ) : null}
         {status ? <p className="comment-status">{status}</p> : null}
         {error ? <p className="comment-error">{error}</p> : null}
       </form>
 
+      <div className="comment-tools" aria-label="댓글 정렬과 검색">
+        <label>
+          정렬 기준
+          <select value={sort} onChange={(event) => setSort(event.target.value as CommentSort)}>
+            <option value="best">좋아요 비율 높은 순</option>
+            <option value="new">최신순</option>
+            <option value="old">오래된순</option>
+          </select>
+        </label>
+        <label className="comment-search">
+          <Search size={16} />
+          <input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="댓글 검색" />
+        </label>
+      </div>
+
       <div className="comment-list">
         {commentTree.length ? commentTree.map((comment) => (
-          <CommentNode key={comment.id} comment={comment} onReply={(target) => setReplyTo(target as ApiComment)} />
+          <CommentNode key={comment.id} comment={comment} onReply={openReply} />
         )) : (
           <p className="empty-copy">아직 댓글이 없습니다. 첫 댓글을 남겨주세요.</p>
         )}
@@ -214,14 +280,14 @@ function CommentNode({ comment, onReply }: { comment: Comment; onReply: (comment
   return (
     <article className="comment">
       <div className="comment-score"><ArrowBigUp size={16} /> {comment.score}</div>
-      <div>
+      <div className="comment-content">
         <div className="comment-meta">
           <strong>{comment.author}</strong>
           {comment.ipPrefix ? <span>IP {comment.ipPrefix}</span> : null}
           <span>{formatRelativeDate(comment.createdAt)}</span>
         </div>
         <p>{comment.body}</p>
-        <button type="button" onClick={() => onReply(comment)}><MessageCircle size={15} /> 답글</button>
+        <button type="button" onClick={() => onReply(comment)}><MessageCircle size={15} /> 답글 달기</button>
         {comment.replies?.length ? (
           <div className="comment-replies">
             {comment.replies.map((reply) => <CommentNode key={reply.id} comment={reply} onReply={onReply} />)}

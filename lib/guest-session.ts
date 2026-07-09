@@ -1,6 +1,6 @@
 "use client";
 
-import { randomKoreanNickname } from "./nicknames";
+import { needsNicknameRefresh, randomKoreanNickname } from "./nicknames";
 
 export type GuestSession = {
   nickname: string;
@@ -19,6 +19,7 @@ const readStoredSession = (): GuestSession | null => {
     const parsed = JSON.parse(raw) as Partial<GuestSession>;
     const password = typeof parsed.password === "string" ? parsed.password : "";
     if (!parsed.nickname || !/^\d{4}$/.test(password)) return null;
+    if (needsNicknameRefresh(parsed.nickname)) return null;
     return {
       nickname: parsed.nickname.slice(0, 32),
       password

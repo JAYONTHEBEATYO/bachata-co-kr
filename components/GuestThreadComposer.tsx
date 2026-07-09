@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import {
   BarChart3,
   Bold,
@@ -47,6 +48,8 @@ const topics = [
   { value: "guide", label: "가이드", hint: "입문 팁, 연습법, 장르 정리" }
 ];
 
+const validPostTypes = new Set<PostType>(postTypes.map((type) => type.value));
+const validTopics = new Set(topics.map((topic) => topic.value));
 const draftKey = "bachata.threadDraft.v1";
 
 const apiOrigin = () => {
@@ -59,6 +62,7 @@ const apiOrigin = () => {
 const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
 
 export function GuestThreadComposer() {
+  const searchParams = useSearchParams();
   const [title, setTitle] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [authorPassword, setAuthorPassword] = useState("");
@@ -79,6 +83,11 @@ export function GuestThreadComposer() {
     setAuthorName(session.nickname);
     setAuthorPassword(session.password);
 
+    const requestedTopic = searchParams.get("topic");
+    const requestedType = searchParams.get("type") as PostType | null;
+    if (requestedTopic && validTopics.has(requestedTopic)) setCategory(requestedTopic);
+    if (requestedType && validPostTypes.has(requestedType)) setPostType(requestedType);
+
     try {
       const rawDraft = window.localStorage.getItem(draftKey);
       if (!rawDraft) return;
@@ -95,15 +104,15 @@ export function GuestThreadComposer() {
       setTitle(draft.title || "");
       setBody(draft.body || "");
       setLinkUrl(draft.linkUrl || "");
-      setCategory(draft.category || "questions");
-      setPostType(draft.postType || "text");
+      setCategory(requestedTopic && validTopics.has(requestedTopic) ? requestedTopic : draft.category || "questions");
+      setPostType(requestedType && validPostTypes.has(requestedType) ? requestedType : draft.postType || "text");
       setPollOptionA(draft.pollOptionA || "");
       setPollOptionB(draft.pollOptionB || "");
       setTagInput(draft.tagInput || "");
     } catch {
       window.localStorage.removeItem(draftKey);
     }
-  }, []);
+  }, [searchParams]);
 
   const choosePostType = (nextType: PostType) => {
     setPostType(nextType);

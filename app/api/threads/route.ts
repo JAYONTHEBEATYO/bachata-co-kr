@@ -190,6 +190,14 @@ const inferTags = (thread: Pick<GuestThreadRow, "title" | "body" | "category" | 
   return [...tags].slice(0, 5);
 };
 
+const isBrokenText = (...values: Array<string | null | undefined>) =>
+  values.some((value) => {
+    const text = value || "";
+    if (!text) return false;
+    const questionCount = (text.match(/\?/g) || []).length;
+    return /�/.test(text) || questionCount >= Math.max(6, Math.ceil(text.length * 0.25));
+  });
+
 const rowToThread = (row: GuestThreadRow) => ({
   id: row.id,
   title: row.title,
@@ -235,7 +243,7 @@ export async function GET(request: NextRequest) {
       limit 1`
     ).bind(id).first<GuestThreadRow>();
 
-    if (!row) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
+    if (!row || isBrokenText(row.title, row.body, row.guestId)) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
     return respond(request, 200, { thread: rowToThread(row) });
   }
 
@@ -279,7 +287,11 @@ export async function GET(request: NextRequest) {
       limit 40`
     ).all<GuestThreadRow>();
 
-  return respond(request, 200, { threads: (rows.results || []).map(rowToThread) });
+  return respond(request, 200, {
+    threads: (rows.results || [])
+      .filter((row) => !isBrokenText(row.title, row.body, row.guestId))
+      .map(rowToThread)
+  });
 }
 
 export async function POST(request: NextRequest) {

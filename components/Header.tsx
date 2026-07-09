@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Flame, Home, LogIn, Menu, MoreVertical, PenSquare, Sparkles, UserPlus } from "lucide-react";
+import { Flame, Home, LogIn, Menu, MoreVertical, PenSquare, Sparkles, UserCircle, UserPlus } from "lucide-react";
 import { SiteSearch } from "./SiteSearch";
 
 const nav = [
@@ -44,6 +44,7 @@ export function Header() {
               <MoreVertical size={22} />
             </summary>
             <div className="menu-panel">
+              <Link href="/profile"><UserCircle size={17} /> 내 프로필</Link>
               <Link href="/"><LogIn size={17} /> 로그인</Link>
               <Link href="/"><UserPlus size={17} /> 회원가입</Link>
             </div>
