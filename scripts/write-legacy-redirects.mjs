@@ -28,15 +28,18 @@ const activePages = new Set([
   "t/1008/korke-judith-16-fundamentals/index.html"
 ]);
 
-const pageFileForPathname = (pathname) => {
+const pageFilesForPathname = (pathname) => {
   const normalized = pathname.replace(/^\/|\/$/g, "");
-  return normalized ? `${normalized}/index.html` : "index.html";
+  if (!normalized) return ["index.html"];
+  return [`${normalized}/index.html`, `${normalized}.html`];
 };
 
 try {
   const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
   for (const match of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
-    activePages.add(pageFileForPathname(new URL(match[1]).pathname));
+    for (const file of pageFilesForPathname(new URL(match[1]).pathname)) {
+      activePages.add(file);
+    }
   }
 } catch {
   // The static snapshot writes sitemap.xml before this script. If it is absent,

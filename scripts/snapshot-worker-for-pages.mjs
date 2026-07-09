@@ -27,6 +27,16 @@ const writeRoute = async (pathname, body) => {
       : path.join(root, pathname.replace(/^\//, ""), "index.html");
   await mkdir(path.dirname(target), { recursive: true });
   await writeFile(target, body, "utf8");
+  if (pathname !== "/") {
+    const route = pathname.replace(/^\/|\/$/g, "");
+    const htmlAlias = path.join(root, `${route}.html`);
+    try {
+      await access(htmlAlias);
+      await writeFile(htmlAlias, body, "utf8");
+    } catch {
+      // Only replace aliases that already exist in the repo.
+    }
+  }
   return path.relative(root, target);
 };
 
