@@ -12,9 +12,9 @@ export default function WritePage() {
   return (
     <main className="app-shell narrow">
       <section className="page-head">
-        <span className="eyebrow">New Thread</span>
+        <span className="eyebrow">새 글</span>
         <h1>바차타 글쓰기</h1>
-        <p>로그인 없이도 질문, 후기, 영상, 행사 정보를 바로 올릴 수 있습니다. 닉네임과 임시비밀번호 4자리는 직접 정해주세요.</p>
+        <p>질문, 후기, 영상, 행사 정보, 무물보까지 바로 올릴 수 있습니다. 비회원은 닉네임과 4자리 임시비밀번호만 정하면 됩니다.</p>
       </section>
       <GuestThreadComposer />
     </main>

@@ -98,6 +98,7 @@ export default async function EventDetailPage({ params }: PageProps) {
             shareTitle={event.title}
             shareText={event.excerpt}
             sourceLinks={[{ label: "공식 링크", url: event.sourceUrl }]}
+            threadId={`event-${event.id}`}
           />
           <a className="primary-link" href={event.sourceUrl} target="_blank" rel="noreferrer">
             공식 링크 열기 <ExternalLink size={16} />

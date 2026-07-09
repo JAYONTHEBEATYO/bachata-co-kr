@@ -37,7 +37,7 @@ export default async function GuidePage() {
                 shareTitle={thread.title}
                 shareText={thread.excerpt}
                 sourceLinks={thread.sourceLinks}
-                showAward={false}
+                threadId={thread.id}
               />
             </div>
           </article>

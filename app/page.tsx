@@ -1,7 +1,9 @@
+import { BestContentRail } from "@/components/BestContentRail";
 import { FeedTabs } from "@/components/FeedTabs";
 import { LiveThreadList } from "@/components/LiveThreadList";
 import { Sidebar } from "@/components/Sidebar";
 import { ThreadCard } from "@/components/ThreadCard";
+import { TopicExplore } from "@/components/TopicExplore";
 import { getCommunities, getEvents, getThreads } from "@/lib/data";
 import type { SortMode } from "@/lib/types";
 
@@ -22,6 +24,8 @@ export default async function HomePage({ searchParams }: { searchParams: Promise
       <div className="content-layout">
         <section className="feed-column">
           <FeedTabs active={sort} />
+          <BestContentRail threads={trending} />
+          <TopicExplore />
           <LiveThreadList />
           <div className="thread-list">
             {feed.map((thread) => <ThreadCard key={thread.id} thread={thread} />)}

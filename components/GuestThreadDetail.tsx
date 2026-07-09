@@ -28,7 +28,14 @@ const labels: Record<string, string> = {
   video: "영상",
   events: "행사",
   dancers: "댄서",
-  guide: "가이드"
+  guide: "가이드",
+  free: "자유",
+  academyReview: "아카데미 리뷰",
+  dancerReview: "댄서 리뷰",
+  socialReview: "소셜 후기",
+  gear: "장비",
+  poll: "설문조사",
+  ama: "무물보"
 };
 
 const apiOrigin = () => {
@@ -40,13 +47,19 @@ const apiOrigin = () => {
 
 const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
 
-export function GuestThreadDetail() {
+export function GuestThreadDetail({ threadId }: { threadId?: string }) {
   const searchParams = useSearchParams();
-  const id = searchParams.get("id") || "";
+  const id = threadId || searchParams.get("id") || "";
   const [thread, setThread] = useState<GuestThread | null>(null);
   const [status, setStatus] = useState(id ? "글을 불러오는 중입니다." : "열 글이 없습니다.");
 
-  const detailPath = useMemo(() => `/guest/?id=${encodeURIComponent(id)}`, [id]);
+  const detailPath = useMemo(() => {
+    if (!id) return "/guest";
+    if (typeof window !== "undefined" && window.location.pathname.startsWith("/g/")) {
+      return `/g/${encodeURIComponent(id)}`;
+    }
+    return `/guest/?id=${encodeURIComponent(id)}`;
+  }, [id]);
 
   useEffect(() => {
     if (!id) return;
@@ -126,7 +139,7 @@ export function GuestThreadDetail() {
             shareTitle={thread.title}
             shareText={thread.body.slice(0, 140)}
             sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
-            showAward={false}
+            threadId={thread.id}
           />
           {thread.linkUrl ? (
             <a className="primary-link" href={thread.linkUrl} target="_blank" rel="noreferrer">

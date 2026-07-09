@@ -4,6 +4,7 @@ import { SiteSearch } from "./SiteSearch";
 
 const nav = [
   { href: "/", label: "인기" },
+  { href: "/?sort=top", label: "베스트 컨텐츠" },
   { href: "/?sort=new", label: "최신" },
   { href: "/videos", label: "영상" },
   { href: "/events", label: "행사" },

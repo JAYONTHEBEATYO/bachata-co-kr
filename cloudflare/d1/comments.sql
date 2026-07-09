@@ -15,6 +15,7 @@ create table if not exists comments (
 );
 
 create index if not exists comments_thread_created_idx on comments(thread_id, created_at asc);
+create index if not exists comments_thread_status_idx on comments(thread_id, status);
 create index if not exists comments_parent_idx on comments(parent_id);
 create index if not exists comments_status_idx on comments(status);
 create index if not exists comments_ip_created_idx on comments(ip_hash, created_at);

@@ -35,7 +35,20 @@ type CountRow = {
   count: number;
 };
 
-const categories = new Set(["questions", "video", "events", "dancers", "guide"]);
+const categories = new Set([
+  "questions",
+  "video",
+  "events",
+  "dancers",
+  "guide",
+  "free",
+  "academyReview",
+  "dancerReview",
+  "socialReview",
+  "gear",
+  "poll",
+  "ama"
+]);
 
 const allowedOrigins = new Set([
   "https://bachata.co.kr",
@@ -141,7 +154,11 @@ const tagMap: Array<[RegExp, string]> = [
   [/제주/i, "제주"],
   [/후기|리뷰|느낌/i, "후기"],
   [/양도|티켓|패스/i, "양도"],
-  [/구인|모집|스태프|dj/i, "모집"]
+  [/구인|모집|스태프|dj/i, "모집"],
+  [/라틴씨엘로|라스트댄스|센슈얼랩|엔수에뇨|에버라틴|바차타인플루언스코리아|학원|아카데미|동호회/i, "아카데미 리뷰"],
+  [/부트캠프|마스터클래스|워크샵|워크숍|소셜댄스|해외수업|홀딩/i, "댄서 리뷰"],
+  [/무물보|ama|ask me anything/i, "무물보"],
+  [/설문|투표|poll/i, "설문"]
 ];
 
 const categoryTags: Record<string, string> = {
@@ -149,7 +166,14 @@ const categoryTags: Record<string, string> = {
   video: "영상",
   events: "행사",
   dancers: "댄서",
-  guide: "가이드"
+  guide: "가이드",
+  free: "자유",
+  academyReview: "아카데미 리뷰",
+  dancerReview: "댄서 리뷰",
+  socialReview: "소셜 후기",
+  gear: "장비",
+  poll: "설문조사",
+  ama: "무물보"
 };
 
 const inferTags = (thread: Pick<GuestThreadRow, "title" | "body" | "category" | "linkUrl">) => {

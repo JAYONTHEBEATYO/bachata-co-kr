@@ -11,6 +11,7 @@
   --line-strong: #cad3dd;
   --accent: #ff5a3d;
   --accent-strong: #e8472d;
+  --brand: #0c8f70;
   --green: #0c8f70;
   --blue: #3267d6;
   --purple: #7c4ee6;
@@ -389,6 +390,170 @@ p {
   color: #fff;
 }
 
+.section-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.section-head h2 {
+  margin-bottom: 0;
+  font-size: clamp(20px, 2vw, 28px);
+}
+
+.section-head > a {
+  flex: 0 0 auto;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--brand);
+  font-size: 13px;
+  font-weight: 950;
+  padding: 0 12px;
+}
+
+.best-rail,
+.topic-explore {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  padding: 14px;
+}
+
+.best-grid,
+.topic-grid {
+  display: grid;
+  gap: 10px;
+}
+
+.best-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.best-card,
+.topic-card {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  overflow: hidden;
+}
+
+.best-card a,
+.topic-card a {
+  height: 100%;
+  display: grid;
+  color: inherit;
+}
+
+.best-card a {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.best-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #eef2f6;
+}
+
+.best-card div {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+}
+
+.best-meta,
+.topic-card span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.best-card h3,
+.topic-card h3 {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.25;
+}
+
+.best-card p,
+.topic-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.best-card blockquote {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 6px;
+  margin: 0;
+  border-radius: 10px;
+  background: #f6f8fa;
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 9px;
+}
+
+.best-rank {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 16 / 9;
+  background: #101318;
+  color: #fff;
+  font-size: 42px;
+  font-weight: 950;
+}
+
+.topic-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.topic-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+}
+
+.topic-card a {
+  gap: 8px;
+  padding: 14px;
+}
+
+.topic-card button {
+  align-self: center;
+  min-height: 34px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-right: 12px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 950;
+  padding: 0 10px;
+}
+
+.topic-card button[aria-pressed="true"] {
+  border-color: rgba(12, 143, 112, 0.28);
+  background: #ecfaf6;
+  color: var(--green);
+}
+
 .thread-card {
   display: block;
   border: 1px solid var(--line);
@@ -533,6 +698,7 @@ p {
 
 .thread-actions a,
 .thread-actions > button,
+.award-picker > button,
 .thread-action-pill,
 .primary-link,
 .source-links a,
@@ -550,16 +716,82 @@ p {
   font-weight: 850;
 }
 
-.thread-actions > button {
+.thread-actions > button,
+.award-picker > button {
   cursor: pointer;
 }
 
 .thread-actions a:hover,
 .thread-actions > button:hover,
+.award-picker > button:hover,
 .primary-link:hover,
 .source-links a:hover {
   border-color: var(--line-strong);
   color: var(--ink);
+}
+
+.award-picker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.award-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 35;
+  width: min(260px, 76vw);
+  display: grid;
+  gap: 6px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(16, 19, 24, 0.16);
+  padding: 8px;
+}
+
+.award-popover button {
+  min-height: 42px;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  padding: 0 8px;
+}
+
+.award-popover button:hover {
+  background: #f4f7f9;
+}
+
+.award-popover button span {
+  font-size: 20px;
+}
+
+.award-popover button strong {
+  font-size: 13px;
+}
+
+.award-popover button em {
+  color: var(--green);
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 950;
+}
+
+.award-status {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 6px);
+  min-width: max-content;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 950;
 }
 
 .live-thread-stack {
@@ -1135,6 +1367,107 @@ p {
   padding: clamp(18px, 3vw, 28px);
 }
 
+.composer-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.topic-select {
+  width: min(280px, 100%);
+}
+
+.topic-select select {
+  min-height: 48px;
+  border-radius: 999px;
+  font-size: 16px;
+  font-weight: 950;
+}
+
+.draft-button {
+  flex: 0 0 auto;
+  min-height: 42px;
+  display: inline-flex;
+  align-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-weight: 950;
+  padding: 0 16px;
+}
+
+.composer-tabs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--line);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.composer-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.composer-tabs button {
+  position: relative;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 950;
+  white-space: nowrap;
+  padding: 0 4px 10px;
+}
+
+.composer-tabs button[aria-selected="true"] {
+  color: var(--blue);
+}
+
+.composer-tabs button[aria-selected="true"]::after {
+  content: "";
+  position: absolute;
+  right: 2px;
+  bottom: -1px;
+  left: 2px;
+  height: 4px;
+  border-radius: 999px 999px 0 0;
+  background: var(--blue);
+}
+
+.title-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: #fff;
+  padding: 0 12px;
+}
+
+.title-field input {
+  border: 0;
+  padding-left: 0;
+}
+
+.title-field svg {
+  color: var(--green);
+}
+
+.field-count {
+  justify-self: end;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+}
+
 .composer-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1160,6 +1493,32 @@ p {
 .composer-note p,
 .issued-identity p {
   margin: 0;
+  font-size: 14px;
+}
+
+.composer-upload {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  background: #fbfcfd;
+  color: var(--muted);
+  padding: 18px;
+}
+
+.composer-upload svg {
+  color: var(--blue);
+}
+
+.composer-upload strong {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.composer-upload p {
+  margin: 4px 0 0;
   font-size: 14px;
 }
 
@@ -1195,6 +1554,35 @@ p {
 
 .composer textarea {
   resize: vertical;
+}
+
+.composer-toolbar {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  width: fit-content;
+  max-width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  padding: 4px;
+  overflow-x: auto;
+}
+
+.composer-toolbar button {
+  width: 34px;
+  height: 34px;
+  display: inline-grid;
+  place-items: center;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+}
+
+.composer-toolbar button:hover {
+  background: #eef2f6;
+  color: var(--ink);
 }
 
 .input-with-icon {
@@ -1342,6 +1730,25 @@ p {
     display: none;
   }
 
+  .section-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .best-grid,
+  .topic-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-card {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-card button {
+    justify-self: start;
+    margin: 0 14px 14px;
+  }
+
   .vote-rail {
     max-width: 100%;
   }
@@ -1372,6 +1779,19 @@ p {
   }
 
   .comment-form-foot button {
+    width: 100%;
+  }
+
+  .composer-topline {
+    flex-direction: column;
+  }
+
+  .topic-select,
+  .draft-button {
+    width: 100%;
+  }
+
+  .composer-toolbar {
     width: 100%;
   }
 

@@ -3,7 +3,7 @@
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import { ArrowBigUp, MessageCircle, Send } from "lucide-react";
 import { formatRelativeDate } from "@/lib/format";
-import { randomKoreanNickname } from "@/lib/nicknames";
+import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
 import type { Comment } from "@/lib/types";
 
 type LiveCommentsProps = {
@@ -59,7 +59,9 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   const commentTree = useMemo(() => buildTree(comments), [comments]);
 
   useEffect(() => {
-    setAuthorName(randomKoreanNickname());
+    const session = getGuestSession();
+    setAuthorName(session.nickname);
+    setAuthorPassword(session.password);
   }, []);
 
   useEffect(() => {
@@ -102,6 +104,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
 
     setPending(true);
     try {
+      saveGuestSession({ nickname: authorName, password: authorPassword });
       const response = await fetch(commentsApiUrl(), {
         method: "POST",
         headers: { "content-type": "text/plain;charset=UTF-8" },

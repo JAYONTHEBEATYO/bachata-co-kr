@@ -90,6 +90,7 @@ export default async function ThreadPage({ params }: PageProps) {
               shareTitle={thread.title}
               shareText={thread.excerpt}
               sourceLinks={thread.sourceLinks}
+              threadId={thread.id}
             />
             <div className="source-box">
               <strong>같이 보면 좋은 링크</strong>

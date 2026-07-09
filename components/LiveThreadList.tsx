@@ -25,7 +25,14 @@ const labels: Record<string, string> = {
   video: "영상",
   events: "행사",
   dancers: "댄서",
-  guide: "가이드"
+  guide: "가이드",
+  free: "자유",
+  academyReview: "아카데미 리뷰",
+  dancerReview: "댄서 리뷰",
+  socialReview: "소셜 후기",
+  gear: "장비",
+  poll: "설문조사",
+  ama: "무물보"
 };
 
 const apiOrigin = () => {
@@ -36,6 +43,7 @@ const apiOrigin = () => {
 };
 
 const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
+const threadPath = (id: string) => `/guest/?id=${encodeURIComponent(id)}`;
 
 export function LiveThreadList() {
   const [threads, setThreads] = useState<LiveThread[]>([]);
@@ -73,7 +81,7 @@ export function LiveThreadList() {
               <span>{formatRelativeDate(thread.createdAt)}</span>
               <span className="flair">비회원</span>
             </div>
-            <h2><Link href={`/guest/?id=${encodeURIComponent(thread.id)}`}>{thread.title}</Link></h2>
+            <h2><Link href={threadPath(thread.id)}>{thread.title}</Link></h2>
             <p>{thread.body}</p>
             <div className="tag-row">
               {(thread.tags || []).map((tag) => <span key={tag}>#{tag}</span>)}
@@ -81,15 +89,15 @@ export function LiveThreadList() {
             <ThreadActionBar
               score={thread.score}
               downvotes={thread.downvotes}
-              commentHref={`/guest/?id=${encodeURIComponent(thread.id)}#comments-title`}
-              sharePath={`/guest/?id=${encodeURIComponent(thread.id)}`}
+              commentHref={`${threadPath(thread.id)}#comments-title`}
+              sharePath={threadPath(thread.id)}
               shareTitle={thread.title}
               shareText={thread.body.slice(0, 100)}
               sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
               showAward={false}
             />
             {thread.commentCount ? (
-              <Link className="comment-count-link" href={`/guest/?id=${encodeURIComponent(thread.id)}#comments-title`}>
+              <Link className="comment-count-link" href={`${threadPath(thread.id)}#comments-title`}>
                 댓글 {thread.commentCount}개 보기
               </Link>
             ) : null}

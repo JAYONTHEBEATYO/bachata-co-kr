@@ -2,10 +2,10 @@ import Link from "next/link";
 import type { SortMode } from "@/lib/types";
 
 const tabs: { mode: SortMode; label: string }[] = [
-  { mode: "hot", label: "Hot" },
-  { mode: "new", label: "New" },
-  { mode: "top", label: "Top" },
-  { mode: "rising", label: "Rising" }
+  { mode: "hot", label: "인기" },
+  { mode: "new", label: "최신" },
+  { mode: "top", label: "베스트" },
+  { mode: "rising", label: "상승" }
 ];
 
 export function FeedTabs({ active }: { active: SortMode }) {

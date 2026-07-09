@@ -66,6 +66,7 @@ export default async function DancerDetailPage({ params }: PageProps) {
             shareTitle={dancer.name}
             shareText={dancer.excerpt}
             sourceLinks={[{ label: "영상 원문", url: youtubeWatch(dancer.videoId) }]}
+            threadId={`dancer-${dancer.id}`}
           />
         </section>
         <LiveComments threadId={`dancer-${dancer.id}`} initialComments={[]} />
