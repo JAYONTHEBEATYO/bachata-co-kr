@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getThreads } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
 import { VideoEmbed } from "@/components/VideoEmbed";
+import { ThreadActionBar } from "@/components/ThreadActionBar";
 
 export const metadata: Metadata = {
   title: "초보자 가이드",
@@ -28,6 +29,16 @@ export default async function GuidePage() {
               <h2>{thread.title}</h2>
               <p>{thread.body}</p>
               {thread.videoId ? <VideoEmbed videoId={thread.videoId} title={thread.title} /> : null}
+              <ThreadActionBar
+                score={thread.score}
+                downvotes={thread.downvotes}
+                commentHref={`/t/${thread.id}/${thread.slug}#comments-title`}
+                sharePath={`/t/${thread.id}/${thread.slug}`}
+                shareTitle={thread.title}
+                shareText={thread.excerpt}
+                sourceLinks={thread.sourceLinks}
+                showAward={false}
+              />
             </div>
           </article>
         ))}

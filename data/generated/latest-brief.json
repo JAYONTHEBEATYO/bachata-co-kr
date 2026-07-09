@@ -1,182 +1,89 @@
 {
-  "generatedAt": "2026-07-08T07:36:04.478Z",
-  "generationDate": "2026-07-08",
-  "url": "/briefs/2026-07-08.html",
-  "headline": "2026년 7월 8일 바차타 최신소식",
-  "dek": "오늘 확인한 영상, 행사, 국내외 바차타 흐름을 매거진 톤으로 정리했습니다. 원문은 복사하지 않고 공개 링크와 관찰값만 연결합니다.",
-  "topicCount": 7,
-  "candidateCount": 70,
+  "generatedAt": "2026-07-09T00:00:00+09:00",
+  "generationDate": "2026-07-09",
+  "url": "/briefs/2026-07-09.html",
+  "headline": "오늘 바차타씬에서 볼 만한 흐름",
+  "dek": "새로 저장해둘 영상, 곧 챙겨볼 행사, 같이 이야기해볼 댄서 포인트를 한 번에 골랐습니다. 마음에 드는 주제는 쓰레드에서 바로 이어서 이야기해보세요.",
+  "topicCount": 6,
+  "candidateCount": 12,
   "sections": [
     {
       "id": "bachata-influence",
       "title": "Bachata Influence",
-      "headline": "테크닉보다 먼저 봐야 할 흐름",
-      "summary": "Melvin & Gatica 계열의 영상은 웨이브나 트릭보다 프레임, 전환, 감정선의 밀도를 어떻게 조절하는지 볼 때 더 잘 읽힙니다.",
+      "headline": "테크닉보다 중요하게 생각하는 포인트",
+      "summary": "Melvin & Gatica 계열의 영상을 볼 때는 화려한 웨이브보다 프레임, 전환, 감정선의 밀도 조절을 먼저 보면 좋습니다. 같은 동작도 음악의 어디에서 시작하고 어디에서 풀어내는지 따라가면 영상이 훨씬 선명하게 보입니다.",
       "candidates": [
         {
-          "title": "Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland",
+          "title": "Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival",
           "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE",
           "videoId": "sUy5L7x5pyE",
-          "publishFormat": "학습 프로그램",
+          "publishFormat": "영상",
           "evidenceLevel": "medium"
         },
         {
-          "title": "Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant Congress 2025 🏰",
-          "url": "https://www.youtube.com/watch?v=FNv7eOMg-_k",
-          "videoId": "FNv7eOMg-_k",
-          "publishFormat": "학습 프로그램",
-          "evidenceLevel": "medium"
-        },
-        {
-          "title": "Bachata Influence: Interview with Melvin & Gatica, Masters of the 'Bachata Influence' Style",
+          "title": "Bachata Influence Interview with Melvin & Gatica",
           "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
           "videoId": "lGRDZkVG2r8",
-          "publishFormat": "학습 프로그램",
+          "publishFormat": "인터뷰",
           "evidenceLevel": "medium"
         }
       ]
     },
     {
-      "id": "bachazouk",
-      "title": "Bachazouk",
-      "headline": "바차타와 주크가 만나는 지점",
-      "summary": "Bachazouk는 유행어처럼 소비하기보다, 바차타의 리듬 위에 Brazilian Zouk의 흐름과 상체 회전을 어디까지 가져올지 구분해서 보는 편이 안전합니다.",
+      "id": "korea-social",
+      "title": "국내 소셜",
+      "headline": "서울 소셜 영상은 분위기부터 보면 쉽습니다",
+      "summary": "국내 바차타 소셜 영상은 동작을 외우려고 보기보다, 사람들이 어느 박자에서 가까워지고 어디서 여유를 두는지 먼저 보면 좋습니다. 처음 소셜에 나갈 사람이라면 플로어 간격, 회전 방향, 음악 전환까지 같이 확인해보세요.",
       "candidates": [
         {
-          "title": "BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival",
-          "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE",
-          "videoId": "Qng3Wdmt3WE",
-          "publishFormat": "학습 프로그램",
-          "evidenceLevel": "medium"
-        },
-        {
-          "title": "Learn Bachata, Tutorial 41:  Bachazouk Pattern 1 (Fusion intermediate)",
-          "url": "https://www.youtube.com/watch?v=5Mx_xhWSiL0",
-          "videoId": "5Mx_xhWSiL0",
-          "publishFormat": "학습 프로그램",
-          "evidenceLevel": "medium"
-        },
-        {
-          "title": "10/10-12 Marck y Melyssa Weekender by zoukseoul",
-          "url": "http://cafe.naver.com/bbzouk/107",
-          "videoId": null,
-          "publishFormat": "일간 브리핑",
-          "evidenceLevel": "watch"
-        }
-      ]
-    },
-    {
-      "id": "global-dancers",
-      "title": "글로벌 댄서",
-      "headline": "요즘 많이 회자되는 이름들",
-      "summary": "Gero & Migle, Luis & Andrea, Andi & Silvia 같은 글로벌 댄서는 단순히 최신 영상을 보는 것보다 반복되는 입구, 출구, 시그니처 움직임을 따라 읽는 편이 좋습니다.",
-      "candidates": [
-        {
-          "title": "Gero & Migle | Bachata | Para Besarte - Lean & Akai",
-          "url": "https://www.youtube.com/watch?v=j4CmXKDCMzI",
-          "videoId": "j4CmXKDCMzI",
-          "publishFormat": "학습 프로그램",
-          "evidenceLevel": "medium"
-        },
-        {
-          "title": "LUIS Y ANDREA 🤍 Bachata Inspire | KHÉ 🎤 Manny Rod X Dj Tronky 📍Kazajistan 🇰🇿",
-          "url": "https://www.youtube.com/watch?v=L1vzrcpeBuw",
-          "videoId": "L1vzrcpeBuw",
-          "publishFormat": "학습 프로그램",
-          "evidenceLevel": "medium"
-        },
-        {
-          "title": "Andi & Silvia | Bachata | Just As I Am - Prince Royce Ft SpiffTv and Chris Brown [ Australia 2026 ]",
-          "url": "https://www.youtube.com/watch?v=FzOWJRxp9r0",
-          "videoId": "FzOWJRxp9r0",
-          "publishFormat": "학습 프로그램",
-          "evidenceLevel": "medium"
-        }
-      ]
-    },
-    {
-      "id": "korea-scene",
-      "title": "국내 소식",
-      "headline": "서울과 전국의 실제 현장",
-      "summary": "국내 바차타 정보는 영상, 인스타그램, 행사 공지가 흩어져 있습니다. 장소, 팀, 강사, 동호회 정보를 한 화면에서 읽을 수 있게 묶는 것이 핵심입니다.",
-      "candidates": [
-        {
-          "title": "바차타소셜 | 그레이 & 로렌 Gray y Loren Bachata Social - 라틴 2025.07.24",
+          "title": "Gray y Loren Bachata Social - 라틴 2025.07.24",
           "url": "https://www.youtube.com/watch?v=nrJM-arshvE",
           "videoId": "nrJM-arshvE",
-          "publishFormat": "학습 프로그램",
+          "publishFormat": "영상",
           "evidenceLevel": "medium"
         },
         {
-          "title": "바차타 | 클루니 & 솔미 HipSolmi bachata social - 보니따",
-          "url": "https://www.youtube.com/watch?v=w_uCz9JkRfE",
-          "videoId": "w_uCz9JkRfE",
-          "publishFormat": "학습 프로그램",
-          "evidenceLevel": "medium"
-        },
-        {
-          "title": "바차타 소셜 댄스 홍대 보니따 Bachata Social Dance at Bonita in Seoul Korea 20240304",
+          "title": "Bachata Social Dance at Bonita in Seoul Korea",
           "url": "https://www.youtube.com/watch?v=gDtOwUqeWKw",
           "videoId": "gDtOwUqeWKw",
-          "publishFormat": "학습 프로그램",
+          "publishFormat": "영상",
           "evidenceLevel": "medium"
         }
       ]
     },
     {
-      "id": "gear-market",
-      "title": "댄스화·마켓",
-      "headline": "회전감과 바닥 궁합",
-      "summary": "댄스화 콘텐츠는 브랜드 홍보보다 회전감, 쿠션, 바닥 적응, 사이즈와 반품 리스크를 나눠야 검색 가치가 생깁니다.",
+      "id": "festival-watch",
+      "title": "페스티벌",
+      "headline": "행사는 포스터보다 패스 범위가 먼저입니다",
+      "summary": "페스티벌은 라인업도 중요하지만, 실제로는 워크숍 포함 여부, 소셜 입장 범위, 환불 조건, 숙소 동선이 더 빨리 체감됩니다. 관심 있는 행사는 공식 링크와 포스터를 같이 열어두고 날짜와 장소를 다시 확인하세요.",
       "candidates": [
         {
-          "title": "Fuego Dance Shoes Review | Are They Worth It?",
-          "url": "https://www.youtube.com/watch?v=FtcPRwVIdNk",
-          "videoId": "FtcPRwVIdNk",
-          "publishFormat": "댄스화·기어",
-          "evidenceLevel": "medium"
-        },
-        {
-          "title": "풀맨 選定 Jazz, Classic 舞蹈音樂 鑑賞音盤 No.5",
-          "url": "http://cafe.naver.com/bluesalive/2327",
-          "videoId": null,
-          "publishFormat": "댄스화·기어",
-          "evidenceLevel": "watch"
-        },
-        {
-          "title": "이브알지가 뽑은 유로댄스 베스트 1000",
-          "url": "http://cafe.naver.com/musicworld24/156",
-          "videoId": null,
-          "publishFormat": "댄스화·기어",
-          "evidenceLevel": "watch"
-        }
-      ]
-    },
-    {
-      "id": "social-radar",
-      "title": "소셜 소식",
-      "headline": "행사와 계정의 움직임",
-      "summary": "인스타그램과 공개 링크는 본문을 복사하지 않고 계정, 해시태그, 행사 페이지, 관련 영상의 신호를 함께 보는 방식으로 정리합니다.",
-      "candidates": [
-        {
-          "title": "K-Sensual Official @ksensual_official",
+          "title": "K-Sensual Summer 10th Anniversary",
           "url": "https://www.instagram.com/ksensual_official/",
-          "videoId": null,
-          "publishFormat": "행사·내한",
+          "videoId": "zQXNPwMqpdw",
+          "publishFormat": "행사",
           "evidenceLevel": "medium"
         },
         {
-          "title": "Seoul Bachata Festival @seoulbachatafestival",
-          "url": "https://www.instagram.com/seoulbachatafestival/",
-          "videoId": null,
-          "publishFormat": "행사·내한",
+          "title": "Bachata Geneva Festival",
+          "url": "https://bachatagenevafestival.com/",
+          "videoId": "KwCdb36gUtY",
+          "publishFormat": "해외 행사",
           "evidenceLevel": "medium"
-        },
+        }
+      ]
+    },
+    {
+      "id": "beginner-guide",
+      "title": "초보자 가이드",
+      "headline": "베이직은 제일 쉬운 동작이 아니라 제일 오래 쓰는 동작입니다",
+      "summary": "바차타 베이직은 커플댄스를 시작하기 전에 몸에 넣어야 하는 기본기입니다. 스텝 자체보다 박자, 체중 이동, 골반 리듬이 함께 들어갈 때 소셜에서 훨씬 편하게 움직일 수 있습니다.",
+      "candidates": [
         {
-          "title": "Gangnam Latin Festival @gangnamlatinfestival",
-          "url": "https://www.instagram.com/gangnamlatinfestival/",
-          "videoId": null,
-          "publishFormat": "행사·내한",
+          "title": "Bachata Dance Academy 베이직",
+          "url": "https://www.youtube.com/watch?v=RaIjKG_ENIU",
+          "videoId": "RaIjKG_ENIU",
+          "publishFormat": "가이드",
           "evidenceLevel": "medium"
         }
       ]
@@ -184,96 +91,42 @@
   ],
   "evidenceLinks": [
     {
-      "title": "Bachata Influence Tutorial | Melvin & Gatica | Bachata Geneva Festival, Switzerland",
-      "url": "https://www.youtube.com/watch?v=sUy5L7x5pyE",
+      "title": "Bachata Dance Academy 베이직",
+      "url": "https://www.youtube.com/watch?v=RaIjKG_ENIU",
       "type": "youtube"
     },
     {
-      "title": "Emilien & Tehina [BACHATA INFLUENCE] @ Prague Bachata Dominant Congress 2025 🏰",
-      "url": "https://www.youtube.com/watch?v=FNv7eOMg-_k",
+      "title": "Gray y Loren Bachata Social",
+      "url": "https://www.youtube.com/watch?v=nrJM-arshvE",
       "type": "youtube"
     },
     {
-      "title": "Bachata Influence: Interview with Melvin & Gatica, Masters of the 'Bachata Influence' Style",
-      "url": "https://www.youtube.com/watch?v=lGRDZkVG2r8",
-      "type": "youtube"
+      "title": "Bachata Geneva Festival",
+      "url": "https://bachatagenevafestival.com/",
+      "type": "official"
     },
     {
-      "title": "Emilio & Serap @ Let's dance together at Gang TURN 2026-05-19",
-      "url": "https://www.youtube.com/watch?v=h4hZt9akWWc",
-      "type": "youtube"
-    },
-    {
-      "title": "Emilio & Serap Bachata Couple give us their take about all their dance floor secrets - Episode 2",
-      "url": "https://www.youtube.com/watch?v=2lygAoTSk1Y",
-      "type": "youtube"
-    },
-    {
-      "title": "BachaZouk Tutorial | Azael & Marta | Bachata Geneva Festival",
-      "url": "https://www.youtube.com/watch?v=Qng3Wdmt3WE",
-      "type": "youtube"
-    },
-    {
-      "title": "Learn Bachata, Tutorial 41:  Bachazouk Pattern 1 (Fusion intermediate)",
-      "url": "https://www.youtube.com/watch?v=5Mx_xhWSiL0",
-      "type": "youtube"
-    },
-    {
-      "title": "10/10-12 Marck y Melyssa Weekender by zoukseoul",
-      "url": "http://cafe.naver.com/bbzouk/107",
-      "type": "naver-cafe"
-    },
-    {
-      "title": "2025년 1월 Kzouk 강습 모집] 강남, 홍대 브라질리언주크...",
-      "url": "https://blog.naver.com/paran_dance/223696258259",
-      "type": "naver-blog"
-    },
-    {
-      "title": "Kzouk 가문의 경사로 무료 소셜 쏩니다. 6/18(월)강남, 6/19...",
-      "url": "https://blog.naver.com/paran_dance/223481533481",
-      "type": "naver-blog"
-    },
-    {
-      "title": "Kzouk강습] 7월 강습 모집. 강남7/8(월)개강, 홍대 7/9(화)개강",
-      "url": "https://blog.naver.com/paran_dance/223481434220",
-      "type": "naver-blog"
-    },
-    {
-      "title": "Kzouk 개강 안내] 강남_3/19(월), 홍대_3/25(화) 개강합니다....",
-      "url": "https://blog.naver.com/paran_dance/223376325806",
-      "type": "naver-blog"
-    },
-    {
-      "title": "8/1-3 라우타로y아리아나 워크샵",
-      "url": "http://cafe.naver.com/bbzouk/106",
-      "type": "naver-cafe"
-    },
-    {
-      "title": "Brazilian Zouk Tips by Arthur Santos",
-      "url": "http://cafe.naver.com/bbzouk/101",
-      "type": "naver-cafe"
+      "title": "K-Sensual Official",
+      "url": "https://www.instagram.com/ksensual_official/",
+      "type": "instagram"
     }
   ],
   "targetPages": [
     {
-      "label": "최신소식",
-      "url": "/briefs/2026-07-08.html"
+      "label": "인기",
+      "url": "/"
     },
     {
-      "label": "세부장르 살펴보기",
-      "url": "/styles/"
+      "label": "가이드",
+      "url": "/guide"
     },
     {
-      "label": "국내 소식",
-      "url": "/korea-scene/"
+      "label": "행사",
+      "url": "/events"
     },
     {
-      "label": "페스티벌 정보",
-      "url": "/events/"
-    },
-    {
-      "label": "해외 페스티벌 정보",
-      "url": "/events/overseas.html"
+      "label": "댄서",
+      "url": "/dancers"
     }
   ]
 }

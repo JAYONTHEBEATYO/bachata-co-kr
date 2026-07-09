@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { getCommunities, getThreads } from "@/lib/data";
+import { getCommunities, getDancers, getEvents, getThreads } from "@/lib/data";
 import { siteUrl } from "@/lib/format";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [threads, communities] = await Promise.all([getThreads("hot"), getCommunities()]);
+  const [threads, communities, events, dancers] = await Promise.all([getThreads("hot"), getCommunities(), getEvents(), getDancers()]);
   const now = new Date();
 
   const baseRoutes: MetadataRoute.Sitemap = [
@@ -27,6 +27,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: new Date(thread.createdAt),
       changeFrequency: "weekly" as const,
       priority: 0.86
+    })),
+    events.map((event) => ({
+      url: `${siteUrl}/events/${event.id}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.82
+    })),
+    dancers.map((dancer) => ({
+      url: `${siteUrl}/dancers/${dancer.id}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.8
     })),
   );
 }

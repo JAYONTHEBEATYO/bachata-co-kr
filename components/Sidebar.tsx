@@ -27,13 +27,13 @@ export function Sidebar({ communities, events, trending }: SidebarProps) {
         <div className="rail-title"><CalendarDays size={18} /> 곧 볼 행사</div>
         <div className="event-mini-list">
           {events.map((event) => (
-            <a key={event.id} href={event.sourceUrl} target="_blank" rel="noreferrer">
+            <Link key={event.id} href={`/events/${event.id}`}>
               <img src={event.posterUrl} alt="" />
               <span>
                 <strong>{event.title}</strong>
                 <em>{event.dateLabel} · {event.city}</em>
               </span>
-            </a>
+            </Link>
           ))}
         </div>
       </section>

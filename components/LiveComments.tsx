@@ -23,6 +23,13 @@ const commentsApiOrigin = () => {
 
 const commentsApiUrl = () => `${commentsApiOrigin()}/api/comments/`;
 
+const randomNickname = () => {
+  const alphabet = "abcdefghjkmnpqrstuvwxyz23456789";
+  const values = new Uint8Array(5);
+  crypto.getRandomValues(values);
+  return `anon_${[...values].map((value) => alphabet[value % alphabet.length]).join("")}`;
+};
+
 const buildTree = (comments: ApiComment[]): Comment[] => {
   const byId = new Map<string, Comment>();
   const roots: Comment[] = [];
@@ -47,6 +54,7 @@ const buildTree = (comments: ApiComment[]): Comment[] => {
 export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   const [comments, setComments] = useState<ApiComment[]>(initialComments);
   const [authorName, setAuthorName] = useState("");
+  const [authorPassword, setAuthorPassword] = useState("");
   const [body, setBody] = useState("");
   const [website, setWebsite] = useState("");
   const [replyTo, setReplyTo] = useState<ApiComment | null>(null);
@@ -55,6 +63,10 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   const [pending, setPending] = useState(false);
 
   const commentTree = useMemo(() => buildTree(comments), [comments]);
+
+  useEffect(() => {
+    setAuthorName(randomNickname());
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -89,6 +101,10 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
       setError("댓글을 두 글자 이상 적어주세요.");
       return;
     }
+    if (!/^\d{4}$/.test(authorPassword.trim())) {
+      setError("임시비밀번호 4자리를 숫자로 입력해주세요.");
+      return;
+    }
 
     setPending(true);
     try {
@@ -99,6 +115,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
           threadId,
           parentId: replyTo?.id || null,
           authorName,
+          authorPassword,
           body: text,
           website
         })
@@ -141,9 +158,20 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
           type="text"
           value={authorName}
           onChange={(event) => setAuthorName(event.target.value)}
-          placeholder="닉네임 (선택)"
+          placeholder="닉네임"
           maxLength={32}
           autoComplete="nickname"
+        />
+        <input
+          type="password"
+          inputMode="numeric"
+          pattern="[0-9]{4}"
+          value={authorPassword}
+          onChange={(event) => setAuthorPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
+          placeholder="임시비밀번호 4자리"
+          maxLength={4}
+          autoComplete="new-password"
+          required
         />
         <label className="comment-hp">
           웹사이트
@@ -167,7 +195,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
           <span>{body.trim().length}/1000</span>
           <button type="submit" disabled={pending}>
             <Send size={16} />
-            {pending ? "등록 중" : "댓글 남기기"}
+            {pending ? "등록 중" : "댓글 등록"}
           </button>
         </div>
         {status ? <p className="comment-status">{status}</p> : null}
@@ -192,6 +220,7 @@ function CommentNode({ comment, onReply }: { comment: Comment; onReply: (comment
       <div>
         <div className="comment-meta">
           <strong>{comment.author}</strong>
+          {comment.ipPrefix ? <span>IP {comment.ipPrefix}</span> : null}
           <span>{formatRelativeDate(comment.createdAt)}</span>
         </div>
         <p>{comment.body}</p>

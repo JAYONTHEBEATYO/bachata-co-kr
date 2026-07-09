@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LiveComments } from "@/components/LiveComments";
 import { Sidebar } from "@/components/Sidebar";
+import { ThreadActionBar } from "@/components/ThreadActionBar";
 import { ThreadCard } from "@/components/ThreadCard";
 import { VideoEmbed } from "@/components/VideoEmbed";
 import { getCommunities, getEvents, getRelatedThreads, getThread, getThreadComments, getThreads } from "@/lib/data";
-import { absoluteUrl } from "@/lib/format";
+import { absoluteUrl, youtubeThumb } from "@/lib/format";
 
 type PageProps = {
   params: Promise<{ id: string; slug: string }>;
@@ -20,16 +21,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { id, slug } = await params;
   const thread = await getThread(id, slug);
   if (!thread) return {};
+  const imageUrl = thread.imageUrl || (thread.videoId ? youtubeThumb(thread.videoId) : youtubeThumb("xhrdh-uFkog"));
+  const description = `${thread.excerpt} 댓글과 반응은 바차타 코리아에서 이어집니다.`;
 
   return {
     title: thread.title,
-    description: thread.excerpt,
+    description,
     alternates: { canonical: absoluteUrl(`/t/${thread.id}/${thread.slug}`) },
     openGraph: {
       title: thread.title,
-      description: thread.excerpt,
+      description,
       type: "article",
-      url: absoluteUrl(`/t/${thread.id}/${thread.slug}`)
+      url: absoluteUrl(`/t/${thread.id}/${thread.slug}`),
+      images: [{ url: imageUrl, width: 480, height: 360, alt: thread.title }]
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: thread.title,
+      description,
+      images: [imageUrl]
     }
   };
 }
@@ -72,6 +82,15 @@ export default async function ThreadPage({ params }: PageProps) {
           <section className="detail-body">
             <p>{thread.body}</p>
             {thread.videoId ? <VideoEmbed videoId={thread.videoId} title={thread.title} /> : null}
+            <ThreadActionBar
+              score={thread.score}
+              downvotes={thread.downvotes}
+              commentHref="#comments-title"
+              sharePath={`/t/${thread.id}/${thread.slug}`}
+              shareTitle={thread.title}
+              shareText={thread.excerpt}
+              sourceLinks={thread.sourceLinks}
+            />
             <div className="source-box">
               <strong>같이 보면 좋은 링크</strong>
               <div className="source-links">

@@ -7,6 +7,8 @@ create table if not exists comments (
   status text not null default 'published' check (status in ('published', 'hidden', 'removed')),
   score integer not null default 0,
   ip_hash text,
+  ip_prefix text,
+  author_password_hash text,
   user_agent text,
   created_at text not null default (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
   updated_at text not null default (strftime('%Y-%m-%dT%H:%M:%fZ', 'now'))

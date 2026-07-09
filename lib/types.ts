@@ -53,6 +53,7 @@ export type Comment = {
   threadId: string;
   parentId?: string | null;
   author: string;
+  ipPrefix?: string | null;
   body: string;
   score: number;
   createdAt: string;

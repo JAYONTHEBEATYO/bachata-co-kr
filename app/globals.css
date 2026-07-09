@@ -517,6 +517,7 @@ p {
 .thread-actions {
   gap: 8px;
   margin-top: 12px;
+  align-items: center;
 }
 
 .thread-actions a,
@@ -739,6 +740,21 @@ p {
 .source-box {
   margin-top: 16px;
   background: var(--raised);
+}
+
+.detail-article {
+  display: grid;
+  gap: 10px;
+}
+
+.detail-poster {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  display: block;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #111;
 }
 
 .source-box strong {
@@ -983,7 +999,8 @@ p {
   overflow: hidden;
 }
 
-.event-card img {
+.event-card img,
+.dancer-thumb {
   width: 100%;
   aspect-ratio: 16 / 10;
   display: block;

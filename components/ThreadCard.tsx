@@ -1,9 +1,8 @@
 import Link from "next/link";
-import { ExternalLink, MessageCircle, Share2 } from "lucide-react";
 import { formatRelativeDate } from "@/lib/format";
 import type { Thread } from "@/lib/types";
+import { ThreadActionBar } from "./ThreadActionBar";
 import { VideoEmbed } from "./VideoEmbed";
-import { VoteRail } from "./VoteRail";
 
 type ThreadCardProps = {
   thread: Thread;
@@ -33,16 +32,16 @@ export function ThreadCard({ thread, compact = false, headingLevel = 2 }: Thread
         <div className="tag-row">
           {thread.tags.map((tag) => <span key={tag}>#{tag}</span>)}
         </div>
-        <div className="thread-actions">
-          <VoteRail score={thread.score} downvotes={thread.downvotes} />
-          <Link href={href}><MessageCircle size={16} /> 댓글</Link>
-          <button type="button"><Share2 size={16} /> 공유</button>
-          {thread.sourceLinks.slice(0, 2).map((link) => (
-            <a key={link.url} href={link.url} target="_blank" rel="noreferrer">
-              <ExternalLink size={16} /> {link.label}
-            </a>
-          ))}
-        </div>
+        <ThreadActionBar
+          score={thread.score}
+          downvotes={thread.downvotes}
+          commentHref={href}
+          sharePath={href}
+          shareTitle={thread.title}
+          shareText={thread.excerpt}
+          sourceLinks={thread.sourceLinks}
+          showAward={false}
+        />
       </div>
     </article>
   );

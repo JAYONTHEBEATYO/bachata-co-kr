@@ -22,7 +22,6 @@ export function Header() {
             </summary>
             <div className="menu-panel">
               {nav.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
-              <Link href="/write">비회원 글쓰기</Link>
             </div>
           </details>
           <Link className="brand" href="/">
@@ -44,7 +43,6 @@ export function Header() {
               <MoreVertical size={22} />
             </summary>
             <div className="menu-panel">
-              <Link href="/write"><PenSquare size={17} /> 비회원 글쓰기</Link>
               <Link href="/"><LogIn size={17} /> 로그인</Link>
               <Link href="/"><UserPlus size={17} /> 회원가입</Link>
             </div>

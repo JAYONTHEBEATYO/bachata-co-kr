@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
 import { getEvents } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
@@ -22,10 +23,12 @@ export default async function EventsPage() {
       <section className="event-grid">
         {events.map((event) => (
           <article key={event.id} className="event-card">
-            <img src={event.posterUrl} alt={`${event.title} 대표 이미지`} />
+            <Link href={`/events/${event.id}`} aria-label={`${event.title} 상세 보기`}>
+              <img src={event.posterUrl} alt={`${event.title} 대표 이미지`} />
+            </Link>
             <div>
               <span className="flair">{event.region === "domestic" ? "페스티벌" : "해외페스티벌"}</span>
-              <h2>{event.title}</h2>
+              <h2><Link href={`/events/${event.id}`}>{event.title}</Link></h2>
               <p>{event.excerpt}</p>
               <div className="event-meta">
                 <span><CalendarDays size={15} /> {event.dateLabel}</span>

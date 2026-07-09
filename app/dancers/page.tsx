@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import { VideoEmbed } from "@/components/VideoEmbed";
+import Link from "next/link";
 import { getDancers } from "@/lib/data";
-import { absoluteUrl } from "@/lib/format";
+import { absoluteUrl, youtubeThumb } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "댄서",
@@ -15,17 +15,19 @@ export default async function DancersPage() {
   return (
     <main className="app-shell">
       <section className="page-head">
-        <span className="eyebrow">Dancer Index</span>
-        <h1>댄서 소개는 영상으로 시작합니다</h1>
-        <p>이름만 나열하지 않고, 어떤 움직임을 보면 좋은지와 한국 바차타 독자에게 왜 의미가 있는지 같이 씁니다.</p>
+        <span className="eyebrow">Dancers</span>
+        <h1>지금 이야기해볼 바차타 댄서들</h1>
+        <p>움직임이 눈에 들어오는 영상, 수업에서 바로 떠올릴 포인트, 같이 이야기해볼 장면을 댄서별 쓰레드로 모았습니다.</p>
       </section>
       <section className="dancer-grid">
         {dancers.map((dancer) => (
           <article key={dancer.id} className="dancer-card">
-            <VideoEmbed videoId={dancer.videoId} title={dancer.name} compact />
+            <Link href={`/dancers/${dancer.id}`} aria-label={`${dancer.name} 상세 보기`}>
+              <img className="dancer-thumb" src={youtubeThumb(dancer.videoId)} alt={`${dancer.name} 대표 영상 썸네일`} />
+            </Link>
             <div>
               <span className="flair">{dancer.role}</span>
-              <h2>{dancer.name}</h2>
+              <h2><Link href={`/dancers/${dancer.id}`}>{dancer.name}</Link></h2>
               <p>{dancer.excerpt}</p>
               <div className="tag-row">
                 {dancer.tags.map((tag) => <span key={tag}>#{tag}</span>)}
