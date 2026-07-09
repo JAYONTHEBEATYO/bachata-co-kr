@@ -20,6 +20,12 @@
       "database_id": "a83c4782-914d-4c7c-9aaa-fe25271b59a5"
     }
   ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "bachata-media"
+    }
+  ],
   "vars": {
     "NEXT_PUBLIC_SITE_URL": "https://bachata.co.kr"
   }

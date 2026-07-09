@@ -61,6 +61,8 @@ export default async function DancerDetailPage({ params }: PageProps) {
           </div>
           <ThreadActionBar
             score={0}
+            voteTargetId={`dancer-${dancer.id}`}
+            voteTargetType="thread"
             commentHref="#comments-title"
             sharePath={`/dancers/${dancer.id}`}
             shareTitle={dancer.name}

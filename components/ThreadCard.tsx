@@ -35,6 +35,8 @@ export function ThreadCard({ thread, compact = false, headingLevel = 2 }: Thread
         <ThreadActionBar
           score={thread.score}
           downvotes={thread.downvotes}
+          voteTargetId={thread.id}
+          voteTargetType="thread"
           commentHref={href}
           sharePath={href}
           shareTitle={thread.title}

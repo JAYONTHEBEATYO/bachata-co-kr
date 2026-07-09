@@ -10,50 +10,57 @@ type Topic = {
   description: string;
   href: string;
   meta: string;
+  subtopics: string[];
 };
 
 const topics: Topic[] = [
   {
     slug: "academy-review",
     title: "아카데미 리뷰",
-    description: "라틴씨엘로, 라스트댄스, 센슈얼랩, 엔수에뇨, 에버라틴처럼 실제 수업을 들은 사람들이 남기는 후기.",
-    href: "/?sort=hot",
-    meta: "수업 후기"
+    description: "학원, 동호회, 팀 수업 후기를 토픽으로 모읍니다.",
+    href: "/topics/academy-review",
+    meta: "수업·동호회",
+    subtopics: ["라틴씨엘로", "센슈얼랩", "에버라틴", "라스트댄스", "엔수에뇨", "오살사"]
   },
   {
     slug: "dancer-review",
     title: "댄서 리뷰",
-    description: "부트캠프, 마스터클래스, 워크숍, 소셜댄스, 해외수업참여까지 댄서를 경험한 방식별로 이야기합니다.",
-    href: "/dancers",
-    meta: "워크숍 후기"
-  },
-  {
-    slug: "ask",
-    title: "무물보",
-    description: "인스트럭터, 운영자, 초보자 누구나 열 수 있는 질문방. 댓글로 묻고 답하는 바차타식 AMA입니다.",
-    href: "/write",
-    meta: "질문방"
-  },
-  {
-    slug: "festival",
-    title: "페스티벌",
-    description: "국내 행사와 해외 페스티벌을 날짜, 패스, 동선, 후기 중심으로 모읍니다.",
-    href: "/events",
-    meta: "행사 정보"
+    description: "워크숍, 부트캠프, 마스터클래스, 소셜댄스 후기를 정리합니다.",
+    href: "/topics/dancer-review",
+    meta: "워크숍·홀딩",
+    subtopics: ["멜빈", "가티카", "헤로", "미글레", "그레이", "소라", "원궁"]
   },
   {
     slug: "social-review",
     title: "소셜 후기",
-    description: "오늘 플로어 분위기, 음악, 매너, 처음 간 사람의 체감까지 편하게 남기는 공간입니다.",
-    href: "/?sort=new",
-    meta: "현장감"
+    description: "오늘 플로어 분위기, 음악, 사람, 매너를 장소별로 남깁니다.",
+    href: "/topics/social-review",
+    meta: "바·지역",
+    subtopics: ["강남 라틴바", "홍대 보니따", "인천", "부산", "대구", "제주"]
   },
   {
-    slug: "beginner",
-    title: "초보 질문",
-    description: "베이직, 박자, 홀딩, 첫 소셜, 신발, 옷차림처럼 처음엔 다 헷갈리는 것들.",
+    slug: "events",
+    title: "국내외 행사",
+    description: "국내 행사와 해외 페스티벌, 워크숍, 양도/패스 글을 모읍니다.",
+    href: "/topics/events",
+    meta: "행사·페스티벌",
+    subtopics: ["국내 행사", "해외 행사", "행사 후기", "워크숍", "양도/패스"]
+  },
+  {
+    slug: "questions",
+    title: "질문과 무물보",
+    description: "처음 배우는 사람부터 강사, 운영자까지 댓글로 묻고 답합니다.",
+    href: "/write?type=ama",
+    meta: "AMA",
+    subtopics: ["무물보", "입문 질문", "음악 질문", "홀딩", "소셜 매너"]
+  },
+  {
+    slug: "styles",
+    title: "장르와 테크닉",
+    description: "센슈얼, 도미니칸, 인플루언스, 풋워크 같은 세부 주제를 따라갑니다.",
     href: "/guide",
-    meta: "입문"
+    meta: "스타일",
+    subtopics: ["센슈얼", "도미니칸", "인플루언스", "풋워크", "레이디스타일", "맨즈스타일"]
   }
 ];
 
@@ -86,7 +93,7 @@ export function TopicExplore() {
       <div className="section-head">
         <div>
           <span className="eyebrow">주제 탐색</span>
-          <h2 id="topic-explore-title">요즘 바차타 사람들이 모이는 이야기</h2>
+          <h2 id="topic-explore-title">바차타 이야기를 어디에 올릴까?</h2>
         </div>
         <Link href="/write">새 글 쓰기</Link>
       </div>
@@ -99,6 +106,9 @@ export function TopicExplore() {
                 <span>{topic.meta}</span>
                 <h3>{topic.title}</h3>
                 <p>{topic.description}</p>
+                <div className="topic-chip-row">
+                  {topic.subtopics.slice(0, 6).map((subtopic) => <em key={subtopic}>{subtopic}</em>)}
+                </div>
               </Link>
               <button type="button" onClick={() => toggle(topic.slug)} aria-pressed={isFollowed}>
                 {isFollowed ? <Check size={16} /> : <Bell size={16} />}

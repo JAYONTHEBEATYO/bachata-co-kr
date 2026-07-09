@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
+import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
 
 type D1Rows<T> = {
@@ -112,6 +113,17 @@ const normalizeId = (value: unknown) => {
   return /^[a-zA-Z0-9_-]{1,80}$/.test(text) ? text : "";
 };
 
+const normalizeSort = (value: unknown) => {
+  const sort = typeof value === "string" ? value : "hot";
+  return sort === "new" || sort === "top" ? sort : "hot";
+};
+
+const orderByForSort = (sort: string) => {
+  if (sort === "new") return "g.created_at desc";
+  if (sort === "top") return "g.score desc, g.downvotes asc, commentCount desc, g.created_at desc";
+  return "(g.score + commentCount * 3 - g.downvotes) desc, g.created_at desc";
+};
+
 const normalizeLink = (value: unknown) => {
   const text = typeof value === "string" ? value.trim() : "";
   if (!text) return null;
@@ -126,14 +138,6 @@ const normalizeLink = (value: unknown) => {
 
 const getIp = (request: NextRequest) =>
   request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
-
-const displayIpPrefix = (ip: string) => {
-  const ipv4 = ip.match(/^(\d{1,3})\.(\d{1,3})\./);
-  if (ipv4) return `${ipv4[1]}.${ipv4[2]}.*.*`;
-  const ipv6 = ip.split(":").filter(Boolean);
-  if (ipv6.length >= 2) return `${ipv6[0]}:${ipv6[1]}:*`;
-  return "비공개";
-};
 
 const sha256Hex = async (value: string) => {
   const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
@@ -205,7 +209,7 @@ const rowToThread = (row: GuestThreadRow) => ({
   category: row.category,
   linkUrl: row.linkUrl,
   guestId: displayGuestNickname(row.guestId, row.id),
-  ipPrefix: row.ipPrefix,
+  ipPrefix: normalizeStoredIpPrefix(row.ipPrefix) || "비공개",
   score: Number(row.score || 0),
   downvotes: Number(row.downvotes || 0),
   commentCount: Number(row.commentCount || 0),
@@ -249,6 +253,8 @@ export async function GET(request: NextRequest) {
 
   const category = request.nextUrl.searchParams.get("category");
   const categoryFilter = category && categories.has(category) ? category : null;
+  const sort = normalizeSort(request.nextUrl.searchParams.get("sort"));
+  const orderBy = orderByForSort(sort);
   const rows = categoryFilter
     ? await db.prepare(
       `select
@@ -265,7 +271,7 @@ export async function GET(request: NextRequest) {
         (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
       from guest_threads g
       where g.status = 'published' and g.category = ?
-      order by g.created_at desc
+      order by ${orderBy}
       limit 40`
     ).bind(categoryFilter).all<GuestThreadRow>()
     : await db.prepare(
@@ -283,7 +289,7 @@ export async function GET(request: NextRequest) {
         (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
       from guest_threads g
       where g.status = 'published'
-      order by g.created_at desc
+      order by ${orderBy}
       limit 40`
     ).all<GuestThreadRow>();
 
@@ -351,7 +357,7 @@ export async function POST(request: NextRequest) {
       category,
       linkUrl,
       guestId: authorName,
-      ipPrefix,
+      ipPrefix: normalizeStoredIpPrefix(ipPrefix) || "비공개",
       score: 0,
       downvotes: 0,
       commentCount: 0,

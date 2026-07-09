@@ -75,6 +75,8 @@ export default async function ThreadPage({ params }: PageProps) {
             <ThreadActionBar
               score={thread.score}
               downvotes={thread.downvotes}
+              voteTargetId={thread.id}
+              voteTargetType="thread"
               commentHref="#comments-title"
               sharePath={`/t/${thread.id}/${thread.slug}`}
               shareTitle={thread.title}

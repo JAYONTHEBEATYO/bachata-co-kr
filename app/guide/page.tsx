@@ -32,6 +32,8 @@ export default async function GuidePage() {
               <ThreadActionBar
                 score={thread.score}
                 downvotes={thread.downvotes}
+                voteTargetId={thread.id}
+                voteTargetType="thread"
                 commentHref={`/t/${thread.id}/${thread.slug}#comments-title`}
                 sharePath={`/t/${thread.id}/${thread.slug}`}
                 shareTitle={thread.title}

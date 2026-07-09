@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
+import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
 
 type D1Rows<T> = {
@@ -32,6 +33,10 @@ type CountRow = {
   count: number;
 };
 
+type VoteRow = {
+  direction: number;
+};
+
 const allowedOrigins = new Set([
   "https://bachata.co.kr",
   "https://www.bachata.co.kr",
@@ -48,7 +53,7 @@ const jsonHeaders = (request: NextRequest) => {
 
   return {
     "access-control-allow-origin": allowOrigin,
-    "access-control-allow-methods": "GET,POST,OPTIONS",
+    "access-control-allow-methods": "GET,POST,PATCH,OPTIONS",
     "access-control-allow-headers": "content-type",
     "cache-control": "no-store",
     "content-type": "application/json; charset=utf-8",
@@ -114,20 +119,12 @@ const sha256Hex = async (value: string) => {
 const getIp = (request: NextRequest) =>
   request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
 
-const displayIpPrefix = (ip: string) => {
-  const ipv4 = ip.match(/^(\d{1,3})\.(\d{1,3})\./);
-  if (ipv4) return `${ipv4[1]}.${ipv4[2]}.*.*`;
-  const ipv6 = ip.split(":").filter(Boolean);
-  if (ipv6.length >= 2) return `${ipv6[0]}:${ipv6[1]}:*`;
-  return "비공개";
-};
-
 const rowToComment = (row: CommentRow) => ({
   id: row.id,
   threadId: row.threadId,
   parentId: row.parentId,
   author: displayGuestNickname(row.author, row.id),
-  ipPrefix: row.ipPrefix,
+  ipPrefix: normalizeStoredIpPrefix(row.ipPrefix),
   body: row.body,
   score: Number(row.score || 0),
   createdAt: row.createdAt
@@ -219,11 +216,73 @@ export async function POST(request: NextRequest) {
       id,
       threadId,
       parentId,
-      author: authorName,
-      ipPrefix,
+      author: displayGuestNickname(authorName, id),
+      ipPrefix: normalizeStoredIpPrefix(ipPrefix),
       body,
       score: 0,
       createdAt: now
     }
+  });
+}
+
+export async function PATCH(request: NextRequest) {
+  const db = await getCommentsDb();
+  if (!db) return respond(request, 503, { error: "댓글 저장소가 아직 연결되지 않았습니다." });
+
+  let payload: Record<string, unknown>;
+  try {
+    payload = await request.json();
+  } catch {
+    return respond(request, 400, { error: "요청을 읽을 수 없습니다." });
+  }
+
+  const commentId = normalizeParentId(payload.commentId);
+  const direction = payload.direction === "up" ? 1 : payload.direction === "down" ? -1 : 0;
+  if (!commentId) return respond(request, 400, { error: "댓글 정보가 올바르지 않습니다." });
+  if (!direction) return respond(request, 400, { error: "추천 방향이 올바르지 않습니다." });
+
+  await db.prepare(
+    `create table if not exists comment_votes (
+      comment_id text not null,
+      ip_hash text not null,
+      direction integer not null check(direction in (-1, 1)),
+      created_at text not null default (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+      updated_at text not null default (strftime('%Y-%m-%dT%H:%M:%fZ', 'now')),
+      primary key (comment_id, ip_hash)
+    )`
+  ).run();
+  await db.prepare("create index if not exists comment_votes_comment_idx on comment_votes(comment_id)").run();
+
+  const hash = await ipHash(request);
+  const existing = await db.prepare(
+    "select direction from comment_votes where comment_id = ? and ip_hash = ?"
+  ).bind(commentId, hash).first<VoteRow>();
+
+  let delta = direction;
+  let userVote = direction;
+  const now = new Date().toISOString();
+
+  if (existing?.direction === direction) {
+    await db.prepare("delete from comment_votes where comment_id = ? and ip_hash = ?").bind(commentId, hash).run();
+    delta = -direction;
+    userVote = 0;
+  } else if (existing?.direction) {
+    await db.prepare(
+      "update comment_votes set direction = ?, updated_at = ? where comment_id = ? and ip_hash = ?"
+    ).bind(direction, now, commentId, hash).run();
+    delta = direction - Number(existing.direction);
+  } else {
+    await db.prepare(
+      "insert into comment_votes (comment_id, ip_hash, direction, created_at, updated_at) values (?, ?, ?, ?, ?)"
+    ).bind(commentId, hash, direction, now, now).run();
+  }
+
+  await db.prepare("update comments set score = score + ?, updated_at = ? where id = ?").bind(delta, now, commentId).run();
+  const row = await db.prepare("select score from comments where id = ?").bind(commentId).first<{ score: number }>();
+
+  return respond(request, 200, {
+    commentId,
+    score: Number(row?.score || 0),
+    userVote
   });
 }

@@ -9,6 +9,8 @@ import { VoteRail } from "./VoteRail";
 type ThreadActionBarProps = {
   score: number;
   downvotes?: number;
+  voteTargetId: string;
+  voteTargetType?: "thread" | "guestThread";
   commentHref?: string;
   sharePath: string;
   shareTitle: string;
@@ -21,6 +23,8 @@ type ThreadActionBarProps = {
 export function ThreadActionBar({
   score,
   downvotes = 0,
+  voteTargetId,
+  voteTargetType = "thread",
   commentHref,
   sharePath,
   shareTitle,
@@ -31,11 +35,10 @@ export function ThreadActionBar({
 }: ThreadActionBarProps) {
   const shareUrl = sharePath.startsWith("http") ? sharePath : absoluteUrl(sharePath);
   const cacheFreshShareUrl = sharePreviewUrl(shareUrl);
-  const hasVotes = score !== 0 || downvotes > 0;
 
   return (
     <div className="thread-actions">
-      {hasVotes ? <VoteRail score={score} downvotes={downvotes} /> : null}
+      <VoteRail targetId={voteTargetId} targetType={voteTargetType} score={score} downvotes={downvotes} />
       {showAward && threadId ? <AwardPicker threadId={threadId} /> : null}
       {commentHref ? <a href={commentHref}><MessageCircle size={16} /> 댓글</a> : null}
       <ShareButton url={cacheFreshShareUrl} title={shareTitle} text={shareText} />

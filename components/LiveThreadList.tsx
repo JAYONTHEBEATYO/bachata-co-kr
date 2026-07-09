@@ -20,6 +20,12 @@ type LiveThread = {
   createdAt: string;
 };
 
+type LiveThreadListProps = {
+  category?: string;
+  sort?: "hot" | "new" | "top";
+  emptyCopy?: string;
+};
+
 const labels: Record<string, string> = {
   questions: "질문",
   video: "영상",
@@ -42,7 +48,13 @@ const apiOrigin = () => {
   return "https://bachata-co-kr.bachata-korea.workers.dev";
 };
 
-const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
+const threadsApiUrl = (category?: string, sort?: string) => {
+  const params = new URLSearchParams();
+  if (category) params.set("category", category);
+  if (sort) params.set("sort", sort);
+  const query = params.toString();
+  return `${apiOrigin()}/api/threads/${query ? `?${query}` : ""}`;
+};
 const threadPath = (id: string) => `/guest/?id=${encodeURIComponent(id)}`;
 const threadSharePath = (id: string) => {
   const path = `/g/${encodeURIComponent(id)}`;
@@ -50,14 +62,14 @@ const threadSharePath = (id: string) => {
   return origin ? `${origin}${path}` : path;
 };
 
-export function LiveThreadList() {
+export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveThreadListProps) {
   const [threads, setThreads] = useState<LiveThread[]>([]);
 
   useEffect(() => {
     let cancelled = false;
     const load = async () => {
       try {
-        const response = await fetch(threadsApiUrl(), { cache: "no-store" });
+        const response = await fetch(threadsApiUrl(category, sort), { cache: "no-store" });
         if (!response.ok) return;
         const data = await response.json() as { threads?: LiveThread[] };
         if (!cancelled && Array.isArray(data.threads)) setThreads(data.threads);
@@ -70,9 +82,11 @@ export function LiveThreadList() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [category, sort]);
 
-  if (!threads.length) return null;
+  if (!threads.length) {
+    return emptyCopy ? <div className="empty-state">{emptyCopy}</div> : null;
+  }
 
   return (
     <section className="live-thread-stack" aria-label="비회원 새 글">
@@ -94,6 +108,8 @@ export function LiveThreadList() {
             <ThreadActionBar
               score={thread.score}
               downvotes={thread.downvotes}
+              voteTargetId={thread.id}
+              voteTargetType="guestThread"
               commentHref={`${threadPath(thread.id)}#comments-title`}
               sharePath={threadSharePath(thread.id)}
               shareTitle={thread.title}

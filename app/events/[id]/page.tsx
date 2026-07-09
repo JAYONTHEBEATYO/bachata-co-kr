@@ -93,6 +93,8 @@ export default async function EventDetailPage({ params }: PageProps) {
           </div>
           <ThreadActionBar
             score={0}
+            voteTargetId={`event-${event.id}`}
+            voteTargetType="thread"
             commentHref="#comments-title"
             sharePath={`/events/${event.id}`}
             shareTitle={event.title}

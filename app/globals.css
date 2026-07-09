@@ -504,6 +504,27 @@ p {
   line-height: 1.55;
 }
 
+.topic-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 2px;
+}
+
+.topic-chip-row em {
+  display: inline-flex;
+  align-items: center;
+  min-height: 24px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f8fafb;
+  color: var(--muted);
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 850;
+  padding: 0 8px;
+}
+
 .best-card blockquote {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
@@ -613,6 +634,16 @@ p {
 .vote-rail button:hover {
   background: #edf1f5;
   color: var(--accent);
+}
+
+.vote-rail button[aria-pressed="true"] {
+  background: #fff1ee;
+  color: var(--accent-strong);
+}
+
+.vote-rail button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
 }
 
 .vote-rail strong {
@@ -1279,29 +1310,13 @@ p {
 }
 
 .comment {
-  display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-  gap: 10px;
+  display: block;
   padding: 14px 0;
   border-top: 1px solid var(--line);
 }
 
 .comment:first-of-type {
   border-top: 0;
-}
-
-.comment-score {
-  width: 38px;
-  height: 32px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2px;
-  border-radius: 999px;
-  background: #f2f4f6;
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: 900;
 }
 
 .comment-content {
@@ -1325,15 +1340,55 @@ p {
   margin: 6px 0 8px;
 }
 
-.comment button {
+.comment-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.comment-actions > button,
+.comment-vote-pill button {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 5px;
   border: 0;
   background: transparent;
   color: var(--muted);
   font-size: 12px;
   font-weight: 850;
+  cursor: pointer;
+}
+
+.comment-vote-pill {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: #f8fafb;
+  padding: 2px 5px;
+}
+
+.comment-vote-pill button {
+  width: 28px;
+  height: 26px;
+  border-radius: 999px;
+}
+
+.comment-vote-pill button[aria-pressed="true"] {
+  background: #fff1ee;
+  color: var(--accent-strong);
+}
+
+.comment-vote-pill strong {
+  min-width: 22px;
+  color: var(--ink);
+  text-align: center;
+  font-size: 12px;
+  font-weight: 950;
 }
 
 .comment-replies {
@@ -1349,6 +1404,21 @@ p {
   border-radius: var(--radius);
   background: var(--paper);
   padding: 16px;
+}
+
+.auth-panel {
+  display: grid;
+  gap: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  padding: 18px;
+}
+
+.auth-panel p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
 }
 
 .profile-preview {
@@ -1706,7 +1776,13 @@ p {
   border-radius: var(--radius);
   background: #fbfcfd;
   color: var(--muted);
+  cursor: pointer;
   padding: 18px;
+}
+
+.composer-upload:hover {
+  border-color: var(--blue);
+  background: #f7fbff;
 }
 
 .composer-upload svg {
@@ -1721,6 +1797,59 @@ p {
 .composer-upload p {
   margin: 4px 0 0;
   font-size: 14px;
+}
+
+.media-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.media-preview {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.media-preview img,
+.media-preview video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  display: block;
+  object-fit: cover;
+  background: #101318;
+}
+
+.media-preview figcaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 9px 10px;
+}
+
+.media-preview figcaption span {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 850;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.media-preview figcaption button {
+  border: 0;
+  border-radius: 999px;
+  background: #f1f4f7;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 900;
+  padding: 5px 9px;
 }
 
 .issued-identity {
@@ -2032,6 +2161,10 @@ p {
 
   .composer-toolbar {
     width: 100%;
+  }
+
+  .media-preview-grid {
+    grid-template-columns: 1fr;
   }
 
     .right-rail,

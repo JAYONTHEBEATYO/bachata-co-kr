@@ -1,15 +1,15 @@
 import Link from "next/link";
-import { Flame, Home, LogIn, Menu, MoreVertical, PenSquare, Sparkles, UserCircle, UserPlus } from "lucide-react";
+import { Compass, Flame, Home, LogIn, Menu, MoreVertical, PenSquare, UserCircle, UserPlus } from "lucide-react";
 import { SiteSearch } from "./SiteSearch";
 
 const nav = [
-  { href: "/", label: "인기" },
-  { href: "/?sort=top", label: "베스트 컨텐츠" },
-  { href: "/?sort=new", label: "최신" },
+  { href: "/", label: "토픽 베스트" },
+  { href: "/topics", label: "주제 탐색" },
+  { href: "/topics/academy-review", label: "아카데미 리뷰" },
+  { href: "/topics/dancer-review", label: "댄서 리뷰" },
   { href: "/videos", label: "영상" },
   { href: "/events", label: "행사" },
-  { href: "/guide", label: "가이드" },
-  { href: "/dancers", label: "댄서" }
+  { href: "/guide", label: "가이드" }
 ];
 
 export function Header() {
@@ -45,8 +45,8 @@ export function Header() {
             </summary>
             <div className="menu-panel">
               <Link href="/profile"><UserCircle size={17} /> 내 프로필</Link>
-              <Link href="/"><LogIn size={17} /> 로그인</Link>
-              <Link href="/"><UserPlus size={17} /> 회원가입</Link>
+              <Link href="/login"><LogIn size={17} /> 로그인</Link>
+              <Link href="/login"><UserPlus size={17} /> 회원가입</Link>
             </div>
           </details>
         </div>
@@ -54,7 +54,7 @@ export function Header() {
       <nav className="bottom-nav" aria-label="모바일 메뉴">
         <Link href="/"><Home size={20} />홈</Link>
         <Link href="/?sort=hot"><Flame size={20} />인기</Link>
-        <Link href="/videos"><Sparkles size={20} />영상</Link>
+        <Link href="/topics"><Compass size={20} />주제</Link>
         <Link href="/write"><PenSquare size={20} />쓰기</Link>
       </nav>
     </>

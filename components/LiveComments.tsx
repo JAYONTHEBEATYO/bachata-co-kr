@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { ArrowBigUp, MessageCircle, Send, Search } from "lucide-react";
+import { ArrowBigDown, ArrowBigUp, MessageCircle, Send, Search } from "lucide-react";
 import { formatRelativeDate } from "@/lib/format";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
 import type { Comment } from "@/lib/types";
@@ -16,6 +16,7 @@ type ApiComment = Comment & {
 };
 
 type CommentSort = "best" | "new" | "old";
+type CommentVote = "up" | "down";
 
 const commentsApiOrigin = () => {
   if (typeof window === "undefined") return "";
@@ -69,6 +70,8 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [pending, setPending] = useState(false);
+  const [votePending, setVotePending] = useState("");
+  const [userVotes, setUserVotes] = useState<Record<string, number>>({});
 
   const visibleComments = useMemo(() => {
     const keyword = search.trim().toLowerCase();
@@ -83,7 +86,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   useEffect(() => {
     const session = getGuestSession();
     setAuthorName(session.nickname);
-    setAuthorPassword(session.password);
+    setAuthorPassword("");
   }, []);
 
   useEffect(() => {
@@ -126,7 +129,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
 
     setPending(true);
     try {
-      saveGuestSession({ nickname: authorName, password: authorPassword });
+      saveGuestSession({ nickname: authorName });
       const response = await fetch(commentsApiUrl(), {
         method: "POST",
         headers: { "content-type": "text/plain;charset=UTF-8" },
@@ -146,6 +149,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
 
       setComments((current) => [...current, data.comment as ApiComment]);
       setBody("");
+      setAuthorPassword("");
       setWebsite("");
       setReplyTo(null);
       setExpanded(false);
@@ -154,6 +158,31 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
       setError(submitError instanceof Error ? submitError.message : "댓글을 저장하지 못했습니다.");
     } finally {
       setPending(false);
+    }
+  };
+
+  const voteComment = async (commentId: string, direction: CommentVote) => {
+    setError("");
+    setStatus("");
+    setVotePending(commentId);
+
+    try {
+      const response = await fetch(commentsApiUrl(), {
+        method: "PATCH",
+        headers: { "content-type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify({ commentId, direction })
+      });
+      const data = await response.json() as { commentId?: string; score?: number; userVote?: number; error?: string };
+      if (!response.ok || !data.commentId) throw new Error(data.error || "추천을 반영하지 못했습니다.");
+
+      setComments((current) => current.map((comment) =>
+        comment.id === data.commentId ? { ...comment, score: Number(data.score || 0) } : comment
+      ));
+      setUserVotes((current) => ({ ...current, [data.commentId as string]: Number(data.userVote || 0) }));
+    } catch (voteError) {
+      setError(voteError instanceof Error ? voteError.message : "추천을 반영하지 못했습니다.");
+    } finally {
+      setVotePending("");
     }
   };
 
@@ -246,9 +275,9 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
             </div>
           </div>
         ) : null}
-        {status ? <p className="comment-status">{status}</p> : null}
-        {error ? <p className="comment-error">{error}</p> : null}
       </form>
+      {status ? <p className="comment-status">{status}</p> : null}
+      {error ? <p className="comment-error">{error}</p> : null}
 
       <div className="comment-tools" aria-label="댓글 정렬과 검색">
         <label>
@@ -267,7 +296,14 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
 
       <div className="comment-list">
         {commentTree.length ? commentTree.map((comment) => (
-          <CommentNode key={comment.id} comment={comment} onReply={openReply} />
+          <CommentNode
+            key={comment.id}
+            comment={comment}
+            onReply={openReply}
+            onVote={voteComment}
+            userVotes={userVotes}
+            votePending={votePending}
+          />
         )) : (
           <p className="empty-copy">아직 댓글이 없습니다. 첫 댓글을 남겨주세요.</p>
         )}
@@ -276,10 +312,24 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   );
 }
 
-function CommentNode({ comment, onReply }: { comment: Comment; onReply: (comment: Comment) => void }) {
+function CommentNode({
+  comment,
+  onReply,
+  onVote,
+  userVotes,
+  votePending
+}: {
+  comment: Comment;
+  onReply: (comment: Comment) => void;
+  onVote: (commentId: string, direction: CommentVote) => void;
+  userVotes: Record<string, number>;
+  votePending: string;
+}) {
+  const userVote = userVotes[comment.id] || 0;
+  const isPending = votePending === comment.id;
+
   return (
     <article className="comment">
-      <div className="comment-score"><ArrowBigUp size={16} /> {comment.score}</div>
       <div className="comment-content">
         <div className="comment-meta">
           <strong>{comment.author}</strong>
@@ -287,10 +337,42 @@ function CommentNode({ comment, onReply }: { comment: Comment; onReply: (comment
           <span>{formatRelativeDate(comment.createdAt)}</span>
         </div>
         <p>{comment.body}</p>
-        <button type="button" onClick={() => onReply(comment)}><MessageCircle size={15} /> 답글 달기</button>
+        <div className="comment-actions">
+          <span className="comment-vote-pill" aria-label="댓글 추천">
+            <button
+              type="button"
+              aria-label="추천"
+              aria-pressed={userVote === 1}
+              disabled={isPending}
+              onClick={() => onVote(comment.id, "up")}
+            >
+              <ArrowBigUp size={16} />
+            </button>
+            <strong>{comment.score}</strong>
+            <button
+              type="button"
+              aria-label="비추천"
+              aria-pressed={userVote === -1}
+              disabled={isPending}
+              onClick={() => onVote(comment.id, "down")}
+            >
+              <ArrowBigDown size={16} />
+            </button>
+          </span>
+          <button type="button" onClick={() => onReply(comment)}><MessageCircle size={15} /> 답글 달기</button>
+        </div>
         {comment.replies?.length ? (
           <div className="comment-replies">
-            {comment.replies.map((reply) => <CommentNode key={reply.id} comment={reply} onReply={onReply} />)}
+            {comment.replies.map((reply) => (
+              <CommentNode
+                key={reply.id}
+                comment={reply}
+                onReply={onReply}
+                onVote={onVote}
+                userVotes={userVotes}
+                votePending={votePending}
+              />
+            ))}
           </div>
         ) : null}
       </div>

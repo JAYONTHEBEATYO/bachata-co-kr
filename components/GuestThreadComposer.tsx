@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { DragEvent, FormEvent, useEffect, useRef, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import {
   BarChart3,
@@ -15,6 +15,7 @@ import {
   MoreHorizontal,
   Send,
   Strikethrough,
+  UploadCloud,
   Video
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -42,11 +43,66 @@ const topics = [
   { value: "free", label: "자유", hint: "가벼운 잡담, 오늘의 소셜, 현장 이야기" },
   { value: "video", label: "영상", hint: "유튜브, 쇼츠, 인스타 릴스 같이 보기" },
   { value: "events", label: "행사", hint: "소셜, 워크숍, 페스티벌 정보" },
+  { value: "socialReview", label: "소셜 후기", hint: "바, 지역, 플로어 분위기와 음악 후기" },
   { value: "academyReview", label: "아카데미 리뷰", hint: "학원, 동호회, 수업 후기" },
   { value: "dancerReview", label: "댄서 리뷰", hint: "워크숍, 부트캠프, 소셜댄스 후기" },
   { value: "dancers", label: "댄서 이야기", hint: "국내외 댄서와 팀 이야기" },
   { value: "guide", label: "가이드", hint: "입문 팁, 연습법, 장르 정리" }
 ];
+
+const subtopicsByCategory: Record<string, string[]> = {
+  academyReview: [
+    "아카데미:라틴씨엘로",
+    "아카데미:센슈얼랩",
+    "아카데미:에버라틴",
+    "아카데미:라스트댄스",
+    "아카데미:엔수에뇨",
+    "아카데미:바차타인플루언스코리아",
+    "동호회:오살사",
+    "동호회:서울 살사·바차타",
+    "동호회:부산 라틴댄스",
+    "동호회:대구 라틴댄스",
+    "동호회:제주 라틴댄스"
+  ],
+  dancerReview: [
+    "댄서🕺:멜빈(FRANCE)",
+    "댄서💃:가티카(SPAIN)",
+    "댄서🕺:헤로(SPAIN)",
+    "댄서💃:미글레(SPAIN)",
+    "댄서🕺:그레이(한국)",
+    "댄서💃:로렌(한국)",
+    "댄서🕺:소라(한국)",
+    "댄서🕺:원궁(한국)",
+    "리뷰:부트캠프",
+    "리뷰:마스터클래스",
+    "리뷰:워크숍",
+    "리뷰:소셜댄스"
+  ],
+  socialReview: [
+    "소셜:강남 라틴바",
+    "소셜:홍대 보니따",
+    "소셜:인천",
+    "소셜:부산",
+    "소셜:대구",
+    "소셜:대전",
+    "소셜:광주",
+    "소셜:제주",
+    "소셜:지방 원정",
+    "소셜:처음 간 후기"
+  ],
+  events: [
+    "행사:국내 페스티벌",
+    "행사:해외 페스티벌",
+    "행사:워크숍",
+    "행사:파티",
+    "행사:Jack & Jill",
+    "행사:양도/패스",
+    "행사:후기"
+  ],
+  questions: ["질문:입문", "질문:음악", "질문:홀딩", "질문:소셜매너", "무물보"],
+  video: ["영상:베이직", "영상:센슈얼", "영상:도미니칸", "영상:풋워크", "영상:공연"],
+  free: ["일상", "잡담", "친목", "현장 소식"]
+};
 
 const validPostTypes = new Set<PostType>(postTypes.map((type) => type.value));
 const validTopics = new Set(topics.map((topic) => topic.value));
@@ -60,13 +116,24 @@ const apiOrigin = () => {
 };
 
 const threadsApiUrl = () => `${apiOrigin()}/api/threads/`;
+const uploadsApiUrl = () => `${apiOrigin()}/api/uploads/`;
+
+type UploadedMedia = {
+  url: string;
+  name: string;
+  contentType: string;
+  size: number;
+};
 
 export function GuestThreadComposer() {
   const searchParams = useSearchParams();
+  const bodyRef = useRef<HTMLTextAreaElement | null>(null);
+  const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [title, setTitle] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [authorPassword, setAuthorPassword] = useState("");
   const [category, setCategory] = useState("questions");
+  const [subtopic, setSubtopic] = useState("");
   const [postType, setPostType] = useState<PostType>("text");
   const [body, setBody] = useState("");
   const [linkUrl, setLinkUrl] = useState("");
@@ -75,13 +142,15 @@ export function GuestThreadComposer() {
   const [tagInput, setTagInput] = useState("");
   const [website, setWebsite] = useState("");
   const [pending, setPending] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [uploadedMedia, setUploadedMedia] = useState<UploadedMedia[]>([]);
   const [error, setError] = useState("");
   const [created, setCreated] = useState<CreatedThread | null>(null);
 
   useEffect(() => {
     const session = getGuestSession();
     setAuthorName(session.nickname);
-    setAuthorPassword(session.password);
+    setAuthorPassword("");
 
     const requestedTopic = searchParams.get("topic");
     const requestedType = searchParams.get("type") as PostType | null;
@@ -100,6 +169,7 @@ export function GuestThreadComposer() {
         pollOptionA?: string;
         pollOptionB?: string;
         tagInput?: string;
+        subtopic?: string;
       };
       setTitle(draft.title || "");
       setBody(draft.body || "");
@@ -109,6 +179,7 @@ export function GuestThreadComposer() {
       setPollOptionA(draft.pollOptionA || "");
       setPollOptionB(draft.pollOptionB || "");
       setTagInput(draft.tagInput || "");
+      setSubtopic(draft.subtopic || "");
     } catch {
       window.localStorage.removeItem(draftKey);
     }
@@ -123,9 +194,62 @@ export function GuestThreadComposer() {
 
   const saveDraft = () => {
     if (typeof window === "undefined") return;
-    window.localStorage.setItem(draftKey, JSON.stringify({ title, body, linkUrl, category, postType, pollOptionA, pollOptionB, tagInput }));
+    window.localStorage.setItem(draftKey, JSON.stringify({ title, body, linkUrl, category, subtopic, postType, pollOptionA, pollOptionB, tagInput }));
     setCreated(null);
     setError("");
+  };
+
+  const insertBodyText = (before: string, after = "", fallback = "") => {
+    const textarea = bodyRef.current;
+    if (!textarea) {
+      setBody((current) => `${current}${before}${fallback}${after}`);
+      return;
+    }
+
+    const start = textarea.selectionStart;
+    const end = textarea.selectionEnd;
+    const selected = body.slice(start, end) || fallback;
+    const next = `${body.slice(0, start)}${before}${selected}${after}${body.slice(end)}`;
+    setBody(next);
+    window.requestAnimationFrame(() => {
+      textarea.focus();
+      textarea.setSelectionRange(start + before.length, start + before.length + selected.length);
+    });
+  };
+
+  const uploadFiles = async (files: FileList | File[]) => {
+    const list = Array.from(files).slice(0, 6);
+    if (!list.length) return;
+
+    setUploading(true);
+    setError("");
+
+    try {
+      const uploaded: UploadedMedia[] = [];
+      for (const file of list) {
+        const formData = new FormData();
+        formData.append("file", file);
+        const response = await fetch(uploadsApiUrl(), { method: "POST", body: formData });
+        const data = await response.json() as { media?: UploadedMedia; error?: string };
+        if (!response.ok || !data.media) throw new Error(data.error || "파일을 업로드하지 못했습니다.");
+        uploaded.push(data.media);
+      }
+      setUploadedMedia((current) => [...current, ...uploaded].slice(0, 8));
+      if (postType !== "media") setPostType("media");
+    } catch (uploadError) {
+      setError(uploadError instanceof Error ? uploadError.message : "파일을 업로드하지 못했습니다.");
+    } finally {
+      setUploading(false);
+    }
+  };
+
+  const onDrop = (event: DragEvent<HTMLDivElement>) => {
+    event.preventDefault();
+    uploadFiles(event.dataTransfer.files);
+  };
+
+  const removeMedia = (url: string) => {
+    setUploadedMedia((current) => current.filter((item) => item.url !== url));
   };
 
   const bodyForSubmit = () => {
@@ -152,6 +276,12 @@ export function GuestThreadComposer() {
       if (tags.length) chunks.push(tags.join(" "));
     }
 
+    if (subtopic) chunks.push(`#${subtopic.replace(/[^\p{L}\p{N}:·&/()🕺💃가-힣A-Za-z0-9\s-]/gu, "").replace(/\s+/g, "")}`);
+
+    if (uploadedMedia.length) {
+      chunks.push(`[첨부]\n${uploadedMedia.map((item) => `${item.contentType.startsWith("video/") ? "동영상" : "이미지"}: ${item.url}`).join("\n")}`);
+    }
+
     return chunks.filter(Boolean).join("\n\n");
   };
 
@@ -168,8 +298,12 @@ export function GuestThreadComposer() {
       setError("임시비밀번호 4자리를 숫자로 입력해주세요.");
       return;
     }
-    if ((postType === "media" || postType === "link") && !linkUrl.trim()) {
-      setError(postType === "media" ? "이미지나 영상 링크를 붙여주세요." : "공유할 링크를 붙여주세요.");
+    if (postType === "media" && !linkUrl.trim() && !uploadedMedia.length) {
+      setError("이미지나 영상 파일을 올리거나, 공개 링크를 붙여주세요.");
+      return;
+    }
+    if (postType === "link" && !linkUrl.trim()) {
+      setError("공유할 링크를 붙여주세요.");
       return;
     }
     if (postType === "poll" && (!pollOptionA.trim() || !pollOptionB.trim())) {
@@ -195,7 +329,7 @@ export function GuestThreadComposer() {
           authorPassword,
           category: postType === "poll" ? "poll" : postType === "ama" ? "ama" : category,
           body: submitBody,
-          linkUrl,
+          linkUrl: linkUrl || uploadedMedia[0]?.url || "",
           website
         })
       });
@@ -215,6 +349,9 @@ export function GuestThreadComposer() {
       setPollOptionA("");
       setPollOptionB("");
       setTagInput("");
+      setSubtopic("");
+      setAuthorPassword("");
+      setUploadedMedia([]);
       setWebsite("");
       window.localStorage.removeItem(draftKey);
     } catch (submitError) {
@@ -229,7 +366,10 @@ export function GuestThreadComposer() {
       <div className="composer-topline">
         <label className="topic-select">
           <span>주제 선택</span>
-          <select value={category} onChange={(event) => setCategory(event.target.value)}>
+          <select value={category} onChange={(event) => {
+            setCategory(event.target.value);
+            setSubtopic("");
+          }}>
             {topics.map((topic) => <option key={topic.value} value={topic.value}>{topic.label}</option>)}
           </select>
         </label>
@@ -257,7 +397,7 @@ export function GuestThreadComposer() {
       <label>
         제목
         <span className="title-field">
-          <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="와 바차타 개꿀이야~~" maxLength={120} required />
+          <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="제목을 입력하세요" maxLength={120} required />
           {title.trim().length >= 4 ? <Check size={22} /> : null}
         </span>
         <small className="field-count">{title.length}/120</small>
@@ -267,6 +407,16 @@ export function GuestThreadComposer() {
         <strong>{topics.find((topic) => topic.value === category)?.label || "질문"}</strong>
         <p>{topics.find((topic) => topic.value === category)?.hint || "바차타 이야기를 자유롭게 남겨주세요."}</p>
       </div>
+
+      {subtopicsByCategory[category]?.length ? (
+        <label>
+          하위 주제
+          <select value={subtopic} onChange={(event) => setSubtopic(event.target.value)}>
+            <option value="">선택 안 함</option>
+            {subtopicsByCategory[category].map((item) => <option key={item} value={item}>{item}</option>)}
+          </select>
+        </label>
+      ) : null}
 
       <div className="composer-grid">
         <label>
@@ -295,12 +445,48 @@ export function GuestThreadComposer() {
       </label>
 
       {postType === "media" ? (
-        <div className="composer-upload">
-          <Video size={28} />
+        <div
+          className="composer-upload"
+          onDragOver={(event) => event.preventDefault()}
+          onDrop={onDrop}
+          role="button"
+          tabIndex={0}
+          onClick={() => fileInputRef.current?.click()}
+        >
+          <UploadCloud size={30} />
           <div>
-            <strong>이미지나 영상 링크를 붙여주세요</strong>
-            <p>유튜브, 인스타, 공개 이미지 URL을 넣으면 글과 함께 공유됩니다. 직접 파일 업로드는 별도 저장소를 붙여서 열겠습니다.</p>
+            <strong>{uploading ? "업로드 중입니다" : "파일을 끌어다 놓거나 클릭해서 선택하세요"}</strong>
+            <p>이미지와 짧은 동영상을 올릴 수 있습니다. 유튜브·인스타 링크도 아래 URL 칸에 함께 붙일 수 있습니다.</p>
           </div>
+          <input
+            ref={fileInputRef}
+            type="file"
+            accept="image/*,video/mp4,video/webm,video/quicktime"
+            multiple
+            hidden
+            onChange={(event) => {
+              if (event.target.files) uploadFiles(event.target.files);
+              event.currentTarget.value = "";
+            }}
+          />
+        </div>
+      ) : null}
+
+      {uploadedMedia.length ? (
+        <div className="media-preview-grid">
+          {uploadedMedia.map((item) => (
+            <figure key={item.url} className="media-preview">
+              {item.contentType.startsWith("video/") ? (
+                <video src={item.url} controls muted />
+              ) : (
+                <img src={item.url} alt={item.name} />
+              )}
+              <figcaption>
+                <span>{item.name}</span>
+                <button type="button" onClick={() => removeMedia(item.url)}>삭제</button>
+              </figcaption>
+            </figure>
+          ))}
         </div>
       ) : null}
 
@@ -325,18 +511,22 @@ export function GuestThreadComposer() {
       ) : null}
 
       <div className="composer-toolbar" aria-label="본문 도구">
-        <button type="button" title="굵게"><Bold size={18} /></button>
-        <button type="button" title="기울임"><Italic size={18} /></button>
-        <button type="button" title="취소선"><Strikethrough size={18} /></button>
-        <button type="button" title="링크"><Link2 size={18} /></button>
-        <button type="button" title="이미지"><ImageIcon size={18} /></button>
-        <button type="button" title="목록"><List size={18} /></button>
+        <button type="button" title="굵게" onClick={() => insertBodyText("**", "**", "강조할 문장")}><Bold size={18} /></button>
+        <button type="button" title="기울임" onClick={() => insertBodyText("_", "_", "기울일 문장")}><Italic size={18} /></button>
+        <button type="button" title="취소선" onClick={() => insertBodyText("~~", "~~", "취소할 문장")}><Strikethrough size={18} /></button>
+        <button type="button" title="링크" onClick={() => insertBodyText("[", "](https://)", "링크 제목")}><Link2 size={18} /></button>
+        <button type="button" title="이미지" onClick={() => {
+          setPostType("media");
+          fileInputRef.current?.click();
+        }}><ImageIcon size={18} /></button>
+        <button type="button" title="목록" onClick={() => insertBodyText("- ", "", "목록")}><List size={18} /></button>
         <button type="button" title="더보기"><MoreHorizontal size={18} /></button>
       </div>
 
       <label>
         본문
         <textarea
+          ref={bodyRef}
           value={body}
           onChange={(event) => setBody(event.target.value)}
           rows={10}
@@ -358,7 +548,7 @@ export function GuestThreadComposer() {
           <strong>글이 올라갔습니다</strong>
           <span>작성자: {created.guestId}</span>
           <span>표시 IP: {created.ipPrefix}</span>
-          <p>이 브라우저 세션에서는 같은 닉네임과 임시비밀번호로 계속 댓글과 글을 남길 수 있습니다.</p>
+          <p>닉네임은 이 브라우저 세션에 유지됩니다. 작성할 때 정한 임시비밀번호는 수정이나 삭제가 필요할 때 쓰입니다.</p>
         </div>
       ) : null}
     </form>

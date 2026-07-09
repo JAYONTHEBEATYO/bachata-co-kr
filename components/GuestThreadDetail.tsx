@@ -144,6 +144,8 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
           <ThreadActionBar
             score={thread.score}
             downvotes={thread.downvotes}
+            voteTargetId={thread.id}
+            voteTargetType="guestThread"
             commentHref="#comments-title"
             sharePath={sharePath}
             shareTitle={thread.title}
