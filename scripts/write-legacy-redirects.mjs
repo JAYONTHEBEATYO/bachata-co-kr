@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 const root = process.cwd();
@@ -27,6 +27,21 @@ const activePages = new Set([
   "t/1007/first-social-etiquette/index.html",
   "t/1008/korke-judith-16-fundamentals/index.html"
 ]);
+
+const pageFileForPathname = (pathname) => {
+  const normalized = pathname.replace(/^\/|\/$/g, "");
+  return normalized ? `${normalized}/index.html` : "index.html";
+};
+
+try {
+  const sitemap = await readFile(path.join(root, "sitemap.xml"), "utf8");
+  for (const match of sitemap.matchAll(/<loc>(.*?)<\/loc>/g)) {
+    activePages.add(pageFileForPathname(new URL(match[1]).pathname));
+  }
+} catch {
+  // The static snapshot writes sitemap.xml before this script. If it is absent,
+  // keep the conservative hand-maintained list above.
+}
 
 const threadTargets = [
   [/sensual|korke|judith|fundamentals/i, "/t/1008/korke-judith-16-fundamentals/"],
