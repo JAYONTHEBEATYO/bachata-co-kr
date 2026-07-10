@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Check, Save } from "lucide-react";
+import type { User } from "@supabase/supabase-js";
+import { Check, LogOut, Save } from "lucide-react";
 import { avatarFromSeed, avatarPresets } from "@/lib/avatars";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
+import { getSupabaseBrowserClient, hasSupabaseBrowserConfig } from "@/lib/supabase-browser";
 
 const storageKey = "bachata.profile.v1";
 
@@ -20,6 +22,8 @@ export function ProfileSettings() {
     avatarId: avatarPresets[0].id
   });
   const [saved, setSaved] = useState(false);
+  const [user, setUser] = useState<User | null>(null);
+  const [authStatus, setAuthStatus] = useState("");
 
   useEffect(() => {
     const session = getGuestSession();
@@ -39,22 +43,85 @@ export function ProfileSettings() {
         avatarId: fallbackAvatar.id
       });
     }
+
+    const client = getSupabaseBrowserClient();
+    if (!client) return;
+
+    client.auth.getUser().then(({ data }) => {
+      const nextUser = data.user || null;
+      setUser(nextUser);
+      if (!nextUser) return;
+
+      const metadata = nextUser.user_metadata || {};
+      const nickname = String(metadata.nickname || metadata.name || nextUser.email?.split("@")[0] || session.nickname).slice(0, 32);
+      const bio = String(metadata.bio || "");
+      const avatarId = String(metadata.avatarId || fallbackAvatar.id);
+
+      setProfile({
+        nickname,
+        bio,
+        avatarId: avatarPresets.some((avatar) => avatar.id === avatarId) ? avatarId : fallbackAvatar.id
+      });
+      saveGuestSession({ nickname });
+    });
   }, []);
 
-  const save = () => {
+  const save = async () => {
     const nickname = profile.nickname.trim().slice(0, 32);
     const next = { ...profile, nickname };
     setProfile(next);
     saveGuestSession({ nickname });
     window.localStorage.setItem(storageKey, JSON.stringify(next));
+
+    const client = getSupabaseBrowserClient();
+    if (client && user) {
+      const { error } = await client.auth.updateUser({
+        data: {
+          nickname,
+          bio: next.bio.trim().slice(0, 120),
+          avatarId: next.avatarId
+        }
+      });
+      if (error) {
+        setAuthStatus(error.message);
+        return;
+      }
+      setAuthStatus("Google 계정 프로필에도 저장됐습니다.");
+    }
+
     setSaved(true);
     window.setTimeout(() => setSaved(false), 1600);
+  };
+
+  const logout = async () => {
+    const client = getSupabaseBrowserClient();
+    if (!client) return;
+    const { error } = await client.auth.signOut();
+    if (error) {
+      setAuthStatus(error.message);
+      return;
+    }
+    setUser(null);
+    setAuthStatus("로그아웃했습니다. 비회원 프로필은 이 브라우저에 유지됩니다.");
   };
 
   const selectedAvatar = avatarPresets.find((avatar) => avatar.id === profile.avatarId) || avatarPresets[0];
 
   return (
     <section className="profile-panel">
+      <div className="auth-state-strip">
+        {user ? (
+          <>
+            {user.user_metadata?.avatar_url ? <img src={user.user_metadata.avatar_url} alt="" /> : null}
+            <span>Google 로그인됨</span>
+            <strong>{user.email}</strong>
+            <button type="button" onClick={logout}><LogOut size={16} /> 로그아웃</button>
+          </>
+        ) : (
+          <span>{hasSupabaseBrowserConfig ? "Google 로그인을 하면 이 프로필을 계정에 저장할 수 있습니다." : "Google 로그인 설정이 아직 연결되지 않았습니다."}</span>
+        )}
+      </div>
+
       <div className="profile-preview">
         <span className="profile-avatar" aria-hidden="true">{selectedAvatar.emoji}</span>
         <div>
@@ -101,6 +168,7 @@ export function ProfileSettings() {
         {saved ? <Check size={18} /> : <Save size={18} />}
         {saved ? "저장됐습니다" : "프로필 저장"}
       </button>
+      {authStatus ? <p className="form-status">{authStatus}</p> : null}
     </section>
   );
 }

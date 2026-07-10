@@ -58,6 +58,37 @@ node scripts/write-legacy-redirects.mjs
 
 그 다음 변경분을 커밋하고 `main`에 push하면 Pages가 갱신된다.
 
+## Google 로그인 설정
+
+Supabase Auth의 Google provider를 사용한다.
+
+필요한 공개 env:
+
+```powershell
+$env:NEXT_PUBLIC_SUPABASE_URL="https://{project-ref}.supabase.co"
+$env:NEXT_PUBLIC_SUPABASE_ANON_KEY="{anon-key}"
+```
+
+Supabase Dashboard에서 Google provider를 켜고, Google Cloud OAuth 클라이언트에는 아래 redirect URL을 등록한다.
+
+```text
+https://{project-ref}.supabase.co/auth/v1/callback
+```
+
+Supabase Auth URL Configuration에는 아래 주소를 허용한다.
+
+```text
+Site URL: https://bachata.co.kr
+Redirect URLs:
+https://bachata.co.kr/auth/callback
+https://www.bachata.co.kr/auth/callback
+https://bachata-co-kr.bachata-korea.workers.dev/auth/callback
+http://localhost:3000/auth/callback
+http://localhost:3333/auth/callback
+```
+
+`NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`는 클라이언트 번들에 들어가는 공개 키다. 값이 바뀌면 `npm run cf:deploy` 후 `node scripts/snapshot-worker-for-pages.mjs`를 다시 실행해야 한다.
+
 ## 라이브 점검 체크리스트
 
 - 홈 접속 200
@@ -69,4 +100,6 @@ node scripts/write-legacy-redirects.mjs
 - 글 카드와 상세에 추천·비추천 버튼이 보임
 - 공유 주소가 `bachata.co.kr`로 생성됨
 - 글 전용 공유 페이지 `/g/{id}`에 `og:title`, `og:description`, `og:image`가 들어감
+- `/login`에서 Google 버튼이 Supabase OAuth로 이동함
+- `/auth/callback`에서 세션 교환 후 `/profile`로 이동함
 - 공개 HTML에 가짜 댓글 수, 가짜 좋아요, `Hot/New/Top/Rising`, 내부 운영 문구가 없음

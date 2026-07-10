@@ -67,7 +67,9 @@ const sitemapPaths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
   .map((url) => new URL(url).pathname)
   .filter((pathname, index, arr) => arr.indexOf(pathname) === index);
 
-const htmlPaths = ["/", ...sitemapPaths.filter((pathname) => pathname !== "/")];
+const extraHtmlPaths = ["/auth/callback"];
+const htmlPaths = ["/", ...sitemapPaths.filter((pathname) => pathname !== "/"), ...extraHtmlPaths]
+  .filter((pathname, index, arr) => arr.indexOf(pathname) === index);
 const written = [];
 
 for (const pathname of htmlPaths) {
