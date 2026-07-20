@@ -1,21 +1,19 @@
 import type { Metadata } from "next";
-import { FeedTabs } from "@/components/FeedTabs";
 import { TopicExplore } from "@/components/TopicExplore";
+import { getCommunities } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "주제 탐색",
-  description: "아카데미 리뷰, 댄서 리뷰, 소셜 후기와 국내외 행사 토픽을 한곳에서 찾을 수 있습니다.",
+  description: "바차타 질문, 영상, 행사, 리뷰와 소셜 후기를 주제별로 모아봅니다.",
   alternates: { canonical: absoluteUrl("/topics") }
 };
 
-export default function TopicsPage() {
+export default async function TopicsPage() {
+  const communities = await getCommunities();
   return (
-    <main className="app-shell">
-      <section className="feed-column">
-        <FeedTabs activeHref="/topics" />
-        <TopicExplore />
-      </section>
+    <main className="app-shell narrow">
+      <TopicExplore communities={communities} />
     </main>
   );
 }

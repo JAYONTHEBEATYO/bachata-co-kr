@@ -1,61 +1,29 @@
 import Link from "next/link";
-import { CalendarDays, ChevronRight, Compass } from "lucide-react";
-import type { Community, EventCard, Thread } from "@/lib/types";
-import { EventVisual } from "./EventVisual";
+import { ChevronRight, PenSquare } from "lucide-react";
+import type { Community } from "@/lib/types";
 
-type SidebarProps = {
-  communities: Community[];
-  events: EventCard[];
-  trending: Thread[];
-};
-
-export function Sidebar({ communities, events, trending }: SidebarProps) {
-  const upcomingEvents = events
-    .filter((event) => new Date(event.startsAt).getTime() >= Date.now() - 24 * 60 * 60_000)
-    .sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
-    .slice(0, 3);
-
+export function Sidebar({ communities }: { communities: Community[] }) {
   return (
     <aside className="right-rail">
+      <section className="rail-panel community-panel">
+        <div className="community-cover" />
+        <div className="community-panel-body">
+          <h2>바차타 코리아</h2>
+          <p>바차타를 좋아하는 사람들이 글과 댓글로 만나는 공간입니다.</p>
+          <Link className="primary-button" href="/write"><PenSquare size={17} />글쓰기</Link>
+        </div>
+      </section>
       <section className="rail-panel">
-        <div className="rail-title"><Compass size={18} /> 주제 바로가기</div>
-        <div className="community-list">
+        <h2>주제</h2>
+        <nav className="community-list" aria-label="주제 목록">
           {communities.map((community) => (
             <Link key={community.slug} href={`/c/${community.slug}`}>
-              <span style={{ backgroundColor: community.color }} />
+              <span className="community-dot" style={{ backgroundColor: community.color }} />
               <strong>{community.name}</strong>
-              <em>{community.description}</em>
+              <ChevronRight size={16} />
             </Link>
           ))}
-        </div>
-      </section>
-      <section className="rail-panel">
-        <div className="rail-title"><CalendarDays size={18} /> 곧 볼 행사</div>
-        <div className="event-mini-list">
-          {upcomingEvents.map((event) => (
-            <Link key={event.id} href={`/events/${event.id}`}>
-              <EventVisual event={event} compact />
-              <span>
-                <strong>{event.title}</strong>
-                <em>{event.dateLabel} · {event.city}</em>
-              </span>
-            </Link>
-          ))}
-        </div>
-      </section>
-      <section className="rail-panel">
-        <div className="rail-title">에디터 추천</div>
-        <ol className="trend-list">
-          {trending.slice(0, 5).map((thread) => (
-            <li key={thread.id}>
-              <Link href={`/t/${thread.id}/${thread.slug}`}>
-                <span>{thread.flair}</span>
-                {thread.title}
-                <ChevronRight size={15} />
-              </Link>
-            </li>
-          ))}
-        </ol>
+        </nav>
       </section>
     </aside>
   );

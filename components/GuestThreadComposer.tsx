@@ -19,14 +19,11 @@ import {
   Video
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
-import { communityApiUrl } from "@/lib/community-api";
+import { communityApiUrl, communityThreadPath } from "@/lib/community-api";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
 
 type CreatedThread = {
   id: string;
-  title: string;
-  guestId: string;
-  ipPrefix: string;
 };
 
 type PostType = "text" | "media" | "link" | "poll" | "ama";
@@ -47,8 +44,7 @@ const topics = [
   { value: "socialReview", label: "소셜 후기", hint: "바, 지역, 플로어 분위기와 음악 후기" },
   { value: "academyReview", label: "아카데미 리뷰", hint: "학원, 동호회, 수업 후기" },
   { value: "dancerReview", label: "댄서 리뷰", hint: "워크숍, 부트캠프, 소셜댄스 후기" },
-  { value: "dancers", label: "댄서 이야기", hint: "국내외 댄서와 팀 이야기" },
-  { value: "guide", label: "가이드", hint: "입문 팁, 연습법, 장르 정리" }
+  { value: "ama", label: "무물보", hint: "궁금한 질문을 댓글로 받고 답하는 글" }
 ];
 
 const subtopicsByCategory: Record<string, string[]> = {
@@ -139,7 +135,6 @@ export function GuestThreadComposer() {
   const [uploading, setUploading] = useState(false);
   const [uploadedMedia, setUploadedMedia] = useState<UploadedMedia[]>([]);
   const [error, setError] = useState("");
-  const [created, setCreated] = useState<CreatedThread | null>(null);
 
   useEffect(() => {
     const session = getGuestSession();
@@ -183,13 +178,12 @@ export function GuestThreadComposer() {
     setPostType(nextType);
     if (nextType === "media") setCategory("video");
     if (nextType === "poll") setCategory("questions");
-    if (nextType === "ama") setCategory("questions");
+    if (nextType === "ama") setCategory("ama");
   };
 
   const saveDraft = () => {
     if (typeof window === "undefined") return;
     window.localStorage.setItem(draftKey, JSON.stringify({ title, body, linkUrl, category, subtopic, postType, pollOptionA, pollOptionB, tagInput }));
-    setCreated(null);
     setError("");
   };
 
@@ -282,7 +276,6 @@ export function GuestThreadComposer() {
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setError("");
-    setCreated(null);
 
     if (title.trim().length < 4) {
       setError("제목을 네 글자 이상 적어주세요.");
@@ -336,7 +329,6 @@ export function GuestThreadComposer() {
         throw new Error(data.error || "글을 저장하지 못했습니다.");
       }
 
-      setCreated(data.thread);
       setTitle("");
       setBody("");
       setLinkUrl("");
@@ -348,6 +340,7 @@ export function GuestThreadComposer() {
       setUploadedMedia([]);
       setWebsite("");
       window.localStorage.removeItem(draftKey);
+      window.location.assign(communityThreadPath(data.thread.id));
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : "글을 저장하지 못했습니다.");
     } finally {
@@ -537,14 +530,6 @@ export function GuestThreadComposer() {
 
       <button type="submit" className="submit-button" disabled={pending}><Send size={18} /> {pending ? "게시 중" : "게시하기"}</button>
       {error ? <p className="comment-error">{error}</p> : null}
-      {created ? (
-        <div className="issued-identity">
-          <strong>글이 올라갔습니다</strong>
-          <span>작성자: {created.guestId}</span>
-          <span>표시 IP: {created.ipPrefix}</span>
-          <p>닉네임은 브라우저를 닫기 전까지 유지됩니다. 임시비밀번호는 상세 페이지에서 글을 삭제할 때 필요하니 기억해주세요.</p>
-        </div>
-      ) : null}
     </form>
   );
 }

@@ -1,20 +1,27 @@
 import Link from "next/link";
+import { Clock3, Flame, TrendingUp } from "lucide-react";
 
 const tabs = [
-  { href: "/", label: "토픽 베스트" },
-  { href: "/topics", label: "주제 탐색" },
-  { href: "/topics/academy-review", label: "아카데미 리뷰" },
-  { href: "/topics/dancer-review", label: "댄서 리뷰" }
-];
+  { value: "hot", label: "인기", icon: Flame },
+  { value: "new", label: "최신", icon: Clock3 },
+  { value: "top", label: "추천", icon: TrendingUp }
+] as const;
 
-export function FeedTabs({ activeHref = "/" }: { activeHref?: string }) {
+export function FeedTabs({ sort = "hot", basePath = "/" }: { sort?: "hot" | "new" | "top"; basePath?: string }) {
   return (
-    <nav className="feed-tabs topic-menu-tabs" aria-label="홈 주제 메뉴">
-      {tabs.map((tab) => (
-        <Link key={tab.href} href={tab.href} aria-current={tab.href === activeHref ? "page" : undefined}>
-          {tab.label}
-        </Link>
-      ))}
+    <nav className="feed-tabs" aria-label="글 정렬">
+      {tabs.map((tab) => {
+        const Icon = tab.icon;
+        return (
+          <Link
+            key={tab.value}
+            href={tab.value === "hot" ? basePath : `${basePath}?sort=${tab.value}`}
+            aria-current={sort === tab.value ? "page" : undefined}
+          >
+            <Icon size={17} />{tab.label}
+          </Link>
+        );
+      })}
     </nav>
   );
 }

@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { absoluteUrl, youtubeThumb } from "@/lib/format";
-import type { Thread } from "@/lib/types";
+import { absoluteUrl } from "@/lib/format";
 
-export const SHARE_PREVIEW_VERSION = "20260709";
+export const SHARE_PREVIEW_VERSION = "20260720";
 export const DEFAULT_SHARE_IMAGE_PATH = "/assets/bachata-share-card.jpg";
 export const DEFAULT_SHARE_IMAGE = absoluteUrl(DEFAULT_SHARE_IMAGE_PATH);
 
@@ -31,12 +30,6 @@ export const buildShareDescription = ({
   const comment = bestComment ? cleanShareText(bestComment, 52) : "";
   const parts = [lead, comment ? `베댓: ${comment}` : "", suffix].filter(Boolean);
   return cleanShareText(parts.join(" · "), 180);
-};
-
-export const threadShareImage = (thread: Pick<Thread, "imageUrl" | "videoId">) => {
-  if (thread.imageUrl) return thread.imageUrl.startsWith("http") ? thread.imageUrl : absoluteUrl(thread.imageUrl);
-  if (thread.videoId) return youtubeThumb(thread.videoId);
-  return DEFAULT_SHARE_IMAGE;
 };
 
 export const shareImageSize = (imageUrl: string) =>

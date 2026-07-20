@@ -5,7 +5,6 @@ import {
   requestFingerprint,
   type D1DatabaseBinding
 } from "@/lib/community-server";
-import { editorialTargetIds } from "@/lib/editorial-targets";
 
 type VoteRow = {
   direction: number;
@@ -26,13 +25,9 @@ const normalizeId = (value: unknown) => {
   return /^[a-zA-Z0-9_-]{1,160}$/.test(text) ? text : "";
 };
 
-const normalizeTargetType = (value: unknown) => {
-  const text = typeof value === "string" ? value.trim() : "thread";
-  return text === "guestThread" ? "guestThread" : "thread";
-};
+const normalizeTargetType = (_value: unknown) => "guestThread";
 
 const targetExists = async (db: D1DatabaseBinding, targetType: string, targetId: string) => {
-  if (targetType === "thread") return editorialTargetIds.has(targetId);
   const row = await db.prepare("select id from guest_threads where id = ? and status = 'published'")
     .bind(targetId)
     .first<{ id: string }>();

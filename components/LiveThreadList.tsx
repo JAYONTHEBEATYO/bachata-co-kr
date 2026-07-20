@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { MessageSquareText } from "lucide-react";
 import { communityApiUrl, communityThreadPath, communityThreadShareUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
 import { extractThreadMedia } from "@/lib/thread-media";
@@ -82,7 +83,14 @@ export function LiveThreadList({ category, sort = "hot", query = "", emptyCopy =
   if (loading) return <div className="feed-loading" aria-live="polite">토픽을 불러오는 중입니다.</div>;
 
   if (!threads.length) {
-    return emptyCopy ? <div className="empty-state">{emptyCopy}</div> : null;
+    return emptyCopy ? (
+      <div className="empty-state">
+        <MessageSquareText size={30} />
+        <strong>아직 글이 없습니다</strong>
+        <span>{emptyCopy}</span>
+        <Link href="/write">첫 글 쓰기</Link>
+      </div>
+    ) : null;
   }
 
   return (
@@ -107,7 +115,7 @@ function LiveThreadCard({ thread }: { thread: LiveThread }) {
               <span>{thread.guestId}</span>
               <span>IP {thread.ipPrefix}</span>
               <span>{formatRelativeDate(thread.createdAt)}</span>
-              <span className="flair">비회원</span>
+              <span className="flair">익명</span>
             </div>
             <h2><Link href={detailPath}>{thread.title}</Link></h2>
             <p>{bodyText}</p>
@@ -125,7 +133,6 @@ function LiveThreadCard({ thread }: { thread: LiveThread }) {
               shareTitle={thread.title}
               shareText={bodyText.slice(0, 100)}
               sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
-              showAward={false}
             />
             {thread.commentCount ? (
               <Link className="comment-count-link" href={`${detailPath}#comments-title`}>

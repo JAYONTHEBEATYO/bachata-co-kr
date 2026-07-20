@@ -5,6 +5,11 @@ const sourceOrigin = (process.env.SNAPSHOT_SOURCE || "https://bachata-co-kr.bach
 const siteOrigin = (process.env.NEXT_PUBLIC_SITE_URL || "https://bachata.co.kr").replace(/\/$/, "");
 const root = process.cwd();
 const snapshotVersion = Date.now().toString();
+const staleStaticRoots = [
+  "articles", "assets", "auth", "briefs", "c", "community", "dancers", "desk", "events", "gear",
+  "guest", "guide", "health", "intake", "korea-scene", "login", "profile", "profiles",
+  "programs", "radar", "search", "styles", "submit", "t", "topics", "videos", "write"
+];
 
 const fetchText = async (pathname) => {
   const url = new URL(pathname, sourceOrigin);
@@ -67,7 +72,11 @@ const sitemapPaths = [...sitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
   .map((url) => new URL(url).pathname)
   .filter((pathname, index, arr) => arr.indexOf(pathname) === index);
 
-const extraHtmlPaths = ["/auth/callback"];
+for (const staleRoot of staleStaticRoots) {
+  await rm(path.join(root, staleRoot), { recursive: true, force: true });
+}
+
+const extraHtmlPaths = [];
 const htmlPaths = ["/", ...sitemapPaths.filter((pathname) => pathname !== "/"), ...extraHtmlPaths]
   .filter((pathname, index, arr) => arr.indexOf(pathname) === index);
 const written = [];
@@ -82,6 +91,10 @@ await writeFile(path.join(root, "robots.txt"), await fetchText("/robots.txt"), "
 await writeFile(path.join(root, "llms.txt"), await fetchText("/llms.txt"), "utf8");
 await writeFile(path.join(root, "CNAME"), "bachata.co.kr\n", "utf8");
 await writeFile(path.join(root, ".nojekyll"), "\n", "utf8");
+
+await cp(path.join(root, "public", "assets"), path.join(root, "assets"), { recursive: true });
+await cp(path.join(root, "public", "icon.svg"), path.join(root, "icon.svg"));
+await cp(path.join(root, "public", "site.webmanifest"), path.join(root, "site.webmanifest"));
 
 const nextTarget = path.join(root, "_next");
 await rm(nextTarget, { recursive: true, force: true });

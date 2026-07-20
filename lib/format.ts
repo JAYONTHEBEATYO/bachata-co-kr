@@ -11,7 +11,3 @@ export const formatRelativeDate = (value: string) => {
   const days = Math.round(hours / 24);
   return `${days}일 전`;
 };
-
-export const youtubeEmbed = (videoId: string) => `https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}`;
-export const youtubeWatch = (videoId: string) => `https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}`;
-export const youtubeThumb = (videoId: string) => `https://i.ytimg.com/vi/${encodeURIComponent(videoId)}/hqdefault.jpg`;

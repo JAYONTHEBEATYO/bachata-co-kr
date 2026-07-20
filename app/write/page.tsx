@@ -12,11 +12,12 @@ export const metadata: Metadata = {
 export default function WritePage() {
   return (
     <main className="app-shell narrow">
-      <section className="page-head">
-        <span className="eyebrow">새 글</span>
-        <h1>바차타 글쓰기</h1>
-        <p>질문, 후기, 영상, 행사 정보, 무물보까지 바로 올릴 수 있습니다. 비회원은 닉네임과 4자리 임시비밀번호만 정하면 됩니다.</p>
-      </section>
+      <header className="page-title-row">
+        <div>
+          <h1>글쓰기</h1>
+          <p>주제를 고르고 이야기를 남겨주세요.</p>
+        </div>
+      </header>
       <Suspense fallback={null}>
         <GuestThreadComposer />
       </Suspense>

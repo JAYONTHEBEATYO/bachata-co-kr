@@ -5,9 +5,8 @@ import {
   requestFingerprint,
   type D1DatabaseBinding
 } from "@/lib/community-server";
-import { editorialTargetIds } from "@/lib/editorial-targets";
 
-const targetTypes = new Set(["thread", "guestThread", "comment"]);
+const targetTypes = new Set(["guestThread", "comment"]);
 const reasons = new Set(["spam", "abuse", "privacy", "copyright", "other"]);
 
 const headers = (request: NextRequest) => sharedJsonHeaders(request, "POST,OPTIONS");
@@ -20,7 +19,6 @@ const normalizeId = (value: unknown) => {
 };
 
 const targetExists = async (db: D1DatabaseBinding, targetType: string, targetId: string) => {
-  if (targetType === "thread") return editorialTargetIds.has(targetId);
   const table = targetType === "comment" ? "comments" : "guest_threads";
   const row = await db.prepare(`select id from ${table} where id = ? and status = 'published' limit 1`)
     .bind(targetId)

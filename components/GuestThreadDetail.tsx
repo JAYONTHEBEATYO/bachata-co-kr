@@ -102,9 +102,8 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
     return (
       <main className="app-shell narrow">
         <section className="page-head">
-          <span className="eyebrow">비회원 글</span>
-          <h1>열 글을 찾지 못했습니다</h1>
-          <p>홈 피드에서 보고 싶은 글을 눌러 들어오면 댓글과 공유를 바로 이어갈 수 있습니다.</p>
+          <h1>글을 찾을 수 없습니다</h1>
+          <p>삭제됐거나 잘못된 주소입니다.</p>
           <Link className="primary-link" href="/">피드로 돌아가기</Link>
         </section>
       </main>
@@ -115,9 +114,8 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
     return (
       <main className="app-shell narrow">
         <section className="page-head">
-          <span className="eyebrow">비회원 글</span>
           <h1>{status}</h1>
-          <p>잠시 후 다시 열어보거나 홈 피드에서 글이 남아 있는지 확인해주세요.</p>
+          <p>잠시 후 다시 시도해주세요.</p>
           <Link className="primary-link" href="/">피드로 돌아가기</Link>
         </section>
       </main>
@@ -136,7 +134,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
             <span>{thread.guestId}</span>
             <span>IP {thread.ipPrefix}</span>
             <span>{formatRelativeDate(thread.createdAt)}</span>
-            <span className="flair">비회원</span>
+            <span className="flair">익명</span>
           </div>
           <h1>{thread.title}</h1>
           <p>{bodyText}</p>
@@ -154,7 +152,6 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
             shareTitle={thread.title}
             shareText={bodyText.slice(0, 140)}
             sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
-            threadId={thread.id}
           />
           <button type="button" className="thread-manage-button" onClick={deleteThread}>
             <Trash2 size={15} /> 내 글 삭제

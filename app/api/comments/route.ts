@@ -9,7 +9,6 @@ import {
 } from "@/lib/community-server";
 import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
-import { editorialTargetIds } from "@/lib/editorial-targets";
 
 type CommentRow = {
   id: string;
@@ -64,7 +63,6 @@ const normalizeParentId = (value: unknown) => {
 };
 
 const threadExists = async (db: D1DatabaseBinding, threadId: string) => {
-  if (editorialTargetIds.has(threadId)) return true;
   const row = await db.prepare("select id from guest_threads where id = ? and status = 'published'")
     .bind(threadId)
     .first<{ id: string }>();

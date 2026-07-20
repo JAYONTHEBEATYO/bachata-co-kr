@@ -88,7 +88,7 @@ export function VoteRail({ targetId, targetType = "thread", score, downvotes = 0
       >
         <ArrowBigUp size={22} />
       </button>
-      <strong>{currentScore}</strong>
+      <strong>{currentScore - currentDownvotes}</strong>
       <button
         type="button"
         aria-label="비추천"

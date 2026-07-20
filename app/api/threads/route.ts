@@ -31,13 +31,10 @@ const categories = new Set([
   "questions",
   "video",
   "events",
-  "dancers",
-  "guide",
   "free",
   "academyReview",
   "dancerReview",
   "socialReview",
-  "gear",
   "poll",
   "ama"
 ]);
@@ -142,7 +139,6 @@ const inferTags = (thread: Pick<GuestThreadRow, "title" | "body" | "category" | 
     if (tags.size >= 5) break;
   }
 
-  tags.add("비회원");
   return [...tags].slice(0, 5);
 };
 

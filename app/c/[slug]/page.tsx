@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
+import { FeedTabs } from "@/components/FeedTabs";
+import { LiveThreadList } from "@/components/LiveThreadList";
 import { Sidebar } from "@/components/Sidebar";
-import { ThreadCard } from "@/components/ThreadCard";
-import { getCommunities, getEvents, getThreads } from "@/lib/data";
+import { getCommunities } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ sort?: string }>;
 };
 
 export async function generateStaticParams() {
@@ -16,47 +19,43 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const communities = await getCommunities();
-  const community = communities.find((item) => item.slug === slug);
+  const community = (await getCommunities()).find((item) => item.slug === slug);
   if (!community) return {};
-
   return {
-    title: `${community.name} 주제`,
+    title: community.name,
     description: community.description,
     alternates: { canonical: absoluteUrl(`/c/${community.slug}`) }
   };
 }
 
-export default async function CommunityPage({ params }: PageProps) {
+export default async function CommunityPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
-  const [communities, eventList, feed, trending] = await Promise.all([
-    getCommunities(),
-    getEvents(),
-    getThreads("hot", slug),
-    getThreads("hot")
-  ]);
+  const { sort: requestedSort } = await searchParams;
+  const communities = await getCommunities();
   const community = communities.find((item) => item.slug === slug);
   if (!community) notFound();
+  const sort = requestedSort === "new" || requestedSort === "top" ? requestedSort : "hot";
 
   return (
     <main className="app-shell">
-      <section className="community-hero" style={{ borderColor: community.color }}>
-        <span className="community-dot" style={{ backgroundColor: community.color }} />
-        <div>
-          <span className="eyebrow">주제 · {community.name}</span>
-          <h1>{community.name}</h1>
-          <p>{community.description}</p>
-        </div>
-      </section>
       <div className="content-layout">
         <section className="feed-column">
-          <div className="thread-list">
-            {feed.length ? feed.map((thread) => <ThreadCard key={thread.id} thread={thread} />) : (
-              <div className="empty-state">아직 이 채널에 공개된 글이 없습니다.</div>
-            )}
-          </div>
+          <header className="community-head">
+            <span className="topic-avatar" style={{ backgroundColor: community.color }}>{community.name.slice(0, 1)}</span>
+            <div>
+              <h1>{community.name}</h1>
+              <p>{community.description}</p>
+            </div>
+            <Link className="secondary-button" href={`/write?topic=${community.category}`}>글쓰기</Link>
+          </header>
+          <FeedTabs sort={sort} basePath={`/c/${community.slug}`} />
+          <LiveThreadList
+            category={community.category}
+            sort={sort}
+            emptyCopy={`${community.name}에 아직 글이 없습니다. 첫 이야기를 남겨보세요.`}
+          />
         </section>
-        <Sidebar communities={communities} events={eventList} trending={trending} />
+        <Sidebar communities={communities} />
       </div>
     </main>
   );
