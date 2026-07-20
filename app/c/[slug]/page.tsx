@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { CSSProperties } from "react";
+import { AppNavigation } from "@/components/AppNavigation";
+import { CommunityIcon } from "@/components/CommunityIcon";
 import { FeedTabs } from "@/components/FeedTabs";
 import { LiveThreadList } from "@/components/LiveThreadList";
+import { QuickComposer } from "@/components/QuickComposer";
 import { Sidebar } from "@/components/Sidebar";
 import { getCommunities } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
@@ -38,16 +42,19 @@ export default async function CommunityPage({ params, searchParams }: PageProps)
 
   return (
     <main className="app-shell">
-      <div className="content-layout">
+      <div className="app-grid">
+        <AppNavigation communities={communities} />
         <section className="feed-column">
-          <header className="community-head">
-            <span className="topic-avatar" style={{ backgroundColor: community.color }}>{community.name.slice(0, 1)}</span>
+          <header className="community-head" style={{ "--topic-color": community.color } as CSSProperties}>
+            <CommunityIcon category={community.category} color={community.color} size={24} />
             <div>
+              <span className="section-kicker">BOARD</span>
               <h1>{community.name}</h1>
               <p>{community.description}</p>
             </div>
-            <Link className="secondary-button" href={`/write?topic=${community.category}`}>글쓰기</Link>
+            <Link className="secondary-button" href={`/write?topic=${community.category}`}>새 글</Link>
           </header>
+          <QuickComposer topic={community.category} />
           <FeedTabs sort={sort} basePath={`/c/${community.slug}`} />
           <LiveThreadList
             category={community.category}

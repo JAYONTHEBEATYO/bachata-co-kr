@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { AppNavigation } from "@/components/AppNavigation";
 import { GuestThreadComposer } from "@/components/GuestThreadComposer";
+import { Sidebar } from "@/components/Sidebar";
+import { getCommunities } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
 
 export const metadata: Metadata = {
@@ -9,18 +12,26 @@ export const metadata: Metadata = {
   alternates: { canonical: absoluteUrl("/write") }
 };
 
-export default function WritePage() {
+export default async function WritePage() {
+  const communities = await getCommunities();
   return (
-    <main className="app-shell narrow">
-      <header className="page-title-row">
-        <div>
-          <h1>글쓰기</h1>
-          <p>주제를 고르고 이야기를 남겨주세요.</p>
-        </div>
-      </header>
-      <Suspense fallback={null}>
-        <GuestThreadComposer />
-      </Suspense>
+    <main className="app-shell">
+      <div className="app-grid">
+        <AppNavigation communities={communities} />
+        <section className="composer-page">
+          <header className="page-title-row">
+            <div>
+              <span className="section-kicker">NEW POST</span>
+              <h1>새 글 쓰기</h1>
+              <p>질문도, 영상도, 오늘의 소셜 이야기도 좋습니다.</p>
+            </div>
+          </header>
+          <Suspense fallback={null}>
+            <GuestThreadComposer />
+          </Suspense>
+        </section>
+        <Sidebar communities={communities} />
+      </div>
     </main>
   );
 }

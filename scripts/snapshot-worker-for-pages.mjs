@@ -8,7 +8,7 @@ const snapshotVersion = Date.now().toString();
 const staleStaticRoots = [
   "articles", "assets", "auth", "briefs", "c", "community", "dancers", "desk", "events", "gear",
   "guest", "guide", "health", "intake", "korea-scene", "login", "profile", "profiles",
-  "programs", "radar", "search", "styles", "submit", "t", "topics", "videos", "write"
+  "fonts", "programs", "radar", "search", "styles", "submit", "t", "topics", "videos", "write"
 ];
 
 const fetchText = async (pathname) => {
@@ -93,6 +93,7 @@ await writeFile(path.join(root, "CNAME"), "bachata.co.kr\n", "utf8");
 await writeFile(path.join(root, ".nojekyll"), "\n", "utf8");
 
 await cp(path.join(root, "public", "assets"), path.join(root, "assets"), { recursive: true });
+await cp(path.join(root, "public", "fonts"), path.join(root, "fonts"), { recursive: true });
 await cp(path.join(root, "public", "icon.svg"), path.join(root, "icon.svg"));
 await cp(path.join(root, "public", "site.webmanifest"), path.join(root, "site.webmanifest"));
 

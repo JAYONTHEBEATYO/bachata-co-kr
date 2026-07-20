@@ -12,11 +12,9 @@ import {
   Italic,
   Link2,
   List,
-  MoreHorizontal,
   Send,
   Strikethrough,
-  UploadCloud,
-  Video
+  UploadCloud
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { communityApiUrl, communityThreadPath } from "@/lib/community-api";
@@ -427,7 +425,7 @@ export function GuestThreadComposer() {
       </div>
 
       <label>
-        플레어 및 태그 추가
+        태그
         <input value={tagInput} onChange={(event) => setTagInput(event.target.value)} placeholder="센슈얼, 소셜후기, 강남, 초보질문" maxLength={80} />
       </label>
 
@@ -507,7 +505,6 @@ export function GuestThreadComposer() {
           fileInputRef.current?.click();
         }}><ImageIcon size={18} /></button>
         <button type="button" title="목록" onClick={() => insertBodyText("- ", "", "목록")}><List size={18} /></button>
-        <button type="button" title="더보기"><MoreHorizontal size={18} /></button>
       </div>
 
       <label>

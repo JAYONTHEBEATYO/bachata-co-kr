@@ -1,13 +1,17 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ExternalLink, Trash2 } from "lucide-react";
 import { communityApiUrl, communityThreadShareUrl } from "@/lib/community-api";
+import { communities, communityByCategory } from "@/lib/communities";
 import { formatRelativeDate } from "@/lib/format";
 import { extractThreadMedia } from "@/lib/thread-media";
+import { AppNavigation } from "./AppNavigation";
+import { CommunityIcon } from "./CommunityIcon";
 import { LiveComments } from "./LiveComments";
+import { Sidebar } from "./Sidebar";
 import { ThreadActionBar } from "./ThreadActionBar";
 import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
 
@@ -69,6 +73,15 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
   };
 
   const sharePath = useMemo(() => id ? communityThreadShareUrl(id) : "/guest", [id]);
+  const shell = (content: ReactNode) => (
+    <main className="app-shell">
+      <div className="app-grid">
+        <AppNavigation communities={communities} />
+        {content}
+        <Sidebar communities={communities} />
+      </div>
+    </main>
+  );
 
   useEffect(() => {
     if (!id) return;
@@ -99,43 +112,41 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
   }, [id]);
 
   if (!id) {
-    return (
-      <main className="app-shell narrow">
-        <section className="page-head">
+    return shell(
+        <section className="page-head detail-message">
           <h1>글을 찾을 수 없습니다</h1>
           <p>삭제됐거나 잘못된 주소입니다.</p>
           <Link className="primary-link" href="/">피드로 돌아가기</Link>
         </section>
-      </main>
     );
   }
 
   if (!thread) {
-    return (
-      <main className="app-shell narrow">
-        <section className="page-head">
+    return shell(
+        <section className="page-head detail-message">
           <h1>{status}</h1>
           <p>잠시 후 다시 시도해주세요.</p>
           <Link className="primary-link" href="/">피드로 돌아가기</Link>
         </section>
-      </main>
     );
   }
 
   const parsed = extractThreadMedia(thread.body, thread.linkUrl);
   const bodyText = parsed.text || thread.body;
+  const community = communityByCategory(thread.category);
+  const accent = community?.color || "#ff4f3f";
 
-  return (
-    <main className="app-shell narrow">
-      <article className="detail-article">
+  return shell(
+      <article className="detail-article" style={{ "--thread-accent": accent } as CSSProperties}>
         <section className="detail-body">
-          <div className="thread-meta">
-            <span>주제 · {labels[thread.category] || "자유"}</span>
-            <span>{thread.guestId}</span>
-            <span>IP {thread.ipPrefix}</span>
-            <span>{formatRelativeDate(thread.createdAt)}</span>
+          <header className="thread-card-header detail-thread-header">
+            <CommunityIcon category={thread.category} color={accent} size={19} />
+            <div className="thread-card-identity">
+              <strong>{labels[thread.category] || "자유"}</strong>
+              <span>{thread.guestId} · IP {thread.ipPrefix} · {formatRelativeDate(thread.createdAt)}</span>
+            </div>
             <span className="flair">익명</span>
-          </div>
+          </header>
           <h1>{thread.title}</h1>
           <p>{bodyText}</p>
           <ThreadMediaAttachments media={parsed.media} />
@@ -165,6 +176,5 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
         </section>
         <LiveComments threadId={thread.id} initialComments={[]} />
       </article>
-    </main>
   );
 }

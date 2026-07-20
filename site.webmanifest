@@ -4,8 +4,8 @@
   "description": "바차타 질문, 후기, 영상과 행사 정보를 나누는 한국 커뮤니티",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#f3f4f6",
-  "theme_color": "#ffffff",
+  "background_color": "#f5f6f8",
+  "theme_color": "#111318",
   "lang": "ko-KR",
   "icons": [
     {

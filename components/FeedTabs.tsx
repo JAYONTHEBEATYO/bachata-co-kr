@@ -10,18 +10,21 @@ const tabs = [
 export function FeedTabs({ sort = "hot", basePath = "/" }: { sort?: "hot" | "new" | "top"; basePath?: string }) {
   return (
     <nav className="feed-tabs" aria-label="글 정렬">
-      {tabs.map((tab) => {
-        const Icon = tab.icon;
-        return (
-          <Link
-            key={tab.value}
-            href={tab.value === "hot" ? basePath : `${basePath}?sort=${tab.value}`}
-            aria-current={sort === tab.value ? "page" : undefined}
-          >
-            <Icon size={17} />{tab.label}
-          </Link>
-        );
-      })}
+      <span className="feed-tabs-label">피드 정렬</span>
+      <div>
+        {tabs.map((tab) => {
+          const Icon = tab.icon;
+          return (
+            <Link
+              key={tab.value}
+              href={tab.value === "hot" ? basePath : `${basePath}?sort=${tab.value}`}
+              aria-current={sort === tab.value ? "page" : undefined}
+            >
+              <Icon size={16} />{tab.label}
+            </Link>
+          );
+        })}
+      </div>
     </nav>
   );
 }

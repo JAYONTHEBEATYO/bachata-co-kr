@@ -1,27 +1,28 @@
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import type { CSSProperties } from "react";
 import type { Community } from "@/lib/types";
+import { CommunityIcon } from "./CommunityIcon";
 
 export function TopicExplore({ communities }: { communities: Community[] }) {
   return (
     <section className="topic-explore" aria-labelledby="topics-title">
       <div className="page-title-row">
         <div>
-          <h1 id="topics-title">주제 탐색</h1>
-          <p>관심 있는 주제의 글만 모아볼 수 있습니다.</p>
+          <span className="section-kicker">EXPLORE</span>
+          <h1 id="topics-title">주제 찾기</h1>
+          <p>지금 궁금한 이야기부터 골라보세요.</p>
         </div>
       </div>
-      <div className="topic-list">
+      <div className="topic-grid">
         {communities.map((community) => (
-          <Link key={community.slug} className="topic-row" href={`/c/${community.slug}`}>
-            <span className="topic-avatar" style={{ backgroundColor: community.color }}>
-              {community.name.slice(0, 1)}
-            </span>
+          <Link key={community.slug} className="topic-tile" href={`/c/${community.slug}`} style={{ "--topic-color": community.color } as CSSProperties}>
+            <CommunityIcon category={community.category} color={community.color} size={21} />
             <span className="topic-copy">
               <strong>{community.name}</strong>
               <small>{community.description}</small>
             </span>
-            <ChevronRight size={19} />
+            <ArrowUpRight size={19} />
           </Link>
         ))}
       </div>

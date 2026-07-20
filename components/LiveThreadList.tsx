@@ -1,11 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import { MessageSquareText } from "lucide-react";
+import { PenLine } from "lucide-react";
 import { communityApiUrl, communityThreadPath, communityThreadShareUrl } from "@/lib/community-api";
+import { communityByCategory } from "@/lib/communities";
 import { formatRelativeDate } from "@/lib/format";
 import { extractThreadMedia } from "@/lib/thread-media";
+import { CommunityIcon } from "./CommunityIcon";
 import { ThreadActionBar } from "./ThreadActionBar";
 import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
 
@@ -80,15 +82,23 @@ export function LiveThreadList({ category, sort = "hot", query = "", emptyCopy =
     };
   }, [category, sort, query]);
 
-  if (loading) return <div className="feed-loading" aria-live="polite">토픽을 불러오는 중입니다.</div>;
+  if (loading) return (
+    <div className="feed-loading" aria-live="polite">
+      <span /><span /><span />
+      <p>피드를 불러오는 중입니다.</p>
+    </div>
+  );
 
   if (!threads.length) {
     return emptyCopy ? (
       <div className="empty-state">
-        <MessageSquareText size={30} />
-        <strong>아직 글이 없습니다</strong>
+        <div className="empty-rhythm" aria-hidden="true">
+          <b>1</b><b>2</b><b>3</b><b>4</b><i /><b>5</b><b>6</b><b>7</b><b>8</b>
+        </div>
+        <span className="empty-kicker">THE FLOOR IS OPEN</span>
+        <strong>첫 이야기를 기다리고 있어요.</strong>
         <span>{emptyCopy}</span>
-        <Link href="/write">첫 글 쓰기</Link>
+        <Link href="/write"><PenLine size={16} /> 첫 글 쓰기</Link>
       </div>
     ) : null;
   }
@@ -106,40 +116,49 @@ function LiveThreadCard({ thread }: { thread: LiveThread }) {
   const parsed = extractThreadMedia(thread.body, thread.linkUrl);
   const bodyText = parsed.text || thread.body;
   const detailPath = communityThreadPath(thread.id);
+  const community = communityByCategory(thread.category);
+  const accent = community?.color || "#ff4f3f";
 
   return (
-    <article className="thread-card live-thread-card" id={`guest-${thread.id}`}>
-          <div className="thread-body">
-            <div className="thread-meta">
-              <span>주제 · {labels[thread.category] || "자유"}</span>
-              <span>{thread.guestId}</span>
-              <span>IP {thread.ipPrefix}</span>
-              <span>{formatRelativeDate(thread.createdAt)}</span>
-              <span className="flair">익명</span>
-            </div>
-            <h2><Link href={detailPath}>{thread.title}</Link></h2>
-            <p>{bodyText}</p>
-            <ThreadMediaAttachments media={parsed.media} compact />
-            <div className="tag-row">
-              {(thread.tags || []).map((tag) => <span key={tag}>#{tag}</span>)}
-            </div>
-            <ThreadActionBar
-              score={thread.score}
-              downvotes={thread.downvotes}
-              voteTargetId={thread.id}
-              voteTargetType="guestThread"
-              commentHref={`${detailPath}#comments-title`}
-              sharePath={communityThreadShareUrl(thread.id)}
-              shareTitle={thread.title}
-              shareText={bodyText.slice(0, 100)}
-              sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
-            />
-            {thread.commentCount ? (
-              <Link className="comment-count-link" href={`${detailPath}#comments-title`}>
-                댓글 {thread.commentCount}개 보기
-              </Link>
-            ) : null}
+    <article
+      className="thread-card live-thread-card"
+      id={`guest-${thread.id}`}
+      style={{ "--thread-accent": accent } as CSSProperties}
+    >
+      <div className="thread-body">
+        <header className="thread-card-header">
+          <CommunityIcon category={thread.category} color={accent} size={17} />
+          <div className="thread-card-identity">
+            <strong>{labels[thread.category] || "자유"}</strong>
+            <span>{thread.guestId} · IP {thread.ipPrefix} · {formatRelativeDate(thread.createdAt)}</span>
           </div>
-        </article>
+          <span className="flair">익명</span>
+        </header>
+        <h2><Link href={detailPath}>{thread.title}</Link></h2>
+        <p>{bodyText}</p>
+        <ThreadMediaAttachments media={parsed.media} compact />
+        {thread.tags?.length ? (
+          <div className="tag-row">
+            {thread.tags.map((tag) => <span key={tag}>#{tag}</span>)}
+          </div>
+        ) : null}
+        <ThreadActionBar
+          score={thread.score}
+          downvotes={thread.downvotes}
+          voteTargetId={thread.id}
+          voteTargetType="guestThread"
+          commentHref={`${detailPath}#comments-title`}
+          sharePath={communityThreadShareUrl(thread.id)}
+          shareTitle={thread.title}
+          shareText={bodyText.slice(0, 100)}
+          sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
+        />
+        {thread.commentCount ? (
+          <Link className="comment-count-link" href={`${detailPath}#comments-title`}>
+            댓글 {thread.commentCount}개 이어보기
+          </Link>
+        ) : null}
+      </div>
+    </article>
   );
 }

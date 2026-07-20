@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { AppNavigation } from "@/components/AppNavigation";
+import { Sidebar } from "@/components/Sidebar";
 import { TopicExplore } from "@/components/TopicExplore";
 import { getCommunities } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
@@ -12,8 +14,12 @@ export const metadata: Metadata = {
 export default async function TopicsPage() {
   const communities = await getCommunities();
   return (
-    <main className="app-shell narrow">
-      <TopicExplore communities={communities} />
+    <main className="app-shell">
+      <div className="app-grid">
+        <AppNavigation communities={communities} />
+        <TopicExplore communities={communities} />
+        <Sidebar communities={communities} />
+      </div>
     </main>
   );
 }
