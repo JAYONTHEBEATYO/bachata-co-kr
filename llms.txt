@@ -10,6 +10,7 @@
 - 질문: https://bachata.co.kr/c/questions
 - 영상: https://bachata.co.kr/c/video
 - 행사: https://bachata.co.kr/c/events
+- 홍보: https://bachata.co.kr/c/promotion
 - 아카데미 리뷰: https://bachata.co.kr/c/academy-review
 - 댄서 리뷰: https://bachata.co.kr/c/dancer-review
 - 소셜 후기: https://bachata.co.kr/c/social-review

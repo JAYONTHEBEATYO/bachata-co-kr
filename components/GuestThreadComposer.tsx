@@ -40,6 +40,7 @@ const topics = [
   { value: "free", label: "자유", hint: "가벼운 잡담, 오늘의 소셜, 현장 이야기" },
   { value: "video", label: "영상", hint: "유튜브, 쇼츠, 인스타 릴스 같이 보기" },
   { value: "events", label: "행사", hint: "소셜, 워크숍, 페스티벌 정보" },
+  { value: "promotion", label: "홍보", hint: "수업, 소셜, 워크숍, 공연과 팀 모집 소식" },
   { value: "socialReview", label: "소셜 후기", hint: "바, 지역, 플로어 분위기와 음악 후기" },
   { value: "academyReview", label: "아카데미 리뷰", hint: "학원, 동호회, 수업 후기" },
   { value: "dancerReview", label: "댄서 리뷰", hint: "워크숍, 부트캠프, 소셜댄스 후기" },
@@ -95,6 +96,15 @@ const subtopicsByCategory: Record<string, string[]> = {
     "행사:양도/패스",
     "행사:후기"
   ],
+  promotion: [
+    "홍보:수업",
+    "홍보:소셜·파티",
+    "홍보:워크숍",
+    "홍보:페스티벌",
+    "홍보:공연",
+    "홍보:팀원 모집",
+    "홍보:구인"
+  ],
   questions: ["질문:입문", "질문:음악", "질문:홀딩", "질문:소셜매너", "무물보"],
   video: ["영상:베이직", "영상:센슈얼", "영상:도미니칸", "영상:풋워크", "영상:공연"],
   free: ["일상", "잡담", "친목", "현장 소식"]
@@ -109,6 +119,7 @@ const uploadsApiUrl = () => communityApiUrl("/api/uploads/");
 const videoUploadsApiUrl = () => communityApiUrl("/api/video-uploads/");
 
 type UploadedMedia = {
+  key?: string;
   url: string;
   name: string;
   contentType: string;
@@ -135,6 +146,7 @@ export function GuestThreadComposer() {
   const [website, setWebsite] = useState("");
   const [pending, setPending] = useState(false);
   const [uploading, setUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<{ name: string; percent: number } | null>(null);
   const [uploadedMedia, setUploadedMedia] = useState<UploadedMedia[]>([]);
   const [error, setError] = useState("");
 
@@ -178,7 +190,6 @@ export function GuestThreadComposer() {
 
   const choosePostType = (nextType: PostType) => {
     setPostType(nextType);
-    if (nextType === "media") setCategory("video");
     if (nextType === "poll") setCategory("questions");
     if (nextType === "ama") setCategory("ama");
   };
@@ -207,16 +218,57 @@ export function GuestThreadComposer() {
     });
   };
 
+  const uploadStreamFile = (file: File, uploadURL: string) => new Promise<void>((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    request.open("POST", uploadURL);
+    request.upload.addEventListener("progress", (event) => {
+      if (!event.lengthComputable) return;
+      setUploadProgress({ name: file.name, percent: Math.min(99, Math.round((event.loaded / event.total) * 100)) });
+    });
+    request.addEventListener("load", () => {
+      if (request.status >= 200 && request.status < 300) {
+        setUploadProgress({ name: file.name, percent: 100 });
+        resolve();
+      } else {
+        reject(new Error("영상을 전송하지 못했습니다. 네트워크를 확인하고 다시 시도해주세요."));
+      }
+    });
+    request.addEventListener("error", () => reject(new Error("영상을 전송하지 못했습니다. 네트워크를 확인하고 다시 시도해주세요.")));
+    const formData = new FormData();
+    formData.append("file", file);
+    request.send(formData);
+  });
+
   const uploadFiles = async (files: FileList | File[]) => {
-    const list = Array.from(files).slice(0, 6);
-    if (!list.length) return;
+    const remainingSlots = 8 - uploadedMedia.length;
+    if (remainingSlots <= 0) {
+      setError("이미지와 영상은 한 글에 8개까지 첨부할 수 있습니다.");
+      return;
+    }
+
+    const selected = Array.from(files);
+    const existingVideoCount = uploadedMedia.filter((item) => item.streamId).length;
+    let videoCount = existingVideoCount;
+    const list: File[] = [];
+    for (const file of selected) {
+      if (list.length >= remainingSlots) break;
+      if (file.type.startsWith("video/") && videoCount >= 6) continue;
+      if (file.type.startsWith("video/")) videoCount += 1;
+      list.push(file);
+    }
+    if (!list.length) {
+      setError("한 글에는 미디어 8개, 그중 영상은 6개까지 첨부할 수 있습니다.");
+      return;
+    }
 
     setUploading(true);
-    setError("");
+    setError(selected.length > list.length
+      ? "한 글에는 미디어 8개, 그중 영상은 6개까지 첨부할 수 있습니다. 가능한 파일만 올립니다."
+      : "");
 
     try {
-      const uploaded: UploadedMedia[] = [];
       for (const file of list) {
+        setUploadProgress({ name: file.name, percent: 0 });
         if (file.type.startsWith("video/")) {
           const prepareResponse = await fetch(videoUploadsApiUrl(), {
             method: "POST",
@@ -235,44 +287,43 @@ export function GuestThreadComposer() {
             throw new Error(prepareData.error || "영상 업로드를 준비하지 못했습니다.");
           }
 
-          const streamForm = new FormData();
-          streamForm.append("file", file);
-          const streamResponse = await fetch(prepareData.upload.uploadURL, {
-            method: "POST",
-            body: streamForm
-          });
-          if (!streamResponse.ok) {
+          try {
+            await uploadStreamFile(file, prepareData.upload.uploadURL);
+          } catch (streamError) {
             await fetch(videoUploadsApiUrl(), {
               method: "DELETE",
               headers: { "content-type": "application/json" },
               body: JSON.stringify({ id: prepareData.upload.id })
             }).catch(() => undefined);
-            throw new Error("영상을 전송하지 못했습니다. 네트워크를 확인하고 다시 시도해주세요.");
+            throw streamError;
           }
 
-          uploaded.push({
+          const uploaded: UploadedMedia = {
             url: prepareData.upload.playerUrl,
             name: file.name,
             contentType: "video/cloudflare-stream",
             size: file.size,
             streamId: prepareData.upload.id,
             status: "processing"
-          });
+          };
+          setUploadedMedia((current) => [...current, uploaded].slice(0, 8));
         } else {
+          setUploadProgress({ name: file.name, percent: 15 });
           const formData = new FormData();
           formData.append("file", file);
           const response = await fetch(uploadsApiUrl(), { method: "POST", body: formData });
           const data = await response.json() as { media?: UploadedMedia; error?: string };
           if (!response.ok || !data.media) throw new Error(data.error || "이미지를 업로드하지 못했습니다.");
-          uploaded.push(data.media);
+          setUploadProgress({ name: file.name, percent: 100 });
+          setUploadedMedia((current) => [...current, data.media as UploadedMedia].slice(0, 8));
         }
       }
-      setUploadedMedia((current) => [...current, ...uploaded].slice(0, 8));
       if (postType !== "media") setPostType("media");
     } catch (uploadError) {
       setError(uploadError instanceof Error ? uploadError.message : "파일을 업로드하지 못했습니다.");
     } finally {
       setUploading(false);
+      setUploadProgress(null);
     }
   };
 
@@ -288,6 +339,12 @@ export function GuestThreadComposer() {
         method: "DELETE",
         headers: { "content-type": "application/json" },
         body: JSON.stringify({ id: target.streamId })
+      });
+    } else {
+      void fetch(uploadsApiUrl(), {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ key: target.key, url: target.url })
       });
     }
   };
@@ -494,13 +551,28 @@ export function GuestThreadComposer() {
           onDrop={onDrop}
           role="button"
           tabIndex={0}
-          onClick={() => fileInputRef.current?.click()}
+          aria-disabled={uploading}
+          onClick={() => {
+            if (!uploading) fileInputRef.current?.click();
+          }}
+          onKeyDown={(event) => {
+            if (!uploading && (event.key === "Enter" || event.key === " ")) {
+              event.preventDefault();
+              fileInputRef.current?.click();
+            }
+          }}
         >
           <UploadCloud size={30} />
           <div>
-            <strong>{uploading ? "업로드 중입니다" : "파일을 끌어다 놓거나 클릭해서 선택하세요"}</strong>
-            <p>이미지는 12MB, 영상은 200MB·5분 이하로 올릴 수 있습니다. 영상은 업로드 후 여러 화질로 자동 변환됩니다.</p>
+            <strong>{uploading ? "업로드 중입니다" : "포스터나 짧은 영상을 올려보세요"}</strong>
+            <p>끌어다 놓거나 눌러서 선택할 수 있습니다. 이미지 12MB, 영상 200MB·5분 이하, 최대 8개까지 지원합니다.</p>
           </div>
+          {uploadProgress ? (
+            <div className="upload-progress" aria-live="polite">
+              <div><span>{uploadProgress.name}</span><b>{uploadProgress.percent}%</b></div>
+              <progress max="100" value={uploadProgress.percent}>{uploadProgress.percent}%</progress>
+            </div>
+          ) : null}
           <input
             ref={fileInputRef}
             type="file"

@@ -34,6 +34,7 @@ const labels: Record<string, string> = {
   questions: "질문",
   video: "영상",
   events: "행사",
+  promotion: "홍보",
   dancers: "댄서",
   guide: "가이드",
   free: "자유",

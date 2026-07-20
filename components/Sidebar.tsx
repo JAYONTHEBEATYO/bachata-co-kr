@@ -4,7 +4,7 @@ import type { Community } from "@/lib/types";
 import { CommunityIcon } from "./CommunityIcon";
 
 export function Sidebar({ communities }: { communities: Community[] }) {
-  const featured = communities.filter((community) => ["questions", "video", "events", "social-review"].includes(community.slug));
+  const featured = communities.filter((community) => ["questions", "promotion", "events", "social-review"].includes(community.slug));
 
   return (
     <aside className="right-rail">

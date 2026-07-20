@@ -742,8 +742,17 @@ p { color: var(--muted); line-height: 1.65; }
   text-align: center;
 }
 .composer-upload:hover { border-color: var(--accent); background: #fff9f8; }
+.composer-upload[aria-disabled="true"] { cursor: progress; opacity: 0.82; }
 .composer-upload strong { color: var(--ink); font-size: 13px; }
-.composer-upload p { margin: 4px 0 0; font-size: 10px; }
+.composer-upload p { margin: 4px 0 0; font-size: 11px; }
+.upload-progress { width: min(420px, 100%); display: grid; gap: 6px; }
+.upload-progress > div { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 11px; }
+.upload-progress span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.upload-progress b { color: var(--ink); }
+.upload-progress progress { width: 100%; height: 8px; overflow: hidden; border: 0; border-radius: 999px; background: var(--line); accent-color: var(--accent); }
+.upload-progress progress::-webkit-progress-bar { background: var(--line); border-radius: 999px; }
+.upload-progress progress::-webkit-progress-value { background: var(--accent); border-radius: 999px; }
+.upload-progress progress::-moz-progress-bar { background: var(--accent); border-radius: 999px; }
 .media-preview-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
 .media-preview { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 8px; }
 .media-preview img, .media-preview video { width: 100%; aspect-ratio: 1; object-fit: cover; background: #111; }

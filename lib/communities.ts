@@ -30,6 +30,13 @@ export const communities: Community[] = [
     color: "#7a4fd8"
   },
   {
+    slug: "promotion",
+    category: "promotion",
+    name: "홍보",
+    description: "수업, 소셜, 워크숍, 공연과 팀 모집 소식을 알립니다.",
+    color: "#e14f2f"
+  },
+  {
     slug: "academy-review",
     category: "academyReview",
     name: "아카데미 리뷰",

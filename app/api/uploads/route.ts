@@ -16,6 +16,7 @@ type R2BucketBinding = {
     customMetadata?: Record<string, string>;
   }) => Promise<unknown>;
   get: (key: string) => Promise<R2ObjectBody | null>;
+  delete: (key: string) => Promise<void>;
 };
 
 const allowedOrigins = new Set([
@@ -34,7 +35,7 @@ const jsonHeaders = (request: NextRequest) => {
 
   return {
     "access-control-allow-origin": allowOrigin,
-    "access-control-allow-methods": "POST,OPTIONS",
+    "access-control-allow-methods": "POST,DELETE,OPTIONS",
     "access-control-allow-headers": "content-type",
     "cache-control": "no-store",
     "content-type": "application/json; charset=utf-8",
@@ -68,6 +69,27 @@ const safeName = (name: string) =>
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "")
     .slice(0, 80) || "media";
+
+const mediaKeyFrom = (value: unknown, request: NextRequest) => {
+  if (typeof value !== "string" || !value.trim()) return "";
+  const raw = value.trim();
+  let key = raw;
+
+  try {
+    const pathname = new URL(raw, new URL(request.url).origin).pathname;
+    key = pathname.startsWith("/api/media/") ? pathname.slice("/api/media/".length) : raw;
+  } catch {
+    return "";
+  }
+
+  try {
+    key = decodeURIComponent(key);
+  } catch {
+    return "";
+  }
+
+  return /^uploads\/\d{4}\/\d{2}\/\d{2}\/[a-zA-Z0-9_.-]+$/.test(key) ? key : "";
+};
 
 export const dynamic = "force-dynamic";
 
@@ -122,9 +144,37 @@ export async function POST(request: NextRequest) {
   return respond(request, 201, {
     media: {
       url: `${origin}/api/media/${key}`,
+      key,
       name: file.name,
       contentType: file.type,
       size: file.size
     }
   });
+}
+
+export async function DELETE(request: NextRequest) {
+  const bucket = await getBucket();
+  if (!bucket) return respond(request, 503, { error: "미디어 저장소가 아직 연결되지 않았습니다." });
+  const { db, hashSalt } = await getCommunityContext();
+  if (!db) return respond(request, 503, { error: "업로드 보호 기능이 아직 연결되지 않았습니다." });
+
+  let payload: Record<string, unknown>;
+  try {
+    payload = await request.json();
+  } catch {
+    return respond(request, 400, { error: "삭제할 파일을 확인할 수 없습니다." });
+  }
+
+  const key = mediaKeyFrom(payload.key || payload.url, request);
+  if (!key) return respond(request, 400, { error: "삭제할 파일 경로가 올바르지 않습니다." });
+
+  const uploaderHash = await requestFingerprint(request, hashSalt, "uploads");
+  const upload = await db.prepare(
+    "select id from upload_events where object_key = ? and uploader_hash = ? limit 1"
+  ).bind(key, uploaderHash).first<{ id: string }>();
+  if (!upload) return respond(request, 403, { error: "이 파일을 삭제할 권한이 없습니다." });
+
+  await bucket.delete(key);
+
+  return respond(request, 200, { ok: true });
 }

@@ -8,7 +8,7 @@ import { absoluteUrl } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "글쓰기",
-  description: "바차타 영상, 질문, 행사, 댄서 이야기를 쓰레드로 남기는 글쓰기 화면입니다.",
+  description: "바차타 질문과 후기부터 수업, 소셜, 워크숍 홍보 영상까지 올리는 글쓰기 화면입니다.",
   alternates: { canonical: absoluteUrl("/write") }
 };
 
@@ -23,7 +23,7 @@ export default async function WritePage() {
             <div>
               <span className="section-kicker">NEW POST</span>
               <h1>새 글 쓰기</h1>
-              <p>질문도, 영상도, 오늘의 소셜 이야기도 좋습니다.</p>
+              <p>질문과 후기, 수업 포스터와 짧은 홍보 영상까지 올려보세요.</p>
             </div>
           </header>
           <Suspense fallback={null}>
