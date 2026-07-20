@@ -58,10 +58,7 @@ const allowedTypes = new Set([
   "image/jpeg",
   "image/png",
   "image/webp",
-  "image/gif",
-  "video/mp4",
-  "video/webm",
-  "video/quicktime"
+  "image/gif"
 ]);
 
 const safeName = (name: string) =>
@@ -93,12 +90,9 @@ export async function POST(request: NextRequest) {
 
   const file = formData.get("file");
   if (!(file instanceof File)) return respond(request, 400, { error: "파일을 선택해주세요." });
-  if (!allowedTypes.has(file.type)) return respond(request, 400, { error: "이미지, MP4, WebM, MOV 파일만 올릴 수 있습니다." });
-  const sizeLimit = file.type.startsWith("image/") ? 12 * 1024 * 1024 : 25 * 1024 * 1024;
-  if (file.size > sizeLimit) {
-    return respond(request, 400, {
-      error: file.type.startsWith("image/") ? "이미지는 12MB 이하로 올려주세요." : "동영상은 25MB 이하로 올려주세요."
-    });
+  if (!allowedTypes.has(file.type)) return respond(request, 400, { error: "JPG, PNG, WebP, GIF 이미지만 올릴 수 있습니다." });
+  if (file.size > 12 * 1024 * 1024) {
+    return respond(request, 400, { error: "이미지는 12MB 이하로 올려주세요." });
   }
 
   const uploaderHash = await requestFingerprint(request, hashSalt, "uploads");

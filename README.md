@@ -7,7 +7,8 @@
 - Next.js App Router
 - Cloudflare Workers via OpenNext
 - Cloudflare D1 for threads, comments, votes, and reports
-- Cloudflare R2 for uploaded media
+- Cloudflare R2 for uploaded images
+- Cloudflare Stream for direct video uploads, transcoding, and playback
 - GitHub Pages snapshot for `bachata.co.kr`
 
 ## Public routes
@@ -34,6 +35,8 @@ npm run cf:deploy
 
 ## Cloudflare
 
-The Worker configuration is in `wrangler.jsonc`. Apply migrations from `migrations/` before deployment and configure the `COMMUNITY_HASH_SALT` Worker secret.
+The Worker configuration is in `wrangler.jsonc`. Apply migrations from `migrations/` before deployment and configure the `COMMUNITY_HASH_SALT` Worker secret. The `STREAM` binding must point to an active Cloudflare Stream subscription.
+
+Images are limited to 12 MB. Videos are uploaded directly from the browser to Stream and are limited to 200 MB and five minutes. The API also caps video creation at three per hour, eight per uploader per day, and 120 site-wide per month.
 
 The public app remains usable without an account. Guest authors choose a four-digit deletion password; that password is hashed server-side and is never returned by the API.

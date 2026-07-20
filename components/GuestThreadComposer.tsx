@@ -12,6 +12,7 @@ import {
   Italic,
   Link2,
   List,
+  RefreshCw,
   Send,
   Strikethrough,
   UploadCloud
@@ -105,12 +106,15 @@ const draftKey = "bachata.threadDraft.v1";
 
 const threadsApiUrl = () => communityApiUrl("/api/threads/");
 const uploadsApiUrl = () => communityApiUrl("/api/uploads/");
+const videoUploadsApiUrl = () => communityApiUrl("/api/video-uploads/");
 
 type UploadedMedia = {
   url: string;
   name: string;
   contentType: string;
   size: number;
+  streamId?: string;
+  status?: "processing" | "ready";
 };
 
 export function GuestThreadComposer() {
@@ -213,12 +217,55 @@ export function GuestThreadComposer() {
     try {
       const uploaded: UploadedMedia[] = [];
       for (const file of list) {
-        const formData = new FormData();
-        formData.append("file", file);
-        const response = await fetch(uploadsApiUrl(), { method: "POST", body: formData });
-        const data = await response.json() as { media?: UploadedMedia; error?: string };
-        if (!response.ok || !data.media) throw new Error(data.error || "파일을 업로드하지 못했습니다.");
-        uploaded.push(data.media);
+        if (file.type.startsWith("video/")) {
+          const prepareResponse = await fetch(videoUploadsApiUrl(), {
+            method: "POST",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({
+              fileName: file.name,
+              fileSize: file.size,
+              contentType: file.type
+            })
+          });
+          const prepareData = await prepareResponse.json() as {
+            upload?: { id: string; uploadURL: string; playerUrl: string };
+            error?: string;
+          };
+          if (!prepareResponse.ok || !prepareData.upload) {
+            throw new Error(prepareData.error || "영상 업로드를 준비하지 못했습니다.");
+          }
+
+          const streamForm = new FormData();
+          streamForm.append("file", file);
+          const streamResponse = await fetch(prepareData.upload.uploadURL, {
+            method: "POST",
+            body: streamForm
+          });
+          if (!streamResponse.ok) {
+            await fetch(videoUploadsApiUrl(), {
+              method: "DELETE",
+              headers: { "content-type": "application/json" },
+              body: JSON.stringify({ id: prepareData.upload.id })
+            }).catch(() => undefined);
+            throw new Error("영상을 전송하지 못했습니다. 네트워크를 확인하고 다시 시도해주세요.");
+          }
+
+          uploaded.push({
+            url: prepareData.upload.playerUrl,
+            name: file.name,
+            contentType: "video/cloudflare-stream",
+            size: file.size,
+            streamId: prepareData.upload.id,
+            status: "processing"
+          });
+        } else {
+          const formData = new FormData();
+          formData.append("file", file);
+          const response = await fetch(uploadsApiUrl(), { method: "POST", body: formData });
+          const data = await response.json() as { media?: UploadedMedia; error?: string };
+          if (!response.ok || !data.media) throw new Error(data.error || "이미지를 업로드하지 못했습니다.");
+          uploaded.push(data.media);
+        }
       }
       setUploadedMedia((current) => [...current, ...uploaded].slice(0, 8));
       if (postType !== "media") setPostType("media");
@@ -234,8 +281,15 @@ export function GuestThreadComposer() {
     uploadFiles(event.dataTransfer.files);
   };
 
-  const removeMedia = (url: string) => {
-    setUploadedMedia((current) => current.filter((item) => item.url !== url));
+  const removeMedia = (target: UploadedMedia) => {
+    setUploadedMedia((current) => current.filter((item) => item.url !== target.url));
+    if (target.streamId) {
+      void fetch(videoUploadsApiUrl(), {
+        method: "DELETE",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({ id: target.streamId })
+      });
+    }
   };
 
   const bodyForSubmit = () => {
@@ -265,7 +319,10 @@ export function GuestThreadComposer() {
     if (subtopic) chunks.push(`#${subtopic.replace(/[^\p{L}\p{N}:·&/()🕺💃가-힣A-Za-z0-9\s-]/gu, "").replace(/\s+/g, "")}`);
 
     if (uploadedMedia.length) {
-      chunks.push(`[첨부]\n${uploadedMedia.map((item) => `${item.contentType.startsWith("video/") ? "동영상" : "이미지"}: ${item.url}`).join("\n")}`);
+      chunks.push(`[첨부]\n${uploadedMedia.map((item) => item.streamId
+        ? `Cloudflare Stream: cfstream:${item.streamId}`
+        : `이미지: ${item.url}`
+      ).join("\n")}`);
     }
 
     return chunks.filter(Boolean).join("\n\n");
@@ -314,7 +371,8 @@ export function GuestThreadComposer() {
           authorPassword,
           category: postType === "poll" ? "poll" : postType === "ama" ? "ama" : category,
           body: submitBody,
-          linkUrl: linkUrl || uploadedMedia[0]?.url || "",
+          linkUrl: linkUrl || uploadedMedia.find((item) => !item.streamId)?.url || "",
+          streamIds: uploadedMedia.flatMap((item) => item.streamId ? [item.streamId] : []),
           website
         })
       });
@@ -441,7 +499,7 @@ export function GuestThreadComposer() {
           <UploadCloud size={30} />
           <div>
             <strong>{uploading ? "업로드 중입니다" : "파일을 끌어다 놓거나 클릭해서 선택하세요"}</strong>
-            <p>이미지와 짧은 동영상을 올릴 수 있습니다. 유튜브·인스타 링크도 아래 URL 칸에 함께 붙일 수 있습니다.</p>
+            <p>이미지는 12MB, 영상은 200MB·5분 이하로 올릴 수 있습니다. 영상은 업로드 후 여러 화질로 자동 변환됩니다.</p>
           </div>
           <input
             ref={fileInputRef}
@@ -461,14 +519,20 @@ export function GuestThreadComposer() {
         <div className="media-preview-grid">
           {uploadedMedia.map((item) => (
             <figure key={item.url} className="media-preview">
-              {item.contentType.startsWith("video/") ? (
+              {item.streamId ? (
+                <div className="stream-upload-preview">
+                  <RefreshCw className="stream-spinner" size={24} />
+                  <strong>영상 처리 중</strong>
+                  <span>게시 후 자동으로 재생됩니다.</span>
+                </div>
+              ) : item.contentType.startsWith("video/") ? (
                 <video src={item.url} controls muted />
               ) : (
                 <img src={item.url} alt={item.name} />
               )}
               <figcaption>
                 <span>{item.name}</span>
-                <button type="button" onClick={() => removeMedia(item.url)}>삭제</button>
+                <button type="button" onClick={() => removeMedia(item)}>삭제</button>
               </figcaption>
             </figure>
           ))}
@@ -525,7 +589,7 @@ export function GuestThreadComposer() {
         <input value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" />
       </label>
 
-      <button type="submit" className="submit-button" disabled={pending}><Send size={18} /> {pending ? "게시 중" : "게시하기"}</button>
+      <button type="submit" className="submit-button" disabled={pending || uploading}><Send size={18} /> {pending ? "게시 중" : uploading ? "업로드 중" : "게시하기"}</button>
       {error ? <p className="comment-error">{error}</p> : null}
     </form>
   );

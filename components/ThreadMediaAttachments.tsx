@@ -1,4 +1,5 @@
 import type { ThreadMediaItem } from "@/lib/thread-media";
+import { CloudflareStreamPlayer } from "./CloudflareStreamPlayer";
 
 type ThreadMediaAttachmentsProps = {
   media: ThreadMediaItem[];
@@ -12,7 +13,9 @@ export function ThreadMediaAttachments({ media, compact = false }: ThreadMediaAt
     <div className={compact ? "thread-media-grid compact" : "thread-media-grid"}>
       {media.map((item) => (
         <figure key={item.url} className="thread-media-item">
-          {item.type === "video" ? (
+          {item.type === "stream" && item.streamId ? (
+            <CloudflareStreamPlayer videoId={item.streamId} compact={compact} />
+          ) : item.type === "video" ? (
             <video src={item.url} controls preload="metadata" />
           ) : (
             <img src={item.url} alt="첨부 이미지" loading="lazy" />

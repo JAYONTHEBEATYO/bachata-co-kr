@@ -8,7 +8,7 @@ export function BrandMark({ compact = false }: { compact?: boolean }) {
         <i />
       </span>
       <span className="brand-copy">
-        <strong>BACHATA.KR</strong>
+        <strong>BACHATA.CO.KR</strong>
         <small>바차타 코리아</small>
       </span>
     </Link>

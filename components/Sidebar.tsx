@@ -38,7 +38,7 @@ export function Sidebar({ communities }: { communities: Community[] }) {
         </nav>
       </section>
 
-      <p className="rail-footer">BACHATA.KR · COMMUNITY</p>
+      <p className="rail-footer">BACHATA.CO.KR · COMMUNITY</p>
     </aside>
   );
 }

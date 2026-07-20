@@ -1,3 +1,4 @@
+import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
 import {
   getCommunityContext,
@@ -25,6 +26,24 @@ type GuestThreadRow = {
 
 type CountRow = {
   count: number;
+};
+
+type StreamBinding = {
+  video: (id: string) => {
+    update: (params: {
+      scheduledDeletion?: string | null;
+      meta?: Record<string, string>;
+    }) => Promise<unknown>;
+  };
+};
+
+const getStream = async (): Promise<StreamBinding | null> => {
+  try {
+    const { env } = await getCloudflareContext({ async: true });
+    return ((env as Record<string, unknown>).STREAM as StreamBinding | undefined) || null;
+  } catch {
+    return null;
+  }
 };
 
 const categories = new Set([
@@ -69,6 +88,14 @@ const normalizeId = (value: unknown) => {
   const text = typeof value === "string" ? value.trim() : "";
   return /^[a-zA-Z0-9_-]{1,80}$/.test(text) ? text : "";
 };
+
+const normalizeStreamIds = (value: unknown) => Array.isArray(value)
+  ? value
+    .filter((item): item is string => typeof item === "string")
+    .map((item) => item.trim())
+    .filter((item) => /^[a-zA-Z0-9_-]{16,80}$/.test(item))
+    .slice(0, 6)
+  : [];
 
 const normalizeSort = (value: unknown) => {
   const sort = typeof value === "string" ? value : "hot";
@@ -295,6 +322,7 @@ export async function POST(request: NextRequest) {
   const linkUrl = normalizeLink(payload.linkUrl);
   const authorName = normalizeName(payload.authorName) || randomKoreanNickname();
   const authorPassword = typeof payload.authorPassword === "string" ? payload.authorPassword.trim() : "";
+  const streamIds = normalizeStreamIds(payload.streamIds);
 
   if (title.length < 4) return respond(request, 400, { error: "제목을 네 글자 이상 적어주세요." });
   if (body.length < 2) return respond(request, 400, { error: "본문을 두 글자 이상 적어주세요." });
@@ -321,6 +349,36 @@ export async function POST(request: NextRequest) {
       (id, title, body, category, link_url, guest_id, ip_prefix, ip_hash, edit_key_hash, score, downvotes, created_at, updated_at)
     values (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?)`
   ).bind(id, title, body, category, linkUrl, authorName, ipPrefix, ipHash, editKeyHash, now, now).run();
+
+  if (streamIds.length) {
+    const stream = await getStream();
+    const uploaderHash = await requestFingerprint(request, hashSalt, "stream-uploads");
+
+    for (const streamId of streamIds) {
+      const media = await db.prepare(
+        "select uploader_hash as uploaderHash from stream_videos where id = ? and status != 'deleted'"
+      ).bind(streamId).first<{ uploaderHash: string }>();
+      if (!media || media.uploaderHash !== uploaderHash) continue;
+
+      await db.prepare("update stream_videos set thread_id = ?, updated_at = ? where id = ?")
+        .bind(id, now, streamId)
+        .run();
+
+      if (stream) {
+        try {
+          await stream.video(streamId).update({
+            scheduledDeletion: null,
+            meta: {
+              site: "bachata.co.kr",
+              threadId: id
+            }
+          });
+        } catch {
+          // The video stays playable and the database claim can be reconciled later.
+        }
+      }
+    }
+  }
 
   return respond(request, 201, {
     thread: {

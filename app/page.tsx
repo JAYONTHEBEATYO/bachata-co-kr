@@ -25,7 +25,7 @@ export default async function HomePage({ searchParams }: PageProps) {
               <span className="section-kicker">COMMUNITY FEED</span>
               <h1>오늘의 피드</h1>
             </div>
-            <span className="live-mark"><i /> BACHATA.KR</span>
+            <span className="live-mark"><i /> BACHATA.CO.KR</span>
           </header>
           <QuickComposer />
           <TopicRibbon communities={communities} />

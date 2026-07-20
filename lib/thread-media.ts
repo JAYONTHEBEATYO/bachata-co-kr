@@ -1,10 +1,12 @@
 export type ThreadMediaItem = {
   url: string;
-  type: "image" | "video";
+  type: "image" | "video" | "stream";
+  streamId?: string;
 };
 
 const mediaUrlPattern = /^(.+?):\s*(https?:\/\/\S+\/api\/media\/uploads\/\S+)$/i;
 const directMediaUrlPattern = /(https?:\/\/\S+\/api\/media\/uploads\/\S+)/i;
+const streamMarkerPattern = /^Cloudflare Stream:\s*cfstream:([a-zA-Z0-9_-]{16,80})$/i;
 
 const inferMediaType = (labelOrUrl: string): ThreadMediaItem["type"] => {
   const text = labelOrUrl.toLowerCase();
@@ -19,6 +21,17 @@ export const extractThreadMedia = (body: string, linkUrl?: string | null) => {
   for (const line of body.split("\n")) {
     const trimmed = line.trim();
     if (trimmed === "[첨부]") continue;
+
+    const streamMarker = trimmed.match(streamMarkerPattern);
+    if (streamMarker) {
+      const streamId = streamMarker[1];
+      media.set(`cfstream:${streamId}`, {
+        url: `cfstream:${streamId}`,
+        type: "stream",
+        streamId
+      });
+      continue;
+    }
 
     const mediaLine = trimmed.match(mediaUrlPattern);
     if (mediaLine) {

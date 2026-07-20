@@ -27,6 +27,9 @@
       "bucket_name": "bachata-media"
     }
   ],
+  "stream": {
+    "binding": "STREAM"
+  },
   "vars": {
     "NEXT_PUBLIC_SITE_URL": "https://bachata.co.kr"
   }
