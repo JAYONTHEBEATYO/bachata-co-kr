@@ -3,8 +3,8 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { ExternalLink } from "lucide-react";
-import { communityApiUrl, publicUrl } from "@/lib/community-api";
+import { ExternalLink, Trash2 } from "lucide-react";
+import { communityApiUrl, communityThreadShareUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
 import { extractThreadMedia } from "@/lib/thread-media";
 import { LiveComments } from "./LiveComments";
@@ -42,26 +42,33 @@ const labels: Record<string, string> = {
 };
 
 const threadsApiUrl = () => communityApiUrl("/api/threads/");
-const threadSharePath = (id: string) => publicUrl(`/g/${encodeURIComponent(id)}`);
-
 export function GuestThreadDetail({ threadId }: { threadId?: string }) {
   const searchParams = useSearchParams();
   const id = threadId || searchParams.get("id") || "";
   const [thread, setThread] = useState<GuestThread | null>(null);
   const [status, setStatus] = useState(id ? "글을 불러오는 중입니다." : "열 글이 없습니다.");
 
-  const detailPath = useMemo(() => {
-    if (!id) return "/guest";
-    if (typeof window !== "undefined" && window.location.pathname.startsWith("/g/")) {
-      return `/g/${encodeURIComponent(id)}`;
+  const deleteThread = async () => {
+    if (!thread) return;
+    const password = window.prompt("이 글에 사용한 임시비밀번호 4자리를 입력해주세요.") || "";
+    if (!/^\d{4}$/.test(password)) {
+      setStatus("임시비밀번호 4자리를 숫자로 입력해주세요.");
+      return;
     }
-    return `/guest/?id=${encodeURIComponent(id)}`;
-  }, [id]);
+    const response = await fetch(threadsApiUrl(), {
+      method: "DELETE",
+      headers: { "content-type": "text/plain;charset=UTF-8" },
+      body: JSON.stringify({ id: thread.id, password })
+    });
+    const data = await response.json() as { error?: string };
+    if (!response.ok) {
+      setStatus(data.error || "글을 삭제하지 못했습니다.");
+      return;
+    }
+    window.location.assign("/");
+  };
 
-  const sharePath = useMemo(() => {
-    if (!id) return "/guest";
-    return threadSharePath(id);
-  }, [id]);
+  const sharePath = useMemo(() => id ? communityThreadShareUrl(id) : "/guest", [id]);
 
   useEffect(() => {
     if (!id) return;
@@ -125,7 +132,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
       <article className="detail-article">
         <section className="detail-body">
           <div className="thread-meta">
-            <span>r/{labels[thread.category] || "자유"}</span>
+            <span>주제 · {labels[thread.category] || "자유"}</span>
             <span>{thread.guestId}</span>
             <span>IP {thread.ipPrefix}</span>
             <span>{formatRelativeDate(thread.createdAt)}</span>
@@ -149,6 +156,10 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
             sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
             threadId={thread.id}
           />
+          <button type="button" className="thread-manage-button" onClick={deleteThread}>
+            <Trash2 size={15} /> 내 글 삭제
+          </button>
+          {status ? <p className="comment-error">{status}</p> : null}
           {thread.linkUrl ? (
             <a className="primary-link" href={thread.linkUrl} target="_blank" rel="noreferrer">
               원문 링크 열기 <ExternalLink size={16} />

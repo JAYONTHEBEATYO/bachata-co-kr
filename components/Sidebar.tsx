@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CalendarDays, ChevronRight, Compass } from "lucide-react";
 import type { Community, EventCard, Thread } from "@/lib/types";
+import { EventVisual } from "./EventVisual";
 
 type SidebarProps = {
   communities: Community[];
@@ -9,6 +10,11 @@ type SidebarProps = {
 };
 
 export function Sidebar({ communities, events, trending }: SidebarProps) {
+  const upcomingEvents = events
+    .filter((event) => new Date(event.startsAt).getTime() >= Date.now() - 24 * 60 * 60_000)
+    .sort((a, b) => new Date(a.startsAt).getTime() - new Date(b.startsAt).getTime())
+    .slice(0, 3);
+
   return (
     <aside className="right-rail">
       <section className="rail-panel">
@@ -17,7 +23,7 @@ export function Sidebar({ communities, events, trending }: SidebarProps) {
           {communities.map((community) => (
             <Link key={community.slug} href={`/c/${community.slug}`}>
               <span style={{ backgroundColor: community.color }} />
-              <strong>r/{community.name}</strong>
+              <strong>{community.name}</strong>
               <em>{community.description}</em>
             </Link>
           ))}
@@ -26,9 +32,9 @@ export function Sidebar({ communities, events, trending }: SidebarProps) {
       <section className="rail-panel">
         <div className="rail-title"><CalendarDays size={18} /> 곧 볼 행사</div>
         <div className="event-mini-list">
-          {events.map((event) => (
+          {upcomingEvents.map((event) => (
             <Link key={event.id} href={`/events/${event.id}`}>
-              <img src={event.posterUrl} alt="" />
+              <EventVisual event={event} compact />
               <span>
                 <strong>{event.title}</strong>
                 <em>{event.dateLabel} · {event.city}</em>
@@ -38,7 +44,7 @@ export function Sidebar({ communities, events, trending }: SidebarProps) {
         </div>
       </section>
       <section className="rail-panel">
-        <div className="rail-title">오늘 뜨는 글</div>
+        <div className="rail-title">에디터 추천</div>
         <ol className="trend-list">
           {trending.slice(0, 5).map((thread) => (
             <li key={thread.id}>

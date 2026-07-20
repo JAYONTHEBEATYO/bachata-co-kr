@@ -13,7 +13,7 @@ export function AuthCallback() {
       const client = getSupabaseBrowserClient();
       if (!hasSupabaseBrowserConfig || !client) {
         setFailed(true);
-        setMessage("Google 로그인 설정이 아직 연결되지 않았습니다.");
+        setMessage("현재 Google 로그인을 사용할 수 없습니다.");
         return;
       }
 

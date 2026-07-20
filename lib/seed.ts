@@ -4,43 +4,37 @@ export const communities: Community[] = [
   {
     slug: "hot",
     name: "인기",
-    description: "오늘 바차타 코리아에서 가장 많이 반응한 글입니다.",
-    memberCount: 1280,
+    description: "지금 댓글과 추천이 빠르게 붙는 이야기를 모았습니다.",
     color: "#ff5a3d"
   },
   {
     slug: "video",
     name: "영상",
-    description: "유튜브, 소셜 영상, 워크숍 클립을 보고 이야기합니다.",
-    memberCount: 920,
+    description: "소셜 영상과 워크숍 클립을 함께 보고 포인트를 나눕니다.",
     color: "#4f7cff"
   },
   {
     slug: "events",
     name: "행사",
-    description: "국내외 페스티벌, 워크숍, 소셜 일정을 모읍니다.",
-    memberCount: 760,
+    description: "국내외 페스티벌, 워크숍, 소셜 일정을 한곳에서 확인하세요.",
     color: "#07a074"
   },
   {
     slug: "questions",
     name: "질문",
-    description: "처음 배우는 사람도 편하게 물어볼 수 있는 공간입니다.",
-    memberCount: 640,
+    description: "베이직부터 소셜 매너까지, 궁금한 건 편하게 물어보세요.",
     color: "#ad6cff"
   },
   {
     slug: "dancers",
     name: "댄서",
-    description: "국내외 댄서, 팀, 크루, 강사의 무대와 수업 이야기를 만납니다.",
-    memberCount: 530,
+    description: "국내외 댄서의 무대, 수업, 워크숍 후기를 나눕니다.",
     color: "#f5a524"
   },
   {
     slug: "guide",
     name: "가이드",
-    description: "바차타 베이직과 장르별 핵심을 차근차근 따라갑니다.",
-    memberCount: 680,
+    description: "바차타 베이직부터 세부 장르까지 순서대로 익혀보세요.",
     color: "#0c8f70"
   }
 ];
@@ -55,7 +49,7 @@ export const threads: Thread[] = [
     communitySlug: "questions",
     communityName: "질문",
     flair: "입문",
-    author: "Bachata Korea",
+    author: "바차타 코리아 에디터",
     createdAt: "2026-07-08T08:10:00+09:00",
     score: 0,
     upvotes: 0,
@@ -75,7 +69,7 @@ export const threads: Thread[] = [
     communitySlug: "video",
     communityName: "영상",
     flair: "Bachata Influence",
-    author: "Bachata Korea",
+    author: "바차타 코리아 에디터",
     createdAt: "2026-07-08T07:45:00+09:00",
     score: 0,
     upvotes: 0,
@@ -94,7 +88,7 @@ export const threads: Thread[] = [
     communitySlug: "video",
     communityName: "영상",
     flair: "국내 소셜",
-    author: "Bachata Korea",
+    author: "바차타 코리아 에디터",
     createdAt: "2026-07-08T06:35:00+09:00",
     score: 0,
     upvotes: 0,
@@ -113,7 +107,7 @@ export const threads: Thread[] = [
     communitySlug: "questions",
     communityName: "질문",
     flair: "장르",
-    author: "latincielo",
+    author: "바차타 코리아 에디터",
     createdAt: "2026-07-07T23:20:00+09:00",
     score: 0,
     upvotes: 0,
@@ -128,11 +122,11 @@ export const threads: Thread[] = [
     slug: "festival-calendar-july-2026",
     title: "이번 달 국내 바차타 페스티벌과 워크숍 체크",
     excerpt: "날짜, 장소, 패스 범위는 공식 링크로 다시 확인하고, 영상으로 분위기까지 미리 봅니다.",
-    body: "바차타 행사 정보는 인스타그램, 예매 페이지, 스튜디오 공지, 유튜브 영상에 흩어져 있는 경우가 많습니다. 그래서 일정만 보는 것보다 어떤 워크숍이 열리는지, 소셜 비중이 큰지, Jack & Jill이나 쇼케이스가 있는지 함께 보는 편이 좋습니다. 특히 처음 페스티벌을 가는 사람이라면 패스 이름이 비슷해서 헷갈릴 수 있습니다. 전체 패스인지, 소셜만 가능한지, 워크숍이 포함되는지, 환불 조건이 어떻게 되는지 공식 링크에서 다시 확인하세요. 바차타 코리아는 이런 정보를 쓰레드로 모아두고, 확인된 링크와 영상이 있는 것부터 먼저 올립니다.",
+    body: "바차타 행사 정보는 인스타그램, 예매 페이지, 스튜디오 공지, 유튜브 영상에 흩어져 있는 경우가 많습니다. 그래서 일정만 보는 것보다 어떤 워크숍이 열리는지, 소셜 비중이 큰지, Jack & Jill이나 쇼케이스가 있는지 함께 보는 편이 좋습니다. 특히 처음 페스티벌을 가는 사람이라면 패스 이름이 비슷해서 헷갈릴 수 있습니다. 전체 패스인지, 소셜만 가능한지, 워크숍이 포함되는지, 환불 조건이 어떻게 되는지 공식 링크에서 다시 확인하세요. 궁금한 점이나 현장 후기가 있다면 댓글에 남겨두면 다음 참가자도 한결 쉽게 준비할 수 있습니다.",
     communitySlug: "events",
     communityName: "행사",
     flair: "페스티벌",
-    author: "Bachata Korea",
+    author: "바차타 코리아 에디터",
     createdAt: "2026-07-07T21:15:00+09:00",
     score: 0,
     upvotes: 0,
@@ -154,7 +148,7 @@ export const threads: Thread[] = [
     communitySlug: "events",
     communityName: "행사",
     flair: "해외페스티벌",
-    author: "Bachata Korea",
+    author: "바차타 코리아 에디터",
     createdAt: "2026-07-07T18:00:00+09:00",
     score: 0,
     upvotes: 0,
@@ -176,7 +170,7 @@ export const threads: Thread[] = [
     communitySlug: "questions",
     communityName: "질문",
     flair: "소셜매너",
-    author: "sera",
+    author: "바차타 코리아 에디터",
     createdAt: "2026-07-07T13:20:00+09:00",
     score: 0,
     upvotes: 0,
@@ -194,7 +188,7 @@ export const threads: Thread[] = [
     communitySlug: "guide",
     communityName: "가이드",
     flair: "센슈얼",
-    author: "Bachata Korea",
+    author: "바차타 코리아 에디터",
     createdAt: "2026-07-06T22:50:00+09:00",
     score: 0,
     upvotes: 0,
@@ -214,10 +208,10 @@ export const events: EventCard[] = [
     title: "K-Sensual Summer 10th Anniversary",
     region: "domestic",
     dateLabel: "2026년 7월 9일-13일",
+    startsAt: "2026-07-09T00:00:00+09:00",
     city: "제주",
     venue: "제주",
     excerpt: "국내에서 해외 아티스트, Jack & Jill, 워크숍, 소셜을 함께 경험하기 좋은 여름형 바차타 행사입니다.",
-    posterUrl: "https://i.ytimg.com/vi/zQXNPwMqpdw/hqdefault.jpg",
     sourceUrl: "https://www.instagram.com/ksensual_official/",
     tags: ["국내", "페스티벌", "K-Sensual"]
   },
@@ -226,10 +220,10 @@ export const events: EventCard[] = [
     title: "Seoul Bachata Festival Vol.4",
     region: "domestic",
     dateLabel: "2026년 7월 24일-26일",
+    startsAt: "2026-07-24T00:00:00+09:00",
     city: "서울",
     venue: "서울",
     excerpt: "서울권 입문자와 소셜댄서가 접근하기 쉬운 국내 바차타 페스티벌입니다. 패스 범위와 소셜 장소를 먼저 확인하세요.",
-    posterUrl: "https://i.ytimg.com/vi/jpCY0QqZqWE/hqdefault.jpg",
     sourceUrl: "https://www.instagram.com/seoulbachatafestival/",
     tags: ["서울", "워크숍", "소셜"]
   },
@@ -238,10 +232,10 @@ export const events: EventCard[] = [
     title: "Bachata Geneva Festival 2026",
     region: "overseas",
     dateLabel: "2026년 10월 8일-12일",
+    startsAt: "2026-10-08T00:00:00+09:00",
     city: "Geneva, Switzerland",
     venue: "Palexpo Congress Center",
     excerpt: "해외 라인업과 Bachata Social World Cup 흐름을 함께 볼 수 있는 유럽권 대형 행사입니다.",
-    posterUrl: "https://i.ytimg.com/vi/KwCdb36gUtY/hqdefault.jpg",
     sourceUrl: "https://bachatagenevafestival.com/",
     tags: ["해외", "Geneva", "World Cup"]
   }
@@ -252,7 +246,7 @@ export const dancers: DancerCard[] = [
     id: "melvin-gatica",
     name: "Melvin & Gatica",
     role: "Bachata Influence",
-    excerpt: "동작의 크기보다 프레임, 감정선, 전환의 밀도를 어떻게 설계하는지 볼 때 더 잘 읽히는 팀입니다.",
+    excerpt: "Melvin & Gatica의 영상에서는 화려한 동작보다 프레임과 속도 조절이 먼저 눈에 들어옵니다. 두 사람이 음악의 여백을 어떻게 나누는지 지켜보세요.",
     videoId: "sUy5L7x5pyE",
     tags: ["Influence", "Musicality", "Method"]
   },
@@ -260,7 +254,7 @@ export const dancers: DancerCard[] = [
     id: "emilien-tehina",
     name: "Emilien & Tehina",
     role: "Influence, Sensual",
-    excerpt: "정지와 진행의 대비가 선명한 페어입니다. 큰 동작보다 언제 기다리고 언제 다시 이어가는지 보기에 좋습니다.",
+    excerpt: "Emilien & Tehina는 멈춤과 진행의 대비가 선명합니다. 한 동작이 끝난 뒤 언제 기다리고, 어떤 신호로 다시 이어가는지 보는 재미가 있습니다.",
     videoId: "FNv7eOMg-_k",
     tags: ["Influence", "Connection", "Workshop"]
   },
@@ -268,7 +262,7 @@ export const dancers: DancerCard[] = [
     id: "korke-judith",
     name: "Korke & Judith",
     role: "Bachata Sensual",
-    excerpt: "센슈얼 바차타를 이야기할 때 빠질 수 없는 기준점입니다. 16개 펀더멘털은 기술표보다 안전한 연결의 지도처럼 보면 좋습니다.",
+    excerpt: "센슈얼 바차타의 흐름을 만든 대표적인 페어입니다. 16개 펀더멘털은 기술 목록이 아니라 안전하게 연결하고 움직이기 위한 기본 원리로 접근해보세요.",
     videoId: "B7Wv3cqHrSU",
     tags: ["Sensual", "Fundamentals", "Safety"]
   },
@@ -276,7 +270,7 @@ export const dancers: DancerCard[] = [
     id: "gero-migle",
     name: "Gero & Migle",
     role: "Global Dancers",
-    excerpt: "감정선과 컨트롤을 함께 보기 좋은 페어입니다. 큰 모양보다 시작 전 준비와 프레임 유지가 먼저 보입니다.",
+    excerpt: "Gero & Migle의 춤은 감정 표현과 정교한 컨트롤이 함께 갑니다. 큰 모양보다 움직이기 전의 준비와 프레임이 유지되는 순간을 눈여겨보세요.",
     videoId: "j4CmXKDCMzI",
     tags: ["Sensual", "Performance", "Control"]
   },
@@ -284,7 +278,7 @@ export const dancers: DancerCard[] = [
     id: "luis-andrea",
     name: "Luis & Andrea",
     role: "Global Dancers",
-    excerpt: "국제 페스티벌 맥락에서 자주 언급되는 페어입니다. 타이밍, 방향 전환, 표현의 강약을 나눠 보기 좋습니다.",
+    excerpt: "Luis & Andrea의 영상은 타이밍과 방향 전환이 또렷합니다. 같은 구간에서도 표현의 강약을 어떻게 바꾸는지 비교해보면 좋습니다.",
     videoId: "L1vzrcpeBuw",
     tags: ["Sensual", "Workshop", "Festival"]
   },
@@ -292,7 +286,7 @@ export const dancers: DancerCard[] = [
     id: "cristian-gabriella",
     name: "Cristian & Gabriella",
     role: "Bachata Sensual",
-    excerpt: "부드러운 연결과 소셜 친화적인 라인을 같이 볼 수 있는 페어입니다. 느린 곡에서 거리와 속도를 다루는 방식이 눈에 들어옵니다.",
+    excerpt: "Cristian & Gabriella는 부드러운 연결과 자연스러운 라인이 돋보입니다. 느린 곡에서 두 사람의 거리와 속도가 어떻게 달라지는지 살펴보세요.",
     videoId: "CZEB8wdVXOc",
     tags: ["Sensual", "Spain", "Connection"]
   },
@@ -300,7 +294,7 @@ export const dancers: DancerCard[] = [
     id: "sara-panero",
     name: "Sara Panero",
     role: "Lady Style",
-    excerpt: "레이디 스타일과 바디무브먼트를 독립적인 학습 주제로 보기 좋은 아티스트입니다. 손끝, 시선, 라인이 음악 안에서 어떻게 정리되는지 볼 수 있습니다.",
+    excerpt: "Sara Panero의 영상은 레이디 스타일과 바디무브먼트를 따로 연습하고 싶은 사람에게 좋은 참고가 됩니다. 손끝과 시선, 라인이 음악에 맞춰 어떻게 달라지는지 보세요.",
     videoId: "FCAt14yr0j4",
     tags: ["Lady Style", "Body Movement", "Stage"]
   },
@@ -308,7 +302,7 @@ export const dancers: DancerCard[] = [
     id: "gray-loren",
     name: "Gray & Loren",
     role: "Korea Social",
-    excerpt: "한국 바차타에서 Influence 계열 감각을 읽을 때 먼저 확인할 만한 팀입니다. 공개 소셜 영상으로 프레임과 음악성을 살펴볼 수 있습니다.",
+    excerpt: "Gray & Loren의 소셜 영상에서는 프레임을 유지하면서 음악의 여백을 살리는 호흡이 눈에 띕니다. 국내 플로어에서 Influence 스타일이 어떻게 풀리는지 볼 수 있습니다.",
     videoId: "nrJM-arshvE",
     tags: ["Korea", "Social", "Video"]
   },
@@ -316,7 +310,7 @@ export const dancers: DancerCard[] = [
     id: "cluny-journey",
     name: "Cluny & Journey",
     role: "Korea Social",
-    excerpt: "한국 소셜과 공연 영상으로 흐름을 확인할 수 있는 국내 페어입니다. 무대용 표현과 소셜용 움직임을 나눠 보기 좋습니다.",
+    excerpt: "Cluny & Journey는 국내 소셜과 공연 영상에서 꾸준히 만날 수 있는 페어입니다. 무대에서의 표현과 소셜에서의 움직임이 어떻게 달라지는지 비교해보세요.",
     videoId: "CypEYpiRzCo",
     tags: ["Korea", "Social", "Performance"]
   },
@@ -324,7 +318,7 @@ export const dancers: DancerCard[] = [
     id: "sora-dalkong",
     name: "소라 & 달콩",
     role: "Dominican, Korea",
-    excerpt: "라틴씨엘로의 도미니칸, 베이직, 해외 데모 따라잡기 수업 기록이 확인되는 페어입니다. 발과 리듬을 같이 보는 입구로 좋습니다.",
+    excerpt: "소라 & 달콩의 수업 영상에서는 도미니칸 풋워크와 베이직을 함께 볼 수 있습니다. 발의 모양보다 리듬에 맞춰 체중이 옮겨가는 순간을 따라가 보세요.",
     videoId: "6h3Io0i6H_M",
     tags: ["Korea", "Dominican", "Latin Cielo"]
   },
@@ -332,7 +326,7 @@ export const dancers: DancerCard[] = [
     id: "waffle-sera",
     name: "와플 & 세라",
     role: "Korea Social",
-    excerpt: "소셜 원리와 한곡반 영상으로 국내 수업 흐름을 확인할 수 있는 페어입니다. 안무보다 연결을 어떻게 설명하는지 볼 만합니다.",
+    excerpt: "와플 & 세라의 수업 영상은 한 곡을 완성하는 과정과 소셜에서의 연결을 함께 다룹니다. 안무를 외우기 전에 리드와 팔로우를 어떻게 설명하는지 들어보세요.",
     videoId: "ZvyiwLuNPj4",
     tags: ["Korea", "Social", "Class"]
   },
@@ -340,7 +334,7 @@ export const dancers: DancerCard[] = [
     id: "victor-alba",
     name: "Victor & Alba",
     role: "Korea Visit",
-    excerpt: "한국 부트캠프와 공연 영상으로 활동을 확인할 수 있는 최근 내한 팀입니다. 국내 워크숍 흐름과 연결해서 보기 좋습니다.",
+    excerpt: "Victor & Alba는 국내 부트캠프와 공연 영상으로도 만날 수 있습니다. 워크숍에서 배운 움직임이 공연과 소셜에서 어떻게 이어지는지 비교해보세요.",
     videoId: "AV2YXlMIBd0",
     tags: ["Korea Visit", "Bootcamp", "Sensual"]
   },
@@ -348,7 +342,7 @@ export const dancers: DancerCard[] = [
     id: "ryuji",
     name: "류지",
     role: "Korea",
-    excerpt: "화차타 백화점 클래스와 류텐션 영상으로 최근 강남 활동을 확인할 수 있는 댄서입니다. 레벨별 수업과 발표 흐름을 같이 볼 수 있습니다.",
+    excerpt: "류지의 클래스와 발표 영상에서는 레벨별 수업이 실제 한 곡으로 완성되는 과정을 볼 수 있습니다. 기본기와 표현이 어떻게 이어지는지 확인해보세요.",
     videoId: "-39NjttCnLM",
     tags: ["Korea", "Gangnam", "Class"]
   },
@@ -356,7 +350,7 @@ export const dancers: DancerCard[] = [
     id: "ska-jubell",
     name: "스카 & 쥬벨",
     role: "Korea",
-    excerpt: "원리반, 릴스반, 한곡반을 함께 운영하는 강남 바차타 페어입니다. 기본기 수업과 발표 영상이 어떻게 이어지는지 보기 좋습니다.",
+    excerpt: "스카 & 쥬벨의 영상은 기본 원리부터 릴스, 한 곡 안무까지 수업의 폭이 넓습니다. 같은 기본기가 짧은 영상과 발표 무대에서 어떻게 달라지는지 볼 수 있습니다.",
     videoId: "PrKlmz-msFc",
     tags: ["Korea", "Class", "One Song"]
   },
@@ -364,7 +358,7 @@ export const dancers: DancerCard[] = [
     id: "goni",
     name: "고니",
     role: "Dominican, Korea",
-    excerpt: "풋워크 릴스반과 도미니칸 바차타 풋워크 영상으로 확인되는 국내 댄서입니다. 센슈얼만 보던 사람에게 리듬 중심의 입구가 됩니다.",
+    excerpt: "고니의 도미니칸 풋워크 영상은 리듬에 맞춰 발을 쓰는 맛을 보여줍니다. 센슈얼 위주로 접했다면 바차타의 다른 박자감과 에너지를 만나보세요.",
     videoId: "f7xAkIXFFes",
     tags: ["Korea", "Footwork", "Dominican"]
   }

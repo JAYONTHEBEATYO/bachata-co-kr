@@ -3,6 +3,7 @@ import Link from "next/link";
 import { CalendarDays, ExternalLink, MapPin } from "lucide-react";
 import { getEvents } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
+import { EventVisual } from "@/components/EventVisual";
 
 export const metadata: Metadata = {
   title: "바차타 행사",
@@ -24,10 +25,10 @@ export default async function EventsPage() {
         {events.map((event) => (
           <article key={event.id} className="event-card">
             <Link href={`/events/${event.id}`} aria-label={`${event.title} 상세 보기`}>
-              <img src={event.posterUrl} alt={`${event.title} 대표 이미지`} />
+              <EventVisual event={event} />
             </Link>
             <div>
-              <span className="flair">{event.region === "domestic" ? "페스티벌" : "해외페스티벌"}</span>
+              <span className="flair">{new Date(event.startsAt).getTime() < Date.now() ? "지난 행사" : event.region === "domestic" ? "국내 행사" : "해외 행사"}</span>
               <h2><Link href={`/events/${event.id}`}>{event.title}</Link></h2>
               <p>{event.excerpt}</p>
               <div className="event-meta">

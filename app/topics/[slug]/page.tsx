@@ -7,6 +7,7 @@ import { absoluteUrl } from "@/lib/format";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ sort?: string }>;
 };
 
 const topicPages = {
@@ -21,7 +22,7 @@ const topicPages = {
     title: "댄서 리뷰",
     category: "dancerReview",
     activeHref: "/topics/dancer-review",
-    description: "부트캠프, 워크숍, 마스터클래스, 소셜댄스 후기를 추천순으로 모읍니다.",
+    description: "부트캠프, 워크숍, 마스터클래스와 소셜댄스를 직접 경험한 후기를 나눕니다.",
     subtopics: ["멜빈", "가티카", "헤로", "미글레", "그레이", "로렌", "소라", "원궁"]
   },
   "social-review": {
@@ -35,7 +36,7 @@ const topicPages = {
     title: "국내외 행사",
     category: "events",
     activeHref: "/topics",
-    description: "국내 행사, 해외 페스티벌, 워크숍, 행사 후기와 양도/패스 글을 모읍니다.",
+    description: "국내 행사와 해외 페스티벌, 워크숍부터 참가 후기와 패스 이야기까지 찾아볼 수 있습니다.",
     subtopics: ["국내 행사", "해외 행사", "행사 후기", "워크숍", "양도/패스"]
   }
 } as const;
@@ -56,10 +57,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function TopicFeedPage({ params }: PageProps) {
+export default async function TopicFeedPage({ params, searchParams }: PageProps) {
   const { slug } = await params;
+  const { sort: requestedSort } = await searchParams;
   const page = topicPages[slug as keyof typeof topicPages];
   if (!page) notFound();
+  const sort = requestedSort === "new" || requestedSort === "top" ? requestedSort : "hot";
 
   return (
     <main className="app-shell">
@@ -74,9 +77,14 @@ export default async function TopicFeedPage({ params }: PageProps) {
           </div>
           <Link className="primary-link" href={`/write?topic=${page.category}`}>이 주제로 글쓰기</Link>
         </section>
+        <nav className="sort-tabs" aria-label={`${page.title} 정렬`}>
+          <Link href={`/topics/${slug}`} aria-current={sort === "hot" ? "page" : undefined}>추천순</Link>
+          <Link href={`/topics/${slug}?sort=new`} aria-current={sort === "new" ? "page" : undefined}>최신순</Link>
+          <Link href={`/topics/${slug}?sort=top`} aria-current={sort === "top" ? "page" : undefined}>공감순</Link>
+        </nav>
         <LiveThreadList
           category={page.category}
-          sort="hot"
+          sort={sort}
           emptyCopy={`${page.title} 토픽이 아직 없습니다. 첫 글을 남겨주세요.`}
         />
       </section>

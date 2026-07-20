@@ -100,7 +100,7 @@ export const needsNicknameRefresh = (name: string) => {
   const trimmed = name.trim();
   if (!trimmed) return true;
   if (/^(anon|guest)_/i.test(trimmed)) return true;
-  if (/[?]{2,}|�/.test(trimmed)) return true;
+  if (/[?]{2,}/.test(trimmed) || new RegExp("\\uFFFD").test(trimmed)) return true;
   if (bannedNamePieces.some((piece) => trimmed.includes(piece))) return true;
   return false;
 };

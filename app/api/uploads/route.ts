@@ -1,5 +1,6 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
+import { getCommunityContext, requestFingerprint } from "@/lib/community-server";
 
 type R2ObjectBody = {
   body: ReadableStream;
@@ -80,6 +81,8 @@ export async function OPTIONS(request: NextRequest) {
 export async function POST(request: NextRequest) {
   const bucket = await getBucket();
   if (!bucket) return respond(request, 503, { error: "미디어 저장소가 아직 연결되지 않았습니다." });
+  const { db, hashSalt } = await getCommunityContext();
+  if (!db) return respond(request, 503, { error: "업로드 보호 기능이 아직 연결되지 않았습니다." });
 
   let formData: FormData;
   try {
@@ -91,7 +94,22 @@ export async function POST(request: NextRequest) {
   const file = formData.get("file");
   if (!(file instanceof File)) return respond(request, 400, { error: "파일을 선택해주세요." });
   if (!allowedTypes.has(file.type)) return respond(request, 400, { error: "이미지, MP4, WebM, MOV 파일만 올릴 수 있습니다." });
-  if (file.size > 40 * 1024 * 1024) return respond(request, 400, { error: "파일은 40MB 이하로 올려주세요." });
+  const sizeLimit = file.type.startsWith("image/") ? 12 * 1024 * 1024 : 25 * 1024 * 1024;
+  if (file.size > sizeLimit) {
+    return respond(request, 400, {
+      error: file.type.startsWith("image/") ? "이미지는 12MB 이하로 올려주세요." : "동영상은 25MB 이하로 올려주세요."
+    });
+  }
+
+  const uploaderHash = await requestFingerprint(request, hashSalt, "uploads");
+  const since = new Date(Date.now() - 60 * 60_000).toISOString();
+  const usage = await db.prepare(
+    `select count(*) as count, coalesce(sum(byte_size), 0) as totalBytes
+    from upload_events where uploader_hash = ? and created_at >= ?`
+  ).bind(uploaderHash, since).first<{ count: number; totalBytes: number }>();
+  if (Number(usage?.count || 0) >= 10 || Number(usage?.totalBytes || 0) + file.size > 60 * 1024 * 1024) {
+    return respond(request, 429, { error: "한 시간 업로드 한도를 넘었습니다. 잠시 후 다시 시도해주세요." });
+  }
 
   const datePath = new Date().toISOString().slice(0, 10).replace(/-/g, "/");
   const key = `uploads/${datePath}/${crypto.randomUUID()}-${safeName(file.name)}`;
@@ -101,6 +119,10 @@ export async function POST(request: NextRequest) {
       originalName: file.name.slice(0, 120)
     }
   });
+
+  await db.prepare(
+    "insert into upload_events (id, uploader_hash, object_key, byte_size, content_type, created_at) values (?, ?, ?, ?, ?, ?)"
+  ).bind(crypto.randomUUID(), uploaderHash, key, file.size, file.type, new Date().toISOString()).run();
 
   const origin = new URL(request.url).origin;
   return respond(request, 201, {

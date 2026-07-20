@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!community) return {};
 
   return {
-    title: `r/${community.name}`,
+    title: `${community.name} 주제`,
     description: community.description,
     alternates: { canonical: absoluteUrl(`/c/${community.slug}`) }
   };
@@ -43,7 +43,7 @@ export default async function CommunityPage({ params }: PageProps) {
       <section className="community-hero" style={{ borderColor: community.color }}>
         <span className="community-dot" style={{ backgroundColor: community.color }} />
         <div>
-          <span className="eyebrow">r/{community.name}</span>
+          <span className="eyebrow">주제 · {community.name}</span>
           <h1>{community.name}</h1>
           <p>{community.description}</p>
         </div>

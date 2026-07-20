@@ -1,11 +1,12 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
-import { ArrowBigDown, ArrowBigUp, MessageCircle, Send, Search } from "lucide-react";
+import { ArrowBigDown, ArrowBigUp, MessageCircle, Send, Search, Trash2 } from "lucide-react";
 import { communityApiUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
 import type { Comment } from "@/lib/types";
+import { ReportButton } from "./ReportButton";
 
 type LiveCommentsProps = {
   threadId: string;
@@ -188,6 +189,28 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
     });
   };
 
+  const deleteComment = async (commentId: string) => {
+    const password = window.prompt("이 댓글에 사용한 임시비밀번호 4자리를 입력해주세요.") || "";
+    if (!/^\d{4}$/.test(password)) {
+      setError("임시비밀번호 4자리를 숫자로 입력해주세요.");
+      return;
+    }
+    setError("");
+    try {
+      const response = await fetch(commentsApiUrl(), {
+        method: "DELETE",
+        headers: { "content-type": "text/plain;charset=UTF-8" },
+        body: JSON.stringify({ commentId, password })
+      });
+      const data = await response.json() as { error?: string };
+      if (!response.ok) throw new Error(data.error || "댓글을 삭제하지 못했습니다.");
+      setComments((current) => current.filter((comment) => comment.id !== commentId));
+      setStatus("댓글을 삭제했습니다.");
+    } catch (deleteError) {
+      setError(deleteError instanceof Error ? deleteError.message : "댓글을 삭제하지 못했습니다.");
+    }
+  };
+
   return (
     <section className="comments" aria-labelledby="comments-title">
       <div className="comments-head">
@@ -277,7 +300,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
         <label>
           정렬 기준
           <select value={sort} onChange={(event) => setSort(event.target.value as CommentSort)}>
-            <option value="best">좋아요 비율 높은 순</option>
+            <option value="best">추천순</option>
             <option value="new">최신순</option>
             <option value="old">오래된순</option>
           </select>
@@ -297,6 +320,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
             onVote={voteComment}
             userVotes={userVotes}
             votePending={votePending}
+            onDelete={deleteComment}
           />
         )) : (
           <p className="empty-copy">아직 댓글이 없습니다. 첫 댓글을 남겨주세요.</p>
@@ -311,13 +335,15 @@ function CommentNode({
   onReply,
   onVote,
   userVotes,
-  votePending
+  votePending,
+  onDelete
 }: {
   comment: Comment;
   onReply: (comment: Comment) => void;
   onVote: (commentId: string, direction: CommentVote) => void;
   userVotes: Record<string, number>;
   votePending: string;
+  onDelete: (commentId: string) => void;
 }) {
   const userVote = userVotes[comment.id] || 0;
   const isPending = votePending === comment.id;
@@ -354,6 +380,8 @@ function CommentNode({
             </button>
           </span>
           <button type="button" onClick={() => onReply(comment)}><MessageCircle size={15} /> 답글 달기</button>
+          <ReportButton targetType="comment" targetId={comment.id} />
+          <button type="button" onClick={() => onDelete(comment.id)}><Trash2 size={15} /> 삭제</button>
         </div>
         {comment.replies?.length ? (
           <div className="comment-replies">
@@ -365,6 +393,7 @@ function CommentNode({
                 onVote={onVote}
                 userVotes={userVotes}
                 votePending={votePending}
+                onDelete={onDelete}
               />
             ))}
           </div>

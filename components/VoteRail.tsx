@@ -60,9 +60,7 @@ export function VoteRail({ targetId, targetType = "thread", score, downvotes = 0
         body: JSON.stringify({
           targetId,
           targetType,
-          direction,
-          initialScore: score,
-          initialDownvotes: downvotes
+          direction
         })
       });
       const data = await response.json() as {

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { formatRelativeDate } from "@/lib/format";
 import type { Thread } from "@/lib/types";
+import { RelativeTime } from "./RelativeTime";
 import { ThreadActionBar } from "./ThreadActionBar";
 import { VideoEmbed } from "./VideoEmbed";
 
@@ -17,9 +17,9 @@ export function ThreadCard({ thread, compact = false, headingLevel = 2 }: Thread
     <article className={thread.pinned ? "thread-card pinned" : "thread-card"}>
       <div className="thread-body">
         <div className="thread-meta">
-          <Link href={`/c/${thread.communitySlug}`}>r/{thread.communityName}</Link>
+          <Link href={`/c/${thread.communitySlug}`}>주제 · {thread.communityName}</Link>
           <span>{thread.author}</span>
-          <span>{formatRelativeDate(thread.createdAt)}</span>
+          <RelativeTime value={thread.createdAt} />
           <span className="flair">{thread.flair}</span>
         </div>
         {headingLevel === 1 ? (

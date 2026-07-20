@@ -1,9 +1,0 @@
-{
-  "name": "바차타 코리아",
-  "short_name": "Bachata Korea",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#08080a",
-  "theme_color": "#8f243c",
-  "lang": "ko-KR"
-}

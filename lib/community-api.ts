@@ -14,3 +14,16 @@ export const publicSiteOrigin = () =>
   process.env.NEXT_PUBLIC_SITE_URL || fallbackSiteOrigin;
 
 export const publicUrl = (path: string) => new URL(path, publicSiteOrigin()).toString();
+
+export const communityThreadPath = (id: string) => {
+  const encodedId = encodeURIComponent(id);
+  if (typeof window === "undefined" || window.location.hostname.endsWith(".workers.dev")) {
+    return `/g/${encodedId}`;
+  }
+  return `/guest/?id=${encodedId}`;
+};
+
+export const communityThreadShareUrl = (id: string) => {
+  const origin = process.env.NEXT_PUBLIC_COMMUNITY_THREAD_ORIGIN || fallbackApiOrigin;
+  return new URL(`/g/${encodeURIComponent(id)}`, origin).toString();
+};

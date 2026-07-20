@@ -17,7 +17,7 @@ const topics: Topic[] = [
   {
     slug: "academy-review",
     title: "아카데미 리뷰",
-    description: "학원, 동호회, 팀 수업 후기를 토픽으로 모읍니다.",
+    description: "어디에서 배울지 고민될 때 실제 수업과 동호회 경험을 나눕니다.",
     href: "/topics/academy-review",
     meta: "수업·동호회",
     subtopics: ["라틴씨엘로", "센슈얼랩", "에버라틴", "라스트댄스", "엔수에뇨", "오살사"]
@@ -25,7 +25,7 @@ const topics: Topic[] = [
   {
     slug: "dancer-review",
     title: "댄서 리뷰",
-    description: "워크숍, 부트캠프, 마스터클래스, 소셜댄스 후기를 정리합니다.",
+    description: "워크숍부터 부트캠프, 소셜댄스까지 직접 겪은 이야기를 나눕니다.",
     href: "/topics/dancer-review",
     meta: "워크숍·홀딩",
     subtopics: ["멜빈", "가티카", "헤로", "미글레", "그레이", "소라", "원궁"]
@@ -41,7 +41,7 @@ const topics: Topic[] = [
   {
     slug: "events",
     title: "국내외 행사",
-    description: "국내 행사와 해외 페스티벌, 워크숍, 양도/패스 글을 모읍니다.",
+    description: "국내 행사와 해외 페스티벌, 워크숍, 패스 이야기를 찾아봅니다.",
     href: "/topics/events",
     meta: "행사·페스티벌",
     subtopics: ["국내 행사", "해외 행사", "행사 후기", "워크숍", "양도/패스"]
@@ -51,7 +51,7 @@ const topics: Topic[] = [
     title: "질문과 무물보",
     description: "처음 배우는 사람부터 강사, 운영자까지 댓글로 묻고 답합니다.",
     href: "/write?type=ama",
-    meta: "AMA",
+    meta: "무물보",
     subtopics: ["무물보", "입문 질문", "음악 질문", "홀딩", "소셜 매너"]
   },
   {

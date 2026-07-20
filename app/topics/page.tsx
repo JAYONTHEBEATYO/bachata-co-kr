@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/format";
 
 export const metadata: Metadata = {
   title: "주제 탐색",
-  description: "바차타 코리아의 아카데미 리뷰, 댄서 리뷰, 소셜 후기, 국내외 행사 하위 주제를 살펴봅니다.",
+  description: "아카데미 리뷰, 댄서 리뷰, 소셜 후기와 국내외 행사 토픽을 한곳에서 찾을 수 있습니다.",
   alternates: { canonical: absoluteUrl("/topics") }
 };
 

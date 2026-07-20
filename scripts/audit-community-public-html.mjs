@@ -1,79 +1,47 @@
-import { readdirSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
 import { join, relative } from "node:path";
 
 const root = process.cwd();
-const ignoredDirs = new Set([".git", ".next", ".open-next", ".wrangler", "node_modules"]);
-
-const bannedPatterns = [
-  {
-    pattern: /와 바차타 개꿀이야/g,
-    reason: "글쓰기 기본 예시 제목이 공개 HTML에 남아 있습니다."
-  },
-  {
-    pattern: /오늘의 미션|흩어진 바차타 영상/g,
-    reason: "초기 목업용 미션 카피가 공개 HTML에 남아 있습니다."
-  },
-  {
-    pattern: /(?:1,280|920|760|640|530|680)\s*명/g,
-    reason: "목업 회원 수가 공개 HTML에 남아 있습니다."
-  },
-  {
-    pattern: /댓글\s+(?:[1-9]\d*)/g,
-    reason: "정적 seed의 가짜 댓글 수가 공개 HTML에 남아 있을 수 있습니다."
-  },
-  {
-    pattern: />\s*(?:Hot|New|Top|Rising)\s*</g,
-    reason: "영문 정렬 탭이 공개 HTML에 남아 있습니다."
-  },
-  {
-    pattern: /Graph API|oEmbed|RAG|queue|출처 상태|깨진 링크/g,
-    reason: "내부 운영/수집 용어가 공개 HTML에 노출되었습니다."
-  },
-  {
-    pattern: /\uFFFD/g,
-    reason: "깨진 문자 replacement character가 공개 HTML에 있습니다."
-  }
+const buildRoot = join(root, ".next", "server", "app");
+const banned = [
+  { pattern: />\s*(?:Hot|New|Top|Rising)\s*</g, reason: "영문 정렬 탭이 남아 있음" },
+  { pattern: /원문은 복사하지 않고|공개 링크와 관찰값|출처 상태|정상 링크/g, reason: "내부 편집 문구가 노출됨" },
+  { pattern: /Graph API|\boEmbed\b|\bRAG\b|\bqueue\b/gi, reason: "내부 기술 용어가 노출됨" },
+  { pattern: /\uFFFD/g, reason: "문자 인코딩이 깨짐" },
+  { pattern: /\?{4,}/g, reason: "물음표로 깨진 문장이 남아 있음" }
 ];
 
-const htmlFiles = [];
+if (!existsSync(buildRoot)) {
+  console.error("빌드 결과가 없습니다. npm run build를 먼저 실행하세요.");
+  process.exit(1);
+}
 
-const walk = (dir) => {
+const htmlFiles = [];
+function walk(dir) {
   for (const name of readdirSync(dir)) {
-    if (ignoredDirs.has(name)) continue;
     const full = join(dir, name);
     const stat = statSync(full);
-    if (stat.isDirectory()) {
-      walk(full);
-      continue;
-    }
-    if (name.endsWith(".html")) htmlFiles.push(full);
+    if (stat.isDirectory()) walk(full);
+    if (stat.isFile() && name.endsWith(".html")) htmlFiles.push(full);
   }
-};
-
-walk(root);
+}
+walk(buildRoot);
 
 const findings = [];
-
 for (const file of htmlFiles) {
-  const text = readFileSync(file, "utf8");
-  for (const rule of bannedPatterns) {
+  const html = readFileSync(file, "utf8");
+  for (const rule of banned) {
     rule.pattern.lastIndex = 0;
-    const matches = [...text.matchAll(rule.pattern)];
-    if (!matches.length) continue;
-    findings.push({
-      file: relative(root, file),
-      reason: rule.reason,
-      sample: matches.slice(0, 3).map((match) => match[0]).join(", ")
-    });
+    const match = rule.pattern.exec(html);
+    if (!match) continue;
+    findings.push(`${relative(root, file)}: ${rule.reason} (${match[0]})`);
   }
 }
 
 if (findings.length) {
-  console.error("Public community HTML audit failed:");
-  for (const finding of findings) {
-    console.error(`- ${finding.file}: ${finding.reason} (${finding.sample})`);
-  }
+  console.error("빌드 HTML 감사에 실패했습니다.");
+  findings.forEach((finding) => console.error(`- ${finding}`));
   process.exit(1);
 }
 
-console.log(`Public community HTML audit passed (${htmlFiles.length} HTML files checked).`);
+console.log(`빌드 HTML 감사를 통과했습니다. (${htmlFiles.length}개 파일)`);

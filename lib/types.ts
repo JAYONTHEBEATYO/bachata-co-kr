@@ -4,7 +4,7 @@ export type Community = {
   slug: string;
   name: string;
   description: string;
-  memberCount: number;
+  memberCount?: number;
   color: string;
 };
 
@@ -70,7 +70,8 @@ export type EventCard = {
   city: string;
   venue: string;
   excerpt: string;
-  posterUrl: string;
+  posterUrl?: string;
+  startsAt: string;
   sourceUrl: string;
   tags: string[];
 };

@@ -7,7 +7,7 @@ export function CommentTree({ comments }: { comments: Comment[] }) {
     <section className="comments" aria-labelledby="comments-title">
       <h2 id="comments-title">댓글</h2>
       {comments.length ? comments.map((comment) => <CommentNode key={comment.id} comment={comment} />) : (
-        <p className="empty-copy">아직 댓글이 없습니다. 첫 질문이나 관찰을 남겨보세요.</p>
+        <p className="empty-copy">아직 댓글이 없습니다. 궁금한 점이나 경험을 편하게 남겨보세요.</p>
       )}
     </section>
   );

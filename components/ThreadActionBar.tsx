@@ -3,6 +3,7 @@ import { absoluteUrl } from "@/lib/format";
 import { sharePreviewUrl } from "@/lib/share-meta";
 import type { SourceLink } from "@/lib/types";
 import { AwardPicker } from "./AwardPicker";
+import { ReportButton } from "./ReportButton";
 import { ShareButton } from "./ShareButton";
 import { VoteRail } from "./VoteRail";
 
@@ -42,6 +43,7 @@ export function ThreadActionBar({
       {showAward && threadId ? <AwardPicker threadId={threadId} /> : null}
       {commentHref ? <a href={commentHref}><MessageCircle size={16} /> 댓글</a> : null}
       <ShareButton url={cacheFreshShareUrl} title={shareTitle} text={shareText} />
+      <ReportButton targetType={voteTargetType} targetId={voteTargetId} />
       {sourceLinks.slice(0, 2).map((link) => (
         <a key={link.url} href={link.url} target="_blank" rel="noreferrer">{link.label}</a>
       ))}

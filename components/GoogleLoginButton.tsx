@@ -27,7 +27,7 @@ export function GoogleLoginButton() {
   const login = async () => {
     const client = getSupabaseBrowserClient();
     if (!configured) {
-      setStatus("Google 로그인 키가 아직 설정되지 않았습니다.");
+      setStatus("현재는 비회원으로 이용할 수 있습니다.");
       return;
     }
     if (!client) return;
@@ -84,13 +84,23 @@ export function GoogleLoginButton() {
     );
   }
 
+  if (!configured) {
+    return (
+      <div className="auth-panel">
+        <strong>비회원으로 바로 이용하세요</strong>
+        <p>닉네임과 임시비밀번호를 정하면 글과 댓글을 남길 수 있습니다. 프로필은 현재 브라우저에 저장됩니다.</p>
+        <Link className="submit-button" href="/profile"><UserCircle size={18} /> 내 프로필 설정</Link>
+      </div>
+    );
+  }
+
   return (
     <div className="auth-panel">
       <button type="button" className="submit-button" onClick={login} disabled={pending}>
         <LogIn size={18} />
         {pending ? "Google로 이동 중" : "Google로 계속하기"}
       </button>
-      <p>{configured ? "Google 계정으로 로그인하면 프로필과 글쓰기 기능을 계정에 묶을 수 있습니다." : status || "NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY 설정이 필요합니다."}</p>
+      <p>{status || "Google 계정으로 로그인하면 다른 기기에서도 같은 프로필을 이어서 쓸 수 있습니다."}</p>
     </div>
   );
 }

@@ -6,6 +6,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(absoluteUrl("/")),
+  manifest: "/site.webmanifest",
+  icons: {
+    icon: "/icon.svg",
+    apple: "/icon.svg"
+  },
   title: {
     default: "바차타 코리아 - Bachata Korea",
     template: "%s | 바차타 코리아"

@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { communityApiUrl, publicUrl } from "@/lib/community-api";
+import { communityApiUrl, communityThreadPath, communityThreadShareUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
 import { extractThreadMedia } from "@/lib/thread-media";
 import { ThreadActionBar } from "./ThreadActionBar";
@@ -26,6 +26,7 @@ type LiveThread = {
 type LiveThreadListProps = {
   category?: string;
   sort?: "hot" | "new" | "top";
+  query?: string;
   emptyCopy?: string;
 };
 
@@ -44,29 +45,31 @@ const labels: Record<string, string> = {
   ama: "무물보"
 };
 
-const threadsApiUrl = (category?: string, sort?: string) => {
+const threadsApiUrl = (category?: string, sort?: string, searchQuery?: string) => {
   const params = new URLSearchParams();
   if (category) params.set("category", category);
   if (sort) params.set("sort", sort);
+  if (searchQuery) params.set("q", searchQuery);
   const query = params.toString();
   return communityApiUrl(`/api/threads/${query ? `?${query}` : ""}`);
 };
-const threadPath = (id: string) => `/guest/?id=${encodeURIComponent(id)}`;
-const threadSharePath = (id: string) => publicUrl(`/g/${encodeURIComponent(id)}`);
-
-export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveThreadListProps) {
+export function LiveThreadList({ category, sort = "hot", query = "", emptyCopy = "" }: LiveThreadListProps) {
   const [threads, setThreads] = useState<LiveThread[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     let cancelled = false;
     const load = async () => {
+      setLoading(true);
       try {
-        const response = await fetch(threadsApiUrl(category, sort), { cache: "no-store" });
+        const response = await fetch(threadsApiUrl(category, sort, query), { cache: "no-store" });
         if (!response.ok) return;
         const data = await response.json() as { threads?: LiveThread[] };
         if (!cancelled && Array.isArray(data.threads)) setThreads(data.threads);
       } catch {
         if (!cancelled) setThreads([]);
+      } finally {
+        if (!cancelled) setLoading(false);
       }
     };
 
@@ -74,7 +77,9 @@ export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveT
     return () => {
       cancelled = true;
     };
-  }, [category, sort]);
+  }, [category, sort, query]);
+
+  if (loading) return <div className="feed-loading" aria-live="polite">토픽을 불러오는 중입니다.</div>;
 
   if (!threads.length) {
     return emptyCopy ? <div className="empty-state">{emptyCopy}</div> : null;
@@ -92,18 +97,19 @@ export function LiveThreadList({ category, sort = "hot", emptyCopy = "" }: LiveT
 function LiveThreadCard({ thread }: { thread: LiveThread }) {
   const parsed = extractThreadMedia(thread.body, thread.linkUrl);
   const bodyText = parsed.text || thread.body;
+  const detailPath = communityThreadPath(thread.id);
 
   return (
     <article className="thread-card live-thread-card" id={`guest-${thread.id}`}>
           <div className="thread-body">
             <div className="thread-meta">
-              <span>r/{labels[thread.category] || "자유"}</span>
+              <span>주제 · {labels[thread.category] || "자유"}</span>
               <span>{thread.guestId}</span>
               <span>IP {thread.ipPrefix}</span>
               <span>{formatRelativeDate(thread.createdAt)}</span>
               <span className="flair">비회원</span>
             </div>
-            <h2><Link href={threadPath(thread.id)}>{thread.title}</Link></h2>
+            <h2><Link href={detailPath}>{thread.title}</Link></h2>
             <p>{bodyText}</p>
             <ThreadMediaAttachments media={parsed.media} compact />
             <div className="tag-row">
@@ -114,15 +120,15 @@ function LiveThreadCard({ thread }: { thread: LiveThread }) {
               downvotes={thread.downvotes}
               voteTargetId={thread.id}
               voteTargetType="guestThread"
-              commentHref={`${threadPath(thread.id)}#comments-title`}
-              sharePath={threadSharePath(thread.id)}
+              commentHref={`${detailPath}#comments-title`}
+              sharePath={communityThreadShareUrl(thread.id)}
               shareTitle={thread.title}
               shareText={bodyText.slice(0, 100)}
               sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
               showAward={false}
             />
             {thread.commentCount ? (
-              <Link className="comment-count-link" href={`${threadPath(thread.id)}#comments-title`}>
+              <Link className="comment-count-link" href={`${detailPath}#comments-title`}>
                 댓글 {thread.commentCount}개 보기
               </Link>
             ) : null}

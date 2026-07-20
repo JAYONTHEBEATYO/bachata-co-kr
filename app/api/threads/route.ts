@@ -1,23 +1,13 @@
-import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
-import { ensureCommunityTables } from "@/lib/community-schema";
+import {
+  getCommunityContext,
+  getRequestIp,
+  jsonHeaders as sharedJsonHeaders,
+  requestFingerprint,
+  sha256Hex
+} from "@/lib/community-server";
 import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
-
-type D1Rows<T> = {
-  results?: T[];
-};
-
-type D1PreparedStatement = {
-  bind: (...values: unknown[]) => D1PreparedStatement;
-  all: <T = unknown>() => Promise<D1Rows<T>>;
-  first: <T = unknown>() => Promise<T | null>;
-  run: () => Promise<unknown>;
-};
-
-type D1DatabaseBinding = {
-  prepare: (query: string) => D1PreparedStatement;
-};
 
 type GuestThreadRow = {
   id: string;
@@ -52,41 +42,10 @@ const categories = new Set([
   "ama"
 ]);
 
-const allowedOrigins = new Set([
-  "https://bachata.co.kr",
-  "https://www.bachata.co.kr",
-  "https://bachata-co-kr.bachata-korea.workers.dev",
-  "http://localhost:3000",
-  "http://localhost:3333",
-  "http://127.0.0.1:3000",
-  "http://127.0.0.1:3333"
-]);
-
-const jsonHeaders = (request: NextRequest) => {
-  const origin = request.headers.get("origin");
-  const allowOrigin = origin && allowedOrigins.has(origin) ? origin : "https://bachata.co.kr";
-
-  return {
-    "access-control-allow-origin": allowOrigin,
-    "access-control-allow-methods": "GET,POST,OPTIONS",
-    "access-control-allow-headers": "content-type",
-    "cache-control": "no-store",
-    "content-type": "application/json; charset=utf-8",
-    vary: "Origin"
-  };
-};
+const jsonHeaders = (request: NextRequest) => sharedJsonHeaders(request, "GET,POST,DELETE,OPTIONS");
 
 const respond = (request: NextRequest, status: number, body: unknown) =>
   Response.json(body, { status, headers: jsonHeaders(request) });
-
-const getDb = async (): Promise<D1DatabaseBinding | null> => {
-  try {
-    const { env } = await getCloudflareContext({ async: true });
-    return ((env as Record<string, unknown>).COMMENTS_DB as D1DatabaseBinding | undefined) || null;
-  } catch {
-    return null;
-  }
-};
 
 const normalizeText = (value: unknown, max: number) => {
   const text = typeof value === "string" ? value : "";
@@ -135,14 +94,6 @@ const normalizeLink = (value: unknown) => {
   } catch {
     return null;
   }
-};
-
-const getIp = (request: NextRequest) =>
-  request.headers.get("cf-connecting-ip") || request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() || "unknown";
-
-const sha256Hex = async (value: string) => {
-  const digest = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
-  return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
 };
 
 const tagMap: Array<[RegExp, string]> = [
@@ -200,7 +151,8 @@ const isBrokenText = (...values: Array<string | null | undefined>) =>
     const text = value || "";
     if (!text) return false;
     const questionCount = (text.match(/\?/g) || []).length;
-    return /�/.test(text) || questionCount >= Math.max(6, Math.ceil(text.length * 0.25));
+    return new RegExp("\\uFFFD").test(text)
+      || questionCount >= Math.max(6, Math.ceil(text.length * 0.25));
   });
 
 const rowToThread = (row: GuestThreadRow) => ({
@@ -225,9 +177,8 @@ export async function OPTIONS(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
-  const db = await getDb();
+  const { db } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
-  await ensureCommunityTables(db);
 
   const id = normalizeId(request.nextUrl.searchParams.get("id"));
   if (id) {
@@ -255,9 +206,22 @@ export async function GET(request: NextRequest) {
 
   const category = request.nextUrl.searchParams.get("category");
   const categoryFilter = category && categories.has(category) ? category : null;
+  const query = normalizeText(request.nextUrl.searchParams.get("q"), 80);
   const sort = normalizeSort(request.nextUrl.searchParams.get("sort"));
   const orderBy = orderByForSort(sort);
-  const rows = categoryFilter
+  const rows = categoryFilter && query
+    ? await db.prepare(
+      `select
+        g.id, g.title, g.body, g.category, g.link_url as linkUrl,
+        g.guest_id as guestId, g.ip_prefix as ipPrefix, g.score, g.downvotes,
+        g.created_at as createdAt,
+        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      from guest_threads g
+      where g.status = 'published' and g.category = ? and (g.title like ? or g.body like ?)
+      order by ${orderBy}
+      limit 40`
+    ).bind(categoryFilter, `%${query}%`, `%${query}%`).all<GuestThreadRow>()
+    : categoryFilter
     ? await db.prepare(
       `select
         g.id,
@@ -276,6 +240,18 @@ export async function GET(request: NextRequest) {
       order by ${orderBy}
       limit 40`
     ).bind(categoryFilter).all<GuestThreadRow>()
+    : query
+    ? await db.prepare(
+      `select
+        g.id, g.title, g.body, g.category, g.link_url as linkUrl,
+        g.guest_id as guestId, g.ip_prefix as ipPrefix, g.score, g.downvotes,
+        g.created_at as createdAt,
+        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      from guest_threads g
+      where g.status = 'published' and (g.title like ? or g.body like ?)
+      order by ${orderBy}
+      limit 40`
+    ).bind(`%${query}%`, `%${query}%`).all<GuestThreadRow>()
     : await db.prepare(
       `select
         g.id,
@@ -303,9 +279,8 @@ export async function GET(request: NextRequest) {
 }
 
 export async function POST(request: NextRequest) {
-  const db = await getDb();
+  const { db, hashSalt } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
-  await ensureCommunityTables(db);
 
   let payload: Record<string, unknown>;
   try {
@@ -329,9 +304,8 @@ export async function POST(request: NextRequest) {
   if (body.length < 2) return respond(request, 400, { error: "본문을 두 글자 이상 적어주세요." });
   if (!/^\d{4}$/.test(authorPassword)) return respond(request, 400, { error: "임시비밀번호 4자리를 숫자로 입력해주세요." });
 
-  const ip = getIp(request);
-  const day = new Date().toISOString().slice(0, 10);
-  const ipHash = (await sha256Hex(`${ip}|${day}|bachata-threads-v1`)).slice(0, 40);
+  const ip = getRequestIp(request);
+  const ipHash = await requestFingerprint(request, hashSalt, "threads");
   const since = new Date(Date.now() - 10 * 60_000).toISOString();
   const recent = await db.prepare(
     "select count(*) as count from guest_threads where ip_hash = ? and created_at >= ?"
@@ -344,7 +318,7 @@ export async function POST(request: NextRequest) {
   const id = crypto.randomUUID();
   const now = new Date().toISOString();
   const ipPrefix = displayIpPrefix(ip);
-  const editKeyHash = await sha256Hex(`${id}|${authorPassword}|bachata-thread-key-v1`);
+  const editKeyHash = await sha256Hex(`${id}|${authorPassword}|${hashSalt}|thread-edit`);
 
   await db.prepare(
     `insert into guest_threads
@@ -368,4 +342,49 @@ export async function POST(request: NextRequest) {
       createdAt: now
     }
   });
+}
+
+export async function DELETE(request: NextRequest) {
+  const { db, hashSalt } = await getCommunityContext();
+  if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+
+  let payload: Record<string, unknown>;
+  try {
+    payload = await request.json();
+  } catch {
+    return respond(request, 400, { error: "요청을 읽을 수 없습니다." });
+  }
+
+  const id = normalizeId(payload.id);
+  const password = typeof payload.password === "string" ? payload.password.trim() : "";
+  if (!id || !/^\d{4}$/.test(password)) {
+    return respond(request, 400, { error: "글과 임시비밀번호를 확인해주세요." });
+  }
+
+  const requesterHash = await requestFingerprint(request, hashSalt, "thread-delete");
+  const since = new Date(Date.now() - 15 * 60_000).toISOString();
+  const attempts = await db.prepare(
+    "select count(*) as count from guest_auth_attempts where requester_hash = ? and created_at >= ?"
+  ).bind(requesterHash, since).first<CountRow>();
+  if (Number(attempts?.count || 0) >= 8) {
+    return respond(request, 429, { error: "삭제 확인을 여러 번 시도했습니다. 잠시 후 다시 시도해주세요." });
+  }
+
+  const expected = await sha256Hex(`${id}|${password}|${hashSalt}|thread-edit`);
+  const row = await db.prepare("select edit_key_hash as editKeyHash from guest_threads where id = ? and status = 'published'")
+    .bind(id)
+    .first<{ editKeyHash: string }>();
+  const succeeded = Boolean(row && row.editKeyHash === expected);
+  await db.prepare(
+    "insert into guest_auth_attempts (id, target_type, target_id, requester_hash, succeeded, created_at) values (?, 'thread', ?, ?, ?, ?)"
+  ).bind(crypto.randomUUID(), id, requesterHash, succeeded ? 1 : 0, new Date().toISOString()).run();
+  if (!succeeded) {
+    return respond(request, 403, { error: "임시비밀번호가 맞지 않습니다." });
+  }
+
+  const now = new Date().toISOString();
+  await db.prepare("update guest_threads set status = 'removed', updated_at = ? where id = ?")
+    .bind(now, id)
+    .run();
+  return respond(request, 200, { ok: true });
 }

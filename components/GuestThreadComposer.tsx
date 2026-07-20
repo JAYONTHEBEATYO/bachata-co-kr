@@ -542,7 +542,7 @@ export function GuestThreadComposer() {
           <strong>글이 올라갔습니다</strong>
           <span>작성자: {created.guestId}</span>
           <span>표시 IP: {created.ipPrefix}</span>
-          <p>닉네임은 이 브라우저 세션에 유지됩니다. 임시비밀번호는 이후 글 관리 기능이 열릴 때 본인 확인용으로 사용할 예정입니다.</p>
+          <p>닉네임은 브라우저를 닫기 전까지 유지됩니다. 임시비밀번호는 상세 페이지에서 글을 삭제할 때 필요하니 기억해주세요.</p>
         </div>
       ) : null}
     </form>

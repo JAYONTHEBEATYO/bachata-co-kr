@@ -49,16 +49,13 @@ export default async function ThreadPage({ params }: PageProps) {
 
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "DiscussionForumPosting",
+    "@type": "Article",
     "@id": absoluteUrl(`/t/${thread.id}/${thread.slug}`),
     headline: thread.title,
     articleBody: thread.body,
     datePublished: thread.createdAt,
-    author: { "@type": "Person", name: thread.author },
-    interactionStatistic: [
-      { "@type": "InteractionCounter", interactionType: "https://schema.org/LikeAction", userInteractionCount: thread.upvotes },
-      { "@type": "InteractionCounter", interactionType: "https://schema.org/CommentAction", userInteractionCount: thread.commentCount }
-    ],
+    author: { "@type": "Organization", name: "바차타 코리아" },
+    publisher: { "@type": "Organization", name: "바차타 코리아", url: absoluteUrl("/") },
     inLanguage: "ko-KR",
     url: absoluteUrl(`/t/${thread.id}/${thread.slug}`)
   };

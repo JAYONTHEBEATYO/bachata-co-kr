@@ -118,7 +118,7 @@ export function ProfileSettings() {
             <button type="button" onClick={logout}><LogOut size={16} /> 로그아웃</button>
           </>
         ) : (
-          <span>{hasSupabaseBrowserConfig ? "Google 로그인을 하면 이 프로필을 계정에 저장할 수 있습니다." : "Google 로그인 설정이 아직 연결되지 않았습니다."}</span>
+          <span>{hasSupabaseBrowserConfig ? "Google 로그인을 하면 다른 기기에서도 같은 프로필을 쓸 수 있습니다." : "비회원 프로필은 현재 브라우저에 저장됩니다."}</span>
         )}
       </div>
 

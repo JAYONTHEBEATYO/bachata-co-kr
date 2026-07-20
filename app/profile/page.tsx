@@ -12,9 +12,9 @@ export default function ProfilePage() {
   return (
     <main className="app-shell narrow">
       <section className="page-head">
-        <span className="eyebrow">Profile</span>
+        <span className="eyebrow">프로필</span>
         <h1>내 프로필</h1>
-        <p>댓글과 글쓰기에 보일 닉네임, 기본 프사, 한 줄 소개를 정리해두는 공간입니다.</p>
+        <p>댓글과 글에 표시할 닉네임, 기본 프사, 한 줄 소개를 바꿀 수 있습니다.</p>
       </section>
       <ProfileSettings />
     </main>

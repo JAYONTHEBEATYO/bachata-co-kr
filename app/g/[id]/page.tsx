@@ -29,6 +29,8 @@ type GuestThreadMetaRow = {
   title: string;
   body: string;
   linkUrl: string | null;
+  guestId: string;
+  createdAt: string;
 };
 
 type CommentMetaRow = {
@@ -54,7 +56,7 @@ const getThreadForMetadata = async (id: string) => {
 
   try {
     const thread = await db.prepare(
-      `select id, title, body, link_url as linkUrl
+      `select id, title, body, link_url as linkUrl, guest_id as guestId, created_at as createdAt
       from guest_threads
       where status = 'published' and id = ?
       limit 1`
@@ -113,10 +115,25 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 
 export default async function GuestThreadSharePage({ params }: PageProps) {
   const { id } = await params;
+  const data = await getThreadForMetadata(id);
+  const jsonLd = data ? {
+    "@context": "https://schema.org",
+    "@type": "DiscussionForumPosting",
+    "@id": absoluteUrl(`/g/${id}`),
+    headline: data.thread.title,
+    text: data.thread.body,
+    datePublished: data.thread.createdAt,
+    author: { "@type": "Person", name: data.thread.guestId },
+    url: absoluteUrl(`/g/${id}`),
+    inLanguage: "ko-KR"
+  } : null;
 
   return (
-    <Suspense fallback={<main className="app-shell narrow"><section className="page-head"><h1>글을 불러오는 중입니다</h1></section></main>}>
-      <GuestThreadDetail threadId={id} />
-    </Suspense>
+    <>
+      {jsonLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} /> : null}
+      <Suspense fallback={<main className="app-shell narrow"><section className="page-head"><h1>글을 불러오는 중입니다</h1></section></main>}>
+        <GuestThreadDetail threadId={id} />
+      </Suspense>
+    </>
   );
 }
