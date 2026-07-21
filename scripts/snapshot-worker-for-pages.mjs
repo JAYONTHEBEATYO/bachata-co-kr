@@ -76,7 +76,8 @@ for (const staleRoot of staleStaticRoots) {
   await rm(path.join(root, staleRoot), { recursive: true, force: true });
 }
 
-const extraHtmlPaths = [];
+// Query-string based detail pages still need a physical GitHub Pages entrypoint.
+const extraHtmlPaths = ["/guest"];
 const htmlPaths = ["/", ...sitemapPaths.filter((pathname) => pathname !== "/"), ...extraHtmlPaths]
   .filter((pathname, index, arr) => arr.indexOf(pathname) === index);
 const written = [];
@@ -84,6 +85,10 @@ const written = [];
 for (const pathname of htmlPaths) {
   const html = await localHtmlFor(pathname) || await fetchText(pathname);
   written.push(await writeRoute(pathname, html));
+}
+
+for (const requiredPage of ["guest/index.html", "write/index.html"]) {
+  await access(path.join(root, requiredPage));
 }
 
 await writeFile(path.join(root, "sitemap.xml"), sitemap.replaceAll(sourceOrigin, siteOrigin), "utf8");
