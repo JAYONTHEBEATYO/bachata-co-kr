@@ -672,8 +672,21 @@ p { color: var(--muted); line-height: 1.65; }
 .detail-thread-header { margin-bottom: 18px; }
 .detail-body h1 { margin: 0 0 14px; font-size: 27px; line-height: 1.35; }
 .detail-body > p { margin-bottom: 0; color: var(--text); font-size: 14px; line-height: 1.85; white-space: pre-wrap; overflow-wrap: anywhere; }
-.thread-manage-button { min-height: 34px; display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; padding: 0 8px; border: 0; background: transparent; color: var(--muted); font-size: 10px; }
-.thread-manage-button:hover { color: var(--danger); }
+.thread-manage-actions { display: flex; flex-wrap: wrap; gap: 2px; margin-top: 10px; }
+.thread-manage-button { min-height: 34px; display: inline-flex; align-items: center; gap: 5px; padding: 0 8px; border: 0; background: transparent; color: var(--muted); font-size: 10px; }
+.thread-manage-button:hover { color: var(--ink); }
+.thread-manage-button.is-danger:hover { color: var(--danger); }
+.thread-edit-form { display: grid; gap: 14px; margin: 4px 0 2px; padding: 16px; border: 1px solid var(--line); border-radius: 8px; background: var(--soft); }
+.thread-edit-form label { display: grid; gap: 7px; color: var(--ink); font-size: 11px; font-weight: 780; }
+.thread-edit-form input, .thread-edit-form textarea, .thread-edit-form select { width: 100%; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); outline: 0; }
+.thread-edit-form input, .thread-edit-form select { min-height: 42px; padding: 0 11px; }
+.thread-edit-form textarea { min-height: 180px; padding: 11px; resize: vertical; line-height: 1.7; }
+.thread-edit-form input:focus, .thread-edit-form textarea:focus, .thread-edit-form select:focus { border-color: var(--ink); box-shadow: 0 0 0 2px rgba(17, 19, 24, 0.07); }
+.thread-edit-grid { display: grid; grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr); gap: 10px; }
+.thread-edit-actions { display: flex; justify-content: end; gap: 7px; }
+.thread-edit-actions button { min-height: 38px; display: inline-flex; align-items: center; gap: 6px; padding: 0 12px; border: 1px solid var(--line); border-radius: 8px; background: #fff; color: var(--ink); font-size: 11px; font-weight: 800; }
+.thread-edit-actions button[type="submit"] { border-color: var(--ink); background: var(--ink); color: #fff; }
+.thread-edit-actions button:disabled { cursor: not-allowed; opacity: 0.55; }
 .detail-body > .primary-link { margin-top: 10px; }
 .detail-message { min-height: 300px; display: grid; place-items: center; align-content: center; padding: 30px; border: 1px solid var(--line); border-radius: 8px; background: #fff; text-align: center; }
 .detail-message h1 { margin-bottom: 7px; font-size: 22px; }
@@ -936,6 +949,7 @@ p { color: var(--muted); line-height: 1.65; }
   .community-head .community-icon { width: 44px; height: 44px; }
   .detail-body, .comments, .composer { padding: 15px; }
   .detail-body h1 { font-size: 23px; }
+  .thread-edit-grid { grid-template-columns: 1fr; }
   .thread-media-grid.image-gallery.multiple { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .thread-media-grid.has-video { grid-template-columns: minmax(0, 1fr); }
   .composer-grid { grid-template-columns: 1fr; }

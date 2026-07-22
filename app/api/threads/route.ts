@@ -59,7 +59,7 @@ const categories = new Set([
   "ama"
 ]);
 
-const jsonHeaders = (request: NextRequest) => sharedJsonHeaders(request, "GET,POST,DELETE,OPTIONS");
+const jsonHeaders = (request: NextRequest) => sharedJsonHeaders(request, "GET,POST,PATCH,DELETE,OPTIONS");
 
 const respond = (request: NextRequest, status: number, body: unknown) =>
   Response.json(body, { status, headers: jsonHeaders(request) });
@@ -399,6 +399,75 @@ export async function POST(request: NextRequest) {
       createdAt: now
     }
   });
+}
+
+export async function PATCH(request: NextRequest) {
+  const { db, hashSalt } = await getCommunityContext();
+  if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+
+  let payload: Record<string, unknown>;
+  try {
+    payload = await request.json();
+  } catch {
+    return respond(request, 400, { error: "수정할 내용을 읽을 수 없습니다." });
+  }
+
+  const id = normalizeId(payload.id);
+  const password = typeof payload.password === "string" ? payload.password.trim() : "";
+  const title = normalizeText(payload.title, 120);
+  const body = normalizeText(payload.body, 4000);
+  const category = normalizeCategory(payload.category);
+  const linkUrl = normalizeLink(payload.linkUrl);
+
+  if (!id || !/^\d{4}$/.test(password)) {
+    return respond(request, 400, { error: "글과 임시비밀번호를 확인해주세요." });
+  }
+  if (title.length < 4) return respond(request, 400, { error: "제목을 네 글자 이상 적어주세요." });
+  if (body.length < 2) return respond(request, 400, { error: "본문을 두 글자 이상 적어주세요." });
+
+  const requesterHash = await requestFingerprint(request, hashSalt, "thread-edit");
+  const since = new Date(Date.now() - 15 * 60_000).toISOString();
+  const attempts = await db.prepare(
+    "select count(*) as count from guest_auth_attempts where requester_hash = ? and created_at >= ?"
+  ).bind(requesterHash, since).first<CountRow>();
+  if (Number(attempts?.count || 0) >= 8) {
+    return respond(request, 429, { error: "수정 확인을 여러 번 시도했습니다. 잠시 후 다시 시도해주세요." });
+  }
+
+  const expected = await sha256Hex(`${id}|${password}|${hashSalt}|thread-edit`);
+  const authRow = await db.prepare(
+    "select edit_key_hash as editKeyHash from guest_threads where id = ? and status = 'published'"
+  ).bind(id).first<{ editKeyHash: string }>();
+  const succeeded = Boolean(authRow && authRow.editKeyHash === expected);
+  const now = new Date().toISOString();
+
+  await db.prepare(
+    "insert into guest_auth_attempts (id, target_type, target_id, requester_hash, succeeded, created_at) values (?, 'thread', ?, ?, ?, ?)"
+  ).bind(crypto.randomUUID(), id, requesterHash, succeeded ? 1 : 0, now).run();
+
+  if (!succeeded) {
+    return respond(request, 403, { error: "임시비밀번호가 맞지 않습니다." });
+  }
+
+  await db.prepare(
+    `update guest_threads
+     set title = ?, body = ?, category = ?, link_url = ?, updated_at = ?
+     where id = ? and status = 'published'`
+  ).bind(title, body, category, linkUrl, now, id).run();
+
+  const row = await db.prepare(
+    `select
+      g.id, g.title, g.body, g.category, g.link_url as linkUrl,
+      g.guest_id as guestId, g.ip_prefix as ipPrefix, g.score, g.downvotes,
+      g.created_at as createdAt,
+      (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+    from guest_threads g
+    where g.id = ? and g.status = 'published'
+    limit 1`
+  ).bind(id).first<GuestThreadRow>();
+
+  if (!row) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
+  return respond(request, 200, { thread: rowToThread(row) });
 }
 
 export async function DELETE(request: NextRequest) {
