@@ -49,6 +49,17 @@ type CountRow = {
   count: number;
 };
 
+type RecoverableStreamVideoRow = {
+  id: string;
+  name: string;
+  size: number;
+  status: string;
+  readyToStream: number;
+  playerUrl: string | null;
+  thumbnailUrl: string | null;
+  createdAt: string;
+};
+
 const allowedVideoTypes = new Set([
   "video/mp4",
   "video/webm",
@@ -198,6 +209,45 @@ export async function POST(request: NextRequest) {
 }
 
 export async function GET(request: NextRequest) {
+  if (request.nextUrl.searchParams.get("recent") === "1") {
+    const { db, hashSalt } = await getCommunityContext();
+    if (!db) return respond(request, 503, { error: "영상 기록 저장소가 아직 연결되지 않았습니다." });
+
+    const uploaderHash = await requestFingerprint(request, hashSalt, "stream-uploads");
+    const since = new Date(Date.now() - 48 * 60 * 60_000).toISOString();
+    const rows = await db.prepare(
+      `select
+        id,
+        original_name as name,
+        byte_size as size,
+        status,
+        ready_to_stream as readyToStream,
+        playback_url as playerUrl,
+        thumbnail_url as thumbnailUrl,
+        created_at as createdAt
+      from stream_videos
+      where uploader_hash = ?
+        and thread_id is null
+        and status != 'deleted'
+        and created_at >= ?
+      order by created_at desc
+      limit 6`
+    ).bind(uploaderHash, since).all<RecoverableStreamVideoRow>();
+
+    return respond(request, 200, {
+      videos: (rows.results || []).map((row) => ({
+        streamId: row.id,
+        url: row.playerUrl || playerUrlFromDetails(row.id),
+        name: row.name,
+        size: Number(row.size || 0),
+        contentType: "video/cloudflare-stream",
+        status: Number(row.readyToStream) ? "ready" : "processing",
+        thumbnailUrl: row.thumbnailUrl || null,
+        createdAt: row.createdAt
+      }))
+    });
+  }
+
   const id = request.nextUrl.searchParams.get("id")?.trim() || "";
   if (!idPattern.test(id)) return respond(request, 400, { error: "영상 ID를 확인해주세요." });
 

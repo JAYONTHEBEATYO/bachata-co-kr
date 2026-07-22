@@ -781,6 +781,8 @@ p { color: var(--muted); line-height: 1.65; }
 .stream-upload-preview { width: 100%; aspect-ratio: 1; display: grid; place-items: center; align-content: center; gap: 6px; padding: 14px; background: #111318; color: #fff; text-align: center; }
 .stream-upload-preview strong { font-size: 11px; }
 .stream-upload-preview span { color: #aeb2ba; font-size: 9px; }
+.stream-upload-preview.is-ready { background: #10231f; }
+.stream-upload-preview.is-ready svg { color: #63d2b5; }
 .media-preview figcaption { display: flex; justify-content: space-between; gap: 6px; padding: 7px; font-size: 9px; }
 .media-preview figcaption span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .media-preview figcaption button { border: 0; background: transparent; color: var(--danger); }
@@ -806,6 +808,8 @@ p { color: var(--muted); line-height: 1.65; }
 }
 .submit-button:hover, .comment-submit:hover { background: var(--accent); }
 .submit-button:disabled, .comment-submit:disabled { opacity: 0.55; cursor: not-allowed; }
+.composer-status { margin: 0; padding: 10px 12px; border-left: 3px solid var(--teal); background: #edf9f7; color: #126353; font-size: 11px; font-weight: 720; }
+.composer > .comment-error { padding: 10px 12px; border-left: 3px solid var(--danger); background: #fff1f0; font-size: 11px; }
 .comment-hp { position: absolute !important; left: -10000px !important; width: 1px !important; height: 1px !important; overflow: hidden !important; }
 .issued-identity { display: grid; gap: 5px; padding: 12px; border-left: 3px solid var(--teal); background: #edf9f7; font-size: 11px; }
 .issued-identity p { margin: 4px 0 0; font-size: 10px; }

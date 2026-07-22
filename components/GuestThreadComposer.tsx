@@ -126,6 +126,20 @@ type UploadedMedia = {
   size: number;
   streamId?: string;
   status?: "processing" | "ready";
+  thumbnailUrl?: string;
+};
+
+const mergeMedia = (current: UploadedMedia[], incoming: UploadedMedia[]) => {
+  const merged = [...current];
+  for (const item of incoming) {
+    const identity = item.streamId || item.key || item.url;
+    const existingIndex = merged.findIndex((candidate) =>
+      (candidate.streamId || candidate.key || candidate.url) === identity
+    );
+    if (existingIndex >= 0) merged[existingIndex] = { ...merged[existingIndex], ...item };
+    else merged.push(item);
+  }
+  return merged.slice(0, 8);
 };
 
 export function GuestThreadComposer() {
@@ -149,6 +163,8 @@ export function GuestThreadComposer() {
   const [uploadProgress, setUploadProgress] = useState<{ name: string; percent: number } | null>(null);
   const [uploadedMedia, setUploadedMedia] = useState<UploadedMedia[]>([]);
   const [error, setError] = useState("");
+  const [notice, setNotice] = useState("");
+  const [draftReady, setDraftReady] = useState(false);
 
   useEffect(() => {
     const session = getGuestSession();
@@ -173,6 +189,7 @@ export function GuestThreadComposer() {
         pollOptionB?: string;
         tagInput?: string;
         subtopic?: string;
+        uploadedMedia?: UploadedMedia[];
       };
       setTitle(draft.title || "");
       setBody(draft.body || "");
@@ -183,10 +200,129 @@ export function GuestThreadComposer() {
       setPollOptionB(draft.pollOptionB || "");
       setTagInput(draft.tagInput || "");
       setSubtopic(draft.subtopic || "");
+      const restoredMedia = Array.isArray(draft.uploadedMedia)
+        ? draft.uploadedMedia.filter((item) => item && typeof item.url === "string" && typeof item.name === "string")
+        : [];
+      if (restoredMedia.length) {
+        setUploadedMedia((current) => mergeMedia(current, restoredMedia));
+        setPostType("media");
+      }
     } catch {
       window.localStorage.removeItem(draftKey);
+    } finally {
+      setDraftReady(true);
     }
   }, [searchParams]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const recoverUnpublishedVideos = async () => {
+      try {
+        const response = await fetch(`${videoUploadsApiUrl()}?recent=1`, { cache: "no-store" });
+        const data = await response.json() as { videos?: UploadedMedia[] };
+        if (!response.ok || cancelled || !Array.isArray(data.videos) || !data.videos.length) return;
+
+        setUploadedMedia((current) => mergeMedia(current, data.videos || []));
+        setPostType("media");
+        setNotice(`게시되지 않은 영상 ${data.videos.length}개를 복구했습니다. 내용을 확인한 뒤 게시해주세요.`);
+      } catch {
+        // Recovery is best-effort. The normal composer still works if it is unavailable.
+      }
+    };
+
+    void recoverUnpublishedVideos();
+    return () => { cancelled = true; };
+  }, []);
+
+  useEffect(() => {
+    if (!draftReady || pending) return;
+    const timer = window.setTimeout(() => {
+      const hasDraft = Boolean(
+        title.trim()
+        || body.trim()
+        || linkUrl.trim()
+        || pollOptionA.trim()
+        || pollOptionB.trim()
+        || tagInput.trim()
+        || subtopic
+        || uploadedMedia.length
+      );
+      if (!hasDraft) {
+        window.localStorage.removeItem(draftKey);
+        return;
+      }
+      window.localStorage.setItem(draftKey, JSON.stringify({
+        title,
+        body,
+        linkUrl,
+        category,
+        subtopic,
+        postType,
+        pollOptionA,
+        pollOptionB,
+        tagInput,
+        uploadedMedia
+      }));
+    }, 500);
+
+    return () => window.clearTimeout(timer);
+  }, [body, category, draftReady, linkUrl, pending, pollOptionA, pollOptionB, postType, subtopic, tagInput, title, uploadedMedia]);
+
+  useEffect(() => {
+    if (!uploading && !pending) return;
+    const warnBeforeLeaving = (event: BeforeUnloadEvent) => {
+      event.preventDefault();
+      event.returnValue = "";
+    };
+    window.addEventListener("beforeunload", warnBeforeLeaving);
+    return () => window.removeEventListener("beforeunload", warnBeforeLeaving);
+  }, [pending, uploading]);
+
+  const processingStreamIds = uploadedMedia
+    .filter((item) => item.streamId && item.status !== "ready")
+    .map((item) => item.streamId)
+    .join(",");
+
+  useEffect(() => {
+    if (!processingStreamIds) return;
+    let cancelled = false;
+
+    const refreshVideoStatus = async () => {
+      const ids = processingStreamIds.split(",").filter(Boolean);
+      const updates = await Promise.all(ids.map(async (id) => {
+        try {
+          const response = await fetch(`${videoUploadsApiUrl()}?id=${encodeURIComponent(id)}`, { cache: "no-store" });
+          const data = await response.json() as {
+            video?: { readyToStream?: boolean; playerUrl?: string; thumbnailUrl?: string | null };
+          };
+          if (!response.ok || !data.video) return null;
+          return {
+            id,
+            status: data.video.readyToStream ? "ready" as const : "processing" as const,
+            url: data.video.playerUrl,
+            thumbnailUrl: data.video.thumbnailUrl || undefined
+          };
+        } catch {
+          return null;
+        }
+      }));
+      if (cancelled) return;
+      setUploadedMedia((current) => current.map((item) => {
+        const update = updates.find((candidate) => candidate?.id === item.streamId);
+        return update
+          ? { ...item, status: update.status, url: update.url || item.url, thumbnailUrl: update.thumbnailUrl || item.thumbnailUrl }
+          : item;
+      }));
+    };
+
+    void refreshVideoStatus();
+    const timer = window.setInterval(() => void refreshVideoStatus(), 4_000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(timer);
+    };
+  }, [processingStreamIds]);
 
   const choosePostType = (nextType: PostType) => {
     setPostType(nextType);
@@ -196,8 +332,9 @@ export function GuestThreadComposer() {
 
   const saveDraft = () => {
     if (typeof window === "undefined") return;
-    window.localStorage.setItem(draftKey, JSON.stringify({ title, body, linkUrl, category, subtopic, postType, pollOptionA, pollOptionB, tagInput }));
+    window.localStorage.setItem(draftKey, JSON.stringify({ title, body, linkUrl, category, subtopic, postType, pollOptionA, pollOptionB, tagInput, uploadedMedia }));
     setError("");
+    setNotice("작성 중인 내용을 이 브라우저에 저장했습니다.");
   };
 
   const insertBodyText = (before: string, after = "", fallback = "") => {
@@ -262,6 +399,7 @@ export function GuestThreadComposer() {
     }
 
     setUploading(true);
+    setNotice("파일을 전송하고 있습니다. 이 화면을 닫지 마세요.");
     setError(selected.length > list.length
       ? "한 글에는 미디어 8개, 그중 영상은 6개까지 첨부할 수 있습니다. 가능한 파일만 올립니다."
       : "");
@@ -319,7 +457,9 @@ export function GuestThreadComposer() {
         }
       }
       if (postType !== "media") setPostType("media");
+      setNotice("파일 전송이 끝났습니다. 영상이 변환 중이어도 지금 게시할 수 있습니다.");
     } catch (uploadError) {
+      setNotice("");
       setError(uploadError instanceof Error ? uploadError.message : "파일을 업로드하지 못했습니다.");
     } finally {
       setUploading(false);
@@ -389,6 +529,13 @@ export function GuestThreadComposer() {
     event.preventDefault();
     setError("");
 
+    if (uploading) {
+      const progress = uploadProgress ? ` (${uploadProgress.percent}%)` : "";
+      setError(`파일을 전송하고 있습니다${progress}. 전송이 끝나면 바로 게시할 수 있습니다.`);
+      return;
+    }
+    if (pending) return;
+
     if (title.trim().length < 4) {
       setError("제목을 네 글자 이상 적어주세요.");
       return;
@@ -417,6 +564,7 @@ export function GuestThreadComposer() {
     }
 
     setPending(true);
+    setNotice("게시글을 저장하고 있습니다. 잠시만 기다려주세요.");
     try {
       saveGuestSession({ nickname: authorName, password: authorPassword });
       const response = await fetch(threadsApiUrl(), {
@@ -455,6 +603,7 @@ export function GuestThreadComposer() {
       window.localStorage.removeItem(draftKey);
       window.location.assign(communityThreadPath(data.thread.id));
     } catch (submitError) {
+      setNotice("");
       setError(submitError instanceof Error ? submitError.message : "글을 저장하지 못했습니다.");
     } finally {
       setPending(false);
@@ -592,11 +741,15 @@ export function GuestThreadComposer() {
           {uploadedMedia.map((item) => (
             <figure key={item.url} className="media-preview">
               {item.streamId ? (
-                <div className="stream-upload-preview">
-                  <RefreshCw className="stream-spinner" size={24} />
-                  <strong>영상 처리 중</strong>
-                  <span>게시 후 자동으로 재생됩니다.</span>
-                </div>
+                item.status === "ready" && item.thumbnailUrl ? (
+                  <img src={item.thumbnailUrl} alt={`${item.name} 미리보기`} />
+                ) : (
+                  <div className={`stream-upload-preview${item.status === "ready" ? " is-ready" : ""}`}>
+                    {item.status === "ready" ? <Check size={24} /> : <RefreshCw className="stream-spinner" size={24} />}
+                    <strong>{item.status === "ready" ? "영상 준비 완료" : "영상 처리 중"}</strong>
+                    <span>{item.status === "ready" ? "지금 게시할 수 있습니다." : "처리가 끝나기 전에도 게시할 수 있습니다."}</span>
+                  </div>
+                )
               ) : item.contentType.startsWith("video/") ? (
                 <video src={item.url} controls muted />
               ) : (
@@ -661,8 +814,9 @@ export function GuestThreadComposer() {
         <input value={website} onChange={(event) => setWebsite(event.target.value)} tabIndex={-1} autoComplete="off" />
       </label>
 
-      <button type="submit" className="submit-button" disabled={pending || uploading}><Send size={18} /> {pending ? "게시 중" : uploading ? "업로드 중" : "게시하기"}</button>
-      {error ? <p className="comment-error">{error}</p> : null}
+      {notice ? <p className="composer-status" role="status" aria-live="polite">{notice}</p> : null}
+      {error ? <p className="comment-error" role="alert">{error}</p> : null}
+      <button type="submit" className="submit-button" disabled={pending}><Send size={18} /> {pending ? "게시 중" : uploading ? "업로드 상태 확인" : "게시하기"}</button>
     </form>
   );
 }
