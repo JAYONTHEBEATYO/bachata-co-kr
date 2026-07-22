@@ -124,7 +124,7 @@ function LiveThreadCard({ thread }: { thread: LiveThread }) {
 
   return (
     <article
-      className="thread-card live-thread-card"
+      className={`thread-card live-thread-card ${parsed.media.length ? "has-media" : ""}`}
       id={`guest-${thread.id}`}
       style={{ "--thread-accent": accent } as CSSProperties}
     >

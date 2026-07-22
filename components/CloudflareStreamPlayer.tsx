@@ -11,6 +11,8 @@ type StreamVideo = {
   progress?: string;
   playerUrl: string;
   thumbnailUrl?: string | null;
+  width?: number | null;
+  height?: number | null;
 };
 
 type CloudflareStreamPlayerProps = {
@@ -54,8 +56,19 @@ export function CloudflareStreamPlayer({ videoId, compact = false }: CloudflareS
   }, [videoId]);
 
   if (video?.readyToStream) {
+    const isPortrait = Number(video.height) > Number(video.width);
+    const aspectRatio = isPortrait
+      ? "1 / 1"
+      : Number(video.width) > 0 && Number(video.height) > 0
+        ? `${video.width} / ${video.height}`
+        : "16 / 9";
+
     return (
-      <div className={compact ? "stream-player compact" : "stream-player"}>
+      <div
+        className={compact ? "stream-player compact" : "stream-player"}
+        data-orientation={isPortrait ? "portrait" : "landscape"}
+        style={{ aspectRatio }}
+      >
         <iframe
           src={video.playerUrl}
           title="바차타 영상"

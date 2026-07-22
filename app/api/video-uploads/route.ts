@@ -24,6 +24,10 @@ type StreamVideoDetails = {
   duration?: number;
   hlsPlaybackUrl?: string;
   dashPlaybackUrl?: string;
+  input?: {
+    width?: number;
+    height?: number;
+  };
 };
 
 type StreamBinding = {
@@ -232,6 +236,8 @@ export async function GET(request: NextRequest) {
         playerUrl,
         thumbnailUrl: details.thumbnail || null,
         duration: Number.isFinite(details.duration) ? details.duration : null,
+        width: Number.isFinite(details.input?.width) ? details.input?.width : null,
+        height: Number.isFinite(details.input?.height) ? details.input?.height : null,
         hlsUrl: details.hlsPlaybackUrl || null,
         dashUrl: details.dashPlaybackUrl || null
       }
