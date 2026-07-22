@@ -6,6 +6,7 @@ import { PenLine } from "lucide-react";
 import { communityApiUrl, communityThreadPath, communityThreadShareUrl } from "@/lib/community-api";
 import { communityByCategory } from "@/lib/communities";
 import { formatRelativeDate } from "@/lib/format";
+import { buildShareDescription, buildShareTitle } from "@/lib/share-meta";
 import { extractThreadMedia } from "@/lib/thread-media";
 import { CommunityIcon } from "./CommunityIcon";
 import { ThreadActionBar } from "./ThreadActionBar";
@@ -119,6 +120,7 @@ function LiveThreadCard({ thread }: { thread: LiveThread }) {
   const detailPath = communityThreadPath(thread.id);
   const community = communityByCategory(thread.category);
   const accent = community?.color || "#ff4f3f";
+  const hasVideo = parsed.media.some((item) => item.type === "stream" || item.type === "video");
 
   return (
     <article
@@ -150,8 +152,8 @@ function LiveThreadCard({ thread }: { thread: LiveThread }) {
           voteTargetType="guestThread"
           commentHref={`${detailPath}#comments-title`}
           sharePath={communityThreadShareUrl(thread.id)}
-          shareTitle={thread.title}
-          shareText={bodyText.slice(0, 100)}
+          shareTitle={buildShareTitle(thread.title)}
+          shareText={buildShareDescription({ body: bodyText, hasVideo })}
           sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
         />
         {thread.commentCount ? (

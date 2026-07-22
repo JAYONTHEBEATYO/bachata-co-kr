@@ -1,0 +1,17 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "go",
+  "main": "workers/share-proxy.mjs",
+  "compatibility_date": "2026-07-08",
+  "workers_dev": true,
+  "preview_urls": false,
+  "services": [
+    {
+      "binding": "COMMUNITY_ORIGIN",
+      "service": "bachata-co-kr"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}

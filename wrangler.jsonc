@@ -2,6 +2,7 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "bachata-co-kr",
   "main": ".open-next/worker.js",
+  "workers_dev": true,
   "compatibility_date": "2026-07-08",
   "compatibility_flags": [
     "nodejs_compat"

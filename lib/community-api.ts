@@ -1,5 +1,11 @@
 const fallbackApiOrigin = "https://bachata-co-kr.bachata-korea.workers.dev";
 const fallbackSiteOrigin = "https://bachata.co.kr";
+const fallbackShareOrigin = "https://go.bachata-korea.workers.dev";
+
+export const compactThreadId = (id: string) => {
+  const normalized = id.trim();
+  return normalized.length > 12 ? normalized.slice(0, 8) : normalized;
+};
 
 export const communityApiOrigin = () => {
   if (typeof window === "undefined") return process.env.NEXT_PUBLIC_COMMUNITY_API_ORIGIN || "";
@@ -24,6 +30,6 @@ export const communityThreadPath = (id: string) => {
 };
 
 export const communityThreadShareUrl = (id: string) => {
-  const origin = process.env.NEXT_PUBLIC_COMMUNITY_THREAD_ORIGIN || fallbackApiOrigin;
-  return new URL(`/g/${encodeURIComponent(id)}`, origin).toString();
+  const origin = process.env.NEXT_PUBLIC_COMMUNITY_THREAD_ORIGIN || fallbackShareOrigin;
+  return new URL(`/g/${encodeURIComponent(compactThreadId(id))}`, origin).toString();
 };

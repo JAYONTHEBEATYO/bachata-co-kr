@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useState, type CSSProperties, type ReactNode } from "react";
+import { useEffect, useState, type CSSProperties, type ReactNode } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { ExternalLink, Trash2 } from "lucide-react";
 import { communityApiUrl, communityThreadShareUrl } from "@/lib/community-api";
 import { communities, communityByCategory } from "@/lib/communities";
 import { formatRelativeDate } from "@/lib/format";
+import { buildShareDescription, buildShareTitle } from "@/lib/share-meta";
 import { extractThreadMedia } from "@/lib/thread-media";
 import { AppNavigation } from "./AppNavigation";
 import { CommunityIcon } from "./CommunityIcon";
@@ -73,7 +74,6 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
     window.location.assign("/");
   };
 
-  const sharePath = useMemo(() => id ? communityThreadShareUrl(id) : "/guest", [id]);
   const shell = (content: ReactNode) => (
     <main className="app-shell">
       <div className="app-grid">
@@ -136,6 +136,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
   const bodyText = parsed.text || thread.body;
   const community = communityByCategory(thread.category);
   const accent = community?.color || "#ff4f3f";
+  const hasVideo = parsed.media.some((item) => item.type === "stream" || item.type === "video");
 
   return shell(
       <article className="detail-article" style={{ "--thread-accent": accent } as CSSProperties}>
@@ -160,9 +161,9 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
             voteTargetId={thread.id}
             voteTargetType="guestThread"
             commentHref="#comments-title"
-            sharePath={sharePath}
-            shareTitle={thread.title}
-            shareText={bodyText.slice(0, 140)}
+            sharePath={communityThreadShareUrl(thread.id)}
+            shareTitle={buildShareTitle(thread.title)}
+            shareText={buildShareDescription({ body: bodyText, hasVideo })}
             sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
           />
           <button type="button" className="thread-manage-button" onClick={deleteThread}>
