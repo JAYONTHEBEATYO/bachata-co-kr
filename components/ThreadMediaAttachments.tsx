@@ -8,9 +8,12 @@ type ThreadMediaAttachmentsProps = {
 
 export function ThreadMediaAttachments({ media, compact = false }: ThreadMediaAttachmentsProps) {
   if (!media.length) return null;
+  const hasVideo = media.some((item) => item.type === "stream" || item.type === "video");
+  const layoutClass = hasVideo ? "has-video" : "image-gallery";
+  const countClass = media.length === 1 ? "single" : "multiple";
 
   return (
-    <div className={compact ? "thread-media-grid compact" : "thread-media-grid"}>
+    <div className={`thread-media-grid ${compact ? "compact" : ""} ${layoutClass} ${countClass}`.trim()}>
       {media.map((item) => (
         <figure key={item.url} className="thread-media-item">
           {item.type === "stream" && item.streamId ? (

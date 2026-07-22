@@ -493,12 +493,14 @@ p { color: var(--muted); line-height: 1.65; }
 .vote-rail em { display: none; }
 .comment-count-link { display: inline-flex; margin-top: 10px; color: var(--teal); font-size: 11px; font-weight: 750; }
 
-.thread-media-grid { display: grid; gap: 6px; margin-top: 14px; }
-.thread-media-grid:not(.compact) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.thread-media-grid.compact { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.thread-media-item { margin: 0; overflow: hidden; border-radius: 8px; background: #111318; }
+.thread-media-grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 6px; width: 100%; margin-top: 14px; }
+.thread-media-grid.image-gallery.multiple:not(.compact) { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.thread-media-grid.image-gallery.multiple.compact { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.thread-media-grid.has-video { grid-template-columns: minmax(0, 1fr); }
+.thread-media-item { width: 100%; min-width: 0; margin: 0; overflow: hidden; border-radius: 8px; background: #111318; }
 .thread-media-item img, .thread-media-item video { width: 100%; max-height: 620px; object-fit: contain; }
-.thread-media-grid.compact .thread-media-item img, .thread-media-grid.compact .thread-media-item video { aspect-ratio: 16 / 9; max-height: 360px; }
+.thread-media-grid.compact .thread-media-item img, .thread-media-grid.compact .thread-media-item video,
+.thread-media-grid.has-video .thread-media-item video { aspect-ratio: 16 / 9; max-height: 620px; }
 .stream-player { position: relative; width: 100%; aspect-ratio: 16 / 9; background: #111318; }
 .stream-player iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .stream-processing { min-height: 260px; display: grid; place-items: center; align-content: center; gap: 8px; padding: 28px; background: #111318; color: #fff; text-align: center; }
@@ -921,7 +923,8 @@ p { color: var(--muted); line-height: 1.65; }
   .community-head .community-icon { width: 44px; height: 44px; }
   .detail-body, .comments, .composer { padding: 15px; }
   .detail-body h1 { font-size: 23px; }
-  .thread-media-grid:not(.compact) { grid-template-columns: 1fr; }
+  .thread-media-grid.image-gallery.multiple { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .thread-media-grid.has-video { grid-template-columns: minmax(0, 1fr); }
   .composer-grid { grid-template-columns: 1fr; }
   .composer-topline { align-items: center; }
   .composer-tabs { margin: 0 -15px; padding: 0 10px; }
