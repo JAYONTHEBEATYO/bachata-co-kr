@@ -10,6 +10,7 @@
     "typecheck": "tsc --noEmit",
     "audit:copy": "node scripts/audit-public-copy.mjs",
     "audit:community": "node scripts/audit-community-public-html.mjs",
+    "audit:seo": "node scripts/audit-seo-runtime.mjs",
     "legacy:redirects": "node scripts/write-legacy-redirects.mjs",
     "verify": "npm run typecheck && npm run build && npm run audit:copy && npm run audit:community",
     "cf:build": "opennextjs-cloudflare build",

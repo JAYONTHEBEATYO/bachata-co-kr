@@ -5,6 +5,7 @@ import { QuickComposer } from "@/components/QuickComposer";
 import { Sidebar } from "@/components/Sidebar";
 import { TopicRibbon } from "@/components/TopicRibbon";
 import { getCommunities } from "@/lib/data";
+import { getServerFeedThreads } from "@/lib/seo-threads";
 
 type PageProps = {
   searchParams: Promise<{ sort?: string }>;
@@ -14,6 +15,7 @@ export default async function HomePage({ searchParams }: PageProps) {
   const { sort: requestedSort } = await searchParams;
   const sort = requestedSort === "new" || requestedSort === "top" ? requestedSort : "hot";
   const communities = await getCommunities();
+  const initialThreads = await getServerFeedThreads({ sort });
 
   return (
     <main className="app-shell">
@@ -32,6 +34,7 @@ export default async function HomePage({ searchParams }: PageProps) {
           <FeedTabs sort={sort} />
           <LiveThreadList
             sort={sort}
+            initialThreads={initialThreads}
             emptyCopy="오늘 들은 노래, 궁금한 스텝, 소셜에서 생긴 이야기부터 꺼내보세요."
           />
         </section>

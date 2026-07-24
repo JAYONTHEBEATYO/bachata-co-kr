@@ -146,6 +146,7 @@ export function GuestThreadComposer() {
   const searchParams = useSearchParams();
   const bodyRef = useRef<HTMLTextAreaElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const submissionCommittedRef = useRef(false);
   const [title, setTitle] = useState("");
   const [authorName, setAuthorName] = useState("");
   const [authorPassword, setAuthorPassword] = useState("");
@@ -272,6 +273,7 @@ export function GuestThreadComposer() {
   useEffect(() => {
     if (!uploading && !pending) return;
     const warnBeforeLeaving = (event: BeforeUnloadEvent) => {
+      if (submissionCommittedRef.current) return;
       event.preventDefault();
       event.returnValue = "";
     };
@@ -527,6 +529,7 @@ export function GuestThreadComposer() {
 
   const submit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    submissionCommittedRef.current = false;
     setError("");
 
     if (uploading) {
@@ -601,6 +604,7 @@ export function GuestThreadComposer() {
       setUploadedMedia([]);
       setWebsite("");
       window.localStorage.removeItem(draftKey);
+      submissionCommittedRef.current = true;
       window.location.assign(communityThreadPath(data.thread.id));
     } catch (submitError) {
       setNotice("");

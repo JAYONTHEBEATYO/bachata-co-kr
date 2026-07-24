@@ -9,7 +9,8 @@ import { absoluteUrl } from "@/lib/format";
 export const metadata: Metadata = {
   title: "글쓰기",
   description: "바차타 질문과 후기부터 수업, 소셜, 워크숍 홍보 영상까지 올리는 글쓰기 화면입니다.",
-  alternates: { canonical: absoluteUrl("/write") }
+  alternates: { canonical: absoluteUrl("/write") },
+  robots: { index: false, follow: true }
 };
 
 export default async function WritePage() {

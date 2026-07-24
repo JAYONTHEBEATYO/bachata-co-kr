@@ -8,6 +8,7 @@ import {
   sha256Hex
 } from "@/lib/community-server";
 import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
+import { queueThreadIndexUpdate } from "@/lib/indexnow";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
 
 type GuestThreadRow = {
@@ -384,6 +385,8 @@ export async function POST(request: NextRequest) {
     }
   }
 
+  await queueThreadIndexUpdate(id);
+
   return respond(request, 201, {
     thread: {
       id,
@@ -468,6 +471,7 @@ export async function PATCH(request: NextRequest) {
   ).bind(id).first<GuestThreadRow>();
 
   if (!row) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
+  await queueThreadIndexUpdate(id);
   return respond(request, 200, { thread: rowToThread(row) });
 }
 
@@ -513,5 +517,6 @@ export async function DELETE(request: NextRequest) {
   await db.prepare("update guest_threads set status = 'removed', updated_at = ? where id = ?")
     .bind(now, id)
     .run();
+  await queueThreadIndexUpdate(id);
   return respond(request, 200, { ok: true });
 }

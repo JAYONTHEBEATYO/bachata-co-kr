@@ -1,6 +1,5 @@
 const fallbackApiOrigin = "https://bachata-co-kr.bachata-korea.workers.dev";
 const fallbackSiteOrigin = "https://bachata.co.kr";
-const fallbackShareOrigin = "https://go.bachata-korea.workers.dev";
 
 export const compactThreadId = (id: string) => {
   const normalized = id.trim();
@@ -10,7 +9,13 @@ export const compactThreadId = (id: string) => {
 export const communityApiOrigin = () => {
   if (typeof window === "undefined") return process.env.NEXT_PUBLIC_COMMUNITY_API_ORIGIN || "";
   const host = window.location.hostname;
-  if (host === "localhost" || host === "127.0.0.1" || host.endsWith(".workers.dev")) return "";
+  if (
+    host === "localhost"
+    || host === "127.0.0.1"
+    || host === "bachata.co.kr"
+    || host === "www.bachata.co.kr"
+    || host.endsWith(".workers.dev")
+  ) return "";
   return process.env.NEXT_PUBLIC_COMMUNITY_API_ORIGIN || fallbackApiOrigin;
 };
 
@@ -22,14 +27,9 @@ export const publicSiteOrigin = () =>
 export const publicUrl = (path: string) => new URL(path, publicSiteOrigin()).toString();
 
 export const communityThreadPath = (id: string) => {
-  const encodedId = encodeURIComponent(id);
-  if (typeof window === "undefined" || window.location.hostname.endsWith(".workers.dev")) {
-    return `/g/${encodedId}`;
-  }
-  return `/guest/?id=${encodedId}`;
+  return `/g/${encodeURIComponent(compactThreadId(id))}`;
 };
 
 export const communityThreadShareUrl = (id: string) => {
-  const origin = process.env.NEXT_PUBLIC_COMMUNITY_THREAD_ORIGIN || fallbackShareOrigin;
-  return new URL(`/g/${encodeURIComponent(compactThreadId(id))}`, origin).toString();
+  return publicUrl(`/g/${encodeURIComponent(compactThreadId(id))}`);
 };

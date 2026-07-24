@@ -71,13 +71,21 @@ export const articleShareMetadata = ({
   description,
   url,
   imageUrl = DEFAULT_SHARE_IMAGE,
-  imageAlt = title
+  imageAlt = title,
+  publishedTime,
+  modifiedTime,
+  section,
+  authors
 }: {
   title: string;
   description: string;
   url: string;
   imageUrl?: string;
   imageAlt?: string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  section?: string;
+  authors?: string[];
 }): Metadata => {
   const imageSize = shareImageSize(imageUrl);
 
@@ -90,6 +98,10 @@ export const articleShareMetadata = ({
       description,
       url,
       type: "article",
+      publishedTime,
+      modifiedTime,
+      section,
+      authors,
       images: [{ url: imageUrl, ...imageSize, alt: imageAlt }]
     },
     twitter: {

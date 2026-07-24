@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type CSSProperties } from "react";
+import { useEffect, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { PenLine } from "lucide-react";
 import { communityApiUrl, communityThreadPath, communityThreadShareUrl } from "@/lib/community-api";
@@ -9,30 +9,17 @@ import { formatRelativeDate } from "@/lib/format";
 import { formatPublicIpLabel } from "@/lib/ip-display";
 import { buildShareDescription, buildShareTitle } from "@/lib/share-meta";
 import { extractThreadMedia } from "@/lib/thread-media";
+import type { GuestThread } from "@/lib/types";
 import { CommunityIcon } from "./CommunityIcon";
 import { ThreadActionBar } from "./ThreadActionBar";
 import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
-
-type LiveThread = {
-  id: string;
-  title: string;
-  body: string;
-  category: string;
-  linkUrl?: string | null;
-  guestId: string;
-  ipPrefix: string;
-  score: number;
-  downvotes: number;
-  commentCount: number;
-  tags: string[];
-  createdAt: string;
-};
 
 type LiveThreadListProps = {
   category?: string;
   sort?: "hot" | "new" | "top";
   query?: string;
   emptyCopy?: string;
+  initialThreads?: GuestThread[];
 };
 
 const labels: Record<string, string> = {
@@ -59,18 +46,29 @@ const threadsApiUrl = (category?: string, sort?: string, searchQuery?: string) =
   const query = params.toString();
   return communityApiUrl(`/api/threads/${query ? `?${query}` : ""}`);
 };
-export function LiveThreadList({ category, sort = "hot", query = "", emptyCopy = "" }: LiveThreadListProps) {
-  const [threads, setThreads] = useState<LiveThread[]>([]);
-  const [loading, setLoading] = useState(true);
+export function LiveThreadList({
+  category,
+  sort = "hot",
+  query = "",
+  emptyCopy = "",
+  initialThreads = []
+}: LiveThreadListProps) {
+  const [threads, setThreads] = useState<GuestThread[]>(initialThreads);
+  const [loading, setLoading] = useState(initialThreads.length === 0);
+  const skipInitialFetch = useRef(initialThreads.length > 0);
 
   useEffect(() => {
+    if (skipInitialFetch.current) {
+      skipInitialFetch.current = false;
+      return;
+    }
     let cancelled = false;
     const load = async () => {
       setLoading(true);
       try {
         const response = await fetch(threadsApiUrl(category, sort, query), { cache: "no-store" });
         if (!response.ok) return;
-        const data = await response.json() as { threads?: LiveThread[] };
+        const data = await response.json() as { threads?: GuestThread[] };
         if (!cancelled && Array.isArray(data.threads)) setThreads(data.threads);
       } catch {
         if (!cancelled) setThreads([]);
@@ -115,7 +113,7 @@ export function LiveThreadList({ category, sort = "hot", query = "", emptyCopy =
   );
 }
 
-function LiveThreadCard({ thread }: { thread: LiveThread }) {
+function LiveThreadCard({ thread }: { thread: GuestThread }) {
   const parsed = extractThreadMedia(thread.body, thread.linkUrl);
   const bodyText = parsed.text || thread.body;
   const detailPath = communityThreadPath(thread.id);

@@ -3,6 +3,16 @@
   "name": "bachata-co-kr",
   "main": ".open-next/worker.js",
   "workers_dev": true,
+  "routes": [
+    {
+      "pattern": "bachata.co.kr/*",
+      "zone_name": "bachata.co.kr"
+    },
+    {
+      "pattern": "www.bachata.co.kr/*",
+      "zone_name": "bachata.co.kr"
+    }
+  ],
   "compatibility_date": "2026-07-08",
   "compatibility_flags": [
     "nodejs_compat"

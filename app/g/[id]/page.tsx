@@ -1,15 +1,20 @@
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { Metadata } from "next";
-import { Suspense } from "react";
+import { notFound } from "next/navigation";
+import { cache, Suspense } from "react";
 import { GuestThreadDetail } from "@/components/GuestThreadDetail";
-import { communityThreadShareUrl } from "@/lib/community-api";
+import { communityByCategory } from "@/lib/communities";
+import { normalizeStoredIpPrefix } from "@/lib/ip-display";
+import { displayGuestNickname } from "@/lib/nicknames";
 import {
   articleShareMetadata,
   buildShareDescription,
   buildShareTitle,
   DEFAULT_SHARE_IMAGE
 } from "@/lib/share-meta";
+import { threadPublicUrl } from "@/lib/seo-threads";
 import { extractThreadMedia } from "@/lib/thread-media";
+import type { GuestThread } from "@/lib/types";
 
 type PageProps = {
   params: Promise<{ id: string }>;
@@ -43,9 +48,15 @@ type GuestThreadMetaRow = {
   id: string;
   title: string;
   body: string;
+  category: string;
   linkUrl: string | null;
   guestId: string;
+  ipPrefix: string;
+  score: number;
+  downvotes: number;
+  commentCount: number;
   createdAt: string;
+  updatedAt: string;
 };
 
 type CommentMetaRow = {
@@ -71,7 +82,7 @@ const getBindings = async (): Promise<{ db: D1DatabaseBinding | null; stream: St
   }
 };
 
-const getThreadForMetadata = async (id: string) => {
+const getThreadForMetadata = cache(async (id: string) => {
   const safeId = normalizeId(id);
   if (!safeId) return null;
   const { db } = await getBindings();
@@ -79,11 +90,23 @@ const getThreadForMetadata = async (id: string) => {
 
   try {
     const candidates = await db.prepare(
-      `select id, title, body, link_url as linkUrl, guest_id as guestId, created_at as createdAt
-      from guest_threads
-      where status = 'published'
-        and (id = ? or (length(?) >= 8 and id like ?))
-      order by case when id = ? then 0 else 1 end
+      `select
+        g.id,
+        g.title,
+        g.body,
+        g.category,
+        g.link_url as linkUrl,
+        g.guest_id as guestId,
+        g.ip_prefix as ipPrefix,
+        g.score,
+        g.downvotes,
+        g.created_at as createdAt,
+        g.updated_at as updatedAt,
+        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      from guest_threads g
+      where g.status = 'published'
+        and (g.id = ? or (length(?) >= 8 and g.id like ?))
+      order by case when g.id = ? then 0 else 1 end
       limit 2`
     ).bind(safeId, safeId, `${safeId}%`, safeId).all<GuestThreadMetaRow>();
 
@@ -100,11 +123,19 @@ const getThreadForMetadata = async (id: string) => {
       limit 1`
     ).bind(thread.id).first<CommentMetaRow>();
 
-    return { thread, comment };
+    return {
+      thread: {
+        ...thread,
+        score: Number(thread.score || 0),
+        downvotes: Number(thread.downvotes || 0),
+        commentCount: Number(thread.commentCount || 0)
+      },
+      comment
+    };
   } catch {
     return null;
   }
-};
+});
 
 const formatStreamThumbnail = (value: string) => {
   try {
@@ -149,7 +180,7 @@ export const dynamic = "force-dynamic";
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
   const data = await getThreadForMetadata(id);
-  const url = communityThreadShareUrl(data?.thread.id || id);
+  const url = threadPublicUrl(data?.thread.id || id);
   const fallbackTitle = "바차타 코리아 쓰레드";
   const fallbackDescription = "바차타 질문, 후기, 영상, 행사 이야기를 댓글로 이어갑니다.";
 
@@ -159,7 +190,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: fallbackDescription,
       url,
       imageUrl: DEFAULT_SHARE_IMAGE,
-      imageAlt: fallbackTitle
+      imageAlt: fallbackTitle,
+      authors: ["바차타 코리아"]
     });
   }
 
@@ -182,31 +214,80 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     description,
     url,
     imageUrl: previewImage,
-    imageAlt: `${title} 미리보기`
+    imageAlt: `${title} 미리보기`,
+    publishedTime: data.thread.createdAt,
+    modifiedTime: data.thread.updatedAt,
+    section: communityByCategory(data.thread.category)?.name || "바차타",
+    authors: [displayGuestNickname(data.thread.guestId, data.thread.id)]
   });
 }
 
 export default async function GuestThreadSharePage({ params }: PageProps) {
   const { id } = await params;
   const data = await getThreadForMetadata(id);
-  const shareUrl = communityThreadShareUrl(data?.thread.id || id);
-  const jsonLd = data ? {
+  if (!data) notFound();
+
+  const shareUrl = threadPublicUrl(data.thread.id);
+  const community = communityByCategory(data.thread.category);
+  const initialThread: GuestThread = {
+    id: data.thread.id,
+    title: data.thread.title,
+    body: data.thread.body,
+    category: data.thread.category,
+    linkUrl: data.thread.linkUrl,
+    guestId: displayGuestNickname(data.thread.guestId, data.thread.id),
+    ipPrefix: normalizeStoredIpPrefix(data.thread.ipPrefix) || "비공개",
+    score: data.thread.score,
+    downvotes: data.thread.downvotes,
+    commentCount: data.thread.commentCount,
+    tags: [community?.name || "바차타"],
+    createdAt: data.thread.createdAt,
+    updatedAt: data.thread.updatedAt
+  };
+  const parsed = extractThreadMedia(data.thread.body, data.thread.linkUrl);
+  const jsonLd = {
     "@context": "https://schema.org",
     "@type": "DiscussionForumPosting",
     "@id": shareUrl,
     headline: data.thread.title,
-    text: data.thread.body,
+    text: parsed.text || data.thread.body,
     datePublished: data.thread.createdAt,
-    author: { "@type": "Person", name: data.thread.guestId },
+    dateModified: data.thread.updatedAt,
+    author: {
+      "@type": "Person",
+      name: displayGuestNickname(data.thread.guestId, data.thread.id)
+    },
+    publisher: { "@id": "https://bachata.co.kr/#organization" },
+    articleSection: community?.name || "바차타",
+    commentCount: data.thread.commentCount,
+    interactionStatistic: [
+      {
+        "@type": "InteractionCounter",
+        interactionType: "https://schema.org/LikeAction",
+        userInteractionCount: Math.max(0, data.thread.score)
+      },
+      {
+        "@type": "InteractionCounter",
+        interactionType: "https://schema.org/CommentAction",
+        userInteractionCount: data.thread.commentCount
+      }
+    ],
+    mainEntityOfPage: shareUrl,
     url: shareUrl,
-    inLanguage: "ko-KR"
-  } : null;
+    inLanguage: "ko-KR",
+    ...(data.comment ? {
+      comment: [{
+        "@type": "Comment",
+        text: data.comment.body
+      }]
+    } : {})
+  };
 
   return (
     <>
-      {jsonLd ? <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} /> : null}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Suspense fallback={<main className="app-shell narrow"><section className="page-head"><h1>글을 불러오는 중입니다</h1></section></main>}>
-        <GuestThreadDetail threadId={data?.thread.id || id} />
+        <GuestThreadDetail threadId={data.thread.id} initialThread={initialThread} />
       </Suspense>
     </>
   );

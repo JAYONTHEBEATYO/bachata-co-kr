@@ -8,7 +8,8 @@ import { absoluteUrl } from "@/lib/format";
 export const metadata: Metadata = {
   title: "검색",
   description: "바차타 코리아에 올라온 글을 검색합니다.",
-  alternates: { canonical: absoluteUrl("/search") }
+  alternates: { canonical: absoluteUrl("/search") },
+  robots: { index: false, follow: true }
 };
 
 export default async function SearchPage({ searchParams }: { searchParams: Promise<{ q?: string }> }) {

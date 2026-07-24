@@ -23,3 +23,19 @@ export type Comment = {
   createdAt: string;
   replies?: Comment[];
 };
+
+export type GuestThread = {
+  id: string;
+  title: string;
+  body: string;
+  category: string;
+  linkUrl?: string | null;
+  guestId: string;
+  ipPrefix: string;
+  score: number;
+  downvotes: number;
+  commentCount: number;
+  tags: string[];
+  createdAt: string;
+  updatedAt?: string;
+};

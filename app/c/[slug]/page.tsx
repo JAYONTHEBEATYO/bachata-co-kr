@@ -10,6 +10,7 @@ import { QuickComposer } from "@/components/QuickComposer";
 import { Sidebar } from "@/components/Sidebar";
 import { getCommunities } from "@/lib/data";
 import { absoluteUrl } from "@/lib/format";
+import { getServerFeedThreads } from "@/lib/seo-threads";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -39,6 +40,7 @@ export default async function CommunityPage({ params, searchParams }: PageProps)
   const community = communities.find((item) => item.slug === slug);
   if (!community) notFound();
   const sort = requestedSort === "new" || requestedSort === "top" ? requestedSort : "hot";
+  const initialThreads = await getServerFeedThreads({ category: community.category, sort });
 
   return (
     <main className="app-shell">
@@ -59,6 +61,7 @@ export default async function CommunityPage({ params, searchParams }: PageProps)
           <LiveThreadList
             category={community.category}
             sort={sort}
+            initialThreads={initialThreads}
             emptyCopy={`${community.name}에 아직 글이 없습니다. 첫 이야기를 남겨보세요.`}
           />
         </section>

@@ -10,27 +10,13 @@ import { formatRelativeDate } from "@/lib/format";
 import { formatPublicIpLabel } from "@/lib/ip-display";
 import { buildShareDescription, buildShareTitle } from "@/lib/share-meta";
 import { extractThreadMedia } from "@/lib/thread-media";
+import type { GuestThread } from "@/lib/types";
 import { AppNavigation } from "./AppNavigation";
 import { CommunityIcon } from "./CommunityIcon";
 import { LiveComments } from "./LiveComments";
 import { Sidebar } from "./Sidebar";
 import { ThreadActionBar } from "./ThreadActionBar";
 import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
-
-type GuestThread = {
-  id: string;
-  title: string;
-  body: string;
-  category: string;
-  linkUrl?: string | null;
-  guestId: string;
-  ipPrefix: string;
-  score: number;
-  downvotes: number;
-  commentCount: number;
-  tags: string[];
-  createdAt: string;
-};
 
 const labels: Record<string, string> = {
   questions: "질문",
@@ -49,11 +35,17 @@ const labels: Record<string, string> = {
 };
 
 const threadsApiUrl = () => communityApiUrl("/api/threads/");
-export function GuestThreadDetail({ threadId }: { threadId?: string }) {
+export function GuestThreadDetail({
+  threadId,
+  initialThread = null
+}: {
+  threadId?: string;
+  initialThread?: GuestThread | null;
+}) {
   const searchParams = useSearchParams();
   const id = threadId || searchParams.get("id") || "";
-  const [thread, setThread] = useState<GuestThread | null>(null);
-  const [status, setStatus] = useState(id ? "글을 불러오는 중입니다." : "열 글이 없습니다.");
+  const [thread, setThread] = useState<GuestThread | null>(initialThread);
+  const [status, setStatus] = useState(initialThread ? "" : id ? "글을 불러오는 중입니다." : "열 글이 없습니다.");
   const [editing, setEditing] = useState(false);
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
@@ -166,6 +158,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
 
   useEffect(() => {
     if (!id) return;
+    if (initialThread?.id === id) return;
     let cancelled = false;
 
     const load = async () => {
@@ -190,7 +183,7 @@ export function GuestThreadDetail({ threadId }: { threadId?: string }) {
     return () => {
       cancelled = true;
     };
-  }, [id]);
+  }, [id, initialThread]);
 
   if (!id) {
     return shell(
