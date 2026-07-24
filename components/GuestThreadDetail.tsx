@@ -14,6 +14,7 @@ import type { GuestThread } from "@/lib/types";
 import { AppNavigation } from "./AppNavigation";
 import { CommunityIcon } from "./CommunityIcon";
 import { LiveComments } from "./LiveComments";
+import { RelatedThreadFeed } from "./RelatedThreadFeed";
 import { Sidebar } from "./Sidebar";
 import { ThreadActionBar } from "./ThreadActionBar";
 import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
@@ -37,10 +38,12 @@ const labels: Record<string, string> = {
 const threadsApiUrl = () => communityApiUrl("/api/threads/");
 export function GuestThreadDetail({
   threadId,
-  initialThread = null
+  initialThread = null,
+  relatedThreads = []
 }: {
   threadId?: string;
   initialThread?: GuestThread | null;
+  relatedThreads?: GuestThread[];
 }) {
   const searchParams = useSearchParams();
   const id = threadId || searchParams.get("id") || "";
@@ -302,6 +305,7 @@ export function GuestThreadDetail({
           ) : null}
         </section>
         <LiveComments threadId={thread.id} initialComments={[]} />
+        <RelatedThreadFeed threads={relatedThreads} />
       </article>
   );
 }

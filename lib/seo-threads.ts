@@ -114,3 +114,60 @@ export const getServerFeedThreads = async ({
     updatedAt: thread.updatedAt
   }));
 };
+
+export const getRelatedThreadFeed = async ({
+  excludeId,
+  category,
+  limit = 8
+}: {
+  excludeId: string;
+  category: string;
+  limit?: number;
+}): Promise<GuestThread[]> => {
+  const { db } = await getCommunityContext();
+  if (!db) return [];
+
+  const safeLimit = Math.max(1, Math.min(12, Math.floor(limit)));
+  const rows = await db.prepare(
+    `select *
+    from (
+      select
+        g.id,
+        g.title,
+        g.body,
+        g.category,
+        g.guest_id as guestId,
+        g.ip_prefix as ipPrefix,
+        g.link_url as linkUrl,
+        g.score,
+        g.downvotes,
+        g.created_at as createdAt,
+        g.updated_at as updatedAt,
+        case when g.category = ? then 0 else 1 end as categoryRank,
+        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      from guest_threads g
+      where g.status = 'published' and g.id != ?
+    )
+    order by
+      categoryRank asc,
+      (score + commentCount * 3 - downvotes) desc,
+      createdAt desc
+    limit ?`
+  ).bind(category, excludeId, safeLimit).all<SeoThread & { ipPrefix: string }>();
+
+  return (rows.results || []).map((thread) => ({
+    id: thread.id,
+    title: thread.title,
+    body: thread.body,
+    category: thread.category,
+    linkUrl: thread.linkUrl,
+    guestId: displayGuestNickname(thread.guestId, thread.id),
+    ipPrefix: normalizeStoredIpPrefix(thread.ipPrefix) || "비공개",
+    score: Number(thread.score || 0),
+    downvotes: Number(thread.downvotes || 0),
+    commentCount: Number(thread.commentCount || 0),
+    tags: [communityByCategory(thread.category)?.name || "바차타"],
+    createdAt: thread.createdAt,
+    updatedAt: thread.updatedAt
+  }));
+};

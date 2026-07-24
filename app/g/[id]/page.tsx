@@ -12,7 +12,7 @@ import {
   buildShareTitle,
   DEFAULT_SHARE_IMAGE
 } from "@/lib/share-meta";
-import { threadPublicUrl } from "@/lib/seo-threads";
+import { getRelatedThreadFeed, threadPublicUrl } from "@/lib/seo-threads";
 import { extractThreadMedia } from "@/lib/thread-media";
 import type { GuestThread } from "@/lib/types";
 
@@ -245,6 +245,11 @@ export default async function GuestThreadSharePage({ params }: PageProps) {
     updatedAt: data.thread.updatedAt
   };
   const parsed = extractThreadMedia(data.thread.body, data.thread.linkUrl);
+  const relatedThreads = await getRelatedThreadFeed({
+    excludeId: data.thread.id,
+    category: data.thread.category,
+    limit: 8
+  });
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "DiscussionForumPosting",
@@ -287,7 +292,11 @@ export default async function GuestThreadSharePage({ params }: PageProps) {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <Suspense fallback={<main className="app-shell narrow"><section className="page-head"><h1>글을 불러오는 중입니다</h1></section></main>}>
-        <GuestThreadDetail threadId={data.thread.id} initialThread={initialThread} />
+        <GuestThreadDetail
+          threadId={data.thread.id}
+          initialThread={initialThread}
+          relatedThreads={relatedThreads}
+        />
       </Suspense>
     </>
   );
