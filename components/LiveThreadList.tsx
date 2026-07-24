@@ -6,6 +6,7 @@ import { PenLine } from "lucide-react";
 import { communityApiUrl, communityThreadPath, communityThreadShareUrl } from "@/lib/community-api";
 import { communityByCategory } from "@/lib/communities";
 import { formatRelativeDate } from "@/lib/format";
+import { formatPublicIpLabel } from "@/lib/ip-display";
 import { buildShareDescription, buildShareTitle } from "@/lib/share-meta";
 import { extractThreadMedia } from "@/lib/thread-media";
 import { CommunityIcon } from "./CommunityIcon";
@@ -133,7 +134,7 @@ function LiveThreadCard({ thread }: { thread: LiveThread }) {
           <CommunityIcon category={thread.category} color={accent} size={17} />
           <div className="thread-card-identity">
             <strong>{labels[thread.category] || "자유"}</strong>
-            <span>{thread.guestId} · IP {thread.ipPrefix} · {formatRelativeDate(thread.createdAt)}</span>
+            <span>{thread.guestId} · {formatPublicIpLabel(thread.ipPrefix)} · {formatRelativeDate(thread.createdAt)}</span>
           </div>
           <span className="flair">익명</span>
         </header>

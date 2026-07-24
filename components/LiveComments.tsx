@@ -5,6 +5,7 @@ import { ArrowBigDown, ArrowBigUp, MessageCircle, Send, Search, Trash2 } from "l
 import { communityApiUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
+import { formatPublicIpLabel } from "@/lib/ip-display";
 import type { Comment } from "@/lib/types";
 import { ReportButton } from "./ReportButton";
 
@@ -353,7 +354,7 @@ function CommentNode({
       <div className="comment-content">
         <div className="comment-meta">
           <strong>{comment.author}</strong>
-          {comment.ipPrefix ? <span>IP {comment.ipPrefix}</span> : null}
+          {comment.ipPrefix ? <span>{formatPublicIpLabel(comment.ipPrefix)}</span> : null}
           <span>{formatRelativeDate(comment.createdAt)}</span>
         </div>
         <p>{comment.body}</p>

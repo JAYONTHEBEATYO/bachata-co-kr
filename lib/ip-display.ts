@@ -3,16 +3,29 @@ const isIpv4Octet = (value: string) => {
   return Number.isInteger(number) && number >= 0 && number <= 255;
 };
 
-export const displayIpPrefix = (ip: string) => {
-  const ipv4 = ip.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
-  if (ipv4 && ipv4.slice(1).every(isIpv4Octet)) {
-    return `${ipv4[1]}.${ipv4[2]}.***.***`;
-  }
+const maskIpv4 = (value: string) => {
+  const match = value.match(/^(\d{1,3})\.(\d{1,3})\.(\d{1,3})\.(\d{1,3})$/);
+  if (!match || !match.slice(1).every(isIpv4Octet)) return null;
+  return `${match[1]}.${match[2]}.***.***`;
+};
 
-  const ipv6 = ip.toLowerCase().match(/^([0-9a-f]{1,4}):([0-9a-f]{1,4})(?::|$)/);
+export const displayIpPrefix = (ip: string) => {
+  const normalized = ip.trim().toLowerCase();
+  const ipv4 = maskIpv4(normalized);
+  if (ipv4) return ipv4;
+
+  const mappedIpv4 = normalized.match(/^(?:::ffff:|0:0:0:0:0:ffff:)(\d{1,3}(?:\.\d{1,3}){3})$/);
+  if (mappedIpv4) return maskIpv4(mappedIpv4[1]) || "비공개";
+
+  const ipv6 = normalized.match(/^([0-9a-f]{1,4}):([0-9a-f]{1,4})(?::|$)/);
   if (ipv6) return `${ipv6[1]}:${ipv6[2]}:****:****`;
 
   return "비공개";
+};
+
+export const formatPublicIpLabel = (value: string | null | undefined) => {
+  if (!value || value === "비공개") return "IP 비공개";
+  return value.includes(":") ? `IPv6 ${value}` : `IP ${value}`;
 };
 
 export const normalizeStoredIpPrefix = (value: string | null | undefined) => {
