@@ -3,7 +3,8 @@ import type { NextRequest } from "next/server";
 import {
   getCommunityContext,
   jsonHeaders as sharedJsonHeaders,
-  requestFingerprint
+  requestFingerprint,
+  sha256Hex
 } from "@/lib/community-server";
 
 type StreamDirectUpload = {
@@ -42,6 +43,10 @@ type StreamBinding = {
   video: (id: string) => {
     details: () => Promise<StreamVideoDetails>;
     delete: () => Promise<void>;
+    update: (params: {
+      scheduledDeletion?: string | null;
+      meta?: Record<string, string>;
+    }) => Promise<unknown>;
   };
 };
 
@@ -72,7 +77,7 @@ const dailyUploaderLimit = 8;
 const monthlySiteLimit = 120;
 const idPattern = /^[a-zA-Z0-9_-]{16,80}$/;
 
-const jsonHeaders = (request: NextRequest) => sharedJsonHeaders(request, "GET,POST,DELETE,OPTIONS");
+const jsonHeaders = (request: NextRequest) => sharedJsonHeaders(request, "GET,POST,PATCH,DELETE,OPTIONS");
 const respond = (request: NextRequest, status: number, body: unknown) =>
   Response.json(body, { status, headers: jsonHeaders(request) });
 
@@ -294,6 +299,68 @@ export async function GET(request: NextRequest) {
     });
   } catch (error) {
     console.error("Stream video lookup failed", { id, error });
+    const mapped = streamError(error);
+    return respond(request, mapped.status, { error: mapped.message });
+  }
+}
+
+export async function PATCH(request: NextRequest) {
+  const stream = await getStream();
+  const { db, hashSalt } = await getCommunityContext();
+  if (!stream || !db) return respond(request, 503, { error: "영상 복구 기능이 아직 연결되지 않았습니다." });
+
+  let payload: Record<string, unknown>;
+  try {
+    payload = await request.json();
+  } catch {
+    return respond(request, 400, { error: "요청을 읽을 수 없습니다." });
+  }
+
+  const id = typeof payload.id === "string" ? payload.id.trim() : "";
+  const threadId = typeof payload.threadId === "string" ? payload.threadId.trim() : "";
+  const authorPassword = typeof payload.authorPassword === "string" ? payload.authorPassword.trim() : "";
+
+  if (!idPattern.test(id)) return respond(request, 400, { error: "영상 ID를 확인해주세요." });
+  if (!/^[0-9a-f-]{36}$/i.test(threadId)) return respond(request, 400, { error: "게시글 ID를 확인해주세요." });
+  if (!/^\d{4}$/.test(authorPassword)) return respond(request, 400, { error: "임시비밀번호 4자리를 확인해주세요." });
+
+  const thread = await db.prepare(
+    `select body, edit_key_hash as editKeyHash
+     from guest_threads
+     where id = ? and status = 'published'`
+  ).bind(threadId).first<{ body: string; editKeyHash: string }>();
+  if (!thread) return respond(request, 404, { error: "게시글을 찾을 수 없습니다." });
+
+  const expectedEditKey = await sha256Hex(`${threadId}|${authorPassword}|${hashSalt}|thread-edit`);
+  if (thread.editKeyHash !== expectedEditKey) {
+    return respond(request, 403, { error: "임시비밀번호가 일치하지 않습니다." });
+  }
+  if (!thread.body.includes(`cfstream:${id}`)) {
+    return respond(request, 400, { error: "게시글에 연결할 영상 정보가 없습니다." });
+  }
+
+  const video = await db.prepare(
+    "select thread_id as threadId from stream_videos where id = ? and status != 'deleted'"
+  ).bind(id).first<{ threadId: string | null }>();
+  if (!video) return respond(request, 404, { error: "영상을 찾을 수 없습니다." });
+  if (video.threadId && video.threadId !== threadId) {
+    return respond(request, 409, { error: "이미 다른 게시글에 연결된 영상입니다." });
+  }
+
+  try {
+    await stream.video(id).update({
+      scheduledDeletion: null,
+      meta: {
+        site: "bachata.co.kr",
+        threadId
+      }
+    });
+    await db.prepare("update stream_videos set thread_id = ?, updated_at = ? where id = ?")
+      .bind(threadId, new Date().toISOString(), id)
+      .run();
+    return respond(request, 200, { ok: true, threadId, streamId: id });
+  } catch (error) {
+    console.error("Stream video recovery failed", { id, threadId, error });
     const mapped = streamError(error);
     return respond(request, mapped.status, { error: mapped.message });
   }
