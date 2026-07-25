@@ -18,6 +18,7 @@ import { RelatedThreadFeed } from "./RelatedThreadFeed";
 import { Sidebar } from "./Sidebar";
 import { ThreadActionBar } from "./ThreadActionBar";
 import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
+import { ProfileAvatar } from "./ProfileAvatar";
 
 const labels: Record<string, string> = {
   questions: "질문",
@@ -86,7 +87,7 @@ export function GuestThreadDetail({
       setStatus("본문을 두 글자 이상 적어주세요.");
       return;
     }
-    if (!/^\d{4}$/.test(editPassword)) {
+    if (!thread.authorProfile && !/^\d{4}$/.test(editPassword)) {
       setStatus("글을 쓸 때 정한 임시비밀번호 4자리를 입력해주세요.");
       return;
     }
@@ -131,8 +132,10 @@ export function GuestThreadDetail({
 
   const deleteThread = async () => {
     if (!thread) return;
-    const password = window.prompt("이 글에 사용한 임시비밀번호 4자리를 입력해주세요.") || "";
-    if (!/^\d{4}$/.test(password)) {
+    const password = thread.authorProfile && thread.canManage
+      ? ""
+      : window.prompt("이 글에 사용한 임시비밀번호 4자리를 입력해주세요.") || "";
+    if (!thread.authorProfile && !/^\d{4}$/.test(password)) {
       setStatus("임시비밀번호 4자리를 숫자로 입력해주세요.");
       return;
     }
@@ -161,11 +164,10 @@ export function GuestThreadDetail({
 
   useEffect(() => {
     if (!id) return;
-    if (initialThread?.id === id) return;
     let cancelled = false;
 
     const load = async () => {
-      setStatus("글을 불러오는 중입니다.");
+      if (!initialThread || initialThread.id !== id) setStatus("글을 불러오는 중입니다.");
       try {
         const response = await fetch(`${threadsApiUrl()}?id=${encodeURIComponent(id)}`, { cache: "no-store" });
         const data = await response.json() as { thread?: GuestThread; error?: string };
@@ -213,6 +215,7 @@ export function GuestThreadDetail({
   const community = communityByCategory(thread.category);
   const accent = community?.color || "#ff4f3f";
   const hasVideo = parsed.media.some((item) => item.type === "stream" || item.type === "video");
+  const showManageActions = thread.authorProfile ? Boolean(thread.canManage) : true;
 
   return shell(
       <article className="detail-article" style={{ "--thread-accent": accent } as CSSProperties}>
@@ -221,9 +224,23 @@ export function GuestThreadDetail({
             <CommunityIcon category={thread.category} color={accent} size={19} />
             <div className="thread-card-identity">
               <strong>{labels[thread.category] || "자유"}</strong>
-              <span>{thread.guestId} · {formatPublicIpLabel(thread.ipPrefix)} · {formatRelativeDate(thread.createdAt)}</span>
+              <span className="detail-author-line">
+                {thread.authorProfile ? (
+                  <Link href={`/u/${thread.authorProfile.handle}`} className="thread-member-link">
+                    <ProfileAvatar
+                      name={thread.authorProfile.displayName}
+                      avatarUrl={thread.authorProfile.avatarUrl}
+                      avatarPreset={thread.authorProfile.avatarPreset}
+                      size={28}
+                    />
+                    {thread.guestId}
+                  </Link>
+                ) : thread.guestId}
+                {!thread.authorProfile ? ` · ${formatPublicIpLabel(thread.ipPrefix)}` : ""}
+                {` · ${formatRelativeDate(thread.createdAt)}`}
+              </span>
             </div>
-            <span className="flair">익명</span>
+            <span className="flair">{thread.authorProfile ? "회원" : "익명"}</span>
           </header>
           {editing ? (
             <form className="thread-edit-form" onSubmit={updateThread}>
@@ -249,20 +266,22 @@ export function GuestThreadDetail({
                 본문
                 <textarea value={editBody} onChange={(event) => setEditBody(event.target.value)} rows={10} maxLength={4000} required />
               </label>
-              <label>
-                임시비밀번호
-                <input
-                  type="password"
-                  inputMode="numeric"
-                  pattern="[0-9]{4}"
-                  value={editPassword}
-                  onChange={(event) => setEditPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
-                  placeholder="글을 쓸 때 정한 숫자 4자리"
-                  maxLength={4}
-                  autoComplete="off"
-                  required
-                />
-              </label>
+              {!thread.authorProfile ? (
+                <label>
+                  임시비밀번호
+                  <input
+                    type="password"
+                    inputMode="numeric"
+                    pattern="[0-9]{4}"
+                    value={editPassword}
+                    onChange={(event) => setEditPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
+                    placeholder="글을 쓸 때 정한 숫자 4자리"
+                    maxLength={4}
+                    autoComplete="off"
+                    required
+                  />
+                </label>
+              ) : null}
               <div className="thread-edit-actions">
                 <button type="button" onClick={closeEditor} disabled={editPending}><X size={16} /> 취소</button>
                 <button type="submit" disabled={editPending}><Save size={16} /> {editPending ? "저장 중" : "수정 저장"}</button>
@@ -289,14 +308,16 @@ export function GuestThreadDetail({
             shareText={buildShareDescription({ body: bodyText, hasVideo })}
             sourceLinks={thread.linkUrl ? [{ label: "원문 링크", url: thread.linkUrl }] : []}
           />
-          <div className="thread-manage-actions">
-            <button type="button" className="thread-manage-button" onClick={openEditor} disabled={editing}>
-              <Pencil size={15} /> 내 글 수정
-            </button>
-            <button type="button" className="thread-manage-button is-danger" onClick={deleteThread}>
-              <Trash2 size={15} /> 내 글 삭제
-            </button>
-          </div>
+          {showManageActions ? (
+            <div className="thread-manage-actions">
+              <button type="button" className="thread-manage-button" onClick={openEditor} disabled={editing}>
+                <Pencil size={15} /> 내 글 수정
+              </button>
+              <button type="button" className="thread-manage-button is-danger" onClick={deleteThread}>
+                <Trash2 size={15} /> 내 글 삭제
+              </button>
+            </div>
+          ) : null}
           {status ? <p className="comment-error">{status}</p> : null}
           {thread.linkUrl ? (
             <a className="primary-link" href={thread.linkUrl} target="_blank" rel="noreferrer">

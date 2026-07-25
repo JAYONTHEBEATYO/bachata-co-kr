@@ -12,11 +12,31 @@ export type SourceLink = {
   url: string;
 };
 
+export type PublicProfile = {
+  id: string;
+  handle: string;
+  displayName: string;
+  avatarUrl?: string | null;
+  avatarPreset: string;
+  bio: string;
+  location: string;
+  danceYears?: number | null;
+  preferredStyles: string[];
+  joinedAt: string;
+};
+
+export type SessionUser = PublicProfile & {
+  email: string;
+  role: "member" | "moderator" | "admin";
+};
+
 export type Comment = {
   id: string;
   threadId: string;
   parentId?: string | null;
   author: string;
+  authorProfile?: PublicProfile | null;
+  canManage?: boolean;
   ipPrefix?: string | null;
   body: string;
   score: number;
@@ -31,6 +51,8 @@ export type GuestThread = {
   category: string;
   linkUrl?: string | null;
   guestId: string;
+  authorProfile?: PublicProfile | null;
+  canManage?: boolean;
   ipPrefix: string;
   score: number;
   downvotes: number;

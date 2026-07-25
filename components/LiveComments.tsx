@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
+import Link from "next/link";
 import { ArrowBigDown, ArrowBigUp, MessageCircle, Send, Search, Trash2 } from "lucide-react";
 import { communityApiUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
@@ -8,6 +9,8 @@ import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
 import { formatPublicIpLabel } from "@/lib/ip-display";
 import type { Comment } from "@/lib/types";
 import { ReportButton } from "./ReportButton";
+import { useAuth } from "./AuthProvider";
+import { ProfileAvatar } from "./ProfileAvatar";
 
 type LiveCommentsProps = {
   threadId: string;
@@ -54,6 +57,7 @@ const buildTree = (comments: ApiComment[]): Comment[] => {
 };
 
 export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
+  const { user, loading: authLoading } = useAuth();
   const [comments, setComments] = useState<ApiComment[]>(initialComments);
   const [authorName, setAuthorName] = useState("");
   const [authorPassword, setAuthorPassword] = useState("");
@@ -80,10 +84,15 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
   const commentTree = useMemo(() => buildTree(visibleComments), [visibleComments]);
 
   useEffect(() => {
-    const session = getGuestSession();
-    setAuthorName(session.nickname);
+    if (user) {
+      setAuthorName(user.displayName);
+      setAuthorPassword("");
+      return;
+    }
+    if (authLoading) return;
+    setAuthorName(getGuestSession().nickname);
     setAuthorPassword("");
-  }, []);
+  }, [authLoading, user]);
 
   useEffect(() => {
     let cancelled = false;
@@ -118,14 +127,14 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
       setError("댓글을 두 글자 이상 적어주세요.");
       return;
     }
-    if (!/^\d{4}$/.test(authorPassword.trim())) {
+    if (!user && !/^\d{4}$/.test(authorPassword.trim())) {
       setError("임시비밀번호 4자리를 숫자로 입력해주세요.");
       return;
     }
 
     setPending(true);
     try {
-      saveGuestSession({ nickname: authorName });
+      if (!user) saveGuestSession({ nickname: authorName });
       const response = await fetch(commentsApiUrl(), {
         method: "POST",
         headers: { "content-type": "text/plain;charset=UTF-8" },
@@ -190,9 +199,11 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
     });
   };
 
-  const deleteComment = async (commentId: string) => {
-    const password = window.prompt("이 댓글에 사용한 임시비밀번호 4자리를 입력해주세요.") || "";
-    if (!/^\d{4}$/.test(password)) {
+  const deleteComment = async (comment: Comment) => {
+    const password = comment.authorProfile && comment.canManage
+      ? ""
+      : window.prompt("이 댓글에 사용한 임시비밀번호 4자리를 입력해주세요.") || "";
+    if (!comment.authorProfile && !/^\d{4}$/.test(password)) {
       setError("임시비밀번호 4자리를 숫자로 입력해주세요.");
       return;
     }
@@ -201,11 +212,11 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
       const response = await fetch(commentsApiUrl(), {
         method: "DELETE",
         headers: { "content-type": "text/plain;charset=UTF-8" },
-        body: JSON.stringify({ commentId, password })
+        body: JSON.stringify({ commentId: comment.id, password })
       });
       const data = await response.json() as { error?: string };
       if (!response.ok) throw new Error(data.error || "댓글을 삭제하지 못했습니다.");
-      setComments((current) => current.filter((comment) => comment.id !== commentId));
+      setComments((current) => current.filter((item) => item.id !== comment.id));
       setStatus("댓글을 삭제했습니다.");
     } catch (deleteError) {
       setError(deleteError instanceof Error ? deleteError.message : "댓글을 삭제하지 못했습니다.");
@@ -217,7 +228,7 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
       <div className="comments-head">
         <div>
           <h2 id="comments-title">댓글</h2>
-          <p>로그인 없이 바로 남길 수 있습니다.</p>
+          <p>{user ? `${user.displayName}으로 참여합니다.` : "로그인 없이도 바로 남길 수 있습니다."}</p>
         </div>
         <span>{comments.length}개</span>
       </div>
@@ -231,27 +242,34 @@ export function LiveComments({ threadId, initialComments }: LiveCommentsProps) {
         ) : null}
 
         {expanded || body ? (
-          <div className="comment-identity-row">
-            <input
-              type="text"
-              value={authorName}
-              onChange={(event) => setAuthorName(event.target.value)}
-              placeholder="닉네임"
-              maxLength={32}
-              autoComplete="nickname"
-            />
-            <input
-              type="password"
-              inputMode="numeric"
-              pattern="[0-9]{4}"
-              value={authorPassword}
-              onChange={(event) => setAuthorPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
-              placeholder="임시비밀번호 4자리"
-              maxLength={4}
-              autoComplete="new-password"
-              required
-            />
-          </div>
+          user ? (
+            <div className="comment-member-identity">
+              <ProfileAvatar name={user.displayName} avatarUrl={user.avatarUrl} avatarPreset={user.avatarPreset} size={34} />
+              <span><strong>{user.displayName}</strong><small>@{user.handle}</small></span>
+            </div>
+          ) : (
+            <div className="comment-identity-row">
+              <input
+                type="text"
+                value={authorName}
+                onChange={(event) => setAuthorName(event.target.value)}
+                placeholder="닉네임"
+                maxLength={32}
+                autoComplete="nickname"
+              />
+              <input
+                type="password"
+                inputMode="numeric"
+                pattern="[0-9]{4}"
+                value={authorPassword}
+                onChange={(event) => setAuthorPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
+                placeholder="임시비밀번호 4자리"
+                maxLength={4}
+                autoComplete="new-password"
+                required
+              />
+            </div>
+          )
         ) : null}
 
         <label className="comment-hp">
@@ -344,7 +362,7 @@ function CommentNode({
   onVote: (commentId: string, direction: CommentVote) => void;
   userVotes: Record<string, number>;
   votePending: string;
-  onDelete: (commentId: string) => void;
+  onDelete: (comment: Comment) => void;
 }) {
   const userVote = userVotes[comment.id] || 0;
   const isPending = votePending === comment.id;
@@ -353,7 +371,17 @@ function CommentNode({
     <article className="comment">
       <div className="comment-content">
         <div className="comment-meta">
-          <strong>{comment.author}</strong>
+          {comment.authorProfile ? (
+            <Link href={`/u/${comment.authorProfile.handle}`} className="comment-member-link">
+              <ProfileAvatar
+                name={comment.authorProfile.displayName}
+                avatarUrl={comment.authorProfile.avatarUrl}
+                avatarPreset={comment.authorProfile.avatarPreset}
+                size={28}
+              />
+              <strong>{comment.author}</strong>
+            </Link>
+          ) : <strong>{comment.author}</strong>}
           {comment.ipPrefix ? <span>{formatPublicIpLabel(comment.ipPrefix)}</span> : null}
           <span>{formatRelativeDate(comment.createdAt)}</span>
         </div>
@@ -382,7 +410,9 @@ function CommentNode({
           </span>
           <button type="button" onClick={() => onReply(comment)}><MessageCircle size={15} /> 답글 달기</button>
           <ReportButton targetType="comment" targetId={comment.id} />
-          <button type="button" onClick={() => onDelete(comment.id)}><Trash2 size={15} /> 삭제</button>
+          {comment.canManage || !comment.authorProfile ? (
+            <button type="button" onClick={() => onDelete(comment)}><Trash2 size={15} /> 삭제</button>
+          ) : null}
         </div>
         {comment.replies?.length ? (
           <div className="comment-replies">

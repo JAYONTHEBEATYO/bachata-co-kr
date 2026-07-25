@@ -20,6 +20,8 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { communityApiUrl, communityThreadPath } from "@/lib/community-api";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
+import { useAuth } from "./AuthProvider";
+import { ProfileAvatar } from "./ProfileAvatar";
 
 type CreatedThread = {
   id: string;
@@ -144,6 +146,7 @@ const mergeMedia = (current: UploadedMedia[], incoming: UploadedMedia[]) => {
 
 export function GuestThreadComposer() {
   const searchParams = useSearchParams();
+  const { user, loading: authLoading } = useAuth();
   const bodyRef = useRef<HTMLTextAreaElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const submissionCommittedRef = useRef(false);
@@ -168,10 +171,17 @@ export function GuestThreadComposer() {
   const [draftReady, setDraftReady] = useState(false);
 
   useEffect(() => {
-    const session = getGuestSession();
-    setAuthorName(session.nickname);
+    if (user) {
+      setAuthorName(user.displayName);
+      setAuthorPassword("");
+      return;
+    }
+    if (authLoading) return;
+    setAuthorName(getGuestSession().nickname);
     setAuthorPassword("");
+  }, [authLoading, user]);
 
+  useEffect(() => {
     const requestedTopic = searchParams.get("topic");
     const requestedType = searchParams.get("type") as PostType | null;
     if (requestedTopic && validTopics.has(requestedTopic)) setCategory(requestedTopic);
@@ -543,7 +553,7 @@ export function GuestThreadComposer() {
       setError("제목을 네 글자 이상 적어주세요.");
       return;
     }
-    if (!/^\d{4}$/.test(authorPassword.trim())) {
+    if (!user && !/^\d{4}$/.test(authorPassword.trim())) {
       setError("임시비밀번호 4자리를 숫자로 입력해주세요.");
       return;
     }
@@ -569,7 +579,7 @@ export function GuestThreadComposer() {
     setPending(true);
     setNotice("게시글을 저장하고 있습니다. 잠시만 기다려주세요.");
     try {
-      saveGuestSession({ nickname: authorName, password: authorPassword });
+      if (!user) saveGuestSession({ nickname: authorName, password: authorPassword });
       const response = await fetch(threadsApiUrl(), {
         method: "POST",
         headers: { "content-type": "text/plain;charset=UTF-8" },
@@ -671,26 +681,41 @@ export function GuestThreadComposer() {
         </label>
       ) : null}
 
-      <div className="composer-grid">
-        <label>
-          닉네임
-          <input value={authorName} onChange={(event) => setAuthorName(event.target.value)} placeholder="닉네임" maxLength={32} autoComplete="nickname" />
-        </label>
-        <label>
-          임시비밀번호
-          <input
-            type="password"
-            inputMode="numeric"
-            pattern="[0-9]{4}"
-            value={authorPassword}
-            onChange={(event) => setAuthorPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
-            placeholder="숫자 4자리"
-            maxLength={4}
-            autoComplete="new-password"
-            required
+      {user ? (
+        <div className="composer-member-identity">
+          <ProfileAvatar
+            name={user.displayName}
+            avatarUrl={user.avatarUrl}
+            avatarPreset={user.avatarPreset}
+            size={42}
           />
-        </label>
-      </div>
+          <div>
+            <strong>{user.displayName}으로 작성</strong>
+            <span>@{user.handle} · 작성 후 프로필에서 관리할 수 있습니다.</span>
+          </div>
+        </div>
+      ) : (
+        <div className="composer-grid">
+          <label>
+            닉네임
+            <input value={authorName} onChange={(event) => setAuthorName(event.target.value)} placeholder="닉네임" maxLength={32} autoComplete="nickname" />
+          </label>
+          <label>
+            임시비밀번호
+            <input
+              type="password"
+              inputMode="numeric"
+              pattern="[0-9]{4}"
+              value={authorPassword}
+              onChange={(event) => setAuthorPassword(event.target.value.replace(/\D/g, "").slice(0, 4))}
+              placeholder="숫자 4자리"
+              maxLength={4}
+              autoComplete="new-password"
+              required
+            />
+          </label>
+        </div>
+      )}
 
       <label>
         태그

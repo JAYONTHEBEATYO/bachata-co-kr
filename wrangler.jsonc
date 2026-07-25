@@ -42,6 +42,7 @@
     "binding": "STREAM"
   },
   "vars": {
-    "NEXT_PUBLIC_SITE_URL": "https://bachata.co.kr"
+    "NEXT_PUBLIC_SITE_URL": "https://bachata.co.kr",
+    "GOOGLE_CLIENT_ID": "415496584497-6cd7hsueh74ck3hq2f5n0jj0kmth0drv.apps.googleusercontent.com"
   }
 }

@@ -2,11 +2,13 @@ import type { NextRequest } from "next/server";
 import {
   getCommunityContext,
   getRequestIp,
+  hasTrustedRequestOrigin,
   jsonHeaders as sharedJsonHeaders,
   requestFingerprint,
   sha256Hex,
   type D1DatabaseBinding
 } from "@/lib/community-server";
+import { getSessionUserForRequest, toPublicProfile } from "@/lib/auth-server";
 import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
 
@@ -15,6 +17,16 @@ type CommentRow = {
   threadId: string;
   parentId: string | null;
   author: string;
+  authorUserId: string | null;
+  authorDisplayName: string | null;
+  authorHandle: string | null;
+  authorAvatarUrl: string | null;
+  authorAvatarPreset: string | null;
+  authorBio: string | null;
+  authorLocation: string | null;
+  authorDanceYears: number | null;
+  authorPreferredStyles: string | null;
+  authorJoinedAt: string | null;
   ipPrefix: string | null;
   body: string;
   score: number;
@@ -69,12 +81,44 @@ const threadExists = async (db: D1DatabaseBinding, threadId: string) => {
   return Boolean(row);
 };
 
-const rowToComment = (row: CommentRow) => ({
+const stylesFromJson = (value: string | null) => {
+  try {
+    const parsed = JSON.parse(value || "[]");
+    return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === "string").slice(0, 8) : [];
+  } catch {
+    return [];
+  }
+};
+
+const rowToComment = (
+  row: CommentRow,
+  currentUser: Awaited<ReturnType<typeof getSessionUserForRequest>>
+) => ({
   id: row.id,
   threadId: row.threadId,
   parentId: row.parentId,
-  author: displayGuestNickname(row.author, row.id),
-  ipPrefix: normalizeStoredIpPrefix(row.ipPrefix),
+  author: row.authorUserId && row.authorDisplayName
+    ? row.authorDisplayName
+    : displayGuestNickname(row.author, row.id),
+  authorProfile: row.authorUserId && row.authorHandle && row.authorDisplayName
+    ? {
+      id: row.authorUserId,
+      handle: row.authorHandle,
+      displayName: row.authorDisplayName,
+      avatarUrl: row.authorAvatarUrl,
+      avatarPreset: row.authorAvatarPreset || "bachata-step",
+      bio: row.authorBio || "",
+      location: row.authorLocation || "",
+      danceYears: row.authorDanceYears === null ? null : Number(row.authorDanceYears),
+      preferredStyles: stylesFromJson(row.authorPreferredStyles),
+      joinedAt: row.authorJoinedAt || row.createdAt
+    }
+    : null,
+  canManage: Boolean(
+    currentUser
+    && (currentUser.role === "admin" || currentUser.id === row.authorUserId)
+  ),
+  ipPrefix: row.authorUserId ? null : normalizeStoredIpPrefix(row.ipPrefix),
   body: row.body,
   score: Number(row.score || 0),
   createdAt: row.createdAt
@@ -89,32 +133,50 @@ export async function OPTIONS(request: NextRequest) {
 export async function GET(request: NextRequest) {
   const { db } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "댓글 저장소가 아직 연결되지 않았습니다." });
+  const currentUser = await getSessionUserForRequest(request, db);
 
   const threadId = normalizeThreadId(request.nextUrl.searchParams.get("threadId"));
   if (!threadId) return respond(request, 400, { error: "쓰레드 정보가 올바르지 않습니다." });
 
   const rows = await db.prepare(
     `select
-      id,
-      thread_id as threadId,
-      parent_id as parentId,
-      author_name as author,
-      ip_prefix as ipPrefix,
-      body,
-      score,
-      created_at as createdAt
-    from comments
-    where thread_id = ? and status = 'published'
-    order by created_at asc
+      c.id,
+      c.thread_id as threadId,
+      c.parent_id as parentId,
+      c.author_name as author,
+      c.user_id as authorUserId,
+      u.display_name as authorDisplayName,
+      u.handle as authorHandle,
+      u.avatar_url as authorAvatarUrl,
+      u.avatar_preset as authorAvatarPreset,
+      u.bio as authorBio,
+      u.location as authorLocation,
+      u.dance_years as authorDanceYears,
+      u.preferred_styles as authorPreferredStyles,
+      u.created_at as authorJoinedAt,
+      c.ip_prefix as ipPrefix,
+      c.body,
+      c.score,
+      c.created_at as createdAt
+    from comments c
+    left join users u on u.id = c.user_id and u.status = 'active'
+    where c.thread_id = ? and c.status = 'published'
+    order by c.created_at asc
     limit 200`
   ).bind(threadId).all<CommentRow>();
 
-  return respond(request, 200, { comments: (rows.results || []).map(rowToComment) });
+  return respond(request, 200, {
+    comments: (rows.results || []).map((row) => rowToComment(row, currentUser))
+  });
 }
 
 export async function POST(request: NextRequest) {
+  if (!hasTrustedRequestOrigin(request)) {
+    return respond(request, 403, { error: "올바르지 않은 요청입니다." });
+  }
   const { db, hashSalt } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "댓글 저장소가 아직 연결되지 않았습니다." });
+  const currentUser = await getSessionUserForRequest(request, db);
 
   let payload: Record<string, unknown>;
   try {
@@ -129,12 +191,14 @@ export async function POST(request: NextRequest) {
 
   const threadId = normalizeThreadId(payload.threadId);
   const parentId = normalizeParentId(payload.parentId);
-  const authorName = normalizeName(payload.authorName) || randomKoreanNickname();
+  const authorName = currentUser?.displayName || normalizeName(payload.authorName) || randomKoreanNickname();
   const authorPassword = typeof payload.authorPassword === "string" ? payload.authorPassword.trim() : "";
   const body = normalizeBody(payload.body);
 
   if (!threadId) return respond(request, 400, { error: "쓰레드 정보가 올바르지 않습니다." });
-  if (!/^\d{4}$/.test(authorPassword)) return respond(request, 400, { error: "임시비밀번호 4자리를 숫자로 입력해주세요." });
+  if (!currentUser && !/^\d{4}$/.test(authorPassword)) {
+    return respond(request, 400, { error: "임시비밀번호 4자리를 숫자로 입력해주세요." });
+  }
   if (body.length < 2) return respond(request, 400, { error: "댓글을 두 글자 이상 적어주세요." });
   if (body.length > 1000) return respond(request, 400, { error: "댓글은 1000자 이하로 남겨주세요." });
   if (!(await threadExists(db, threadId))) return respond(request, 404, { error: "댓글을 남길 글을 찾을 수 없습니다." });
@@ -161,21 +225,38 @@ export async function POST(request: NextRequest) {
   const id = crypto.randomUUID();
   const now = new Date().toISOString();
   const userAgent = (request.headers.get("user-agent") || "").slice(0, 240);
-  const passwordHash = await sha256Hex(`${id}|${authorPassword}|${hashSalt}|comment-edit`);
+  const passwordHash = currentUser
+    ? await sha256Hex(`${id}|${currentUser.id}|${hashSalt}|member-comment`)
+    : await sha256Hex(`${id}|${authorPassword}|${hashSalt}|comment-edit`);
 
   await db.prepare(
     `insert into comments
-      (id, thread_id, parent_id, author_name, body, score, ip_hash, ip_prefix, author_password_hash, user_agent, created_at, updated_at)
-    values (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?)`
-  ).bind(id, threadId, parentId, authorName, body, hash, ipPrefix, passwordHash, userAgent, now, now).run();
+      (id, thread_id, parent_id, author_name, body, score, ip_hash, ip_prefix, author_password_hash, user_agent, user_id, created_at, updated_at)
+    values (?, ?, ?, ?, ?, 0, ?, ?, ?, ?, ?, ?, ?)`
+  ).bind(
+    id,
+    threadId,
+    parentId,
+    authorName,
+    body,
+    hash,
+    ipPrefix,
+    passwordHash,
+    userAgent,
+    currentUser?.id || null,
+    now,
+    now
+  ).run();
 
   return respond(request, 201, {
     comment: {
       id,
       threadId,
       parentId,
-      author: displayGuestNickname(authorName, id),
-      ipPrefix: normalizeStoredIpPrefix(ipPrefix),
+      author: currentUser ? authorName : displayGuestNickname(authorName, id),
+      authorProfile: currentUser ? toPublicProfile(currentUser) : null,
+      canManage: Boolean(currentUser),
+      ipPrefix: currentUser ? null : normalizeStoredIpPrefix(ipPrefix),
       body,
       score: 0,
       createdAt: now
@@ -184,6 +265,9 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
+  if (!hasTrustedRequestOrigin(request)) {
+    return respond(request, 403, { error: "올바르지 않은 요청입니다." });
+  }
   const { db, hashSalt } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "댓글 저장소가 아직 연결되지 않았습니다." });
 
@@ -239,8 +323,12 @@ export async function PATCH(request: NextRequest) {
 }
 
 export async function DELETE(request: NextRequest) {
+  if (!hasTrustedRequestOrigin(request)) {
+    return respond(request, 403, { error: "올바르지 않은 요청입니다." });
+  }
   const { db, hashSalt } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "댓글 저장소가 아직 연결되지 않았습니다." });
+  const currentUser = await getSessionUserForRequest(request, db);
 
   let payload: Record<string, unknown>;
   try {
@@ -251,29 +339,39 @@ export async function DELETE(request: NextRequest) {
 
   const commentId = normalizeParentId(payload.commentId);
   const password = typeof payload.password === "string" ? payload.password.trim() : "";
-  if (!commentId || !/^\d{4}$/.test(password)) {
-    return respond(request, 400, { error: "댓글과 임시비밀번호를 확인해주세요." });
-  }
+  if (!commentId) return respond(request, 400, { error: "댓글 정보를 확인해주세요." });
 
-  const requesterHash = await requestFingerprint(request, hashSalt, "comment-delete");
-  const since = new Date(Date.now() - 15 * 60_000).toISOString();
-  const attempts = await db.prepare(
-    "select count(*) as count from guest_auth_attempts where requester_hash = ? and created_at >= ?"
-  ).bind(requesterHash, since).first<CountRow>();
-  if (Number(attempts?.count || 0) >= 8) {
-    return respond(request, 429, { error: "삭제 확인을 여러 번 시도했습니다. 잠시 후 다시 시도해주세요." });
-  }
-
-  const expected = await sha256Hex(`${commentId}|${password}|${hashSalt}|comment-edit`);
-  const row = await db.prepare("select author_password_hash as passwordHash from comments where id = ? and status = 'published'")
+  const row = await db.prepare(
+    "select author_password_hash as passwordHash, user_id as userId from comments where id = ? and status = 'published'"
+  )
     .bind(commentId)
-    .first<{ passwordHash: string | null }>();
-  const succeeded = Boolean(row && row.passwordHash === expected);
-  await db.prepare(
-    "insert into guest_auth_attempts (id, target_type, target_id, requester_hash, succeeded, created_at) values (?, 'comment', ?, ?, ?, ?)"
-  ).bind(crypto.randomUUID(), commentId, requesterHash, succeeded ? 1 : 0, new Date().toISOString()).run();
-  if (!succeeded) {
-    return respond(request, 403, { error: "임시비밀번호가 맞지 않습니다." });
+    .first<{ passwordHash: string | null; userId: string | null }>();
+  if (!row) return respond(request, 404, { error: "댓글을 찾을 수 없습니다." });
+
+  const memberCanManage = Boolean(
+    currentUser
+    && (currentUser.role === "admin" || currentUser.id === row.userId)
+  );
+  if (!memberCanManage) {
+    if (row.userId) return respond(request, 403, { error: "이 댓글을 삭제할 권한이 없습니다." });
+    if (!/^\d{4}$/.test(password)) {
+      return respond(request, 400, { error: "댓글을 쓸 때 정한 임시비밀번호 4자리를 입력해주세요." });
+    }
+    const requesterHash = await requestFingerprint(request, hashSalt, "comment-delete");
+    const since = new Date(Date.now() - 15 * 60_000).toISOString();
+    const attempts = await db.prepare(
+      "select count(*) as count from guest_auth_attempts where requester_hash = ? and created_at >= ?"
+    ).bind(requesterHash, since).first<CountRow>();
+    if (Number(attempts?.count || 0) >= 8) {
+      return respond(request, 429, { error: "삭제 확인을 여러 번 시도했습니다. 잠시 후 다시 시도해주세요." });
+    }
+
+    const expected = await sha256Hex(`${commentId}|${password}|${hashSalt}|comment-edit`);
+    const succeeded = row.passwordHash === expected;
+    await db.prepare(
+      "insert into guest_auth_attempts (id, target_type, target_id, requester_hash, succeeded, created_at) values (?, 'comment', ?, ?, ?, ?)"
+    ).bind(crypto.randomUUID(), commentId, requesterHash, succeeded ? 1 : 0, new Date().toISOString()).run();
+    if (!succeeded) return respond(request, 403, { error: "임시비밀번호가 맞지 않습니다." });
   }
 
   const now = new Date().toISOString();

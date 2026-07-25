@@ -3,10 +3,12 @@ import type { NextRequest } from "next/server";
 import {
   getCommunityContext,
   getRequestIp,
+  hasTrustedRequestOrigin,
   jsonHeaders as sharedJsonHeaders,
   requestFingerprint,
   sha256Hex
 } from "@/lib/community-server";
+import { getSessionUserForRequest, toPublicProfile } from "@/lib/auth-server";
 import { displayIpPrefix, normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { queueThreadIndexUpdate } from "@/lib/indexnow";
 import { displayGuestNickname, randomKoreanNickname } from "@/lib/nicknames";
@@ -19,6 +21,16 @@ type GuestThreadRow = {
   linkUrl: string | null;
   guestId: string;
   ipPrefix: string;
+  authorUserId: string | null;
+  authorDisplayName: string | null;
+  authorHandle: string | null;
+  authorAvatarUrl: string | null;
+  authorAvatarPreset: string | null;
+  authorBio: string | null;
+  authorLocation: string | null;
+  authorDanceYears: number | null;
+  authorPreferredStyles: string | null;
+  authorJoinedAt: string | null;
   score: number;
   downvotes: number;
   commentCount?: number;
@@ -183,14 +195,70 @@ const isBrokenText = (...values: Array<string | null | undefined>) =>
       || questionCount >= Math.max(6, Math.ceil(text.length * 0.25));
   });
 
-const rowToThread = (row: GuestThreadRow) => ({
+const threadProjection = `
+  g.id,
+  g.title,
+  g.body,
+  g.category,
+  g.link_url as linkUrl,
+  g.guest_id as guestId,
+  g.ip_prefix as ipPrefix,
+  g.user_id as authorUserId,
+  u.display_name as authorDisplayName,
+  u.handle as authorHandle,
+  u.avatar_url as authorAvatarUrl,
+  u.avatar_preset as authorAvatarPreset,
+  u.bio as authorBio,
+  u.location as authorLocation,
+  u.dance_years as authorDanceYears,
+  u.preferred_styles as authorPreferredStyles,
+  u.created_at as authorJoinedAt,
+  g.score,
+  g.downvotes,
+  g.created_at as createdAt,
+  (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+`;
+
+const stylesFromJson = (value: string | null) => {
+  try {
+    const parsed = JSON.parse(value || "[]");
+    return Array.isArray(parsed) ? parsed.filter((item): item is string => typeof item === "string").slice(0, 8) : [];
+  } catch {
+    return [];
+  }
+};
+
+const rowToThread = (
+  row: GuestThreadRow,
+  currentUser: Awaited<ReturnType<typeof getSessionUserForRequest>>
+) => ({
   id: row.id,
   title: row.title,
   body: row.body,
   category: row.category,
   linkUrl: row.linkUrl,
-  guestId: displayGuestNickname(row.guestId, row.id),
-  ipPrefix: normalizeStoredIpPrefix(row.ipPrefix) || "비공개",
+  guestId: row.authorUserId && row.authorDisplayName
+    ? row.authorDisplayName
+    : displayGuestNickname(row.guestId, row.id),
+  authorProfile: row.authorUserId && row.authorHandle && row.authorDisplayName
+    ? {
+      id: row.authorUserId,
+      handle: row.authorHandle,
+      displayName: row.authorDisplayName,
+      avatarUrl: row.authorAvatarUrl,
+      avatarPreset: row.authorAvatarPreset || "bachata-step",
+      bio: row.authorBio || "",
+      location: row.authorLocation || "",
+      danceYears: row.authorDanceYears === null ? null : Number(row.authorDanceYears),
+      preferredStyles: stylesFromJson(row.authorPreferredStyles),
+      joinedAt: row.authorJoinedAt || row.createdAt
+    }
+    : null,
+  canManage: Boolean(
+    currentUser
+    && (currentUser.role === "admin" || currentUser.id === row.authorUserId)
+  ),
+  ipPrefix: row.authorUserId ? "비공개" : normalizeStoredIpPrefix(row.ipPrefix) || "비공개",
   score: Number(row.score || 0),
   downvotes: Number(row.downvotes || 0),
   commentCount: Number(row.commentCount || 0),
@@ -207,29 +275,20 @@ export async function OPTIONS(request: NextRequest) {
 export async function GET(request: NextRequest) {
   const { db } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+  const currentUser = await getSessionUserForRequest(request, db);
 
   const id = normalizeId(request.nextUrl.searchParams.get("id"));
   if (id) {
     const row = await db.prepare(
-      `select
-        g.id,
-        g.title,
-        g.body,
-        g.category,
-        g.link_url as linkUrl,
-        g.guest_id as guestId,
-        g.ip_prefix as ipPrefix,
-        g.score,
-        g.downvotes,
-        g.created_at as createdAt,
-        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      `select ${threadProjection}
       from guest_threads g
-      where g.status = 'published' and g.id = ?
+      left join users u on u.id = g.user_id and u.status = 'active'
+      where g.status = 'published' and (g.id = ? or g.id like ?)
       limit 1`
-    ).bind(id).first<GuestThreadRow>();
+    ).bind(id, `${id}%`).first<GuestThreadRow>();
 
     if (!row || isBrokenText(row.title, row.body, row.guestId)) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
-    return respond(request, 200, { thread: rowToThread(row) });
+    return respond(request, 200, { thread: rowToThread(row, currentUser) });
   }
 
   const category = request.nextUrl.searchParams.get("category");
@@ -239,61 +298,35 @@ export async function GET(request: NextRequest) {
   const orderBy = orderByForSort(sort);
   const rows = categoryFilter && query
     ? await db.prepare(
-      `select
-        g.id, g.title, g.body, g.category, g.link_url as linkUrl,
-        g.guest_id as guestId, g.ip_prefix as ipPrefix, g.score, g.downvotes,
-        g.created_at as createdAt,
-        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      `select ${threadProjection}
       from guest_threads g
+      left join users u on u.id = g.user_id and u.status = 'active'
       where g.status = 'published' and g.category = ? and (g.title like ? or g.body like ?)
       order by ${orderBy}
       limit 40`
     ).bind(categoryFilter, `%${query}%`, `%${query}%`).all<GuestThreadRow>()
     : categoryFilter
     ? await db.prepare(
-      `select
-        g.id,
-        g.title,
-        g.body,
-        g.category,
-        g.link_url as linkUrl,
-        g.guest_id as guestId,
-        g.ip_prefix as ipPrefix,
-        g.score,
-        g.downvotes,
-        g.created_at as createdAt,
-        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      `select ${threadProjection}
       from guest_threads g
+      left join users u on u.id = g.user_id and u.status = 'active'
       where g.status = 'published' and g.category = ?
       order by ${orderBy}
       limit 40`
     ).bind(categoryFilter).all<GuestThreadRow>()
     : query
     ? await db.prepare(
-      `select
-        g.id, g.title, g.body, g.category, g.link_url as linkUrl,
-        g.guest_id as guestId, g.ip_prefix as ipPrefix, g.score, g.downvotes,
-        g.created_at as createdAt,
-        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      `select ${threadProjection}
       from guest_threads g
+      left join users u on u.id = g.user_id and u.status = 'active'
       where g.status = 'published' and (g.title like ? or g.body like ?)
       order by ${orderBy}
       limit 40`
     ).bind(`%${query}%`, `%${query}%`).all<GuestThreadRow>()
     : await db.prepare(
-      `select
-        g.id,
-        g.title,
-        g.body,
-        g.category,
-        g.link_url as linkUrl,
-        g.guest_id as guestId,
-        g.ip_prefix as ipPrefix,
-        g.score,
-        g.downvotes,
-        g.created_at as createdAt,
-        (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+      `select ${threadProjection}
       from guest_threads g
+      left join users u on u.id = g.user_id and u.status = 'active'
       where g.status = 'published'
       order by ${orderBy}
       limit 40`
@@ -302,13 +335,17 @@ export async function GET(request: NextRequest) {
   return respond(request, 200, {
     threads: (rows.results || [])
       .filter((row) => !isBrokenText(row.title, row.body, row.guestId))
-      .map(rowToThread)
+      .map((row) => rowToThread(row, currentUser))
   });
 }
 
 export async function POST(request: NextRequest) {
+  if (!hasTrustedRequestOrigin(request)) {
+    return respond(request, 403, { error: "올바르지 않은 요청입니다." });
+  }
   const { db, hashSalt } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+  const currentUser = await getSessionUserForRequest(request, db);
 
   let payload: Record<string, unknown>;
   try {
@@ -325,13 +362,15 @@ export async function POST(request: NextRequest) {
   const body = normalizeText(payload.body, 4000);
   const category = normalizeCategory(payload.category);
   const linkUrl = normalizeLink(payload.linkUrl);
-  const authorName = normalizeName(payload.authorName) || randomKoreanNickname();
+  const authorName = currentUser?.displayName || normalizeName(payload.authorName) || randomKoreanNickname();
   const authorPassword = typeof payload.authorPassword === "string" ? payload.authorPassword.trim() : "";
   const streamIds = normalizeStreamIds(payload.streamIds);
 
   if (title.length < 4) return respond(request, 400, { error: "제목을 네 글자 이상 적어주세요." });
   if (body.length < 2) return respond(request, 400, { error: "본문을 두 글자 이상 적어주세요." });
-  if (!/^\d{4}$/.test(authorPassword)) return respond(request, 400, { error: "임시비밀번호 4자리를 숫자로 입력해주세요." });
+  if (!currentUser && !/^\d{4}$/.test(authorPassword)) {
+    return respond(request, 400, { error: "임시비밀번호 4자리를 숫자로 입력해주세요." });
+  }
 
   const ip = getRequestIp(request);
   const ipHash = await requestFingerprint(request, hashSalt, "threads");
@@ -347,13 +386,28 @@ export async function POST(request: NextRequest) {
   const id = crypto.randomUUID();
   const now = new Date().toISOString();
   const ipPrefix = displayIpPrefix(ip);
-  const editKeyHash = await sha256Hex(`${id}|${authorPassword}|${hashSalt}|thread-edit`);
+  const editKeyHash = currentUser
+    ? await sha256Hex(`${id}|${currentUser.id}|${hashSalt}|member-thread`)
+    : await sha256Hex(`${id}|${authorPassword}|${hashSalt}|thread-edit`);
 
   await db.prepare(
     `insert into guest_threads
-      (id, title, body, category, link_url, guest_id, ip_prefix, ip_hash, edit_key_hash, score, downvotes, created_at, updated_at)
-    values (?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?)`
-  ).bind(id, title, body, category, linkUrl, authorName, ipPrefix, ipHash, editKeyHash, now, now).run();
+      (id, title, body, category, link_url, guest_id, ip_prefix, ip_hash, edit_key_hash, user_id, score, downvotes, created_at, updated_at)
+    values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0, 0, ?, ?)`
+  ).bind(
+    id,
+    title,
+    body,
+    category,
+    linkUrl,
+    authorName,
+    ipPrefix,
+    ipHash,
+    editKeyHash,
+    currentUser?.id || null,
+    now,
+    now
+  ).run();
 
   if (streamIds.length) {
     const stream = await getStream();
@@ -395,7 +449,9 @@ export async function POST(request: NextRequest) {
       category,
       linkUrl,
       guestId: authorName,
-      ipPrefix: normalizeStoredIpPrefix(ipPrefix) || "비공개",
+      authorProfile: currentUser ? toPublicProfile(currentUser) : null,
+      canManage: Boolean(currentUser),
+      ipPrefix: currentUser ? "비공개" : normalizeStoredIpPrefix(ipPrefix) || "비공개",
       score: 0,
       downvotes: 0,
       commentCount: 0,
@@ -406,8 +462,12 @@ export async function POST(request: NextRequest) {
 }
 
 export async function PATCH(request: NextRequest) {
+  if (!hasTrustedRequestOrigin(request)) {
+    return respond(request, 403, { error: "올바르지 않은 요청입니다." });
+  }
   const { db, hashSalt } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+  const currentUser = await getSessionUserForRequest(request, db);
 
   let payload: Record<string, unknown>;
   try {
@@ -423,34 +483,42 @@ export async function PATCH(request: NextRequest) {
   const category = normalizeCategory(payload.category);
   const linkUrl = normalizeLink(payload.linkUrl);
 
-  if (!id || !/^\d{4}$/.test(password)) {
-    return respond(request, 400, { error: "글과 임시비밀번호를 확인해주세요." });
-  }
+  if (!id) return respond(request, 400, { error: "글 정보를 확인해주세요." });
   if (title.length < 4) return respond(request, 400, { error: "제목을 네 글자 이상 적어주세요." });
   if (body.length < 2) return respond(request, 400, { error: "본문을 두 글자 이상 적어주세요." });
 
-  const requesterHash = await requestFingerprint(request, hashSalt, "thread-edit");
-  const since = new Date(Date.now() - 15 * 60_000).toISOString();
-  const attempts = await db.prepare(
-    "select count(*) as count from guest_auth_attempts where requester_hash = ? and created_at >= ?"
-  ).bind(requesterHash, since).first<CountRow>();
-  if (Number(attempts?.count || 0) >= 8) {
-    return respond(request, 429, { error: "수정 확인을 여러 번 시도했습니다. 잠시 후 다시 시도해주세요." });
-  }
-
-  const expected = await sha256Hex(`${id}|${password}|${hashSalt}|thread-edit`);
   const authRow = await db.prepare(
-    "select edit_key_hash as editKeyHash from guest_threads where id = ? and status = 'published'"
-  ).bind(id).first<{ editKeyHash: string }>();
-  const succeeded = Boolean(authRow && authRow.editKeyHash === expected);
+    "select edit_key_hash as editKeyHash, user_id as userId from guest_threads where id = ? and status = 'published'"
+  ).bind(id).first<{ editKeyHash: string; userId: string | null }>();
+  if (!authRow) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
+
+  const memberCanManage = Boolean(
+    currentUser
+    && (currentUser.role === "admin" || currentUser.id === authRow.userId)
+  );
+  let succeeded = memberCanManage;
   const now = new Date().toISOString();
 
-  await db.prepare(
-    "insert into guest_auth_attempts (id, target_type, target_id, requester_hash, succeeded, created_at) values (?, 'thread', ?, ?, ?, ?)"
-  ).bind(crypto.randomUUID(), id, requesterHash, succeeded ? 1 : 0, now).run();
+  if (!memberCanManage) {
+    if (authRow.userId) return respond(request, 403, { error: "이 글을 수정할 권한이 없습니다." });
+    if (!/^\d{4}$/.test(password)) {
+      return respond(request, 400, { error: "글을 쓸 때 정한 임시비밀번호 4자리를 입력해주세요." });
+    }
+    const requesterHash = await requestFingerprint(request, hashSalt, "thread-edit");
+    const since = new Date(Date.now() - 15 * 60_000).toISOString();
+    const attempts = await db.prepare(
+      "select count(*) as count from guest_auth_attempts where requester_hash = ? and created_at >= ?"
+    ).bind(requesterHash, since).first<CountRow>();
+    if (Number(attempts?.count || 0) >= 8) {
+      return respond(request, 429, { error: "수정 확인을 여러 번 시도했습니다. 잠시 후 다시 시도해주세요." });
+    }
 
-  if (!succeeded) {
-    return respond(request, 403, { error: "임시비밀번호가 맞지 않습니다." });
+    const expected = await sha256Hex(`${id}|${password}|${hashSalt}|thread-edit`);
+    succeeded = authRow.editKeyHash === expected;
+    await db.prepare(
+      "insert into guest_auth_attempts (id, target_type, target_id, requester_hash, succeeded, created_at) values (?, 'thread', ?, ?, ?, ?)"
+    ).bind(crypto.randomUUID(), id, requesterHash, succeeded ? 1 : 0, now).run();
+    if (!succeeded) return respond(request, 403, { error: "임시비밀번호가 맞지 않습니다." });
   }
 
   await db.prepare(
@@ -460,24 +528,25 @@ export async function PATCH(request: NextRequest) {
   ).bind(title, body, category, linkUrl, now, id).run();
 
   const row = await db.prepare(
-    `select
-      g.id, g.title, g.body, g.category, g.link_url as linkUrl,
-      g.guest_id as guestId, g.ip_prefix as ipPrefix, g.score, g.downvotes,
-      g.created_at as createdAt,
-      (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
+    `select ${threadProjection}
     from guest_threads g
+    left join users u on u.id = g.user_id and u.status = 'active'
     where g.id = ? and g.status = 'published'
     limit 1`
   ).bind(id).first<GuestThreadRow>();
 
   if (!row) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
   await queueThreadIndexUpdate(id);
-  return respond(request, 200, { thread: rowToThread(row) });
+  return respond(request, 200, { thread: rowToThread(row, currentUser) });
 }
 
 export async function DELETE(request: NextRequest) {
+  if (!hasTrustedRequestOrigin(request)) {
+    return respond(request, 403, { error: "올바르지 않은 요청입니다." });
+  }
   const { db, hashSalt } = await getCommunityContext();
   if (!db) return respond(request, 503, { error: "글 저장소가 아직 연결되지 않았습니다." });
+  const currentUser = await getSessionUserForRequest(request, db);
 
   let payload: Record<string, unknown>;
   try {
@@ -488,29 +557,39 @@ export async function DELETE(request: NextRequest) {
 
   const id = normalizeId(payload.id);
   const password = typeof payload.password === "string" ? payload.password.trim() : "";
-  if (!id || !/^\d{4}$/.test(password)) {
-    return respond(request, 400, { error: "글과 임시비밀번호를 확인해주세요." });
-  }
+  if (!id) return respond(request, 400, { error: "글 정보를 확인해주세요." });
 
-  const requesterHash = await requestFingerprint(request, hashSalt, "thread-delete");
-  const since = new Date(Date.now() - 15 * 60_000).toISOString();
-  const attempts = await db.prepare(
-    "select count(*) as count from guest_auth_attempts where requester_hash = ? and created_at >= ?"
-  ).bind(requesterHash, since).first<CountRow>();
-  if (Number(attempts?.count || 0) >= 8) {
-    return respond(request, 429, { error: "삭제 확인을 여러 번 시도했습니다. 잠시 후 다시 시도해주세요." });
-  }
-
-  const expected = await sha256Hex(`${id}|${password}|${hashSalt}|thread-edit`);
-  const row = await db.prepare("select edit_key_hash as editKeyHash from guest_threads where id = ? and status = 'published'")
+  const row = await db.prepare(
+    "select edit_key_hash as editKeyHash, user_id as userId from guest_threads where id = ? and status = 'published'"
+  )
     .bind(id)
-    .first<{ editKeyHash: string }>();
-  const succeeded = Boolean(row && row.editKeyHash === expected);
-  await db.prepare(
-    "insert into guest_auth_attempts (id, target_type, target_id, requester_hash, succeeded, created_at) values (?, 'thread', ?, ?, ?, ?)"
-  ).bind(crypto.randomUUID(), id, requesterHash, succeeded ? 1 : 0, new Date().toISOString()).run();
-  if (!succeeded) {
-    return respond(request, 403, { error: "임시비밀번호가 맞지 않습니다." });
+    .first<{ editKeyHash: string; userId: string | null }>();
+  if (!row) return respond(request, 404, { error: "글을 찾을 수 없습니다." });
+
+  const memberCanManage = Boolean(
+    currentUser
+    && (currentUser.role === "admin" || currentUser.id === row.userId)
+  );
+  if (!memberCanManage) {
+    if (row.userId) return respond(request, 403, { error: "이 글을 삭제할 권한이 없습니다." });
+    if (!/^\d{4}$/.test(password)) {
+      return respond(request, 400, { error: "글을 쓸 때 정한 임시비밀번호 4자리를 입력해주세요." });
+    }
+    const requesterHash = await requestFingerprint(request, hashSalt, "thread-delete");
+    const since = new Date(Date.now() - 15 * 60_000).toISOString();
+    const attempts = await db.prepare(
+      "select count(*) as count from guest_auth_attempts where requester_hash = ? and created_at >= ?"
+    ).bind(requesterHash, since).first<CountRow>();
+    if (Number(attempts?.count || 0) >= 8) {
+      return respond(request, 429, { error: "삭제 확인을 여러 번 시도했습니다. 잠시 후 다시 시도해주세요." });
+    }
+
+    const expected = await sha256Hex(`${id}|${password}|${hashSalt}|thread-edit`);
+    const succeeded = row.editKeyHash === expected;
+    await db.prepare(
+      "insert into guest_auth_attempts (id, target_type, target_id, requester_hash, succeeded, created_at) values (?, 'thread', ?, ?, ?, ?)"
+    ).bind(crypto.randomUUID(), id, requesterHash, succeeded ? 1 : 0, new Date().toISOString()).run();
+    if (!succeeded) return respond(request, 403, { error: "임시비밀번호가 맞지 않습니다." });
   }
 
   const now = new Date().toISOString();

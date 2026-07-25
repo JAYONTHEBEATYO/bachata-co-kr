@@ -19,6 +19,9 @@ export type D1DatabaseBinding = {
 type CommunityBindings = Record<string, unknown> & {
   COMMENTS_DB?: D1DatabaseBinding;
   COMMUNITY_HASH_SALT?: string;
+  GOOGLE_CLIENT_ID?: string;
+  ADMIN_EMAILS?: string;
+  NEXT_PUBLIC_SITE_URL?: string;
 };
 
 export const getCommunityContext = async () => {
@@ -27,10 +30,19 @@ export const getCommunityContext = async () => {
     const bindings = env as CommunityBindings;
     return {
       db: bindings.COMMENTS_DB || null,
-      hashSalt: bindings.COMMUNITY_HASH_SALT || "bachata-local-development"
+      hashSalt: bindings.COMMUNITY_HASH_SALT || "bachata-local-development",
+      googleClientId: bindings.GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID || "",
+      adminEmails: bindings.ADMIN_EMAILS || process.env.ADMIN_EMAILS || "",
+      siteUrl: bindings.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
     };
   } catch {
-    return { db: null, hashSalt: "bachata-local-development" };
+    return {
+      db: null,
+      hashSalt: "bachata-local-development",
+      googleClientId: process.env.GOOGLE_CLIENT_ID || "",
+      adminEmails: process.env.ADMIN_EMAILS || "",
+      siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+    };
   }
 };
 
@@ -75,5 +87,12 @@ export const jsonHeaders = (request: NextRequest, methods: string) => {
     "content-type": "application/json; charset=utf-8",
     vary: "Origin"
   };
+};
+
+export const hasTrustedRequestOrigin = (request: NextRequest) => {
+  const origin = request.headers.get("origin");
+  if (origin) return allowedOrigins.has(origin);
+  const fetchSite = request.headers.get("sec-fetch-site");
+  return !fetchSite || fetchSite === "same-origin" || fetchSite === "none";
 };
 

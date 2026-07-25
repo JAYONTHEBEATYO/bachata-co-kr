@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type CSSProperties } from "react";
+import { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
 import { PenLine } from "lucide-react";
 import { communityApiUrl, communityThreadPath, communityThreadShareUrl } from "@/lib/community-api";
@@ -13,6 +13,7 @@ import type { GuestThread } from "@/lib/types";
 import { CommunityIcon } from "./CommunityIcon";
 import { ThreadActionBar } from "./ThreadActionBar";
 import { ThreadMediaAttachments } from "./ThreadMediaAttachments";
+import { ProfileAvatar } from "./ProfileAvatar";
 
 type LiveThreadListProps = {
   category?: string;
@@ -55,13 +56,8 @@ export function LiveThreadList({
 }: LiveThreadListProps) {
   const [threads, setThreads] = useState<GuestThread[]>(initialThreads);
   const [loading, setLoading] = useState(initialThreads.length === 0);
-  const skipInitialFetch = useRef(initialThreads.length > 0);
 
   useEffect(() => {
-    if (skipInitialFetch.current) {
-      skipInitialFetch.current = false;
-      return;
-    }
     let cancelled = false;
     const load = async () => {
       setLoading(true);
@@ -105,7 +101,7 @@ export function LiveThreadList({
   }
 
   return (
-    <section className="live-thread-stack" aria-label="비회원 새 글">
+    <section className="live-thread-stack" aria-label="커뮤니티 글">
       {threads.map((thread) => (
         <LiveThreadCard key={thread.id} thread={thread} />
       ))}
@@ -132,9 +128,23 @@ function LiveThreadCard({ thread }: { thread: GuestThread }) {
           <CommunityIcon category={thread.category} color={accent} size={17} />
           <div className="thread-card-identity">
             <strong>{labels[thread.category] || "자유"}</strong>
-            <span>{thread.guestId} · {formatPublicIpLabel(thread.ipPrefix)} · {formatRelativeDate(thread.createdAt)}</span>
+            <span>
+              {thread.authorProfile ? (
+                <Link href={`/u/${thread.authorProfile.handle}`} className="thread-member-link">
+                  <ProfileAvatar
+                    name={thread.authorProfile.displayName}
+                    avatarUrl={thread.authorProfile.avatarUrl}
+                    avatarPreset={thread.authorProfile.avatarPreset}
+                    size={24}
+                  />
+                  {thread.guestId}
+                </Link>
+              ) : thread.guestId}
+              {!thread.authorProfile ? ` · ${formatPublicIpLabel(thread.ipPrefix)}` : ""}
+              {` · ${formatRelativeDate(thread.createdAt)}`}
+            </span>
           </div>
-          <span className="flair">익명</span>
+          <span className="flair">{thread.authorProfile ? "회원" : "익명"}</span>
         </header>
         <h2><Link href={detailPath}>{thread.title}</Link></h2>
         <p>{bodyText}</p>
