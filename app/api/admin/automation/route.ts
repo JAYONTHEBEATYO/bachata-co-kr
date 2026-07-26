@@ -54,6 +54,23 @@ const cleanUrl = (value: unknown) => {
   }
 };
 
+const hasRepeatedProse = (value: string) => {
+  const sentences = value
+    .split(/[.!?]\s*|\n+/)
+    .map((sentence) => sentence.replace(/\s+/g, " ").trim())
+    .filter((sentence) => sentence.length >= 24);
+  if (sentences.length < 6) return false;
+  const uniqueSentences = new Set(sentences);
+  return uniqueSentences.size / sentences.length < 0.82;
+};
+
+const hasUnsupportedHype = (value: string) => {
+  const matches = value.match(
+    /큰 (?:성공|기쁨|즐거움|기회)|열렬한 반응|성장할 것으로 기대|인기가 많아지고/g
+  );
+  return (matches?.length || 0) >= 2;
+};
+
 const normalizeSignal = (value: unknown): EditorialSignal | null => {
   if (!value || typeof value !== "object") return null;
   const source = value as Record<string, unknown>;
@@ -231,7 +248,7 @@ const beginRun = async (
 };
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 60;
+export const maxDuration = 180;
 
 export async function POST(request: NextRequest) {
   const auth = await requireAdmin(request, { allowAutomation: true });
@@ -317,12 +334,16 @@ export async function POST(request: NextRequest) {
           const hasNearDuplicateTitle = acceptedTitles.some((accepted) => (
             compactTitle.includes(accepted) || accepted.includes(compactTitle)
           ));
+          const hasJapaneseScript = /[\u3040-\u30ff]/.test(`${title} ${summary} ${body}`);
           if (
             !allowedSourceUrls.has(sourceUrl)
             || title.length < 8
             || summary.length < 35
             || body.length < 500
             || hasNearDuplicateTitle
+            || hasJapaneseScript
+            || hasRepeatedProse(body)
+            || hasUnsupportedHype(`${summary} ${body}`)
           ) continue;
           const tags = Array.isArray(article.tags)
             ? article.tags
