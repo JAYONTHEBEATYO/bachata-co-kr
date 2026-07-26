@@ -212,7 +212,7 @@ const response = await fetch(endpoint, {
     "content-type": "application/json"
   },
   body: JSON.stringify({ mode: "daily", signals: unique }),
-  signal: AbortSignal.timeout(150_000)
+  signal: AbortSignal.timeout(90_000)
 });
 
 const body = await response.text();
