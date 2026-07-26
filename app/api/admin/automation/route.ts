@@ -41,7 +41,7 @@ type AiRecommendation = {
   confidence?: unknown;
 };
 
-const aiModel = "@cf/meta/llama-3.1-8b-instruct-fast";
+const aiModel = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
 const validPriorities = new Set(["low", "normal", "high", "urgent"]);
 
 const cleanUrl = (value: unknown) => {
@@ -104,7 +104,7 @@ const runAiJson = async (
       { role: "system", content: system },
       { role: "user", content: user }
     ],
-    max_tokens: 2600,
+    max_tokens: 3200,
     temperature: 0.35,
     response_format: {
       type: "json_schema",
