@@ -137,8 +137,9 @@ const appendSection = (parts: string[], icon: string, title: string, lines: stri
 
 export const buildPosterDraft = (fields: PosterFields) => {
   const parts: string[] = [];
-  const intro = fields.intro
-    || `${fields.title || "바차타 행사"}의 포스터 정보를 보기 쉽게 정리했습니다.`;
+  const intro = fields.intro.length >= 20
+    ? fields.intro
+    : `${fields.title || "바차타 행사"} 포스터에서 확인되는 정보를 보기 쉽게 정리했습니다.`;
   parts.push(intro);
 
   appendSection(parts, "📅", "일정", [
