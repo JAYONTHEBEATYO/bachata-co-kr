@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Header } from "@/components/Header";
 import { AuthProvider } from "@/components/AuthProvider";
+import { AnalyticsTracker } from "@/components/AnalyticsTracker";
 import { absoluteUrl } from "@/lib/format";
 import { DEFAULT_SHARE_IMAGE } from "@/lib/share-meta";
 import "./globals.css";
@@ -104,6 +105,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <AuthProvider>
+          <AnalyticsTracker />
           <Header />
           {children}
         </AuthProvider>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ArrowBigDown, ArrowBigUp } from "lucide-react";
+import { ThumbsDown, ThumbsUp } from "lucide-react";
 import { communityApiUrl } from "@/lib/community-api";
 
 type VoteTargetType = "thread" | "guestThread";
@@ -86,7 +86,7 @@ export function VoteRail({ targetId, targetType = "thread", score, downvotes = 0
         disabled={pending !== ""}
         onClick={() => vote("up")}
       >
-        <ArrowBigUp size={22} />
+        <ThumbsUp size={19} strokeWidth={2} />
       </button>
       <strong>{currentScore - currentDownvotes}</strong>
       <button
@@ -96,7 +96,7 @@ export function VoteRail({ targetId, targetType = "thread", score, downvotes = 0
         disabled={pending !== ""}
         onClick={() => vote("down")}
       >
-        <ArrowBigDown size={22} />
+        <ThumbsDown size={19} strokeWidth={2} />
       </button>
       {currentDownvotes ? <em>{currentDownvotes}</em> : null}
     </div>

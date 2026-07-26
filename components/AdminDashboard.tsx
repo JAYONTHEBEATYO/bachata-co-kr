@@ -1,0 +1,1031 @@
+"use client";
+
+import Link from "next/link";
+import {
+  Activity,
+  AlertTriangle,
+  Archive,
+  BarChart3,
+  Bot,
+  Check,
+  ChevronRight,
+  Clock3,
+  ExternalLink,
+  Eye,
+  FileCheck2,
+  FileText,
+  Gauge,
+  Layers3,
+  LoaderCircle,
+  MessageSquare,
+  MoreHorizontal,
+  Pin,
+  Plus,
+  RefreshCw,
+  Save,
+  Search,
+  Settings2,
+  ShieldCheck,
+  Sparkles,
+  ThumbsUp,
+  Users,
+  X
+} from "lucide-react";
+import { useCallback, useEffect, useState } from "react";
+import type {
+  AdminOverview,
+  AdminProposal,
+  AdminReport,
+  AdminRun,
+  AdminSource,
+  AdminThread,
+  AdminTopic
+} from "@/lib/admin-types";
+import type { SessionUser } from "@/lib/types";
+import { ProfileAvatar } from "./ProfileAvatar";
+
+type AdminTab = "overview" | "editorial" | "threads" | "topics" | "operations";
+
+type AdminData = {
+  overview: AdminOverview | null;
+  proposals: AdminProposal[];
+  threads: AdminThread[];
+  topics: AdminTopic[];
+  reports: AdminReport[];
+  sources: AdminSource[];
+  runs: AdminRun[];
+};
+
+const emptyData: AdminData = {
+  overview: null,
+  proposals: [],
+  threads: [],
+  topics: [],
+  reports: [],
+  sources: [],
+  runs: []
+};
+
+const tabs: Array<{ id: AdminTab; label: string; icon: typeof Gauge }> = [
+  { id: "overview", label: "개요", icon: Gauge },
+  { id: "editorial", label: "편집 큐", icon: Sparkles },
+  { id: "threads", label: "게시물", icon: FileText },
+  { id: "topics", label: "주제·하위주제", icon: Layers3 },
+  { id: "operations", label: "신고·수집기", icon: ShieldCheck }
+];
+
+const categoryLabels: Record<string, string> = {
+  questions: "질문",
+  video: "영상",
+  events: "행사",
+  promotion: "홍보",
+  free: "자유게시판",
+  academyReview: "아카데미 리뷰",
+  dancerReview: "댄서 리뷰",
+  socialReview: "소셜 후기",
+  poll: "설문조사",
+  ama: "무엇이든 물어보세요"
+};
+
+const proposalStatusLabels: Record<string, string> = {
+  pending: "검토 대기",
+  approved: "승인됨",
+  denied: "거절됨",
+  published: "게시됨",
+  applied: "적용 완료"
+};
+
+const formatNumber = (value: number) => new Intl.NumberFormat("ko-KR").format(value);
+const formatDateTime = (value?: string | null) => value
+  ? new Intl.DateTimeFormat("ko-KR", {
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  }).format(new Date(value))
+  : "-";
+const formatDuration = (seconds: number) => seconds >= 60
+  ? `${Math.floor(seconds / 60)}분 ${seconds % 60}초`
+  : `${seconds}초`;
+
+const fetchJson = async <T,>(url: string, init?: RequestInit): Promise<T> => {
+  const response = await fetch(url, {
+    ...init,
+    cache: "no-store",
+    credentials: "same-origin",
+    headers: {
+      "content-type": "application/json",
+      ...(init?.headers || {})
+    }
+  });
+  const data = await response.json() as T & { error?: string };
+  if (!response.ok) throw new Error(data.error || "요청을 처리하지 못했습니다.");
+  return data;
+};
+
+export function AdminDashboard({ user }: { user: SessionUser }) {
+  const [tab, setTab] = useState<AdminTab>("overview");
+  const [data, setData] = useState<AdminData>(emptyData);
+  const [loading, setLoading] = useState(true);
+  const [busy, setBusy] = useState("");
+  const [notice, setNotice] = useState("");
+  const [error, setError] = useState("");
+
+  const loadAll = useCallback(async () => {
+    setLoading(true);
+    setError("");
+    try {
+      const [overview, proposals, threads, topics, reports, sources] = await Promise.all([
+        fetchJson<{ overview: AdminOverview }>("/api/admin/overview"),
+        fetchJson<{ proposals: AdminProposal[] }>("/api/admin/proposals"),
+        fetchJson<{ threads: AdminThread[] }>("/api/admin/threads"),
+        fetchJson<{ topics: AdminTopic[] }>("/api/admin/topics"),
+        fetchJson<{ reports: AdminReport[] }>("/api/admin/reports"),
+        fetchJson<{ sources: AdminSource[]; runs: AdminRun[] }>("/api/admin/sources")
+      ]);
+      setData({
+        overview: overview.overview,
+        proposals: proposals.proposals,
+        threads: threads.threads,
+        topics: topics.topics,
+        reports: reports.reports,
+        sources: sources.sources,
+        runs: sources.runs
+      });
+    } catch (loadError) {
+      setError(loadError instanceof Error ? loadError.message : "관리자 데이터를 불러오지 못했습니다.");
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    void loadAll();
+  }, [loadAll]);
+
+  const runAutomation = async (mode: "daily" | "weekly") => {
+    setBusy(`automation-${mode}`);
+    setNotice("");
+    setError("");
+    try {
+      const result = await fetchJson<{ proposalsCount: number }>("/api/admin/automation", {
+        method: "POST",
+        body: JSON.stringify({ mode })
+      });
+      setNotice(mode === "daily"
+        ? `콘텐츠 후보 ${result.proposalsCount}건을 편집 큐에 추가했습니다.`
+        : `사이트 개선안 ${result.proposalsCount}건을 준비했습니다.`);
+      await loadAll();
+      setTab("editorial");
+    } catch (automationError) {
+      setError(automationError instanceof Error ? automationError.message : "자동화를 실행하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  const pendingCount = data.proposals.filter((proposal) => proposal.status === "pending").length;
+  const openReportCount = data.reports.filter((report) => report.status === "open").length;
+
+  return (
+    <main className="admin-page">
+      <header className="admin-hero">
+        <div className="admin-hero-copy">
+          <span><ShieldCheck size={15} /> ADMIN CONSOLE</span>
+          <h1>바차타 코리아 운영실</h1>
+          <p>사이트 흐름을 확인하고, 콘텐츠와 커뮤니티 운영 결정을 한곳에서 처리합니다.</p>
+        </div>
+        <div className="admin-hero-actions">
+          <button
+            type="button"
+            className="admin-button secondary"
+            disabled={Boolean(busy)}
+            onClick={() => void runAutomation("daily")}
+          >
+            {busy === "automation-daily" ? <LoaderCircle className="spin" size={16} /> : <Bot size={16} />}
+            콘텐츠 후보 찾기
+          </button>
+          <button
+            type="button"
+            className="admin-button primary"
+            disabled={Boolean(busy)}
+            onClick={() => void runAutomation("weekly")}
+          >
+            {busy === "automation-weekly" ? <LoaderCircle className="spin" size={16} /> : <Sparkles size={16} />}
+            사이트 점검 실행
+          </button>
+          <div className="admin-account">
+            <ProfileAvatar
+              name={user.displayName}
+              avatarUrl={user.avatarUrl}
+              avatarPreset={user.avatarPreset}
+              size={38}
+            />
+            <span><strong>{user.displayName}</strong><small>최고 관리자</small></span>
+          </div>
+        </div>
+      </header>
+
+      <nav className="admin-tabs" aria-label="관리자 메뉴">
+        {tabs.map((item) => {
+          const Icon = item.icon;
+          const count = item.id === "editorial"
+            ? pendingCount
+            : item.id === "operations"
+              ? openReportCount
+              : 0;
+          return (
+            <button
+              key={item.id}
+              type="button"
+              className={tab === item.id ? "active" : ""}
+              aria-label={item.label}
+              aria-pressed={tab === item.id}
+              title={item.label}
+              onClick={() => setTab(item.id)}
+            >
+              <Icon size={17} />
+              <span>{item.label}</span>
+              {count ? <b>{count}</b> : null}
+            </button>
+          );
+        })}
+        <button
+          type="button"
+          className="admin-refresh"
+          aria-label="관리자 데이터 새로고침"
+          title="새로고침"
+          onClick={() => void loadAll()}
+          disabled={loading}
+        >
+          <RefreshCw className={loading ? "spin" : ""} size={17} />
+          <span>새로고침</span>
+        </button>
+      </nav>
+
+      {notice ? <div className="admin-toast success"><Check size={16} />{notice}</div> : null}
+      {error ? <div className="admin-toast error"><AlertTriangle size={16} />{error}</div> : null}
+
+      {loading && !data.overview ? (
+        <div className="admin-loading"><LoaderCircle className="spin" size={28} /><p>운영 데이터를 불러오는 중입니다.</p></div>
+      ) : null}
+
+      {!loading || data.overview ? (
+        <section className="admin-workspace">
+          {tab === "overview" && data.overview ? (
+            <OverviewPanel overview={data.overview} proposals={data.proposals} reports={data.reports} />
+          ) : null}
+          {tab === "editorial" ? (
+            <EditorialPanel
+              proposals={data.proposals}
+              busy={busy}
+              setBusy={setBusy}
+              setNotice={setNotice}
+              setError={setError}
+              reload={loadAll}
+            />
+          ) : null}
+          {tab === "threads" ? (
+            <ThreadsPanel
+              threads={data.threads}
+              busy={busy}
+              setBusy={setBusy}
+              setNotice={setNotice}
+              setError={setError}
+              reload={loadAll}
+            />
+          ) : null}
+          {tab === "topics" ? (
+            <TopicsPanel
+              topics={data.topics}
+              busy={busy}
+              setBusy={setBusy}
+              setNotice={setNotice}
+              setError={setError}
+              reload={loadAll}
+            />
+          ) : null}
+          {tab === "operations" ? (
+            <OperationsPanel
+              reports={data.reports}
+              sources={data.sources}
+              runs={data.runs}
+              busy={busy}
+              setBusy={setBusy}
+              setNotice={setNotice}
+              setError={setError}
+              reload={loadAll}
+            />
+          ) : null}
+        </section>
+      ) : null}
+    </main>
+  );
+}
+
+function OverviewPanel({
+  overview,
+  proposals,
+  reports
+}: {
+  overview: AdminOverview;
+  proposals: AdminProposal[];
+  reports: AdminReport[];
+}) {
+  const cards = [
+    { label: "오늘 방문자", metric: overview.metrics.visitors, icon: Users, format: formatNumber },
+    { label: "오늘 페이지뷰", metric: overview.metrics.pageviews, icon: Eye, format: formatNumber },
+    { label: "평균 체류시간", metric: overview.metrics.averageDuration, icon: Clock3, format: formatDuration },
+    { label: "최근 5분 접속", metric: overview.metrics.activeNow, icon: Activity, format: formatNumber }
+  ];
+  const maxPageviews = Math.max(1, ...overview.daily.map((item) => item.pageviews));
+  const pending = proposals.filter((proposal) => proposal.status === "pending").slice(0, 4);
+  const openReports = reports.filter((report) => report.status === "open").length;
+
+  return (
+    <div className="admin-overview">
+      <div className="admin-metric-grid">
+        {cards.map((card) => {
+          const Icon = card.icon;
+          return (
+            <article key={card.label} className="admin-metric">
+              <div><span>{card.label}</span><Icon size={18} /></div>
+              <strong>{card.format(card.metric.value)}</strong>
+              {typeof card.metric.change === "number" ? (
+                <small className={card.metric.change >= 0 ? "positive" : "negative"}>
+                  어제보다 {card.metric.change >= 0 ? "+" : ""}{card.metric.change}%
+                </small>
+              ) : <small>실시간 집계</small>}
+            </article>
+          );
+        })}
+      </div>
+
+      <div className="admin-overview-grid">
+        <section className="admin-panel analytics-panel">
+          <header className="admin-panel-head">
+            <div><span>최근 14일</span><h2>방문 흐름</h2></div>
+            <div className="chart-legend"><i />페이지뷰 <i />방문자</div>
+          </header>
+          <div className="admin-chart" role="img" aria-label="최근 14일 방문자와 페이지뷰 그래프">
+            {overview.daily.length ? overview.daily.map((item) => (
+              <div className="chart-column" key={item.date}>
+                <div className="chart-bars">
+                  <i style={{ height: `${Math.max(3, item.pageviews / maxPageviews * 100)}%` }} />
+                  <b style={{ height: `${Math.max(3, item.visitors / maxPageviews * 100)}%` }} />
+                </div>
+                <span>{item.date.slice(5).replace("-", ".")}</span>
+              </div>
+            )) : <p className="admin-empty">오늘부터 방문 흐름이 쌓입니다.</p>}
+          </div>
+          <div className="analytics-summary">
+            <span><strong>{formatNumber(overview.metrics.threads7d.value)}</strong>새 글</span>
+            <span><strong>{formatNumber(overview.metrics.comments7d.value)}</strong>새 댓글</span>
+            <span><strong>{formatNumber(overview.metrics.members.value)}</strong>회원</span>
+            <span><strong>{formatNumber(overview.metrics.pendingWork.value)}</strong>처리할 일</span>
+          </div>
+        </section>
+
+        <section className="admin-panel priority-panel">
+          <header className="admin-panel-head">
+            <div><span>오늘의 운영</span><h2>먼저 볼 항목</h2></div>
+            <MoreHorizontal size={18} />
+          </header>
+          <div className="priority-list">
+            {openReports ? (
+              <div className="priority-item urgent">
+                <AlertTriangle size={18} />
+                <span><strong>미처리 신고 {openReports}건</strong><small>게시물과 댓글 신고를 확인해주세요.</small></span>
+                <ChevronRight size={17} />
+              </div>
+            ) : null}
+            {pending.map((proposal) => (
+              <div className="priority-item" key={proposal.id}>
+                {proposal.proposalType === "content" ? <FileCheck2 size={18} /> : <Sparkles size={18} />}
+                <span><strong>{proposal.title}</strong><small>{proposalStatusLabels[proposal.status]}</small></span>
+                <ChevronRight size={17} />
+              </div>
+            ))}
+            {!openReports && !pending.length ? (
+              <div className="admin-empty compact"><Check size={20} /><p>지금 바로 처리할 항목이 없습니다.</p></div>
+            ) : null}
+          </div>
+        </section>
+      </div>
+
+      <div className="admin-overview-grid lower">
+        <section className="admin-panel">
+          <header className="admin-panel-head">
+            <div><span>최근 7일</span><h2>많이 본 페이지</h2></div>
+          </header>
+          <div className="admin-table">
+            <div className="admin-table-row head"><span>페이지</span><span>조회</span><span>방문자</span><span>체류</span></div>
+            {overview.topPages.map((page) => (
+              <div className="admin-table-row" key={page.path}>
+                <Link href={page.path} target="_blank">{page.path}</Link>
+                <span>{formatNumber(page.pageviews)}</span>
+                <span>{formatNumber(page.visitors)}</span>
+                <span>{formatDuration(page.duration)}</span>
+              </div>
+            ))}
+            {!overview.topPages.length ? <p className="admin-empty">집계된 페이지가 아직 없습니다.</p> : null}
+          </div>
+        </section>
+
+        <section className="admin-panel">
+          <header className="admin-panel-head">
+            <div><span>관리 기록</span><h2>최근 변경</h2></div>
+          </header>
+          <div className="activity-list">
+            {overview.activity.map((item) => (
+              <div key={item.id}>
+                <i />
+                <span><strong>{item.action}</strong><small>{formatDateTime(item.createdAt)}</small></span>
+              </div>
+            ))}
+            {!overview.activity.length ? <p className="admin-empty">첫 관리 작업부터 기록됩니다.</p> : null}
+          </div>
+        </section>
+      </div>
+    </div>
+  );
+}
+
+function EditorialPanel({
+  proposals,
+  busy,
+  setBusy,
+  setNotice,
+  setError,
+  reload
+}: {
+  proposals: AdminProposal[];
+  busy: string;
+  setBusy: (value: string) => void;
+  setNotice: (value: string) => void;
+  setError: (value: string) => void;
+  reload: () => Promise<void>;
+}) {
+  const [filter, setFilter] = useState<"pending" | "content" | "site_improvement" | "all">("pending");
+  const filtered = proposals.filter((proposal) => {
+    if (filter === "all") return true;
+    if (filter === "pending") return proposal.status === "pending" || proposal.status === "approved";
+    return proposal.proposalType === filter;
+  });
+
+  return (
+    <div className="admin-section-stack">
+      <header className="admin-section-title">
+        <div><span>EDITORIAL DESK</span><h2>AI 편집 큐</h2><p>원문 링크와 초안을 확인한 뒤 직접 다듬고 승인합니다.</p></div>
+        <div className="admin-filter">
+          {[
+            ["pending", "검토 대기"],
+            ["content", "콘텐츠"],
+            ["site_improvement", "개선안"],
+            ["all", "전체"]
+          ].map(([value, label]) => (
+            <button
+              key={value}
+              type="button"
+              className={filter === value ? "active" : ""}
+              onClick={() => setFilter(value as typeof filter)}
+            >{label}</button>
+          ))}
+        </div>
+      </header>
+      <div className="proposal-list">
+        {filtered.map((proposal) => (
+          <ProposalEditor
+            key={proposal.id}
+            proposal={proposal}
+            busy={busy}
+            setBusy={setBusy}
+            setNotice={setNotice}
+            setError={setError}
+            reload={reload}
+          />
+        ))}
+        {!filtered.length ? <div className="admin-empty large"><Sparkles size={24} /><p>이 조건에 맞는 제안이 없습니다.</p></div> : null}
+      </div>
+    </div>
+  );
+}
+
+function ProposalEditor({
+  proposal,
+  busy,
+  setBusy,
+  setNotice,
+  setError,
+  reload
+}: {
+  proposal: AdminProposal;
+  busy: string;
+  setBusy: (value: string) => void;
+  setNotice: (value: string) => void;
+  setError: (value: string) => void;
+  reload: () => Promise<void>;
+}) {
+  const [title, setTitle] = useState(proposal.title);
+  const [summary, setSummary] = useState(proposal.summary);
+  const [body, setBody] = useState(proposal.body);
+  const [category, setCategory] = useState(proposal.category);
+  const [tags, setTags] = useState(proposal.tags.join(", "));
+  const [reviewNote, setReviewNote] = useState("");
+  const isBusy = busy === proposal.id;
+  const isClosed = ["denied", "published", "applied"].includes(proposal.status);
+
+  const mutate = async (action: "save" | "deny" | "approve" | "apply" | "publish") => {
+    setBusy(proposal.id);
+    setError("");
+    setNotice("");
+    try {
+      const result = await fetchJson<{ threadPath?: string; status?: string }>("/api/admin/proposals", {
+        method: "PATCH",
+        body: JSON.stringify({
+          id: proposal.id,
+          action,
+          title,
+          summary,
+          body,
+          category,
+          tags: tags.split(",").map((tag) => tag.trim()).filter(Boolean),
+          reviewNote
+        })
+      });
+      if (result.threadPath) {
+        setNotice("콘텐츠를 게시했습니다.");
+      } else if (action === "deny") {
+        setNotice("제안을 거절 처리했습니다.");
+      } else if (action === "approve") {
+        setNotice("개선안을 작업 대기로 승인했습니다.");
+      } else if (action === "apply") {
+        setNotice("적용 완료로 기록했습니다.");
+      } else {
+        setNotice("편집 내용을 저장했습니다.");
+      }
+      await reload();
+    } catch (mutationError) {
+      setError(mutationError instanceof Error ? mutationError.message : "제안서를 처리하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  return (
+    <article className={`proposal-card ${proposal.proposalType}`}>
+      <header>
+        <div className="proposal-type">
+          {proposal.proposalType === "content" ? <FileText size={16} /> : <Settings2 size={16} />}
+          <span>{proposal.proposalType === "content" ? "콘텐츠 초안" : "사이트 개선안"}</span>
+          <b data-status={proposal.status}>{proposalStatusLabels[proposal.status]}</b>
+          <small data-priority={proposal.priority}>{proposal.priority === "high" || proposal.priority === "urgent" ? "우선 검토" : "일반"}</small>
+        </div>
+        <span className="proposal-confidence">신뢰도 {Math.round(proposal.confidence * 100)}%</span>
+      </header>
+      <div className="proposal-fields">
+        <label>
+          <span>제목</span>
+          <input value={title} onChange={(event) => setTitle(event.target.value)} disabled={isClosed} />
+        </label>
+        <label>
+          <span>한 줄 요약</span>
+          <textarea rows={2} value={summary} onChange={(event) => setSummary(event.target.value)} disabled={isClosed} />
+        </label>
+        <label>
+          <span>{proposal.proposalType === "content" ? "본문 초안" : "권장 작업"}</span>
+          <textarea rows={proposal.proposalType === "content" ? 10 : 5} value={body} onChange={(event) => setBody(event.target.value)} disabled={isClosed} />
+        </label>
+        <div className="proposal-inline-fields">
+          {proposal.proposalType === "content" ? (
+            <>
+              <label><span>게시판</span>
+                <select value={category} onChange={(event) => setCategory(event.target.value)} disabled={isClosed}>
+                  {Object.entries(categoryLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}
+                </select>
+              </label>
+              <label><span>태그</span><input value={tags} onChange={(event) => setTags(event.target.value)} disabled={isClosed} /></label>
+            </>
+          ) : null}
+          <label className="review-note"><span>관리자 메모</span><input value={reviewNote} onChange={(event) => setReviewNote(event.target.value)} disabled={isClosed} placeholder="결정 이유나 후속 작업" /></label>
+        </div>
+      </div>
+      <footer>
+        <div className="proposal-evidence">
+          {proposal.sourceUrl ? (
+            <a href={proposal.sourceUrl} target="_blank" rel="noreferrer">
+              <ExternalLink size={14} />{proposal.sourceName || "원문 확인"}
+            </a>
+          ) : (
+            <span><BarChart3 size={14} />{proposal.rationale || "운영 지표 기반"}</span>
+          )}
+          <small>{formatDateTime(proposal.createdAt)}</small>
+        </div>
+        <div className="proposal-actions">
+          {!isClosed ? <button type="button" onClick={() => void mutate("deny")} disabled={isBusy}><X size={15} />거절</button> : null}
+          {!isClosed ? <button type="button" onClick={() => void mutate("save")} disabled={isBusy}><Save size={15} />저장</button> : null}
+          {proposal.proposalType === "content" && !isClosed ? (
+            <button className="primary" type="button" onClick={() => void mutate("publish")} disabled={isBusy}>
+              {isBusy ? <LoaderCircle className="spin" size={15} /> : <FileCheck2 size={15} />}승인 후 게시
+            </button>
+          ) : null}
+          {proposal.proposalType === "site_improvement" && proposal.status === "pending" ? (
+            <button className="primary" type="button" onClick={() => void mutate("approve")} disabled={isBusy}><Check size={15} />작업 승인</button>
+          ) : null}
+          {proposal.proposalType === "site_improvement" && proposal.status === "approved" ? (
+            <button className="primary" type="button" onClick={() => void mutate("apply")} disabled={isBusy}><Check size={15} />적용 완료</button>
+          ) : null}
+          {proposal.threadId ? <Link href={`/g/${proposal.threadId}`} target="_blank"><ExternalLink size={15} />게시물 보기</Link> : null}
+        </div>
+      </footer>
+    </article>
+  );
+}
+
+function ThreadsPanel({
+  threads,
+  busy,
+  setBusy,
+  setNotice,
+  setError,
+  reload
+}: {
+  threads: AdminThread[];
+  busy: string;
+  setBusy: (value: string) => void;
+  setNotice: (value: string) => void;
+  setError: (value: string) => void;
+  reload: () => Promise<void>;
+}) {
+  const [query, setQuery] = useState("");
+  const [status, setStatus] = useState("all");
+  const visible = threads.filter((thread) => {
+    const matchesStatus = status === "all" || thread.status === status;
+    const needle = query.trim().toLowerCase();
+    return matchesStatus && (!needle || `${thread.title} ${thread.author}`.toLowerCase().includes(needle));
+  });
+
+  const patchThread = async (thread: AdminThread, patch: Record<string, unknown>, message: string) => {
+    setBusy(thread.id);
+    setError("");
+    try {
+      await fetchJson("/api/admin/threads", {
+        method: "PATCH",
+        body: JSON.stringify({ id: thread.id, ...patch })
+      });
+      setNotice(message);
+      await reload();
+    } catch (patchError) {
+      setError(patchError instanceof Error ? patchError.message : "게시물을 변경하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  return (
+    <div className="admin-section-stack">
+      <header className="admin-section-title">
+        <div><span>CONTENT CONTROL</span><h2>게시물 관리</h2><p>게시물 노출과 추천 영역을 조정합니다.</p></div>
+        <div className="admin-search-filter">
+          <label><Search size={16} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="제목·작성자 검색" /></label>
+          <select value={status} onChange={(event) => setStatus(event.target.value)}>
+            <option value="all">전체 상태</option>
+            <option value="published">공개</option>
+            <option value="hidden">숨김</option>
+            <option value="removed">삭제 처리</option>
+          </select>
+        </div>
+      </header>
+      <section className="admin-panel thread-admin-list">
+        <div className="thread-admin-row head">
+          <span>게시물</span><span>반응</span><span>상태</span><span>관리</span>
+        </div>
+        {visible.map((thread) => (
+          <div className="thread-admin-row" key={thread.id}>
+            <div className="thread-admin-title">
+              <span>{categoryLabels[thread.category] || thread.category}</span>
+              <Link href={`/g/${thread.id}`} target="_blank">{thread.title}</Link>
+              <small>{thread.author} · {formatDateTime(thread.createdAt)}</small>
+            </div>
+            <div className="thread-admin-reaction">
+              <span><ThumbsUp size={14} />{thread.score - thread.downvotes}</span>
+              <span><MessageSquare size={14} />{thread.commentCount}</span>
+            </div>
+            <span className={`status-pill ${thread.status}`}>
+              {thread.status === "published" ? "공개" : thread.status === "hidden" ? "숨김" : "삭제"}
+            </span>
+            <div className="thread-admin-actions">
+              <button
+                type="button"
+                className={thread.isPinned ? "active" : ""}
+                title="상단 고정"
+                disabled={busy === thread.id}
+                onClick={() => void patchThread(thread, { isPinned: !thread.isPinned }, thread.isPinned ? "고정을 해제했습니다." : "상단에 고정했습니다.")}
+              ><Pin size={15} /></button>
+              <button
+                type="button"
+                className={thread.isFeatured ? "active" : ""}
+                title="추천 콘텐츠"
+                disabled={busy === thread.id}
+                onClick={() => void patchThread(thread, { isFeatured: !thread.isFeatured }, thread.isFeatured ? "추천에서 제외했습니다." : "추천 콘텐츠로 지정했습니다.")}
+              ><Sparkles size={15} /></button>
+              <select
+                value={thread.status}
+                disabled={busy === thread.id}
+                onChange={(event) => void patchThread(thread, { status: event.target.value }, "게시물 상태를 변경했습니다.")}
+              >
+                <option value="published">공개</option>
+                <option value="hidden">숨김</option>
+                <option value="removed">삭제</option>
+              </select>
+            </div>
+          </div>
+        ))}
+        {!visible.length ? <p className="admin-empty">조건에 맞는 게시물이 없습니다.</p> : null}
+      </section>
+    </div>
+  );
+}
+
+function TopicsPanel({
+  topics,
+  busy,
+  setBusy,
+  setNotice,
+  setError,
+  reload
+}: {
+  topics: AdminTopic[];
+  busy: string;
+  setBusy: (value: string) => void;
+  setNotice: (value: string) => void;
+  setError: (value: string) => void;
+  reload: () => Promise<void>;
+}) {
+  const boards = topics.filter((topic) => topic.topicType === "board");
+  const subtopics = topics.filter((topic) => topic.topicType === "subtopic");
+  const [newTopic, setNewTopic] = useState({
+    parentId: boards[0]?.id || "",
+    name: "",
+    slug: "",
+    description: "",
+    color: boards[0]?.color || "#ff4f3f",
+    sortOrder: 100
+  });
+
+  useEffect(() => {
+    if (!newTopic.parentId && boards[0]) {
+      setNewTopic((current) => ({ ...current, parentId: boards[0].id, color: boards[0].color }));
+    }
+  }, [boards, newTopic.parentId]);
+
+  const saveTopic = async (topic: AdminTopic, patch: Partial<AdminTopic>) => {
+    setBusy(topic.id);
+    setError("");
+    try {
+      await fetchJson("/api/admin/topics", {
+        method: "PATCH",
+        body: JSON.stringify({ ...topic, ...patch })
+      });
+      setNotice("주제 설정을 저장했습니다.");
+      await reload();
+    } catch (topicError) {
+      setError(topicError instanceof Error ? topicError.message : "주제를 저장하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  const createSubtopic = async () => {
+    setBusy("new-topic");
+    setError("");
+    try {
+      await fetchJson("/api/admin/topics", {
+        method: "POST",
+        body: JSON.stringify(newTopic)
+      });
+      setNotice("새 하위주제를 추가했습니다.");
+      setNewTopic((current) => ({ ...current, name: "", slug: "", description: "" }));
+      await reload();
+    } catch (topicError) {
+      setError(topicError instanceof Error ? topicError.message : "하위주제를 추가하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  return (
+    <div className="admin-section-stack">
+      <header className="admin-section-title">
+        <div><span>INFORMATION ARCHITECTURE</span><h2>주제와 하위주제</h2><p>게시판 이름과 노출 순서를 바꾸면 공개 주제 화면에도 반영됩니다.</p></div>
+      </header>
+
+      <section className="admin-panel topic-manager">
+        <header className="admin-panel-head"><div><span>대분류</span><h2>게시판 편집</h2></div></header>
+        <div className="topic-admin-grid">
+          {boards.map((board) => <TopicRow key={board.id} topic={board} busy={busy === board.id} onSave={saveTopic} />)}
+        </div>
+      </section>
+
+      <section className="admin-panel topic-manager">
+        <header className="admin-panel-head">
+          <div><span>하위 분류</span><h2>하위주제 편집</h2></div>
+          <span>{subtopics.length}개</span>
+        </header>
+        <div className="subtopic-groups">
+          {boards.map((board) => {
+            const children = subtopics.filter((topic) => topic.parentId === board.id);
+            return (
+              <section key={board.id}>
+                <h3><i style={{ background: board.color }} />{board.name}<span>{children.length}</span></h3>
+                <div>
+                  {children.map((topic) => <TopicRow key={topic.id} topic={topic} busy={busy === topic.id} onSave={saveTopic} compact />)}
+                  {!children.length ? <p>등록된 하위주제가 없습니다.</p> : null}
+                </div>
+              </section>
+            );
+          })}
+        </div>
+      </section>
+
+      <section className="admin-panel add-topic-panel">
+        <header className="admin-panel-head"><div><span>새 분류</span><h2>하위주제 추가</h2></div><Plus size={19} /></header>
+        <div className="add-topic-form">
+          <label><span>상위 게시판</span>
+            <select value={newTopic.parentId} onChange={(event) => {
+              const board = boards.find((item) => item.id === event.target.value);
+              setNewTopic((current) => ({ ...current, parentId: event.target.value, color: board?.color || current.color }));
+            }}>
+              {boards.map((board) => <option key={board.id} value={board.id}>{board.name}</option>)}
+            </select>
+          </label>
+          <label><span>이름</span><input value={newTopic.name} onChange={(event) => setNewTopic((current) => ({ ...current, name: event.target.value }))} placeholder="예: 댄서:멜빈(FRANCE)" /></label>
+          <label><span>주소</span><input value={newTopic.slug} onChange={(event) => setNewTopic((current) => ({ ...current, slug: event.target.value }))} placeholder="예: dancer-melvin" /></label>
+          <label className="wide"><span>설명</span><input value={newTopic.description} onChange={(event) => setNewTopic((current) => ({ ...current, description: event.target.value }))} placeholder="이 주제에서 나눌 이야기" /></label>
+          <button className="admin-button primary" type="button" onClick={() => void createSubtopic()} disabled={busy === "new-topic" || !newTopic.name.trim()}>
+            {busy === "new-topic" ? <LoaderCircle className="spin" size={16} /> : <Plus size={16} />}추가
+          </button>
+        </div>
+      </section>
+    </div>
+  );
+}
+
+function TopicRow({
+  topic,
+  busy,
+  onSave,
+  compact = false
+}: {
+  topic: AdminTopic;
+  busy: boolean;
+  onSave: (topic: AdminTopic, patch: Partial<AdminTopic>) => Promise<void>;
+  compact?: boolean;
+}) {
+  const [name, setName] = useState(topic.name);
+  const [description, setDescription] = useState(topic.description);
+  const [color, setColor] = useState(topic.color);
+  const [sortOrder, setSortOrder] = useState(topic.sortOrder);
+  const [status, setStatus] = useState(topic.status);
+
+  return (
+    <div className={`topic-admin-row ${compact ? "compact" : ""}`}>
+      <input className="topic-color" type="color" value={color} onChange={(event) => setColor(event.target.value)} aria-label="주제 색상" />
+      <div className="topic-admin-fields">
+        <input value={name} onChange={(event) => setName(event.target.value)} aria-label="주제 이름" />
+        <input value={description} onChange={(event) => setDescription(event.target.value)} aria-label="주제 설명" />
+      </div>
+      <input className="topic-order" type="number" min="0" max="999" value={sortOrder} onChange={(event) => setSortOrder(Number(event.target.value))} aria-label="노출 순서" />
+      <select value={status} onChange={(event) => setStatus(event.target.value as AdminTopic["status"])} aria-label="노출 상태">
+        <option value="active">노출</option>
+        <option value="hidden">숨김</option>
+        <option value="archived">보관</option>
+      </select>
+      <button
+        type="button"
+        title="저장"
+        disabled={busy}
+        onClick={() => void onSave(topic, { name, description, color, sortOrder, status })}
+      >{busy ? <LoaderCircle className="spin" size={15} /> : <Save size={15} />}</button>
+    </div>
+  );
+}
+
+function OperationsPanel({
+  reports,
+  sources,
+  runs,
+  busy,
+  setBusy,
+  setNotice,
+  setError,
+  reload
+}: {
+  reports: AdminReport[];
+  sources: AdminSource[];
+  runs: AdminRun[];
+  busy: string;
+  setBusy: (value: string) => void;
+  setNotice: (value: string) => void;
+  setError: (value: string) => void;
+  reload: () => Promise<void>;
+}) {
+  const patchReport = async (report: AdminReport, status: string) => {
+    setBusy(report.id);
+    try {
+      await fetchJson("/api/admin/reports", {
+        method: "PATCH",
+        body: JSON.stringify({ id: report.id, status })
+      });
+      setNotice("신고 상태를 변경했습니다.");
+      await reload();
+    } catch (reportError) {
+      setError(reportError instanceof Error ? reportError.message : "신고를 처리하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+  const toggleSource = async (source: AdminSource) => {
+    setBusy(source.id);
+    try {
+      await fetchJson("/api/admin/sources", {
+        method: "PATCH",
+        body: JSON.stringify({ id: source.id, enabled: !source.enabled })
+      });
+      setNotice(source.enabled ? "수집기를 일시 중지했습니다." : "수집기를 다시 켰습니다.");
+      await reload();
+    } catch (sourceError) {
+      setError(sourceError instanceof Error ? sourceError.message : "수집기 설정을 변경하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  return (
+    <div className="admin-section-stack">
+      <header className="admin-section-title">
+        <div><span>TRUST & AUTOMATION</span><h2>신고와 수집기</h2><p>커뮤니티 안전과 자동 편집 작업을 함께 확인합니다.</p></div>
+      </header>
+      <div className="admin-overview-grid">
+        <section className="admin-panel">
+          <header className="admin-panel-head"><div><span>신고함</span><h2>검토할 신고</h2></div><b>{reports.filter((report) => report.status === "open").length}</b></header>
+          <div className="report-list">
+            {reports.map((report) => (
+              <article key={report.id}>
+                <div>
+                  <span data-status={report.status}>{report.status === "open" ? "미처리" : report.status}</span>
+                  <strong>{report.reason}</strong>
+                  <small>{formatDateTime(report.createdAt)}</small>
+                </div>
+                {report.detail ? <p>{report.detail}</p> : null}
+                <footer>
+                  <Link href={`/g/${report.threadId || report.targetId}${report.targetType === "comment" ? `#comment-${report.targetId}` : ""}`} target="_blank"><ExternalLink size={14} />대상 확인</Link>
+                  <button type="button" disabled={busy === report.id} onClick={() => void patchReport(report, "dismissed")}>기각</button>
+                  <button type="button" disabled={busy === report.id} onClick={() => void patchReport(report, "actioned")}>조치 완료</button>
+                </footer>
+              </article>
+            ))}
+            {!reports.length ? <p className="admin-empty">접수된 신고가 없습니다.</p> : null}
+          </div>
+        </section>
+
+        <section className="admin-panel">
+          <header className="admin-panel-head"><div><span>자동 수집</span><h2>콘텐츠 원천</h2></div><Bot size={18} /></header>
+          <div className="source-list">
+            {sources.map((source) => (
+              <div key={source.id}>
+                <span className={`source-state ${source.lastStatus}`}><i /></span>
+                <div><strong>{source.name}</strong><small>{source.sourceType} · {source.lastSuccessAt ? `최근 성공 ${formatDateTime(source.lastSuccessAt)}` : "첫 실행 대기"}</small></div>
+                <a href={source.url} target="_blank" rel="noreferrer" aria-label={`${source.name} 열기`}><ExternalLink size={15} /></a>
+                <button
+                  type="button"
+                  className={source.enabled ? "toggle active" : "toggle"}
+                  aria-pressed={source.enabled}
+                  disabled={busy === source.id}
+                  onClick={() => void toggleSource(source)}
+                ><i /></button>
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <section className="admin-panel">
+        <header className="admin-panel-head"><div><span>실행 기록</span><h2>자동화 로그</h2></div><Archive size={18} /></header>
+        <div className="run-table">
+          <div className="run-row head"><span>작업</span><span>상태</span><span>수집</span><span>제안</span><span>시작</span></div>
+          {runs.map((run) => (
+            <div className="run-row" key={run.id}>
+              <span>{run.runType === "daily_content" ? "일일 콘텐츠" : run.runType === "weekly_audit" ? "주간 사이트 점검" : "수동 실행"}</span>
+              <span data-status={run.status}>{run.status}</span>
+              <span>{run.signalsCount}건</span>
+              <span>{run.proposalsCount}건</span>
+              <span>{formatDateTime(run.startedAt)}</span>
+            </div>
+          ))}
+          {!runs.length ? <p className="admin-empty">첫 자동화 실행을 기다리고 있습니다.</p> : null}
+        </div>
+      </section>
+    </div>
+  );
+}

@@ -15,6 +15,8 @@ export type SeoThread = {
   linkUrl: string | null;
   score: number;
   downvotes: number;
+  isPinned?: number;
+  isFeatured?: number;
   commentCount: number;
   createdAt: string;
   updatedAt: string;
@@ -72,10 +74,10 @@ export const getServerFeedThreads = async ({
 
   const safeLimit = Math.max(1, Math.min(40, Math.floor(limit)));
   const orderBy = sort === "new"
-    ? "g.created_at desc"
+    ? "g.is_pinned desc, g.created_at desc"
     : sort === "top"
-      ? "g.score desc, g.downvotes asc, commentCount desc, g.created_at desc"
-      : "(g.score + commentCount * 3 - g.downvotes) desc, g.created_at desc";
+      ? "g.is_pinned desc, g.score desc, g.downvotes asc, commentCount desc, g.created_at desc"
+      : "g.is_pinned desc, (g.score + commentCount * 3 - g.downvotes) desc, g.created_at desc";
   const select = `select
     g.id,
     g.title,
@@ -86,6 +88,8 @@ export const getServerFeedThreads = async ({
     g.link_url as linkUrl,
     g.score,
     g.downvotes,
+    g.is_pinned as isPinned,
+    g.is_featured as isFeatured,
     g.created_at as createdAt,
     g.updated_at as updatedAt,
     (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
@@ -108,6 +112,8 @@ export const getServerFeedThreads = async ({
     ipPrefix: normalizeStoredIpPrefix(thread.ipPrefix) || "비공개",
     score: Number(thread.score || 0),
     downvotes: Number(thread.downvotes || 0),
+    isPinned: Boolean(thread.isPinned),
+    isFeatured: Boolean(thread.isFeatured),
     commentCount: Number(thread.commentCount || 0),
     tags: [communityByCategory(thread.category)?.name || "바차타"],
     createdAt: thread.createdAt,

@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowBigDown, ArrowBigUp, MessageCircle, Send, Search, Trash2 } from "lucide-react";
+import { MessageCircle, Search, Send, ThumbsDown, ThumbsUp, Trash2 } from "lucide-react";
 import { communityApiUrl } from "@/lib/community-api";
 import { formatRelativeDate } from "@/lib/format";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
@@ -395,7 +395,7 @@ function CommentNode({
               disabled={isPending}
               onClick={() => onVote(comment.id, "up")}
             >
-              <ArrowBigUp size={16} />
+              <ThumbsUp size={15} />
             </button>
             <strong>{comment.score}</strong>
             <button
@@ -405,7 +405,7 @@ function CommentNode({
               disabled={isPending}
               onClick={() => onVote(comment.id, "down")}
             >
-              <ArrowBigDown size={16} />
+              <ThumbsDown size={15} />
             </button>
           </span>
           <button type="button" onClick={() => onReply(comment)}><MessageCircle size={15} /> 답글 달기</button>

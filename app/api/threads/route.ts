@@ -33,6 +33,8 @@ type GuestThreadRow = {
   authorJoinedAt: string | null;
   score: number;
   downvotes: number;
+  isPinned: number;
+  isFeatured: number;
   commentCount?: number;
   createdAt: string;
 };
@@ -117,9 +119,9 @@ const normalizeSort = (value: unknown) => {
 };
 
 const orderByForSort = (sort: string) => {
-  if (sort === "new") return "g.created_at desc";
-  if (sort === "top") return "g.score desc, g.downvotes asc, commentCount desc, g.created_at desc";
-  return "(g.score + commentCount * 3 - g.downvotes) desc, g.created_at desc";
+  if (sort === "new") return "g.is_pinned desc, g.created_at desc";
+  if (sort === "top") return "g.is_pinned desc, g.score desc, g.downvotes asc, commentCount desc, g.created_at desc";
+  return "g.is_pinned desc, (g.score + commentCount * 3 - g.downvotes) desc, g.created_at desc";
 };
 
 const normalizeLink = (value: unknown) => {
@@ -215,6 +217,8 @@ const threadProjection = `
   u.created_at as authorJoinedAt,
   g.score,
   g.downvotes,
+  g.is_pinned as isPinned,
+  g.is_featured as isFeatured,
   g.created_at as createdAt,
   (select count(*) from comments c where c.thread_id = g.id and c.status = 'published') as commentCount
 `;
@@ -261,6 +265,8 @@ const rowToThread = (
   ipPrefix: row.authorUserId ? "비공개" : normalizeStoredIpPrefix(row.ipPrefix) || "비공개",
   score: Number(row.score || 0),
   downvotes: Number(row.downvotes || 0),
+  isPinned: Boolean(row.isPinned),
+  isFeatured: Boolean(row.isFeatured),
   commentCount: Number(row.commentCount || 0),
   tags: inferTags(row),
   createdAt: row.createdAt

@@ -37,7 +37,7 @@ const postTypes: Array<{ value: PostType; label: string; icon: LucideIcon }> = [
   { value: "ama", label: "무물보", icon: HelpCircle }
 ];
 
-const topics = [
+const defaultTopics = [
   { value: "questions", label: "질문", hint: "초보 질문, 장르 고민, 수업 전 궁금증" },
   { value: "free", label: "자유", hint: "가벼운 잡담, 오늘의 소셜, 현장 이야기" },
   { value: "video", label: "영상", hint: "유튜브, 쇼츠, 인스타 릴스 같이 보기" },
@@ -49,7 +49,7 @@ const topics = [
   { value: "ama", label: "무물보", hint: "궁금한 질문을 댓글로 받고 답하는 글" }
 ];
 
-const subtopicsByCategory: Record<string, string[]> = {
+const defaultSubtopicsByCategory: Record<string, string[]> = {
   academyReview: [
     "아카데미:라틴씨엘로",
     "아카데미:센슈얼랩",
@@ -113,7 +113,7 @@ const subtopicsByCategory: Record<string, string[]> = {
 };
 
 const validPostTypes = new Set<PostType>(postTypes.map((type) => type.value));
-const validTopics = new Set(topics.map((topic) => topic.value));
+const validTopics = new Set(defaultTopics.map((topic) => topic.value));
 const draftKey = "bachata.threadDraft.v1";
 
 const threadsApiUrl = () => communityApiUrl("/api/threads/");
@@ -147,6 +147,8 @@ const mergeMedia = (current: UploadedMedia[], incoming: UploadedMedia[]) => {
 export function GuestThreadComposer() {
   const searchParams = useSearchParams();
   const { user, loading: authLoading } = useAuth();
+  const [topicOptions, setTopicOptions] = useState(defaultTopics);
+  const [subtopicOptions, setSubtopicOptions] = useState(defaultSubtopicsByCategory);
   const bodyRef = useRef<HTMLTextAreaElement | null>(null);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const submissionCommittedRef = useRef(false);
@@ -169,6 +171,37 @@ export function GuestThreadComposer() {
   const [error, setError] = useState("");
   const [notice, setNotice] = useState("");
   const [draftReady, setDraftReady] = useState(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/topics", { cache: "no-store" })
+      .then((response) => response.ok ? response.json() : null)
+      .then((data: {
+        boards?: Array<{ category: string; name: string; description: string }>;
+        subtopics?: Array<{ category: string; name: string }>;
+      } | null) => {
+        if (cancelled || !data) return;
+        if (data.boards?.length) {
+          setTopicOptions(data.boards.map((board) => ({
+            value: board.category,
+            label: board.name,
+            hint: board.description
+          })));
+        }
+        if (data.subtopics?.length) {
+          const grouped = data.subtopics.reduce<Record<string, string[]>>((result, topic) => {
+            result[topic.category] ||= [];
+            result[topic.category].push(topic.name);
+            return result;
+          }, {});
+          setSubtopicOptions({ ...defaultSubtopicsByCategory, ...grouped });
+        }
+      })
+      .catch(() => undefined);
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     if (user) {
@@ -633,7 +666,7 @@ export function GuestThreadComposer() {
             setCategory(event.target.value);
             setSubtopic("");
           }}>
-            {topics.map((topic) => <option key={topic.value} value={topic.value}>{topic.label}</option>)}
+            {topicOptions.map((topic) => <option key={topic.value} value={topic.value}>{topic.label}</option>)}
           </select>
         </label>
         <button type="button" className="draft-button" onClick={saveDraft}>임시 저장하기</button>
@@ -667,16 +700,16 @@ export function GuestThreadComposer() {
       </label>
 
       <div className="composer-note">
-        <strong>{topics.find((topic) => topic.value === category)?.label || "질문"}</strong>
-        <p>{topics.find((topic) => topic.value === category)?.hint || "바차타 이야기를 자유롭게 남겨주세요."}</p>
+        <strong>{topicOptions.find((topic) => topic.value === category)?.label || "질문"}</strong>
+        <p>{topicOptions.find((topic) => topic.value === category)?.hint || "바차타 이야기를 자유롭게 남겨주세요."}</p>
       </div>
 
-      {subtopicsByCategory[category]?.length ? (
+      {subtopicOptions[category]?.length ? (
         <label>
           하위 주제
           <select value={subtopic} onChange={(event) => setSubtopic(event.target.value)}>
             <option value="">선택 안 함</option>
-            {subtopicsByCategory[category].map((item) => <option key={item} value={item}>{item}</option>)}
+            {subtopicOptions[category].map((item) => <option key={item} value={item}>{item}</option>)}
           </select>
         </label>
       ) : null}

@@ -14,7 +14,7 @@ export default function PrivacyPage() {
         <Link className="legal-brand" href="/">BACHATA.CO.KR</Link>
         <span className="section-kicker">PRIVACY</span>
         <h1>개인정보 처리방침</h1>
-        <p className="legal-updated">시행일 2026년 7월 25일</p>
+        <p className="legal-updated">시행일 2026년 7월 26일</p>
 
         <section>
           <h2>어떤 정보를 받나요?</h2>
@@ -38,6 +38,16 @@ export default function PrivacyPage() {
             비회원 글과 댓글의 관리, 도배 방지, 신고 처리에 필요한 범위에서 접속
             기록을 보관합니다. 화면에는 전체 IP 주소를 공개하지 않고 일부만
             가려서 표시합니다.
+          </p>
+        </section>
+        <section>
+          <h2>서비스 이용 분석</h2>
+          <p>
+            사이트 개선을 위해 방문한 페이지, 익명 방문자 식별값, 접속 기기 유형,
+            체류시간과 스크롤 깊이를 기록합니다. 분석용 식별값은 무작위로 만들고
+            서버에서 다시 암호화하며, 관리자 분석 화면에는 원본 IP 주소를
+            저장하거나 표시하지 않습니다. 브라우저의 추적 거부 설정을 켜면 이
+            분석을 실행하지 않습니다.
           </p>
         </section>
         <section>

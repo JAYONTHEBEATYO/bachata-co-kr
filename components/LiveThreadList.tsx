@@ -2,7 +2,7 @@
 
 import { useEffect, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import { PenLine } from "lucide-react";
+import { PenLine, Pin } from "lucide-react";
 import { communityApiUrl, communityThreadPath, communityThreadShareUrl } from "@/lib/community-api";
 import { communityByCategory } from "@/lib/communities";
 import { formatRelativeDate } from "@/lib/format";
@@ -144,7 +144,7 @@ function LiveThreadCard({ thread }: { thread: GuestThread }) {
               {` · ${formatRelativeDate(thread.createdAt)}`}
             </span>
           </div>
-          <span className="flair">{thread.authorProfile ? "회원" : "익명"}</span>
+          <span className="flair">{thread.isPinned ? <><Pin size={12} /> 고정</> : thread.authorProfile ? "회원" : "익명"}</span>
         </header>
         <h2><Link href={detailPath}>{thread.title}</Link></h2>
         <p>{bodyText}</p>

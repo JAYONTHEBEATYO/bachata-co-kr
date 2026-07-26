@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUp, Clapperboard, Link2, MessageCircle } from "lucide-react";
+import { Clapperboard, Link2, MessageCircle, ThumbsUp } from "lucide-react";
 import { communityThreadPath } from "@/lib/community-api";
 import { communityByCategory } from "@/lib/communities";
 import { formatRelativeDate } from "@/lib/format";
@@ -44,7 +44,7 @@ function RelatedThreadPreview({ thread }: { thread: GuestThread }) {
           <h3>{thread.title}</h3>
           {bodyText ? <p>{bodyText}</p> : null}
           <div className="related-thread-stats" aria-label={`추천 ${thread.score}, 댓글 ${thread.commentCount}`}>
-            <span><ArrowUp size={13} /> {thread.score}</span>
+            <span><ThumbsUp size={13} /> {thread.score}</span>
             <span><MessageCircle size={13} /> {thread.commentCount}</span>
           </div>
         </div>

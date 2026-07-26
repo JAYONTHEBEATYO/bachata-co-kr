@@ -56,6 +56,8 @@ export type GuestThread = {
   ipPrefix: string;
   score: number;
   downvotes: number;
+  isPinned?: boolean;
+  isFeatured?: boolean;
   commentCount: number;
   tags: string[];
   createdAt: string;

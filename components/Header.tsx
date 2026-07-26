@@ -11,6 +11,7 @@ import {
   PenLine,
   Search,
   Settings,
+  ShieldCheck,
   UserCircle
 } from "lucide-react";
 import { BrandMark } from "./BrandMark";
@@ -38,6 +39,7 @@ export function Header() {
               {!loading && user ? (
                 <>
                   <Link href="/profile"><Settings size={16} />프로필 꾸미기</Link>
+                  {user.role === "admin" ? <Link href="/admin"><ShieldCheck size={16} />관리자</Link> : null}
                   <button type="button" onClick={() => void logout()}><LogOut size={16} />로그아웃</button>
                 </>
               ) : !loading ? (
@@ -66,6 +68,7 @@ export function Header() {
                     <span><strong>{user.displayName}</strong><small>@{user.handle}</small></span>
                   </Link>
                   <Link href="/profile"><Settings size={16} />프로필 꾸미기</Link>
+                  {user.role === "admin" ? <Link href="/admin"><ShieldCheck size={16} />관리자</Link> : null}
                   <button type="button" onClick={() => void logout()}><LogOut size={16} />로그아웃</button>
                 </>
               ) : !loading ? (

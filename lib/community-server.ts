@@ -21,7 +21,13 @@ type CommunityBindings = Record<string, unknown> & {
   COMMUNITY_HASH_SALT?: string;
   GOOGLE_CLIENT_ID?: string;
   ADMIN_EMAILS?: string;
+  ADMIN_AUTOMATION_TOKEN?: string;
   NEXT_PUBLIC_SITE_URL?: string;
+  AI?: WorkersAiBinding;
+};
+
+export type WorkersAiBinding = {
+  run: (model: string, input: Record<string, unknown>) => Promise<unknown>;
 };
 
 export const getCommunityContext = async () => {
@@ -33,7 +39,9 @@ export const getCommunityContext = async () => {
       hashSalt: bindings.COMMUNITY_HASH_SALT || "bachata-local-development",
       googleClientId: bindings.GOOGLE_CLIENT_ID || process.env.GOOGLE_CLIENT_ID || "",
       adminEmails: bindings.ADMIN_EMAILS || process.env.ADMIN_EMAILS || "",
-      siteUrl: bindings.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+      automationToken: bindings.ADMIN_AUTOMATION_TOKEN || process.env.ADMIN_AUTOMATION_TOKEN || "",
+      siteUrl: bindings.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+      ai: bindings.AI || null
     };
   } catch {
     return {
@@ -41,7 +49,9 @@ export const getCommunityContext = async () => {
       hashSalt: "bachata-local-development",
       googleClientId: process.env.GOOGLE_CLIENT_ID || "",
       adminEmails: process.env.ADMIN_EMAILS || "",
-      siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+      automationToken: process.env.ADMIN_AUTOMATION_TOKEN || "",
+      siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+      ai: null
     };
   }
 };
