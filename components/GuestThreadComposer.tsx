@@ -20,7 +20,9 @@ import {
 import type { LucideIcon } from "lucide-react";
 import { communityApiUrl, communityThreadPath } from "@/lib/community-api";
 import { getGuestSession, saveGuestSession } from "@/lib/guest-session";
+import type { PosterAnalysisApplyValue } from "@/lib/poster-analysis";
 import { useAuth } from "./AuthProvider";
+import { PosterAnalyzer } from "./PosterAnalyzer";
 import { ProfileAvatar } from "./ProfileAvatar";
 
 type CreatedThread = {
@@ -534,6 +536,27 @@ export function GuestThreadComposer() {
     }
   };
 
+  const applyPosterAnalysis = (value: PosterAnalysisApplyValue) => {
+    if (value.title) setTitle((current) => current.trim() ? current : value.title);
+    if (value.body) {
+      setBody((current) => current.trim()
+        ? `${current.trim()}\n\n${value.body}`
+        : value.body
+      );
+    }
+    if (value.tags.length) {
+      setTagInput((current) => {
+        const tags = [...new Set([
+          ...current.split(/[,\s#]+/).map((tag) => tag.trim()).filter(Boolean),
+          ...value.tags
+        ])].slice(0, 5);
+        return tags.join(", ");
+      });
+    }
+    setNotice("포스터 분석 내용을 본문에 넣었습니다. 날짜, 장소, 참가비를 원본과 대조한 뒤 게시해주세요.");
+    window.requestAnimationFrame(() => bodyRef.current?.focus());
+  };
+
   const bodyForSubmit = () => {
     const chunks = [body.trim()];
 
@@ -825,6 +848,12 @@ export function GuestThreadComposer() {
           ))}
         </div>
       ) : null}
+
+      <PosterAnalyzer
+        category={category}
+        images={uploadedMedia}
+        onApply={applyPosterAnalysis}
+      />
 
       {(postType === "media" || postType === "link") ? (
         <label>

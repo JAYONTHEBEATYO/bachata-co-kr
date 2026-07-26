@@ -51,6 +51,16 @@ export default function PrivacyPage() {
           </p>
         </section>
         <section>
+          <h2>포스터 분석</h2>
+          <p>
+            행사·홍보 글에서 사용자가 포스터 분석을 직접 실행하면 업로드한 이미지와
+            이미지에서 읽은 문구를 Cloudflare의 인공지능 서비스로 전송합니다.
+            분석 결과는 같은 이미지를 반복 처리하지 않고 사용 횟수를 관리하기 위해
+            보관합니다. 결과는 글에 자동으로 공개되지 않으며, 사용자가 내용을
+            확인하고 편집 화면에 넣은 뒤 게시해야 합니다.
+          </p>
+        </section>
+        <section>
           <h2>보관과 삭제</h2>
           <p>
             로그인 세션은 마지막 발급일로부터 최대 30일 동안 유지됩니다. 계정
@@ -63,8 +73,9 @@ export default function PrivacyPage() {
           <h2>외부 서비스</h2>
           <p>
             로그인에는 Google Identity Services를, 이미지와 영상 전송에는
-            Cloudflare 서비스를 사용합니다. 각 서비스에서 처리되는 정보에는 해당
-            사업자의 개인정보 처리방침이 함께 적용됩니다.
+            Cloudflare 서비스를 사용합니다. 포스터 분석을 실행한 경우에는
+            Cloudflare Workers AI도 함께 사용합니다. 각 서비스에서 처리되는
+            정보에는 해당 사업자의 개인정보 처리방침이 함께 적용됩니다.
           </p>
         </section>
       </article>

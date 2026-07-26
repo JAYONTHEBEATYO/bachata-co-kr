@@ -28,6 +28,14 @@ type CommunityBindings = Record<string, unknown> & {
 
 export type WorkersAiBinding = {
   run: (model: string, input: Record<string, unknown>) => Promise<unknown>;
+  toMarkdown?: (
+    file: { name: string; blob: Blob },
+    options?: {
+      conversionOptions?: {
+        output?: { format?: "markdown" | "text" };
+      };
+    }
+  ) => Promise<unknown>;
 };
 
 export const getCommunityContext = async () => {
