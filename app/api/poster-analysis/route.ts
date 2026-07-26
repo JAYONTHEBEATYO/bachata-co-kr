@@ -79,9 +79,15 @@ const getBucket = async (): Promise<R2BucketBinding | null> => {
 };
 
 const extractJson = (output: unknown) => {
-  const response = output && typeof output === "object"
-    ? (output as { response?: unknown }).response
-    : output;
+  const result = output && typeof output === "object"
+    ? output as {
+      response?: unknown;
+      choices?: Array<{ message?: { content?: unknown } }>;
+    }
+    : null;
+  const response = result?.response
+    ?? result?.choices?.[0]?.message?.content
+    ?? output;
   if (response && typeof response === "object") return response;
   if (typeof response !== "string") return null;
   try {
