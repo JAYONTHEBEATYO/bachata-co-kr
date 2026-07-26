@@ -41,7 +41,7 @@ type MarkdownConversionResult = {
   error?: string;
 };
 
-const model = "@cf/zai-org/glm-4.7-flash";
+const model = "@cf/meta/llama-3.1-8b-instruct-fast";
 const allowedCategories = new Set(["events", "promotion"]);
 const allowedTypes = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
 const maxAnalysisBytes = 8 * 1024 * 1024;
