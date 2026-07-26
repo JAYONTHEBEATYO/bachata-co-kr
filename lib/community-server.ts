@@ -33,6 +33,9 @@ export type WorkersAiBinding = {
     options?: {
       conversionOptions?: {
         output?: { format?: "markdown" | "text" };
+        image?: {
+          descriptionLanguage?: "en" | "it" | "de" | "es" | "fr" | "pt";
+        };
       };
     }
   ) => Promise<unknown>;

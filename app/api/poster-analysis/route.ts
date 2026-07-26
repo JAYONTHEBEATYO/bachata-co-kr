@@ -1,4 +1,3 @@
-import { Buffer } from "node:buffer";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 import type { NextRequest } from "next/server";
 import {
@@ -42,7 +41,7 @@ type MarkdownConversionResult = {
   error?: string;
 };
 
-const model = "@cf/meta/llama-3.2-11b-vision-instruct";
+const model = "@cf/zai-org/glm-4.7-flash";
 const allowedCategories = new Set(["events", "promotion"]);
 const allowedTypes = new Set(["image/jpeg", "image/png", "image/webp", "image/gif"]);
 const maxAnalysisBytes = 8 * 1024 * 1024;
@@ -236,12 +235,17 @@ export async function POST(request: NextRequest) {
     if (ai.toMarkdown) {
       const converted = await ai.toMarkdown(
         { name: upload.objectKey.split("/").pop() || "poster", blob },
-        { conversionOptions: { output: { format: "text" } } }
+        {
+          conversionOptions: {
+            output: { format: "text" },
+            image: { descriptionLanguage: "en" }
+          }
+        }
       ).catch(() => null);
       ocrText = readConvertedText(converted);
     }
+    if (!ocrText) throw new Error("poster_conversion_empty");
 
-    const image = `data:${upload.contentType};base64,${Buffer.from(bytes).toString("base64")}`;
     const output = await ai.run(model, {
       messages: [
         {
@@ -261,11 +265,10 @@ export async function POST(request: NextRequest) {
           content: [
             `글 분류: ${posterCategoryLabel(category)}`,
             "포스터를 읽고 지정된 JSON 구조로 정리하세요.",
-            ocrText ? `OCR 보조문구:\n${ocrText}` : "OCR 보조문구가 없으므로 이미지에서 직접 읽으세요."
+            `이미지 인식 결과:\n${ocrText}`
           ].join("\n\n")
         }
       ],
-      image,
       max_tokens: 1800,
       temperature: 0.1,
       repetition_penalty: 1.08,
