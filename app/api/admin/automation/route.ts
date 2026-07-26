@@ -41,7 +41,7 @@ type AiRecommendation = {
   confidence?: unknown;
 };
 
-const aiModel = "@cf/meta/llama-3.3-70b-instruct-fp8-fast";
+const aiModel = "@cf/deepseek-ai/deepseek-r1-distill-qwen-32b";
 const validPriorities = new Set(["low", "normal", "high", "urgent"]);
 
 const cleanUrl = (value: unknown) => {
@@ -121,7 +121,7 @@ const runAiJson = async (
       { role: "system", content: system },
       { role: "user", content: user }
     ],
-    max_tokens: 3200,
+    max_tokens: 2400,
     temperature: 0.35,
     response_format: {
       type: "json_schema",
@@ -248,7 +248,7 @@ const beginRun = async (
 };
 
 export const dynamic = "force-dynamic";
-export const maxDuration = 180;
+export const maxDuration = 120;
 
 export async function POST(request: NextRequest) {
   const auth = await requireAdmin(request, { allowAutomation: true });
@@ -285,7 +285,7 @@ export async function POST(request: NextRequest) {
           "select id from admin_proposals where source_url = ? limit 1"
         ).bind(signal.url).first<{ id: string }>();
         if (!duplicate) uniqueSignals.push(signal);
-        if (uniqueSignals.length >= 12) break;
+        if (uniqueSignals.length >= 8) break;
       }
 
       if (uniqueSignals.length) {
