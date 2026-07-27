@@ -50,6 +50,7 @@ export type GuestThread = {
   body: string;
   category: string;
   linkUrl?: string | null;
+  previewImageUrl?: string | null;
   guestId: string;
   authorProfile?: PublicProfile | null;
   canManage?: boolean;

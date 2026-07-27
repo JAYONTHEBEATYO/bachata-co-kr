@@ -4,6 +4,7 @@ import { communityByCategory } from "@/lib/communities";
 import { absoluteUrl } from "@/lib/format";
 import { normalizeStoredIpPrefix } from "@/lib/ip-display";
 import { displayGuestNickname } from "@/lib/nicknames";
+import { youtubeThumbnailUrl } from "@/lib/thread-media";
 import type { GuestThread } from "@/lib/types";
 
 export type SeoThread = {
@@ -161,19 +162,62 @@ export const getRelatedThreadFeed = async ({
     limit ?`
   ).bind(category, excludeId, safeLimit).all<SeoThread & { ipPrefix: string }>();
 
-  return (rows.results || []).map((thread) => ({
-    id: thread.id,
-    title: thread.title,
-    body: thread.body,
-    category: thread.category,
-    linkUrl: thread.linkUrl,
-    guestId: displayGuestNickname(thread.guestId, thread.id),
-    ipPrefix: normalizeStoredIpPrefix(thread.ipPrefix) || "비공개",
-    score: Number(thread.score || 0),
-    downvotes: Number(thread.downvotes || 0),
-    commentCount: Number(thread.commentCount || 0),
-    tags: [communityByCategory(thread.category)?.name || "바차타"],
-    createdAt: thread.createdAt,
-    updatedAt: thread.updatedAt
-  }));
+  const threads = rows.results || [];
+  const previewByThreadId = new Map<string, string>();
+  if (threads.length) {
+    try {
+      const placeholders = threads.map(() => "?").join(", ");
+      const previews = await db.prepare(
+        `select thread_id as threadId, thumbnail_url as thumbnailUrl
+         from stream_videos
+         where thread_id in (${placeholders})
+           and status != 'deleted'
+           and thumbnail_url is not null
+         order by updated_at desc`
+      ).bind(...threads.map((thread) => thread.id)).all<{
+        threadId: string;
+        thumbnailUrl: string;
+      }>();
+
+      for (const preview of previews.results || []) {
+        if (!preview.threadId || !preview.thumbnailUrl || previewByThreadId.has(preview.threadId)) continue;
+        try {
+          const url = new URL(preview.thumbnailUrl);
+          url.searchParams.set("width", "480");
+          url.searchParams.set("height", "360");
+          url.searchParams.set("fit", "crop");
+          previewByThreadId.set(preview.threadId, url.toString());
+        } catch {
+          previewByThreadId.set(preview.threadId, preview.thumbnailUrl);
+        }
+      }
+    } catch {
+      // Related posts still render when an older database does not have Stream metadata.
+    }
+  }
+
+  return threads.map((thread) => {
+    const youtubeLink = thread.body.match(
+      /https?:\/\/(?:www\.|m\.)?(?:youtube\.com|youtu\.be)\/[^\s<]+/i
+    )?.[0];
+
+    return {
+      id: thread.id,
+      title: thread.title,
+      body: thread.body,
+      category: thread.category,
+      linkUrl: thread.linkUrl,
+      previewImageUrl: previewByThreadId.get(thread.id)
+        || youtubeThumbnailUrl(thread.linkUrl)
+        || youtubeThumbnailUrl(youtubeLink),
+      guestId: displayGuestNickname(thread.guestId, thread.id),
+      ipPrefix: normalizeStoredIpPrefix(thread.ipPrefix) || "비공개",
+      score: Number(thread.score || 0),
+      downvotes: Number(thread.downvotes || 0),
+      commentCount: Number(thread.commentCount || 0),
+      tags: [communityByCategory(thread.category)?.name || "바차타"],
+      createdAt: thread.createdAt,
+      updatedAt: thread.updatedAt
+    };
+  });
 };

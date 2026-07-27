@@ -46,6 +46,7 @@ export default function GoogleSignInButton({
   returnTo: string;
 }) {
   const buttonRef = useRef<HTMLDivElement>(null);
+  const buttonWidthRef = useRef(0);
   const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
   const [error, setError] = useState("");
 
@@ -99,13 +100,28 @@ export default function GoogleSignInButton({
       text: "continue_with",
       shape: "rectangular",
       logo_alignment: "left",
-      width: Math.min(400, Math.max(280, container.clientWidth)),
+      width: Math.min(400, Math.max(200, Math.floor(container.getBoundingClientRect().width))),
       locale: "ko"
     });
+    buttonWidthRef.current = Math.min(400, Math.max(200, Math.floor(container.getBoundingClientRect().width)));
   }, [clientId, submitCredential]);
 
   useEffect(() => {
     if (window.google?.accounts.id) renderGoogleButton();
+  }, [renderGoogleButton]);
+
+  useEffect(() => {
+    const container = buttonRef.current;
+    if (!container || typeof ResizeObserver === "undefined") return;
+
+    const observer = new ResizeObserver(([entry]) => {
+      const nextWidth = Math.min(400, Math.max(200, Math.floor(entry.contentRect.width)));
+      if (nextWidth !== buttonWidthRef.current && window.google?.accounts.id) {
+        renderGoogleButton();
+      }
+    });
+    observer.observe(container);
+    return () => observer.disconnect();
   }, [renderGoogleButton]);
 
   if (!clientId) {

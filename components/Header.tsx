@@ -132,10 +132,8 @@ export function Header() {
               }
             }}
           >
-            <summary className="icon-button account-summary" aria-label={user ? "내 계정" : "더보기"}>
-              {user
-                ? <ProfileAvatar name={user.displayName} avatarUrl={user.avatarUrl} avatarPreset={user.avatarPreset} size={34} />
-                : <MoreHorizontal size={22} />}
+            <summary className="icon-button account-summary" aria-label="더보기">
+              <MoreHorizontal size={22} />
             </summary>
             <nav className="menu-panel" aria-label="더보기 메뉴">
               {!loading && user ? (

@@ -42,8 +42,8 @@ export default async function LoginPage({
         </Link>
         <div className="auth-copy">
           <span className="section-kicker">ACCOUNT</span>
-          <h1>한 번만 연결하면<br />계속 내 계정으로</h1>
-          <p>Google 계정으로 가입과 로그인을 한 번에 처리합니다. 이메일은 공개되지 않습니다.</p>
+          <h1>Google 계정으로 가입</h1>
+          <p>Google 계정으로 편하게 이용하세요. 이메일은 공개되지 않습니다.</p>
         </div>
 
         {errorMessage ? <p className="auth-error">{errorMessage}</p> : null}
@@ -51,9 +51,9 @@ export default async function LoginPage({
         <GoogleSignInButton clientId={googleClientId} returnTo={returnTo} />
 
         <ul className="auth-benefits">
-          <li><CheckCircle2 size={18} />내 글과 댓글을 비밀번호 없이 관리</li>
           <li><CheckCircle2 size={18} />닉네임, 프로필 사진, 소개와 선호 장르 설정</li>
-          <li><CheckCircle2 size={18} />비회원 글쓰기는 그대로 이용 가능</li>
+          <li><CheckCircle2 size={18} />행사 및 강습 홍보 자동화</li>
+          <li><CheckCircle2 size={18} />가장 빠른 바차타 소식을 만나보세요</li>
         </ul>
         <p className="auth-footnote">
           계속하면 바차타 코리아의 <Link href="/terms">이용약관</Link>과{" "}

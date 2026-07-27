@@ -48,11 +48,15 @@ function RelatedThreadPreview({ thread }: { thread: GuestThread }) {
             <span><MessageCircle size={13} /> {thread.commentCount}</span>
           </div>
         </div>
-        {media || thread.linkUrl ? (
+        {thread.previewImageUrl || media || thread.linkUrl ? (
           <div className="related-thread-media" aria-hidden="true">
-            {media?.type === "image" ? (
+            {thread.previewImageUrl ? (
+              <img src={thread.previewImageUrl} alt="" loading="lazy" />
+            ) : media?.type === "image" ? (
               <img src={media.url} alt="" loading="lazy" />
-            ) : media?.type === "video" || media?.type === "stream" ? (
+            ) : media?.type === "video" ? (
+              <video src={`${media.url}#t=0.1`} muted playsInline preload="metadata" />
+            ) : media?.type === "stream" ? (
               <Clapperboard size={23} />
             ) : (
               <Link2 size={22} />
