@@ -100,6 +100,32 @@ export async function PATCH(request: NextRequest) {
     return respond(request, 400, { error: "프로필 내용을 읽을 수 없습니다." });
   }
 
+  if (payload.mode === "avatar") {
+    const avatarPreset = typeof payload.avatarPreset === "string" && presetIds.has(payload.avatarPreset)
+      ? payload.avatarPreset
+      : "bachata-step";
+    const avatarUrl = normalizeAvatarUrl(payload.avatarUrl, request);
+
+    await db.prepare(
+      `update users
+       set avatar_url = ?, avatar_preset = ?, updated_at = ?
+       where id = ? and status = 'active'`
+    ).bind(
+      avatarUrl,
+      avatarPreset,
+      new Date().toISOString(),
+      user.id
+    ).run();
+
+    const updated = await getSessionUserForRequest(request, db);
+    return updated
+      ? respond(request, 200, {
+          user: updated,
+          profile: toPublicProfile(updated)
+        })
+      : respond(request, 500, { error: "프로필 사진을 다시 불러오지 못했습니다." });
+  }
+
   const displayName = normalizePlainText(payload.displayName, 24);
   const handle = normalizeHandle(payload.handle);
   const bio = normalizePlainText(payload.bio, 160);

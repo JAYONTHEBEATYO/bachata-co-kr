@@ -68,10 +68,10 @@ const emptyData: AdminData = {
 
 const tabs: Array<{ id: AdminTab; label: string; icon: typeof Gauge }> = [
   { id: "overview", label: "개요", icon: Gauge },
-  { id: "editorial", label: "편집 큐", icon: Sparkles },
+  { id: "editorial", label: "AI 콘텐츠·개선안", icon: Sparkles },
   { id: "threads", label: "게시물", icon: FileText },
   { id: "topics", label: "주제·하위주제", icon: Layers3 },
-  { id: "operations", label: "신고·수집기", icon: ShieldCheck }
+  { id: "operations", label: "신고·수집 현황", icon: ShieldCheck }
 ];
 
 const categoryLabels: Record<string, string> = {
@@ -173,7 +173,7 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
         body: JSON.stringify({ mode })
       });
       setNotice(mode === "daily"
-        ? `콘텐츠 후보 ${result.proposalsCount}건을 편집 큐에 추가했습니다.`
+        ? `AI 콘텐츠 초안 ${result.proposalsCount}건을 검토 목록에 추가했습니다.`
         : `사이트 개선안 ${result.proposalsCount}건을 준비했습니다.`);
       await loadAll();
       setTab("editorial");
@@ -203,7 +203,7 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
             onClick={() => void runAutomation("daily")}
           >
             {busy === "automation-daily" ? <LoaderCircle className="spin" size={16} /> : <Bot size={16} />}
-            콘텐츠 후보 찾기
+            AI 콘텐츠 초안 만들기
           </button>
           <button
             type="button"
@@ -212,7 +212,7 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
             onClick={() => void runAutomation("weekly")}
           >
             {busy === "automation-weekly" ? <LoaderCircle className="spin" size={16} /> : <Sparkles size={16} />}
-            사이트 점검 실행
+            사이트 개선안 받기
           </button>
           <div className="admin-account">
             <ProfileAvatar
@@ -476,7 +476,7 @@ function EditorialPanel({
   return (
     <div className="admin-section-stack">
       <header className="admin-section-title">
-        <div><span>EDITORIAL DESK</span><h2>AI 편집 큐</h2><p>원문 링크와 초안을 확인한 뒤 직접 다듬고 승인합니다.</p></div>
+        <div><span>AI DESK</span><h2>AI 콘텐츠와 개선 제안</h2><p>콘텐츠 초안은 편집 후 게시하고, 개선 제안은 검토한 뒤 작업 여부를 결정합니다.</p></div>
         <div className="admin-filter">
           {[
             ["pending", "검토 대기"],
@@ -964,7 +964,7 @@ function OperationsPanel({
   return (
     <div className="admin-section-stack">
       <header className="admin-section-title">
-        <div><span>TRUST & AUTOMATION</span><h2>신고와 수집기</h2><p>커뮤니티 안전과 자동 편집 작업을 함께 확인합니다.</p></div>
+        <div><span>TRUST & SOURCES</span><h2>신고함과 콘텐츠 수집 현황</h2><p>사용자 신고를 처리하고, AI 콘텐츠가 참고하는 공개 정보원의 수집 상태를 확인합니다.</p></div>
       </header>
       <div className="admin-overview-grid">
         <section className="admin-panel">

@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { Camera, Check, Save, UploadCloud } from "lucide-react";
 import { avatarPresets } from "@/lib/avatars";
 import type { SessionUser } from "@/lib/types";
+import { AvatarCropper } from "./AvatarCropper";
 import { useAuth } from "./AuthProvider";
 import { ProfileAvatar } from "./ProfileAvatar";
 
@@ -28,6 +29,7 @@ export function ProfileEditor({
 }) {
   const { refresh } = useAuth();
   const fileInputRef = useRef<HTMLInputElement | null>(null);
+  const photoButtonRef = useRef<HTMLButtonElement | null>(null);
   const [displayName, setDisplayName] = useState(initialUser.displayName);
   const [handle, setHandle] = useState(initialUser.handle);
   const [bio, setBio] = useState(initialUser.bio);
@@ -40,6 +42,7 @@ export function ProfileEditor({
   const [preferredStyles, setPreferredStyles] = useState(initialUser.preferredStyles);
   const [avatarUrl, setAvatarUrl] = useState(initialUser.avatarUrl || "");
   const [avatarPreset, setAvatarPreset] = useState(initialUser.avatarPreset);
+  const [cropFile, setCropFile] = useState<File | null>(null);
   const [pending, setPending] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState("");
@@ -51,6 +54,25 @@ export function ProfileEditor({
     setPreferredStyles((current) => current.includes(style)
       ? current.filter((item) => item !== style)
       : [...current, style].slice(0, 8));
+  };
+
+  const saveAvatarSelection = async (nextAvatarUrl: string, nextAvatarPreset: string) => {
+    const response = await fetch("/api/profile", {
+      method: "PATCH",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        mode: "avatar",
+        avatarUrl: nextAvatarUrl,
+        avatarPreset: nextAvatarPreset
+      })
+    });
+    const data = await response.json() as { user?: SessionUser; error?: string };
+    if (!response.ok || !data.user) {
+      throw new Error(data.error || "프로필 사진을 저장하지 못했습니다.");
+    }
+    setAvatarUrl(data.user.avatarUrl || "");
+    setAvatarPreset(data.user.avatarPreset);
+    await refresh();
   };
 
   const uploadAvatar = async (file: File) => {
@@ -65,10 +87,14 @@ export function ProfileEditor({
       if (!response.ok || !data.media?.url) {
         throw new Error(data.error || "프로필 사진을 올리지 못했습니다.");
       }
-      setAvatarUrl(data.media.url);
-      setNotice("새 프로필 사진을 선택했습니다. 저장하면 반영됩니다.");
+      await saveAvatarSelection(data.media.url, avatarPreset);
+      setNotice(`사진을 최적화해 바로 적용했습니다. (${Math.max(1, Math.round(file.size / 1024))}KB)`);
     } catch (uploadError) {
-      setError(uploadError instanceof Error ? uploadError.message : "프로필 사진을 올리지 못했습니다.");
+      const message = uploadError instanceof Error
+        ? uploadError.message
+        : "프로필 사진을 올리지 못했습니다.";
+      setError(message);
+      throw uploadError;
     } finally {
       setUploading(false);
     }
@@ -122,7 +148,12 @@ export function ProfileEditor({
             avatarPreset={avatarPreset}
             size={104}
           />
-          <button type="button" onClick={() => fileInputRef.current?.click()} disabled={uploading}>
+          <button
+            ref={photoButtonRef}
+            type="button"
+            onClick={() => fileInputRef.current?.click()}
+            disabled={pending || uploading}
+          >
             {uploading ? <UploadCloud size={18} /> : <Camera size={18} />}
             {uploading ? "업로드 중" : "사진 바꾸기"}
           </button>
@@ -133,7 +164,12 @@ export function ProfileEditor({
             hidden
             onChange={(event) => {
               const file = event.target.files?.[0];
-              if (file) void uploadAvatar(file);
+              if (file && file.size > 20 * 1024 * 1024) {
+                setError("20MB 이하 사진을 선택해주세요.");
+              } else if (file) {
+                setError("");
+                setCropFile(file);
+              }
               event.currentTarget.value = "";
             }}
           />
@@ -202,9 +238,19 @@ export function ProfileEditor({
                 key={preset.id}
                 type="button"
                 className={avatarPreset === preset.id && !avatarUrl ? "is-selected" : ""}
+                disabled={pending || uploading}
                 onClick={() => {
-                  setAvatarPreset(preset.id);
-                  setAvatarUrl("");
+                  setUploading(true);
+                  setError("");
+                  setNotice("");
+                  void saveAvatarSelection("", preset.id)
+                    .then(() => setNotice("기본 아바타를 적용했습니다."))
+                    .catch((presetError) => {
+                      setError(presetError instanceof Error
+                        ? presetError.message
+                        : "기본 아바타를 적용하지 못했습니다.");
+                    })
+                    .finally(() => setUploading(false));
                 }}
                 aria-label={`${preset.label} 아바타 선택`}
               >
@@ -226,6 +272,17 @@ export function ProfileEditor({
           </button>
         </div>
       </section>
+      {cropFile ? (
+        <AvatarCropper
+          file={cropFile}
+          returnFocusRef={photoButtonRef}
+          onCancel={() => setCropFile(null)}
+          onConfirm={async (optimizedFile) => {
+            await uploadAvatar(optimizedFile);
+            setCropFile(null);
+          }}
+        />
+      ) : null}
     </div>
   );
 }
