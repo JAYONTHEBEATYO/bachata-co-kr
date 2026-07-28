@@ -16,7 +16,7 @@
     "verify": "npm run typecheck && npm run build && npm run audit:copy && npm run audit:community",
     "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-    "cf:deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+    "cf:deploy": "wrangler d1 migrations apply COMMENTS_DB --remote && opennextjs-cloudflare build && opennextjs-cloudflare deploy",
     "verify:cloudflare": "npm run verify && npm run cf:build"
   },
   "dependencies": {

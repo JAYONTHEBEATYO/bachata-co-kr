@@ -52,6 +52,10 @@ export type AdminProposal = {
   priority: "low" | "normal" | "high" | "urgent";
   confidence: number;
   status: "pending" | "approved" | "denied" | "published" | "applied";
+  reviewNote?: string;
+  feedbackRating?: number | null;
+  feedbackLabels: string[];
+  classificationJson?: string | null;
   threadId?: string | null;
   createdAt: string;
   reviewedAt?: string | null;
@@ -115,4 +119,29 @@ export type AdminRun = {
   proposalsCount: number;
   startedAt: string;
   completedAt?: string | null;
+};
+
+export type AdminEditorialAutomation = {
+  settings: {
+    enabled: boolean;
+    cadenceHours: number;
+    preferredHourKst: number;
+    candidateLimit: number;
+    duplicateWindowDays: number;
+    feedbackLookback: number;
+    nextRunAt?: string | null;
+    lastStartedAt?: string | null;
+    lastCompletedAt?: string | null;
+    updatedAt?: string | null;
+  };
+  options: {
+    cadenceHours: number[];
+    feedbackLabels: string[];
+  };
+  feedback: {
+    total: number;
+    averageRating: number;
+    positive: number;
+    negative: number;
+  };
 };

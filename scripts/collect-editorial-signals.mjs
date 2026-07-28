@@ -5,7 +5,31 @@ const required = (name) => {
 };
 
 const endpoint = process.env.AUTOMATION_ENDPOINT || "https://bachata.co.kr/api/admin/automation";
+const settingsEndpoint = process.env.AUTOMATION_SETTINGS_ENDPOINT || `${endpoint}/settings`;
 const token = required("ADMIN_AUTOMATION_TOKEN");
+const forceAutomation = process.env.FORCE_AUTOMATION?.trim().toLowerCase() === "true";
+
+const scheduleResponse = await fetch(settingsEndpoint, {
+  headers: {
+    authorization: `Bearer ${token}`,
+    "user-agent": "BachataKoreaBot/1.0 (+https://bachata.co.kr)"
+  },
+  signal: AbortSignal.timeout(20_000)
+});
+const scheduleBody = await scheduleResponse.text();
+if (!scheduleResponse.ok) {
+  throw new Error(`Automation settings failed: ${scheduleResponse.status} ${scheduleBody}`);
+}
+const schedule = JSON.parse(scheduleBody);
+if (!forceAutomation && (!schedule.enabled || !schedule.due)) {
+  console.log(JSON.stringify({
+    ok: true,
+    skipped: true,
+    reason: schedule.enabled ? "not_due" : "disabled",
+    nextRunAt: schedule.nextRunAt || null
+  }));
+  process.exit(0);
+}
 
 const queries = [
   "바차타",
@@ -211,7 +235,7 @@ const response = await fetch(endpoint, {
     authorization: `Bearer ${token}`,
     "content-type": "application/json"
   },
-  body: JSON.stringify({ mode: "daily", signals: unique }),
+  body: JSON.stringify({ mode: forceAutomation ? "daily" : "scheduled", signals: unique }),
   signal: AbortSignal.timeout(90_000)
 });
 

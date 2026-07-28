@@ -33,6 +33,7 @@ import {
 } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 import type {
+  AdminEditorialAutomation,
   AdminOverview,
   AdminProposal,
   AdminReport,
@@ -44,7 +45,7 @@ import type {
 import type { SessionUser } from "@/lib/types";
 import { ProfileAvatar } from "./ProfileAvatar";
 
-type AdminTab = "overview" | "editorial" | "threads" | "topics" | "operations";
+type AdminTab = "overview" | "editorial" | "automation" | "threads" | "topics" | "operations";
 
 type AdminData = {
   overview: AdminOverview | null;
@@ -54,6 +55,7 @@ type AdminData = {
   reports: AdminReport[];
   sources: AdminSource[];
   runs: AdminRun[];
+  automation: AdminEditorialAutomation | null;
 };
 
 const emptyData: AdminData = {
@@ -63,12 +65,14 @@ const emptyData: AdminData = {
   topics: [],
   reports: [],
   sources: [],
-  runs: []
+  runs: [],
+  automation: null
 };
 
 const tabs: Array<{ id: AdminTab; label: string; icon: typeof Gauge }> = [
   { id: "overview", label: "개요", icon: Gauge },
   { id: "editorial", label: "AI 콘텐츠·개선안", icon: Sparkles },
+  { id: "automation", label: "AI 운영 설정", icon: Clock3 },
   { id: "threads", label: "게시물", icon: FileText },
   { id: "topics", label: "주제·하위주제", icon: Layers3 },
   { id: "operations", label: "신고·수집 현황", icon: ShieldCheck }
@@ -135,13 +139,14 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
     setLoading(true);
     setError("");
     try {
-      const [overview, proposals, threads, topics, reports, sources] = await Promise.all([
+      const [overview, proposals, threads, topics, reports, sources, automation] = await Promise.all([
         fetchJson<{ overview: AdminOverview }>("/api/admin/overview"),
         fetchJson<{ proposals: AdminProposal[] }>("/api/admin/proposals"),
         fetchJson<{ threads: AdminThread[] }>("/api/admin/threads"),
         fetchJson<{ topics: AdminTopic[] }>("/api/admin/topics"),
         fetchJson<{ reports: AdminReport[] }>("/api/admin/reports"),
-        fetchJson<{ sources: AdminSource[]; runs: AdminRun[] }>("/api/admin/sources")
+        fetchJson<{ sources: AdminSource[]; runs: AdminRun[] }>("/api/admin/sources"),
+        fetchJson<AdminEditorialAutomation>("/api/admin/automation/settings").catch(() => null)
       ]);
       setData({
         overview: overview.overview,
@@ -150,7 +155,8 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
         topics: topics.topics,
         reports: reports.reports,
         sources: sources.sources,
-        runs: sources.runs
+        runs: sources.runs,
+        automation
       });
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : "관리자 데이터를 불러오지 못했습니다.");
@@ -278,12 +284,30 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
           {tab === "editorial" ? (
             <EditorialPanel
               proposals={data.proposals}
+              feedbackLabels={data.automation?.options.feedbackLabels || []}
               busy={busy}
               setBusy={setBusy}
               setNotice={setNotice}
               setError={setError}
               reload={loadAll}
             />
+          ) : null}
+          {tab === "automation" ? (
+            data.automation ? (
+              <AutomationPanel
+                automation={data.automation}
+                busy={busy}
+                setBusy={setBusy}
+                setNotice={setNotice}
+                setError={setError}
+                reload={loadAll}
+              />
+            ) : (
+              <div className="admin-empty large">
+                <AlertTriangle size={24} />
+                <p>AI 운영 설정을 불러오지 못했습니다. 데이터베이스 마이그레이션 상태를 확인해주세요.</p>
+              </div>
+            )
           ) : null}
           {tab === "threads" ? (
             <ThreadsPanel
@@ -453,6 +477,7 @@ function OverviewPanel({
 
 function EditorialPanel({
   proposals,
+  feedbackLabels,
   busy,
   setBusy,
   setNotice,
@@ -460,6 +485,7 @@ function EditorialPanel({
   reload
 }: {
   proposals: AdminProposal[];
+  feedbackLabels: string[];
   busy: string;
   setBusy: (value: string) => void;
   setNotice: (value: string) => void;
@@ -498,6 +524,7 @@ function EditorialPanel({
           <ProposalEditor
             key={proposal.id}
             proposal={proposal}
+            feedbackLabelOptions={feedbackLabels}
             busy={busy}
             setBusy={setBusy}
             setNotice={setNotice}
@@ -513,6 +540,7 @@ function EditorialPanel({
 
 function ProposalEditor({
   proposal,
+  feedbackLabelOptions,
   busy,
   setBusy,
   setNotice,
@@ -520,6 +548,7 @@ function ProposalEditor({
   reload
 }: {
   proposal: AdminProposal;
+  feedbackLabelOptions: string[];
   busy: string;
   setBusy: (value: string) => void;
   setNotice: (value: string) => void;
@@ -531,7 +560,9 @@ function ProposalEditor({
   const [body, setBody] = useState(proposal.body);
   const [category, setCategory] = useState(proposal.category);
   const [tags, setTags] = useState(proposal.tags.join(", "));
-  const [reviewNote, setReviewNote] = useState("");
+  const [reviewNote, setReviewNote] = useState(proposal.reviewNote || "");
+  const [feedbackRating, setFeedbackRating] = useState(proposal.feedbackRating || 0);
+  const [feedbackLabels, setFeedbackLabels] = useState(proposal.feedbackLabels || []);
   const isBusy = busy === proposal.id;
   const isClosed = ["denied", "published", "applied"].includes(proposal.status);
 
@@ -550,7 +581,9 @@ function ProposalEditor({
           body,
           category,
           tags: tags.split(",").map((tag) => tag.trim()).filter(Boolean),
-          reviewNote
+          reviewNote,
+          feedbackRating: feedbackRating || null,
+          feedbackLabels
         })
       });
       if (result.threadPath) {
@@ -607,8 +640,60 @@ function ProposalEditor({
               <label><span>태그</span><input value={tags} onChange={(event) => setTags(event.target.value)} disabled={isClosed} /></label>
             </>
           ) : null}
-          <label className="review-note"><span>관리자 메모</span><input value={reviewNote} onChange={(event) => setReviewNote(event.target.value)} disabled={isClosed} placeholder="결정 이유나 후속 작업" /></label>
+          {proposal.proposalType === "site_improvement" ? (
+            <label className="review-note"><span>관리자 메모</span><input value={reviewNote} onChange={(event) => setReviewNote(event.target.value)} disabled={isClosed} placeholder="결정 이유나 후속 작업" /></label>
+          ) : null}
         </div>
+        {proposal.proposalType === "content" ? (
+          <section className="editorial-feedback-box" aria-label="AI 편집 피드백">
+            <div className="editorial-feedback-head">
+              <div>
+                <span>AI 학습 피드백</span>
+                <p>평가와 수정 이유는 다음 콘텐츠 초안을 만들 때 편집 기준으로 반영됩니다.</p>
+              </div>
+              <div className="feedback-rating" aria-label="초안 평점">
+                {[1, 2, 3, 4, 5].map((rating) => (
+                  <button
+                    key={rating}
+                    type="button"
+                    className={feedbackRating === rating ? "active" : ""}
+                    onClick={() => setFeedbackRating(rating)}
+                    disabled={isClosed}
+                    aria-pressed={feedbackRating === rating}
+                    title={`${rating}점`}
+                  >{rating}</button>
+                ))}
+              </div>
+            </div>
+            <div className="feedback-labels">
+              {feedbackLabelOptions.map((label) => {
+                const selected = feedbackLabels.includes(label);
+                return (
+                  <button
+                    key={label}
+                    type="button"
+                    className={selected ? "active" : ""}
+                    onClick={() => setFeedbackLabels((current) => selected
+                      ? current.filter((item) => item !== label)
+                      : [...current, label].slice(0, 6))}
+                    disabled={isClosed}
+                    aria-pressed={selected}
+                  >{label}</button>
+                );
+              })}
+            </div>
+            <label>
+              <span>편집 메모</span>
+              <textarea
+                rows={2}
+                value={reviewNote}
+                onChange={(event) => setReviewNote(event.target.value)}
+                disabled={isClosed}
+                placeholder="좋았던 점이나 다음 초안에서 고칠 점을 적어주세요."
+              />
+            </label>
+          </section>
+        ) : null}
       </div>
       <footer>
         <div className="proposal-evidence">
@@ -639,6 +724,182 @@ function ProposalEditor({
         </div>
       </footer>
     </article>
+  );
+}
+
+
+function AutomationPanel({
+  automation,
+  busy,
+  setBusy,
+  setNotice,
+  setError,
+  reload
+}: {
+  automation: AdminEditorialAutomation;
+  busy: string;
+  setBusy: (value: string) => void;
+  setNotice: (value: string) => void;
+  setError: (value: string) => void;
+  reload: () => Promise<void>;
+}) {
+  const [settings, setSettings] = useState(automation.settings);
+  const isBusy = busy === "automation-settings";
+  const cadenceLabels: Record<number, string> = {
+    6: "6시간마다",
+    12: "12시간마다",
+    24: "매일",
+    48: "2일마다",
+    72: "3일마다",
+    168: "매주"
+  };
+
+  useEffect(() => {
+    setSettings(automation.settings);
+  }, [automation]);
+
+  const updateNumber = (
+    key: "preferredHourKst" | "candidateLimit" | "duplicateWindowDays" | "feedbackLookback",
+    value: string
+  ) => setSettings((current) => ({ ...current, [key]: Number(value) }));
+
+  const saveSettings = async () => {
+    setBusy("automation-settings");
+    setNotice("");
+    setError("");
+    try {
+      const result = await fetchJson<{ settings: AdminEditorialAutomation["settings"] }>(
+        "/api/admin/automation/settings",
+        {
+          method: "PATCH",
+          body: JSON.stringify(settings)
+        }
+      );
+      setSettings(result.settings);
+      setNotice("AI 콘텐츠 실행 설정을 저장했습니다.");
+      await reload();
+    } catch (saveError) {
+      setError(saveError instanceof Error ? saveError.message : "AI 운영 설정을 저장하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  return (
+    <div className="admin-section-stack">
+      <header className="admin-section-title">
+        <div>
+          <span>EDITORIAL AUTOMATION</span>
+          <h2>AI 콘텐츠 운영 설정</h2>
+          <p>수집과 초안 작성 주기를 정합니다. AI 결과는 자동 게시되지 않고 검토 목록에만 쌓입니다.</p>
+        </div>
+        <button className="admin-button primary" type="button" onClick={() => void saveSettings()} disabled={isBusy}>
+          {isBusy ? <LoaderCircle className="spin" size={16} /> : <Save size={16} />}
+          설정 저장
+        </button>
+      </header>
+
+      <div className="automation-layout">
+        <section className="admin-panel automation-settings-panel">
+          <header className="admin-panel-head">
+            <div><span>실행 정책</span><h2>콘텐츠 수집과 초안 작성</h2></div>
+            <label className="automation-toggle">
+              <input
+                type="checkbox"
+                checked={settings.enabled}
+                onChange={(event) => setSettings((current) => ({ ...current, enabled: event.target.checked }))}
+              />
+              <span aria-hidden="true" />
+              {settings.enabled ? "사용 중" : "중지됨"}
+            </label>
+          </header>
+          <div className="automation-form-grid">
+            <label>
+              <span>실행 주기</span>
+              <select
+                value={settings.cadenceHours}
+                onChange={(event) => setSettings((current) => ({ ...current, cadenceHours: Number(event.target.value) }))}
+              >
+                {automation.options.cadenceHours.map((hours) => (
+                  <option key={hours} value={hours}>{cadenceLabels[hours] || `${hours}시간마다`}</option>
+                ))}
+              </select>
+              <small>GitHub Actions는 매시간 확인하고, 실제 작성은 이 주기에 맞을 때만 시작합니다.</small>
+            </label>
+            <label>
+              <span>기준 시각</span>
+              <select
+                value={settings.preferredHourKst}
+                onChange={(event) => updateNumber("preferredHourKst", event.target.value)}
+              >
+                {Array.from({ length: 24 }, (_, hour) => (
+                  <option key={hour} value={hour}>{String(hour).padStart(2, "0")}:00 KST</option>
+                ))}
+              </select>
+              <small>하루 이상 주기일 때 초안 작성을 시작할 한국 시각입니다.</small>
+            </label>
+            <label>
+              <span>회당 초안 수</span>
+              <input
+                type="number"
+                min={1}
+                max={4}
+                value={settings.candidateLimit}
+                onChange={(event) => updateNumber("candidateLimit", event.target.value)}
+              />
+              <small>한 번에 1~4건만 검토 목록에 추가합니다.</small>
+            </label>
+            <label>
+              <span>중복 검사 기간</span>
+              <div className="automation-number-field">
+                <input
+                  type="number"
+                  min={7}
+                  max={365}
+                  value={settings.duplicateWindowDays}
+                  onChange={(event) => updateNumber("duplicateWindowDays", event.target.value)}
+                />
+                <b>일</b>
+              </div>
+              <small>URL, 제목, 본문 유사도를 이 기간의 기존 글과 비교합니다.</small>
+            </label>
+            <label>
+              <span>참고할 최근 피드백</span>
+              <div className="automation-number-field">
+                <input
+                  type="number"
+                  min={5}
+                  max={100}
+                  value={settings.feedbackLookback}
+                  onChange={(event) => updateNumber("feedbackLookback", event.target.value)}
+                />
+                <b>건</b>
+              </div>
+              <small>최근 승인·반려·편집 기록을 다음 AI 작성 기준으로 요약합니다.</small>
+            </label>
+          </div>
+        </section>
+
+        <aside className="admin-panel automation-status-panel">
+          <header className="admin-panel-head">
+            <div><span>현재 상태</span><h2>다음 실행</h2></div>
+            <Activity size={18} />
+          </header>
+          <dl>
+            <div><dt>다음 예정</dt><dd>{settings.enabled ? formatDateTime(settings.nextRunAt) : "자동 실행 중지"}</dd></div>
+            <div><dt>최근 시작</dt><dd>{formatDateTime(settings.lastStartedAt)}</dd></div>
+            <div><dt>최근 완료</dt><dd>{formatDateTime(settings.lastCompletedAt)}</dd></div>
+          </dl>
+          <div className="automation-feedback-stats">
+            <span><strong>{automation.feedback.total}</strong>누적 피드백</span>
+            <span><strong>{automation.feedback.averageRating || "-"}</strong>평균 평점</span>
+            <span><strong>{automation.feedback.positive}</strong>좋은 평가</span>
+            <span><strong>{automation.feedback.negative}</strong>개선 평가</span>
+          </div>
+          <p><ShieldCheck size={15} />중복으로 판정된 자료는 AI 작성 전에 제외되며, 모든 초안은 관리자 승인 후에만 공개됩니다.</p>
+        </aside>
+      </div>
+    </div>
   );
 }
 
