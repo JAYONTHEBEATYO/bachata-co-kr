@@ -1,7 +1,9 @@
+import { resolve } from "node:path";
+import { fileURLToPath } from "node:url";
+import licensedVideoSamples from "../lib/licensed-video-samples.json" with { type: "json" };
+
 const endpoint = (process.env.EDITORIAL_AUTOMATION_URL || "https://bachata.co.kr/api/admin/automation").trim();
 const token = (process.env.ADMIN_AUTOMATION_TOKEN || "").trim();
-
-import licensedVideoSamples from "../lib/licensed-video-samples.json" with { type: "json" };
 
 export { licensedVideoSamples };
 
@@ -13,7 +15,11 @@ export const licensedVideoSamplePayload = {
   signals: licensedVideoSamples
 };
 
-const isMain = process.argv[1] && import.meta.url === new URL(`file:///${process.argv[1].replace(/\\/g, "/")}`).href;
+const isMain = Boolean(
+  process.argv[1]
+  && resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+);
+
 if (isMain) {
   if (process.argv.includes("--dry-run")) {
     console.log(JSON.stringify(licensedVideoSamplePayload, null, 2));
