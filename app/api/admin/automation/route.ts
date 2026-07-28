@@ -1,4 +1,5 @@
 import type { NextRequest } from "next/server";
+import licensedVideoSamples from "@/lib/licensed-video-samples.json";
 import {
   adminCategories,
   adminResponse,
@@ -30,6 +31,8 @@ import {
   releaseEditorialRunLock
 } from "@/lib/editorial-automation";
 
+type EditorialReuseStatus = "verified" | "permission_granted" | "unknown" | "restricted";
+
 type EditorialSignal = {
   sourceId: string;
   sourceName: string;
@@ -40,6 +43,12 @@ type EditorialSignal = {
   publishedAt?: string | null;
   thumbnail?: string | null;
   query?: string | null;
+  mediaType?: "video" | "image" | null;
+  mediaUrl?: string | null;
+  reuseStatus?: EditorialReuseStatus;
+  licenseName?: string | null;
+  licenseUrl?: string | null;
+  attributionText?: string | null;
 };
 
 type AiArticle = {
@@ -127,7 +136,15 @@ const normalizeSignal = (value: unknown): EditorialSignal | null => {
     url,
     publishedAt: cleanAdminText(source.publishedAt, 60) || null,
     thumbnail: cleanUrl(source.thumbnail) || null,
-    query: cleanAdminText(source.query, 80) || null
+    query: cleanAdminText(source.query, 80) || null,
+    mediaType: source.mediaType === "video" || source.mediaType === "image" ? source.mediaType : null,
+    mediaUrl: cleanUrl(source.mediaUrl) || null,
+    reuseStatus: ["verified", "permission_granted", "unknown", "restricted"].includes(String(source.reuseStatus))
+      ? source.reuseStatus as EditorialReuseStatus
+      : "unknown",
+    licenseName: cleanAdminText(source.licenseName, 100) || null,
+    licenseUrl: cleanUrl(source.licenseUrl) || null,
+    attributionText: cleanAdminText(source.attributionText, 240) || null
   };
 };
 
@@ -177,7 +194,7 @@ const articleSchema = {
   properties: {
     articles: {
       type: "array",
-      maxItems: 4,
+      maxItems: 5,
       items: {
         type: "object",
         properties: {
@@ -415,7 +432,13 @@ export async function POST(request: NextRequest) {
   const scheduleSettings = await readEditorialAutomationSettings(auth.db);
   const scheduledRun = requestedMode === "scheduled";
   const mode = requestedMode === "weekly" ? "weekly" : "daily";
-  const candidateLimit = scheduleSettings.candidateLimit;
+  const sampleSet = payload.sampleSet === "licensed-video" ? "licensed-video" : null;
+  const requestedCandidateLimit = Number(payload.candidateLimit ?? (sampleSet ? 5 : Number.NaN));
+  const candidateLimit = Number.isInteger(requestedCandidateLimit)
+    ? Math.min(5, Math.max(1, requestedCandidateLimit))
+    : scheduleSettings.candidateLimit;
+  const requestedContentType = payload.contentType === "video" || sampleSet ? "video" : "all";
+  const reuseOnly = payload.reuseOnly === true || Boolean(sampleSet);
   const lockOwner = crypto.randomUUID();
   let runId = "";
   let signals: EditorialSignal[] = [];
@@ -441,12 +464,22 @@ export async function POST(request: NextRequest) {
         });
       }
     }
-    const providedSignals = Array.isArray(payload.signals)
-      ? payload.signals.map(normalizeSignal).filter((signal): signal is EditorialSignal => Boolean(signal))
+    const signalInput = sampleSet ? licensedVideoSamples : payload.signals;
+    const providedSignals = Array.isArray(signalInput)
+      ? signalInput.map(normalizeSignal).filter((signal): signal is EditorialSignal => Boolean(signal))
       : [];
     signals = mode === "daily" && !providedSignals.length
       ? await collectPublicSignals()
       : providedSignals;
+    if (requestedContentType === "video") {
+      signals = signals.filter((signal) => signal.mediaType === "video" || signal.sourceType.includes("video"));
+    }
+    if (reuseOnly) {
+      signals = signals.filter((signal) => (
+        (signal.reuseStatus === "verified" || signal.reuseStatus === "permission_granted")
+        && Boolean(signal.licenseUrl)
+      ));
+    }
     runId = await beginRun(
       auth.db,
       mode === "weekly" ? "weekly_audit" : auth.automated ? "daily_content" : "manual",
@@ -482,6 +515,12 @@ export async function POST(request: NextRequest) {
             "원문 문장을 복사하지 말고 사실을 과장하지 않는다.",
             `독자가 실제로 읽을 가치가 있는 자연스러운 한국어 기사 후보를 최대 ${candidateLimit}건 작성한다.`,
             "각 기사는 하나의 구체적인 행사, 영상, 인물, 수업, 커뮤니티 논점만 다룬다.",
+            requestedContentType === "video"
+              ? "모든 초안은 입력 영상에서 실제로 확인할 수 있는 장면과 활용 포인트를 중심으로 쓰고 category는 video로 지정한다."
+              : "입력 자료의 성격에 맞는 게시판을 고른다.",
+            reuseOnly
+              ? "재사용 허가와 라이선스가 확인된 입력만 제공되며, 출처 표기 문구와 라이선스 조건을 초안에서 임의로 바꾸지 않는다."
+              : "출처와 권리 상태를 추측하지 않는다.",
             "사이트 자체를 소개하거나 바차타 정보를 찾는 방법처럼 두루뭉술한 글은 작성하지 않는다.",
             "구체적인 글감을 뒷받침할 입력이 없으면 articles를 빈 배열로 반환한다.",
             "sourceUrl은 반드시 입력에 있는 URL을 그대로 사용하고 서로 다른 출처를 고른다.",
@@ -497,19 +536,23 @@ export async function POST(request: NextRequest) {
           `다음 공개 링크와 검색 요약을 바탕으로 기사 후보를 작성하세요.\n${JSON.stringify(uniqueSignals)}`,
           articleSchema
         ).catch(() => null);
-        const articles = Array.isArray(aiResult?.articles)
-          ? aiResult.articles as AiArticle[]
-          : uniqueSignals.slice(0, candidateLimit).map((signal) => ({
-            title: signal.title,
-            summary: signal.snippet,
-            body: `${signal.snippet}\n\n이 자료에서 확인할 수 있는 핵심 내용과 바차타 독자에게 필요한 맥락을 편집부에서 보강한 뒤 게시해주세요. 일정과 장소, 참여 조건이 포함된 경우에는 원문 링크에서 최신 정보를 다시 확인해야 합니다.`,
-            category: signal.sourceType.includes("video") ? "video" : "free",
-            tags: ["바차타", "편집대기"],
-            sourceUrl: signal.url,
-            sourceName: signal.sourceName,
-            rationale: "최근 공개된 바차타 관련 자료입니다.",
-            confidence: 0.45
-          }));
+        const fallbackArticles = uniqueSignals.slice(0, candidateLimit).map((signal) => ({
+          title: signal.title,
+          summary: signal.snippet,
+          body: `${signal.snippet}\n\n이 영상은 바차타 코리아 편집실에서 장면 구성과 춤의 포인트를 다시 살펴볼 수 있는 재사용 가능 자료입니다. 먼저 영상의 분위기와 움직임을 짧게 소개하고, 독자가 어떤 부분을 눈여겨보면 좋은지 구체적으로 덧붙여주세요. 커플의 프레임, 체중 이동, 리듬, 공간 활용 가운데 실제 화면에서 확인되는 요소만 골라 설명하면 됩니다.\n\n게시 전에는 원본 영상과 라이선스 페이지를 다시 열어 현재 조건을 확인하고, 필요한 출처 표기를 본문이나 영상 크레딧에 빠짐없이 남겨주세요. 제목과 본문은 원문을 옮기지 말고 한국 바차타 독자가 자연스럽게 읽을 수 있는 문장으로 다듬습니다. 영상에 없는 인물명, 장소, 행사 날짜나 수업 정보는 추측해서 넣지 않습니다.\n\n마지막 문단에서는 이 영상을 어떤 관점으로 보면 좋은지 한 번 더 정리하고, 직접 영상을 본 독자가 댓글로 경험이나 해석을 나눌 수 있도록 질문 하나를 덧붙여주세요.`,
+          category: signal.sourceType.includes("video") ? "video" : "free",
+          tags: ["바차타", "편집대기"],
+          sourceUrl: signal.url,
+          sourceName: signal.sourceName,
+          rationale: "재사용 조건과 원본 링크가 확인된 공개 영상 자료입니다.",
+          confidence: 0.45
+        }));
+        const aiArticles = Array.isArray(aiResult?.articles) ? aiResult.articles as AiArticle[] : [];
+        const draftedUrls = new Set(aiArticles.map((article) => canonicalizeEditorialUrl(article.sourceUrl)));
+        const articles: AiArticle[] = [
+          ...aiArticles,
+          ...fallbackArticles.filter((article) => !draftedUrls.has(canonicalizeEditorialUrl(article.sourceUrl)))
+        ].slice(0, candidateLimit);
 
         const allowedSourceUrls = new Set(uniqueSignals.map((signal) => canonicalizeEditorialUrl(signal.url)));
         const sourceByUrl = new Map(
@@ -586,16 +629,28 @@ export async function POST(request: NextRequest) {
               sourceUrl,
               sourceUrl,
               cleanAdminText(article.sourceName, 80),
-              JSON.stringify([{ label: cleanAdminText(article.sourceName, 80), url: sourceUrl }]),
+              JSON.stringify([
+                { label: cleanAdminText(article.sourceName, 80), url: sourceUrl },
+                ...(sourceSignal?.licenseUrl ? [{ label: sourceSignal.licenseName || "라이선스 확인", url: sourceSignal.licenseUrl }] : [])
+              ]),
               cleanAdminText(article.rationale, 400),
               Math.max(0, Math.min(1, Number(article.confidence) || 0.5)),
               fingerprint,
               JSON.stringify({
-                version: 1,
+                version: 2,
                 category,
                 tags,
                 query: sourceSignal?.query || null,
-                sourceType: sourceSignal?.sourceType || null
+                sourceType: sourceSignal?.sourceType || null,
+                media: sourceSignal?.mediaType ? {
+                  type: sourceSignal.mediaType,
+                  thumbnail: sourceSignal.thumbnail || null,
+                  sourceAssetUrl: sourceSignal.mediaUrl || null,
+                  reuseStatus: sourceSignal.reuseStatus || "unknown",
+                  licenseName: sourceSignal.licenseName || null,
+                  licenseUrl: sourceSignal.licenseUrl || null,
+                  attributionText: sourceSignal.attributionText || null
+                } : null
               }),
               new Date().toISOString(),
               new Date().toISOString()
@@ -799,6 +854,8 @@ export async function POST(request: NextRequest) {
         automated: auth.automated,
         scheduled: scheduledRun,
         candidateLimit,
+        requestedContentType,
+        reuseOnly,
         duplicateWindowDays: scheduleSettings.duplicateWindowDays
       }),
       runId

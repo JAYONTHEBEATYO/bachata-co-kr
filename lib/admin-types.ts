@@ -48,6 +48,15 @@ export type AdminProposal = {
   sourceName?: string | null;
   sourcePublishedAt?: string | null;
   evidence: Array<{ label?: string; url: string }>;
+  media?: {
+    type: "video" | "image";
+    thumbnail?: string | null;
+    sourceAssetUrl?: string | null;
+    reuseStatus: "verified" | "permission_granted" | "unknown" | "restricted";
+    licenseName?: string | null;
+    licenseUrl?: string | null;
+    attributionText?: string | null;
+  } | null;
   rationale: string;
   priority: "low" | "normal" | "high" | "urgent";
   confidence: number;

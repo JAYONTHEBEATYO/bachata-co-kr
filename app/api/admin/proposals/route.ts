@@ -26,14 +26,40 @@ type ProposalRow = Omit<AdminProposal, "tags" | "evidence" | "feedbackLabels"> &
   feedbackLabelsJson?: string | null;
 };
 
-const mapProposal = (row: ProposalRow): AdminProposal => ({
-  ...row,
-  confidence: Number(row.confidence || 0),
-  feedbackRating: row.feedbackRating ? Number(row.feedbackRating) : null,
-  tags: safeJsonArray<string>(row.tagsJson),
-  evidence: safeJsonArray<{ label?: string; url: string }>(row.evidenceJson),
-  feedbackLabels: safeJsonArray<string>(row.feedbackLabelsJson)
-});
+const mapProposal = (row: ProposalRow): AdminProposal => {
+  let media: AdminProposal["media"] = null;
+  try {
+    const classification = JSON.parse(row.classificationJson || "{}") as Record<string, unknown>;
+    const candidate = classification.media;
+    if (candidate && typeof candidate === "object") {
+      const value = candidate as Record<string, unknown>;
+      if (value.type === "video" || value.type === "image") {
+        media = {
+          type: value.type,
+          thumbnail: typeof value.thumbnail === "string" ? value.thumbnail : null,
+          sourceAssetUrl: typeof value.sourceAssetUrl === "string" ? value.sourceAssetUrl : null,
+          reuseStatus: ["verified", "permission_granted", "unknown", "restricted"].includes(String(value.reuseStatus))
+            ? value.reuseStatus as NonNullable<AdminProposal["media"]>["reuseStatus"]
+            : "unknown",
+          licenseName: typeof value.licenseName === "string" ? value.licenseName : null,
+          licenseUrl: typeof value.licenseUrl === "string" ? value.licenseUrl : null,
+          attributionText: typeof value.attributionText === "string" ? value.attributionText : null
+        };
+      }
+    }
+  } catch {
+    media = null;
+  }
+  return {
+    ...row,
+    media,
+    confidence: Number(row.confidence || 0),
+    feedbackRating: row.feedbackRating ? Number(row.feedbackRating) : null,
+    tags: safeJsonArray<string>(row.tagsJson),
+    evidence: safeJsonArray<{ label?: string; url: string }>(row.evidenceJson),
+    feedbackLabels: safeJsonArray<string>(row.feedbackLabelsJson)
+  };
+};
 
 const proposalSelect = `
   select p.id, p.proposal_type as proposalType, p.title, p.summary, p.body, p.category,

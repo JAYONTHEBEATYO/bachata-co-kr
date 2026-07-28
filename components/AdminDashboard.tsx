@@ -169,18 +169,20 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
     void loadAll();
   }, [loadAll]);
 
-  const runAutomation = async (mode: "daily" | "weekly") => {
-    setBusy(`automation-${mode}`);
+  const runAutomation = async (mode: "daily" | "weekly", sampleSet?: "licensed-video") => {
+    setBusy(sampleSet ? "automation-video-samples" : `automation-${mode}`);
     setNotice("");
     setError("");
     try {
       const result = await fetchJson<{ proposalsCount: number }>("/api/admin/automation", {
         method: "POST",
-        body: JSON.stringify({ mode })
+        body: JSON.stringify({ mode, sampleSet })
       });
-      setNotice(mode === "daily"
-        ? `AI 콘텐츠 초안 ${result.proposalsCount}건을 검토 목록에 추가했습니다.`
-        : `사이트 개선안 ${result.proposalsCount}건을 준비했습니다.`);
+      setNotice(sampleSet
+        ? `라이선스 영상 초안 ${result.proposalsCount}건을 검토 목록에 추가했습니다.`
+        : mode === "daily"
+          ? `AI 콘텐츠 초안 ${result.proposalsCount}건을 검토 목록에 추가했습니다.`
+          : `사이트 개선안 ${result.proposalsCount}건을 준비했습니다.`);
       await loadAll();
       setTab("editorial");
     } catch (automationError) {
@@ -301,6 +303,7 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
                 setNotice={setNotice}
                 setError={setError}
                 reload={loadAll}
+                runVideoSamples={() => runAutomation("daily", "licensed-video")}
               />
             ) : (
               <div className="admin-empty large">
@@ -616,6 +619,24 @@ function ProposalEditor({
         </div>
         <span className="proposal-confidence">신뢰도 {Math.round(proposal.confidence * 100)}%</span>
       </header>
+      {proposal.media ? (
+        <section className="proposal-media-preview" aria-label="영상 자료와 재사용 조건">
+          {proposal.media.thumbnail ? (
+            <a className="proposal-media-thumb" href={proposal.sourceUrl || proposal.media.sourceAssetUrl || "#"} target="_blank" rel="noreferrer">
+              <img src={proposal.media.thumbnail} alt={`${proposal.title} 영상 미리보기`} loading="lazy" />
+              <span><FileCheck2 size={14} />{proposal.media.type === "video" ? "영상 미리보기" : "이미지 미리보기"}</span>
+            </a>
+          ) : null}
+          <div className="proposal-media-meta">
+            <strong><ShieldCheck size={15} />재사용 조건 확인</strong>
+            <p>{proposal.media.attributionText || "게시 전 출처와 라이선스 표기를 다시 확인해주세요."}</p>
+            <div>
+              {proposal.media.licenseUrl ? <a href={proposal.media.licenseUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />{proposal.media.licenseName || "라이선스"}</a> : null}
+              {proposal.media.sourceAssetUrl ? <a href={proposal.media.sourceAssetUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />원본 파일 열기</a> : null}
+            </div>
+          </div>
+        </section>
+      ) : null}
       <div className="proposal-fields">
         <label>
           <span>제목</span>
@@ -734,7 +755,8 @@ function AutomationPanel({
   setBusy,
   setNotice,
   setError,
-  reload
+  reload,
+  runVideoSamples
 }: {
   automation: AdminEditorialAutomation;
   busy: string;
@@ -742,6 +764,7 @@ function AutomationPanel({
   setNotice: (value: string) => void;
   setError: (value: string) => void;
   reload: () => Promise<void>;
+  runVideoSamples: () => Promise<void>;
 }) {
   const [settings, setSettings] = useState(automation.settings);
   const isBusy = busy === "automation-settings";
@@ -793,10 +816,16 @@ function AutomationPanel({
           <h2>AI 콘텐츠 운영 설정</h2>
           <p>수집과 초안 작성 주기를 정합니다. AI 결과는 자동 게시되지 않고 검토 목록에만 쌓입니다.</p>
         </div>
-        <button className="admin-button primary" type="button" onClick={() => void saveSettings()} disabled={isBusy}>
-          {isBusy ? <LoaderCircle className="spin" size={16} /> : <Save size={16} />}
-          설정 저장
-        </button>
+        <div className="admin-section-actions">
+          <button className="admin-button secondary" type="button" onClick={() => void runVideoSamples()} disabled={Boolean(busy)}>
+            {busy === "automation-video-samples" ? <LoaderCircle className="spin" size={16} /> : <FileCheck2 size={16} />}
+            라이선스 영상 샘플 5건 만들기
+          </button>
+          <button className="admin-button primary" type="button" onClick={() => void saveSettings()} disabled={isBusy}>
+            {isBusy ? <LoaderCircle className="spin" size={16} /> : <Save size={16} />}
+            설정 저장
+          </button>
+        </div>
       </header>
 
       <div className="automation-layout">
@@ -843,11 +872,11 @@ function AutomationPanel({
               <input
                 type="number"
                 min={1}
-                max={4}
+                max={5}
                 value={settings.candidateLimit}
                 onChange={(event) => updateNumber("candidateLimit", event.target.value)}
               />
-              <small>한 번에 1~4건만 검토 목록에 추가합니다.</small>
+              <small>한 번에 1~5건만 검토 목록에 추가합니다.</small>
             </label>
             <label>
               <span>중복 검사 기간</span>

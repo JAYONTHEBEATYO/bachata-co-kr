@@ -67,7 +67,7 @@ export const normalizeEditorialSettings = (
     ? Number(value.cadenceHours)
     : fallback.cadenceHours,
   preferredHourKst: toBoundedInteger(value.preferredHourKst, fallback.preferredHourKst, 0, 23),
-  candidateLimit: toBoundedInteger(value.candidateLimit, fallback.candidateLimit, 1, 4),
+  candidateLimit: toBoundedInteger(value.candidateLimit, fallback.candidateLimit, 1, 5),
   duplicateWindowDays: toBoundedInteger(value.duplicateWindowDays, fallback.duplicateWindowDays, 7, 365),
   feedbackLookback: toBoundedInteger(value.feedbackLookback, fallback.feedbackLookback, 5, 100),
   nextRunAt: value.nextRunAt ?? fallback.nextRunAt,
