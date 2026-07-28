@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import licensedVideoSamples from "@/lib/licensed-video-samples.json";
+import actualBachataVideoSamples from "@/lib/actual-bachata-video-samples.json";
 import {
   adminCategories,
   adminResponse,
@@ -31,7 +31,7 @@ import {
   releaseEditorialRunLock
 } from "@/lib/editorial-automation";
 
-type EditorialReuseStatus = "verified" | "permission_granted" | "unknown" | "restricted";
+type EditorialReuseStatus = "verified" | "permission_granted" | "permission_review" | "unknown" | "restricted";
 
 type EditorialSignal = {
   sourceId: string;
@@ -139,7 +139,7 @@ const normalizeSignal = (value: unknown): EditorialSignal | null => {
     query: cleanAdminText(source.query, 80) || null,
     mediaType: source.mediaType === "video" || source.mediaType === "image" ? source.mediaType : null,
     mediaUrl: cleanUrl(source.mediaUrl) || null,
-    reuseStatus: ["verified", "permission_granted", "unknown", "restricted"].includes(String(source.reuseStatus))
+    reuseStatus: ["verified", "permission_granted", "permission_review", "unknown", "restricted"].includes(String(source.reuseStatus))
       ? source.reuseStatus as EditorialReuseStatus
       : "unknown",
     licenseName: cleanAdminText(source.licenseName, 100) || null,
@@ -432,13 +432,13 @@ export async function POST(request: NextRequest) {
   const scheduleSettings = await readEditorialAutomationSettings(auth.db);
   const scheduledRun = requestedMode === "scheduled";
   const mode = requestedMode === "weekly" ? "weekly" : "daily";
-  const sampleSet = payload.sampleSet === "licensed-video" ? "licensed-video" : null;
+  const sampleSet = payload.sampleSet === "actual-bachata-video" ? "actual-bachata-video" : null;
   const requestedCandidateLimit = Number(payload.candidateLimit ?? (sampleSet ? 5 : Number.NaN));
   const candidateLimit = Number.isInteger(requestedCandidateLimit)
     ? Math.min(5, Math.max(1, requestedCandidateLimit))
     : scheduleSettings.candidateLimit;
   const requestedContentType = payload.contentType === "video" || sampleSet ? "video" : "all";
-  const reuseOnly = payload.reuseOnly === true || Boolean(sampleSet);
+  const reuseOnly = payload.reuseOnly === true;
   const lockOwner = crypto.randomUUID();
   let runId = "";
   let signals: EditorialSignal[] = [];
@@ -464,7 +464,7 @@ export async function POST(request: NextRequest) {
         });
       }
     }
-    const signalInput = sampleSet ? licensedVideoSamples : payload.signals;
+    const signalInput = sampleSet ? actualBachataVideoSamples : payload.signals;
     const providedSignals = Array.isArray(signalInput)
       ? signalInput.map(normalizeSignal).filter((signal): signal is EditorialSignal => Boolean(signal))
       : [];
@@ -539,12 +539,14 @@ export async function POST(request: NextRequest) {
         const fallbackArticles = uniqueSignals.slice(0, candidateLimit).map((signal) => ({
           title: signal.title,
           summary: signal.snippet,
-          body: `${signal.snippet}\n\n이 영상은 바차타 코리아 편집실에서 장면 구성과 춤의 포인트를 다시 살펴볼 수 있는 재사용 가능 자료입니다. 먼저 영상의 분위기와 움직임을 짧게 소개하고, 독자가 어떤 부분을 눈여겨보면 좋은지 구체적으로 덧붙여주세요. 커플의 프레임, 체중 이동, 리듬, 공간 활용 가운데 실제 화면에서 확인되는 요소만 골라 설명하면 됩니다.\n\n게시 전에는 원본 영상과 라이선스 페이지를 다시 열어 현재 조건을 확인하고, 필요한 출처 표기를 본문이나 영상 크레딧에 빠짐없이 남겨주세요. 제목과 본문은 원문을 옮기지 말고 한국 바차타 독자가 자연스럽게 읽을 수 있는 문장으로 다듬습니다. 영상에 없는 인물명, 장소, 행사 날짜나 수업 정보는 추측해서 넣지 않습니다.\n\n마지막 문단에서는 이 영상을 어떤 관점으로 보면 좋은지 한 번 더 정리하고, 직접 영상을 본 독자가 댓글로 경험이나 해석을 나눌 수 있도록 질문 하나를 덧붙여주세요.`,
+          body: `${signal.snippet}\n\n${reuseOnly ? "이 영상은 재사용 허가 또는 호환 라이선스가 확인된 바차타 원본입니다." : "이 영상은 실제 바차타 장면을 담은 원본이며, 현재는 원본 플레이어로 소개하는 단계입니다."} 먼저 영상의 분위기와 움직임을 짧게 소개하고, 독자가 어떤 부분을 눈여겨보면 좋은지 구체적으로 덧붙여주세요. 커플의 프레임, 체중 이동, 리듬, 공간 활용 가운데 실제 화면에서 확인되는 요소만 골라 설명하면 됩니다.\n\n사이트에는 원본 링크와 채널명을 분명히 표시합니다. 원본 파일을 내려받아 자르거나 자막을 입혀 다시 올리는 작업은 원저작자의 재편집 허가 또는 호환 라이선스를 확인한 뒤에만 진행합니다. 제목과 본문은 원문을 옮기지 말고 한국 바차타 독자가 자연스럽게 읽을 수 있는 문장으로 다듬습니다. 영상에 없는 인물명, 장소, 행사 날짜나 수업 정보는 추측해서 넣지 않습니다.\n\n마지막 문단에서는 이 영상을 어떤 관점으로 보면 좋은지 한 번 더 정리하고, 직접 영상을 본 독자가 댓글로 경험이나 해석을 나눌 수 있도록 질문 하나를 덧붙여주세요.`,
           category: signal.sourceType.includes("video") ? "video" : "free",
           tags: ["바차타", "편집대기"],
           sourceUrl: signal.url,
           sourceName: signal.sourceName,
-          rationale: "재사용 조건과 원본 링크가 확인된 공개 영상 자료입니다.",
+          rationale: reuseOnly
+            ? "재사용 조건과 원본 링크가 확인된 실제 바차타 영상입니다."
+            : "실제 바차타 원본 링크가 확인된 영상입니다. 원본 임베드는 가능하지만 재편집·재업로드 전에는 권리 확인이 필요합니다.",
           confidence: 0.45
         }));
         const aiArticles = Array.isArray(aiResult?.articles) ? aiResult.articles as AiArticle[] : [];

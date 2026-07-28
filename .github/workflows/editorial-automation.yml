@@ -9,10 +9,10 @@ on:
       task:
         description: "실행할 편집 작업"
         required: true
-        default: "licensed-video-samples"
+        default: "actual-bachata-video-samples"
         type: choice
         options:
-          - licensed-video-samples
+          - actual-bachata-video-samples
           - collect-content
           - weekly-site-review
 
@@ -42,11 +42,11 @@ jobs:
           KAKAO_REST_API_KEY: ${{ secrets.KAKAO_REST_API_KEY }}
           FORCE_AUTOMATION: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}
         run: node scripts/collect-editorial-signals.mjs
-      - name: Create licensed video samples
-        if: github.event_name == 'workflow_dispatch' && inputs.task == 'licensed-video-samples'
+      - name: Create actual bachata video samples
+        if: github.event_name == 'workflow_dispatch' && inputs.task == 'actual-bachata-video-samples'
         env:
           ADMIN_AUTOMATION_TOKEN: ${{ secrets.ADMIN_AUTOMATION_TOKEN }}
-        run: node scripts/create-licensed-video-samples.mjs
+        run: node scripts/create-actual-bachata-video-samples.mjs
 
   weekly-site-review:
     if: github.event.schedule == '30 20 * * 0' || (github.event_name == 'workflow_dispatch' && inputs.task == 'weekly-site-review')

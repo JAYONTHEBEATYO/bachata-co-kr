@@ -38,7 +38,7 @@ const mapProposal = (row: ProposalRow): AdminProposal => {
           type: value.type,
           thumbnail: typeof value.thumbnail === "string" ? value.thumbnail : null,
           sourceAssetUrl: typeof value.sourceAssetUrl === "string" ? value.sourceAssetUrl : null,
-          reuseStatus: ["verified", "permission_granted", "unknown", "restricted"].includes(String(value.reuseStatus))
+          reuseStatus: ["verified", "permission_granted", "permission_review", "unknown", "restricted"].includes(String(value.reuseStatus))
             ? value.reuseStatus as NonNullable<AdminProposal["media"]>["reuseStatus"]
             : "unknown",
           licenseName: typeof value.licenseName === "string" ? value.licenseName : null,

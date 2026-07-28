@@ -52,7 +52,7 @@ export type AdminProposal = {
     type: "video" | "image";
     thumbnail?: string | null;
     sourceAssetUrl?: string | null;
-    reuseStatus: "verified" | "permission_granted" | "unknown" | "restricted";
+    reuseStatus: "verified" | "permission_granted" | "permission_review" | "unknown" | "restricted";
     licenseName?: string | null;
     licenseUrl?: string | null;
     attributionText?: string | null;

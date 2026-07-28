@@ -169,7 +169,7 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
     void loadAll();
   }, [loadAll]);
 
-  const runAutomation = async (mode: "daily" | "weekly", sampleSet?: "licensed-video") => {
+  const runAutomation = async (mode: "daily" | "weekly", sampleSet?: "actual-bachata-video") => {
     setBusy(sampleSet ? "automation-video-samples" : `automation-${mode}`);
     setNotice("");
     setError("");
@@ -179,7 +179,7 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
         body: JSON.stringify({ mode, sampleSet })
       });
       setNotice(sampleSet
-        ? `라이선스 영상 초안 ${result.proposalsCount}건을 검토 목록에 추가했습니다.`
+        ? `실제 바차타 영상 초안 ${result.proposalsCount}건을 검토 목록에 추가했습니다.`
         : mode === "daily"
           ? `AI 콘텐츠 초안 ${result.proposalsCount}건을 검토 목록에 추가했습니다.`
           : `사이트 개선안 ${result.proposalsCount}건을 준비했습니다.`);
@@ -303,7 +303,7 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
                 setNotice={setNotice}
                 setError={setError}
                 reload={loadAll}
-                runVideoSamples={() => runAutomation("daily", "licensed-video")}
+                runVideoSamples={() => runAutomation("daily", "actual-bachata-video")}
               />
             ) : (
               <div className="admin-empty large">
@@ -568,6 +568,7 @@ function ProposalEditor({
   const [feedbackLabels, setFeedbackLabels] = useState(proposal.feedbackLabels || []);
   const isBusy = busy === proposal.id;
   const isClosed = ["denied", "published", "applied"].includes(proposal.status);
+  const requiresPermission = proposal.media?.reuseStatus === "permission_review";
 
   const mutate = async (action: "save" | "deny" | "approve" | "apply" | "publish") => {
     setBusy(proposal.id);
@@ -628,11 +629,11 @@ function ProposalEditor({
             </a>
           ) : null}
           <div className="proposal-media-meta">
-            <strong><ShieldCheck size={15} />재사용 조건 확인</strong>
-            <p>{proposal.media.attributionText || "게시 전 출처와 라이선스 표기를 다시 확인해주세요."}</p>
+            <strong><ShieldCheck size={15} />{requiresPermission ? "재편집 허가 확인 필요" : "재사용 조건 확인"}</strong>
+            <p>{proposal.media.attributionText || (requiresPermission ? "원본 임베드는 가능하지만 재편집·재업로드 전에는 원저작자 허가를 확인해주세요." : "게시 전 출처와 라이선스 표기를 다시 확인해주세요.")}</p>
             <div>
-              {proposal.media.licenseUrl ? <a href={proposal.media.licenseUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />{proposal.media.licenseName || "라이선스"}</a> : null}
-              {proposal.media.sourceAssetUrl ? <a href={proposal.media.sourceAssetUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />원본 파일 열기</a> : null}
+              {proposal.media.licenseUrl ? <a href={proposal.media.licenseUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />{requiresPermission ? "원본·권리 확인" : proposal.media.licenseName || "라이선스"}</a> : null}
+              {proposal.media.sourceAssetUrl ? <a href={proposal.media.sourceAssetUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />원본 영상 열기</a> : null}
             </div>
           </div>
         </section>
@@ -819,7 +820,7 @@ function AutomationPanel({
         <div className="admin-section-actions">
           <button className="admin-button secondary" type="button" onClick={() => void runVideoSamples()} disabled={Boolean(busy)}>
             {busy === "automation-video-samples" ? <LoaderCircle className="spin" size={16} /> : <FileCheck2 size={16} />}
-            라이선스 영상 샘플 5건 만들기
+            실제 바차타 영상 5건 가져오기
           </button>
           <button className="admin-button primary" type="button" onClick={() => void saveSettings()} disabled={isBusy}>
             {isBusy ? <LoaderCircle className="spin" size={16} /> : <Save size={16} />}
