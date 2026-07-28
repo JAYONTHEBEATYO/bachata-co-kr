@@ -43,7 +43,18 @@ const mapProposal = (row: ProposalRow): AdminProposal => {
             : "unknown",
           licenseName: typeof value.licenseName === "string" ? value.licenseName : null,
           licenseUrl: typeof value.licenseUrl === "string" ? value.licenseUrl : null,
-          attributionText: typeof value.attributionText === "string" ? value.attributionText : null
+          attributionText: typeof value.attributionText === "string" ? value.attributionText : null,
+          regionScope: ["domestic", "overseas", "unknown"].includes(String(value.regionScope))
+            ? value.regionScope as NonNullable<AdminProposal["media"]>["regionScope"]
+            : "unknown",
+          sourceCountry: typeof value.sourceCountry === "string" ? value.sourceCountry : null,
+          originalLanguage: typeof value.originalLanguage === "string" ? value.originalLanguage : null,
+          subtitleStatus: ["not_started", "ready", "blocked_rights"].includes(String(value.subtitleStatus))
+            ? value.subtitleStatus as NonNullable<AdminProposal["media"]>["subtitleStatus"]
+            : "not_started",
+          transformationStatus: ["embed_only", "rights_review", "ready"].includes(String(value.transformationStatus))
+            ? value.transformationStatus as NonNullable<AdminProposal["media"]>["transformationStatus"]
+            : "rights_review"
         };
       }
     }

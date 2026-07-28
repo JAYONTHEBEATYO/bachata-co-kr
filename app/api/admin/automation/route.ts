@@ -1,5 +1,5 @@
 import type { NextRequest } from "next/server";
-import actualBachataVideoSamples from "@/lib/actual-bachata-video-samples.json";
+import overseasBachataVideoSamples from "@/lib/overseas-bachata-video-samples.json";
 import {
   adminCategories,
   adminResponse,
@@ -32,6 +32,9 @@ import {
 } from "@/lib/editorial-automation";
 
 type EditorialReuseStatus = "verified" | "permission_granted" | "permission_review" | "unknown" | "restricted";
+type EditorialRegionScope = "domestic" | "overseas" | "unknown";
+type EditorialSubtitleStatus = "not_started" | "ready" | "blocked_rights";
+type EditorialTransformationStatus = "embed_only" | "rights_review" | "ready";
 
 type EditorialSignal = {
   sourceId: string;
@@ -49,6 +52,12 @@ type EditorialSignal = {
   licenseName?: string | null;
   licenseUrl?: string | null;
   attributionText?: string | null;
+  regionScope?: EditorialRegionScope;
+  sourceCountry?: string | null;
+  originalLanguage?: string | null;
+  subtitleStatus?: EditorialSubtitleStatus;
+  transformationStatus?: EditorialTransformationStatus;
+  draftBody?: string | null;
 };
 
 type AiArticle = {
@@ -121,6 +130,13 @@ const hasUnsupportedHype = (value: string) => {
   return (matches?.length || 0) >= 2;
 };
 
+const domesticVideoMarkers = /한국|국내|서울|인천|부산|대구|광주|대전|울산|제주|홍대|강남|Korea|Seoul|Incheon|Busan|Daegu|Jeju|Hongdae|Gangnam/i;
+
+const isOverseasEditorialVideo = (signal: EditorialSignal) => (
+  signal.regionScope === "overseas"
+  && !domesticVideoMarkers.test(`${signal.title} ${signal.snippet} ${signal.query || ""}`)
+);
+
 const normalizeSignal = (value: unknown): EditorialSignal | null => {
   if (!value || typeof value !== "object") return null;
   const source = value as Record<string, unknown>;
@@ -144,7 +160,19 @@ const normalizeSignal = (value: unknown): EditorialSignal | null => {
       : "unknown",
     licenseName: cleanAdminText(source.licenseName, 100) || null,
     licenseUrl: cleanUrl(source.licenseUrl) || null,
-    attributionText: cleanAdminText(source.attributionText, 240) || null
+    attributionText: cleanAdminText(source.attributionText, 240) || null,
+    regionScope: ["domestic", "overseas", "unknown"].includes(String(source.regionScope))
+      ? source.regionScope as EditorialRegionScope
+      : "unknown",
+    sourceCountry: cleanAdminText(source.sourceCountry, 60) || null,
+    originalLanguage: cleanAdminText(source.originalLanguage, 40) || null,
+    subtitleStatus: ["not_started", "ready", "blocked_rights"].includes(String(source.subtitleStatus))
+      ? source.subtitleStatus as EditorialSubtitleStatus
+      : "not_started",
+    transformationStatus: ["embed_only", "rights_review", "ready"].includes(String(source.transformationStatus))
+      ? source.transformationStatus as EditorialTransformationStatus
+      : "rights_review",
+    draftBody: cleanAdminText(source.draftBody, 5000) || null
   };
 };
 
@@ -432,13 +460,14 @@ export async function POST(request: NextRequest) {
   const scheduleSettings = await readEditorialAutomationSettings(auth.db);
   const scheduledRun = requestedMode === "scheduled";
   const mode = requestedMode === "weekly" ? "weekly" : "daily";
-  const sampleSet = payload.sampleSet === "actual-bachata-video" ? "actual-bachata-video" : null;
+  const sampleSet = payload.sampleSet === "overseas-bachata-video" ? "overseas-bachata-video" : null;
   const requestedCandidateLimit = Number(payload.candidateLimit ?? (sampleSet ? 5 : Number.NaN));
   const candidateLimit = Number.isInteger(requestedCandidateLimit)
     ? Math.min(5, Math.max(1, requestedCandidateLimit))
     : scheduleSettings.candidateLimit;
   const requestedContentType = payload.contentType === "video" || sampleSet ? "video" : "all";
   const reuseOnly = payload.reuseOnly === true;
+  const overseasOnly = sampleSet === "overseas-bachata-video" || payload.overseasOnly === true;
   const lockOwner = crypto.randomUUID();
   let runId = "";
   let signals: EditorialSignal[] = [];
@@ -464,7 +493,7 @@ export async function POST(request: NextRequest) {
         });
       }
     }
-    const signalInput = sampleSet ? actualBachataVideoSamples : payload.signals;
+    const signalInput = sampleSet ? overseasBachataVideoSamples : payload.signals;
     const providedSignals = Array.isArray(signalInput)
       ? signalInput.map(normalizeSignal).filter((signal): signal is EditorialSignal => Boolean(signal))
       : [];
@@ -473,6 +502,9 @@ export async function POST(request: NextRequest) {
       : providedSignals;
     if (requestedContentType === "video") {
       signals = signals.filter((signal) => signal.mediaType === "video" || signal.sourceType.includes("video"));
+    }
+    if (overseasOnly) {
+      signals = signals.filter(isOverseasEditorialVideo);
     }
     if (reuseOnly) {
       signals = signals.filter((signal) => (
@@ -516,7 +548,7 @@ export async function POST(request: NextRequest) {
             `독자가 실제로 읽을 가치가 있는 자연스러운 한국어 기사 후보를 최대 ${candidateLimit}건 작성한다.`,
             "각 기사는 하나의 구체적인 행사, 영상, 인물, 수업, 커뮤니티 논점만 다룬다.",
             requestedContentType === "video"
-              ? "모든 초안은 입력 영상에서 실제로 확인할 수 있는 장면과 활용 포인트를 중심으로 쓰고 category는 video로 지정한다."
+              ? `${overseasOnly ? "국내 촬영·국내 채널·한국 행사 영상은 제외하고 해외 원본만 다룬다. " : ""}모든 초안은 입력 영상에서 실제로 확인할 수 있는 장면과 활용 포인트를 중심으로 쓰고 category는 video로 지정한다.`
               : "입력 자료의 성격에 맞는 게시판을 고른다.",
             reuseOnly
               ? "재사용 허가와 라이선스가 확인된 입력만 제공되며, 출처 표기 문구와 라이선스 조건을 초안에서 임의로 바꾸지 않는다."
@@ -539,9 +571,9 @@ export async function POST(request: NextRequest) {
         const fallbackArticles = uniqueSignals.slice(0, candidateLimit).map((signal) => ({
           title: signal.title,
           summary: signal.snippet,
-          body: `${signal.snippet}\n\n${reuseOnly ? "이 영상은 재사용 허가 또는 호환 라이선스가 확인된 바차타 원본입니다." : "이 영상은 실제 바차타 장면을 담은 원본이며, 현재는 원본 플레이어로 소개하는 단계입니다."} 먼저 영상의 분위기와 움직임을 짧게 소개하고, 독자가 어떤 부분을 눈여겨보면 좋은지 구체적으로 덧붙여주세요. 커플의 프레임, 체중 이동, 리듬, 공간 활용 가운데 실제 화면에서 확인되는 요소만 골라 설명하면 됩니다.\n\n사이트에는 원본 링크와 채널명을 분명히 표시합니다. 원본 파일을 내려받아 자르거나 자막을 입혀 다시 올리는 작업은 원저작자의 재편집 허가 또는 호환 라이선스를 확인한 뒤에만 진행합니다. 제목과 본문은 원문을 옮기지 말고 한국 바차타 독자가 자연스럽게 읽을 수 있는 문장으로 다듬습니다. 영상에 없는 인물명, 장소, 행사 날짜나 수업 정보는 추측해서 넣지 않습니다.\n\n마지막 문단에서는 이 영상을 어떤 관점으로 보면 좋은지 한 번 더 정리하고, 직접 영상을 본 독자가 댓글로 경험이나 해석을 나눌 수 있도록 질문 하나를 덧붙여주세요.`,
+          body: signal.draftBody || `${signal.snippet}\n\n이 영상은 해외 바차타 원본을 한국어로 소개하기 위한 편집 후보입니다. 원본의 핵심 장면과 발언을 확인한 뒤 짧은 한국어 자막과 해설을 붙일 수 있습니다.\n\n출처 채널과 원본 링크는 게시물과 영상에 함께 표시합니다. 원본 파일을 내려받아 자르거나 자막을 입혀 다시 올리는 작업은 원저작자의 재편집 허가 또는 호환 라이선스를 확인한 뒤에만 진행합니다.\n\n권리 확인이 끝나면 원본의 맥락을 해치지 않는 범위에서 번역과 해설을 다듬고, 한국 바차타 독자가 영상을 볼 때 놓치기 쉬운 포인트를 짧게 정리합니다.`,
           category: signal.sourceType.includes("video") ? "video" : "free",
-          tags: ["바차타", "편집대기"],
+          tags: ["바차타", ...(overseasOnly ? ["해외영상"] : []), "편집대기"],
           sourceUrl: signal.url,
           sourceName: signal.sourceName,
           rationale: reuseOnly
@@ -651,7 +683,12 @@ export async function POST(request: NextRequest) {
                   reuseStatus: sourceSignal.reuseStatus || "unknown",
                   licenseName: sourceSignal.licenseName || null,
                   licenseUrl: sourceSignal.licenseUrl || null,
-                  attributionText: sourceSignal.attributionText || null
+                  attributionText: sourceSignal.attributionText || null,
+                  regionScope: sourceSignal.regionScope || "unknown",
+                  sourceCountry: sourceSignal.sourceCountry || null,
+                  originalLanguage: sourceSignal.originalLanguage || null,
+                  subtitleStatus: sourceSignal.subtitleStatus || "not_started",
+                  transformationStatus: sourceSignal.transformationStatus || "rights_review"
                 } : null
               }),
               new Date().toISOString(),

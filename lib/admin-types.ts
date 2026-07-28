@@ -56,6 +56,11 @@ export type AdminProposal = {
     licenseName?: string | null;
     licenseUrl?: string | null;
     attributionText?: string | null;
+    regionScope?: "domestic" | "overseas" | "unknown";
+    sourceCountry?: string | null;
+    originalLanguage?: string | null;
+    subtitleStatus?: "not_started" | "ready" | "blocked_rights";
+    transformationStatus?: "embed_only" | "rights_review" | "ready";
   } | null;
   rationale: string;
   priority: "low" | "normal" | "high" | "urgent";
