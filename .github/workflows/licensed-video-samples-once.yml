@@ -1,0 +1,29 @@
+name: Licensed video samples once
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/licensed-video-samples.trigger"
+
+concurrency:
+  group: editorial-automation
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  create-samples:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Create licensed video samples
+        env:
+          ADMIN_AUTOMATION_TOKEN: ${{ secrets.ADMIN_AUTOMATION_TOKEN }}
+        run: node scripts/create-licensed-video-samples.mjs
