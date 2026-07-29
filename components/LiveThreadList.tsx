@@ -147,8 +147,10 @@ function LiveThreadCard({ thread }: { thread: GuestThread }) {
           <span className="flair">{thread.isPinned ? <><Pin size={12} /> 고정</> : thread.authorProfile ? "회원" : "익명"}</span>
         </header>
         <h2><Link href={detailPath}>{thread.title}</Link></h2>
-        <p>{bodyText}</p>
-        <ThreadMediaAttachments media={parsed.media} compact />
+        <Link className="thread-preview-link" href={detailPath} aria-label={`${thread.title} 본문 보기`}>
+          <p>{bodyText}</p>
+        </Link>
+        <ThreadMediaAttachments media={parsed.media} compact detailHref={detailPath} />
         {thread.tags?.length ? (
           <div className="tag-row">
             {thread.tags.map((tag) => <span key={tag}>#{tag}</span>)}
