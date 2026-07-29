@@ -18,6 +18,17 @@ import { queueThreadIndexUpdate } from "@/lib/indexnow";
 
 const proposalStatuses = new Set(["pending", "approved", "denied", "published", "applied"]);
 const priorities = new Set(["low", "normal", "high", "urgent"]);
+const internalDraftMarkers = [
+  "현재는 원본 플레이어로 소개하는 단계",
+  "먼저 영상의 분위기와 움직임을 짧게 소개하고",
+  "구체적으로 덧붙여주세요",
+  "질문 하나를 덧붙여주세요"
+];
+
+const isUnfinishedEditorialDraft = (body: string, tags: string[]) => (
+  tags.some((tag) => tag.replace(/\s+/g, "") === "편집대기")
+  || internalDraftMarkers.some((marker) => body.includes(marker))
+);
 
 type ProposalRow = Omit<AdminProposal, "tags" | "evidence" | "feedbackLabels"> & {
   tagsJson: string;
@@ -262,9 +273,18 @@ export async function PATCH(request: NextRequest) {
     if (title.length < 4 || body.length < 120) {
       return adminResponse(request, 400, { error: "제목과 본문을 충분히 다듬은 뒤 게시해주세요." });
     }
-    if (current.media?.type === "video" && current.media.transformationStatus !== "ready") {
+    if (isUnfinishedEditorialDraft(body, tags)) {
       return adminResponse(request, 409, {
-        error: "한국어 자막과 영상 렌더가 끝난 뒤 게시할 수 있습니다."
+        error: "편집 지시문이나 '편집대기' 태그가 남아 있습니다. 공개용 본문으로 완성한 뒤 게시해주세요."
+      });
+    }
+    const readyVideoOutput = current.media?.outputStreamId || current.media?.outputMediaUrl;
+    if (
+      current.media?.type === "video"
+      && (current.media.transformationStatus !== "ready" || !readyVideoOutput)
+    ) {
+      return adminResponse(request, 409, {
+        error: "한국어 자막과 완성 영상 렌더가 모두 준비된 뒤 게시할 수 있습니다."
       });
     }
 
