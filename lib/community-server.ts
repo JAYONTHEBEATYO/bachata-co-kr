@@ -23,6 +23,9 @@ type CommunityBindings = Record<string, unknown> & {
   ADMIN_EMAILS?: string;
   ADMIN_AUTOMATION_TOKEN?: string;
   NEXT_PUBLIC_SITE_URL?: string;
+  REDDIT_CLIENT_ID?: string;
+  REDDIT_CLIENT_SECRET?: string;
+  REDDIT_USER_AGENT?: string;
   AI?: WorkersAiBinding;
 };
 
@@ -52,6 +55,11 @@ export const getCommunityContext = async () => {
       adminEmails: bindings.ADMIN_EMAILS || process.env.ADMIN_EMAILS || "",
       automationToken: bindings.ADMIN_AUTOMATION_TOKEN || process.env.ADMIN_AUTOMATION_TOKEN || "",
       siteUrl: bindings.NEXT_PUBLIC_SITE_URL || process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+      redditClientId: bindings.REDDIT_CLIENT_ID || process.env.REDDIT_CLIENT_ID || "",
+      redditClientSecret: bindings.REDDIT_CLIENT_SECRET || process.env.REDDIT_CLIENT_SECRET || "",
+      redditUserAgent: bindings.REDDIT_USER_AGENT
+        || process.env.REDDIT_USER_AGENT
+        || "web:bachata.co.kr.editorial:v1.0 (by /u/bachata-korea)",
       ai: bindings.AI || null
     };
   } catch {
@@ -62,6 +70,10 @@ export const getCommunityContext = async () => {
       adminEmails: process.env.ADMIN_EMAILS || "",
       automationToken: process.env.ADMIN_AUTOMATION_TOKEN || "",
       siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000",
+      redditClientId: process.env.REDDIT_CLIENT_ID || "",
+      redditClientSecret: process.env.REDDIT_CLIENT_SECRET || "",
+      redditUserAgent: process.env.REDDIT_USER_AGENT
+        || "web:bachata.co.kr.editorial:v1.0 (by /u/bachata-korea)",
       ai: null
     };
   }

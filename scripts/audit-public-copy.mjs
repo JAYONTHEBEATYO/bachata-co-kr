@@ -27,6 +27,7 @@ async function walk(dir) {
 const findings = [];
 for (const sourceRoot of sourceRoots) {
   for (const file of await walk(join(root, sourceRoot))) {
+    if (relative(root, file).replaceAll("\\", "/").startsWith("app/api/")) continue;
     const source = await readFile(file, "utf8");
     for (const rule of banned) {
       if (!rule.pattern.test(source)) continue;

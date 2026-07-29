@@ -100,7 +100,7 @@ type EditorialFeedbackRow = {
   finalTagsJson: string;
 };
 
-const aiModel = "@cf/meta/llama-3.2-11b-vision-instruct";
+const aiModel = "@cf/openai/gpt-oss-120b";
 const validPriorities = new Set(["low", "normal", "high", "urgent"]);
 
 const cleanUrl = (value: unknown) => {

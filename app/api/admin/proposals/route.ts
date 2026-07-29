@@ -38,6 +38,10 @@ const mapProposal = (row: ProposalRow): AdminProposal => {
           type: value.type,
           thumbnail: typeof value.thumbnail === "string" ? value.thumbnail : null,
           sourceAssetUrl: typeof value.sourceAssetUrl === "string" ? value.sourceAssetUrl : null,
+          generatedImageUrl: typeof value.generatedImageUrl === "string" ? value.generatedImageUrl : null,
+          outputMediaUrl: typeof value.outputMediaUrl === "string" ? value.outputMediaUrl : null,
+          outputStreamId: typeof value.outputStreamId === "string" ? value.outputStreamId : null,
+          urlJobId: typeof value.urlJobId === "string" ? value.urlJobId : null,
           reuseStatus: ["verified", "permission_granted", "permission_review", "unknown", "restricted"].includes(String(value.reuseStatus))
             ? value.reuseStatus as NonNullable<AdminProposal["media"]>["reuseStatus"]
             : "unknown",
@@ -222,6 +226,13 @@ export async function PATCH(request: NextRequest) {
     await auth.db.prepare(
       "update admin_proposals set status = 'denied', reviewed_by = ?, reviewed_at = ?, updated_at = ? where id = ?"
     ).bind(auth.user?.id || null, now, now, id).run();
+    if (current.media?.urlJobId) {
+      await auth.db.prepare(
+        `update editorial_url_jobs
+         set status = 'cancelled', error_code = '', error_message = '', updated_at = ?
+         where id = ? and status != 'cancelled'`
+      ).bind(now, current.media.urlJobId).run();
+    }
     await saveEditorialFeedback("denied");
     await releaseEditorialContentClaims(auth.db, id);
     await logAdminActivity(auth.db, auth.user?.id || null, "AI 제안 거절", "proposal", id, { title });
@@ -251,9 +262,26 @@ export async function PATCH(request: NextRequest) {
     if (title.length < 4 || body.length < 120) {
       return adminResponse(request, 400, { error: "제목과 본문을 충분히 다듬은 뒤 게시해주세요." });
     }
+    if (current.media?.type === "video" && current.media.transformationStatus !== "ready") {
+      return adminResponse(request, 409, {
+        error: "한국어 자막과 영상 렌더가 끝난 뒤 게시할 수 있습니다."
+      });
+    }
 
     const threadId = crypto.randomUUID();
     const tagLine = tags.length ? `\n\n${tags.map((tag) => `#${tag.replace(/\s+/g, "")}`).join(" ")}` : "";
+    const generatedImageUrl = current.media?.generatedImageUrl || (
+      current.media?.type === "image" && current.media?.outputMediaUrl
+        ? current.media.outputMediaUrl
+        : ""
+    );
+    const mediaLine = current.media?.outputStreamId
+      ? `\n\nCloudflare Stream: cfstream:${current.media.outputStreamId}`
+      : generatedImageUrl
+        ? `\n\n[첨부]\n이미지: ${generatedImageUrl}`
+        : current.media?.outputMediaUrl
+          ? `\n\n[첨부]\n동영상: ${current.media.outputMediaUrl}`
+          : "";
     const editKey = await sha256Hex(`admin-proposal|${threadId}|${crypto.randomUUID()}`);
     await auth.db.prepare(
       `insert into guest_threads
@@ -265,7 +293,7 @@ export async function PATCH(request: NextRequest) {
     ).bind(
       threadId,
       title,
-      `${body}${tagLine}`.slice(0, 8000),
+      `${body}${mediaLine}${tagLine}`.slice(0, 8000),
       category,
       current.sourceUrl || null,
       editKey,

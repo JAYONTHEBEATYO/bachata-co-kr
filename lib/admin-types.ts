@@ -52,6 +52,10 @@ export type AdminProposal = {
     type: "video" | "image";
     thumbnail?: string | null;
     sourceAssetUrl?: string | null;
+    generatedImageUrl?: string | null;
+    outputMediaUrl?: string | null;
+    outputStreamId?: string | null;
+    urlJobId?: string | null;
     reuseStatus: "verified" | "permission_granted" | "permission_review" | "unknown" | "restricted";
     licenseName?: string | null;
     licenseUrl?: string | null;
@@ -73,6 +77,36 @@ export type AdminProposal = {
   threadId?: string | null;
   createdAt: string;
   reviewedAt?: string | null;
+};
+
+export type AdminUrlContentJob = {
+  id: string;
+  sourceUrl: string;
+  sourcePlatform: "youtube" | "instagram" | "reddit" | "web";
+  contentKind: "video" | "article";
+  sourceTitle: string;
+  sourceAuthor: string;
+  sourceHandle: string;
+  sourceThumbnailUrl?: string | null;
+  sourceAssetUrl?: string | null;
+  reuseStatus: "permission_granted" | "permission_review" | "restricted" | "not_required";
+  status:
+    | "analyzing"
+    | "awaiting_rights"
+    | "awaiting_source"
+    | "localization_queued"
+    | "localizing"
+    | "rendering"
+    | "ready"
+    | "failed"
+    | "cancelled";
+  generatedImageUrl?: string | null;
+  outputAssetUrl?: string | null;
+  outputStreamId?: string | null;
+  proposalId?: string | null;
+  errorMessage?: string | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type AdminTopic = {

@@ -14,8 +14,13 @@ import {
   Eye,
   FileCheck2,
   FileText,
+  Film,
   Gauge,
+  Globe2,
+  ImageIcon,
   Layers3,
+  Languages,
+  Link2,
   LoaderCircle,
   MessageSquare,
   MoreHorizontal,
@@ -40,7 +45,8 @@ import type {
   AdminRun,
   AdminSource,
   AdminThread,
-  AdminTopic
+  AdminTopic,
+  AdminUrlContentJob
 } from "@/lib/admin-types";
 import type { SessionUser } from "@/lib/types";
 import { ProfileAvatar } from "./ProfileAvatar";
@@ -56,6 +62,7 @@ type AdminData = {
   sources: AdminSource[];
   runs: AdminRun[];
   automation: AdminEditorialAutomation | null;
+  urlJobs: AdminUrlContentJob[];
 };
 
 const emptyData: AdminData = {
@@ -66,7 +73,8 @@ const emptyData: AdminData = {
   reports: [],
   sources: [],
   runs: [],
-  automation: null
+  automation: null,
+  urlJobs: []
 };
 
 const tabs: Array<{ id: AdminTab; label: string; icon: typeof Gauge }> = [
@@ -134,19 +142,21 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
   const [busy, setBusy] = useState("");
   const [notice, setNotice] = useState("");
   const [error, setError] = useState("");
+  const [showUrlComposer, setShowUrlComposer] = useState(false);
 
   const loadAll = useCallback(async () => {
     setLoading(true);
     setError("");
     try {
-      const [overview, proposals, threads, topics, reports, sources, automation] = await Promise.all([
+      const [overview, proposals, threads, topics, reports, sources, automation, urlJobs] = await Promise.all([
         fetchJson<{ overview: AdminOverview }>("/api/admin/overview"),
         fetchJson<{ proposals: AdminProposal[] }>("/api/admin/proposals"),
         fetchJson<{ threads: AdminThread[] }>("/api/admin/threads"),
         fetchJson<{ topics: AdminTopic[] }>("/api/admin/topics"),
         fetchJson<{ reports: AdminReport[] }>("/api/admin/reports"),
         fetchJson<{ sources: AdminSource[]; runs: AdminRun[] }>("/api/admin/sources"),
-        fetchJson<AdminEditorialAutomation>("/api/admin/automation/settings").catch(() => null)
+        fetchJson<AdminEditorialAutomation>("/api/admin/automation/settings").catch(() => null),
+        fetchJson<{ jobs: AdminUrlContentJob[] }>("/api/admin/url-content")
       ]);
       setData({
         overview: overview.overview,
@@ -156,7 +166,8 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
         reports: reports.reports,
         sources: sources.sources,
         runs: sources.runs,
-        automation
+        automation,
+        urlJobs: urlJobs.jobs
       });
     } catch (loadError) {
       setError(loadError instanceof Error ? loadError.message : "관리자 데이터를 불러오지 못했습니다.");
@@ -168,6 +179,14 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
   useEffect(() => {
     void loadAll();
   }, [loadAll]);
+
+  useEffect(() => {
+    if (!data.urlJobs.some((job) => ["analyzing", "localization_queued", "localizing", "rendering"].includes(job.status))) {
+      return;
+    }
+    const timer = window.setInterval(() => void loadAll(), 20_000);
+    return () => window.clearInterval(timer);
+  }, [data.urlJobs, loadAll]);
 
   const runAutomation = async (mode: "daily" | "weekly", sampleSet?: "overseas-bachata-video") => {
     setBusy(sampleSet ? "automation-video-samples" : `automation-${mode}`);
@@ -204,6 +223,17 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
           <p>사이트 흐름을 확인하고, 콘텐츠와 커뮤니티 운영 결정을 한곳에서 처리합니다.</p>
         </div>
         <div className="admin-hero-actions">
+          <button
+            type="button"
+            className="admin-button secondary"
+            onClick={() => {
+              setTab("editorial");
+              setShowUrlComposer(true);
+            }}
+          >
+            <Languages size={16} />
+            URL로 AI 콘텐츠 만들기
+          </button>
           <button
             type="button"
             className="admin-button secondary"
@@ -292,6 +322,9 @@ export function AdminDashboard({ user }: { user: SessionUser }) {
               setNotice={setNotice}
               setError={setError}
               reload={loadAll}
+              urlJobs={data.urlJobs}
+              showUrlComposer={showUrlComposer}
+              setShowUrlComposer={setShowUrlComposer}
             />
           ) : null}
           {tab === "automation" ? (
@@ -481,6 +514,9 @@ function OverviewPanel({
 function EditorialPanel({
   proposals,
   feedbackLabels,
+  urlJobs,
+  showUrlComposer,
+  setShowUrlComposer,
   busy,
   setBusy,
   setNotice,
@@ -489,6 +525,9 @@ function EditorialPanel({
 }: {
   proposals: AdminProposal[];
   feedbackLabels: string[];
+  urlJobs: AdminUrlContentJob[];
+  showUrlComposer: boolean;
+  setShowUrlComposer: (value: boolean) => void;
   busy: string;
   setBusy: (value: string) => void;
   setNotice: (value: string) => void;
@@ -506,22 +545,52 @@ function EditorialPanel({
     <div className="admin-section-stack">
       <header className="admin-section-title">
         <div><span>AI DESK</span><h2>AI 콘텐츠와 개선 제안</h2><p>콘텐츠 초안은 편집 후 게시하고, 개선 제안은 검토한 뒤 작업 여부를 결정합니다.</p></div>
-        <div className="admin-filter">
-          {[
-            ["pending", "검토 대기"],
-            ["content", "콘텐츠"],
-            ["site_improvement", "개선안"],
-            ["all", "전체"]
-          ].map(([value, label]) => (
-            <button
-              key={value}
-              type="button"
-              className={filter === value ? "active" : ""}
-              onClick={() => setFilter(value as typeof filter)}
-            >{label}</button>
-          ))}
+        <div className="admin-editorial-actions">
+          <button
+            type="button"
+            className="admin-button secondary"
+            onClick={() => setShowUrlComposer(!showUrlComposer)}
+          >
+            <Link2 size={15} />
+            URL 콘텐츠
+          </button>
+          <div className="admin-filter">
+            {[
+              ["pending", "검토 대기"],
+              ["content", "콘텐츠"],
+              ["site_improvement", "개선안"],
+              ["all", "전체"]
+            ].map(([value, label]) => (
+              <button
+                key={value}
+                type="button"
+                className={filter === value ? "active" : ""}
+                onClick={() => setFilter(value as typeof filter)}
+              >{label}</button>
+            ))}
+          </div>
         </div>
       </header>
+      {showUrlComposer ? (
+        <UrlContentComposer
+          busy={busy}
+          setBusy={setBusy}
+          setNotice={setNotice}
+          setError={setError}
+          reload={reload}
+          onClose={() => setShowUrlComposer(false)}
+        />
+      ) : null}
+      {urlJobs.length ? (
+        <UrlContentJobList
+          jobs={urlJobs}
+          busy={busy}
+          setBusy={setBusy}
+          setNotice={setNotice}
+          setError={setError}
+          reload={reload}
+        />
+      ) : null}
       <div className="proposal-list">
         {filtered.map((proposal) => (
           <ProposalEditor
@@ -538,6 +607,306 @@ function EditorialPanel({
         {!filtered.length ? <div className="admin-empty large"><Sparkles size={24} /><p>이 조건에 맞는 제안이 없습니다.</p></div> : null}
       </div>
     </div>
+  );
+}
+
+const urlJobStatusLabels: Record<AdminUrlContentJob["status"], string> = {
+  analyzing: "원문 분석 중",
+  awaiting_rights: "재사용 허가 대기",
+  awaiting_source: "원본 영상 준비 대기",
+  localization_queued: "한글화 대기",
+  localizing: "번역·자막 작업 중",
+  rendering: "영상 처리 중",
+  ready: "검토 초안 준비",
+  failed: "작업 실패",
+  cancelled: "취소됨"
+};
+
+function UrlContentComposer({
+  busy,
+  setBusy,
+  setNotice,
+  setError,
+  reload,
+  onClose
+}: {
+  busy: string;
+  setBusy: (value: string) => void;
+  setNotice: (value: string) => void;
+  setError: (value: string) => void;
+  reload: () => Promise<void>;
+  onClose: () => void;
+}) {
+  const [sourceUrl, setSourceUrl] = useState("");
+  const [contentKind, setContentKind] = useState<"auto" | "video" | "article">("auto");
+  const [sourceHandle, setSourceHandle] = useState("");
+  const [sourceAssetUrl, setSourceAssetUrl] = useState("");
+  const [permissionReference, setPermissionReference] = useState("");
+  const [reuseConfirmed, setReuseConfirmed] = useState(false);
+  const [notes, setNotes] = useState("");
+  const [sourceExcerpt, setSourceExcerpt] = useState("");
+  const isVideo = contentKind === "video"
+    || (contentKind === "auto" && /(?:youtube\.com|youtu\.be|instagram\.com)/i.test(sourceUrl));
+  const isBusy = busy === "url-content";
+
+  const submit = async () => {
+    setBusy("url-content");
+    setNotice("");
+    setError("");
+    try {
+      const result = await fetchJson<{
+        proposalCreated: boolean;
+        job?: AdminUrlContentJob | null;
+      }>("/api/admin/url-content", {
+        method: "POST",
+        body: JSON.stringify({
+          sourceUrl,
+          contentKind,
+          sourceHandle,
+          sourceAssetUrl,
+          permissionReference,
+          reuseConfirmed,
+          notes,
+          sourceExcerpt
+        })
+      });
+      setNotice(result.proposalCreated
+        ? "한국어 글과 편집 이미지를 검토 목록에 추가했습니다."
+        : result.job?.status === "awaiting_source"
+          ? "영상 한글화 작업을 만들었습니다. 허가된 원본이 준비되면 자동으로 이어집니다."
+          : "영상 한글화 작업을 대기 목록에 추가했습니다.");
+      setSourceUrl("");
+      setSourceHandle("");
+      setSourceAssetUrl("");
+      setPermissionReference("");
+      setReuseConfirmed(false);
+      setNotes("");
+      setSourceExcerpt("");
+      await reload();
+      if (result.proposalCreated) onClose();
+    } catch (submitError) {
+      setError(submitError instanceof Error ? submitError.message : "URL 콘텐츠를 만들지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  return (
+    <section className="admin-panel url-content-composer">
+      <header className="admin-panel-head">
+        <div>
+          <span>URL LOCALIZER</span>
+          <h2>URL로 AI 번역 콘텐츠 만들기</h2>
+        </div>
+        <button type="button" className="icon-button" onClick={onClose} aria-label="닫기">
+          <X size={17} />
+        </button>
+      </header>
+      <div className="url-content-form">
+        <label className="wide">
+          <span>원문 URL</span>
+          <div className="url-input-with-icon">
+            <Globe2 size={17} />
+            <input
+              type="url"
+              value={sourceUrl}
+              onChange={(event) => setSourceUrl(event.target.value)}
+              placeholder="Instagram, YouTube, Reddit 또는 해외 공개 글 주소"
+              autoComplete="off"
+            />
+          </div>
+        </label>
+        <fieldset className="url-kind-picker">
+          <legend>콘텐츠 형식</legend>
+          {[
+            ["auto", Sparkles, "자동 판단"],
+            ["video", Film, "영상 한글화"],
+            ["article", ImageIcon, "글·스토리"]
+          ].map(([value, Icon, label]) => (
+            <button
+              key={String(value)}
+              type="button"
+              className={contentKind === value ? "active" : ""}
+              onClick={() => setContentKind(value as typeof contentKind)}
+            >
+              <Icon size={16} />
+              {String(label)}
+            </button>
+          ))}
+        </fieldset>
+        <label>
+          <span>원출처 계정</span>
+          <input
+            value={sourceHandle}
+            onChange={(event) => setSourceHandle(event.target.value)}
+            placeholder="@creator"
+          />
+          <small>영상에 왼쪽 상단 출처로 표시됩니다.</small>
+        </label>
+        <label>
+          <span>관리자 메모</span>
+          <input
+            value={notes}
+            onChange={(event) => setNotes(event.target.value)}
+            placeholder="살릴 포인트나 원하는 글의 방향"
+          />
+          <small>비워두면 원문의 핵심 흐름을 기준으로 작성합니다.</small>
+        </label>
+        {!isVideo ? (
+          <label className="wide">
+            <span>원문 일부 <em>선택</em></span>
+            <textarea
+              value={sourceExcerpt}
+              onChange={(event) => setSourceExcerpt(event.target.value)}
+              placeholder="Reddit, 해외 커뮤니티처럼 본문 자동 수집이 막힌 경우에만 원문 일부를 붙여 넣어주세요. 초안 생성에만 사용하며 원문은 저장하지 않습니다."
+              maxLength={12000}
+            />
+            <small>URL에서 본문을 읽을 수 있으면 비워두어도 됩니다.</small>
+          </label>
+        ) : null}
+        {isVideo ? (
+          <>
+            <label>
+              <span>재사용 허가 기록</span>
+              <input
+                type="url"
+                value={permissionReference}
+                onChange={(event) => setPermissionReference(event.target.value)}
+                placeholder="허가 메시지·라이선스 확인 주소 (선택)"
+              />
+            </label>
+            <label>
+              <span>허가된 원본 MP4 주소</span>
+              <input
+                type="url"
+                value={sourceAssetUrl}
+                onChange={(event) => setSourceAssetUrl(event.target.value)}
+                placeholder="처리기가 받을 수 있는 원본 주소 (선택)"
+              />
+              <small>비워두면 원본 준비 대기로 저장됩니다.</small>
+            </label>
+            <label className="url-permission-check wide">
+              <input
+                type="checkbox"
+                checked={reuseConfirmed}
+                onChange={(event) => setReuseConfirmed(event.target.checked)}
+              />
+              <span>
+                <strong>원작자의 재사용 허가를 확인했습니다.</strong>
+                <small>허가가 확인된 해외 영상만 자막·편집 작업을 시작합니다.</small>
+              </span>
+            </label>
+          </>
+        ) : null}
+      </div>
+      <footer className="url-content-actions">
+        <p>
+          {isVideo
+            ? "9:16 한국어 자막, @원출처와 bachata.co.kr 표기, H.264/AAC 규격으로 준비합니다."
+            : "해외 글의 핵심 맥락을 한국 독자에게 맞게 풀어 쓰고, 글에 어울리는 편집 이미지 한 장을 만듭니다."}
+        </p>
+        <button
+          type="button"
+          className="admin-button primary"
+          disabled={isBusy || !sourceUrl.trim() || (isVideo && !reuseConfirmed)}
+          onClick={() => void submit()}
+        >
+          {isBusy ? <LoaderCircle className="spin" size={16} /> : <Languages size={16} />}
+          {isBusy ? "만드는 중" : "검토 초안 만들기"}
+        </button>
+      </footer>
+    </section>
+  );
+}
+
+function UrlContentJobList({
+  jobs,
+  busy,
+  setBusy,
+  setNotice,
+  setError,
+  reload
+}: {
+  jobs: AdminUrlContentJob[];
+  busy: string;
+  setBusy: (value: string) => void;
+  setNotice: (value: string) => void;
+  setError: (value: string) => void;
+  reload: () => Promise<void>;
+}) {
+  const visible = jobs.slice(0, 8);
+
+  const mutate = async (job: AdminUrlContentJob, action: "cancel" | "retry") => {
+    setBusy(`url-job-${job.id}`);
+    setError("");
+    try {
+      await fetchJson("/api/admin/url-content", {
+        method: "PATCH",
+        body: JSON.stringify({ id: job.id, action })
+      });
+      setNotice(action === "cancel" ? "URL 콘텐츠 작업을 취소했습니다." : "영상 작업을 다시 대기 목록에 넣었습니다.");
+      await reload();
+    } catch (mutationError) {
+      setError(mutationError instanceof Error ? mutationError.message : "URL 콘텐츠 작업을 변경하지 못했습니다.");
+    } finally {
+      setBusy("");
+    }
+  };
+
+  return (
+    <section className="admin-panel url-job-panel">
+      <header className="admin-panel-head">
+        <div><span>RECENT URL JOBS</span><h2>URL 작업 현황</h2></div>
+        <b>{jobs.filter((job) => !["ready", "cancelled", "failed"].includes(job.status)).length}</b>
+      </header>
+      <div className="url-job-list">
+        {visible.map((job) => {
+          const preview = job.generatedImageUrl || job.sourceThumbnailUrl;
+          const Icon = job.contentKind === "video" ? Film : FileText;
+          const canCancel = !["ready", "cancelled", "failed"].includes(job.status);
+          const canRetry = job.contentKind === "video" && ["failed", "awaiting_source"].includes(job.status);
+          return (
+            <article key={job.id} className={`url-job-row ${job.status}`}>
+              {preview ? <img src={preview} alt="" loading="lazy" /> : <span className="url-job-icon"><Icon size={18} /></span>}
+              <div className="url-job-copy">
+                <div>
+                  <span>{job.sourcePlatform}</span>
+                  <b data-status={job.status}>{urlJobStatusLabels[job.status]}</b>
+                </div>
+                <strong>{job.sourceTitle || job.sourceUrl}</strong>
+                <small>{job.sourceHandle || job.sourceAuthor || new URL(job.sourceUrl).hostname} · {formatDateTime(job.updatedAt)}</small>
+                {job.errorMessage ? <p>{job.errorMessage}</p> : null}
+              </div>
+              <div className="url-job-actions">
+                <a href={job.sourceUrl} target="_blank" rel="noreferrer" title="원문 열기">
+                  <ExternalLink size={15} />
+                </a>
+                {canRetry ? (
+                  <button
+                    type="button"
+                    title="다시 시도"
+                    disabled={busy === `url-job-${job.id}`}
+                    onClick={() => void mutate(job, "retry")}
+                  >
+                    <RefreshCw size={15} />
+                  </button>
+                ) : null}
+                {canCancel ? (
+                  <button
+                    type="button"
+                    title="작업 취소"
+                    disabled={busy === `url-job-${job.id}`}
+                    onClick={() => void mutate(job, "cancel")}
+                  >
+                    <X size={15} />
+                  </button>
+                ) : null}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
   );
 }
 
@@ -569,6 +938,19 @@ function ProposalEditor({
   const isBusy = busy === proposal.id;
   const isClosed = ["denied", "published", "applied"].includes(proposal.status);
   const requiresPermission = proposal.media?.reuseStatus === "permission_review";
+  const videoNotReady = proposal.media?.type === "video"
+    && proposal.media.transformationStatus !== "ready";
+  const mediaPreview = proposal.media?.generatedImageUrl
+    || proposal.media?.thumbnail
+    || proposal.media?.outputMediaUrl
+    || "";
+  const mediaPreviewLabel = proposal.media?.type === "video"
+    ? videoNotReady
+      ? "영상 처리 대기"
+      : "한국어 편집 영상"
+    : proposal.media?.generatedImageUrl
+      ? "AI 편집 이미지"
+      : "이미지 미리보기";
 
   const mutate = async (action: "save" | "deny" | "approve" | "apply" | "publish") => {
     setBusy(proposal.id);
@@ -622,20 +1004,37 @@ function ProposalEditor({
       </header>
       {proposal.media ? (
         <section className="proposal-media-preview" aria-label="영상 자료와 재사용 조건">
-          {proposal.media.thumbnail ? (
-            <a className="proposal-media-thumb" href={proposal.sourceUrl || proposal.media.sourceAssetUrl || "#"} target="_blank" rel="noreferrer">
-              <img src={proposal.media.thumbnail} alt={`${proposal.title} 영상 미리보기`} loading="lazy" />
-              <span><FileCheck2 size={14} />{proposal.media.type === "video" ? "영상 미리보기" : "이미지 미리보기"}</span>
+          {mediaPreview ? (
+            <a className="proposal-media-thumb" href={proposal.sourceUrl || proposal.media.outputMediaUrl || "#"} target="_blank" rel="noreferrer">
+              <img src={mediaPreview} alt={`${proposal.title} ${mediaPreviewLabel}`} loading="lazy" />
+              <span><FileCheck2 size={14} />{mediaPreviewLabel}</span>
             </a>
           ) : null}
           <div className="proposal-media-meta">
-            <strong><ShieldCheck size={15} />{requiresPermission ? "해외 원본 · 재편집 허가 확인 필요" : "해외 원본 · 재사용 조건 확인"}</strong>
+            <strong>
+              {videoNotReady ? <LoaderCircle size={15} /> : <ShieldCheck size={15} />}
+              {videoNotReady
+                ? "한국어 영상 편집이 아직 끝나지 않았습니다"
+                : proposal.media.generatedImageUrl
+                  ? "원문을 바탕으로 만든 새 편집 이미지"
+                  : requiresPermission
+                    ? "해외 원본 · 재편집 허가 확인 필요"
+                    : "해외 원본 · 재사용 조건 확인"}
+            </strong>
             {proposal.media.sourceCountry ? <small>촬영·출처 지역: {proposal.media.sourceCountry}</small> : null}
             {proposal.media.subtitleStatus === "not_started" ? <small>자막 작업: 권리 확인 후 시작</small> : null}
-            <p>{proposal.media.attributionText || (requiresPermission ? "현재는 해외 원본 검토 단계입니다. 자막·클립 편집·재업로드는 권리 확인 후 진행합니다." : "게시 전 출처와 라이선스 표기를 다시 확인해주세요.")}</p>
+            <p>
+              {videoNotReady
+                ? "완성 영상과 한국어 자막이 준비되면 이 카드에서 본문을 다듬고 게시할 수 있습니다."
+                : proposal.media.attributionText
+                  || (requiresPermission
+                    ? "원작자의 재사용 허가를 확인한 뒤 편집을 시작합니다."
+                    : "게시 전에 출처와 사용 조건을 한 번 더 확인해주세요.")}
+            </p>
             <div>
               {proposal.media.licenseUrl ? <a href={proposal.media.licenseUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />{requiresPermission ? "원본·권리 확인" : proposal.media.licenseName || "라이선스"}</a> : null}
               {proposal.media.sourceAssetUrl ? <a href={proposal.media.sourceAssetUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />원본 영상 열기</a> : null}
+              {proposal.media.outputMediaUrl ? <a href={proposal.media.outputMediaUrl} target="_blank" rel="noreferrer"><ExternalLink size={13} />완성 영상 열기</a> : null}
             </div>
           </div>
         </section>
@@ -734,8 +1133,15 @@ function ProposalEditor({
           {!isClosed ? <button type="button" onClick={() => void mutate("deny")} disabled={isBusy}><X size={15} />거절</button> : null}
           {!isClosed ? <button type="button" onClick={() => void mutate("save")} disabled={isBusy}><Save size={15} />저장</button> : null}
           {proposal.proposalType === "content" && !isClosed ? (
-            <button className="primary" type="button" onClick={() => void mutate("publish")} disabled={isBusy}>
-              {isBusy ? <LoaderCircle className="spin" size={15} /> : <FileCheck2 size={15} />}승인 후 게시
+            <button
+              className="primary"
+              type="button"
+              onClick={() => void mutate("publish")}
+              disabled={isBusy || videoNotReady}
+              title={videoNotReady ? "한국어 영상 편집이 끝난 뒤 게시할 수 있습니다." : "검토한 내용으로 게시"}
+            >
+              {isBusy ? <LoaderCircle className="spin" size={15} /> : <FileCheck2 size={15} />}
+              {videoNotReady ? "영상 처리 대기" : "승인 후 게시"}
             </button>
           ) : null}
           {proposal.proposalType === "site_improvement" && proposal.status === "pending" ? (
